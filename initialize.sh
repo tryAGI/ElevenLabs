@@ -1,8 +1,8 @@
 dotnet tool install --global autosdk.cli --prerelease
 
 autosdk init \
-  SolutionName \
-  SomeClient \
-  https://raw.githubusercontent.com/api/openapi.json \
-  CompanyName \
+  ElevenLabs \
+  ElevenLabsClient \
+  https://raw.githubusercontent.com/elevenlabs/elevenlabs-docs/refs/heads/main/openapi.json \
+  tryAGI \
   --output .
