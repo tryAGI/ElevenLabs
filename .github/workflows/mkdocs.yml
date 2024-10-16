@@ -35,8 +35,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt install pipx
-          pipx install mkdocs-material
+          python -m venv myenv
+          source myenv/bin/activate
+          pip install mkdocs-material
         
       - name: Generate docs
         run: dotnet run --project src/helpers/GenerateDocs/GenerateDocs.csproj .
