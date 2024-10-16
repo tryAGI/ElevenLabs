@@ -40,7 +40,7 @@ jobs:
         run: |
           python -m venv myenv
           source myenv/bin/activate
-          pip install mkdocs-material --user mkdocs
+          pip install mkdocs-material
           mkdocs build -d ./_site
           
       - name: Upload artifact
