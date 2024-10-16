@@ -16,6 +16,31 @@ var openApiDocument = new OpenApiStringReader().Read(yamlOrJson, out var diagnos
 
 //openApiDocument.Components.Schemas["GenerateCompletionRequest"]!.Properties["stream"]!.Default = new OpenApiBoolean(true);
 
+openApiDocument.Servers.Add(new OpenApiServer
+{
+    Url = "https://api.elevenlabs.io",
+});
+openApiDocument.Components.SecuritySchemes["ApiKeyAuth"] = new OpenApiSecurityScheme
+{
+    Type = SecuritySchemeType.ApiKey,
+    In = ParameterLocation.Header,
+    Name = "xi-api-key",
+};
+openApiDocument.SecurityRequirements.Add(new OpenApiSecurityRequirement
+{
+    {
+        new OpenApiSecurityScheme
+        {
+            Reference = new OpenApiReference
+            {
+                Type = ReferenceType.SecurityScheme,
+                Id = "ApiKeyAuth",
+            },
+        },
+        new List<string>()
+    },
+});
+
 yamlOrJson = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
 _ = new OpenApiStringReader().Read(yamlOrJson, out diagnostics);
 
