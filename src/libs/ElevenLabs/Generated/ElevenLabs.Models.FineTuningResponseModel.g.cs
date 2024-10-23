@@ -86,6 +86,18 @@ namespace ElevenLabs
         public global::ElevenLabs.ManualVerificationResponseModel? ManualVerification { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_verification_attempts")]
+        public int? MaxVerificationAttempts { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("next_max_verification_attempts_reset_unix_ms")]
+        public int? NextMaxVerificationAttemptsResetUnixMs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]

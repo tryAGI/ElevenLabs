@@ -115,6 +115,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public TextToVoiceClient TextToVoice => new TextToVoiceClient(HttpClient, authorizations: Authorizations)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public UserClient User => new UserClient(HttpClient, authorizations: Authorizations)
         {
             JsonSerializerContext = JsonSerializerContext,

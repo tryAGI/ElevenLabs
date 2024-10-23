@@ -123,6 +123,10 @@ namespace ElevenLabs
         /// <param name="nextRequestIds">
         /// A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
         /// </param>
+        /// <param name="applyTextNormalization">
+        /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. Cannot be turned on for 'eleven_turbo_v2_5' model.<br/>
+        /// Default Value: auto
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
@@ -141,6 +145,7 @@ namespace ElevenLabs
             string? nextText = default,
             global::System.Collections.Generic.IList<string>? previousRequestIds = default,
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
+            global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostApplyTextNormalization? applyTextNormalization = global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostApplyTextNormalization.Auto,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

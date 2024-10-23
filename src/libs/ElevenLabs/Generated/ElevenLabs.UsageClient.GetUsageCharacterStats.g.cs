@@ -10,7 +10,7 @@ namespace ElevenLabs
             ref global::System.DateTimeOffset startUnix,
             ref global::System.DateTimeOffset endUnix,
             ref bool? includeWorkspaceMetrics,
-            ref global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType? breakdownType,
+            ref global::ElevenLabs.AllOf<global::ElevenLabs.BreakdownTypes?>? breakdownType,
             ref string? xiApiKey);
         partial void PrepareGetUsageCharacterStatsRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -18,7 +18,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset startUnix,
             global::System.DateTimeOffset endUnix,
             bool? includeWorkspaceMetrics,
-            global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType? breakdownType,
+            global::ElevenLabs.AllOf<global::ElevenLabs.BreakdownTypes?>? breakdownType,
             string? xiApiKey);
         partial void ProcessGetUsageCharacterStatsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -56,7 +56,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset startUnix,
             global::System.DateTimeOffset endUnix,
             bool? includeWorkspaceMetrics = false,
-            global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType? breakdownType = global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType.None,
+            global::ElevenLabs.AllOf<global::ElevenLabs.BreakdownTypes?>? breakdownType = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -77,7 +77,7 @@ namespace ElevenLabs
                 .AddRequiredParameter("start_unix", startUnix.ToString()) 
                 .AddRequiredParameter("end_unix", endUnix.ToString()) 
                 .AddOptionalParameter("include_workspace_metrics", includeWorkspaceMetrics?.ToString()) 
-                .AddOptionalParameter("breakdown_type", breakdownType?.ToValueString()) 
+                .AddOptionalParameter("breakdown_type", breakdownType?.ToString() ?? string.Empty) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

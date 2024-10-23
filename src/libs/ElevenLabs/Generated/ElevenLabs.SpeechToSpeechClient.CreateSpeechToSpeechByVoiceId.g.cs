@@ -183,6 +183,12 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Seed}"),
                     name: "seed");
+            } 
+            if (request.RemoveBackgroundNoise != false)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.RemoveBackgroundNoise}"),
+                    name: "remove_background_noise");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -290,6 +296,10 @@ namespace ElevenLabs
         /// <param name="seed">
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed.
         /// </param>
+        /// <param name="removeBackgroundNoise">
+        /// If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateSpeechToSpeechByVoiceIdAsync(
@@ -303,6 +313,7 @@ namespace ElevenLabs
             string? modelId = "eleven_english_sts_v2",
             string? voiceSettings = default,
             int? seed = default,
+            bool? removeBackgroundNoise = false,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost
@@ -312,6 +323,7 @@ namespace ElevenLabs
                 ModelId = modelId,
                 VoiceSettings = voiceSettings,
                 Seed = seed,
+                RemoveBackgroundNoise = removeBackgroundNoise,
             };
 
             return await CreateSpeechToSpeechByVoiceIdAsync(

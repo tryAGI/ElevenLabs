@@ -113,6 +113,12 @@ namespace ElevenLabs
         public string? PermissionOnResource { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_owner")]
+        public bool? IsOwner { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_legacy")]

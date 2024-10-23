@@ -31,7 +31,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset startUnix,
             global::System.DateTimeOffset endUnix,
             bool? includeWorkspaceMetrics = false,
-            global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType? breakdownType = global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType.None,
+            global::ElevenLabs.AllOf<global::ElevenLabs.BreakdownTypes?>? breakdownType = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

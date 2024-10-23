@@ -42,6 +42,13 @@ namespace ElevenLabs
         public int? Seed { get; set; }
 
         /// <summary>
+        /// If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("remove_background_noise")]
+        public bool? RemoveBackgroundNoise { get; set; } = false;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]

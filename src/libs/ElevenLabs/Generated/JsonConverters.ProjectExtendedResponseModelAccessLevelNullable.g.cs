@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType>
+    public sealed class ProjectExtendedResponseModelAccessLevelNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.ProjectExtendedResponseModelAccessLevel?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType Read(
+        public override global::ElevenLabs.ProjectExtendedResponseModelAccessLevel? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.ProjectExtendedResponseModelAccessLevelExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType)numValue;
+                    return (global::ElevenLabs.ProjectExtendedResponseModelAccessLevel)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,12 +38,19 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownType value,
+            global::ElevenLabs.ProjectExtendedResponseModelAccessLevel? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.GetCharactersUsageMetricsV1UsageCharacterStatsGetBreakdownTypeExtensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::ElevenLabs.ProjectExtendedResponseModelAccessLevelExtensions.ToValueString(value.Value));
+            }
         }
     }
 }
