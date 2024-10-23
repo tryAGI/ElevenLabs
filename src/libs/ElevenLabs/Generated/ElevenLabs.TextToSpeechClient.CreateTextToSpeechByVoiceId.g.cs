@@ -84,9 +84,9 @@ namespace ElevenLabs
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
-                client: _httpClient);
+                client: HttpClient);
             PrepareCreateTextToSpeechByVoiceIdArguments(
-                httpClient: _httpClient,
+                httpClient: HttpClient,
                 voiceId: ref voiceId,
                 enableLogging: ref enableLogging,
                 optimizeStreamingLatency: ref optimizeStreamingLatency,
@@ -96,36 +96,36 @@ namespace ElevenLabs
 
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/text-to-speech/{voiceId}",
-                baseUri: _httpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
                 .AddOptionalParameter("enable_logging", enableLogging?.ToString()) 
                 .AddOptionalParameter("optimize_streaming_latency", optimizeStreamingLatency?.ToString()) 
                 .AddOptionalParameter("output_format", outputFormat) 
                 ; 
             var __path = __pathBuilder.ToString();
-            using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
+            using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
-            foreach (var _authorization in _authorizations)
+            foreach (var __authorization in Authorizations)
             {
-                if (_authorization.Type == "Http" ||
-                    _authorization.Type == "OAuth2")
+                if (__authorization.Type == "Http" ||
+                    __authorization.Type == "OAuth2")
                 {
-                    httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: _authorization.Name,
-                        parameter: _authorization.Value);
+                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                        scheme: __authorization.Name,
+                        parameter: __authorization.Value);
                 }
-                else if (_authorization.Type == "ApiKey" &&
-                         _authorization.Location == "Header")
+                else if (__authorization.Type == "ApiKey" &&
+                         __authorization.Location == "Header")
                 {
-                    httpRequest.Headers.Add(_authorization.Name, _authorization.Value);
+                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
 
             if (xiApiKey != default)
             {
-                httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
@@ -133,14 +133,14 @@ namespace ElevenLabs
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
                 mediaType: "application/json");
-            httpRequest.Content = __httpRequestContent;
+            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
-                client: _httpClient,
-                request: httpRequest);
+                client: HttpClient,
+                request: __httpRequest);
             PrepareCreateTextToSpeechByVoiceIdRequest(
-                httpClient: _httpClient,
-                httpRequestMessage: httpRequest,
+                httpClient: HttpClient,
+                httpRequestMessage: __httpRequest,
                 voiceId: voiceId,
                 enableLogging: enableLogging,
                 optimizeStreamingLatency: optimizeStreamingLatency,
@@ -148,36 +148,36 @@ namespace ElevenLabs
                 xiApiKey: xiApiKey,
                 request: request);
 
-            using var response = await _httpClient.SendAsync(
-                request: httpRequest,
+            using var __response = await HttpClient.SendAsync(
+                request: __httpRequest,
                 completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
 
             ProcessResponse(
-                client: _httpClient,
-                response: response);
+                client: HttpClient,
+                response: __response);
             ProcessCreateTextToSpeechByVoiceIdResponse(
-                httpClient: _httpClient,
-                httpResponseMessage: response);
+                httpClient: HttpClient,
+                httpResponseMessage: __response);
 
-            var __content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+            var __content = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
             ProcessResponseContent(
-                client: _httpClient,
-                response: response,
+                client: HttpClient,
+                response: __response,
                 content: ref __content);
             ProcessCreateTextToSpeechByVoiceIdResponseContent(
-                httpClient: _httpClient,
-                httpResponseMessage: response,
+                httpClient: HttpClient,
+                httpResponseMessage: __response,
                 content: ref __content);
 
             try
             {
-                response.EnsureSuccessStatusCode();
+                __response.EnsureSuccessStatusCode();
             }
-            catch (global::System.Net.Http.HttpRequestException ex)
+            catch (global::System.Net.Http.HttpRequestException __ex)
             {
-                throw new global::System.InvalidOperationException(__content, ex);
+                throw new global::System.InvalidOperationException(__content, __ex);
             }
 
             return
@@ -274,7 +274,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var request = new global::ElevenLabs.BodyTextToSpeechV1TextToSpeechVoiceIdPost
+            var __request = new global::ElevenLabs.BodyTextToSpeechV1TextToSpeechVoiceIdPost
             {
                 Text = text,
                 ModelId = modelId,
@@ -294,7 +294,7 @@ namespace ElevenLabs
                 optimizeStreamingLatency: optimizeStreamingLatency,
                 outputFormat: outputFormat,
                 xiApiKey: xiApiKey,
-                request: request,
+                request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }

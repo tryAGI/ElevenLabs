@@ -14,8 +14,8 @@ namespace ElevenLabs
         {
             apiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
 
-            _authorizations.Clear();
-            _authorizations.Add(new global::ElevenLabs.EndPointAuthorization
+            Authorizations.Clear();
+            Authorizations.Add(new global::ElevenLabs.EndPointAuthorization
             {
                 Type = "ApiKey",
                 Location = "Header",
