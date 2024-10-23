@@ -33,7 +33,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> CreateVoicesAddAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceIVCResponseModel> CreateVoicesAddAsync(
             global::ElevenLabs.BodyAddVoiceV1VoicesAddPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -151,7 +151,7 @@ namespace ElevenLabs
             }
 
             return
-                global::ElevenLabs.AddVoiceResponseModel.FromJson(__content, JsonSerializerContext) ??
+                global::ElevenLabs.AddVoiceIVCResponseModel.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -180,7 +180,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> CreateVoicesAddAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceIVCResponseModel> CreateVoicesAddAsync(
             string name,
             global::System.Collections.Generic.IList<byte[]> files,
             string? xiApiKey = default,

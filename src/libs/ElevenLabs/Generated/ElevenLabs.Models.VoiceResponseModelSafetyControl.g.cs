@@ -24,6 +24,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         CAPTCHAANDMODERATION,
+        /// <summary>
+        /// 
+        /// </summary>
+        ENTERPRISEBAN,
+        /// <summary>
+        /// 
+        /// </summary>
+        ENTERPRISECAPTCHA,
     }
 
     /// <summary>
@@ -42,6 +50,8 @@ namespace ElevenLabs
                 VoiceResponseModelSafetyControl.BAN => "BAN",
                 VoiceResponseModelSafetyControl.CAPTCHA => "CAPTCHA",
                 VoiceResponseModelSafetyControl.CAPTCHAANDMODERATION => "CAPTCHA_AND_MODERATION",
+                VoiceResponseModelSafetyControl.ENTERPRISEBAN => "ENTERPRISE_BAN",
+                VoiceResponseModelSafetyControl.ENTERPRISECAPTCHA => "ENTERPRISE_CAPTCHA",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +66,8 @@ namespace ElevenLabs
                 "BAN" => VoiceResponseModelSafetyControl.BAN,
                 "CAPTCHA" => VoiceResponseModelSafetyControl.CAPTCHA,
                 "CAPTCHA_AND_MODERATION" => VoiceResponseModelSafetyControl.CAPTCHAANDMODERATION,
+                "ENTERPRISE_BAN" => VoiceResponseModelSafetyControl.ENTERPRISEBAN,
+                "ENTERPRISE_CAPTCHA" => VoiceResponseModelSafetyControl.ENTERPRISECAPTCHA,
                 _ => null,
             };
         }

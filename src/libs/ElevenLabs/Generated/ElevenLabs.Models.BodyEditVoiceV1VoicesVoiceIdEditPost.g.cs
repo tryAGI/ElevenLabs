@@ -22,6 +22,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<byte[]>? Files { get; set; }
 
         /// <summary>
+        /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("remove_background_noise")]
+        public bool? RemoveBackgroundNoise { get; set; } = false;
+
+        /// <summary>
         /// How would you describe the voice?
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]

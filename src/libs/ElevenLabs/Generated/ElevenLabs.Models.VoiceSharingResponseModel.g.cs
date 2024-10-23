@@ -218,6 +218,12 @@ namespace ElevenLabs
         public string? TiktokUsername { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("moderation_check")]
+        public global::ElevenLabs.VoiceSharingModerationCheckResponseModel? ModerationCheck { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]

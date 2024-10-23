@@ -84,6 +84,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public TextToVoiceClient TextToVoice { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public UserClient User { get; }
 
         /// <summary>

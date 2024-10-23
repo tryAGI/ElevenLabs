@@ -39,6 +39,10 @@ namespace ElevenLabs
         /// <param name="files">
         /// Audio files to add to the voice
         /// </param>
+        /// <param name="removeBackgroundNoise">
+        /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="description">
         /// How would you describe the voice?
         /// </param>
@@ -52,6 +56,7 @@ namespace ElevenLabs
             string name,
             string? xiApiKey = default,
             global::System.Collections.Generic.IList<byte[]>? files = default,
+            bool? removeBackgroundNoise = false,
             string? description = default,
             string? labels = default,
             global::System.Threading.CancellationToken cancellationToken = default);

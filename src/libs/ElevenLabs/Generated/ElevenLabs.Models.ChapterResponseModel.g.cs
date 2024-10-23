@@ -26,22 +26,13 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_conversion_date_unix")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LastConversionDateUnix { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("last_block_conversion_unix_ms")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LastBlockConversionUnixMs { get; set; }
+        public int? LastConversionDateUnix { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversion_progress")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required double ConversionProgress { get; set; }
+        public double? ConversionProgress { get; set; }
 
         /// <summary>
         /// 
@@ -62,8 +53,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("statistics")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ChapterStatisticsResponseModel Statistics { get; set; }
+        public global::ElevenLabs.ChapterStatisticsResponseModel? Statistics { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
