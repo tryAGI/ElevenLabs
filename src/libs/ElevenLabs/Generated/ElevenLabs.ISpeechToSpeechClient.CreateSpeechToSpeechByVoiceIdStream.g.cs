@@ -48,9 +48,9 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateSpeechToSpeechByVoiceIdStreamAsync(
             string voiceId,
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
-            bool? enableLogging = true,
+            bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            string? outputFormat = "mp3_44100_128",
+            string? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -118,14 +118,14 @@ namespace ElevenLabs
             string voiceId,
             byte[] audio,
             string audioname,
-            bool? enableLogging = true,
+            bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            string? outputFormat = "mp3_44100_128",
+            string? outputFormat = default,
             string? xiApiKey = default,
-            string? modelId = "eleven_english_sts_v2",
+            string? modelId = default,
             string? voiceSettings = default,
             int? seed = default,
-            bool? removeBackgroundNoise = false,
+            bool? removeBackgroundNoise = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

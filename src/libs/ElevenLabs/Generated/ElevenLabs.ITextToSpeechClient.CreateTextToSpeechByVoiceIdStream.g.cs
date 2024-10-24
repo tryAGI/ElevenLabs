@@ -48,9 +48,9 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateTextToSpeechByVoiceIdStreamAsync(
             string voiceId,
             global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPost request,
-            bool? enableLogging = true,
+            bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            string? outputFormat = "mp3_44100_128",
+            string? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -132,11 +132,11 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateTextToSpeechByVoiceIdStreamAsync(
             string voiceId,
             string text,
-            bool? enableLogging = true,
+            bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            string? outputFormat = "mp3_44100_128",
+            string? outputFormat = default,
             string? xiApiKey = default,
-            string? modelId = "eleven_monolingual_v1",
+            string? modelId = default,
             string? languageCode = default,
             global::ElevenLabs.VoiceSettingsResponseModel? voiceSettings = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? pronunciationDictionaryLocators = default,
@@ -145,7 +145,7 @@ namespace ElevenLabs
             string? nextText = default,
             global::System.Collections.Generic.IList<string>? previousRequestIds = default,
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
-            global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPostApplyTextNormalization? applyTextNormalization = global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPostApplyTextNormalization.Auto,
+            global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPostApplyTextNormalization? applyTextNormalization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

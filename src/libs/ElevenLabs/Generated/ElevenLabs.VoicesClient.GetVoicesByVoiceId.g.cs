@@ -43,7 +43,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceResponseModel> GetVoicesByVoiceIdAsync(
             string voiceId,
-            bool? withSettings = false,
+            bool? withSettings = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

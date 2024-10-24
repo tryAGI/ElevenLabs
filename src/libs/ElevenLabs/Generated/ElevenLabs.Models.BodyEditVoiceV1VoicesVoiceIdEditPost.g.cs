@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("remove_background_noise")]
-        public bool? RemoveBackgroundNoise { get; set; } = false;
+        public bool? RemoveBackgroundNoise { get; set; }
 
         /// <summary>
         /// How would you describe the voice?

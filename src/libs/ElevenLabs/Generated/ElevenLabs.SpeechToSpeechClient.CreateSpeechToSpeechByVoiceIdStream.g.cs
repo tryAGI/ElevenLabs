@@ -75,9 +75,9 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateSpeechToSpeechByVoiceIdStreamAsync(
             string voiceId,
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
-            bool? enableLogging = true,
+            bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            string? outputFormat = "mp3_44100_128",
+            string? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -132,7 +132,7 @@ namespace ElevenLabs
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{voiceId}"),
                 name: "voice_id");
-            if (enableLogging != true)
+            if (enableLogging != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{enableLogging}"),
@@ -144,7 +144,7 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{optimizeStreamingLatency}"),
                     name: "optimize_streaming_latency");
             } 
-            if (outputFormat != "mp3_44100_128")
+            if (outputFormat != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{outputFormat}"),
@@ -166,7 +166,7 @@ namespace ElevenLabs
                 },
                 name: "audio",
                 fileName: request.Audioname ?? string.Empty);
-            if (request.ModelId != "eleven_english_sts_v2")
+            if (request.ModelId != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.ModelId}"),
@@ -184,7 +184,7 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{request.Seed}"),
                     name: "seed");
             } 
-            if (request.RemoveBackgroundNoise != false)
+            if (request.RemoveBackgroundNoise != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.RemoveBackgroundNoise}"),
@@ -306,14 +306,14 @@ namespace ElevenLabs
             string voiceId,
             byte[] audio,
             string audioname,
-            bool? enableLogging = true,
+            bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            string? outputFormat = "mp3_44100_128",
+            string? outputFormat = default,
             string? xiApiKey = default,
-            string? modelId = "eleven_english_sts_v2",
+            string? modelId = default,
             string? voiceSettings = default,
             int? seed = default,
-            bool? removeBackgroundNoise = false,
+            bool? removeBackgroundNoise = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost

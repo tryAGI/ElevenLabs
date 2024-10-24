@@ -76,15 +76,15 @@ namespace ElevenLabs
             string? image = default,
             string? author = default,
             string? title = default,
-            bool? small = false,
+            bool? small = default,
             string? textColor = default,
             string? backgroundColor = default,
-            int? sessionization = 0,
+            int? sessionization = default,
             string? voiceId = default,
             string? modelId = default,
             byte[]? file = default,
             string? filename = default,
-            bool? autoConvert = false,
+            bool? autoConvert = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
