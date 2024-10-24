@@ -30,7 +30,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.UsageCharactersResponseModel> GetUsageCharacterStatsAsync(
             global::System.DateTimeOffset startUnix,
             global::System.DateTimeOffset endUnix,
-            bool? includeWorkspaceMetrics = false,
+            bool? includeWorkspaceMetrics = default,
             global::ElevenLabs.AllOf<global::ElevenLabs.BreakdownTypes?>? breakdownType = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

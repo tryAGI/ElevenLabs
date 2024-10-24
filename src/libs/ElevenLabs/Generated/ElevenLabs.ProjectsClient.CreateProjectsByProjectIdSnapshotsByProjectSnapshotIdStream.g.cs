@@ -168,7 +168,7 @@ namespace ElevenLabs
             string projectId,
             string projectSnapshotId,
             string? xiApiKey = default,
-            bool? convertToMpeg = false,
+            bool? convertToMpeg = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyStreamProjectAudioV1ProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost

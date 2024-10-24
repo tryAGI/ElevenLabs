@@ -58,7 +58,7 @@ namespace ElevenLabs
             string chapterId,
             string chapterSnapshotId,
             string? xiApiKey = default,
-            bool? convertToMpeg = false,
+            bool? convertToMpeg = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

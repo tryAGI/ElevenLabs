@@ -114,7 +114,7 @@ namespace ElevenLabs
                     name: "from_document",
                     fileName: request.FromDocumentname ?? string.Empty);
             } 
-            if (request.QualityPreset != "standard")
+            if (request.QualityPreset != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.QualityPreset}"),
@@ -168,7 +168,7 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{request.OriginalPublicationDate}"),
                     name: "original_publication_date");
             } 
-            if (request.MatureContent != false)
+            if (request.MatureContent != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.MatureContent}"),
@@ -180,13 +180,13 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{request.IsbnNumber}"),
                     name: "isbn_number");
             } 
-            if (request.AcxVolumeNormalization != false)
+            if (request.AcxVolumeNormalization != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.AcxVolumeNormalization}"),
                     name: "acx_volume_normalization");
             } 
-            if (request.VolumeNormalization != false)
+            if (request.VolumeNormalization != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.VolumeNormalization}"),
@@ -344,7 +344,7 @@ namespace ElevenLabs
             string? fromUrl = default,
             byte[]? fromDocument = default,
             string? fromDocumentname = default,
-            string? qualityPreset = "standard",
+            string? qualityPreset = default,
             string? title = default,
             string? author = default,
             string? description = default,
@@ -353,10 +353,10 @@ namespace ElevenLabs
             string? language = default,
             string? contentType = default,
             string? originalPublicationDate = default,
-            bool? matureContent = false,
+            bool? matureContent = default,
             string? isbnNumber = default,
-            bool? acxVolumeNormalization = false,
-            bool? volumeNormalization = false,
+            bool? acxVolumeNormalization = default,
+            bool? volumeNormalization = default,
             global::System.Collections.Generic.IList<string>? pronunciationDictionaryLocators = default,
             string? callbackUrl = default,
             global::System.Threading.CancellationToken cancellationToken = default)

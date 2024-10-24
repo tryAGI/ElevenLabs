@@ -56,7 +56,7 @@ namespace ElevenLabs
             string name,
             string? xiApiKey = default,
             global::System.Collections.Generic.IList<byte[]>? files = default,
-            bool? removeBackgroundNoise = false,
+            bool? removeBackgroundNoise = default,
             string? description = default,
             string? labels = default,
             global::System.Threading.CancellationToken cancellationToken = default);

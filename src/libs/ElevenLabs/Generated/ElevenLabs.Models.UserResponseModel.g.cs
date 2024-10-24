@@ -60,7 +60,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_api_key_hashed")]
-        public bool? IsApiKeyHashed { get; set; } = false;
+        public bool? IsApiKeyHashed { get; set; }
 
         /// <summary>
         /// 

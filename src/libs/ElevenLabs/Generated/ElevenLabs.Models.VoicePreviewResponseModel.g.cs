@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoicePreviewResponseModelMediaTypeJsonConverter))]
-        public global::ElevenLabs.VoicePreviewResponseModelMediaType? MediaType { get; set; } = global::ElevenLabs.VoicePreviewResponseModelMediaType.AudioMpeg;
+        public global::ElevenLabs.VoicePreviewResponseModelMediaType? MediaType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

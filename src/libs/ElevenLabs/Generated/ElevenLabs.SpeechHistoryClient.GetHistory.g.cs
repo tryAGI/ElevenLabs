@@ -47,7 +47,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetSpeechHistoryResponseModel> GetHistoryAsync(
-            int? pageSize = 100,
+            int? pageSize = default,
             string? startAfterHistoryItemId = default,
             string? voiceId = default,
             string? xiApiKey = default,
