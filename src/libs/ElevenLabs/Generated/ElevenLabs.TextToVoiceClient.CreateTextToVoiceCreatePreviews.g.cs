@@ -24,8 +24,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Generate A Voice Preview From Description<br/>
-        /// Generate a custom voice based on voice description. This method returns a list of voice previews. Each preview has a generated_voice_id and a sample of the voice as base64 encoded mp3 audio. If you like the a voice previewand want to create the voice call /v1/text-to-voice/create-voice-from-preview with the generated_voice_id to create the voice.
+        /// Generate Voice Previews From Description<br/>
+        /// Generate custom voice previews based on provided voice description. The response includes a list of voice previews, each containing an id and a sample of the voice audio. If you like the voice preview and want to create a permanent voice, call `/v1/text-to-voice/create-voice-from-preview` with the corresponding voice id.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -130,8 +130,8 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Generate A Voice Preview From Description<br/>
-        /// Generate a custom voice based on voice description. This method returns a list of voice previews. Each preview has a generated_voice_id and a sample of the voice as base64 encoded mp3 audio. If you like the a voice previewand want to create the voice call /v1/text-to-voice/create-voice-from-preview with the generated_voice_id to create the voice.
+        /// Generate Voice Previews From Description<br/>
+        /// Generate custom voice previews based on provided voice description. The response includes a list of voice previews, each containing an id and a sample of the voice audio. If you like the voice preview and want to create a permanent voice, call `/v1/text-to-voice/create-voice-from-preview` with the corresponding voice id.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

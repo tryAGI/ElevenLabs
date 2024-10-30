@@ -882,8 +882,8 @@ paths:
     post:
       tags:
         - text-to-voice
-      summary: Generate A Voice Preview From Description
-      description: Generate a custom voice based on voice description. This method returns a list of voice previews. Each preview has a generated_voice_id and a sample of the voice as base64 encoded mp3 audio. If you like the a voice previewand want to create the voice call /v1/text-to-voice/create-voice-from-preview with the generated_voice_id to create the voice.
+      summary: Generate Voice Previews From Description
+      description: 'Generate custom voice previews based on provided voice description. The response includes a list of voice previews, each containing an id and a sample of the voice audio. If you like the voice preview and want to create a permanent voice, call `/v1/text-to-voice/create-voice-from-preview` with the corresponding voice id.'
       operationId: Generate_a_voice_preview_from_description_v1_text_to_voice_create_previews_post
       parameters:
         - name: xi-api-key
@@ -955,8 +955,8 @@ paths:
     post:
       tags:
         - text-to-voice
-      summary: Create A New Voice From Voice Preview
-      description: Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using /v1/text-to-voice/create-previews.
+      summary: Create Voice From Voice Preview
+      description: Create a new voice from previously generated voice preview. This endpoint should be called after you fetched a `generated_voice_id` using `/v1/text-to-voice/create-previews`.
       operationId: Create_a_new_voice_from_voice_preview_v1_text_to_voice_create_voice_from_preview_post
       parameters:
         - name: xi-api-key
@@ -3515,12 +3515,12 @@ components:
         voice_description:
           title: Voice Description
           type: string
-          description: Description to use for the created voice.
+          description: Description to use for the created voice. See https://elevenlabs.io/docs/voices/voice-lab/voice-design for prompting guide.
           example: A sassy little squeaky mouse
         generated_voice_id:
           title: Generated Voice Id
           type: string
-          description: 'The generated_voice_id to create, call POST /v1/voice-generation/generate-voice and fetch the generated_voice_id from the response header if don''t have one yet.'
+          description: 'The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response if don''t have one yet.'
           example: 37HceQefKmEi3bGovXjL
         labels:
           title: Labels
@@ -3820,7 +3820,7 @@ components:
           maxLength: 1000
           minLength: 100
           type: string
-          description: 'Text to generate, text length has to be between 100 and 1000.'
+          description: Text to use for generating the voice preview. Text length has to be between 100 and 1000.
           example: 'Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.'
     Body_Generate_a_voice_preview_from_description_v1_text_to_voice_create_previews_post:
       title: Body_Generate_a_voice_preview_from_description_v1_text_to_voice_create_previews_post

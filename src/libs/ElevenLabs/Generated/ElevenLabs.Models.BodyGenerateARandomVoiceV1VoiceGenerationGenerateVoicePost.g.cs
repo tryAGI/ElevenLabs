@@ -39,7 +39,7 @@ namespace ElevenLabs
         public required double AccentStrength { get; set; }
 
         /// <summary>
-        /// Text to generate, text length has to be between 100 and 1000.<br/>
+        /// Text to use for generating the voice preview. Text length has to be between 100 and 1000.<br/>
         /// Example: Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
