@@ -86,13 +86,7 @@ namespace ElevenLabs
             if (request.AudioFile != default)
             {
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.ByteArrayContent(request.AudioFile ?? global::System.Array.Empty<byte>())
-                    {
-                        Headers =
-                        {
-                            ContentType = global::System.Net.Http.Headers.MediaTypeHeaderValue.Parse("multipart/form-data"),
-                        },
-                    },
+                    content: new global::System.Net.Http.ByteArrayContent(request.AudioFile ?? global::System.Array.Empty<byte>()),
                     name: "audio_file",
                     fileName: request.AudioFilename ?? string.Empty);
             } 
