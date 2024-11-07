@@ -6,6 +6,58 @@ info:
 servers:
   - url: https://api.elevenlabs.io
 paths:
+  /v1/convai/agents:
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Agents Page
+      description: Returns a page of your agents and their metadata.
+      operationId: Get_agents_page_v1_convai_agents_get
+      parameters:
+        - name: cursor
+          in: query
+          description: Used for fetching next page. Cursor is returned in the response.
+          schema:
+            title: Cursor
+            type: string
+            description: Used for fetching next page. Cursor is returned in the response.
+        - name: page_size
+          in: query
+          description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
+          schema:
+            title: Page Size
+            maximum: 100.0
+            minimum: 1.0
+            type: integer
+            description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
+            default: 30
+        - name: search
+          in: query
+          description: Search by agents name.
+          schema:
+            title: Search
+            type: string
+            description: Search by agents name.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAgentsPageResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /v1/history:
     get:
       tags:
@@ -3175,6 +3227,41 @@ paths:
               schema: { }
 components:
   schemas:
+    GetAgentsPageResponseModel:
+      title: GetAgentsPageResponseModel
+      required:
+        - agents
+        - has_more
+      type: object
+      properties:
+        agents:
+          title: Agents
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentSummaryResponseModel'
+        next_cursor:
+          title: Next Cursor
+          type: string
+        has_more:
+          title: Has More
+          type: boolean
+    AgentSummaryResponseModel:
+      title: AgentSummaryResponseModel
+      required:
+        - agent_id
+        - name
+        - created_at_unix_secs
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        name:
+          title: Name
+          type: string
+        created_at_unix_secs:
+          title: Created At Unix Secs
+          type: integer
     AddChapterResponseModel:
       title: AddChapterResponseModel
       required:
