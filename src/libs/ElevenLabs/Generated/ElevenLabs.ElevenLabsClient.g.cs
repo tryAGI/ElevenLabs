@@ -91,6 +91,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public ConversationalAIClient ConversationalAI => new ConversationalAIClient(HttpClient, authorizations: Authorizations)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SoundGenerationClient SoundGeneration => new SoundGenerationClient(HttpClient, authorizations: Authorizations)
         {
             JsonSerializerContext = JsonSerializerContext,

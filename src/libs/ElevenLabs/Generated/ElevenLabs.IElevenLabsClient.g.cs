@@ -69,6 +69,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public ConversationalAIClient ConversationalAI { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SoundGenerationClient SoundGeneration { get; }
 
         /// <summary>
