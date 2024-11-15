@@ -44,8 +44,8 @@ namespace ElevenLabs
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateSpeechToSpeechByVoiceIdStreamAsync(
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task CreateSpeechToSpeechByVoiceIdStreamAsync(
             string voiceId,
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
             bool? enableLogging = default,
@@ -114,7 +114,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateSpeechToSpeechByVoiceIdStreamAsync(
+        global::System.Threading.Tasks.Task CreateSpeechToSpeechByVoiceIdStreamAsync(
             string voiceId,
             byte[] audio,
             string audioname,

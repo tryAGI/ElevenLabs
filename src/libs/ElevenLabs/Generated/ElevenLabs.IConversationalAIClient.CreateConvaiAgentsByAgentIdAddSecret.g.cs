@@ -1,0 +1,51 @@
+#nullable enable
+
+namespace ElevenLabs
+{
+    public partial interface IConversationalAIClient
+    {
+        /// <summary>
+        /// Add A Secret To The Agent Which Can Be Referenced In Tool Calls<br/>
+        /// Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
+        /// </summary>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="xiApiKey">
+        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AddAgentSecretResponseModel> CreateConvaiAgentsByAgentIdAddSecretAsync(
+            string agentId,
+            global::ElevenLabs.BodyAddASecretToTheAgentWhichCanBeReferencedInToolCallsV1ConvaiAgentsAgentIdAddSecretPost request,
+            string? xiApiKey = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Add A Secret To The Agent Which Can Be Referenced In Tool Calls<br/>
+        /// Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
+        /// </summary>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="xiApiKey">
+        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
+        /// <param name="name">
+        /// A name to help identify a particular agent secret
+        /// </param>
+        /// <param name="secretValue">
+        /// A value to be encrypted and used by the agent
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AddAgentSecretResponseModel> CreateConvaiAgentsByAgentIdAddSecretAsync(
+            string agentId,
+            string name,
+            string secretValue,
+            string? xiApiKey = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

@@ -97,91 +97,89 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="BodyDubAVideoOrAnAudioFileV1DubbingPost" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="file">
+        /// A list of file paths to audio recordings intended for voice cloning
+        /// </param>
+        /// <param name="filename">
+        /// A list of file paths to audio recordings intended for voice cloning
+        /// </param>
+        /// <param name="name">
+        /// Name of the dubbing project.
+        /// </param>
+        /// <param name="sourceUrl">
+        /// URL of the source video/audio file.
+        /// </param>
+        /// <param name="sourceLang">
+        /// Source language.<br/>
+        /// Default Value: auto
+        /// </param>
+        /// <param name="targetLang">
+        /// The Target language to dub the content into.
+        /// </param>
+        /// <param name="numSpeakers">
+        /// Number of speakers to use for the dubbing. Set to 0 to automatically detect the number of speakers<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="watermark">
+        /// Whether to apply watermark to the output video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="startTime">
+        /// Start time of the source video/audio file.
+        /// </param>
+        /// <param name="endTime">
+        /// End time of the source video/audio file.
+        /// </param>
+        /// <param name="highestResolution">
+        /// Whether to use the highest resolution available.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="dropBackgroundAudio">
+        /// An advanced setting. Whether to drop background audio from the final dub. This can improve dub quality where it's known that audio shouldn't have a background track such as for speeches or monologues.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useProfanityFilter">
+        /// [BETA] Whether transcripts should have profanities censored with the words '[censored]'
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public BodyDubAVideoOrAnAudioFileV1DubbingPost(
+            byte[]? file,
+            string? filename,
+            string? name,
+            string? sourceUrl,
+            string? sourceLang,
+            string? targetLang,
+            int? numSpeakers,
+            bool? watermark,
+            int? startTime,
+            int? endTime,
+            bool? highestResolution,
+            bool? dropBackgroundAudio,
+            bool? useProfanityFilter)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.File = file;
+            this.Filename = filename;
+            this.Name = name;
+            this.SourceUrl = sourceUrl;
+            this.SourceLang = sourceLang;
+            this.TargetLang = targetLang;
+            this.NumSpeakers = numSpeakers;
+            this.Watermark = watermark;
+            this.StartTime = startTime;
+            this.EndTime = endTime;
+            this.HighestResolution = highestResolution;
+            this.DropBackgroundAudio = dropBackgroundAudio;
+            this.UseProfanityFilter = useProfanityFilter;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="BodyDubAVideoOrAnAudioFileV1DubbingPost" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public BodyDubAVideoOrAnAudioFileV1DubbingPost()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost),
-                jsonSerializerContext) as global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

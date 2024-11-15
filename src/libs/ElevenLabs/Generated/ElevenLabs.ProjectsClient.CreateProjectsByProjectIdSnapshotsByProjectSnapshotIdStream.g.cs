@@ -22,11 +22,6 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
         /// Stream Project Audio<br/>
         /// Stream the audio from a project snapshot.
@@ -42,8 +37,8 @@ namespace ElevenLabs
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamAsync(
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task CreateProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamAsync(
             string projectId,
             string projectSnapshotId,
             global::ElevenLabs.BodyStreamProjectAudioV1ProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost request,
@@ -119,30 +114,23 @@ namespace ElevenLabs
             ProcessCreateProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-
-            var __content = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-
-            ProcessResponseContent(
-                client: HttpClient,
-                response: __response,
-                content: ref __content);
-            ProcessCreateProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamResponseContent(
-                httpClient: HttpClient,
-                httpResponseMessage: __response,
-                content: ref __content);
-
             try
             {
                 __response.EnsureSuccessStatusCode();
             }
             catch (global::System.Net.Http.HttpRequestException __ex)
             {
-                throw new global::System.InvalidOperationException(__content, __ex);
+                throw new global::ElevenLabs.ApiException(
+                    message: __response.ReasonPhrase ?? string.Empty,
+                    innerException: __ex,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
             }
-
-            return
-                global::ElevenLabs.HTTPValidationError.FromJson(__content, JsonSerializerContext) ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
         /// <summary>
@@ -164,7 +152,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamAsync(
+        public async global::System.Threading.Tasks.Task CreateProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamAsync(
             string projectId,
             string projectSnapshotId,
             string? xiApiKey = default,
@@ -176,7 +164,7 @@ namespace ElevenLabs
                 ConvertToMpeg = convertToMpeg,
             };
 
-            return await CreateProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamAsync(
+            await CreateProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamAsync(
                 projectId: projectId,
                 projectSnapshotId: projectSnapshotId,
                 xiApiKey: xiApiKey,

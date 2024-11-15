@@ -6,6 +6,405 @@ info:
 servers:
   - url: https://api.elevenlabs.io
 paths:
+  /v1/convai/conversation/get_signed_url:
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Signed Url
+      description: Get a signed url to start a conversation with an agent with an agent that requires authorization
+      operationId: Get_Signed_Url_v1_convai_conversation_get_signed_url_get
+      parameters:
+        - name: agent_id
+          in: query
+          description: The id of the agent you're taking the action on.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of the agent you're taking the action on.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationSignedUrlResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/convai/agents/create:
+    post:
+      tags:
+        - Conversational AI
+      summary: Create Agent
+      description: Create an agent from a config object
+      operationId: Create_Agent_v1_convai_agents_create_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Create_Agent_v1_convai_agents_create_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAgentResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/agents/{agent_id}':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Agent
+      description: Retrieve config for an agent
+      operationId: Get_Agent_v1_convai_agents__agent_id__get
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAgentResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - Conversational AI
+      summary: Delete Agent
+      description: Delete an agent
+      operationId: Delete_Agent_v1_convai_agents__agent_id__delete
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Delete Agent V1 Convai Agents  Agent Id  Delete
+                type: object
+                additionalProperties:
+                  type: string
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      tags:
+        - Conversational AI
+      summary: Patches An Agent Settings
+      description: Patches an Agent settings
+      operationId: Patches_an_Agent_settings_v1_convai_agents__agent_id__patch
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Patches_an_Agent_settings_v1_convai_agents__agent_id__patch'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAgentResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/agents/{agent_id}/widget':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Agent Widget Config
+      description: Retrieve the widget configuration for an agent
+      operationId: Get_Agent_widget_config_v1_convai_agents__agent_id__widget_get
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAgentEmbedResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/agents/{agent_id}/avatar':
+    post:
+      tags:
+        - Conversational AI
+      summary: Post Agent Avatar
+      description: Sets the avatar for an agent displayed in the widget
+      operationId: Post_Agent_avatar_v1_convai_agents__agent_id__avatar_post
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Post_Agent_avatar_v1_convai_agents__agent_id__avatar_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostAgentAvatarResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Documentation From Agent'S Knowledge Base
+      description: Get details about a specific documentation making up the agent's knowledge base
+      operationId: Get_documentation_from_Agent_s_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: documentation_id
+          in: path
+          description: The id of a document from the agent's knowledge base. This is returned on document addition.
+          required: true
+          schema:
+            title: Documentation Id
+            type: string
+            description: The id of a document from the agent's knowledge base. This is returned on document addition.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetKnowledgeBaseReponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/agents/{agent_id}/add-secret':
+    post:
+      tags:
+        - Conversational AI
+      summary: Add A Secret To The Agent Which Can Be Referenced In Tool Calls
+      description: Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
+      operationId: Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddAgentSecretResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/agents/{agent_id}/add-to-knowledge-base':
+    post:
+      tags:
+        - Conversational AI
+      summary: Add To Agent'S Knowledge Base
+      description: Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
+      operationId: Add_to_Agent_s_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Add_to_Agent_s_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddKnowledgeBaseResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /v1/convai/agents:
     get:
       tags:
@@ -52,6 +451,137 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetAgentsPageResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/convai/conversations:
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Conversations
+      description: Get all conversations of agents that user owns. With option to restrict to a specific agent.
+      operationId: Get_Conversations_v1_convai_conversations_get
+      parameters:
+        - name: cursor
+          in: query
+          description: Used for fetching next page. Cursor is returned in the response.
+          schema:
+            title: Cursor
+            type: string
+            description: Used for fetching next page. Cursor is returned in the response.
+        - name: agent_id
+          in: query
+          description: The id of the agent you're taking the action on.
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of the agent you're taking the action on.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: call_successful
+          in: query
+          description: The result of the success evaluation
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/EvaluationSuccessResult'
+            description: The result of the success evaluation
+          example: success
+        - name: page_size
+          in: query
+          description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
+          schema:
+            title: Page Size
+            maximum: 100.0
+            minimum: 1.0
+            type: integer
+            description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
+            default: 30
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConversationsPageResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/conversations/{conversation_id}':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Conversation Details
+      description: Get the details of a particular conversation
+      operationId: Get_Conversation_Details_v1_convai_conversations__conversation_id__get
+      parameters:
+        - name: conversation_id
+          in: path
+          description: The id of the conversation you're taking the action on.
+          required: true
+          schema:
+            title: Conversation Id
+            type: string
+            description: The id of the conversation you're taking the action on.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConversationResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/conversations/{conversation_id}/audio':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Conversation Audio
+      description: Get the audio recording of a particular conversation
+      operationId: Get_Conversation_Audio_v1_convai_conversations__conversation_id__audio_get
+      parameters:
+        - name: conversation_id
+          in: path
+          description: The id of the conversation you're taking the action on.
+          required: true
+          schema:
+            title: Conversation Id
+            type: string
+            description: The id of the conversation you're taking the action on.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
         '422':
           description: Validation Error
           content:
@@ -3227,6 +3757,968 @@ paths:
               schema: { }
 components:
   schemas:
+    AddKnowledgeBaseResponseModel:
+      title: AddKnowledgeBaseResponseModel
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+    Body_Add_to_Agent_s_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post:
+      title: Body_Add_to_Agent_s_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          description: URL to a page of documentation that the agent will have access to in order to interact with users.
+        file:
+          title: File
+          type: string
+          description: Documentation that the agent will have access to in order to interact with users.
+          format: binary
+    Body_Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post:
+      title: Body_Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post
+      required:
+        - name
+        - secret_value
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: A name to help identify a particular agent secret
+        secret_value:
+          title: Secret Value
+          type: string
+          description: A value to be encrypted and used by the agent
+    Body_Patches_an_Agent_settings_v1_convai_agents__agent_id__patch:
+      title: Body_Patches_an_Agent_settings_v1_convai_agents__agent_id__patch
+      type: object
+      properties:
+        conversation_config:
+          title: Conversation Config
+          type: object
+          description: Conversation configuration for an agent
+        platform_settings:
+          title: Platform Settings
+          type: object
+          description: Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
+        name:
+          title: Name
+          type: string
+          description: A name to make the agent easier to find
+    AddAgentSecretResponseModel:
+      title: AddAgentSecretResponseModel
+      required:
+        - id
+        - name
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+    Body_Post_Agent_avatar_v1_convai_agents__agent_id__avatar_post:
+      title: Body_Post_Agent_avatar_v1_convai_agents__agent_id__avatar_post
+      required:
+        - avatar_file
+      type: object
+      properties:
+        avatar_file:
+          title: Avatar File
+          type: string
+          description: An image file to be used as the agent's avatar.
+          format: binary
+    GetKnowledgeBaseReponseModel:
+      title: GetKnowledgeBaseReponseModel
+      required:
+        - id
+        - type
+        - extracted_inner_html
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        type:
+          title: Type
+          enum:
+            - file
+            - url
+          type: string
+        extracted_inner_html:
+          title: Extracted Inner Html
+          type: string
+    GetConversationResponseModel:
+      title: GetConversationResponseModel
+      required:
+        - agent_id
+        - conversation_id
+        - status
+        - transcript
+        - metadata
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        conversation_id:
+          title: Conversation Id
+          type: string
+        status:
+          title: Status
+          enum:
+            - processing
+            - done
+          type: string
+        transcript:
+          title: Transcript
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel'
+        metadata:
+          $ref: '#/components/schemas/ConversationHistoryMetadataCommonModel'
+        analysis:
+          $ref: '#/components/schemas/ConversationHistoryAnalysisCommonModel'
+    ConversationHistoryAnalysisCommonModel:
+      title: ConversationHistoryAnalysisCommonModel
+      required:
+        - call_successful
+        - transcript_summary
+      type: object
+      properties:
+        evaluation_criteria_results:
+          title: Evaluation Criteria Results
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ConversationHistoryEvaluationCriteriaResultCommonModel'
+        data_collection_results:
+          title: Data Collection Results
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DataCollectionResultCommonModel'
+        call_successful:
+          $ref: '#/components/schemas/EvaluationSuccessResult'
+        transcript_summary:
+          title: Transcript Summary
+          type: string
+    ConversationHistoryEvaluationCriteriaResultCommonModel:
+      title: ConversationHistoryEvaluationCriteriaResultCommonModel
+      required:
+        - criteria_id
+        - result
+        - rationale
+      type: object
+      properties:
+        criteria_id:
+          title: Criteria Id
+          type: string
+        result:
+          $ref: '#/components/schemas/EvaluationSuccessResult'
+        rationale:
+          title: Rationale
+          type: string
+    DataCollectionResultCommonModel:
+      title: DataCollectionResultCommonModel
+      required:
+        - data_collection_id
+        - rationale
+      type: object
+      properties:
+        data_collection_id:
+          title: Data Collection Id
+          type: string
+        value:
+          title: Value
+        json_schema:
+          $ref: '#/components/schemas/LiteralJsonSchemaProperty'
+        rationale:
+          title: Rationale
+          type: string
+    ConversationHistoryMetadataCommonModel:
+      title: ConversationHistoryMetadataCommonModel
+      required:
+        - start_time_unix_secs
+        - call_duration_secs
+      type: object
+      properties:
+        start_time_unix_secs:
+          title: Start Time Unix Secs
+          type: integer
+        call_duration_secs:
+          title: Call Duration Secs
+          type: integer
+        cost:
+          title: Cost
+          type: integer
+    ConversationHistoryTranscriptCommonModel:
+      title: ConversationHistoryTranscriptCommonModel
+      required:
+        - role
+        - message
+        - time_in_call_secs
+      type: object
+      properties:
+        role:
+          title: Role
+          enum:
+            - user
+            - agent
+          type: string
+        message:
+          title: Message
+          type: string
+        time_in_call_secs:
+          title: Time In Call Secs
+          type: integer
+    GetConversationsPageResponseModel:
+      title: GetConversationsPageResponseModel
+      required:
+        - conversations
+        - has_more
+      type: object
+      properties:
+        conversations:
+          title: Conversations
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationSummaryResponseModel'
+        next_cursor:
+          title: Next Cursor
+          type: string
+        has_more:
+          title: Has More
+          type: boolean
+    ServerAgent:
+      title: ServerAgent
+      required:
+        - url
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+        server_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServerEvent'
+        secret:
+          title: Secret
+          type: string
+        timeout:
+          title: Timeout
+          type: number
+          default: 5
+        num_retries:
+          title: Num Retries
+          type: integer
+          default: 2
+        error_message:
+          title: Error Message
+          type: string
+          default: I encountered an internal error occurred while handling your request and I am not able to respond at the moment.
+    ServerEvent:
+      title: ServerEvent
+      enum:
+        - turn
+        - interruption
+        - turn_abandoned
+      type: string
+      description: An enumeration.
+    ObjectJsonSchemaProperty:
+      title: ObjectJsonSchemaProperty
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - object
+          type: string
+          default: object
+        properties:
+          title: Properties
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/JsonSchemaProperty'
+        required:
+          title: Required
+          type: array
+          items:
+            type: string
+        description:
+          title: Description
+          type: string
+          default: ''
+      additionalProperties: false
+    JsonSchemaProperty:
+      title: JsonSchemaProperty
+      required:
+        - type
+      type: object
+      properties:
+        type:
+          title: Type
+          anyOf:
+            - $ref: '#/components/schemas/JsonLiteralType'
+            - enum:
+                - object
+                - array
+              type: string
+    QueryParamsJsonSchema:
+      title: QueryParamsJsonSchema
+      required:
+        - properties
+      type: object
+      properties:
+        properties:
+          title: Properties
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LiteralJsonSchemaProperty'
+        required:
+          title: Required
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    ConversationSummaryResponseModel:
+      title: ConversationSummaryResponseModel
+      required:
+        - agent_id
+        - conversation_id
+        - start_time_unix_secs
+        - call_duration_secs
+        - message_count
+        - status
+        - call_successful
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        agent_name:
+          title: Agent Name
+          type: string
+        conversation_id:
+          title: Conversation Id
+          type: string
+        start_time_unix_secs:
+          title: Start Time Unix Secs
+          type: integer
+        call_duration_secs:
+          title: Call Duration Secs
+          type: integer
+        message_count:
+          title: Message Count
+          type: integer
+        status:
+          title: Status
+          enum:
+            - processing
+            - done
+          type: string
+        call_successful:
+          $ref: '#/components/schemas/EvaluationSuccessResult'
+    EvaluationSuccessResult:
+      title: EvaluationSuccessResult
+      enum:
+        - success
+        - failure
+        - unknown
+      type: string
+      description: An enumeration.
+    AgentMetadataResponseModel:
+      title: AgentMetadataResponseModel
+      required:
+        - created_at_unix_secs
+      type: object
+      properties:
+        created_at_unix_secs:
+          title: Created At Unix Secs
+          type: integer
+    CreateAgentResponseModel:
+      title: CreateAgentResponseModel
+      required:
+        - agent_id
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+    GetAgentEmbedResponseModel:
+      title: GetAgentEmbedResponseModel
+      required:
+        - agent_id
+        - widget_config
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        widget_config:
+          $ref: '#/components/schemas/EmbedConfig'
+    Body_Create_Agent_v1_convai_agents_create_post:
+      title: Body_Create_Agent_v1_convai_agents_create_post
+      required:
+        - conversation_config
+      type: object
+      properties:
+        conversation_config:
+          title: Conversation Config
+          allOf:
+            - $ref: '#/components/schemas/ConversationalConfig'
+          description: Conversation configuration for an agent
+        platform_settings:
+          title: Platform Settings
+          allOf:
+            - $ref: '#/components/schemas/AgentPlatformSettings'
+          description: Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
+        name:
+          title: Name
+          type: string
+          description: A name to make the agent easier to find
+    JsonLiteralType:
+      title: JsonLiteralType
+      enum:
+        - boolean
+        - string
+        - integer
+        - number
+      type: string
+      description: JSON schema literal types. e.g. all Json types except nested objects and lists
+    GetAgentResponseModel:
+      title: GetAgentResponseModel
+      required:
+        - agent_id
+        - name
+        - conversation_config
+        - metadata
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        name:
+          title: Name
+          type: string
+        conversation_config:
+          $ref: '#/components/schemas/ConversationalConfig'
+        metadata:
+          $ref: '#/components/schemas/AgentMetadataResponseModel'
+        platform_settings:
+          $ref: '#/components/schemas/AgentPlatformSettings'
+    LiteralJsonSchemaProperty:
+      title: LiteralJsonSchemaProperty
+      required:
+        - type
+        - description
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/JsonLiteralType'
+        description:
+          title: Description
+          type: string
+    PromptAgent:
+      title: PromptAgent
+      required:
+        - prompt
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          type: string
+        llm:
+          allOf:
+            - $ref: '#/components/schemas/LLM'
+          default: gemini-1.5-flash
+        temperature:
+          title: Temperature
+          type: number
+          default: 0
+        max_tokens:
+          title: Max Tokens
+          type: integer
+          default: -1
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/PromptAgentToolConfig'
+        knowledge_base:
+          title: Knowledge Base
+          type: array
+          items:
+            $ref: '#/components/schemas/KnowledgeBaseLocator'
+    ASRQuality:
+      title: ASRQuality
+      enum:
+        - high
+      type: string
+      description: An enumeration.
+    ASRProvider:
+      title: ASRProvider
+      enum:
+        - elevenlabs
+      type: string
+      description: An enumeration.
+    KnowledgeBaseLocator:
+      title: KnowledgeBaseLocator
+      required:
+        - type
+        - name
+        - id
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - file
+            - url
+          type: string
+        name:
+          title: Name
+          type: string
+        id:
+          title: Id
+          type: string
+    PromptAgentToolConfig:
+      title: PromptAgentToolConfig
+      required:
+        - type
+        - name
+        - description
+        - api_schema
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - webhook
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        placeholder_statement:
+          title: Placeholder Statement
+          type: string
+        api_schema:
+          $ref: '#/components/schemas/ToolWebhookConfig'
+      description: "A configuration for a tool/function that the agent can use over the course of the conversation.\nInitially we only support webhooks, but it is likely we will want to support more types in the future.\n\nTODO can we include more of these best practises\n    https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/function-calling#best-practices"
+    ToolWebhookConfig:
+      title: ToolWebhookConfig
+      required:
+        - url
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+        method:
+          title: Method
+          enum:
+            - GET
+            - POST
+            - PATCH
+            - DELETE
+          type: string
+          default: GET
+        path_params_schema:
+          title: Path Params Schema
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LiteralJsonSchemaProperty'
+        query_params_schema:
+          $ref: '#/components/schemas/QueryParamsJsonSchema'
+        request_body_schema:
+          $ref: '#/components/schemas/ObjectJsonSchemaProperty'
+        request_headers:
+          title: Request Headers
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - $ref: '#/components/schemas/ConvAISecretLocator'
+      description: Configuration for a webhook that will be called by an LLM tool.
+    ConvAISecretLocator:
+      title: ConvAISecretLocator
+      required:
+        - secret_id
+      type: object
+      properties:
+        secret_id:
+          title: Secret Id
+          type: string
+      description: Used to reference a secret from the agent's secret store.
+    LLM:
+      title: LLM
+      enum:
+        - gpt-4o-mini
+        - gpt-4o
+        - gpt-4
+        - gpt-4-turbo
+        - gpt-3.5-turbo
+        - gemini-1.5-pro
+        - gemini-1.5-flash
+        - gemini-1.0-pro
+        - claude-3-5-sonnet
+        - claude-3-haiku
+      type: string
+      description: An enumeration.
+    AgentPlatformSettings:
+      title: AgentPlatformSettings
+      type: object
+      properties:
+        auth:
+          $ref: '#/components/schemas/AuthSettings'
+        evaluation:
+          $ref: '#/components/schemas/EvaluationSettings'
+        widget:
+          $ref: '#/components/schemas/EmbedConfig'
+        data_collection:
+          title: Data Collection
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LiteralJsonSchemaProperty'
+    EmbedVariant:
+      title: EmbedVariant
+      enum:
+        - compact
+        - full
+        - expandable
+      type: string
+      description: An enumeration.
+    OrbAvatar:
+      title: OrbAvatar
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - orb
+          type: string
+          default: orb
+        color_1:
+          title: Color 1
+          type: string
+          default: '#2792dc'
+        color_2:
+          title: Color 2
+          type: string
+          default: '#9ce6e6'
+    URLAvatar:
+      title: URLAvatar
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - url
+          type: string
+          default: url
+        custom_url:
+          title: Custom Url
+          type: string
+          default: ''
+    ImageAvatar:
+      title: ImageAvatar
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - image
+          type: string
+          default: image
+        url:
+          title: Url
+          type: string
+          default: ''
+    EmbedConfig:
+      title: EmbedConfig
+      type: object
+      properties:
+        variant:
+          allOf:
+            - $ref: '#/components/schemas/EmbedVariant'
+          default: full
+        avatar:
+          title: Avatar
+          anyOf:
+            - $ref: '#/components/schemas/OrbAvatar'
+            - $ref: '#/components/schemas/URLAvatar'
+            - $ref: '#/components/schemas/ImageAvatar'
+        custom_avatar_path:
+          title: Custom Avatar Path
+          type: string
+        bg_color:
+          title: Bg Color
+          type: string
+          default: '#ffffff'
+        text_color:
+          title: Text Color
+          type: string
+          default: '#000000'
+        btn_color:
+          title: Btn Color
+          type: string
+          default: '#000000'
+        btn_text_color:
+          title: Btn Text Color
+          type: string
+          default: '#ffffff'
+        border_color:
+          title: Border Color
+          type: string
+          default: '#e1e1e1'
+        focus_color:
+          title: Focus Color
+          type: string
+          default: '#000000'
+        border_radius:
+          title: Border Radius
+          type: integer
+        btn_radius:
+          title: Btn Radius
+          type: integer
+        action_text:
+          title: Action Text
+          type: string
+        start_call_text:
+          title: Start Call Text
+          type: string
+        end_call_text:
+          title: End Call Text
+          type: string
+        expand_text:
+          title: Expand Text
+          type: string
+        listening_text:
+          title: Listening Text
+          type: string
+        speaking_text:
+          title: Speaking Text
+          type: string
+    PostAgentAvatarResponseModel:
+      title: PostAgentAvatarResponseModel
+      required:
+        - agent_id
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        avatar_url:
+          title: Avatar Url
+          type: string
+    AuthSettings:
+      title: AuthSettings
+      type: object
+      properties:
+        enable_auth:
+          title: Enable Auth
+          type: boolean
+          default: false
+    PromptEvaluationCriteria:
+      title: PromptEvaluationCriteria
+      required:
+        - id
+        - conversation_goal_prompt
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        type:
+          title: Type
+          enum:
+            - prompt
+          type: string
+          default: prompt
+        conversation_goal_prompt:
+          title: Conversation Goal Prompt
+          maxLength: 800
+          type: string
+      description: An evaluation using the transcript and a prompt for a yes/no achieved answer
+    EvaluationSettings:
+      title: EvaluationSettings
+      type: object
+      properties:
+        criteria:
+          title: Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/PromptEvaluationCriteria'
+      description: "Settings to evaluate an agent's performance.\nAgents are evaluated against a set of criteria, with success being defined as meeting some combination of those criteria."
+    AgentConfig:
+      title: AgentConfig
+      type: object
+      properties:
+        server:
+          $ref: '#/components/schemas/ServerAgent'
+        prompt:
+          $ref: '#/components/schemas/PromptAgent'
+        first_message:
+          title: First Message
+          type: string
+          default: ''
+        language:
+          title: Language
+          type: string
+          default: en
+    ASRConversationalConfig:
+      title: ASRConversationalConfig
+      type: object
+      properties:
+        quality:
+          allOf:
+            - $ref: '#/components/schemas/ASRQuality'
+          default: high
+        provider:
+          allOf:
+            - $ref: '#/components/schemas/ASRProvider'
+          default: elevenlabs
+        user_input_audio_format:
+          allOf:
+            - $ref: '#/components/schemas/ASRInputFormat'
+          default: pcm_16000
+        keywords:
+          title: Keywords
+          type: array
+          items:
+            type: string
+    ASRInputFormat:
+      title: ASRInputFormat
+      enum:
+        - pcm_16000
+        - pcm_22050
+        - pcm_24000
+        - pcm_44100
+      type: string
+      description: An enumeration.
+    TurnConfig:
+      title: TurnConfig
+      type: object
+      properties:
+        turn_timeout:
+          title: Turn Timeout
+          type: number
+          default: 7
+    TTSConversationalModel:
+      title: TTSConversationalModel
+      enum:
+        - eleven_turbo_v2
+        - eleven_turbo_v2_5
+      type: string
+      description: An enumeration.
+    TTSOutputFormat:
+      title: TTSOutputFormat
+      enum:
+        - pcm_16000
+        - pcm_22050
+        - pcm_24000
+        - pcm_44100
+      type: string
+      description: An enumeration.
+    TTSOptimizeStreamingLatency:
+      title: TTSOptimizeStreamingLatency
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      type: integer
+      description: An enumeration.
+    TTSConversationalConfig:
+      title: TTSConversationalConfig
+      type: object
+      properties:
+        model_id:
+          allOf:
+            - $ref: '#/components/schemas/TTSConversationalModel'
+          default: eleven_turbo_v2
+        voice_id:
+          title: Voice Id
+          type: string
+          default: bYTqZQo3Jz7LQtmGTgwi
+        agent_output_audio_format:
+          allOf:
+            - $ref: '#/components/schemas/TTSOutputFormat'
+          default: pcm_16000
+        optimize_streaming_latency:
+          allOf:
+            - $ref: '#/components/schemas/TTSOptimizeStreamingLatency'
+          default: 3
+        stability:
+          title: Stability
+          type: number
+          default: 0.5
+        similarity_boost:
+          title: Similarity Boost
+          type: number
+          default: 0.8
+    ConversationalConfig:
+      title: ConversationalConfig
+      type: object
+      properties:
+        agent:
+          $ref: '#/components/schemas/AgentConfig'
+        asr:
+          $ref: '#/components/schemas/ASRConversationalConfig'
+        turn:
+          $ref: '#/components/schemas/TurnConfig'
+        tts:
+          $ref: '#/components/schemas/TTSConversationalConfig'
+        conversation:
+          $ref: '#/components/schemas/ConversationConfig'
+    ConversationConfig:
+      title: ConversationConfig
+      type: object
+      properties:
+        max_duration_seconds:
+          title: Max Duration Seconds
+          type: integer
+          default: 600
+        client_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientEvent'
+    ClientEvent:
+      title: ClientEvent
+      enum:
+        - conversation_initiation_metadata
+        - ping
+        - audio
+        - interruption
+        - user_transcript
+        - agent_response
+        - agent_response_correction
+        - internal_vad_score
+        - internal_turn_probability
+        - internal_tentative_agent_response
+      type: string
+      description: An enumeration.
+    ConversationSignedUrlResponseModel:
+      title: ConversationSignedUrlResponseModel
+      required:
+        - signed_url
+      type: object
+      properties:
+        signed_url:
+          title: Signed Url
+          type: string
     GetAgentsPageResponseModel:
       title: GetAgentsPageResponseModel
       required:
@@ -3509,6 +5001,10 @@ components:
           title: Callback Url
           type: string
           description: '[Deprecated] A url that will be called by our service when the project is converted with a json containing the status of the conversion'
+        quality_check_on:
+          title: Quality Check On
+          type: boolean
+          description: Whether to run quality check on the generated audio and regenerate if needed.
     Body_Add_rules_to_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__add_rules_post:
       title: Body_Add_rules_to_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__add_rules_post
       required:
@@ -3839,6 +5335,10 @@ components:
           type: boolean
           description: 'When the project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
+        quality_check_on:
+          title: Quality Check On
+          type: boolean
+          description: Whether to run quality check on the generated audio and regenerate if needed.
     Body_Edit_voice_v1_voices__voice_id__edit_post:
       title: Body_Edit_voice_v1_voices__voice_id__edit_post
       required:

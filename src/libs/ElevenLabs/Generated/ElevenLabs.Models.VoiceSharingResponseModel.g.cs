@@ -229,91 +229,112 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="VoiceSharingResponseModel" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="status"></param>
+        /// <param name="historyItemSampleId"></param>
+        /// <param name="dateUnix"></param>
+        /// <param name="whitelistedEmails"></param>
+        /// <param name="publicOwnerId"></param>
+        /// <param name="originalVoiceId"></param>
+        /// <param name="financialRewardsEnabled"></param>
+        /// <param name="freeUsersAllowed"></param>
+        /// <param name="liveModerationEnabled"></param>
+        /// <param name="rate"></param>
+        /// <param name="noticePeriod"></param>
+        /// <param name="disableAtUnix"></param>
+        /// <param name="voiceMixingAllowed"></param>
+        /// <param name="featured"></param>
+        /// <param name="category"></param>
+        /// <param name="readerAppEnabled"></param>
+        /// <param name="imageUrl"></param>
+        /// <param name="banReason"></param>
+        /// <param name="likedByCount"></param>
+        /// <param name="clonedByCount"></param>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
+        /// <param name="labels"></param>
+        /// <param name="reviewStatus"></param>
+        /// <param name="reviewMessage"></param>
+        /// <param name="enabledInLibrary"></param>
+        /// <param name="instagramUsername"></param>
+        /// <param name="twitterUsername"></param>
+        /// <param name="youtubeUsername"></param>
+        /// <param name="tiktokUsername"></param>
+        /// <param name="moderationCheck"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public VoiceSharingResponseModel(
+            global::ElevenLabs.VoiceSharingResponseModelStatus status,
+            string historyItemSampleId,
+            int dateUnix,
+            global::System.Collections.Generic.IList<string> whitelistedEmails,
+            string publicOwnerId,
+            string originalVoiceId,
+            bool financialRewardsEnabled,
+            bool freeUsersAllowed,
+            bool liveModerationEnabled,
+            double rate,
+            int noticePeriod,
+            int disableAtUnix,
+            bool voiceMixingAllowed,
+            bool featured,
+            global::ElevenLabs.VoiceSharingResponseModelCategory category,
+            bool readerAppEnabled,
+            string imageUrl,
+            string banReason,
+            int likedByCount,
+            int clonedByCount,
+            string name,
+            string description,
+            global::System.Collections.Generic.Dictionary<string, string> labels,
+            global::ElevenLabs.VoiceSharingResponseModelReviewStatus reviewStatus,
+            string reviewMessage,
+            bool enabledInLibrary,
+            string? instagramUsername,
+            string? twitterUsername,
+            string? youtubeUsername,
+            string? tiktokUsername,
+            global::ElevenLabs.VoiceSharingModerationCheckResponseModel? moderationCheck)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Status = status;
+            this.HistoryItemSampleId = historyItemSampleId ?? throw new global::System.ArgumentNullException(nameof(historyItemSampleId));
+            this.DateUnix = dateUnix;
+            this.WhitelistedEmails = whitelistedEmails ?? throw new global::System.ArgumentNullException(nameof(whitelistedEmails));
+            this.PublicOwnerId = publicOwnerId ?? throw new global::System.ArgumentNullException(nameof(publicOwnerId));
+            this.OriginalVoiceId = originalVoiceId ?? throw new global::System.ArgumentNullException(nameof(originalVoiceId));
+            this.FinancialRewardsEnabled = financialRewardsEnabled;
+            this.FreeUsersAllowed = freeUsersAllowed;
+            this.LiveModerationEnabled = liveModerationEnabled;
+            this.Rate = rate;
+            this.NoticePeriod = noticePeriod;
+            this.DisableAtUnix = disableAtUnix;
+            this.VoiceMixingAllowed = voiceMixingAllowed;
+            this.Featured = featured;
+            this.Category = category;
+            this.ReaderAppEnabled = readerAppEnabled;
+            this.ImageUrl = imageUrl ?? throw new global::System.ArgumentNullException(nameof(imageUrl));
+            this.BanReason = banReason ?? throw new global::System.ArgumentNullException(nameof(banReason));
+            this.LikedByCount = likedByCount;
+            this.ClonedByCount = clonedByCount;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
+            this.Labels = labels ?? throw new global::System.ArgumentNullException(nameof(labels));
+            this.ReviewStatus = reviewStatus;
+            this.ReviewMessage = reviewMessage ?? throw new global::System.ArgumentNullException(nameof(reviewMessage));
+            this.EnabledInLibrary = enabledInLibrary;
+            this.InstagramUsername = instagramUsername;
+            this.TwitterUsername = twitterUsername;
+            this.YoutubeUsername = youtubeUsername;
+            this.TiktokUsername = tiktokUsername;
+            this.ModerationCheck = moderationCheck;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="VoiceSharingResponseModel" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public VoiceSharingResponseModel()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::ElevenLabs.VoiceSharingResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::ElevenLabs.VoiceSharingResponseModel),
-                jsonSerializerContext) as global::ElevenLabs.VoiceSharingResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::ElevenLabs.VoiceSharingResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.VoiceSharingResponseModel>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.VoiceSharingResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::ElevenLabs.VoiceSharingResponseModel),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.VoiceSharingResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.VoiceSharingResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.VoiceSharingResponseModel?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

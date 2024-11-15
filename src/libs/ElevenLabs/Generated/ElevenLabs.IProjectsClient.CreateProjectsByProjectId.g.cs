@@ -16,7 +16,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateProjectsByProjectIdAsync(
             string projectId,
             global::ElevenLabs.BodyEditBasicProjectInfoV1ProjectsProjectIdPost request,
@@ -55,6 +55,9 @@ namespace ElevenLabs
         /// When the project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="qualityCheckOn">
+        /// Whether to run quality check on the generated audio and regenerate if needed.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateProjectsByProjectIdAsync(
@@ -67,6 +70,7 @@ namespace ElevenLabs
             string? author = default,
             string? isbnNumber = default,
             bool? volumeNormalization = default,
+            bool? qualityCheckOn = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
