@@ -103,91 +103,61 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="FineTuningResponseModel" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="isAllowedToFineTune"></param>
+        /// <param name="state"></param>
+        /// <param name="verificationFailures"></param>
+        /// <param name="verificationAttemptsCount"></param>
+        /// <param name="manualVerificationRequested"></param>
+        /// <param name="language"></param>
+        /// <param name="progress"></param>
+        /// <param name="message"></param>
+        /// <param name="datasetDurationSeconds"></param>
+        /// <param name="verificationAttempts"></param>
+        /// <param name="sliceIds"></param>
+        /// <param name="manualVerification"></param>
+        /// <param name="maxVerificationAttempts"></param>
+        /// <param name="nextMaxVerificationAttemptsResetUnixMs"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public FineTuningResponseModel(
+            bool isAllowedToFineTune,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2> state,
+            global::System.Collections.Generic.IList<string> verificationFailures,
+            int verificationAttemptsCount,
+            bool manualVerificationRequested,
+            string? language,
+            global::System.Collections.Generic.Dictionary<string, double>? progress,
+            global::System.Collections.Generic.Dictionary<string, string>? message,
+            double? datasetDurationSeconds,
+            global::System.Collections.Generic.IList<global::ElevenLabs.VerificationAttemptResponseModel>? verificationAttempts,
+            global::System.Collections.Generic.IList<string>? sliceIds,
+            global::ElevenLabs.ManualVerificationResponseModel? manualVerification,
+            int? maxVerificationAttempts,
+            int? nextMaxVerificationAttemptsResetUnixMs)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.IsAllowedToFineTune = isAllowedToFineTune;
+            this.State = state ?? throw new global::System.ArgumentNullException(nameof(state));
+            this.VerificationFailures = verificationFailures ?? throw new global::System.ArgumentNullException(nameof(verificationFailures));
+            this.VerificationAttemptsCount = verificationAttemptsCount;
+            this.ManualVerificationRequested = manualVerificationRequested;
+            this.Language = language;
+            this.Progress = progress;
+            this.Message = message;
+            this.DatasetDurationSeconds = datasetDurationSeconds;
+            this.VerificationAttempts = verificationAttempts;
+            this.SliceIds = sliceIds;
+            this.ManualVerification = manualVerification;
+            this.MaxVerificationAttempts = maxVerificationAttempts;
+            this.NextMaxVerificationAttemptsResetUnixMs = nextMaxVerificationAttemptsResetUnixMs;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="FineTuningResponseModel" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public FineTuningResponseModel()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::ElevenLabs.FineTuningResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::ElevenLabs.FineTuningResponseModel),
-                jsonSerializerContext) as global::ElevenLabs.FineTuningResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::ElevenLabs.FineTuningResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.FineTuningResponseModel>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.FineTuningResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::ElevenLabs.FineTuningResponseModel),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.FineTuningResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.FineTuningResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.FineTuningResponseModel?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

@@ -159,91 +159,85 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="ProjectResponseModel" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="projectId"></param>
+        /// <param name="name"></param>
+        /// <param name="createDateUnix"></param>
+        /// <param name="defaultTitleVoiceId"></param>
+        /// <param name="defaultParagraphVoiceId"></param>
+        /// <param name="defaultModelId"></param>
+        /// <param name="lastConversionDateUnix"></param>
+        /// <param name="canBeDownloaded"></param>
+        /// <param name="title"></param>
+        /// <param name="author"></param>
+        /// <param name="description"></param>
+        /// <param name="genres"></param>
+        /// <param name="coverImageUrl"></param>
+        /// <param name="targetAudience"></param>
+        /// <param name="language"></param>
+        /// <param name="contentType"></param>
+        /// <param name="originalPublicationDate"></param>
+        /// <param name="matureContent"></param>
+        /// <param name="isbnNumber"></param>
+        /// <param name="volumeNormalization"></param>
+        /// <param name="state"></param>
+        /// <param name="accessLevel"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public ProjectResponseModel(
+            string projectId,
+            string name,
+            int createDateUnix,
+            string defaultTitleVoiceId,
+            string defaultParagraphVoiceId,
+            string defaultModelId,
+            bool canBeDownloaded,
+            bool volumeNormalization,
+            global::ElevenLabs.ProjectResponseModelState state,
+            global::ElevenLabs.ProjectResponseModelAccessLevel accessLevel,
+            int? lastConversionDateUnix,
+            string? title,
+            string? author,
+            string? description,
+            global::System.Collections.Generic.IList<string>? genres,
+            string? coverImageUrl,
+            global::ElevenLabs.ProjectResponseModelTargetAudience? targetAudience,
+            string? language,
+            string? contentType,
+            string? originalPublicationDate,
+            bool? matureContent,
+            string? isbnNumber)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.CreateDateUnix = createDateUnix;
+            this.DefaultTitleVoiceId = defaultTitleVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultTitleVoiceId));
+            this.DefaultParagraphVoiceId = defaultParagraphVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultParagraphVoiceId));
+            this.DefaultModelId = defaultModelId ?? throw new global::System.ArgumentNullException(nameof(defaultModelId));
+            this.CanBeDownloaded = canBeDownloaded;
+            this.VolumeNormalization = volumeNormalization;
+            this.State = state;
+            this.AccessLevel = accessLevel;
+            this.LastConversionDateUnix = lastConversionDateUnix;
+            this.Title = title;
+            this.Author = author;
+            this.Description = description;
+            this.Genres = genres;
+            this.CoverImageUrl = coverImageUrl;
+            this.TargetAudience = targetAudience;
+            this.Language = language;
+            this.ContentType = contentType;
+            this.OriginalPublicationDate = originalPublicationDate;
+            this.MatureContent = matureContent;
+            this.IsbnNumber = isbnNumber;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="ProjectResponseModel" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public ProjectResponseModel()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::ElevenLabs.ProjectResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::ElevenLabs.ProjectResponseModel),
-                jsonSerializerContext) as global::ElevenLabs.ProjectResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::ElevenLabs.ProjectResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ProjectResponseModel>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.ProjectResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::ElevenLabs.ProjectResponseModel),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.ProjectResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.ProjectResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.ProjectResponseModel?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

@@ -54,91 +54,51 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="audio">
+        /// The audio file which holds the content and emotion that will control the generated speech.
+        /// </param>
+        /// <param name="audioname">
+        /// The audio file which holds the content and emotion that will control the generated speech.
+        /// </param>
+        /// <param name="modelId">
+        /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for speech to speech, you can check this using the can_do_voice_conversion property.<br/>
+        /// Default Value: eleven_english_sts_v2
+        /// </param>
+        /// <param name="voiceSettings">
+        /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
+        /// </param>
+        /// <param name="seed">
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed.
+        /// </param>
+        /// <param name="removeBackgroundNoise">
+        /// If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
+        /// Default Value: false
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost(
+            byte[] audio,
+            string audioname,
+            string? modelId,
+            string? voiceSettings,
+            int? seed,
+            bool? removeBackgroundNoise)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
+            this.Audioname = audioname ?? throw new global::System.ArgumentNullException(nameof(audioname));
+            this.ModelId = modelId;
+            this.VoiceSettings = voiceSettings;
+            this.Seed = seed;
+            this.RemoveBackgroundNoise = removeBackgroundNoise;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost),
-                jsonSerializerContext) as global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

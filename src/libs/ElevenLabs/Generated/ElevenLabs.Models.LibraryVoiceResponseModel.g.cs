@@ -198,91 +198,100 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="LibraryVoiceResponseModel" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="publicOwnerId"></param>
+        /// <param name="voiceId"></param>
+        /// <param name="dateUnix"></param>
+        /// <param name="name"></param>
+        /// <param name="accent"></param>
+        /// <param name="gender"></param>
+        /// <param name="age"></param>
+        /// <param name="descriptive"></param>
+        /// <param name="useCase"></param>
+        /// <param name="category"></param>
+        /// <param name="language"></param>
+        /// <param name="description"></param>
+        /// <param name="previewUrl"></param>
+        /// <param name="usageCharacterCount1y"></param>
+        /// <param name="usageCharacterCount7d"></param>
+        /// <param name="playApiUsageCharacterCount1y"></param>
+        /// <param name="clonedByCount"></param>
+        /// <param name="rate"></param>
+        /// <param name="freeUsersAllowed"></param>
+        /// <param name="liveModerationEnabled"></param>
+        /// <param name="featured"></param>
+        /// <param name="noticePeriod"></param>
+        /// <param name="instagramUsername"></param>
+        /// <param name="twitterUsername"></param>
+        /// <param name="youtubeUsername"></param>
+        /// <param name="tiktokUsername"></param>
+        /// <param name="imageUrl"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public LibraryVoiceResponseModel(
+            string publicOwnerId,
+            string voiceId,
+            int dateUnix,
+            string name,
+            string accent,
+            string gender,
+            string age,
+            string descriptive,
+            string useCase,
+            global::ElevenLabs.LibraryVoiceResponseModelCategory category,
+            string language,
+            string description,
+            string previewUrl,
+            int usageCharacterCount1y,
+            int usageCharacterCount7d,
+            int playApiUsageCharacterCount1y,
+            int clonedByCount,
+            double rate,
+            bool freeUsersAllowed,
+            bool liveModerationEnabled,
+            bool featured,
+            int? noticePeriod,
+            string? instagramUsername,
+            string? twitterUsername,
+            string? youtubeUsername,
+            string? tiktokUsername,
+            string? imageUrl)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.PublicOwnerId = publicOwnerId ?? throw new global::System.ArgumentNullException(nameof(publicOwnerId));
+            this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
+            this.DateUnix = dateUnix;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.Accent = accent ?? throw new global::System.ArgumentNullException(nameof(accent));
+            this.Gender = gender ?? throw new global::System.ArgumentNullException(nameof(gender));
+            this.Age = age ?? throw new global::System.ArgumentNullException(nameof(age));
+            this.Descriptive = descriptive ?? throw new global::System.ArgumentNullException(nameof(descriptive));
+            this.UseCase = useCase ?? throw new global::System.ArgumentNullException(nameof(useCase));
+            this.Category = category;
+            this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
+            this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
+            this.PreviewUrl = previewUrl ?? throw new global::System.ArgumentNullException(nameof(previewUrl));
+            this.UsageCharacterCount1y = usageCharacterCount1y;
+            this.UsageCharacterCount7d = usageCharacterCount7d;
+            this.PlayApiUsageCharacterCount1y = playApiUsageCharacterCount1y;
+            this.ClonedByCount = clonedByCount;
+            this.Rate = rate;
+            this.FreeUsersAllowed = freeUsersAllowed;
+            this.LiveModerationEnabled = liveModerationEnabled;
+            this.Featured = featured;
+            this.NoticePeriod = noticePeriod;
+            this.InstagramUsername = instagramUsername;
+            this.TwitterUsername = twitterUsername;
+            this.YoutubeUsername = youtubeUsername;
+            this.TiktokUsername = tiktokUsername;
+            this.ImageUrl = imageUrl;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="LibraryVoiceResponseModel" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public LibraryVoiceResponseModel()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::ElevenLabs.LibraryVoiceResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::ElevenLabs.LibraryVoiceResponseModel),
-                jsonSerializerContext) as global::ElevenLabs.LibraryVoiceResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::ElevenLabs.LibraryVoiceResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.LibraryVoiceResponseModel>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.LibraryVoiceResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::ElevenLabs.LibraryVoiceResponseModel),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.LibraryVoiceResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.LibraryVoiceResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.LibraryVoiceResponseModel?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

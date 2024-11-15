@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddProjectResponseModel> CreateProjectsAddAsync(
             global::ElevenLabs.BodyAddProjectV1ProjectsAddPost request,
             string? xiApiKey = default,
@@ -100,6 +100,9 @@ namespace ElevenLabs
         /// <param name="callbackUrl">
         /// [Deprecated] A url that will be called by our service when the project is converted with a json containing the status of the conversion
         /// </param>
+        /// <param name="qualityCheckOn">
+        /// Whether to run quality check on the generated audio and regenerate if needed.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddProjectResponseModel> CreateProjectsAddAsync(
@@ -126,6 +129,7 @@ namespace ElevenLabs
             bool? volumeNormalization = default,
             global::System.Collections.Generic.IList<string>? pronunciationDictionaryLocators = default,
             string? callbackUrl = default,
+            bool? qualityCheckOn = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

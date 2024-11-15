@@ -136,91 +136,77 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="VoiceResponseModel" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="voiceId"></param>
+        /// <param name="name"></param>
+        /// <param name="samples"></param>
+        /// <param name="category"></param>
+        /// <param name="fineTuning"></param>
+        /// <param name="labels"></param>
+        /// <param name="description"></param>
+        /// <param name="previewUrl"></param>
+        /// <param name="availableForTiers"></param>
+        /// <param name="settings"></param>
+        /// <param name="sharing"></param>
+        /// <param name="highQualityBaseModelIds"></param>
+        /// <param name="safetyControl"></param>
+        /// <param name="voiceVerification"></param>
+        /// <param name="permissionOnResource"></param>
+        /// <param name="isOwner"></param>
+        /// <param name="isLegacy">
+        /// Default Value: false
+        /// </param>
+        /// <param name="isMixed">
+        /// Default Value: false
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public VoiceResponseModel(
+            string voiceId,
+            string name,
+            global::System.Collections.Generic.IList<global::ElevenLabs.SampleResponseModel> samples,
+            global::ElevenLabs.VoiceResponseModelCategory category,
+            global::ElevenLabs.FineTuningResponseModel fineTuning,
+            global::System.Collections.Generic.Dictionary<string, string> labels,
+            string description,
+            string previewUrl,
+            global::System.Collections.Generic.IList<string> availableForTiers,
+            global::ElevenLabs.VoiceSettingsResponseModel settings,
+            global::ElevenLabs.VoiceSharingResponseModel sharing,
+            global::System.Collections.Generic.IList<string> highQualityBaseModelIds,
+            global::ElevenLabs.VoiceResponseModelSafetyControl? safetyControl,
+            global::ElevenLabs.VoiceVerificationResponseModel? voiceVerification,
+            string? permissionOnResource,
+            bool? isOwner,
+            bool? isLegacy,
+            bool? isMixed)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.Samples = samples ?? throw new global::System.ArgumentNullException(nameof(samples));
+            this.Category = category;
+            this.FineTuning = fineTuning ?? throw new global::System.ArgumentNullException(nameof(fineTuning));
+            this.Labels = labels ?? throw new global::System.ArgumentNullException(nameof(labels));
+            this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
+            this.PreviewUrl = previewUrl ?? throw new global::System.ArgumentNullException(nameof(previewUrl));
+            this.AvailableForTiers = availableForTiers ?? throw new global::System.ArgumentNullException(nameof(availableForTiers));
+            this.Settings = settings ?? throw new global::System.ArgumentNullException(nameof(settings));
+            this.Sharing = sharing ?? throw new global::System.ArgumentNullException(nameof(sharing));
+            this.HighQualityBaseModelIds = highQualityBaseModelIds ?? throw new global::System.ArgumentNullException(nameof(highQualityBaseModelIds));
+            this.SafetyControl = safetyControl;
+            this.VoiceVerification = voiceVerification;
+            this.PermissionOnResource = permissionOnResource;
+            this.IsOwner = isOwner;
+            this.IsLegacy = isLegacy;
+            this.IsMixed = isMixed;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="VoiceResponseModel" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public VoiceResponseModel()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::ElevenLabs.VoiceResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::ElevenLabs.VoiceResponseModel),
-                jsonSerializerContext) as global::ElevenLabs.VoiceResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::ElevenLabs.VoiceResponseModel? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.VoiceResponseModel>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.VoiceResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::ElevenLabs.VoiceResponseModel),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.VoiceResponseModel;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.VoiceResponseModel?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.VoiceResponseModel?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

@@ -18,11 +18,6 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateVoiceGenerationGenerateVoiceResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
         /// Generate A Random Voice<br/>
         /// Generate a random voice based on parameters. This method returns a generated_voice_id in the response header, and a sample of the voice in the body. If you like the generated voice call /v1/voice-generation/create-voice with the generated_voice_id to create the voice.
@@ -32,8 +27,8 @@ namespace ElevenLabs
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateVoiceGenerationGenerateVoiceAsync(
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task CreateVoiceGenerationGenerateVoiceAsync(
             global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -103,30 +98,23 @@ namespace ElevenLabs
             ProcessCreateVoiceGenerationGenerateVoiceResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-
-            var __content = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-
-            ProcessResponseContent(
-                client: HttpClient,
-                response: __response,
-                content: ref __content);
-            ProcessCreateVoiceGenerationGenerateVoiceResponseContent(
-                httpClient: HttpClient,
-                httpResponseMessage: __response,
-                content: ref __content);
-
             try
             {
                 __response.EnsureSuccessStatusCode();
             }
             catch (global::System.Net.Http.HttpRequestException __ex)
             {
-                throw new global::System.InvalidOperationException(__content, __ex);
+                throw new global::ElevenLabs.ApiException(
+                    message: __response.ReasonPhrase ?? string.Empty,
+                    innerException: __ex,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
             }
-
-            return
-                global::ElevenLabs.HTTPValidationError.FromJson(__content, JsonSerializerContext) ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
         /// <summary>
@@ -154,7 +142,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.HTTPValidationError> CreateVoiceGenerationGenerateVoiceAsync(
+        public async global::System.Threading.Tasks.Task CreateVoiceGenerationGenerateVoiceAsync(
             global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostGender gender,
             string accent,
             global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostAge age,
@@ -172,7 +160,7 @@ namespace ElevenLabs
                 Text = text,
             };
 
-            return await CreateVoiceGenerationGenerateVoiceAsync(
+            await CreateVoiceGenerationGenerateVoiceAsync(
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
