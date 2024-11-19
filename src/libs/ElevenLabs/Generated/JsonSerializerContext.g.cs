@@ -155,6 +155,7 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.VoiceSettingsResponseModel>),
             typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.EvaluationSuccessResult?>),
             typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.BreakdownTypes?>),
+            typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter),
         })]
 
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.JsonSerializerContextTypes))]
