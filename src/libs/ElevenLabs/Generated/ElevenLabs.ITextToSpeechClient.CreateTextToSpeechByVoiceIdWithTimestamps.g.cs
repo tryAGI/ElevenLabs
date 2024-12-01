@@ -45,7 +45,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task CreateTextToSpeechByVoiceIdWithTimestampsAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostResponse> CreateTextToSpeechByVoiceIdWithTimestampsAsync(
             string voiceId,
             global::ElevenLabs.BodyTextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPost request,
             bool? enableLogging = default,
@@ -129,7 +129,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task CreateTextToSpeechByVoiceIdWithTimestampsAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostResponse> CreateTextToSpeechByVoiceIdWithTimestampsAsync(
             string voiceId,
             string text,
             bool? enableLogging = default,
