@@ -36,7 +36,7 @@ namespace ElevenLabs
         public string? VoiceSettings { get; set; }
 
         /// <summary>
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed.
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
         public int? Seed { get; set; }
@@ -71,7 +71,7 @@ namespace ElevenLabs
         /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
         /// </param>
         /// <param name="seed">
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed.
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>

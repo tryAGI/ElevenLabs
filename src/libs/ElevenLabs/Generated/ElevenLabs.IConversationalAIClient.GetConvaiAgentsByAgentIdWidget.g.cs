@@ -11,6 +11,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
+        /// <param name="conversationSignature">
+        /// An expiring token that enables a conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -18,6 +21,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentEmbedResponseModel> GetConvaiAgentsByAgentIdWidgetAsync(
             string agentId,
+            string? conversationSignature = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

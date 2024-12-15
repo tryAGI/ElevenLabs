@@ -25,6 +25,13 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? Avatar { get; set; }
 
         /// <summary>
+        /// Default Value: none
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("feedback_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetFeedbackModeJsonConverter))]
+        public global::ElevenLabs.WidgetFeedbackMode? FeedbackMode { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_avatar_path")]
@@ -115,6 +122,12 @@ namespace ElevenLabs
         public string? SpeakingText { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("shareable_page_text")]
+        public string? ShareablePageText { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -127,6 +140,9 @@ namespace ElevenLabs
         /// Default Value: full
         /// </param>
         /// <param name="avatar"></param>
+        /// <param name="feedbackMode">
+        /// Default Value: none
+        /// </param>
         /// <param name="customAvatarPath"></param>
         /// <param name="bgColor">
         /// Default Value: #ffffff
@@ -154,10 +170,12 @@ namespace ElevenLabs
         /// <param name="expandText"></param>
         /// <param name="listeningText"></param>
         /// <param name="speakingText"></param>
+        /// <param name="shareablePageText"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public EmbedConfig(
             global::ElevenLabs.EmbedVariant? variant,
             global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? avatar,
+            global::ElevenLabs.WidgetFeedbackMode? feedbackMode,
             string? customAvatarPath,
             string? bgColor,
             string? textColor,
@@ -172,10 +190,12 @@ namespace ElevenLabs
             string? endCallText,
             string? expandText,
             string? listeningText,
-            string? speakingText)
+            string? speakingText,
+            string? shareablePageText)
         {
             this.Variant = variant;
             this.Avatar = avatar;
+            this.FeedbackMode = feedbackMode;
             this.CustomAvatarPath = customAvatarPath;
             this.BgColor = bgColor;
             this.TextColor = textColor;
@@ -191,6 +211,7 @@ namespace ElevenLabs
             this.ExpandText = expandText;
             this.ListeningText = listeningText;
             this.SpeakingText = speakingText;
+            this.ShareablePageText = shareablePageText;
         }
 
         /// <summary>

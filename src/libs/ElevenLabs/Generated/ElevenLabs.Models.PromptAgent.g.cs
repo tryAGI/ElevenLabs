@@ -12,8 +12,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public string? Prompt { get; set; }
 
         /// <summary>
         /// Default Value: gemini-1.5-flash
@@ -38,13 +37,19 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PromptAgentToolConfig>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? Tools { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("knowledge_base")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? KnowledgeBase { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_llm")]
+        public global::ElevenLabs.CustomLLM? CustomLlm { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -67,21 +72,24 @@ namespace ElevenLabs
         /// </param>
         /// <param name="tools"></param>
         /// <param name="knowledgeBase"></param>
+        /// <param name="customLlm"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public PromptAgent(
-            string prompt,
+            string? prompt,
             global::ElevenLabs.LLM? llm,
             double? temperature,
             int? maxTokens,
-            global::System.Collections.Generic.IList<global::ElevenLabs.PromptAgentToolConfig>? tools,
-            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? tools,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
+            global::ElevenLabs.CustomLLM? customLlm)
         {
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.Prompt = prompt;
             this.Llm = llm;
             this.Temperature = temperature;
             this.MaxTokens = maxTokens;
             this.Tools = tools;
             this.KnowledgeBase = knowledgeBase;
+            this.CustomLlm = customLlm;
         }
 
         /// <summary>

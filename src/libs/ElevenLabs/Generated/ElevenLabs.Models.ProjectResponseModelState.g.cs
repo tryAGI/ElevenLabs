@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Creating,
+        /// <summary>
+        /// 
+        /// </summary>
         Default,
         /// <summary>
         /// 
@@ -34,6 +38,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ProjectResponseModelState.Creating => "creating",
                 ProjectResponseModelState.Default => "default",
                 ProjectResponseModelState.Converting => "converting",
                 ProjectResponseModelState.InQueue => "in_queue",
@@ -47,6 +52,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "creating" => ProjectResponseModelState.Creating,
                 "default" => ProjectResponseModelState.Default,
                 "converting" => ProjectResponseModelState.Converting,
                 "in_queue" => ProjectResponseModelState.InQueue,

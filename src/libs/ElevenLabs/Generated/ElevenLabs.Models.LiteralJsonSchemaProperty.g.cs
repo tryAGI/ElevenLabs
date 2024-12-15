@@ -9,12 +9,12 @@ namespace ElevenLabs
     public sealed partial class LiteralJsonSchemaProperty
     {
         /// <summary>
-        /// JSON schema literal types. e.g. all Json types except nested objects and lists
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.JsonLiteralTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LiteralJsonSchemaPropertyTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.JsonLiteralType Type { get; set; }
+        public required global::ElevenLabs.LiteralJsonSchemaPropertyType Type { get; set; }
 
         /// <summary>
         /// 
@@ -32,13 +32,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="LiteralJsonSchemaProperty" /> class.
         /// </summary>
-        /// <param name="type">
-        /// JSON schema literal types. e.g. all Json types except nested objects and lists
-        /// </param>
+        /// <param name="type"></param>
         /// <param name="description"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public LiteralJsonSchemaProperty(
-            global::ElevenLabs.JsonLiteralType type,
+            global::ElevenLabs.LiteralJsonSchemaPropertyType type,
             string description)
         {
             this.Type = type;

@@ -18,7 +18,7 @@ namespace ElevenLabs
         public required string VoiceName { get; set; }
 
         /// <summary>
-        /// Description to use for the created voice. See https://elevenlabs.io/docs/voices/voice-lab/voice-design for prompting guide.<br/>
+        /// Description to use for the created voice.<br/>
         /// Example: A sassy little squeaky mouse
         /// </summary>
         /// <example>A sassy little squeaky mouse</example>
@@ -27,7 +27,7 @@ namespace ElevenLabs
         public required string VoiceDescription { get; set; }
 
         /// <summary>
-        /// The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response if don't have one yet.<br/>
+        /// The generated_voice_id to create, call POST /v1/voice-generation/generate-voice and fetch the generated_voice_id from the response header if don't have one yet.<br/>
         /// Example: 37HceQefKmEi3bGovXjL
         /// </summary>
         /// <example>37HceQefKmEi3bGovXjL</example>
@@ -61,11 +61,11 @@ namespace ElevenLabs
         /// Example: Little squeaky mouse
         /// </param>
         /// <param name="voiceDescription">
-        /// Description to use for the created voice. See https://elevenlabs.io/docs/voices/voice-lab/voice-design for prompting guide.<br/>
+        /// Description to use for the created voice.<br/>
         /// Example: A sassy little squeaky mouse
         /// </param>
         /// <param name="generatedVoiceId">
-        /// The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response if don't have one yet.<br/>
+        /// The generated_voice_id to create, call POST /v1/voice-generation/generate-voice and fetch the generated_voice_id from the response header if don't have one yet.<br/>
         /// Example: 37HceQefKmEi3bGovXjL
         /// </param>
         /// <param name="labels">

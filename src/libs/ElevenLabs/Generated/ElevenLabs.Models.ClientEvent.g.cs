@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AsrInitiationMetadata,
+        /// <summary>
+        /// 
+        /// </summary>
         Ping,
         /// <summary>
         /// 
@@ -36,6 +40,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         AgentResponseCorrection,
+        /// <summary>
+        /// 
+        /// </summary>
+        ClientToolCall,
         /// <summary>
         /// 
         /// </summary>
@@ -63,12 +71,14 @@ namespace ElevenLabs
             return value switch
             {
                 ClientEvent.ConversationInitiationMetadata => "conversation_initiation_metadata",
+                ClientEvent.AsrInitiationMetadata => "asr_initiation_metadata",
                 ClientEvent.Ping => "ping",
                 ClientEvent.Audio => "audio",
                 ClientEvent.Interruption => "interruption",
                 ClientEvent.UserTranscript => "user_transcript",
                 ClientEvent.AgentResponse => "agent_response",
                 ClientEvent.AgentResponseCorrection => "agent_response_correction",
+                ClientEvent.ClientToolCall => "client_tool_call",
                 ClientEvent.InternalVadScore => "internal_vad_score",
                 ClientEvent.InternalTurnProbability => "internal_turn_probability",
                 ClientEvent.InternalTentativeAgentResponse => "internal_tentative_agent_response",
@@ -83,12 +93,14 @@ namespace ElevenLabs
             return value switch
             {
                 "conversation_initiation_metadata" => ClientEvent.ConversationInitiationMetadata,
+                "asr_initiation_metadata" => ClientEvent.AsrInitiationMetadata,
                 "ping" => ClientEvent.Ping,
                 "audio" => ClientEvent.Audio,
                 "interruption" => ClientEvent.Interruption,
                 "user_transcript" => ClientEvent.UserTranscript,
                 "agent_response" => ClientEvent.AgentResponse,
                 "agent_response_correction" => ClientEvent.AgentResponseCorrection,
+                "client_tool_call" => ClientEvent.ClientToolCall,
                 "internal_vad_score" => ClientEvent.InternalVadScore,
                 "internal_turn_probability" => ClientEvent.InternalTurnProbability,
                 "internal_tentative_agent_response" => ClientEvent.InternalTentativeAgentResponse,

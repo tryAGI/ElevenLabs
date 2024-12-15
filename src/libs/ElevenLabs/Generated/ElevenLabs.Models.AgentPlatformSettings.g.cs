@@ -34,6 +34,30 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? DataCollection { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
+        public global::ElevenLabs.ConversationInitiationClientDataConfig? Overrides { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ban")]
+        public global::ElevenLabs.AgentBan? Ban { get; set; }
+
+        /// <summary>
+        /// Safety object that has the information of safety evaluations based on used voice.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("safety")]
+        public global::ElevenLabs.Safety? Safety { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("privacy")]
+        public global::ElevenLabs.PrivacyConfig? Privacy { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -49,17 +73,31 @@ namespace ElevenLabs
         /// </param>
         /// <param name="widget"></param>
         /// <param name="dataCollection"></param>
+        /// <param name="overrides"></param>
+        /// <param name="ban"></param>
+        /// <param name="safety">
+        /// Safety object that has the information of safety evaluations based on used voice.
+        /// </param>
+        /// <param name="privacy"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public AgentPlatformSettings(
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.EvaluationSettings? evaluation,
             global::ElevenLabs.EmbedConfig? widget,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection)
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection,
+            global::ElevenLabs.ConversationInitiationClientDataConfig? overrides,
+            global::ElevenLabs.AgentBan? ban,
+            global::ElevenLabs.Safety? safety,
+            global::ElevenLabs.PrivacyConfig? privacy)
         {
             this.Auth = auth;
             this.Evaluation = evaluation;
             this.Widget = widget;
             this.DataCollection = dataCollection;
+            this.Overrides = overrides;
+            this.Ban = ban;
+            this.Safety = safety;
+            this.Privacy = privacy;
         }
 
         /// <summary>

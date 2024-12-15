@@ -26,11 +26,6 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateTextToSpeechByVoiceIdWithTimestampsResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
         /// Text To Speech With Timestamps<br/>
         /// Converts text into speech using a voice of your choice and returns JSON containing audio as a base64 encoded string together with information on when which character was spoken.
@@ -72,7 +67,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostResponse> CreateTextToSpeechByVoiceIdWithTimestampsAsync(
+        public async global::System.Threading.Tasks.Task CreateTextToSpeechByVoiceIdWithTimestampsAsync(
             string voiceId,
             global::ElevenLabs.BodyTextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPost request,
             bool? enableLogging = default,
@@ -163,96 +158,22 @@ namespace ElevenLabs
             ProcessCreateTextToSpeechByVoiceIdWithTimestampsResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            // Validation Error
-            if ((int)__response.StatusCode == 422)
+            try
             {
-                string? __content_422 = null;
-                global::ElevenLabs.HTTPValidationError? __value_422 = null;
-                if (ReadResponseAsString)
-                {
-                    __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
-                }
-                else
-                {
-                    var __contentStream_422 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                    __value_422 = await global::ElevenLabs.HTTPValidationError.FromJsonStreamAsync(__contentStream_422, JsonSerializerContext).ConfigureAwait(false);
-                }
-
-                throw new global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>(
+                __response.EnsureSuccessStatusCode();
+            }
+            catch (global::System.Net.Http.HttpRequestException __ex)
+            {
+                throw new global::ElevenLabs.ApiException(
                     message: __response.ReasonPhrase ?? string.Empty,
+                    innerException: __ex,
                     statusCode: __response.StatusCode)
                 {
-                    ResponseBody = __content_422,
-                    ResponseObject = __value_422,
                     ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                         __response.Headers,
                         h => h.Key,
                         h => h.Value),
                 };
-            }
-
-            if (ReadResponseAsString)
-            {
-                var __content = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-
-                ProcessResponseContent(
-                    client: HttpClient,
-                    response: __response,
-                    content: ref __content);
-                ProcessCreateTextToSpeechByVoiceIdWithTimestampsResponseContent(
-                    httpClient: HttpClient,
-                    httpResponseMessage: __response,
-                    content: ref __content);
-
-                try
-                {
-                    __response.EnsureSuccessStatusCode();
-                }
-                catch (global::System.Net.Http.HttpRequestException __ex)
-                {
-                    throw new global::ElevenLabs.ApiException(
-                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                        innerException: __ex,
-                        statusCode: __response.StatusCode)
-                    {
-                        ResponseBody = __content,
-                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                            __response.Headers,
-                            h => h.Key,
-                            h => h.Value),
-                    };
-                }
-
-                return
-                    global::ElevenLabs.TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostResponse.FromJson(__content, JsonSerializerContext) ??
-                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-            }
-            else
-            {
-                try
-                {
-                    __response.EnsureSuccessStatusCode();
-                }
-                catch (global::System.Net.Http.HttpRequestException __ex)
-                {
-                    throw new global::ElevenLabs.ApiException(
-                        message: __response.ReasonPhrase ?? string.Empty,
-                        innerException: __ex,
-                        statusCode: __response.StatusCode)
-                    {
-                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                            __response.Headers,
-                            h => h.Key,
-                            h => h.Value),
-                    };
-                }
-
-                using var __content = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-
-                return
-                    await global::ElevenLabs.TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                    throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
@@ -311,7 +232,7 @@ namespace ElevenLabs
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
         /// </param>
         /// <param name="seed">
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed.
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
         /// </param>
         /// <param name="previousText">
         /// The text that came before the text of the current request. Can be used to improve the flow of prosody when concatenating together multiple generations or to influence the prosody in the current generation.
@@ -331,7 +252,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostResponse> CreateTextToSpeechByVoiceIdWithTimestampsAsync(
+        public async global::System.Threading.Tasks.Task CreateTextToSpeechByVoiceIdWithTimestampsAsync(
             string voiceId,
             string text,
             bool? enableLogging = default,
@@ -365,7 +286,7 @@ namespace ElevenLabs
                 ApplyTextNormalization = applyTextNormalization,
             };
 
-            return await CreateTextToSpeechByVoiceIdWithTimestampsAsync(
+            await CreateTextToSpeechByVoiceIdWithTimestampsAsync(
                 voiceId: voiceId,
                 enableLogging: enableLogging,
                 optimizeStreamingLatency: optimizeStreamingLatency,

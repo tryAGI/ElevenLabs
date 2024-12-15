@@ -29,6 +29,25 @@ namespace ElevenLabs
         public int? Cost { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
+        public global::ElevenLabs.ConversationHistoryFeedbackCommonModel? Feedback { get; set; }
+
+        /// <summary>
+        /// Default Value: public
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("authorization_method")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter))]
+        public global::ElevenLabs.AuthorizationMethod? AuthorizationMethod { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("charging")]
+        public global::ElevenLabs.ConversationChargingCommonModel? Charging { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,15 +59,26 @@ namespace ElevenLabs
         /// <param name="startTimeUnixSecs"></param>
         /// <param name="callDurationSecs"></param>
         /// <param name="cost"></param>
+        /// <param name="feedback"></param>
+        /// <param name="authorizationMethod">
+        /// Default Value: public
+        /// </param>
+        /// <param name="charging"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ConversationHistoryMetadataCommonModel(
             int startTimeUnixSecs,
             int callDurationSecs,
-            int? cost)
+            int? cost,
+            global::ElevenLabs.ConversationHistoryFeedbackCommonModel? feedback,
+            global::ElevenLabs.AuthorizationMethod? authorizationMethod,
+            global::ElevenLabs.ConversationChargingCommonModel? charging)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
             this.Cost = cost;
+            this.Feedback = feedback;
+            this.AuthorizationMethod = authorizationMethod;
+            this.Charging = charging;
         }
 
         /// <summary>

@@ -48,6 +48,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Claude3Haiku,
+        /// <summary>
+        /// 
+        /// </summary>
+        GrokBeta,
+        /// <summary>
+        /// 
+        /// </summary>
+        CustomLlm,
     }
 
     /// <summary>
@@ -72,6 +80,8 @@ namespace ElevenLabs
                 LLM.Gemini10Pro => "gemini-1.0-pro",
                 LLM.Claude35Sonnet => "claude-3-5-sonnet",
                 LLM.Claude3Haiku => "claude-3-haiku",
+                LLM.GrokBeta => "grok-beta",
+                LLM.CustomLlm => "custom-llm",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -92,6 +102,8 @@ namespace ElevenLabs
                 "gemini-1.0-pro" => LLM.Gemini10Pro,
                 "claude-3-5-sonnet" => LLM.Claude35Sonnet,
                 "claude-3-haiku" => LLM.Claude3Haiku,
+                "grok-beta" => LLM.GrokBeta,
+                "custom-llm" => LLM.CustomLlm,
                 _ => null,
             };
         }

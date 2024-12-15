@@ -224,6 +224,12 @@ namespace ElevenLabs
         public global::ElevenLabs.VoiceSharingModerationCheckResponseModel? ModerationCheck { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reader_restricted_on")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ReaderResourceResponseModel>? ReaderRestrictedOn { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -263,6 +269,7 @@ namespace ElevenLabs
         /// <param name="youtubeUsername"></param>
         /// <param name="tiktokUsername"></param>
         /// <param name="moderationCheck"></param>
+        /// <param name="readerRestrictedOn"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public VoiceSharingResponseModel(
             global::ElevenLabs.VoiceSharingResponseModelStatus status,
@@ -295,7 +302,8 @@ namespace ElevenLabs
             string? twitterUsername,
             string? youtubeUsername,
             string? tiktokUsername,
-            global::ElevenLabs.VoiceSharingModerationCheckResponseModel? moderationCheck)
+            global::ElevenLabs.VoiceSharingModerationCheckResponseModel? moderationCheck,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReaderResourceResponseModel>? readerRestrictedOn)
         {
             this.Status = status;
             this.HistoryItemSampleId = historyItemSampleId ?? throw new global::System.ArgumentNullException(nameof(historyItemSampleId));
@@ -328,6 +336,7 @@ namespace ElevenLabs
             this.YoutubeUsername = youtubeUsername;
             this.TiktokUsername = tiktokUsername;
             this.ModerationCheck = moderationCheck;
+            this.ReaderRestrictedOn = readerRestrictedOn;
         }
 
         /// <summary>

@@ -24,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Pcm44100,
+        /// <summary>
+        /// 
+        /// </summary>
+        Ulaw8000,
     }
 
     /// <summary>
@@ -42,6 +46,7 @@ namespace ElevenLabs
                 ASRInputFormat.Pcm22050 => "pcm_22050",
                 ASRInputFormat.Pcm24000 => "pcm_24000",
                 ASRInputFormat.Pcm44100 => "pcm_44100",
+                ASRInputFormat.Ulaw8000 => "ulaw_8000",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +61,7 @@ namespace ElevenLabs
                 "pcm_22050" => ASRInputFormat.Pcm22050,
                 "pcm_24000" => ASRInputFormat.Pcm24000,
                 "pcm_44100" => ASRInputFormat.Pcm44100,
+                "ulaw_8000" => ASRInputFormat.Ulaw8000,
                 _ => null,
             };
         }

@@ -23,11 +23,18 @@ namespace ElevenLabs
         public required string GeneratedVoiceId { get; set; }
 
         /// <summary>
-        /// Default Value: audio/mpeg
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoicePreviewResponseModelMediaTypeJsonConverter))]
-        public global::ElevenLabs.VoicePreviewResponseModelMediaType? MediaType { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string MediaType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("duration_secs")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required double DurationSecs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,18 +47,19 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="audioBase64"></param>
         /// <param name="generatedVoiceId"></param>
-        /// <param name="mediaType">
-        /// Default Value: audio/mpeg
-        /// </param>
+        /// <param name="mediaType"></param>
+        /// <param name="durationSecs"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public VoicePreviewResponseModel(
             string audioBase64,
             string generatedVoiceId,
-            global::ElevenLabs.VoicePreviewResponseModelMediaType? mediaType)
+            string mediaType,
+            double durationSecs)
         {
             this.AudioBase64 = audioBase64 ?? throw new global::System.ArgumentNullException(nameof(audioBase64));
             this.GeneratedVoiceId = generatedVoiceId ?? throw new global::System.ArgumentNullException(nameof(generatedVoiceId));
-            this.MediaType = mediaType;
+            this.MediaType = mediaType ?? throw new global::System.ArgumentNullException(nameof(mediaType));
+            this.DurationSecs = durationSecs;
         }
 
         /// <summary>
