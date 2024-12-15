@@ -20,8 +20,25 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Message { get; set; }
+        public string? Message { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModel>? ToolCalls { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_results")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolResultCommonModel>? ToolResults { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
+        public global::ElevenLabs.UserFeedback? Feedback { get; set; }
 
         /// <summary>
         /// 
@@ -29,6 +46,12 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int TimeInCallSecs { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_turn_metrics")]
+        public object? ConversationTurnMetrics { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,16 +64,28 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="role"></param>
         /// <param name="message"></param>
+        /// <param name="toolCalls"></param>
+        /// <param name="toolResults"></param>
+        /// <param name="feedback"></param>
         /// <param name="timeInCallSecs"></param>
+        /// <param name="conversationTurnMetrics"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ConversationHistoryTranscriptCommonModel(
             global::ElevenLabs.ConversationHistoryTranscriptCommonModelRole role,
-            string message,
-            int timeInCallSecs)
+            int timeInCallSecs,
+            string? message,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModel>? toolCalls,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolResultCommonModel>? toolResults,
+            global::ElevenLabs.UserFeedback? feedback,
+            object? conversationTurnMetrics)
         {
             this.Role = role;
-            this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
             this.TimeInCallSecs = timeInCallSecs;
+            this.Message = message;
+            this.ToolCalls = toolCalls;
+            this.ToolResults = toolResults;
+            this.Feedback = feedback;
+            this.ConversationTurnMetrics = conversationTurnMetrics;
         }
 
         /// <summary>

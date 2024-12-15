@@ -51,6 +51,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationHistoryAnalysisCommonModel? Analysis { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_client_data")]
+        public global::ElevenLabs.ConversationInitiationClientData? ConversationInitiationClientData { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -65,6 +71,7 @@ namespace ElevenLabs
         /// <param name="transcript"></param>
         /// <param name="metadata"></param>
         /// <param name="analysis"></param>
+        /// <param name="conversationInitiationClientData"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public GetConversationResponseModel(
             string agentId,
@@ -72,7 +79,8 @@ namespace ElevenLabs
             global::ElevenLabs.GetConversationResponseModelStatus status,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModel> transcript,
             global::ElevenLabs.ConversationHistoryMetadataCommonModel metadata,
-            global::ElevenLabs.ConversationHistoryAnalysisCommonModel? analysis)
+            global::ElevenLabs.ConversationHistoryAnalysisCommonModel? analysis,
+            global::ElevenLabs.ConversationInitiationClientData? conversationInitiationClientData)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
@@ -80,6 +88,7 @@ namespace ElevenLabs
             this.Transcript = transcript ?? throw new global::System.ArgumentNullException(nameof(transcript));
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.Analysis = analysis;
+            this.ConversationInitiationClientData = conversationInitiationClientData;
         }
 
         /// <summary>

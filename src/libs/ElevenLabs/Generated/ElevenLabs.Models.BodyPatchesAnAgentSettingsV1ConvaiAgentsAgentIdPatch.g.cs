@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -21,6 +23,12 @@ namespace ElevenLabs
         public object? PlatformSettings { get; set; }
 
         /// <summary>
+        /// A list of secrets for the agent. Can be used to add new secrets or update and delete the existing ones
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("secrets")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAINewSecretConfig, global::ElevenLabs.ConvAIStoredSecretConfig>>? Secrets { get; set; }
+
+        /// <summary>
         /// A name to make the agent easier to find
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -41,6 +49,9 @@ namespace ElevenLabs
         /// <param name="platformSettings">
         /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
         /// </param>
+        /// <param name="secrets">
+        /// A list of secrets for the agent. Can be used to add new secrets or update and delete the existing ones
+        /// </param>
         /// <param name="name">
         /// A name to make the agent easier to find
         /// </param>
@@ -48,10 +59,12 @@ namespace ElevenLabs
         public BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch(
             object? conversationConfig,
             object? platformSettings,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAINewSecretConfig, global::ElevenLabs.ConvAIStoredSecretConfig>>? secrets,
             string? name)
         {
             this.ConversationConfig = conversationConfig;
             this.PlatformSettings = platformSettings;
+            this.Secrets = secrets;
             this.Name = name;
         }
 

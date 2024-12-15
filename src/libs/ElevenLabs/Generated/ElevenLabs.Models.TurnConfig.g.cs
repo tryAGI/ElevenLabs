@@ -15,6 +15,13 @@ namespace ElevenLabs
         public double? TurnTimeout { get; set; }
 
         /// <summary>
+        /// Default Value: turn
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TurnModeJsonConverter))]
+        public global::ElevenLabs.TurnMode? Mode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -26,11 +33,16 @@ namespace ElevenLabs
         /// <param name="turnTimeout">
         /// Default Value: 7
         /// </param>
+        /// <param name="mode">
+        /// Default Value: turn
+        /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public TurnConfig(
-            double? turnTimeout)
+            double? turnTimeout,
+            global::ElevenLabs.TurnMode? mode)
         {
             this.TurnTimeout = turnTimeout;
+            this.Mode = mode;
         }
 
         /// <summary>

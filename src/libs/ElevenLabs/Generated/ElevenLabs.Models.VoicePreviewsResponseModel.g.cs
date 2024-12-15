@@ -16,6 +16,13 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.VoicePreviewResponseModel> Previews { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Text { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -25,11 +32,14 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="VoicePreviewsResponseModel" /> class.
         /// </summary>
         /// <param name="previews"></param>
+        /// <param name="text"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public VoicePreviewsResponseModel(
-            global::System.Collections.Generic.IList<global::ElevenLabs.VoicePreviewResponseModel> previews)
+            global::System.Collections.Generic.IList<global::ElevenLabs.VoicePreviewResponseModel> previews,
+            string text)
         {
             this.Previews = previews ?? throw new global::System.ArgumentNullException(nameof(previews));
+            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
         }
 
         /// <summary>

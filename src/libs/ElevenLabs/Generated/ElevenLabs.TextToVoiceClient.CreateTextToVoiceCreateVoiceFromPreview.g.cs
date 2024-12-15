@@ -24,8 +24,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Voice From Voice Preview<br/>
-        /// Create a new voice from previously generated voice preview. This endpoint should be called after you fetched a `generated_voice_id` using `/v1/text-to-voice/create-previews`.
+        /// Create A New Voice From Voice Preview<br/>
+        /// Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using /v1/text-to-voice/create-previews.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -201,8 +201,8 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Create Voice From Voice Preview<br/>
-        /// Create a new voice from previously generated voice preview. This endpoint should be called after you fetched a `generated_voice_id` using `/v1/text-to-voice/create-previews`.
+        /// Create A New Voice From Voice Preview<br/>
+        /// Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using /v1/text-to-voice/create-previews.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -212,11 +212,11 @@ namespace ElevenLabs
         /// Example: Little squeaky mouse
         /// </param>
         /// <param name="voiceDescription">
-        /// Description to use for the created voice. See https://elevenlabs.io/docs/voices/voice-lab/voice-design for prompting guide.<br/>
+        /// Description to use for the created voice.<br/>
         /// Example: A sassy little squeaky mouse
         /// </param>
         /// <param name="generatedVoiceId">
-        /// The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response if don't have one yet.<br/>
+        /// The generated_voice_id to create, call POST /v1/voice-generation/generate-voice and fetch the generated_voice_id from the response header if don't have one yet.<br/>
         /// Example: 37HceQefKmEi3bGovXjL
         /// </param>
         /// <param name="labels">

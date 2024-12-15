@@ -52,7 +52,7 @@ namespace ElevenLabs
         /// standard - standard output format, 128kbps with 44.1kHz sample rate.<br/>
         /// high - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.<br/>
         /// ultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.<br/>
-        /// ultra_lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.<br/>
+        /// ultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.<br/>
         /// Default Value: standard
         /// </param>
         /// <param name="title">
@@ -100,8 +100,11 @@ namespace ElevenLabs
         /// <param name="callbackUrl">
         /// [Deprecated] A url that will be called by our service when the project is converted with a json containing the status of the conversion
         /// </param>
+        /// <param name="fiction">
+        /// An optional fiction of the project.
+        /// </param>
         /// <param name="qualityCheckOn">
-        /// Whether to run quality check on the generated audio and regenerate if needed.
+        /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -129,6 +132,7 @@ namespace ElevenLabs
             bool? volumeNormalization = default,
             global::System.Collections.Generic.IList<string>? pronunciationDictionaryLocators = default,
             string? callbackUrl = default,
+            global::ElevenLabs.BodyAddProjectV1ProjectsAddPostFiction? fiction = default,
             bool? qualityCheckOn = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

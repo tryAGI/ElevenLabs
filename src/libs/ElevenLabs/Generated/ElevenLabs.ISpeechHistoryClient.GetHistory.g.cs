@@ -18,6 +18,12 @@ namespace ElevenLabs
         /// <param name="voiceId">
         /// Voice ID to be filtered for, you can use GET https://api.elevenlabs.io/v1/voices to receive a list of voices and their IDs.
         /// </param>
+        /// <param name="search">
+        /// search term used for filtering
+        /// </param>
+        /// <param name="source">
+        /// Source of the generated history item
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -27,6 +33,8 @@ namespace ElevenLabs
             int? pageSize = default,
             string? startAfterHistoryItemId = default,
             string? voiceId = default,
+            string? search = default,
+            global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource? source = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

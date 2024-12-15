@@ -30,7 +30,7 @@ namespace ElevenLabs
         /// Category code corresponding to the gender of the generated voice. Possible values: female, male.
         /// </param>
         /// <param name="accent">
-        /// Category code corresponding to the accent of the generated voice. Possible values: american, british, african, australian, indian.
+        /// Category code corresponding to the accent of the generated voice. Possible values: british, american, african, australian, indian.
         /// </param>
         /// <param name="age">
         /// Category code corresponding to the age of the generated voice. Possible values: young, middle_aged, old.
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// The strength of the accent of the generated voice. Has to be between 0.3 and 2.0.
         /// </param>
         /// <param name="text">
-        /// Text to use for generating the voice preview. Text length has to be between 100 and 1000.<br/>
+        /// Text to generate, text length has to be between 100 and 1000.<br/>
         /// Example: Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

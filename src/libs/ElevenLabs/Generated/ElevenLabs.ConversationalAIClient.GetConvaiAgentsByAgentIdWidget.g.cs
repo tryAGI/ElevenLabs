@@ -8,11 +8,13 @@ namespace ElevenLabs
         partial void PrepareGetConvaiAgentsByAgentIdWidgetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
+            ref string? conversationSignature,
             ref string? xiApiKey);
         partial void PrepareGetConvaiAgentsByAgentIdWidgetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
+            string? conversationSignature,
             string? xiApiKey);
         partial void ProcessGetConvaiAgentsByAgentIdWidgetResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,6 +32,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
+        /// <param name="conversationSignature">
+        /// An expiring token that enables a conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -37,6 +42,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentEmbedResponseModel> GetConvaiAgentsByAgentIdWidgetAsync(
             string agentId,
+            string? conversationSignature = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -45,11 +51,15 @@ namespace ElevenLabs
             PrepareGetConvaiAgentsByAgentIdWidgetArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
+                conversationSignature: ref conversationSignature,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/widget",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("conversation_signature", conversationSignature) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -88,6 +98,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
+                conversationSignature: conversationSignature,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

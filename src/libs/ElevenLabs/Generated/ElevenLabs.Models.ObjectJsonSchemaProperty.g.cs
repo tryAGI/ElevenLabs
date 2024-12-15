@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("properties")]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.JsonSchemaProperty>? Properties { get; set; }
+        public object? Properties { get; set; }
 
         /// <summary>
         /// 
@@ -51,7 +51,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ObjectJsonSchemaProperty(
             global::ElevenLabs.ObjectJsonSchemaPropertyType? type,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.JsonSchemaProperty>? properties,
+            object? properties,
             global::System.Collections.Generic.IList<string>? required,
             string? description)
         {

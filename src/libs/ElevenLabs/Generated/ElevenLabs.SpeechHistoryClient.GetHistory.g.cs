@@ -10,6 +10,8 @@ namespace ElevenLabs
             ref int? pageSize,
             ref string? startAfterHistoryItemId,
             ref string? voiceId,
+            ref string? search,
+            ref global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource? source,
             ref string? xiApiKey);
         partial void PrepareGetHistoryRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -17,6 +19,8 @@ namespace ElevenLabs
             int? pageSize,
             string? startAfterHistoryItemId,
             string? voiceId,
+            string? search,
+            global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource? source,
             string? xiApiKey);
         partial void ProcessGetHistoryResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -41,6 +45,12 @@ namespace ElevenLabs
         /// <param name="voiceId">
         /// Voice ID to be filtered for, you can use GET https://api.elevenlabs.io/v1/voices to receive a list of voices and their IDs.
         /// </param>
+        /// <param name="search">
+        /// search term used for filtering
+        /// </param>
+        /// <param name="source">
+        /// Source of the generated history item
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -50,6 +60,8 @@ namespace ElevenLabs
             int? pageSize = default,
             string? startAfterHistoryItemId = default,
             string? voiceId = default,
+            string? search = default,
+            global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource? source = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -60,6 +72,8 @@ namespace ElevenLabs
                 pageSize: ref pageSize,
                 startAfterHistoryItemId: ref startAfterHistoryItemId,
                 voiceId: ref voiceId,
+                search: ref search,
+                source: ref source,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
@@ -69,6 +83,8 @@ namespace ElevenLabs
                 .AddOptionalParameter("page_size", pageSize?.ToString()) 
                 .AddOptionalParameter("start_after_history_item_id", startAfterHistoryItemId) 
                 .AddOptionalParameter("voice_id", voiceId) 
+                .AddOptionalParameter("search", search) 
+                .AddOptionalParameter("source", source?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -110,6 +126,8 @@ namespace ElevenLabs
                 pageSize: pageSize,
                 startAfterHistoryItemId: startAfterHistoryItemId,
                 voiceId: voiceId,
+                search: search,
+                source: source,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

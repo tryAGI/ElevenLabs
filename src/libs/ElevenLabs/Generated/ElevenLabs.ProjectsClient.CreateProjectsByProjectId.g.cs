@@ -241,7 +241,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="qualityCheckOn">
-        /// Whether to run quality check on the generated audio and regenerate if needed.
+        /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

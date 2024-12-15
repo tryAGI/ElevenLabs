@@ -18,6 +18,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("subscription_extras")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.SubscriptionExtrasResponseModel SubscriptionExtras { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_new_user")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsNewUser { get; set; }
@@ -69,6 +76,18 @@ namespace ElevenLabs
         public string? XiApiKeyPreview { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("referral_link_code")]
+        public string? ReferralLinkCode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("partnerstack_partner_default_link")]
+        public string? PartnerstackPartnerDefaultLink { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -78,6 +97,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="UserResponseModel" /> class.
         /// </summary>
         /// <param name="subscription"></param>
+        /// <param name="subscriptionExtras"></param>
         /// <param name="isNewUser"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="canUseDelayedPaymentMethods"></param>
@@ -88,9 +108,12 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="xiApiKeyPreview"></param>
+        /// <param name="referralLinkCode"></param>
+        /// <param name="partnerstackPartnerDefaultLink"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public UserResponseModel(
             global::ElevenLabs.SubscriptionResponseModel subscription,
+            global::ElevenLabs.SubscriptionExtrasResponseModel subscriptionExtras,
             bool isNewUser,
             string xiApiKey,
             bool canUseDelayedPaymentMethods,
@@ -98,9 +121,12 @@ namespace ElevenLabs
             bool isOnboardingChecklistCompleted,
             string? firstName,
             bool? isApiKeyHashed,
-            string? xiApiKeyPreview)
+            string? xiApiKeyPreview,
+            string? referralLinkCode,
+            string? partnerstackPartnerDefaultLink)
         {
             this.Subscription = subscription ?? throw new global::System.ArgumentNullException(nameof(subscription));
+            this.SubscriptionExtras = subscriptionExtras ?? throw new global::System.ArgumentNullException(nameof(subscriptionExtras));
             this.IsNewUser = isNewUser;
             this.XiApiKey = xiApiKey ?? throw new global::System.ArgumentNullException(nameof(xiApiKey));
             this.CanUseDelayedPaymentMethods = canUseDelayedPaymentMethods;
@@ -109,6 +135,8 @@ namespace ElevenLabs
             this.FirstName = firstName;
             this.IsApiKeyHashed = isApiKeyHashed;
             this.XiApiKeyPreview = xiApiKeyPreview;
+            this.ReferralLinkCode = referralLinkCode;
+            this.PartnerstackPartnerDefaultLink = partnerstackPartnerDefaultLink;
         }
 
         /// <summary>

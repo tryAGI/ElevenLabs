@@ -16,7 +16,7 @@ namespace ElevenLabs
         public global::ElevenLabs.TTSConversationalModel? ModelId { get; set; }
 
         /// <summary>
-        /// Default Value: bYTqZQo3Jz7LQtmGTgwi
+        /// Default Value: cjVigY5qzO86Huf0OWal
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         public string? VoiceId { get; set; }
@@ -47,6 +47,12 @@ namespace ElevenLabs
         public double? SimilarityBoost { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? PronunciationDictionaryLocators { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -59,7 +65,7 @@ namespace ElevenLabs
         /// Default Value: eleven_turbo_v2
         /// </param>
         /// <param name="voiceId">
-        /// Default Value: bYTqZQo3Jz7LQtmGTgwi
+        /// Default Value: cjVigY5qzO86Huf0OWal
         /// </param>
         /// <param name="agentOutputAudioFormat">
         /// Default Value: pcm_16000
@@ -73,6 +79,7 @@ namespace ElevenLabs
         /// <param name="similarityBoost">
         /// Default Value: 0.8
         /// </param>
+        /// <param name="pronunciationDictionaryLocators"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public TTSConversationalConfig(
             global::ElevenLabs.TTSConversationalModel? modelId,
@@ -80,7 +87,8 @@ namespace ElevenLabs
             global::ElevenLabs.TTSOutputFormat? agentOutputAudioFormat,
             int? optimizeStreamingLatency,
             double? stability,
-            double? similarityBoost)
+            double? similarityBoost,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? pronunciationDictionaryLocators)
         {
             this.ModelId = modelId;
             this.VoiceId = voiceId;
@@ -88,6 +96,7 @@ namespace ElevenLabs
             this.OptimizeStreamingLatency = optimizeStreamingLatency;
             this.Stability = stability;
             this.SimilarityBoost = similarityBoost;
+            this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
         }
 
         /// <summary>

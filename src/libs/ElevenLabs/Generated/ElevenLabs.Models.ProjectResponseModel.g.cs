@@ -154,6 +154,33 @@ namespace ElevenLabs
         public required global::ElevenLabs.ProjectResponseModelAccessLevel AccessLevel { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fiction")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectResponseModelFictionJsonConverter))]
+        public global::ElevenLabs.ProjectResponseModelFiction? Fiction { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool QualityCheckOn { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on_when_bulk_convert")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool QualityCheckOnWhenBulkConvert { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("creation_meta")]
+        public global::ElevenLabs.ProjectCreationMetaResponseModel? CreationMeta { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -184,6 +211,10 @@ namespace ElevenLabs
         /// <param name="volumeNormalization"></param>
         /// <param name="state"></param>
         /// <param name="accessLevel"></param>
+        /// <param name="fiction"></param>
+        /// <param name="qualityCheckOn"></param>
+        /// <param name="qualityCheckOnWhenBulkConvert"></param>
+        /// <param name="creationMeta"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ProjectResponseModel(
             string projectId,
@@ -196,6 +227,8 @@ namespace ElevenLabs
             bool volumeNormalization,
             global::ElevenLabs.ProjectResponseModelState state,
             global::ElevenLabs.ProjectResponseModelAccessLevel accessLevel,
+            bool qualityCheckOn,
+            bool qualityCheckOnWhenBulkConvert,
             int? lastConversionDateUnix,
             string? title,
             string? author,
@@ -207,7 +240,9 @@ namespace ElevenLabs
             string? contentType,
             string? originalPublicationDate,
             bool? matureContent,
-            string? isbnNumber)
+            string? isbnNumber,
+            global::ElevenLabs.ProjectResponseModelFiction? fiction,
+            global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -219,6 +254,8 @@ namespace ElevenLabs
             this.VolumeNormalization = volumeNormalization;
             this.State = state;
             this.AccessLevel = accessLevel;
+            this.QualityCheckOn = qualityCheckOn;
+            this.QualityCheckOnWhenBulkConvert = qualityCheckOnWhenBulkConvert;
             this.LastConversionDateUnix = lastConversionDateUnix;
             this.Title = title;
             this.Author = author;
@@ -231,6 +268,8 @@ namespace ElevenLabs
             this.OriginalPublicationDate = originalPublicationDate;
             this.MatureContent = matureContent;
             this.IsbnNumber = isbnNumber;
+            this.Fiction = fiction;
+            this.CreationMeta = creationMeta;
         }
 
         /// <summary>

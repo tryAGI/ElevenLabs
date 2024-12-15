@@ -156,6 +156,33 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fiction")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelFictionJsonConverter))]
+        public global::ElevenLabs.ProjectExtendedResponseModelFiction? Fiction { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool QualityCheckOn { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on_when_bulk_convert")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool QualityCheckOnWhenBulkConvert { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("creation_meta")]
+        public global::ElevenLabs.ProjectCreationMetaResponseModel? CreationMeta { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelQualityPresetJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -174,6 +201,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_versions")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> PronunciationDictionaryVersions { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization ApplyTextNormalization { get; set; }
 
         /// <summary>
         /// 
@@ -213,9 +248,14 @@ namespace ElevenLabs
         /// <param name="volumeNormalization"></param>
         /// <param name="state"></param>
         /// <param name="accessLevel"></param>
+        /// <param name="fiction"></param>
+        /// <param name="qualityCheckOn"></param>
+        /// <param name="qualityCheckOnWhenBulkConvert"></param>
+        /// <param name="creationMeta"></param>
         /// <param name="qualityPreset"></param>
         /// <param name="chapters"></param>
         /// <param name="pronunciationDictionaryVersions"></param>
+        /// <param name="applyTextNormalization"></param>
         /// <param name="experimental"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ProjectExtendedResponseModel(
@@ -229,9 +269,12 @@ namespace ElevenLabs
             bool volumeNormalization,
             global::ElevenLabs.ProjectExtendedResponseModelState state,
             global::ElevenLabs.ProjectExtendedResponseModelAccessLevel accessLevel,
+            bool qualityCheckOn,
+            bool qualityCheckOnWhenBulkConvert,
             global::ElevenLabs.ProjectExtendedResponseModelQualityPreset qualityPreset,
             global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> chapters,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> pronunciationDictionaryVersions,
+            global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization applyTextNormalization,
             object experimental,
             int? lastConversionDateUnix,
             string? title,
@@ -244,7 +287,9 @@ namespace ElevenLabs
             string? contentType,
             string? originalPublicationDate,
             bool? matureContent,
-            string? isbnNumber)
+            string? isbnNumber,
+            global::ElevenLabs.ProjectExtendedResponseModelFiction? fiction,
+            global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -256,9 +301,12 @@ namespace ElevenLabs
             this.VolumeNormalization = volumeNormalization;
             this.State = state;
             this.AccessLevel = accessLevel;
+            this.QualityCheckOn = qualityCheckOn;
+            this.QualityCheckOnWhenBulkConvert = qualityCheckOnWhenBulkConvert;
             this.QualityPreset = qualityPreset;
             this.Chapters = chapters ?? throw new global::System.ArgumentNullException(nameof(chapters));
             this.PronunciationDictionaryVersions = pronunciationDictionaryVersions ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryVersions));
+            this.ApplyTextNormalization = applyTextNormalization;
             this.Experimental = experimental ?? throw new global::System.ArgumentNullException(nameof(experimental));
             this.LastConversionDateUnix = lastConversionDateUnix;
             this.Title = title;
@@ -272,6 +320,8 @@ namespace ElevenLabs
             this.OriginalPublicationDate = originalPublicationDate;
             this.MatureContent = matureContent;
             this.IsbnNumber = isbnNumber;
+            this.Fiction = fiction;
+            this.CreationMeta = creationMeta;
         }
 
         /// <summary>

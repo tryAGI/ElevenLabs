@@ -75,11 +75,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public ConversationalAIClient ConversationalAI { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public SoundGenerationClient SoundGeneration { get; }
 
         /// <summary>
@@ -110,11 +105,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public WorkspaceClient Workspace { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public AudioNativeClient AudioNative { get; }
 
         /// <summary>
@@ -126,6 +116,16 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public PronunciationDictionaryClient PronunciationDictionary { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public WorkspaceClient Workspace { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ConversationalAIClient ConversationalAI { get; }
 
     }
 }

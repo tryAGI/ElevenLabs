@@ -43,6 +43,13 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentPlatformSettings? PlatformSettings { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("secrets")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIStoredSecretConfig> Secrets { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -56,18 +63,21 @@ namespace ElevenLabs
         /// <param name="conversationConfig"></param>
         /// <param name="metadata"></param>
         /// <param name="platformSettings"></param>
+        /// <param name="secrets"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public GetAgentResponseModel(
             string agentId,
             string name,
             global::ElevenLabs.ConversationalConfig conversationConfig,
             global::ElevenLabs.AgentMetadataResponseModel metadata,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIStoredSecretConfig> secrets,
             global::ElevenLabs.AgentPlatformSettings? platformSettings)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ConversationConfig = conversationConfig ?? throw new global::System.ArgumentNullException(nameof(conversationConfig));
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
+            this.Secrets = secrets ?? throw new global::System.ArgumentNullException(nameof(secrets));
             this.PlatformSettings = platformSettings;
         }
 

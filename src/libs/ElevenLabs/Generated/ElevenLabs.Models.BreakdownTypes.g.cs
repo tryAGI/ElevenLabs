@@ -36,6 +36,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Model,
+        /// <summary>
+        /// 
+        /// </summary>
+        Resource,
     }
 
     /// <summary>
@@ -57,6 +61,7 @@ namespace ElevenLabs
                 BreakdownTypes.AllApiKeys => "all_api_keys",
                 BreakdownTypes.ProductType => "product_type",
                 BreakdownTypes.Model => "model",
+                BreakdownTypes.Resource => "resource",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -74,6 +79,7 @@ namespace ElevenLabs
                 "all_api_keys" => BreakdownTypes.AllApiKeys,
                 "product_type" => BreakdownTypes.ProductType,
                 "model" => BreakdownTypes.Model,
+                "resource" => BreakdownTypes.Resource,
                 _ => null,
             };
         }

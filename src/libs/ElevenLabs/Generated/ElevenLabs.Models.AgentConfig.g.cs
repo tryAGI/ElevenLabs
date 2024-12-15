@@ -11,12 +11,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("server")]
-        public global::ElevenLabs.ServerAgent? Server { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public global::ElevenLabs.PromptAgent? Prompt { get; set; }
 
@@ -41,7 +35,6 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentConfig" /> class.
         /// </summary>
-        /// <param name="server"></param>
         /// <param name="prompt"></param>
         /// <param name="firstMessage"></param>
         /// <param name="language">
@@ -49,12 +42,10 @@ namespace ElevenLabs
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public AgentConfig(
-            global::ElevenLabs.ServerAgent? server,
             global::ElevenLabs.PromptAgent? prompt,
             string? firstMessage,
             string? language)
         {
-            this.Server = server;
             this.Prompt = prompt;
             this.FirstMessage = firstMessage;
             this.Language = language;

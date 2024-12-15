@@ -59,7 +59,7 @@ namespace ElevenLabs
         /// standard - standard output format, 128kbps with 44.1kHz sample rate.<br/>
         /// high - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.<br/>
         /// ultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.<br/>
-        /// ultra_lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.<br/>
+        /// ultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.<br/>
         /// Default Value: standard
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
@@ -154,7 +154,14 @@ namespace ElevenLabs
         public string? CallbackUrl { get; set; }
 
         /// <summary>
-        /// Whether to run quality check on the generated audio and regenerate if needed.
+        /// An optional fiction of the project.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fiction")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyAddProjectV1ProjectsAddPostFictionJsonConverter))]
+        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostFiction? Fiction { get; set; }
+
+        /// <summary>
+        /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
         public bool? QualityCheckOn { get; set; }
@@ -194,7 +201,7 @@ namespace ElevenLabs
         /// standard - standard output format, 128kbps with 44.1kHz sample rate.<br/>
         /// high - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.<br/>
         /// ultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.<br/>
-        /// ultra_lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.<br/>
+        /// ultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.<br/>
         /// Default Value: standard
         /// </param>
         /// <param name="title">
@@ -242,8 +249,11 @@ namespace ElevenLabs
         /// <param name="callbackUrl">
         /// [Deprecated] A url that will be called by our service when the project is converted with a json containing the status of the conversion
         /// </param>
+        /// <param name="fiction">
+        /// An optional fiction of the project.
+        /// </param>
         /// <param name="qualityCheckOn">
-        /// Whether to run quality check on the generated audio and regenerate if needed.
+        /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public BodyAddProjectV1ProjectsAddPost(
@@ -269,6 +279,7 @@ namespace ElevenLabs
             bool? volumeNormalization,
             global::System.Collections.Generic.IList<string>? pronunciationDictionaryLocators,
             string? callbackUrl,
+            global::ElevenLabs.BodyAddProjectV1ProjectsAddPostFiction? fiction,
             bool? qualityCheckOn)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -293,6 +304,7 @@ namespace ElevenLabs
             this.VolumeNormalization = volumeNormalization;
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
             this.CallbackUrl = callbackUrl;
+            this.Fiction = fiction;
             this.QualityCheckOn = qualityCheckOn;
         }
 

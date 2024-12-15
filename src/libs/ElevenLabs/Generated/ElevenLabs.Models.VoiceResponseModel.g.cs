@@ -131,6 +131,12 @@ namespace ElevenLabs
         public bool? IsMixed { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
+        public int? CreatedAtUnix { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -161,6 +167,7 @@ namespace ElevenLabs
         /// <param name="isMixed">
         /// Default Value: false
         /// </param>
+        /// <param name="createdAtUnix"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public VoiceResponseModel(
             string voiceId,
@@ -180,7 +187,8 @@ namespace ElevenLabs
             string? permissionOnResource,
             bool? isOwner,
             bool? isLegacy,
-            bool? isMixed)
+            bool? isMixed,
+            int? createdAtUnix)
         {
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -200,6 +208,7 @@ namespace ElevenLabs
             this.IsOwner = isOwner;
             this.IsLegacy = isLegacy;
             this.IsMixed = isMixed;
+            this.CreatedAtUnix = createdAtUnix;
         }
 
         /// <summary>

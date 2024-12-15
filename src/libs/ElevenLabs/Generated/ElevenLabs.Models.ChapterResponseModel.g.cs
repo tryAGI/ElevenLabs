@@ -56,6 +56,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ChapterStatisticsResponseModel? Statistics { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("last_conversion_error")]
+        public string? LastConversionError { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -71,6 +77,7 @@ namespace ElevenLabs
         /// <param name="canBeDownloaded"></param>
         /// <param name="state"></param>
         /// <param name="statistics"></param>
+        /// <param name="lastConversionError"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ChapterResponseModel(
             string chapterId,
@@ -79,7 +86,8 @@ namespace ElevenLabs
             global::ElevenLabs.ChapterResponseModelState state,
             int? lastConversionDateUnix,
             double? conversionProgress,
-            global::ElevenLabs.ChapterStatisticsResponseModel? statistics)
+            global::ElevenLabs.ChapterStatisticsResponseModel? statistics,
+            string? lastConversionError)
         {
             this.ChapterId = chapterId ?? throw new global::System.ArgumentNullException(nameof(chapterId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -88,6 +96,7 @@ namespace ElevenLabs
             this.LastConversionDateUnix = lastConversionDateUnix;
             this.ConversionProgress = conversionProgress;
             this.Statistics = statistics;
+            this.LastConversionError = lastConversionError;
         }
 
         /// <summary>
