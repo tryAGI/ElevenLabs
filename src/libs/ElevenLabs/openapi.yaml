@@ -75,13 +75,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: history
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.history.get_all()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.history.getAll();\n"
+      x-fern-sdk-method-name: get_all
   '/v1/history/{history_item_id}':
     get:
       tags:
@@ -119,13 +114,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: history
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.history.get(\n    history_item_id=\"HISTORY_ITEM_ID\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.history.get(\"HISTORY_ITEM_ID\");\n"
+      x-fern-sdk-method-name: get
     delete:
       tags:
         - speech-history
@@ -161,13 +151,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name: history
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.history.delete(\n    history_item_id=\"HISTORY_ITEM_ID\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.history.delete(\"HISTORY_ITEM_ID\");\n"
+      x-fern-sdk-method-name: delete
   '/v1/history/{history_item_id}/audio':
     get:
       tags:
@@ -203,13 +188,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_audio
       x-fern-sdk-group-name: history
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.history.get_audio(\n    history_item_id=\"HISTORY_ITEM_ID\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.history.getAudio(\"HISTORY_ITEM_ID\");\n"
+      x-fern-sdk-method-name: get_audio
   /v1/history/download:
     post:
       tags:
@@ -240,13 +220,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: download
       x-fern-sdk-group-name: history
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.history.download(\n    history_item_ids=[\"HISTORY_ITEM_ID\"],\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.history.download({\n    history_item_ids: [\"HISTORY_ITEM_ID\"]\n});\n"
+      x-fern-sdk-method-name: download
   /v1/sound-generation:
     post:
       tags:
@@ -279,13 +254,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name: text_to_sound_effects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.text_to_sound_effects.convert(\n    text=\"Spacious braam suitable for high-impact movie trailer moments\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.textToSoundEffects.convert({\n    text: \"Spacious braam suitable for high-impact movie trailer moments\"\n});\n"
+      x-fern-sdk-method-name: convert
   /v1/audio-isolation:
     post:
       tags:
@@ -318,13 +288,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: audio_isolation
       x-fern-sdk-group-name: audio_isolation
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.audio_isolation.audio_isolation()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\nimport * as fs from \"fs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.audioIsolation.audioIsolation({\n    audio: fs.createReadStream(\"/path/to/your/file\")\n});\n"
+      x-fern-sdk-method-name: audio_isolation
   /v1/audio-isolation/stream:
     post:
       tags:
@@ -357,13 +322,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: audio_isolation_stream
       x-fern-sdk-group-name: audio_isolation
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.audio_isolation.audio_isolation_stream()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\nimport * as fs from \"fs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.audioIsolation.audioIsolationStream({\n    audio: fs.createReadStream(\"/path/to/your/file\")\n});\n"
+      x-fern-sdk-method-name: audio_isolation_stream
   '/v1/voices/{voice_id}/samples/{sample_id}':
     delete:
       tags:
@@ -409,13 +369,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name: samples
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.samples.delete(\n    voice_id=\"VOICE_ID\",\n    sample_id=\"SAMPLE_ID\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.samples.delete(\"VOICE_ID\", \"SAMPLE_ID\");\n"
+      x-fern-sdk-method-name: delete
   '/v1/voices/{voice_id}/samples/{sample_id}/audio':
     get:
       tags:
@@ -460,13 +415,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_audio
       x-fern-sdk-group-name: samples
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.samples.get_audio(\n    voice_id=\"VOICE_ID\",\n    sample_id=\"SAMPLE_ID\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.samples.getAudio(\"VOICE_ID\", \"SAMPLE_ID\");\n"
+      x-fern-sdk-method-name: get_audio
   '/v1/text-to-speech/{voice_id}':
     post:
       tags:
@@ -532,13 +482,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name: text_to_speech
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.text_to_speech.convert(\n    voice_id=\"JBFqnCBsd6RMkjVDRZzb\",\n    output_format=\"mp3_44100_128\",\n    text=\"The first move is what sets everything in motion.\",\n    model_id=\"eleven_multilingual_v2\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.textToSpeech.convert(\"JBFqnCBsd6RMkjVDRZzb\", {\n    output_format: \"mp3_44100_128\",\n    text: \"The first move is what sets everything in motion.\",\n    model_id: \"eleven_multilingual_v2\"\n});\n"
+      x-fern-sdk-method-name: convert
   '/v1/text-to-speech/{voice_id}/with-timestamps':
     post:
       tags:
@@ -604,13 +549,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert_with_timestamps
       x-fern-sdk-group-name: text_to_speech
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.text_to_speech.convert_with_timestamps(\n    voice_id=\"JBFqnCBsd6RMkjVDRZzb\",\n    output_format=\"mp3_44100_128\",\n    text=\"The first move is what sets everything in motion.\",\n    model_id=\"eleven_multilingual_v2\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.textToSpeech.convertWithTimestamps(\"JBFqnCBsd6RMkjVDRZzb\", {\n    output_format: \"mp3_44100_128\",\n    text: \"The first move is what sets everything in motion.\",\n    model_id: \"eleven_multilingual_v2\"\n});\n"
+      x-fern-sdk-method-name: convert_with_timestamps
   '/v1/text-to-speech/{voice_id}/stream':
     post:
       tags:
@@ -674,13 +614,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: text_to_speech
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.text_to_speech.convert_as_stream(\n    voice_id=\"JBFqnCBsd6RMkjVDRZzb\",\n    output_format=\"mp3_44100_128\",\n    text=\"The first move is what sets everything in motion.\",\n    model_id=\"eleven_multilingual_v2\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.textToSpeech.convertAsStream(\"JBFqnCBsd6RMkjVDRZzb\", {\n    output_format: \"mp3_44100_128\",\n    text: \"The first move is what sets everything in motion.\",\n    model_id: \"eleven_multilingual_v2\"\n});\n"
+      x-fern-sdk-method-name: convert_as_stream
   '/v1/text-to-speech/{voice_id}/stream/with-timestamps':
     post:
       tags:
@@ -744,14 +679,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_with_timestamps
       x-fern-streaming: true
       x-fern-sdk-group-name: text_to_speech
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nresponse = client.text_to_speech.stream_with_timestamps(\n    voice_id=\"JBFqnCBsd6RMkjVDRZzb\",\n    output_format=\"mp3_44100_128\",\n    text=\"The first move is what sets everything in motion.\",\n    model_id=\"eleven_multilingual_v2\",\n)\nfor chunk in response:\n    yield chunk\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nconst response = await client.textToSpeech.streamWithTimestamps(\"JBFqnCBsd6RMkjVDRZzb\", {\n    output_format: \"mp3_44100_128\",\n    text: \"The first move is what sets everything in motion.\",\n    model_id: \"eleven_multilingual_v2\"\n});\nfor await (const item of response) {\n    console.log(item);\n}\n"
+      x-fern-sdk-method-name: stream_with_timestamps
   '/v1/speech-to-speech/{voice_id}':
     post:
       tags:
@@ -817,13 +747,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name: speech_to_speech
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.speech_to_speech.convert(\n    voice_id=\"JBFqnCBsd6RMkjVDRZzb\",\n    output_format=\"mp3_44100_128\",\n    model_id=\"eleven_multilingual_sts_v2\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\nimport * as fs from \"fs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.speechToSpeech.convert(\"JBFqnCBsd6RMkjVDRZzb\", {\n    audio: fs.createReadStream(\"/path/to/your/file\"),\n    output_format: \"mp3_44100_128\",\n    model_id: \"eleven_multilingual_sts_v2\"\n});\n"
+      x-fern-sdk-method-name: convert
   '/v1/speech-to-speech/{voice_id}/stream':
     post:
       tags:
@@ -887,13 +812,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: speech_to_speech
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.speech_to_speech.convert_as_stream(\n    voice_id=\"JBFqnCBsd6RMkjVDRZzb\",\n    output_format=\"mp3_44100_128\",\n    model_id=\"eleven_multilingual_sts_v2\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\nimport * as fs from \"fs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.speechToSpeech.convertAsStream(\"JBFqnCBsd6RMkjVDRZzb\", {\n    audio: fs.createReadStream(\"/path/to/your/file\"),\n    output_format: \"mp3_44100_128\",\n    model_id: \"eleven_multilingual_sts_v2\"\n});\n"
+      x-fern-sdk-method-name: convert_as_stream
   /v1/voice-generation/generate-voice/parameters:
     get:
       tags:
@@ -908,13 +828,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceGenerationParameterResponseModel'
-      x-fern-sdk-method-name: generate_parameters
       x-fern-sdk-group-name: voice_generation
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voice_generation.generate_parameters()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voiceGeneration.generateParameters();\n"
+      x-fern-sdk-method-name: generate_parameters
   /v1/voice-generation/generate-voice:
     post:
       tags:
@@ -947,13 +862,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: generate
       x-fern-sdk-group-name: voice_generation
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voice_generation.generate(\n    gender=\"female\",\n    accent=\"american\",\n    age=\"middle_aged\",\n    accent_strength=2.0,\n    text=\"It sure does, Jackie… My mama always said: “In Carolina, the air's so thick you can wear it!”\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voiceGeneration.generate({\n    gender: \"female\",\n    accent: \"american\",\n    age: \"middle_aged\",\n    accent_strength: 2,\n    text: \"It sure does, Jackie\\u2026 My mama always said: \\u201CIn Carolina, the air's so thick you can wear it!\\u201D\"\n});\n"
+      x-fern-sdk-method-name: generate
   /v1/text-to-voice/create-previews:
     post:
       tags:
@@ -1008,13 +918,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_previews
       x-fern-sdk-group-name: text_to_voice
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.text_to_voice.create_previews(\n    voice_description=\"A sassy little squeaky mouse\",\n    text=\"Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.textToVoice.createPreviews({\n    voice_description: \"A sassy little squeaky mouse\",\n    text: \"Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.\"\n});\n"
+      x-fern-sdk-method-name: create_previews
   /v1/voice-generation/create-voice:
     post:
       tags:
@@ -1049,13 +954,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_a_previously_generated_voice
       x-fern-sdk-group-name: voice_generation
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voice_generation.create_a_previously_generated_voice(\n    voice_name=\"Alex\",\n    voice_description=\"Middle-aged American woman\",\n    generated_voice_id=\"rbVJFu6SGRD1dbWpKnWl\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voiceGeneration.createAPreviouslyGeneratedVoice({\n    voice_name: \"Alex\",\n    voice_description: \"Middle-aged American woman\",\n    generated_voice_id: \"rbVJFu6SGRD1dbWpKnWl\"\n});\n"
+      x-fern-sdk-method-name: create_a_previously_generated_voice
   /v1/text-to-voice/create-voice-from-preview:
     post:
       tags:
@@ -1090,13 +990,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_voice_from_preview
       x-fern-sdk-group-name: text_to_voice
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.text_to_voice.create_voice_from_preview(\n    voice_name=\"Little squeaky mouse\",\n    voice_description=\"A sassy little squeaky mouse\",\n    generated_voice_id=\"37HceQefKmEi3bGovXjL\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.textToVoice.createVoiceFromPreview({\n    voice_name: \"Little squeaky mouse\",\n    voice_description: \"A sassy little squeaky mouse\",\n    generated_voice_id: \"37HceQefKmEi3bGovXjL\"\n});\n"
+      x-fern-sdk-method-name: create_voice_from_preview
   /v1/user/subscription:
     get:
       tags:
@@ -1125,13 +1020,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_subscription
       x-fern-sdk-group-name: user
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.user.get_subscription()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.user.getSubscription();\n"
+      x-fern-sdk-method-name: get_subscription
   /v1/user:
     get:
       tags:
@@ -1160,13 +1050,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: user
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.user.get()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.user.get();\n"
+      x-fern-sdk-method-name: get
   /v1/voices:
     get:
       tags:
@@ -1204,13 +1089,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.get_all()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.getAll();\n"
+      x-fern-sdk-method-name: get_all
   /v1/voices/settings/default:
     get:
       tags:
@@ -1225,13 +1105,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceSettingsResponseModel'
-      x-fern-sdk-method-name: get_default_settings
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.get_default_settings()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.getDefaultSettings();\n"
+      x-fern-sdk-method-name: get_default_settings
   '/v1/voices/{voice_id}/settings':
     get:
       tags:
@@ -1269,13 +1144,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_settings
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.get_settings(\n    voice_id=\"JBFqnCBsd6RMkjVDRZzb\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.getSettings(\"JBFqnCBsd6RMkjVDRZzb\");\n"
+      x-fern-sdk-method-name: get_settings
   '/v1/voices/{voice_id}':
     get:
       tags:
@@ -1321,13 +1191,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.get(\n    voice_id=\"JBFqnCBsd6RMkjVDRZzb\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.get(\"JBFqnCBsd6RMkjVDRZzb\");\n"
+      x-fern-sdk-method-name: get
     delete:
       tags:
         - voices
@@ -1363,13 +1228,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.delete(\n    voice_id=\"VOICE_ID\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.delete(\"VOICE_ID\");\n"
+      x-fern-sdk-method-name: delete
   '/v1/voices/{voice_id}/settings/edit':
     post:
       tags:
@@ -1415,13 +1275,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: edit_settings
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs, VoiceSettings\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.edit_settings(\n    voice_id=\"VOICE_ID\",\n    request=VoiceSettings(\n        stability=0.1,\n        similarity_boost=0.3,\n        style=0.2,\n    ),\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.editSettings(\"VOICE_ID\", {\n    stability: 0.1,\n    similarity_boost: 0.3,\n    style: 0.2\n});\n"
+      x-fern-sdk-method-name: edit_settings
   /v1/voices/add:
     post:
       tags:
@@ -1456,13 +1311,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.add(\n    name=\"Alex\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\nimport * as fs from \"fs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.add({\n    files: [fs.createReadStream(\"/path/to/your/file\")],\n    name: \"Alex\"\n});\n"
+      x-fern-sdk-method-name: add
   '/v1/voices/{voice_id}/edit':
     post:
       tags:
@@ -1505,13 +1355,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: edit
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.edit(\n    voice_id=\"VOICE_ID\",\n    name=\"George\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.edit(\"VOICE_ID\", {\n    name: \"George\"\n});\n"
+      x-fern-sdk-method-name: edit
   '/v1/voices/add/{public_user_id}/{voice_id}':
     post:
       tags:
@@ -1564,13 +1409,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_sharing_voice
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.add_sharing_voice(\n    public_user_id=\"63e84100a6bf7874ba37a1bab9a31828a379ec94b891b401653b655c5110880f\",\n    voice_id=\"sB1b5zUrxQVAFl2PhZFp\",\n    new_name=\"Alita\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.addSharingVoice(\"63e84100a6bf7874ba37a1bab9a31828a379ec94b891b401653b655c5110880f\", \"sB1b5zUrxQVAFl2PhZFp\", {\n    new_name: \"Alita\"\n});\n"
+      x-fern-sdk-method-name: add_sharing_voice
   /v1/projects:
     get:
       tags:
@@ -1599,13 +1439,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.get_all()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.getAll();\n"
+      x-fern-sdk-method-name: get_all
   /v1/projects/add:
     post:
       tags:
@@ -1640,13 +1475,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.add(\n    name=\"name\",\n    default_title_voice_id=\"default_title_voice_id\",\n    default_paragraph_voice_id=\"default_paragraph_voice_id\",\n    default_model_id=\"default_model_id\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.add({\n    name: \"name\",\n    default_title_voice_id: \"default_title_voice_id\",\n    default_paragraph_voice_id: \"default_paragraph_voice_id\",\n    default_model_id: \"default_model_id\"\n});\n"
+      x-fern-sdk-method-name: add
   '/v1/projects/{project_id}':
     get:
       tags:
@@ -1684,13 +1514,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.get(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.get(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get
     post:
       tags:
         - projects
@@ -1733,13 +1558,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: edit_basic_project_info
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.edit_basic_project_info(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n    name=\"name\",\n    default_title_voice_id=\"default_title_voice_id\",\n    default_paragraph_voice_id=\"default_paragraph_voice_id\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.editBasicProjectInfo(\"21m00Tcm4TlvDq8ikWAM\", {\n    name: \"name\",\n    default_title_voice_id: \"default_title_voice_id\",\n    default_paragraph_voice_id: \"default_paragraph_voice_id\"\n});\n"
+      x-fern-sdk-method-name: edit_basic_project_info
     delete:
       tags:
         - projects
@@ -1775,13 +1595,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.delete(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.delete(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: delete
   '/v1/projects/{project_id}/convert':
     post:
       tags:
@@ -1818,13 +1633,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.convert(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.convert(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: convert
   '/v1/projects/{project_id}/snapshots':
     get:
       tags:
@@ -1862,13 +1672,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_snapshots
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.get_snapshots(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.getSnapshots(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get_snapshots
   '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/stream':
     post:
       tags:
@@ -1916,13 +1721,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_audio
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.stream_audio(\n    project_id=\"string\",\n    project_snapshot_id=\"string\",\n    convert_to_mpeg=True,\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.streamAudio(\"string\", \"string\", {\n    convert_to_mpeg: true\n});\n"
+      x-fern-sdk-method-name: stream_audio
   '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/archive':
     post:
       tags:
@@ -1965,13 +1765,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_archive
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.stream_archive(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n    project_snapshot_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.streamArchive(\"21m00Tcm4TlvDq8ikWAM\", \"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: stream_archive
   '/v1/projects/{project_id}/chapters':
     get:
       tags:
@@ -2009,13 +1804,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: chapters
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.chapters.get_all(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.chapters.getAll(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get_all
   '/v1/projects/{project_id}/chapters/{chapter_id}':
     get:
       tags:
@@ -2062,13 +1852,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: chapters
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.chapters.get(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n    chapter_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.chapters.get(\"21m00Tcm4TlvDq8ikWAM\", \"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get
     delete:
       tags:
         - projects
@@ -2113,13 +1898,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name: chapters
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.chapters.delete(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n    chapter_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.chapters.delete(\"21m00Tcm4TlvDq8ikWAM\", \"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: delete
   '/v1/projects/{project_id}/chapters/add':
     post:
       tags:
@@ -2163,13 +1943,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create
       x-fern-sdk-group-name: chapters
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.chapters.create(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n    name=\"name\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.chapters.create(\"21m00Tcm4TlvDq8ikWAM\", {\n    name: \"name\"\n});\n"
+      x-fern-sdk-method-name: create
   '/v1/projects/{project_id}/chapters/{chapter_id}/convert':
     post:
       tags:
@@ -2215,13 +1990,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name: chapters
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.chapters.convert(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n    chapter_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.chapters.convert(\"21m00Tcm4TlvDq8ikWAM\", \"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: convert
   '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots':
     get:
       tags:
@@ -2268,13 +2038,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all_snapshots
       x-fern-sdk-group-name: chapters
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.chapters.get_all_snapshots(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n    chapter_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.chapters.getAllSnapshots(\"21m00Tcm4TlvDq8ikWAM\", \"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get_all_snapshots
   '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}/stream':
     post:
       tags:
@@ -2331,13 +2096,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_snapshot
       x-fern-sdk-group-name: chapters
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.chapters.stream_snapshot(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n    chapter_id=\"21m00Tcm4TlvDq8ikWAM\",\n    chapter_snapshot_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.chapters.streamSnapshot(\"21m00Tcm4TlvDq8ikWAM\", \"21m00Tcm4TlvDq8ikWAM\", \"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: stream_snapshot
   '/v1/projects/{project_id}/update-pronunciation-dictionaries':
     post:
       tags:
@@ -2380,13 +2140,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_pronunciation_dictionaries
       x-fern-sdk-group-name: projects
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs, PronunciationDictionaryVersionLocator\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.projects.update_pronunciation_dictionaries(\n    project_id=\"21m00Tcm4TlvDq8ikWAM\",\n    pronunciation_dictionary_locators=[\n        PronunciationDictionaryVersionLocator(\n            pronunciation_dictionary_id=\"pronunciation_dictionary_id\",\n            version_id=\"version_id\",\n        )\n    ],\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.projects.updatePronunciationDictionaries(\"21m00Tcm4TlvDq8ikWAM\", {\n    pronunciation_dictionary_locators: [{\n            pronunciation_dictionary_id: \"pronunciation_dictionary_id\",\n            version_id: \"version_id\"\n        }]\n});\n"
+      x-fern-sdk-method-name: update_pronunciation_dictionaries
   /v1/dubbing:
     post:
       tags:
@@ -2420,13 +2175,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: dub_a_video_or_an_audio_file
       x-fern-sdk-group-name: dubbing
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.dubbing.dub_a_video_or_an_audio_file(\n    target_lang=\"target_lang\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.dubbing.dubAVideoOrAnAudioFile({\n    target_lang: \"target_lang\"\n});\n"
+      x-fern-sdk-method-name: dub_a_video_or_an_audio_file
   '/v1/dubbing/{dubbing_id}':
     get:
       tags:
@@ -2463,13 +2213,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_dubbing_project_metadata
       x-fern-sdk-group-name: dubbing
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.dubbing.get_dubbing_project_metadata(\n    dubbing_id=\"dubbing_id\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.dubbing.getDubbingProjectMetadata(\"dubbing_id\");\n"
+      x-fern-sdk-method-name: get_dubbing_project_metadata
     delete:
       tags:
         - dubbing
@@ -2504,13 +2249,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete_dubbing_project
       x-fern-sdk-group-name: dubbing
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.dubbing.delete_dubbing_project(\n    dubbing_id=\"dubbing_id\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.dubbing.deleteDubbingProject(\"dubbing_id\");\n"
+      x-fern-sdk-method-name: delete_dubbing_project
   '/v1/dubbing/{dubbing_id}/audio/{language_code}':
     get:
       tags:
@@ -2553,13 +2293,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_dubbed_file
       x-fern-sdk-group-name: dubbing
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.dubbing.get_dubbed_file(\n    dubbing_id=\"string\",\n    language_code=\"string\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.dubbing.getDubbedFile(\"string\", \"string\");\n"
+      x-fern-sdk-method-name: get_dubbed_file
   '/v1/dubbing/{dubbing_id}/transcript/{language_code}':
     get:
       tags:
@@ -2614,13 +2349,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_dubbing_transcript
       x-fern-sdk-group-name: dubbing
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.dubbing.get_transcript_for_dub(\n    dubbing_id=\"dubbing_id\",\n    language_code=\"language_code\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.dubbing.getTranscriptForDub(\"dubbing_id\", \"language_code\");\n"
+      x-fern-sdk-method-name: get_dubbing_transcript
   /v1/models:
     get:
       tags:
@@ -2652,13 +2382,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: models
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.models.get_all()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.models.getAll();\n"
+      x-fern-sdk-method-name: get_all
   /v1/audio-native:
     post:
       tags:
@@ -2693,13 +2418,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create
       x-fern-sdk-group-name: audio_native
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.audio_native.create(\n    name=\"name\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.audioNative.create({\n    name: \"name\"\n});\n"
+      x-fern-sdk-method-name: create
   /v1/shared-voices:
     get:
       tags:
@@ -2844,13 +2564,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_shared
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.get_shared(\n    page_size=1,\n    gender=\"female\",\n    language=\"en\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.getShared({\n    page_size: 1,\n    gender: \"female\",\n    language: \"en\"\n});\n"
+      x-fern-sdk-method-name: get_shared
   /v1/similar-voices:
     post:
       tags:
@@ -2884,13 +2599,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_similar_library_voices
       x-fern-sdk-group-name: voices
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.get_similar_library_voices()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.getSimilarLibraryVoices({});\n"
+      x-fern-sdk-method-name: get_similar_library_voices
   /v1/usage/character-stats:
     get:
       tags:
@@ -2953,13 +2663,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_characters_usage_metrics
       x-fern-sdk-group-name: usage
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.usage.get_characters_usage_metrics(\n    start_unix=1,\n    end_unix=1,\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.usage.getCharactersUsageMetrics({\n    start_unix: 1,\n    end_unix: 1\n});\n"
+      x-fern-sdk-method-name: get_characters_usage_metrics
   /v1/pronunciation-dictionaries/add-from-file:
     post:
       tags:
@@ -2994,13 +2699,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_from_file
       x-fern-sdk-group-name: pronunciation_dictionary
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.pronunciation_dictionary.add_from_file(\n    name=\"name\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.pronunciationDictionary.addFromFile({\n    name: \"name\"\n});\n"
+      x-fern-sdk-method-name: add_from_file
   '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/add-rules':
     post:
       tags:
@@ -3044,13 +2744,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_rules
       x-fern-sdk-group-name: pronunciation_dictionary
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\nfrom elevenlabs.pronunciation_dictionary import (\n    PronunciationDictionaryRule_Phoneme,\n)\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.pronunciation_dictionary.add_rules(\n    pronunciation_dictionary_id=\"21m00Tcm4TlvDq8ikWAM\",\n    rules=[\n        PronunciationDictionaryRule_Phoneme(\n            string_to_replace=\"rules\",\n            phoneme=\"rules\",\n            alphabet=\"rules\",\n        )\n    ],\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.pronunciationDictionary.addRules(\"21m00Tcm4TlvDq8ikWAM\", {\n    rules: [{\n            type: \"phoneme\",\n            string_to_replace: \"rules\",\n            phoneme: \"rules\",\n            alphabet: \"rules\"\n        }]\n});\n"
+      x-fern-sdk-method-name: add_rules
   '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/remove-rules':
     post:
       tags:
@@ -3094,13 +2789,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: remove_rules
       x-fern-sdk-group-name: pronunciation_dictionary
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.pronunciation_dictionary.remove_rules(\n    pronunciation_dictionary_id=\"21m00Tcm4TlvDq8ikWAM\",\n    rule_strings=[\"rule_strings\"],\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.pronunciationDictionary.removeRules(\"21m00Tcm4TlvDq8ikWAM\", {\n    rule_strings: [\"rule_strings\"]\n});\n"
+      x-fern-sdk-method-name: remove_rules
   '/v1/pronunciation-dictionaries/{dictionary_id}/{version_id}/download':
     get:
       tags:
@@ -3145,13 +2835,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: download
       x-fern-sdk-group-name: pronunciation_dictionary
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.pronunciation_dictionary.download(\n    dictionary_id=\"Fm6AvNgS53NXe6Kqxp3e\",\n    version_id=\"KZFyRUq3R6kaqhKI146w\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.pronunciationDictionary.download(\"Fm6AvNgS53NXe6Kqxp3e\", \"KZFyRUq3R6kaqhKI146w\");\n"
+      x-fern-sdk-method-name: download
   '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/':
     get:
       tags:
@@ -3189,13 +2874,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: pronunciation_dictionary
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.pronunciation_dictionary.get(\n    pronunciation_dictionary_id=\"Fm6AvNgS53NXe6Kqxp3e\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.pronunciationDictionary.get(\"Fm6AvNgS53NXe6Kqxp3e\");\n"
+      x-fern-sdk-method-name: get
   /v1/pronunciation-dictionaries/:
     get:
       tags:
@@ -3216,8 +2896,8 @@ paths:
           description: 'How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100
-            minimum: 1
+            maximum: 100.0
+            minimum: 1.0
             type: integer
             description: 'How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -3241,13 +2921,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: pronunciation_dictionary
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.pronunciation_dictionary.get_all(\n    page_size=1,\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.pronunciationDictionary.getAll({\n    page_size: 1\n});\n"
+      x-fern-sdk-method-name: get_all
   /v1/workspace/invites/add:
     post:
       tags:
@@ -3281,11 +2956,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.workspace.invite_user(\n    email=\"email\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.workspace.inviteUser({\n    email: \"email\"\n});\n"
   /v1/workspace/invites:
     delete:
       tags:
@@ -3319,11 +2989,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.workspace.delete_existing_invitation(\n    email=\"email\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.workspace.deleteExistingInvitation({\n    email: \"email\"\n});\n"
   /v1/workspace/members:
     post:
       tags:
@@ -3357,11 +3022,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.workspace.update_member(\n    email=\"email\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.workspace.updateMember({\n    email: \"email\"\n});\n"
   '/profile/{handle}':
     get:
       tags:
@@ -3392,13 +3052,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: profile
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.voices.get_a_profile_page(\n    handle=\"talexgeorge\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.voices.getAProfilePage(\"talexgeorge\");\n"
+      x-fern-sdk-method-name: get
   /v1/convai/conversation/get_signed_url:
     get:
       tags:
@@ -3436,13 +3091,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_signed_url
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_signed_url(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getSignedUrl({\n    agent_id: \"21m00Tcm4TlvDq8ikWAM\"\n});\n"
+      x-fern-sdk-method-name: get_signed_url
   /v1/convai/agents/create:
     post:
       tags:
@@ -3477,13 +3127,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_agent
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ConversationalConfig, ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.create_agent(\n    conversation_config=ConversationalConfig(),\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.createAgent({\n    conversation_config: {}\n});\n"
+      x-fern-sdk-method-name: create_agent
   '/v1/convai/agents/{agent_id}':
     get:
       tags:
@@ -3521,13 +3166,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_agent
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_agent(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getAgent(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get_agent
     delete:
       tags:
         - Conversational AI
@@ -3567,13 +3207,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete_agent
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.delete_agent(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.deleteAgent(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: delete_agent
     patch:
       tags:
         - Conversational AI
@@ -3615,13 +3250,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_agent
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.update_agent(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.updateAgent(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: update_agent
   '/v1/convai/agents/{agent_id}/widget':
     get:
       tags:
@@ -3666,13 +3296,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_agent_widget
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_agent_widget(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getAgentWidget(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get_agent_widget
   '/v1/convai/agents/{agent_id}/link':
     get:
       tags:
@@ -3710,13 +3335,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_agent_link
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_agent_link(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getAgentLink(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get_agent_link
   '/v1/convai/agents/{agent_id}/avatar':
     post:
       tags:
@@ -3760,13 +3380,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: post_agent_avatar
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.post_agent_avatar(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\nimport * as fs from \"fs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.postAgentAvatar(\"21m00Tcm4TlvDq8ikWAM\", {\n    avatar_file: fs.createReadStream(\"/path/to/your/file\")\n});\n"
+      x-fern-sdk-method-name: post_agent_avatar
   '/v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}':
     get:
       tags:
@@ -3813,13 +3428,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_agent_knowledge_base_document_by_id
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_agent_knowledge_base_document_by_id(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n    documentation_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getAgentKnowledgeBaseDocumentById(\"21m00Tcm4TlvDq8ikWAM\", \"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get_agent_knowledge_base_document_by_id
   '/v1/convai/agents/{agent_id}/add-secret':
     post:
       tags:
@@ -3863,13 +3473,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_agent_secret
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.add_agent_secret(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n    name=\"name\",\n    secret_value=\"secret_value\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.addAgentSecret(\"21m00Tcm4TlvDq8ikWAM\", {\n    name: \"name\",\n    secret_value: \"secret_value\"\n});\n"
+      x-fern-sdk-method-name: add_agent_secret
   '/v1/convai/agents/{agent_id}/add-to-knowledge-base':
     post:
       tags:
@@ -3912,13 +3517,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_to_agent_knowledge_base
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.add_to_agent_knowledge_base(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.addToAgentKnowledgeBase(\"21m00Tcm4TlvDq8ikWAM\", {});\n"
+      x-fern-sdk-method-name: add_to_agent_knowledge_base
   /v1/convai/agents:
     get:
       tags:
@@ -3939,8 +3539,8 @@ paths:
           description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100
-            minimum: 1
+            maximum: 100.0
+            minimum: 1.0
             type: integer
             description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -3971,13 +3571,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_agents
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_agents()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getAgents();\n"
+      x-fern-sdk-method-name: get_agents
   /v1/convai/conversations:
     get:
       tags:
@@ -4014,8 +3609,8 @@ paths:
           description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100
-            minimum: 1
+            maximum: 100.0
+            minimum: 1.0
             type: integer
             description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -4039,13 +3634,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_conversations
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_conversations(\n    agent_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getConversations({\n    agent_id: \"21m00Tcm4TlvDq8ikWAM\"\n});\n"
+      x-fern-sdk-method-name: get_conversations
   '/v1/convai/conversations/{conversation_id}':
     get:
       tags:
@@ -4083,13 +3673,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_conversation
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_conversation(\n    conversation_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getConversation(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get_conversation
     delete:
       tags:
         - Conversational AI
@@ -4125,13 +3710,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete_conversation
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.delete_conversation(\n    conversation_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.deleteConversation(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: delete_conversation
   '/v1/convai/conversations/{conversation_id}/audio':
     get:
       tags:
@@ -4165,13 +3745,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_conversation_audio
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_conversation_audio(\n    conversation_id=\"21m00Tcm4TlvDq8ikWAM\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getConversationAudio(\"21m00Tcm4TlvDq8ikWAM\");\n"
+      x-fern-sdk-method-name: get_conversation_audio
   '/v1/convai/conversations/{conversation_id}/feedback':
     post:
       tags:
@@ -4207,13 +3782,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: post_conversation_feedback
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.post_conversation_feedback(\n    conversation_id=\"21m00Tcm4TlvDq8ikWAM\",\n    feedback=\"like\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.postConversationFeedback(\"21m00Tcm4TlvDq8ikWAM\", {\n    feedback: \"like\"\n});\n"
+      x-fern-sdk-method-name: post_conversation_feedback
   /v1/convai/phone-numbers/create:
     post:
       tags:
@@ -4251,13 +3821,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_phone_number
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.create_phone_number(\n    phone_number=\"phone_number\",\n    label=\"label\",\n    sid=\"sid\",\n    token=\"token\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.createPhoneNumber({\n    phone_number: \"phone_number\",\n    provider: \"twilio\",\n    label: \"label\",\n    sid: \"sid\",\n    token: \"token\"\n});\n"
+      x-fern-sdk-method-name: create_phone_number
   '/v1/convai/phone-numbers/{phone_number_id}':
     get:
       tags:
@@ -4295,13 +3860,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_phone_number
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_phone_number(\n    phone_number_id=\"TeaqRRdTcIfIu2i7BYfT\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getPhoneNumber(\"TeaqRRdTcIfIu2i7BYfT\");\n"
+      x-fern-sdk-method-name: get_phone_number
     delete:
       tags:
         - Conversational AI
@@ -4337,13 +3897,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete_phone_number
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.delete_phone_number(\n    phone_number_id=\"TeaqRRdTcIfIu2i7BYfT\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.deletePhoneNumber(\"TeaqRRdTcIfIu2i7BYfT\");\n"
+      x-fern-sdk-method-name: delete_phone_number
     patch:
       tags:
         - Conversational AI
@@ -4389,13 +3944,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_phone_number
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.update_phone_number(\n    phone_number_id=\"TeaqRRdTcIfIu2i7BYfT\",\n)\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.updatePhoneNumber(\"TeaqRRdTcIfIu2i7BYfT\");\n"
+      x-fern-sdk-method-name: update_phone_number
   /v1/convai/phone-numbers/:
     get:
       tags:
@@ -4427,13 +3977,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_phone_numbers
       x-fern-sdk-group-name: conversational_ai
-      x-codeSamples:
-        - lang: Python
-          source: "from elevenlabs import ElevenLabs\n\nclient = ElevenLabs(\n    api_key=\"YOUR_API_KEY\",\n)\nclient.conversational_ai.get_phone_numbers()\n"
-        - lang: JavaScript
-          source: "import { ElevenLabsClient } from \"elevenlabs\";\n\nconst client = new ElevenLabsClient({ apiKey: \"YOUR_API_KEY\" });\nawait client.conversationalAi.getPhoneNumbers();\n"
+      x-fern-sdk-method-name: get_phone_numbers
   /docs:
     get:
       summary: Redirect To Mintlify
@@ -4444,7 +3989,6 @@ paths:
           content:
             application/json:
               schema: { }
-      x-codeSamples: [ ]
 components:
   schemas:
     ASRConversationalConfig:
@@ -4684,6 +4228,7 @@ components:
         - agent_id
         - name
         - created_at_unix_secs
+        - access_level
       type: object
       properties:
         agent_id:
@@ -4695,6 +4240,13 @@ components:
         created_at_unix_secs:
           title: Created At Unix Secs
           type: integer
+        access_level:
+          title: Access Level
+          enum:
+            - admin
+            - editor
+            - viewer
+          type: string
     AllowlistItem:
       title: AllowlistItem
       required:
@@ -4941,7 +4493,7 @@ components:
         callback_url:
           title: Callback Url
           type: string
-          description: '[Deprecated] A url that will be called by our service when the project is converted with a json containing the status of the conversion'
+          description: A url that will be called by our service when the project is converted with a json containing the status of the conversion
         fiction:
           title: Fiction
           enum:
@@ -4953,6 +4505,25 @@ components:
           title: Quality Check On
           type: boolean
           description: Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
+        apply_text_normalization:
+          title: Apply Text Normalization
+          enum:
+            - auto
+            - on
+            - off
+            - apply_english
+          type: string
+          description: "\n    This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.\n    When set to 'auto', the system will automatically decide whether to apply text normalization \n    (e.g., spelling out numbers). With 'on', text normalization will always be applied, while \n    with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.\n    "
+        auto_convert:
+          title: Auto Convert
+          type: boolean
+          description: Whether to auto convert the project to audio or not.
+          default: false
+        auto_assign_voices:
+          title: Auto Assign Voices
+          type: boolean
+          description: '[Alpha Feature] Whether automatically assign voices to phrases in the create Project.'
+          default: false
     Body_Add_rules_to_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__add_rules_post:
       title: Body_Add_rules_to_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__add_rules_post
       required:
@@ -5884,6 +5455,7 @@ components:
       enum:
         - none
         - voice
+        - voice_multiplier
         - user
         - api_keys
         - all_api_keys
@@ -6028,8 +5600,8 @@ components:
           default: false
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30
-          minimum: 1
+          maximum: 30.0
+          minimum: 1.0
           type: integer
       description: A client tool is one that sends an event to the user's client to trigger something client side
     ConvAINewSecretConfig:
@@ -7484,6 +7056,7 @@ components:
         - enterprise_background_moderation_enabled
         - safety_status
         - warning_status
+        - on_watchlist
       type: object
       properties:
         is_in_probation:
@@ -7509,6 +7082,7 @@ components:
           enum:
             - appeal_approved
             - appeal_denied
+            - false_positive
           type: string
         warning_status:
           title: Warning Status
@@ -7516,6 +7090,9 @@ components:
             - warning
             - warning_cleared
           type: string
+        on_watchlist:
+          title: On Watchlist
+          type: boolean
     ObjectJsonSchemaProperty:
       title: ObjectJsonSchemaProperty
       type: object
@@ -7644,6 +7221,7 @@ components:
           enum:
             - blank
             - generate_podcast
+            - auto_assign_voices
           type: string
     ProjectExtendedResponseModel:
       title: ProjectExtendedResponseModel
@@ -8518,6 +8096,8 @@ components:
       enum:
         - eleven_turbo_v2
         - eleven_turbo_v2_5
+        - eleven_flash_v2
+        - eleven_flash_v2_5
       type: string
       description: An enumeration.
     TTSOptimizeStreamingLatency:
