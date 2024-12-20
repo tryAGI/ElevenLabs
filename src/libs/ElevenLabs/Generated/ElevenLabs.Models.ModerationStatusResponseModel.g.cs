@@ -67,6 +67,13 @@ namespace ElevenLabs
         public required global::ElevenLabs.ModerationStatusResponseModelWarningStatus WarningStatus { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("on_watchlist")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool OnWatchlist { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -83,6 +90,7 @@ namespace ElevenLabs
         /// <param name="enterpriseBackgroundModerationEnabled"></param>
         /// <param name="safetyStatus"></param>
         /// <param name="warningStatus"></param>
+        /// <param name="onWatchlist"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ModerationStatusResponseModel(
             bool isInProbation,
@@ -92,7 +100,8 @@ namespace ElevenLabs
             int nogoVoiceSimilarVoiceUploadCount,
             bool enterpriseBackgroundModerationEnabled,
             global::ElevenLabs.ModerationStatusResponseModelSafetyStatus safetyStatus,
-            global::ElevenLabs.ModerationStatusResponseModelWarningStatus warningStatus)
+            global::ElevenLabs.ModerationStatusResponseModelWarningStatus warningStatus,
+            bool onWatchlist)
         {
             this.IsInProbation = isInProbation;
             this.EnterpriseCheckNogoVoice = enterpriseCheckNogoVoice;
@@ -102,6 +111,7 @@ namespace ElevenLabs
             this.EnterpriseBackgroundModerationEnabled = enterpriseBackgroundModerationEnabled;
             this.SafetyStatus = safetyStatus;
             this.WarningStatus = warningStatus;
+            this.OnWatchlist = onWatchlist;
         }
 
         /// <summary>

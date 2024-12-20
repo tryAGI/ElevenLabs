@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         GeneratePodcast,
+        /// <summary>
+        /// 
+        /// </summary>
+        AutoAssignVoices,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 ProjectCreationMetaResponseModelType.Blank => "blank",
                 ProjectCreationMetaResponseModelType.GeneratePodcast => "generate_podcast",
+                ProjectCreationMetaResponseModelType.AutoAssignVoices => "auto_assign_voices",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "blank" => ProjectCreationMetaResponseModelType.Blank,
                 "generate_podcast" => ProjectCreationMetaResponseModelType.GeneratePodcast,
+                "auto_assign_voices" => ProjectCreationMetaResponseModelType.AutoAssignVoices,
                 _ => null,
             };
         }

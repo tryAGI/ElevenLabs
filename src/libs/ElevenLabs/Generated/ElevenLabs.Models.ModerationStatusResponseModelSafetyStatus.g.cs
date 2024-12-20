@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         AppealDenied,
+        /// <summary>
+        /// 
+        /// </summary>
+        FalsePositive,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 ModerationStatusResponseModelSafetyStatus.AppealApproved => "appeal_approved",
                 ModerationStatusResponseModelSafetyStatus.AppealDenied => "appeal_denied",
+                ModerationStatusResponseModelSafetyStatus.FalsePositive => "false_positive",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "appeal_approved" => ModerationStatusResponseModelSafetyStatus.AppealApproved,
                 "appeal_denied" => ModerationStatusResponseModelSafetyStatus.AppealDenied,
+                "false_positive" => ModerationStatusResponseModelSafetyStatus.FalsePositive,
                 _ => null,
             };
         }

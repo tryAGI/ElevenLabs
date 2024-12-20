@@ -148,7 +148,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? PronunciationDictionaryLocators { get; set; }
 
         /// <summary>
-        /// [Deprecated] A url that will be called by our service when the project is converted with a json containing the status of the conversion
+        /// A url that will be called by our service when the project is converted with a json containing the status of the conversion
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
         public string? CallbackUrl { get; set; }
@@ -165,6 +165,31 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
         public bool? QualityCheckOn { get; set; }
+
+        /// <summary>
+        ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
+        ///     When set to 'auto', the system will automatically decide whether to apply text normalization <br/>
+        ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while <br/>
+        ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
+        ///     
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyAddProjectV1ProjectsAddPostApplyTextNormalizationJsonConverter))]
+        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostApplyTextNormalization? ApplyTextNormalization { get; set; }
+
+        /// <summary>
+        /// Whether to auto convert the project to audio or not.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_convert")]
+        public bool? AutoConvert { get; set; }
+
+        /// <summary>
+        /// [Alpha Feature] Whether automatically assign voices to phrases in the create Project.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_assign_voices")]
+        public bool? AutoAssignVoices { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -247,13 +272,28 @@ namespace ElevenLabs
         /// A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text.  A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form 'pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"' --form 'pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"'. Note that multiple dictionaries are not currently supported by our UI which will only show the first.
         /// </param>
         /// <param name="callbackUrl">
-        /// [Deprecated] A url that will be called by our service when the project is converted with a json containing the status of the conversion
+        /// A url that will be called by our service when the project is converted with a json containing the status of the conversion
         /// </param>
         /// <param name="fiction">
         /// An optional fiction of the project.
         /// </param>
         /// <param name="qualityCheckOn">
         /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
+        /// </param>
+        /// <param name="applyTextNormalization">
+        ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
+        ///     When set to 'auto', the system will automatically decide whether to apply text normalization <br/>
+        ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while <br/>
+        ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
+        ///     
+        /// </param>
+        /// <param name="autoConvert">
+        /// Whether to auto convert the project to audio or not.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="autoAssignVoices">
+        /// [Alpha Feature] Whether automatically assign voices to phrases in the create Project.<br/>
+        /// Default Value: false
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public BodyAddProjectV1ProjectsAddPost(
@@ -280,7 +320,10 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? pronunciationDictionaryLocators,
             string? callbackUrl,
             global::ElevenLabs.BodyAddProjectV1ProjectsAddPostFiction? fiction,
-            bool? qualityCheckOn)
+            bool? qualityCheckOn,
+            global::ElevenLabs.BodyAddProjectV1ProjectsAddPostApplyTextNormalization? applyTextNormalization,
+            bool? autoConvert,
+            bool? autoAssignVoices)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.DefaultTitleVoiceId = defaultTitleVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultTitleVoiceId));
@@ -306,6 +349,9 @@ namespace ElevenLabs
             this.CallbackUrl = callbackUrl;
             this.Fiction = fiction;
             this.QualityCheckOn = qualityCheckOn;
+            this.ApplyTextNormalization = applyTextNormalization;
+            this.AutoConvert = autoConvert;
+            this.AutoAssignVoices = autoAssignVoices;
         }
 
         /// <summary>

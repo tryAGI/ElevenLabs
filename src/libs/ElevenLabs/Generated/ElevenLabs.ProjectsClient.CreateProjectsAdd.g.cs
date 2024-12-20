@@ -213,6 +213,24 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.QualityCheckOn}"),
                     name: "quality_check_on");
+            } 
+            if (request.ApplyTextNormalization != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.ApplyTextNormalization?.ToValueString()}"),
+                    name: "apply_text_normalization");
+            } 
+            if (request.AutoConvert != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.AutoConvert}"),
+                    name: "auto_convert");
+            } 
+            if (request.AutoAssignVoices != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.AutoAssignVoices}"),
+                    name: "auto_assign_voices");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -408,13 +426,28 @@ namespace ElevenLabs
         /// A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text.  A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form 'pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"' --form 'pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"'. Note that multiple dictionaries are not currently supported by our UI which will only show the first.
         /// </param>
         /// <param name="callbackUrl">
-        /// [Deprecated] A url that will be called by our service when the project is converted with a json containing the status of the conversion
+        /// A url that will be called by our service when the project is converted with a json containing the status of the conversion
         /// </param>
         /// <param name="fiction">
         /// An optional fiction of the project.
         /// </param>
         /// <param name="qualityCheckOn">
         /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
+        /// </param>
+        /// <param name="applyTextNormalization">
+        ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
+        ///     When set to 'auto', the system will automatically decide whether to apply text normalization <br/>
+        ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while <br/>
+        ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
+        ///     
+        /// </param>
+        /// <param name="autoConvert">
+        /// Whether to auto convert the project to audio or not.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="autoAssignVoices">
+        /// [Alpha Feature] Whether automatically assign voices to phrases in the create Project.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -444,6 +477,9 @@ namespace ElevenLabs
             string? callbackUrl = default,
             global::ElevenLabs.BodyAddProjectV1ProjectsAddPostFiction? fiction = default,
             bool? qualityCheckOn = default,
+            global::ElevenLabs.BodyAddProjectV1ProjectsAddPostApplyTextNormalization? applyTextNormalization = default,
+            bool? autoConvert = default,
+            bool? autoAssignVoices = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyAddProjectV1ProjectsAddPost
@@ -472,6 +508,9 @@ namespace ElevenLabs
                 CallbackUrl = callbackUrl,
                 Fiction = fiction,
                 QualityCheckOn = qualityCheckOn,
+                ApplyTextNormalization = applyTextNormalization,
+                AutoConvert = autoConvert,
+                AutoAssignVoices = autoAssignVoices,
             };
 
             return await CreateProjectsAddAsync(

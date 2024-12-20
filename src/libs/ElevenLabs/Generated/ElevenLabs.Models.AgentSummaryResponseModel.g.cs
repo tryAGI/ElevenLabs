@@ -30,6 +30,14 @@ namespace ElevenLabs
         public required int CreatedAtUnixSecs { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("access_level")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AgentSummaryResponseModelAccessLevelJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.AgentSummaryResponseModelAccessLevel AccessLevel { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,15 +49,18 @@ namespace ElevenLabs
         /// <param name="agentId"></param>
         /// <param name="name"></param>
         /// <param name="createdAtUnixSecs"></param>
+        /// <param name="accessLevel"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public AgentSummaryResponseModel(
             string agentId,
             string name,
-            int createdAtUnixSecs)
+            int createdAtUnixSecs,
+            global::ElevenLabs.AgentSummaryResponseModelAccessLevel accessLevel)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.CreatedAtUnixSecs = createdAtUnixSecs;
+            this.AccessLevel = accessLevel;
         }
 
         /// <summary>

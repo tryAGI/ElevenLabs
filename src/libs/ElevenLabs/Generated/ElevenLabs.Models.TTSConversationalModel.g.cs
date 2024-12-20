@@ -16,6 +16,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ElevenTurboV25,
+        /// <summary>
+        /// 
+        /// </summary>
+        ElevenFlashV2,
+        /// <summary>
+        /// 
+        /// </summary>
+        ElevenFlashV25,
     }
 
     /// <summary>
@@ -32,6 +40,8 @@ namespace ElevenLabs
             {
                 TTSConversationalModel.ElevenTurboV2 => "eleven_turbo_v2",
                 TTSConversationalModel.ElevenTurboV25 => "eleven_turbo_v2_5",
+                TTSConversationalModel.ElevenFlashV2 => "eleven_flash_v2",
+                TTSConversationalModel.ElevenFlashV25 => "eleven_flash_v2_5",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +54,8 @@ namespace ElevenLabs
             {
                 "eleven_turbo_v2" => TTSConversationalModel.ElevenTurboV2,
                 "eleven_turbo_v2_5" => TTSConversationalModel.ElevenTurboV25,
+                "eleven_flash_v2" => TTSConversationalModel.ElevenFlashV2,
+                "eleven_flash_v2_5" => TTSConversationalModel.ElevenFlashV25,
                 _ => null,
             };
         }
