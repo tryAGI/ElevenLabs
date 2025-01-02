@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class BodyDeleteExistingInvitationV1WorkspaceInvitesDelete
     {
         /// <summary>
-        /// Email of the target user.
+        /// The email of the customer
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyDeleteExistingInvitationV1WorkspaceInvitesDelete" /> class.
         /// </summary>
         /// <param name="email">
-        /// Email of the target user.
+        /// The email of the customer
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public BodyDeleteExistingInvitationV1WorkspaceInvitesDelete(
