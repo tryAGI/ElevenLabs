@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class BodyInviteUserV1WorkspaceInvitesAddPost
     {
         /// <summary>
-        /// Email of the target user.
+        /// The email of the customer
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyInviteUserV1WorkspaceInvitesAddPost" /> class.
         /// </summary>
         /// <param name="email">
-        /// Email of the target user.
+        /// The email of the customer
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public BodyInviteUserV1WorkspaceInvitesAddPost(

@@ -679,8 +679,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-streaming: true
       x-fern-sdk-group-name: text_to_speech
+      x-fern-streaming: true
       x-fern-sdk-method-name: stream_with_timestamps
   '/v1/speech-to-speech/{voice_id}':
     post:
@@ -4777,7 +4777,7 @@ components:
         email:
           title: Email
           type: string
-          description: Email of the target user.
+          description: The email of the customer
     Body_Download_history_items_v1_history_download_post:
       title: Body_Download_history_items_v1_history_download_post
       required:
@@ -4988,7 +4988,7 @@ components:
         email:
           title: Email
           type: string
-          description: Email of the target user.
+          description: The email of the customer
     Body_Patches_an_Agent_settings_v1_convai_agents__agent_id__patch:
       title: Body_Patches_an_Agent_settings_v1_convai_agents__agent_id__patch
       type: object
@@ -5457,6 +5457,7 @@ components:
         - voice
         - voice_multiplier
         - user
+        - groups
         - api_keys
         - all_api_keys
         - product_type
@@ -7615,6 +7616,10 @@ components:
           title: Conversation Goal Prompt
           maxLength: 800
           type: string
+        use_knowledge_base:
+          title: Use Knowledge Base
+          type: boolean
+          default: false
       description: An evaluation using the transcript and a prompt for a yes/no achieved answer
     PronunciationDictionaryAliasRuleRequestModel:
       title: PronunciationDictionaryAliasRuleRequestModel

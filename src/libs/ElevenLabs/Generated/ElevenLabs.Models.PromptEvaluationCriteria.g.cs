@@ -36,6 +36,12 @@ namespace ElevenLabs
         public required string ConversationGoalPrompt { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_knowledge_base")]
+        public bool? UseKnowledgeBase { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -50,17 +56,22 @@ namespace ElevenLabs
         /// Default Value: prompt
         /// </param>
         /// <param name="conversationGoalPrompt"></param>
+        /// <param name="useKnowledgeBase">
+        /// Default Value: false
+        /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public PromptEvaluationCriteria(
             string id,
             string conversationGoalPrompt,
             string? name,
-            global::ElevenLabs.PromptEvaluationCriteriaType? type)
+            global::ElevenLabs.PromptEvaluationCriteriaType? type,
+            bool? useKnowledgeBase)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.ConversationGoalPrompt = conversationGoalPrompt ?? throw new global::System.ArgumentNullException(nameof(conversationGoalPrompt));
             this.Name = name;
             this.Type = type;
+            this.UseKnowledgeBase = useKnowledgeBase;
         }
 
         /// <summary>

@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Groups,
+        /// <summary>
+        /// 
+        /// </summary>
         ApiKeys,
         /// <summary>
         /// 
@@ -62,6 +66,7 @@ namespace ElevenLabs
                 BreakdownTypes.Voice => "voice",
                 BreakdownTypes.VoiceMultiplier => "voice_multiplier",
                 BreakdownTypes.User => "user",
+                BreakdownTypes.Groups => "groups",
                 BreakdownTypes.ApiKeys => "api_keys",
                 BreakdownTypes.AllApiKeys => "all_api_keys",
                 BreakdownTypes.ProductType => "product_type",
@@ -81,6 +86,7 @@ namespace ElevenLabs
                 "voice" => BreakdownTypes.Voice,
                 "voice_multiplier" => BreakdownTypes.VoiceMultiplier,
                 "user" => BreakdownTypes.User,
+                "groups" => BreakdownTypes.Groups,
                 "api_keys" => BreakdownTypes.ApiKeys,
                 "all_api_keys" => BreakdownTypes.AllApiKeys,
                 "product_type" => BreakdownTypes.ProductType,
