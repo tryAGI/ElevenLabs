@@ -18,6 +18,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("convai_concurrency")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int ConvaiConcurrency { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("force_logging_disabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool ForceLoggingDisabled { get; set; }
@@ -39,15 +46,18 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="SubscriptionExtrasResponseModel" /> class.
         /// </summary>
         /// <param name="concurrency"></param>
+        /// <param name="convaiConcurrency"></param>
         /// <param name="forceLoggingDisabled"></param>
         /// <param name="moderation"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public SubscriptionExtrasResponseModel(
             int concurrency,
+            int convaiConcurrency,
             bool forceLoggingDisabled,
             global::ElevenLabs.ModerationStatusResponseModel moderation)
         {
             this.Concurrency = concurrency;
+            this.ConvaiConcurrency = convaiConcurrency;
             this.ForceLoggingDisabled = forceLoggingDisabled;
             this.Moderation = moderation ?? throw new global::System.ArgumentNullException(nameof(moderation));
         }

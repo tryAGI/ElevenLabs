@@ -20,7 +20,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("widget_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EmbedConfig WidgetConfig { get; set; }
+        public required global::ElevenLabs.WidgetConfigResponseModel WidgetConfig { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,7 +36,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public GetAgentEmbedResponseModel(
             string agentId,
-            global::ElevenLabs.EmbedConfig widgetConfig)
+            global::ElevenLabs.WidgetConfigResponseModel widgetConfig)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.WidgetConfig = widgetConfig ?? throw new global::System.ArgumentNullException(nameof(widgetConfig));

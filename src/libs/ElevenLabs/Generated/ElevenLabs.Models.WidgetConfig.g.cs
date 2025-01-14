@@ -8,7 +8,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class EmbedConfig
+    public sealed partial class WidgetConfig
     {
         /// <summary>
         /// Default Value: full
@@ -30,12 +30,6 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetFeedbackModeJsonConverter))]
         public global::ElevenLabs.WidgetFeedbackMode? FeedbackMode { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("custom_avatar_path")]
-        public string? CustomAvatarPath { get; set; }
 
         /// <summary>
         /// Default Value: #ffffff
@@ -128,13 +122,43 @@ namespace ElevenLabs
         public string? ShareablePageText { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("terms_text")]
+        public string? TermsText { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("terms_html")]
+        public string? TermsHtml { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("terms_key")]
+        public string? TermsKey { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("language_selector")]
+        public bool? LanguageSelector { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_avatar_path")]
+        public string? CustomAvatarPath { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmbedConfig" /> class.
+        /// Initializes a new instance of the <see cref="WidgetConfig" /> class.
         /// </summary>
         /// <param name="variant">
         /// Default Value: full
@@ -143,7 +167,6 @@ namespace ElevenLabs
         /// <param name="feedbackMode">
         /// Default Value: none
         /// </param>
-        /// <param name="customAvatarPath"></param>
         /// <param name="bgColor">
         /// Default Value: #ffffff
         /// </param>
@@ -171,12 +194,18 @@ namespace ElevenLabs
         /// <param name="listeningText"></param>
         /// <param name="speakingText"></param>
         /// <param name="shareablePageText"></param>
+        /// <param name="termsText"></param>
+        /// <param name="termsHtml"></param>
+        /// <param name="termsKey"></param>
+        /// <param name="languageSelector">
+        /// Default Value: false
+        /// </param>
+        /// <param name="customAvatarPath"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
-        public EmbedConfig(
+        public WidgetConfig(
             global::ElevenLabs.EmbedVariant? variant,
             global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? avatar,
             global::ElevenLabs.WidgetFeedbackMode? feedbackMode,
-            string? customAvatarPath,
             string? bgColor,
             string? textColor,
             string? btnColor,
@@ -191,12 +220,16 @@ namespace ElevenLabs
             string? expandText,
             string? listeningText,
             string? speakingText,
-            string? shareablePageText)
+            string? shareablePageText,
+            string? termsText,
+            string? termsHtml,
+            string? termsKey,
+            bool? languageSelector,
+            string? customAvatarPath)
         {
             this.Variant = variant;
             this.Avatar = avatar;
             this.FeedbackMode = feedbackMode;
-            this.CustomAvatarPath = customAvatarPath;
             this.BgColor = bgColor;
             this.TextColor = textColor;
             this.BtnColor = btnColor;
@@ -212,12 +245,17 @@ namespace ElevenLabs
             this.ListeningText = listeningText;
             this.SpeakingText = speakingText;
             this.ShareablePageText = shareablePageText;
+            this.TermsText = termsText;
+            this.TermsHtml = termsHtml;
+            this.TermsKey = termsKey;
+            this.LanguageSelector = languageSelector;
+            this.CustomAvatarPath = customAvatarPath;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmbedConfig" /> class.
+        /// Initializes a new instance of the <see cref="WidgetConfig" /> class.
         /// </summary>
-        public EmbedConfig()
+        public WidgetConfig()
         {
         }
     }

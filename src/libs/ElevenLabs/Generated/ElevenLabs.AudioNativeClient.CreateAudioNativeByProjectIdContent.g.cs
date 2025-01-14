@@ -5,36 +5,42 @@ namespace ElevenLabs
 {
     public partial class AudioNativeClient
     {
-        partial void PrepareCreateAudioNativeArguments(
+        partial void PrepareCreateAudioNativeByProjectIdContentArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string projectId,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost request);
-        partial void PrepareCreateAudioNativeRequest(
+            global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request);
+        partial void PrepareCreateAudioNativeByProjectIdContentRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string projectId,
             string? xiApiKey,
-            global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost request);
-        partial void ProcessCreateAudioNativeResponse(
+            global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request);
+        partial void ProcessCreateAudioNativeByProjectIdContentResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateAudioNativeResponseContent(
+        partial void ProcessCreateAudioNativeByProjectIdContentResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Creates Audionative Enabled Project.<br/>
-        /// Creates AudioNative enabled project, optionally starts conversion and returns project id and embeddable html snippet.
+        /// Update Audio-Native Project Content<br/>
+        /// Updates content for the specific AudioNative Project.
         /// </summary>
+        /// <param name="projectId">
+        /// The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeCreateProjectResponseModel> CreateAudioNativeAsync(
-            global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost request,
+        public async global::System.Threading.Tasks.Task<string> CreateAudioNativeByProjectIdContentAsync(
+            string projectId,
+            global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -42,13 +48,14 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateAudioNativeArguments(
+            PrepareCreateAudioNativeByProjectIdContentArguments(
                 httpClient: HttpClient,
+                projectId: ref projectId,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/v1/audio-native",
+                path: $"/v1/audio-native/{projectId}/content",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -81,68 +88,14 @@ namespace ElevenLabs
             }
 
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+            __httpRequestContent.Add(
+                content: new global::System.Net.Http.StringContent($"{projectId}"),
+                name: "project_id");
             if (xiApiKey != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
                     name: "xi-api-key");
-            } 
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"{request.Name}"),
-                name: "name");
-            if (request.Image != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Image}"),
-                    name: "image");
-            } 
-            if (request.Author != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Author}"),
-                    name: "author");
-            } 
-            if (request.Title != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Title}"),
-                    name: "title");
-            } 
-            if (request.Small != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Small}"),
-                    name: "small");
-            } 
-            if (request.TextColor != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.TextColor}"),
-                    name: "text_color");
-            } 
-            if (request.BackgroundColor != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.BackgroundColor}"),
-                    name: "background_color");
-            } 
-            if (request.Sessionization != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Sessionization}"),
-                    name: "sessionization");
-            } 
-            if (request.VoiceId != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.VoiceId}"),
-                    name: "voice_id");
-            } 
-            if (request.ModelId != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.ModelId}"),
-                    name: "model_id");
             } 
             if (request.File != default)
             {
@@ -156,15 +109,22 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.AutoConvert}"),
                     name: "auto_convert");
+            } 
+            if (request.AutoPublish != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.AutoPublish}"),
+                    name: "auto_publish");
             }
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateAudioNativeRequest(
+            PrepareCreateAudioNativeByProjectIdContentRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                projectId: projectId,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -176,7 +136,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateAudioNativeResponse(
+            ProcessCreateAudioNativeByProjectIdContentResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -216,7 +176,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateAudioNativeResponseContent(
+                ProcessCreateAudioNativeByProjectIdContentResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -240,9 +200,7 @@ namespace ElevenLabs
                     };
                 }
 
-                return
-                    global::ElevenLabs.AudioNativeCreateProjectResponseModel.FromJson(__content, JsonSerializerContext) ??
-                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                return __content;
             }
             else
             {
@@ -264,52 +222,21 @@ namespace ElevenLabs
                     };
                 }
 
-                using var __content = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                var __content = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                return
-                    await global::ElevenLabs.AudioNativeCreateProjectResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                    throw new global::System.InvalidOperationException("Response deserialization failed.");
+                return __content;
             }
         }
 
         /// <summary>
-        /// Creates Audionative Enabled Project.<br/>
-        /// Creates AudioNative enabled project, optionally starts conversion and returns project id and embeddable html snippet.
+        /// Update Audio-Native Project Content<br/>
+        /// Updates content for the specific AudioNative Project.
         /// </summary>
+        /// <param name="projectId">
+        /// The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
-        /// <param name="name">
-        /// Project name.
-        /// </param>
-        /// <param name="image">
-        /// (Deprecated) Image URL used in the player. If not provided, default image set in the Player settings is used.
-        /// </param>
-        /// <param name="author">
-        /// Author used in the player and inserted at the start of the uploaded article. If not provided, the default author set in the Player settings is used.
-        /// </param>
-        /// <param name="title">
-        /// Title used in the player and inserted at the top of the uploaded article. If not provided, the default title set in the Player settings is used.
-        /// </param>
-        /// <param name="small">
-        /// (Deprecated) Whether to use small player or not. If not provided, default value set in the Player settings is used.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="textColor">
-        /// Text color used in the player. If not provided, default text color set in the Player settings is used.
-        /// </param>
-        /// <param name="backgroundColor">
-        /// Background color used in the player. If not provided, default background color set in the Player settings is used.
-        /// </param>
-        /// <param name="sessionization">
-        /// (Deprecated) Specifies for how many minutes to persist the session across page reloads. If not provided, default sessionization set in the Player settings is used.<br/>
-        /// Default Value: 0
-        /// </param>
-        /// <param name="voiceId">
-        /// Voice ID used to voice the content. If not provided, default voice ID set in the Player settings is used.
-        /// </param>
-        /// <param name="modelId">
-        /// TTS Model ID used in the player. If not provided, default model ID set in the Player settings is used.
         /// </param>
         /// <param name="file">
         /// Either txt or HTML input file containing the article content. HTML should be formatted as follows '&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div&amp;gt;&amp;lt;p&amp;gt;Your content&amp;lt;/p&amp;gt;&amp;lt;h5&amp;gt;More of your content&amp;lt;/h5&amp;gt;&amp;lt;p&amp;gt;Some more of your content&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;'
@@ -321,43 +248,31 @@ namespace ElevenLabs
         /// Whether to auto convert the project to audio or not.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="autoPublish">
+        /// Whether to auto convert the project to audio or not.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeCreateProjectResponseModel> CreateAudioNativeAsync(
-            string name,
+        public async global::System.Threading.Tasks.Task<string> CreateAudioNativeByProjectIdContentAsync(
+            string projectId,
             string? xiApiKey = default,
-            string? image = default,
-            string? author = default,
-            string? title = default,
-            bool? small = default,
-            string? textColor = default,
-            string? backgroundColor = default,
-            int? sessionization = default,
-            string? voiceId = default,
-            string? modelId = default,
             byte[]? file = default,
             string? filename = default,
             bool? autoConvert = default,
+            bool? autoPublish = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost
+            var __request = new global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost
             {
-                Name = name,
-                Image = image,
-                Author = author,
-                Title = title,
-                Small = small,
-                TextColor = textColor,
-                BackgroundColor = backgroundColor,
-                Sessionization = sessionization,
-                VoiceId = voiceId,
-                ModelId = modelId,
                 File = file,
                 Filename = filename,
                 AutoConvert = autoConvert,
+                AutoPublish = autoPublish,
             };
 
-            return await CreateAudioNativeAsync(
+            return await CreateAudioNativeByProjectIdContentAsync(
+                projectId: projectId,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

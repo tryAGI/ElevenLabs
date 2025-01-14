@@ -48,6 +48,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationChargingCommonModel? Charging { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("termination_reason")]
+        public string? TerminationReason { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -64,6 +70,7 @@ namespace ElevenLabs
         /// Default Value: public
         /// </param>
         /// <param name="charging"></param>
+        /// <param name="terminationReason"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ConversationHistoryMetadataCommonModel(
             int startTimeUnixSecs,
@@ -71,7 +78,8 @@ namespace ElevenLabs
             int? cost,
             global::ElevenLabs.ConversationHistoryFeedbackCommonModel? feedback,
             global::ElevenLabs.AuthorizationMethod? authorizationMethod,
-            global::ElevenLabs.ConversationChargingCommonModel? charging)
+            global::ElevenLabs.ConversationChargingCommonModel? charging,
+            string? terminationReason)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -79,6 +87,7 @@ namespace ElevenLabs
             this.Feedback = feedback;
             this.AuthorizationMethod = authorizationMethod;
             this.Charging = charging;
+            this.TerminationReason = terminationReason;
         }
 
         /// <summary>

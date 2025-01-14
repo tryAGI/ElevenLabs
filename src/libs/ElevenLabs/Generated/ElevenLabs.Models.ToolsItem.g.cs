@@ -85,24 +85,62 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// A system tool is a tool that is used to call a system method in the server
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.SystemToolConfig? System { get; init; }
+#else
+        public global::ElevenLabs.SystemToolConfig? System { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
+#endif
+        public bool IsSystem => System != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator ToolsItem(global::ElevenLabs.SystemToolConfig value) => new ToolsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.SystemToolConfig?(ToolsItem @this) => @this.System;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ToolsItem(global::ElevenLabs.SystemToolConfig? value)
+        {
+            System = value;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public ToolsItem(
             global::ElevenLabs.PromptAgentToolDiscriminatorType? type,
             global::ElevenLabs.WebhookToolConfig? webhook,
-            global::ElevenLabs.ClientToolConfig? client
+            global::ElevenLabs.ClientToolConfig? client,
+            global::ElevenLabs.SystemToolConfig? system
             )
         {
             Type = type;
 
             Webhook = webhook;
             Client = client;
+            System = system;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            System as object ??
             Client as object ??
             Webhook as object 
             ;
@@ -112,7 +150,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsWebhook && !IsClient || !IsWebhook && IsClient;
+            return IsWebhook && !IsClient && !IsSystem || !IsWebhook && IsClient && !IsSystem || !IsWebhook && !IsClient && IsSystem;
         }
 
         /// <summary>
@@ -121,6 +159,7 @@ namespace ElevenLabs
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.WebhookToolConfig?, TResult>? webhook = null,
             global::System.Func<global::ElevenLabs.ClientToolConfig?, TResult>? client = null,
+            global::System.Func<global::ElevenLabs.SystemToolConfig?, TResult>? system = null,
             bool validate = true)
         {
             if (validate)
@@ -136,6 +175,10 @@ namespace ElevenLabs
             {
                 return client(Client!);
             }
+            else if (IsSystem && system != null)
+            {
+                return system(System!);
+            }
 
             return default(TResult);
         }
@@ -146,6 +189,7 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.WebhookToolConfig?>? webhook = null,
             global::System.Action<global::ElevenLabs.ClientToolConfig?>? client = null,
+            global::System.Action<global::ElevenLabs.SystemToolConfig?>? system = null,
             bool validate = true)
         {
             if (validate)
@@ -161,6 +205,10 @@ namespace ElevenLabs
             {
                 client?.Invoke(Client!);
             }
+            else if (IsSystem)
+            {
+                system?.Invoke(System!);
+            }
         }
 
         /// <summary>
@@ -174,6 +222,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.WebhookToolConfig),
                 Client,
                 typeof(global::ElevenLabs.ClientToolConfig),
+                System,
+                typeof(global::ElevenLabs.SystemToolConfig),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -191,7 +241,8 @@ namespace ElevenLabs
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookToolConfig?>.Default.Equals(Webhook, other.Webhook) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfig?>.Default.Equals(Client, other.Client) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfig?>.Default.Equals(Client, other.Client) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfig?>.Default.Equals(System, other.System) 
                 ;
         }
 
