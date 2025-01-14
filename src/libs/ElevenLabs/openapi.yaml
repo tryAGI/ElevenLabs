@@ -2420,6 +2420,49 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: audio_native
       x-fern-sdk-method-name: create
+  '/v1/audio-native/{project_id}/content':
+    post:
+      tags:
+        - audio-native
+      summary: Update Audio-Native Project Content
+      description: Updates content for the specific AudioNative Project.
+      operationId: Update_audio_native_Project_content_v1_audio_native__project_id__content_post
+      parameters:
+        - name: project_id
+          in: path
+          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: audio_native
+      x-fern-sdk-method-name: update
   /v1/shared-voices:
     get:
       tags:
@@ -4150,6 +4193,18 @@ components:
           type: string
         reason_type:
           $ref: '#/components/schemas/BanReasonType'
+    AgentCallLimits:
+      title: AgentCallLimits
+      type: object
+      properties:
+        agent_concurrency_limit:
+          title: Agent Concurrency Limit
+          type: integer
+          default: -1
+        daily_limit:
+          title: Daily Limit
+          type: integer
+          default: 100000
     AgentConfig:
       title: AgentConfig
       type: object
@@ -4208,7 +4263,7 @@ components:
         evaluation:
           $ref: '#/components/schemas/EvaluationSettings'
         widget:
-          $ref: '#/components/schemas/EmbedConfig'
+          $ref: '#/components/schemas/WidgetConfig'
         data_collection:
           title: Data Collection
           type: object
@@ -4216,6 +4271,8 @@ components:
             $ref: '#/components/schemas/LiteralJsonSchemaProperty'
         overrides:
           $ref: '#/components/schemas/ConversationInitiationClientDataConfig'
+        call_limits:
+          $ref: '#/components/schemas/AgentCallLimits'
         ban:
           $ref: '#/components/schemas/AgentBan'
         safety:
@@ -4723,7 +4780,7 @@ components:
         image:
           title: Image
           type: string
-          description: 'Image URL used in the player. If not provided, default image set in the Player settings is used.'
+          description: '(Deprecated) Image URL used in the player. If not provided, default image set in the Player settings is used.'
         author:
           title: Author
           type: string
@@ -4735,7 +4792,7 @@ components:
         small:
           title: Small
           type: boolean
-          description: 'Whether to use small player or not. If not provided, default value set in the Player settings is used.'
+          description: '(Deprecated) Whether to use small player or not. If not provided, default value set in the Player settings is used.'
           default: false
         text_color:
           title: Text Color
@@ -4748,7 +4805,7 @@ components:
         sessionization:
           title: Sessionization
           type: integer
-          description: 'Specifies for how many minutes to persist the session across page reloads. If not provided, default sessionization set in the Player settings is used.'
+          description: '(Deprecated) Specifies for how many minutes to persist the session across page reloads. If not provided, default sessionization set in the Player settings is used.'
           default: 0
         voice_id:
           title: Voice Id
@@ -5429,6 +5486,25 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text.  A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+    Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post:
+      title: Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          description: Either txt or HTML input file containing the article content. HTML should be formatted as follows '&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;p&gt;Your content&lt;/p&gt;&lt;h5&gt;More of your content&lt;/h5&gt;&lt;p&gt;Some more of your content&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;'
+          format: binary
+        auto_convert:
+          title: Auto Convert
+          type: boolean
+          description: Whether to auto convert the project to audio or not.
+          default: false
+        auto_publish:
+          title: Auto Publish
+          type: boolean
+          description: Whether to auto convert the project to audio or not.
+          default: false
     Body_Update_member_v1_workspace_members_post:
       title: Body_Update_member_v1_workspace_members_post
       required:
@@ -5765,6 +5841,10 @@ components:
           default: public
         charging:
           $ref: '#/components/schemas/ConversationChargingCommonModel'
+        termination_reason:
+          title: Termination Reason
+          type: string
+          default: ''
     ConversationHistoryTranscriptCommonModel:
       title: ConversationHistoryTranscriptCommonModel
       required:
@@ -5952,6 +6032,11 @@ components:
           $ref: '#/components/schemas/TTSConversationalConfig'
         conversation:
           $ref: '#/components/schemas/ConversationConfig'
+        language_presets:
+          title: Language Presets
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LanguagePreset'
     CreateAgentResponseModel:
       title: CreateAgentResponseModel
       required:
@@ -6079,78 +6164,6 @@ components:
       properties:
         project:
           $ref: '#/components/schemas/ProjectResponseModel'
-    EmbedConfig:
-      title: EmbedConfig
-      type: object
-      properties:
-        variant:
-          allOf:
-            - $ref: '#/components/schemas/EmbedVariant'
-          default: full
-        avatar:
-          title: Avatar
-          anyOf:
-            - $ref: '#/components/schemas/OrbAvatar'
-            - $ref: '#/components/schemas/URLAvatar'
-            - $ref: '#/components/schemas/ImageAvatar'
-        feedback_mode:
-          allOf:
-            - $ref: '#/components/schemas/WidgetFeedbackMode'
-          default: none
-        custom_avatar_path:
-          title: Custom Avatar Path
-          type: string
-        bg_color:
-          title: Bg Color
-          type: string
-          default: '#ffffff'
-        text_color:
-          title: Text Color
-          type: string
-          default: '#000000'
-        btn_color:
-          title: Btn Color
-          type: string
-          default: '#000000'
-        btn_text_color:
-          title: Btn Text Color
-          type: string
-          default: '#ffffff'
-        border_color:
-          title: Border Color
-          type: string
-          default: '#e1e1e1'
-        focus_color:
-          title: Focus Color
-          type: string
-          default: '#000000'
-        border_radius:
-          title: Border Radius
-          type: integer
-        btn_radius:
-          title: Btn Radius
-          type: integer
-        action_text:
-          title: Action Text
-          type: string
-        start_call_text:
-          title: Start Call Text
-          type: string
-        end_call_text:
-          title: End Call Text
-          type: string
-        expand_text:
-          title: Expand Text
-          type: string
-        listening_text:
-          title: Listening Text
-          type: string
-        speaking_text:
-          title: Speaking Text
-          type: string
-        shareable_page_text:
-          title: Shareable Page Text
-          type: string
     EmbedVariant:
       title: EmbedVariant
       enum:
@@ -6393,7 +6406,7 @@ components:
           title: Agent Id
           type: string
         widget_config:
-          $ref: '#/components/schemas/EmbedConfig'
+          $ref: '#/components/schemas/WidgetConfigResponseModel'
     GetAgentLinkResponseModel:
       title: GetAgentLinkResponseModel
       required:
@@ -6771,6 +6784,29 @@ components:
         - custom-llm
       type: string
       description: An enumeration.
+    LanguagePreset:
+      title: LanguagePreset
+      required:
+        - overrides
+      type: object
+      properties:
+        overrides:
+          $ref: '#/components/schemas/ConversationConfigClientOverride'
+        first_message_translation:
+          $ref: '#/components/schemas/LanguagePresetTranslation'
+    LanguagePresetTranslation:
+      title: LanguagePresetTranslation
+      required:
+        - source_hash
+        - text
+      type: object
+      properties:
+        source_hash:
+          title: Source Hash
+          type: string
+        text:
+          title: Text
+          type: string
     LanguageResponseModel:
       title: LanguageResponseModel
       required:
@@ -7565,11 +7601,13 @@ components:
             oneOf:
               - $ref: '#/components/schemas/WebhookToolConfig'
               - $ref: '#/components/schemas/ClientToolConfig'
+              - $ref: '#/components/schemas/SystemToolConfig'
             discriminator:
               propertyName: type
               mapping:
                 webhook: '#/components/schemas/WebhookToolConfig'
                 client: '#/components/schemas/ClientToolConfig'
+                system: '#/components/schemas/SystemToolConfig'
         knowledge_base:
           title: Knowledge Base
           type: array
@@ -7945,12 +7983,16 @@ components:
       title: SubscriptionExtrasResponseModel
       required:
         - concurrency
+        - convai_concurrency
         - force_logging_disabled
         - moderation
       type: object
       properties:
         concurrency:
           title: Concurrency
+          type: integer
+        convai_concurrency:
+          title: Convai Concurrency
           type: integer
         force_logging_disabled:
           title: Force Logging Disabled
@@ -8048,6 +8090,27 @@ components:
             - monthly_period
             - annual_period
           type: string
+    SystemToolConfig:
+      title: SystemToolConfig
+      required:
+        - type
+        - name
+        - description
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - system
+          type: string
+        name:
+          title: Name
+          pattern: '^[a-zA-Z0-9_-]{1,64}$'
+          type: string
+        description:
+          title: Description
+          type: string
+      description: A system tool is a tool that is used to call a system method in the server
     TTSConversationalConfig:
       title: TTSConversationalConfig
       type: object
@@ -8810,6 +8873,179 @@ components:
         api_schema:
           $ref: '#/components/schemas/WebhookToolApiSchemaConfig'
       description: A webhook tool is a tool that calls an external webhook from our server
+    WidgetConfig:
+      title: WidgetConfig
+      type: object
+      properties:
+        variant:
+          allOf:
+            - $ref: '#/components/schemas/EmbedVariant'
+          default: full
+        avatar:
+          title: Avatar
+          anyOf:
+            - $ref: '#/components/schemas/OrbAvatar'
+            - $ref: '#/components/schemas/URLAvatar'
+            - $ref: '#/components/schemas/ImageAvatar'
+        feedback_mode:
+          allOf:
+            - $ref: '#/components/schemas/WidgetFeedbackMode'
+          default: none
+        bg_color:
+          title: Bg Color
+          type: string
+          default: '#ffffff'
+        text_color:
+          title: Text Color
+          type: string
+          default: '#000000'
+        btn_color:
+          title: Btn Color
+          type: string
+          default: '#000000'
+        btn_text_color:
+          title: Btn Text Color
+          type: string
+          default: '#ffffff'
+        border_color:
+          title: Border Color
+          type: string
+          default: '#e1e1e1'
+        focus_color:
+          title: Focus Color
+          type: string
+          default: '#000000'
+        border_radius:
+          title: Border Radius
+          type: integer
+        btn_radius:
+          title: Btn Radius
+          type: integer
+        action_text:
+          title: Action Text
+          type: string
+        start_call_text:
+          title: Start Call Text
+          type: string
+        end_call_text:
+          title: End Call Text
+          type: string
+        expand_text:
+          title: Expand Text
+          type: string
+        listening_text:
+          title: Listening Text
+          type: string
+        speaking_text:
+          title: Speaking Text
+          type: string
+        shareable_page_text:
+          title: Shareable Page Text
+          type: string
+        terms_text:
+          title: Terms Text
+          type: string
+        terms_html:
+          title: Terms Html
+          type: string
+        terms_key:
+          title: Terms Key
+          type: string
+        language_selector:
+          title: Language Selector
+          type: boolean
+          default: false
+        custom_avatar_path:
+          title: Custom Avatar Path
+          type: string
+    WidgetConfigResponseModel:
+      title: WidgetConfigResponseModel
+      required:
+        - language
+      type: object
+      properties:
+        variant:
+          allOf:
+            - $ref: '#/components/schemas/EmbedVariant'
+          default: full
+        avatar:
+          title: Avatar
+          anyOf:
+            - $ref: '#/components/schemas/OrbAvatar'
+            - $ref: '#/components/schemas/URLAvatar'
+            - $ref: '#/components/schemas/ImageAvatar'
+        feedback_mode:
+          allOf:
+            - $ref: '#/components/schemas/WidgetFeedbackMode'
+          default: none
+        bg_color:
+          title: Bg Color
+          type: string
+          default: '#ffffff'
+        text_color:
+          title: Text Color
+          type: string
+          default: '#000000'
+        btn_color:
+          title: Btn Color
+          type: string
+          default: '#000000'
+        btn_text_color:
+          title: Btn Text Color
+          type: string
+          default: '#ffffff'
+        border_color:
+          title: Border Color
+          type: string
+          default: '#e1e1e1'
+        focus_color:
+          title: Focus Color
+          type: string
+          default: '#000000'
+        border_radius:
+          title: Border Radius
+          type: integer
+        btn_radius:
+          title: Btn Radius
+          type: integer
+        action_text:
+          title: Action Text
+          type: string
+        start_call_text:
+          title: Start Call Text
+          type: string
+        end_call_text:
+          title: End Call Text
+          type: string
+        expand_text:
+          title: Expand Text
+          type: string
+        listening_text:
+          title: Listening Text
+          type: string
+        speaking_text:
+          title: Speaking Text
+          type: string
+        shareable_page_text:
+          title: Shareable Page Text
+          type: string
+        terms_text:
+          title: Terms Text
+          type: string
+        terms_html:
+          title: Terms Html
+          type: string
+        terms_key:
+          title: Terms Key
+          type: string
+        language:
+          title: Language
+          type: string
+        supported_language_overrides:
+          title: Supported Language Overrides
+          type: array
+          items:
+            type: string
     WidgetFeedbackMode:
       title: WidgetFeedbackMode
       enum:

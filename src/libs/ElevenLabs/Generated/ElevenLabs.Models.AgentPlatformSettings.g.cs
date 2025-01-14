@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("widget")]
-        public global::ElevenLabs.EmbedConfig? Widget { get; set; }
+        public global::ElevenLabs.WidgetConfig? Widget { get; set; }
 
         /// <summary>
         /// 
@@ -38,6 +38,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
         public global::ElevenLabs.ConversationInitiationClientDataConfig? Overrides { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_limits")]
+        public global::ElevenLabs.AgentCallLimits? CallLimits { get; set; }
 
         /// <summary>
         /// 
@@ -74,6 +80,7 @@ namespace ElevenLabs
         /// <param name="widget"></param>
         /// <param name="dataCollection"></param>
         /// <param name="overrides"></param>
+        /// <param name="callLimits"></param>
         /// <param name="ban"></param>
         /// <param name="safety">
         /// Safety object that has the information of safety evaluations based on used voice.
@@ -83,9 +90,10 @@ namespace ElevenLabs
         public AgentPlatformSettings(
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.EvaluationSettings? evaluation,
-            global::ElevenLabs.EmbedConfig? widget,
+            global::ElevenLabs.WidgetConfig? widget,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection,
             global::ElevenLabs.ConversationInitiationClientDataConfig? overrides,
+            global::ElevenLabs.AgentCallLimits? callLimits,
             global::ElevenLabs.AgentBan? ban,
             global::ElevenLabs.Safety? safety,
             global::ElevenLabs.PrivacyConfig? privacy)
@@ -95,6 +103,7 @@ namespace ElevenLabs
             this.Widget = widget;
             this.DataCollection = dataCollection;
             this.Overrides = overrides;
+            this.CallLimits = callLimits;
             this.Ban = ban;
             this.Safety = safety;
             this.Privacy = privacy;

@@ -16,7 +16,7 @@ namespace ElevenLabs
         public required string Name { get; set; }
 
         /// <summary>
-        /// Image URL used in the player. If not provided, default image set in the Player settings is used.
+        /// (Deprecated) Image URL used in the player. If not provided, default image set in the Player settings is used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image")]
         public string? Image { get; set; }
@@ -34,7 +34,7 @@ namespace ElevenLabs
         public string? Title { get; set; }
 
         /// <summary>
-        /// Whether to use small player or not. If not provided, default value set in the Player settings is used.<br/>
+        /// (Deprecated) Whether to use small player or not. If not provided, default value set in the Player settings is used.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("small")]
@@ -53,7 +53,7 @@ namespace ElevenLabs
         public string? BackgroundColor { get; set; }
 
         /// <summary>
-        /// Specifies for how many minutes to persist the session across page reloads. If not provided, default sessionization set in the Player settings is used.<br/>
+        /// (Deprecated) Specifies for how many minutes to persist the session across page reloads. If not provided, default sessionization set in the Player settings is used.<br/>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sessionization")]
@@ -103,7 +103,7 @@ namespace ElevenLabs
         /// Project name.
         /// </param>
         /// <param name="image">
-        /// Image URL used in the player. If not provided, default image set in the Player settings is used.
+        /// (Deprecated) Image URL used in the player. If not provided, default image set in the Player settings is used.
         /// </param>
         /// <param name="author">
         /// Author used in the player and inserted at the start of the uploaded article. If not provided, the default author set in the Player settings is used.
@@ -112,7 +112,7 @@ namespace ElevenLabs
         /// Title used in the player and inserted at the top of the uploaded article. If not provided, the default title set in the Player settings is used.
         /// </param>
         /// <param name="small">
-        /// Whether to use small player or not. If not provided, default value set in the Player settings is used.<br/>
+        /// (Deprecated) Whether to use small player or not. If not provided, default value set in the Player settings is used.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="textColor">
@@ -122,7 +122,7 @@ namespace ElevenLabs
         /// Background color used in the player. If not provided, default background color set in the Player settings is used.
         /// </param>
         /// <param name="sessionization">
-        /// Specifies for how many minutes to persist the session across page reloads. If not provided, default sessionization set in the Player settings is used.<br/>
+        /// (Deprecated) Specifies for how many minutes to persist the session across page reloads. If not provided, default sessionization set in the Player settings is used.<br/>
         /// Default Value: 0
         /// </param>
         /// <param name="voiceId">

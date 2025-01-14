@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Client,
+        /// <summary>
+        /// 
+        /// </summary>
+        System,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 PromptAgentToolDiscriminatorType.Webhook => "webhook",
                 PromptAgentToolDiscriminatorType.Client => "client",
+                PromptAgentToolDiscriminatorType.System => "system",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "webhook" => PromptAgentToolDiscriminatorType.Webhook,
                 "client" => PromptAgentToolDiscriminatorType.Client,
+                "system" => PromptAgentToolDiscriminatorType.System,
                 _ => null,
             };
         }
