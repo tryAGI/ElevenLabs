@@ -32,6 +32,20 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("can_request_manual_pro_voice_verification")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool CanRequestManualProVoiceVerification { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("can_bypass_voice_captcha")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool CanBypassVoiceCaptcha { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("moderation")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ModerationStatusResponseModel Moderation { get; set; }
@@ -48,17 +62,23 @@ namespace ElevenLabs
         /// <param name="concurrency"></param>
         /// <param name="convaiConcurrency"></param>
         /// <param name="forceLoggingDisabled"></param>
+        /// <param name="canRequestManualProVoiceVerification"></param>
+        /// <param name="canBypassVoiceCaptcha"></param>
         /// <param name="moderation"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public SubscriptionExtrasResponseModel(
             int concurrency,
             int convaiConcurrency,
             bool forceLoggingDisabled,
+            bool canRequestManualProVoiceVerification,
+            bool canBypassVoiceCaptcha,
             global::ElevenLabs.ModerationStatusResponseModel moderation)
         {
             this.Concurrency = concurrency;
             this.ConvaiConcurrency = convaiConcurrency;
             this.ForceLoggingDisabled = forceLoggingDisabled;
+            this.CanRequestManualProVoiceVerification = canRequestManualProVoiceVerification;
+            this.CanBypassVoiceCaptcha = canBypassVoiceCaptcha;
             this.Moderation = moderation ?? throw new global::System.ArgumentNullException(nameof(moderation));
         }
 

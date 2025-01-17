@@ -3,31 +3,31 @@
 
 namespace ElevenLabs
 {
-    public partial class AudioNativeClient
+    public partial class ProjectsClient
     {
-        partial void PrepareCreateAudioNativeByProjectIdContentArguments(
+        partial void PrepareCreateProjectsByProjectIdContentArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string projectId,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request);
-        partial void PrepareCreateAudioNativeByProjectIdContentRequest(
+            global::ElevenLabs.BodyEditProjectContentV1ProjectsProjectIdContentPost request);
+        partial void PrepareCreateProjectsByProjectIdContentRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string projectId,
             string? xiApiKey,
-            global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request);
-        partial void ProcessCreateAudioNativeByProjectIdContentResponse(
+            global::ElevenLabs.BodyEditProjectContentV1ProjectsProjectIdContentPost request);
+        partial void ProcessCreateProjectsByProjectIdContentResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateAudioNativeByProjectIdContentResponseContent(
+        partial void ProcessCreateProjectsByProjectIdContentResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Audio-Native Project Content<br/>
-        /// Updates content for the specific AudioNative Project.
+        /// Edit Project Content<br/>
+        /// Edits project content.
         /// </summary>
         /// <param name="projectId">
         /// The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.
@@ -38,9 +38,9 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> CreateAudioNativeByProjectIdContentAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateProjectsByProjectIdContentAsync(
             string projectId,
-            global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request,
+            global::ElevenLabs.BodyEditProjectContentV1ProjectsProjectIdContentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -48,14 +48,14 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateAudioNativeByProjectIdContentArguments(
+            PrepareCreateProjectsByProjectIdContentArguments(
                 httpClient: HttpClient,
                 projectId: ref projectId,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/v1/audio-native/{projectId}/content",
+                path: $"/v1/projects/{projectId}/content",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -97,31 +97,31 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
                     name: "xi-api-key");
             } 
-            if (request.File != default)
+            if (request.FromUrl != default)
             {
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
-                    name: "file",
-                    fileName: request.Filename ?? string.Empty);
+                    content: new global::System.Net.Http.StringContent($"{request.FromUrl}"),
+                    name: "from_url");
+            } 
+            if (request.FromDocument != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.ByteArrayContent(request.FromDocument ?? global::System.Array.Empty<byte>()),
+                    name: "from_document",
+                    fileName: request.FromDocumentname ?? string.Empty);
             } 
             if (request.AutoConvert != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.AutoConvert}"),
                     name: "auto_convert");
-            } 
-            if (request.AutoPublish != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.AutoPublish}"),
-                    name: "auto_publish");
             }
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateAudioNativeByProjectIdContentRequest(
+            PrepareCreateProjectsByProjectIdContentRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 projectId: projectId,
@@ -136,7 +136,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateAudioNativeByProjectIdContentResponse(
+            ProcessCreateProjectsByProjectIdContentResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -176,7 +176,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateAudioNativeByProjectIdContentResponseContent(
+                ProcessCreateProjectsByProjectIdContentResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -200,7 +200,9 @@ namespace ElevenLabs
                     };
                 }
 
-                return __content;
+                return
+                    global::ElevenLabs.EditProjectResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
             {
@@ -222,15 +224,17 @@ namespace ElevenLabs
                     };
                 }
 
-                var __content = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                using var __content = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
 
-                return __content;
+                return
+                    await global::ElevenLabs.EditProjectResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
         /// <summary>
-        /// Update Audio-Native Project Content<br/>
-        /// Updates content for the specific AudioNative Project.
+        /// Edit Project Content<br/>
+        /// Edits project content.
         /// </summary>
         /// <param name="projectId">
         /// The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.
@@ -238,40 +242,39 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="file">
-        /// Either txt or HTML input file containing the article content. HTML should be formatted as follows '&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div&amp;gt;&amp;lt;p&amp;gt;Your content&amp;lt;/p&amp;gt;&amp;lt;h5&amp;gt;More of your content&amp;lt;/h5&amp;gt;&amp;lt;p&amp;gt;Some more of your content&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;'
+        /// <param name="fromUrl">
+        /// An optional URL from which we will extract content to initialize the project. If this is set, 'from_url' must be null. If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
         /// </param>
-        /// <param name="filename">
-        /// Either txt or HTML input file containing the article content. HTML should be formatted as follows '&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div&amp;gt;&amp;lt;p&amp;gt;Your content&amp;lt;/p&amp;gt;&amp;lt;h5&amp;gt;More of your content&amp;lt;/h5&amp;gt;&amp;lt;p&amp;gt;Some more of your content&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;'
+        /// <param name="fromDocument">
+        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
+        /// </param>
+        /// <param name="fromDocumentname">
+        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
         /// </param>
         /// <param name="autoConvert">
         /// Whether to auto convert the project to audio or not.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="autoPublish">
-        /// Whether to auto publish the new project snapshot after it's converted.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> CreateAudioNativeByProjectIdContentAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateProjectsByProjectIdContentAsync(
             string projectId,
             string? xiApiKey = default,
-            byte[]? file = default,
-            string? filename = default,
+            string? fromUrl = default,
+            byte[]? fromDocument = default,
+            string? fromDocumentname = default,
             bool? autoConvert = default,
-            bool? autoPublish = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost
+            var __request = new global::ElevenLabs.BodyEditProjectContentV1ProjectsProjectIdContentPost
             {
-                File = file,
-                Filename = filename,
+                FromUrl = fromUrl,
+                FromDocument = fromDocument,
+                FromDocumentname = fromDocumentname,
                 AutoConvert = autoConvert,
-                AutoPublish = autoPublish,
             };
 
-            return await CreateAudioNativeByProjectIdContentAsync(
+            return await CreateProjectsByProjectIdContentAsync(
                 projectId: projectId,
                 xiApiKey: xiApiKey,
                 request: __request,

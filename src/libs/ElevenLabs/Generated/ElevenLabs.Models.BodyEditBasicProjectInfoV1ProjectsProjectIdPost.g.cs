@@ -55,7 +55,7 @@ namespace ElevenLabs
         public bool? VolumeNormalization { get; set; }
 
         /// <summary>
-        /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
+        /// [Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
         public bool? QualityCheckOn { get; set; }
@@ -92,7 +92,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="qualityCheckOn">
-        /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
+        /// [Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public BodyEditBasicProjectInfoV1ProjectsProjectIdPost(

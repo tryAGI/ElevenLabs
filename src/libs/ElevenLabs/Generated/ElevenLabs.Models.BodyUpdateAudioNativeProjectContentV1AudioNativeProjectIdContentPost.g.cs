@@ -28,7 +28,7 @@ namespace ElevenLabs
         public bool? AutoConvert { get; set; }
 
         /// <summary>
-        /// Whether to auto convert the project to audio or not.<br/>
+        /// Whether to auto publish the new project snapshot after it's converted.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_publish")]
@@ -54,7 +54,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="autoPublish">
-        /// Whether to auto convert the project to audio or not.<br/>
+        /// Whether to auto publish the new project snapshot after it's converted.<br/>
         /// Default Value: false
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
