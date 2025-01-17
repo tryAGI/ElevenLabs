@@ -161,7 +161,7 @@ namespace ElevenLabs
         public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostFiction? Fiction { get; set; }
 
         /// <summary>
-        /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
+        /// [Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
         public bool? QualityCheckOn { get; set; }
@@ -278,7 +278,7 @@ namespace ElevenLabs
         /// An optional fiction of the project.
         /// </param>
         /// <param name="qualityCheckOn">
-        /// Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
+        /// [Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
         /// </param>
         /// <param name="applyTextNormalization">
         ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>

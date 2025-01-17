@@ -2,11 +2,11 @@
 
 namespace ElevenLabs
 {
-    public partial interface IAudioNativeClient
+    public partial interface IProjectsClient
     {
         /// <summary>
-        /// Update Audio-Native Project Content<br/>
-        /// Updates content for the specific AudioNative Project.
+        /// Edit Project Content<br/>
+        /// Edits project content.
         /// </summary>
         /// <param name="projectId">
         /// The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.
@@ -17,15 +17,15 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateAudioNativeByProjectIdContentAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateProjectsByProjectIdContentAsync(
             string projectId,
-            global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request,
+            global::ElevenLabs.BodyEditProjectContentV1ProjectsProjectIdContentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Update Audio-Native Project Content<br/>
-        /// Updates content for the specific AudioNative Project.
+        /// Edit Project Content<br/>
+        /// Edits project content.
         /// </summary>
         /// <param name="projectId">
         /// The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.
@@ -33,29 +33,28 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="file">
-        /// Either txt or HTML input file containing the article content. HTML should be formatted as follows '&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div&amp;gt;&amp;lt;p&amp;gt;Your content&amp;lt;/p&amp;gt;&amp;lt;h5&amp;gt;More of your content&amp;lt;/h5&amp;gt;&amp;lt;p&amp;gt;Some more of your content&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;'
+        /// <param name="fromUrl">
+        /// An optional URL from which we will extract content to initialize the project. If this is set, 'from_url' must be null. If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
         /// </param>
-        /// <param name="filename">
-        /// Either txt or HTML input file containing the article content. HTML should be formatted as follows '&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div&amp;gt;&amp;lt;p&amp;gt;Your content&amp;lt;/p&amp;gt;&amp;lt;h5&amp;gt;More of your content&amp;lt;/h5&amp;gt;&amp;lt;p&amp;gt;Some more of your content&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;'
+        /// <param name="fromDocument">
+        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
+        /// </param>
+        /// <param name="fromDocumentname">
+        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
         /// </param>
         /// <param name="autoConvert">
         /// Whether to auto convert the project to audio or not.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="autoPublish">
-        /// Whether to auto publish the new project snapshot after it's converted.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateAudioNativeByProjectIdContentAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateProjectsByProjectIdContentAsync(
             string projectId,
             string? xiApiKey = default,
-            byte[]? file = default,
-            string? filename = default,
+            string? fromUrl = default,
+            byte[]? fromDocument = default,
+            string? fromDocumentname = default,
             bool? autoConvert = default,
-            bool? autoPublish = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
