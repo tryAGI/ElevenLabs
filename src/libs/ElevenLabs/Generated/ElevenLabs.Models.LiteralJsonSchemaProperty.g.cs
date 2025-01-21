@@ -20,8 +20,13 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable")]
+        public string? DynamicVariable { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,13 +39,16 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="type"></param>
         /// <param name="description"></param>
+        /// <param name="dynamicVariable"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public LiteralJsonSchemaProperty(
             global::ElevenLabs.LiteralJsonSchemaPropertyType type,
-            string description)
+            string? description,
+            string? dynamicVariable)
         {
             this.Type = type;
-            this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
+            this.Description = description;
+            this.DynamicVariable = dynamicVariable;
         }
 
         /// <summary>

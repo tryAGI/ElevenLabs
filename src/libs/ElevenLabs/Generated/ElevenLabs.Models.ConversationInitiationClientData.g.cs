@@ -21,6 +21,12 @@ namespace ElevenLabs
         public object? CustomLlmExtraBody { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
+        public object? DynamicVariables { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -31,13 +37,16 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="conversationConfigOverride"></param>
         /// <param name="customLlmExtraBody"></param>
+        /// <param name="dynamicVariables"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ConversationInitiationClientData(
             global::ElevenLabs.ConversationConfigClientOverride? conversationConfigOverride,
-            object? customLlmExtraBody)
+            object? customLlmExtraBody,
+            object? dynamicVariables)
         {
             this.ConversationConfigOverride = conversationConfigOverride;
             this.CustomLlmExtraBody = customLlmExtraBody;
+            this.DynamicVariables = dynamicVariables;
         }
 
         /// <summary>
