@@ -27,6 +27,12 @@ namespace ElevenLabs
         public string? Language { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
+        public global::ElevenLabs.DynamicVariablesConfig? DynamicVariables { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,15 +46,18 @@ namespace ElevenLabs
         /// <param name="language">
         /// Default Value: en
         /// </param>
+        /// <param name="dynamicVariables"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public AgentConfig(
             global::ElevenLabs.PromptAgent? prompt,
             string? firstMessage,
-            string? language)
+            string? language,
+            global::ElevenLabs.DynamicVariablesConfig? dynamicVariables)
         {
             this.Prompt = prompt;
             this.FirstMessage = firstMessage;
             this.Language = language;
+            this.DynamicVariables = dynamicVariables;
         }
 
         /// <summary>

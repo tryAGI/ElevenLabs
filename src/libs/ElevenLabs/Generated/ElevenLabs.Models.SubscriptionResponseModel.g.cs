@@ -53,6 +53,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_slots_used")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int VoiceSlotsUsed { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int VoiceLimit { get; set; }
@@ -146,6 +153,7 @@ namespace ElevenLabs
         /// <param name="canExtendCharacterLimit"></param>
         /// <param name="allowedToExtendCharacterLimit"></param>
         /// <param name="nextCharacterCountResetUnix"></param>
+        /// <param name="voiceSlotsUsed"></param>
         /// <param name="voiceLimit"></param>
         /// <param name="maxVoiceAddEdits"></param>
         /// <param name="voiceAddEditCounter"></param>
@@ -165,6 +173,7 @@ namespace ElevenLabs
             bool canExtendCharacterLimit,
             bool allowedToExtendCharacterLimit,
             int nextCharacterCountResetUnix,
+            int voiceSlotsUsed,
             int voiceLimit,
             int maxVoiceAddEdits,
             int voiceAddEditCounter,
@@ -183,6 +192,7 @@ namespace ElevenLabs
             this.CanExtendCharacterLimit = canExtendCharacterLimit;
             this.AllowedToExtendCharacterLimit = allowedToExtendCharacterLimit;
             this.NextCharacterCountResetUnix = nextCharacterCountResetUnix;
+            this.VoiceSlotsUsed = voiceSlotsUsed;
             this.VoiceLimit = voiceLimit;
             this.MaxVoiceAddEdits = maxVoiceAddEdits;
             this.VoiceAddEditCounter = voiceAddEditCounter;

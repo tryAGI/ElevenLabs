@@ -680,8 +680,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: stream_with_timestamps
-      x-fern-sdk-group-name: text_to_speech
       x-fern-streaming: true
+      x-fern-sdk-group-name: text_to_speech
   '/v1/speech-to-speech/{voice_id}':
     post:
       tags:
@@ -828,8 +828,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceGenerationParameterResponseModel'
-      x-fern-sdk-method-name: generate_parameters
       x-fern-sdk-group-name: voice_generation
+      x-fern-sdk-method-name: generate_parameters
   /v1/voice-generation/generate-voice:
     post:
       tags:
@@ -1105,8 +1105,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceSettingsResponseModel'
-      x-fern-sdk-method-name: get_default_settings
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: get_default_settings
   '/v1/voices/{voice_id}/settings':
     get:
       tags:
@@ -2979,8 +2979,8 @@ paths:
           description: 'How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -3622,8 +3622,8 @@ paths:
           description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -3692,8 +3692,8 @@ paths:
           description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -4259,6 +4259,8 @@ components:
           title: Language
           type: string
           default: en
+        dynamic_variables:
+          $ref: '#/components/schemas/DynamicVariablesConfig'
     AgentConfigOverride:
       title: AgentConfigOverride
       type: object
@@ -5735,8 +5737,8 @@ components:
           default: false
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30.0
-          minimum: 1.0
+          maximum: 30
+          minimum: 1
           type: integer
       description: A client tool is one that sends an event to the user's client to trigger something client side
     ConvAINewSecretConfig:
@@ -5992,6 +5994,15 @@ components:
         custom_llm_extra_body:
           title: Custom Llm Extra Body
           type: object
+        dynamic_variables:
+          title: Dynamic Variables
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
     ConversationInitiationClientDataConfig:
       title: ConversationInitiationClientDataConfig
       type: object
@@ -6214,6 +6225,19 @@ components:
         error:
           title: Error
           type: string
+    DynamicVariablesConfig:
+      title: DynamicVariablesConfig
+      type: object
+      properties:
+        dynamic_variable_placeholders:
+          title: Dynamic Variable Placeholders
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
     EditProjectResponseModel:
       title: EditProjectResponseModel
       required:
@@ -6257,6 +6281,7 @@ components:
         - can_extend_character_limit
         - allowed_to_extend_character_limit
         - next_character_count_reset_unix
+        - voice_slots_used
         - voice_limit
         - max_voice_add_edits
         - voice_add_edit_counter
@@ -6289,6 +6314,9 @@ components:
           type: boolean
         next_character_count_reset_unix:
           title: Next Character Count Reset Unix
+          type: integer
+        voice_slots_used:
+          title: Voice Slots Used
           type: integer
         voice_limit:
           title: Voice Limit
@@ -6996,7 +7024,6 @@ components:
       title: LiteralJsonSchemaProperty
       required:
         - type
-        - description
       type: object
       properties:
         type:
@@ -7010,6 +7037,11 @@ components:
         description:
           title: Description
           type: string
+          default: ''
+        dynamic_variable:
+          title: Dynamic Variable
+          type: string
+          default: ''
     ManualVerificationFileResponseModel:
       title: ManualVerificationFileResponseModel
       required:
@@ -8074,6 +8106,7 @@ components:
         - can_extend_character_limit
         - allowed_to_extend_character_limit
         - next_character_count_reset_unix
+        - voice_slots_used
         - voice_limit
         - max_voice_add_edits
         - voice_add_edit_counter
@@ -8104,6 +8137,9 @@ components:
           type: boolean
         next_character_count_reset_unix:
           title: Next Character Count Reset Unix
+          type: integer
+        voice_slots_used:
+          title: Voice Slots Used
           type: integer
         voice_limit:
           title: Voice Limit
@@ -8341,6 +8377,7 @@ components:
     UserResponseModel:
       title: UserResponseModel
       required:
+        - user_id
         - subscription
         - subscription_extras
         - is_new_user
@@ -8350,6 +8387,9 @@ components:
         - is_onboarding_checklist_completed
       type: object
       properties:
+        user_id:
+          title: User Id
+          type: string
         subscription:
           $ref: '#/components/schemas/SubscriptionResponseModel'
         subscription_extras:

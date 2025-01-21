@@ -11,6 +11,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string UserId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("subscription")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.SubscriptionResponseModel Subscription { get; set; }
@@ -96,6 +103,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="UserResponseModel" /> class.
         /// </summary>
+        /// <param name="userId"></param>
         /// <param name="subscription"></param>
         /// <param name="subscriptionExtras"></param>
         /// <param name="isNewUser"></param>
@@ -112,6 +120,7 @@ namespace ElevenLabs
         /// <param name="partnerstackPartnerDefaultLink"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public UserResponseModel(
+            string userId,
             global::ElevenLabs.SubscriptionResponseModel subscription,
             global::ElevenLabs.SubscriptionExtrasResponseModel subscriptionExtras,
             bool isNewUser,
@@ -125,6 +134,7 @@ namespace ElevenLabs
             string? referralLinkCode,
             string? partnerstackPartnerDefaultLink)
         {
+            this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Subscription = subscription ?? throw new global::System.ArgumentNullException(nameof(subscription));
             this.SubscriptionExtras = subscriptionExtras ?? throw new global::System.ArgumentNullException(nameof(subscriptionExtras));
             this.IsNewUser = isNewUser;
