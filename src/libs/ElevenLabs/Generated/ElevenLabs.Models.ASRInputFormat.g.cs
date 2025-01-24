@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Pcm8000,
+        /// <summary>
+        /// 
+        /// </summary>
         Pcm16000,
         /// <summary>
         /// 
@@ -42,6 +46,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ASRInputFormat.Pcm8000 => "pcm_8000",
                 ASRInputFormat.Pcm16000 => "pcm_16000",
                 ASRInputFormat.Pcm22050 => "pcm_22050",
                 ASRInputFormat.Pcm24000 => "pcm_24000",
@@ -57,6 +62,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "pcm_8000" => ASRInputFormat.Pcm8000,
                 "pcm_16000" => ASRInputFormat.Pcm16000,
                 "pcm_22050" => ASRInputFormat.Pcm22050,
                 "pcm_24000" => ASRInputFormat.Pcm24000,

@@ -828,8 +828,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceGenerationParameterResponseModel'
-      x-fern-sdk-group-name: voice_generation
       x-fern-sdk-method-name: generate_parameters
+      x-fern-sdk-group-name: voice_generation
   /v1/voice-generation/generate-voice:
     post:
       tags:
@@ -884,6 +884,7 @@ paths:
               - mp3_44100_96
               - mp3_44100_128
               - mp3_44100_192
+              - pcm_8000
               - pcm_16000
               - pcm_22050
               - pcm_24000
@@ -1105,8 +1106,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceSettingsResponseModel'
-      x-fern-sdk-group-name: voices
       x-fern-sdk-method-name: get_default_settings
+      x-fern-sdk-group-name: voices
   '/v1/voices/{voice_id}/settings':
     get:
       tags:
@@ -1639,6 +1640,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: update_content
+      x-fern-sdk-group-name: projects
   '/v1/projects/{project_id}/convert':
     post:
       tags:
@@ -2371,6 +2374,7 @@ paths:
               - webvtt
             type: string
             description: 'Format to use for the subtitle file, either ''srt'' or ''webvtt'''
+            default: srt
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2503,6 +2507,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: update_content
+      x-fern-sdk-group-name: audio_native
   /v1/shared-voices:
     get:
       tags:
@@ -4098,6 +4104,7 @@ components:
     ASRInputFormat:
       title: ASRInputFormat
       enum:
+        - pcm_8000
         - pcm_16000
         - pcm_22050
         - pcm_24000
@@ -5317,7 +5324,6 @@ components:
           type: boolean
           description: 'If true, we won''t use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.'
           default: false
-          deprecated: true
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -5386,7 +5392,6 @@ components:
           type: boolean
           description: 'If true, we won''t use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.'
           default: false
-          deprecated: true
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -5455,7 +5460,6 @@ components:
           type: boolean
           description: 'If true, we won''t use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.'
           default: false
-          deprecated: true
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -5524,7 +5528,6 @@ components:
           type: boolean
           description: 'If true, we won''t use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.'
           default: false
-          deprecated: true
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -8283,6 +8286,7 @@ components:
     TTSOutputFormat:
       title: TTSOutputFormat
       enum:
+        - pcm_8000
         - pcm_16000
         - pcm_22050
         - pcm_24000

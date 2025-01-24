@@ -47,6 +47,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Pcm8000,
+        /// <summary>
+        /// 
+        /// </summary>
         Pcm16000,
         /// <summary>
         /// 
@@ -84,6 +88,7 @@ namespace ElevenLabs
                 GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Mp34410096 => "mp3_44100_96",
                 GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Mp344100128 => "mp3_44100_128",
                 GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Mp344100192 => "mp3_44100_192",
+                GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm8000 => "pcm_8000",
                 GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm16000 => "pcm_16000",
                 GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm22050 => "pcm_22050",
                 GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm24000 => "pcm_24000",
@@ -105,6 +110,7 @@ namespace ElevenLabs
                 "mp3_44100_96" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Mp34410096,
                 "mp3_44100_128" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Mp344100128,
                 "mp3_44100_192" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Mp344100192,
+                "pcm_8000" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm8000,
                 "pcm_16000" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm16000,
                 "pcm_22050" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm22050,
                 "pcm_24000" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm24000,

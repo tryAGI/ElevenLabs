@@ -75,7 +75,6 @@ namespace ElevenLabs
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_pvc_as_ivc")]
-        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? UsePvcAsIvc { get; set; }
 
         /// <summary>
@@ -126,6 +125,10 @@ namespace ElevenLabs
         /// <param name="nextRequestIds">
         /// A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
         /// </param>
+        /// <param name="usePvcAsIvc">
+        /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="applyTextNormalization">
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. Cannot be turned on for 'eleven_turbo_v2_5' model.<br/>
         /// Default Value: auto
@@ -142,6 +145,7 @@ namespace ElevenLabs
             string? nextText,
             global::System.Collections.Generic.IList<string>? previousRequestIds,
             global::System.Collections.Generic.IList<string>? nextRequestIds,
+            bool? usePvcAsIvc,
             global::ElevenLabs.BodyTextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostApplyTextNormalization? applyTextNormalization)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
@@ -154,6 +158,7 @@ namespace ElevenLabs
             this.NextText = nextText;
             this.PreviousRequestIds = previousRequestIds;
             this.NextRequestIds = nextRequestIds;
+            this.UsePvcAsIvc = usePvcAsIvc;
             this.ApplyTextNormalization = applyTextNormalization;
         }
 
