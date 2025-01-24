@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Format to use for the subtitle file, either 'srt' or 'webvtt'
+    /// Format to use for the subtitle file, either 'srt' or 'webvtt'<br/>
+    /// Default Value: srt
     /// </summary>
     public enum GetTranscriptForDubV1DubbingDubbingIdTranscriptLanguageCodeGetFormatType
     {

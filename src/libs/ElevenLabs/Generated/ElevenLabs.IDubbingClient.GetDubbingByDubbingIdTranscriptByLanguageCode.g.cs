@@ -15,7 +15,8 @@ namespace ElevenLabs
         /// ID of the language.
         /// </param>
         /// <param name="formatType">
-        /// Format to use for the subtitle file, either 'srt' or 'webvtt'
+        /// Format to use for the subtitle file, either 'srt' or 'webvtt'<br/>
+        /// Default Value: srt
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

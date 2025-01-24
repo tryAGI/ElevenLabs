@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Pcm8000,
+        /// <summary>
+        /// 
+        /// </summary>
         Pcm16000,
         /// <summary>
         /// 
@@ -42,6 +46,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                TTSOutputFormat.Pcm8000 => "pcm_8000",
                 TTSOutputFormat.Pcm16000 => "pcm_16000",
                 TTSOutputFormat.Pcm22050 => "pcm_22050",
                 TTSOutputFormat.Pcm24000 => "pcm_24000",
@@ -57,6 +62,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "pcm_8000" => TTSOutputFormat.Pcm8000,
                 "pcm_16000" => TTSOutputFormat.Pcm16000,
                 "pcm_22050" => TTSOutputFormat.Pcm22050,
                 "pcm_24000" => TTSOutputFormat.Pcm24000,
