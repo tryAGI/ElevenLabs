@@ -16,6 +16,14 @@ namespace ElevenLabs
         public required string Email { get; set; }
 
         /// <summary>
+        /// The group ids of the user<br/>
+        /// Example: [group_id_1, group_id_2]
+        /// </summary>
+        /// <example>[group_id_1, group_id_2]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("group_ids")]
+        public global::System.Collections.Generic.IList<string>? GroupIds { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -27,11 +35,17 @@ namespace ElevenLabs
         /// <param name="email">
         /// The email of the customer
         /// </param>
+        /// <param name="groupIds">
+        /// The group ids of the user<br/>
+        /// Example: [group_id_1, group_id_2]
+        /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public BodyInviteUserV1WorkspaceInvitesAddPost(
-            string email)
+            string email,
+            global::System.Collections.Generic.IList<string>? groupIds)
         {
             this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
+            this.GroupIds = groupIds;
         }
 
         /// <summary>

@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ChapterResponseModel> GetProjectsByProjectIdChaptersByChapterIdAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ChapterWithContentResponseModel> GetProjectsByProjectIdChaptersByChapterIdAsync(
             string projectId,
             string chapterId,
             string? xiApiKey = default,

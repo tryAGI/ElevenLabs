@@ -39,6 +39,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("media_metadata")]
+        public global::ElevenLabs.DubbingMediaMetadata? MediaMetadata { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public string? Error { get; set; }
 
@@ -55,6 +61,7 @@ namespace ElevenLabs
         /// <param name="name"></param>
         /// <param name="status"></param>
         /// <param name="targetLanguages"></param>
+        /// <param name="mediaMetadata"></param>
         /// <param name="error"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public DubbingMetadataResponse(
@@ -62,12 +69,14 @@ namespace ElevenLabs
             string name,
             string status,
             global::System.Collections.Generic.IList<string> targetLanguages,
+            global::ElevenLabs.DubbingMediaMetadata? mediaMetadata,
             string? error)
         {
             this.DubbingId = dubbingId ?? throw new global::System.ArgumentNullException(nameof(dubbingId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Status = status ?? throw new global::System.ArgumentNullException(nameof(status));
             this.TargetLanguages = targetLanguages ?? throw new global::System.ArgumentNullException(nameof(targetLanguages));
+            this.MediaMetadata = mediaMetadata;
             this.Error = error;
         }
 

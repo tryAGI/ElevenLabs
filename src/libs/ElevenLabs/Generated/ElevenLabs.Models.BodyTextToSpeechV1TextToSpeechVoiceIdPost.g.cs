@@ -23,7 +23,7 @@ namespace ElevenLabs
         public string? ModelId { get; set; }
 
         /// <summary>
-        /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 supports language enforcement. For other models, an error will be returned if language code is provided.
+        /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_code")]
         public string? LanguageCode { get; set; }
@@ -102,7 +102,7 @@ namespace ElevenLabs
         /// Default Value: eleven_monolingual_v1
         /// </param>
         /// <param name="languageCode">
-        /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 supports language enforcement. For other models, an error will be returned if language code is provided.
+        /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
         /// </param>
         /// <param name="voiceSettings">
         /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request.
