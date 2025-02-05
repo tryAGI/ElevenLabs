@@ -1,0 +1,54 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class BodyEditChapterV1ProjectsProjectIdChaptersChapterIdPatch
+    {
+        /// <summary>
+        /// The name of the chapter, used for identification only.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
+        /// The chapter content to use.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content")]
+        public global::ElevenLabs.ChapterContentInputModel? Content { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BodyEditChapterV1ProjectsProjectIdChaptersChapterIdPatch" /> class.
+        /// </summary>
+        /// <param name="name">
+        /// The name of the chapter, used for identification only.
+        /// </param>
+        /// <param name="content">
+        /// The chapter content to use.
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public BodyEditChapterV1ProjectsProjectIdChaptersChapterIdPatch(
+            string? name,
+            global::ElevenLabs.ChapterContentInputModel? content)
+        {
+            this.Name = name;
+            this.Content = content;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BodyEditChapterV1ProjectsProjectIdChaptersChapterIdPatch" /> class.
+        /// </summary>
+        public BodyEditChapterV1ProjectsProjectIdChaptersChapterIdPatch()
+        {
+        }
+    }
+}

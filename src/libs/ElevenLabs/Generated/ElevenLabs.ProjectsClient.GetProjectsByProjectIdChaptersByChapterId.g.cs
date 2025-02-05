@@ -40,7 +40,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ChapterResponseModel> GetProjectsByProjectIdChaptersByChapterIdAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ChapterWithContentResponseModel> GetProjectsByProjectIdChaptersByChapterIdAsync(
             string projectId,
             string chapterId,
             string? xiApiKey = default,
@@ -171,7 +171,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.ChapterResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.ChapterWithContentResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -197,7 +197,7 @@ namespace ElevenLabs
                 using var __content = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.ChapterResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.ChapterWithContentResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }

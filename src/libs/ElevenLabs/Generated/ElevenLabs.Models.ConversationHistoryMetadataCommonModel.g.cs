@@ -31,6 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("deletion_settings")]
+        public global::ElevenLabs.ConversationDeletionSettings? DeletionSettings { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
         public global::ElevenLabs.ConversationHistoryFeedbackCommonModel? Feedback { get; set; }
 
@@ -65,6 +71,7 @@ namespace ElevenLabs
         /// <param name="startTimeUnixSecs"></param>
         /// <param name="callDurationSecs"></param>
         /// <param name="cost"></param>
+        /// <param name="deletionSettings"></param>
         /// <param name="feedback"></param>
         /// <param name="authorizationMethod">
         /// Default Value: public
@@ -76,6 +83,7 @@ namespace ElevenLabs
             int startTimeUnixSecs,
             int callDurationSecs,
             int? cost,
+            global::ElevenLabs.ConversationDeletionSettings? deletionSettings,
             global::ElevenLabs.ConversationHistoryFeedbackCommonModel? feedback,
             global::ElevenLabs.AuthorizationMethod? authorizationMethod,
             global::ElevenLabs.ConversationChargingCommonModel? charging,
@@ -84,6 +92,7 @@ namespace ElevenLabs
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
             this.Cost = cost;
+            this.DeletionSettings = deletionSettings;
             this.Feedback = feedback;
             this.AuthorizationMethod = authorizationMethod;
             this.Charging = charging;

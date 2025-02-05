@@ -25,6 +25,20 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("convai_chars_per_minute")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int ConvaiCharsPerMinute { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("convai_asr_chars_per_minute")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int ConvaiAsrCharsPerMinute { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("force_logging_disabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool ForceLoggingDisabled { get; set; }
@@ -61,6 +75,8 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="concurrency"></param>
         /// <param name="convaiConcurrency"></param>
+        /// <param name="convaiCharsPerMinute"></param>
+        /// <param name="convaiAsrCharsPerMinute"></param>
         /// <param name="forceLoggingDisabled"></param>
         /// <param name="canRequestManualProVoiceVerification"></param>
         /// <param name="canBypassVoiceCaptcha"></param>
@@ -69,6 +85,8 @@ namespace ElevenLabs
         public SubscriptionExtrasResponseModel(
             int concurrency,
             int convaiConcurrency,
+            int convaiCharsPerMinute,
+            int convaiAsrCharsPerMinute,
             bool forceLoggingDisabled,
             bool canRequestManualProVoiceVerification,
             bool canBypassVoiceCaptcha,
@@ -76,6 +94,8 @@ namespace ElevenLabs
         {
             this.Concurrency = concurrency;
             this.ConvaiConcurrency = convaiConcurrency;
+            this.ConvaiCharsPerMinute = convaiCharsPerMinute;
+            this.ConvaiAsrCharsPerMinute = convaiAsrCharsPerMinute;
             this.ForceLoggingDisabled = forceLoggingDisabled;
             this.CanRequestManualProVoiceVerification = canRequestManualProVoiceVerification;
             this.CanBypassVoiceCaptcha = canBypassVoiceCaptcha;

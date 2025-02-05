@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="enableLogging">
-        /// When enable_logging is set to false full privacy mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Full privacy mode may only be used by enterprise customers.<br/>
+        /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="optimizeStreamingLatency">
@@ -185,7 +185,7 @@ namespace ElevenLabs
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="enableLogging">
-        /// When enable_logging is set to false full privacy mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Full privacy mode may only be used by enterprise customers.<br/>
+        /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="optimizeStreamingLatency">
@@ -223,7 +223,7 @@ namespace ElevenLabs
         /// Default Value: eleven_monolingual_v1
         /// </param>
         /// <param name="languageCode">
-        /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 supports language enforcement. For other models, an error will be returned if language code is provided.
+        /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
         /// </param>
         /// <param name="voiceSettings">
         /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request.

@@ -15,6 +15,30 @@ namespace ElevenLabs
         public bool? RecordVoice { get; set; }
 
         /// <summary>
+        /// Default Value: -1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("retention_days")]
+        public int? RetentionDays { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("delete_transcript_and_pii")]
+        public bool? DeleteTranscriptAndPii { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("delete_audio")]
+        public bool? DeleteAudio { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("apply_to_existing_conversations")]
+        public bool? ApplyToExistingConversations { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -26,11 +50,31 @@ namespace ElevenLabs
         /// <param name="recordVoice">
         /// Default Value: true
         /// </param>
+        /// <param name="retentionDays">
+        /// Default Value: -1
+        /// </param>
+        /// <param name="deleteTranscriptAndPii">
+        /// Default Value: false
+        /// </param>
+        /// <param name="deleteAudio">
+        /// Default Value: false
+        /// </param>
+        /// <param name="applyToExistingConversations">
+        /// Default Value: false
+        /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public PrivacyConfig(
-            bool? recordVoice)
+            bool? recordVoice,
+            int? retentionDays,
+            bool? deleteTranscriptAndPii,
+            bool? deleteAudio,
+            bool? applyToExistingConversations)
         {
             this.RecordVoice = recordVoice;
+            this.RetentionDays = retentionDays;
+            this.DeleteTranscriptAndPii = deleteTranscriptAndPii;
+            this.DeleteAudio = deleteAudio;
+            this.ApplyToExistingConversations = applyToExistingConversations;
         }
 
         /// <summary>

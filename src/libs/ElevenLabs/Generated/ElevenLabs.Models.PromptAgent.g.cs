@@ -42,6 +42,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("used_tools")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolConfigLocator>? UsedTools { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("knowledge_base")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? KnowledgeBase { get; set; }
 
@@ -71,6 +77,7 @@ namespace ElevenLabs
         /// Default Value: -1
         /// </param>
         /// <param name="tools"></param>
+        /// <param name="usedTools"></param>
         /// <param name="knowledgeBase"></param>
         /// <param name="customLlm"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -80,6 +87,7 @@ namespace ElevenLabs
             double? temperature,
             int? maxTokens,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? tools,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolConfigLocator>? usedTools,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::ElevenLabs.CustomLLM? customLlm)
         {
@@ -88,6 +96,7 @@ namespace ElevenLabs
             this.Temperature = temperature;
             this.MaxTokens = maxTokens;
             this.Tools = tools;
+            this.UsedTools = usedTools;
             this.KnowledgeBase = knowledgeBase;
             this.CustomLlm = customLlm;
         }

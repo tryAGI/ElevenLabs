@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ChapterResponseModel Chapter { get; set; }
+        public required global::ElevenLabs.ChapterWithContentResponseModel Chapter { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// <param name="chapter"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public AddChapterResponseModel(
-            global::ElevenLabs.ChapterResponseModel chapter)
+            global::ElevenLabs.ChapterWithContentResponseModel chapter)
         {
             this.Chapter = chapter ?? throw new global::System.ArgumentNullException(nameof(chapter));
         }
