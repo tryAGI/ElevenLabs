@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="alignment"></param>
         /// <param name="normalizedAlignment"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public HistoryAlignmentsResponseModel(
             global::ElevenLabs.HistoryAlignmentResponseModel alignment,
             global::ElevenLabs.HistoryAlignmentResponseModel normalizedAlignment)

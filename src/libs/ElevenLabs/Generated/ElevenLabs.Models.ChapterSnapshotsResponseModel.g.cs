@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ChapterSnapshotsResponseModel" /> class.
         /// </summary>
         /// <param name="snapshots"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChapterSnapshotsResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.ChapterSnapshotResponseModel> snapshots)
         {

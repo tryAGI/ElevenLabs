@@ -50,7 +50,9 @@ namespace ElevenLabs
         /// An enumeration.
         /// </param>
         /// <param name="transcriptSummary"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationHistoryAnalysisCommonModel(
             global::ElevenLabs.EvaluationSuccessResult callSuccessful,
             string transcriptSummary,

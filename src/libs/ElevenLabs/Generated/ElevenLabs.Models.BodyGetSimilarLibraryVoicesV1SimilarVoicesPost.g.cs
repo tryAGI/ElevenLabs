@@ -49,7 +49,9 @@ namespace ElevenLabs
         /// <param name="topK">
         /// Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Must be in range &lt;1, 100&gt;.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyGetSimilarLibraryVoicesV1SimilarVoicesPost(
             byte[]? audioFile,
             string? audioFilename,

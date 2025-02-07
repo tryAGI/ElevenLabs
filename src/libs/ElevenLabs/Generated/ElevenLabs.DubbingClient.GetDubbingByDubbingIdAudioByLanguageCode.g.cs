@@ -140,7 +140,11 @@ namespace ElevenLabs
 
             if (ReadResponseAsString)
             {
-                var __content = await __response.Content.ReadAsByteArrayAsync(cancellationToken).ConfigureAwait(false);
+                var __content = await __response.Content.ReadAsByteArrayAsync(
+#if NET5_0_OR_GREATER
+                    cancellationToken
+#endif
+                ).ConfigureAwait(false);
 
                 ProcessGetDubbingByDubbingIdAudioByLanguageCodeResponseContent(
                     httpClient: HttpClient,
@@ -187,7 +191,11 @@ namespace ElevenLabs
                     };
                 }
 
-                var __content = await __response.Content.ReadAsByteArrayAsync(cancellationToken).ConfigureAwait(false);
+                var __content = await __response.Content.ReadAsByteArrayAsync(
+#if NET5_0_OR_GREATER
+                    cancellationToken
+#endif
+                ).ConfigureAwait(false);
 
                 return __content;
             }

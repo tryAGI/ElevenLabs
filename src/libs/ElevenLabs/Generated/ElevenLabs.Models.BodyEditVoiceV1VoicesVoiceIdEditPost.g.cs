@@ -65,7 +65,9 @@ namespace ElevenLabs
         /// <param name="labels">
         /// Serialized labels dictionary for the voice.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyEditVoiceV1VoicesVoiceIdEditPost(
             string name,
             global::System.Collections.Generic.IList<byte[]>? files,

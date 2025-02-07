@@ -74,7 +74,9 @@ namespace ElevenLabs
         /// <param name="playedNotSelectedVoiceIds">
         /// List of voice ids that the user has played but not selected. Used for RLHF.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyCreateANewVoiceFromVoicePreviewV1TextToVoiceCreateVoiceFromPreviewPost(
             string voiceName,
             string voiceDescription,

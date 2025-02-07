@@ -91,7 +91,9 @@ namespace ElevenLabs
         /// <param name="safetyStatus"></param>
         /// <param name="warningStatus"></param>
         /// <param name="onWatchlist"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ModerationStatusResponseModel(
             bool isInProbation,
             bool enterpriseCheckNogoVoice,

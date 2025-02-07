@@ -63,7 +63,9 @@ namespace ElevenLabs
         /// <param name="queryParamsSchema"></param>
         /// <param name="requestBodySchema"></param>
         /// <param name="requestHeaders"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public WebhookToolApiSchemaConfig(
             string url,
             global::ElevenLabs.WebhookToolApiSchemaConfigMethod? method,

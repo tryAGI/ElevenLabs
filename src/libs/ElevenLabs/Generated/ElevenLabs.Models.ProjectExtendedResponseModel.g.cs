@@ -257,7 +257,9 @@ namespace ElevenLabs
         /// <param name="pronunciationDictionaryVersions"></param>
         /// <param name="applyTextNormalization"></param>
         /// <param name="experimental"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ProjectExtendedResponseModel(
             string projectId,
             string name,

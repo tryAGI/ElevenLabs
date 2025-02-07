@@ -40,7 +40,9 @@ namespace ElevenLabs
         /// <param name="voices"></param>
         /// <param name="hasMore"></param>
         /// <param name="lastSortId"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetLibraryVoicesResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.LibraryVoiceResponseModel> voices,
             bool hasMore,

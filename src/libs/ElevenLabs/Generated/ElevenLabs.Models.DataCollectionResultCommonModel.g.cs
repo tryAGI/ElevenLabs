@@ -47,7 +47,9 @@ namespace ElevenLabs
         /// <param name="value"></param>
         /// <param name="jsonSchema"></param>
         /// <param name="rationale"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DataCollectionResultCommonModel(
             string dataCollectionId,
             string rationale,

@@ -40,7 +40,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="allowlist"></param>
         /// <param name="shareableToken"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AuthSettings(
             bool? enableAuth,
             global::System.Collections.Generic.IList<global::ElevenLabs.AllowlistItem>? allowlist,

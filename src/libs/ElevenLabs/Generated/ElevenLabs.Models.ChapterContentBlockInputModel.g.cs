@@ -32,7 +32,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="blockId"></param>
         /// <param name="nodes"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChapterContentBlockInputModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel> nodes,
             string? blockId)

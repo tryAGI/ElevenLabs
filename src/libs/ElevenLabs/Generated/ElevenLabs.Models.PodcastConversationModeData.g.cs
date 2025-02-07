@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="hostVoiceId"></param>
         /// <param name="guestVoiceId"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public PodcastConversationModeData(
             string hostVoiceId,
             string guestVoiceId)

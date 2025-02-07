@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="name"></param>
         /// <param name="code"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public VoiceGenerationParameterOptionResponseModel(
             string name,
             string code)

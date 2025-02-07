@@ -54,7 +54,9 @@ namespace ElevenLabs
         /// Default Value: pcm_16000
         /// </param>
         /// <param name="keywords"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ASRConversationalConfig(
             global::ElevenLabs.ASRQuality? quality,
             global::ElevenLabs.ASRProvider? provider,

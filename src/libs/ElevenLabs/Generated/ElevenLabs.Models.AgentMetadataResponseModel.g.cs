@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="AgentMetadataResponseModel" /> class.
         /// </summary>
         /// <param name="createdAtUnixSecs"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AgentMetadataResponseModel(
             int createdAtUnixSecs)
         {

@@ -38,7 +38,9 @@ namespace ElevenLabs
         /// <param name="prompt"></param>
         /// <param name="firstMessage"></param>
         /// <param name="language"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AgentConfigOverride(
             global::ElevenLabs.PromptAgentOverride? prompt,
             string? firstMessage,

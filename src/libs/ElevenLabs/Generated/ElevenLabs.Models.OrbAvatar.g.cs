@@ -45,7 +45,9 @@ namespace ElevenLabs
         /// <param name="color2">
         /// Default Value: #9ce6e6
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OrbAvatar(
             global::ElevenLabs.OrbAvatarType? type,
             string? color1,

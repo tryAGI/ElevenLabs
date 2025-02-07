@@ -66,7 +66,9 @@ namespace ElevenLabs
         /// <param name="speakerId">
         /// Unique identifier for the speaker of this word.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public SpeechToTextWordResponseModel(
             string text,
             global::ElevenLabs.SpeechToTextWordResponseModelType type,

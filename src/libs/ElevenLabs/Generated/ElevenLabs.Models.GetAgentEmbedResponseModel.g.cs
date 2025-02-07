@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="widgetConfig"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetAgentEmbedResponseModel(
             string agentId,
             global::ElevenLabs.WidgetConfigResponseModel widgetConfig)

@@ -59,7 +59,9 @@ namespace ElevenLabs
         /// <param name="tts"></param>
         /// <param name="conversation"></param>
         /// <param name="languagePresets"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationalConfig(
             global::ElevenLabs.AgentConfig? agent,
             global::ElevenLabs.ASRConversationalConfig? asr,

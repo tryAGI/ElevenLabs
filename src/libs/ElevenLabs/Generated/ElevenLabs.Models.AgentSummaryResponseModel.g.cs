@@ -50,7 +50,9 @@ namespace ElevenLabs
         /// <param name="name"></param>
         /// <param name="createdAtUnixSecs"></param>
         /// <param name="accessLevel"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AgentSummaryResponseModel(
             string agentId,
             string name,

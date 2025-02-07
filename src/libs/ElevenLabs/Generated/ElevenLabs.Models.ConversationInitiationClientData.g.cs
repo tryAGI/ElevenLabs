@@ -38,7 +38,9 @@ namespace ElevenLabs
         /// <param name="conversationConfigOverride"></param>
         /// <param name="customLlmExtraBody"></param>
         /// <param name="dynamicVariables"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationInitiationClientData(
             global::ElevenLabs.ConversationConfigClientOverride? conversationConfigOverride,
             object? customLlmExtraBody,

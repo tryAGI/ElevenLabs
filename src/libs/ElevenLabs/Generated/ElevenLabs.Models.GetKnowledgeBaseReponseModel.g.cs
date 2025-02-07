@@ -42,7 +42,9 @@ namespace ElevenLabs
         /// <param name="id"></param>
         /// <param name="type"></param>
         /// <param name="extractedInnerHtml"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetKnowledgeBaseReponseModel(
             string id,
             global::ElevenLabs.GetKnowledgeBaseReponseModelType type,

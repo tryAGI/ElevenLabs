@@ -44,7 +44,9 @@ namespace ElevenLabs
         /// An enumeration.
         /// </param>
         /// <param name="rationale"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationHistoryEvaluationCriteriaResultCommonModel(
             string criteriaId,
             global::ElevenLabs.EvaluationSuccessResult result,

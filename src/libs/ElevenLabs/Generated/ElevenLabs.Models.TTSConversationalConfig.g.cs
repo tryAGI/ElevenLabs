@@ -80,7 +80,9 @@ namespace ElevenLabs
         /// Default Value: 0.8
         /// </param>
         /// <param name="pronunciationDictionaryLocators"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public TTSConversationalConfig(
             global::ElevenLabs.TTSConversationalModel? modelId,
             string? voiceId,

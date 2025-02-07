@@ -27,7 +27,9 @@ namespace ElevenLabs
         /// <param name="ruleStrings">
         /// List of strings to remove from the pronunciation dictionary.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyRemoveRulesFromThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdRemoveRulesPost(
             global::System.Collections.Generic.IList<string> ruleStrings)
         {

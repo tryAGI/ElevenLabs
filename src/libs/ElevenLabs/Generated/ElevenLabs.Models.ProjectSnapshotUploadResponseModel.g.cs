@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="status"></param>
         /// <param name="acxVolumeNormalization"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ProjectSnapshotUploadResponseModel(
             global::ElevenLabs.ProjectSnapshotUploadResponseModelStatus status,
             bool? acxVolumeNormalization)

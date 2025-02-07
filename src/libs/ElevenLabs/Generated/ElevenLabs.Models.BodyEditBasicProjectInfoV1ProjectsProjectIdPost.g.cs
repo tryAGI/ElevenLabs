@@ -94,7 +94,9 @@ namespace ElevenLabs
         /// <param name="qualityCheckOn">
         /// [Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyEditBasicProjectInfoV1ProjectsProjectIdPost(
             string name,
             string defaultTitleVoiceId,

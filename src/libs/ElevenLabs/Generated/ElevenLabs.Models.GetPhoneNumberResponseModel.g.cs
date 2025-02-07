@@ -62,7 +62,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="phoneNumberId"></param>
         /// <param name="assignedAgent"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetPhoneNumberResponseModel(
             string phoneNumber,
             string label,

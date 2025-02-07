@@ -34,7 +34,9 @@ namespace ElevenLabs
         /// Default Value: url
         /// </param>
         /// <param name="customUrl"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public URLAvatar(
             global::ElevenLabs.URLAvatarType? type,
             string? customUrl)

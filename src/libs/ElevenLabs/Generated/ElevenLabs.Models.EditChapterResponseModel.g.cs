@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="EditChapterResponseModel" /> class.
         /// </summary>
         /// <param name="chapter"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public EditChapterResponseModel(
             global::ElevenLabs.ChapterWithContentResponseModel chapter)
         {

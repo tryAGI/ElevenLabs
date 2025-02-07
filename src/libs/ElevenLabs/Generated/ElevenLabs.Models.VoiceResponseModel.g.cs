@@ -168,7 +168,9 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="createdAtUnix"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public VoiceResponseModel(
             string voiceId,
             string name,

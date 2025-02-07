@@ -41,7 +41,9 @@ namespace ElevenLabs
         /// <param name="pronunciationDictionaries"></param>
         /// <param name="nextCursor"></param>
         /// <param name="hasMore"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetPronunciationDictionariesMetadataResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> pronunciationDictionaries,
             string nextCursor,

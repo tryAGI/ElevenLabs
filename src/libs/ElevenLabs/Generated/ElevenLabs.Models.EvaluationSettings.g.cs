@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="EvaluationSettings" /> class.
         /// </summary>
         /// <param name="criteria"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public EvaluationSettings(
             global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? criteria)
         {

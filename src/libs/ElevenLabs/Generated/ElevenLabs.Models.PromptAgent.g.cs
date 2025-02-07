@@ -80,7 +80,9 @@ namespace ElevenLabs
         /// <param name="usedTools"></param>
         /// <param name="knowledgeBase"></param>
         /// <param name="customLlm"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public PromptAgent(
             string? prompt,
             global::ElevenLabs.LLM? llm,

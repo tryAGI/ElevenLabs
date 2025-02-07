@@ -50,7 +50,9 @@ namespace ElevenLabs
         /// Default Value: 0
         /// </param>
         /// <param name="matchedRuleId"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public SafetyEvaluation(
             bool? isUnsafe,
             string? llmReason,

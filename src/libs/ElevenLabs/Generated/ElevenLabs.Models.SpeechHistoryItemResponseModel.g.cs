@@ -155,7 +155,9 @@ namespace ElevenLabs
         /// <param name="shareLinkId"></param>
         /// <param name="source"></param>
         /// <param name="alignments"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public SpeechHistoryItemResponseModel(
             string historyItemId,
             string requestId,

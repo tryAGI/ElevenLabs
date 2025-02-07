@@ -81,7 +81,9 @@ namespace ElevenLabs
         /// <param name="canRequestManualProVoiceVerification"></param>
         /// <param name="canBypassVoiceCaptcha"></param>
         /// <param name="moderation"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public SubscriptionExtrasResponseModel(
             int concurrency,
             int convaiConcurrency,

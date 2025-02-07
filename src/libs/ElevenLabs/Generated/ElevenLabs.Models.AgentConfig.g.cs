@@ -47,7 +47,9 @@ namespace ElevenLabs
         /// Default Value: en
         /// </param>
         /// <param name="dynamicVariables"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AgentConfig(
             global::ElevenLabs.PromptAgent? prompt,
             string? firstMessage,

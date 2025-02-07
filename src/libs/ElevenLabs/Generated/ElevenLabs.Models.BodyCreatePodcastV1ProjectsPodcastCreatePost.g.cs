@@ -116,7 +116,9 @@ namespace ElevenLabs
         /// <param name="callbackUrl">
         /// A url that will be called by our service when the project is converted with a json containing the status of the conversion
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyCreatePodcastV1ProjectsPodcastCreatePost(
             string modelId,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> mode,

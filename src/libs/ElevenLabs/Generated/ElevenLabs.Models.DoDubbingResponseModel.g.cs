@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="dubbingId"></param>
         /// <param name="expectedDurationSec"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DoDubbingResponseModel(
             string dubbingId,
             double expectedDurationSec)

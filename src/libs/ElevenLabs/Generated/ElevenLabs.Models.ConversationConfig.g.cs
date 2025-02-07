@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// Default Value: 600
         /// </param>
         /// <param name="clientEvents"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationConfig(
             int? maxDurationSeconds,
             global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? clientEvents)

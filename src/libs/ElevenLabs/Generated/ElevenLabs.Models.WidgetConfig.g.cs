@@ -201,7 +201,9 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="customAvatarPath"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public WidgetConfig(
             global::ElevenLabs.EmbedVariant? variant,
             global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? avatar,

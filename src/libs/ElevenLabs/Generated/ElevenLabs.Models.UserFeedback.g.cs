@@ -36,7 +36,9 @@ namespace ElevenLabs
         /// An enumeration.
         /// </param>
         /// <param name="timeInCallSecs"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public UserFeedback(
             global::ElevenLabs.UserFeedbackScore score,
             int timeInCallSecs)

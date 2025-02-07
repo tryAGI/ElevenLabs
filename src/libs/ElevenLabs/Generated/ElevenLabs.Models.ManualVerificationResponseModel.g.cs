@@ -41,7 +41,9 @@ namespace ElevenLabs
         /// <param name="extraText"></param>
         /// <param name="requestTimeUnix"></param>
         /// <param name="files"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ManualVerificationResponseModel(
             string extraText,
             int requestTimeUnix,

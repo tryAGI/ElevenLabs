@@ -86,7 +86,9 @@ namespace ElevenLabs
         /// Safety object that has the information of safety evaluations based on used voice.
         /// </param>
         /// <param name="privacy"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AgentPlatformSettings(
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.EvaluationSettings? evaluation,

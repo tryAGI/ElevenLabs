@@ -49,7 +49,9 @@ namespace ElevenLabs
         /// <param name="stringToReplace"></param>
         /// <param name="phoneme"></param>
         /// <param name="alphabet"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public PronunciationDictionaryPhonemeRuleRequestModel(
             string stringToReplace,
             string phoneme,

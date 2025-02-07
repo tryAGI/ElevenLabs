@@ -32,7 +32,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="avatarUrl"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public PostAgentAvatarResponseModel(
             string agentId,
             string? avatarUrl)

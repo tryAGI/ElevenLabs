@@ -43,7 +43,9 @@ namespace ElevenLabs
         /// <param name="reasonType">
         /// An enumeration.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AgentBan(
             int atUnix,
             global::ElevenLabs.BanReasonType reasonType,

@@ -32,7 +32,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="overrides"></param>
         /// <param name="firstMessageTranslation"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LanguagePreset(
             global::ElevenLabs.ConversationConfigClientOverride overrides,
             global::ElevenLabs.LanguagePresetTranslation? firstMessageTranslation)

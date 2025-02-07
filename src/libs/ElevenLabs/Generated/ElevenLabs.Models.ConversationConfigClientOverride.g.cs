@@ -31,7 +31,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="agent"></param>
         /// <param name="tts"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationConfigClientOverride(
             global::ElevenLabs.AgentConfigOverride? agent,
             global::ElevenLabs.TTSConversationalConfigOverride? tts)

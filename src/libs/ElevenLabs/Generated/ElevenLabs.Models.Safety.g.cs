@@ -39,7 +39,9 @@ namespace ElevenLabs
         /// Safety evaluation of the agent. Prompt and first message is taken into account.<br/>
         /// The unsafe reason is provided from the evaluation
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public Safety(
             global::ElevenLabs.SafetyEvaluation? ivc,
             global::ElevenLabs.SafetyEvaluation? nonIvc)
