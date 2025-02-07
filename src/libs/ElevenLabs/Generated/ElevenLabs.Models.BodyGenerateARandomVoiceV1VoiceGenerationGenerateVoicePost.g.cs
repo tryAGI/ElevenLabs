@@ -72,7 +72,9 @@ namespace ElevenLabs
         /// Text to generate, text length has to be between 100 and 1000.<br/>
         /// Example: Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePost(
             global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostGender gender,
             string accent,

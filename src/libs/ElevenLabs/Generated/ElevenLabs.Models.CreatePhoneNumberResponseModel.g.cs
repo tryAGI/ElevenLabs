@@ -27,7 +27,9 @@ namespace ElevenLabs
         /// <param name="phoneNumberId">
         /// Phone entity id
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public CreatePhoneNumberResponseModel(
             string phoneNumberId)
         {

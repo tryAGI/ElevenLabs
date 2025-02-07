@@ -37,7 +37,9 @@ namespace ElevenLabs
         /// <param name="avatarFilename">
         /// An image file to be used as the agent's avatar.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost(
             byte[] avatarFile,
             string avatarFilename)

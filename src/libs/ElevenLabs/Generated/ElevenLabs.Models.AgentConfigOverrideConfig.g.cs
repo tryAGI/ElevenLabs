@@ -42,7 +42,9 @@ namespace ElevenLabs
         /// <param name="language">
         /// Default Value: false
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AgentConfigOverrideConfig(
             global::ElevenLabs.PromptAgentOverrideConfig? prompt,
             bool? firstMessage,

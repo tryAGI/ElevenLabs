@@ -77,7 +77,9 @@ namespace ElevenLabs
         /// If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
         /// Default Value: false
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost(
             byte[] audio,
             string audioname,

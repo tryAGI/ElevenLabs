@@ -57,7 +57,9 @@ namespace ElevenLabs
         /// <param name="mimeType"></param>
         /// <param name="sizeBytes"></param>
         /// <param name="uploadDateUnix"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ManualVerificationFileResponseModel(
             string fileId,
             string fileName,

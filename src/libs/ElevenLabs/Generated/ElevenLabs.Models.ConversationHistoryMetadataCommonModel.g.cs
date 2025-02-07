@@ -78,7 +78,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="charging"></param>
         /// <param name="terminationReason"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationHistoryMetadataCommonModel(
             int startTimeUnixSecs,
             int callDurationSecs,

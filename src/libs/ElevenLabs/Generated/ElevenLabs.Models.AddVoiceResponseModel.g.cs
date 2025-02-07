@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="AddVoiceResponseModel" /> class.
         /// </summary>
         /// <param name="voiceId"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AddVoiceResponseModel(
             string voiceId)
         {

@@ -200,7 +200,9 @@ namespace ElevenLabs
         /// <param name="termsKey"></param>
         /// <param name="language"></param>
         /// <param name="supportedLanguageOverrides"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public WidgetConfigResponseModel(
             string language,
             global::ElevenLabs.EmbedVariant? variant,

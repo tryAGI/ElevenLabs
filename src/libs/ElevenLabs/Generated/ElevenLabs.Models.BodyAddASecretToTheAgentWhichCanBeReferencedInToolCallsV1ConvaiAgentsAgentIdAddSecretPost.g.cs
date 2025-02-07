@@ -37,7 +37,9 @@ namespace ElevenLabs
         /// <param name="secretValue">
         /// A value to be encrypted and used by the agent
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyAddASecretToTheAgentWhichCanBeReferencedInToolCallsV1ConvaiAgentsAgentIdAddSecretPost(
             string name,
             string secretValue)

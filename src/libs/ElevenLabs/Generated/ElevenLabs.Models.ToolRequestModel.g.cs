@@ -26,7 +26,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ToolRequestModel" /> class.
         /// </summary>
         /// <param name="toolConfig"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ToolRequestModel(
             global::ElevenLabs.ToolConfig toolConfig)
         {

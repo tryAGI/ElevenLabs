@@ -215,7 +215,9 @@ namespace ElevenLabs
         /// <param name="qualityCheckOn"></param>
         /// <param name="qualityCheckOnWhenBulkConvert"></param>
         /// <param name="creationMeta"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ProjectResponseModel(
             string projectId,
             string name,

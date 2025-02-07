@@ -55,7 +55,9 @@ namespace ElevenLabs
         /// <param name="name">
         /// A name to make the agent easier to find
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch(
             object? conversationConfig,
             object? platformSettings,

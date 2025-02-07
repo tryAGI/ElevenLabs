@@ -49,7 +49,9 @@ namespace ElevenLabs
         /// <param name="toolName"></param>
         /// <param name="paramsAsJson"></param>
         /// <param name="toolHasBeenCalled"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationHistoryTranscriptToolCallCommonModel(
             string requestId,
             string toolName,

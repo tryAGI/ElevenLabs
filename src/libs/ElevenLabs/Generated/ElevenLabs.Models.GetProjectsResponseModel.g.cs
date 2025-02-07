@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="GetProjectsResponseModel" /> class.
         /// </summary>
         /// <param name="projects"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetProjectsResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.ProjectResponseModel> projects)
         {

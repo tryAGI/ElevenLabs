@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="voiceId"></param>
         /// <param name="requiresVerification"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AddVoiceIVCResponseModel(
             string voiceId,
             bool requiresVerification)

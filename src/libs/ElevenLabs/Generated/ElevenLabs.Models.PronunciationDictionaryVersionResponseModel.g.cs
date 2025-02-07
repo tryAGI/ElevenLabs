@@ -65,7 +65,9 @@ namespace ElevenLabs
         /// <param name="versionName"></param>
         /// <param name="createdBy"></param>
         /// <param name="creationTimeUnix"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public PronunciationDictionaryVersionResponseModel(
             string versionId,
             string pronunciationDictionaryId,

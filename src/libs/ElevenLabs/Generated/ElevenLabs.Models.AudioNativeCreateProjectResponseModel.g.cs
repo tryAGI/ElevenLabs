@@ -41,7 +41,9 @@ namespace ElevenLabs
         /// <param name="projectId"></param>
         /// <param name="converting"></param>
         /// <param name="htmlSnippet"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AudioNativeCreateProjectResponseModel(
             string projectId,
             bool converting,

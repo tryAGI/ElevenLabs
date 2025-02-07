@@ -34,7 +34,9 @@ namespace ElevenLabs
         /// Default Value: image
         /// </param>
         /// <param name="url"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ImageAvatar(
             global::ElevenLabs.ImageAvatarType? type,
             string? url)

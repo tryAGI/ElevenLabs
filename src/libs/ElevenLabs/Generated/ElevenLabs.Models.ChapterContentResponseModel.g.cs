@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ChapterContentResponseModel" /> class.
         /// </summary>
         /// <param name="blocks"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChapterContentResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentBlockResponseModel> blocks)
         {

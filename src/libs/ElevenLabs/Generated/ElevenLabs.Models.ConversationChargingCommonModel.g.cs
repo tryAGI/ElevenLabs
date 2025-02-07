@@ -26,7 +26,9 @@ namespace ElevenLabs
         /// <param name="devDiscount">
         /// Default Value: false
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationChargingCommonModel(
             bool? devDiscount)
         {

@@ -40,7 +40,9 @@ namespace ElevenLabs
         /// <param name="type"></param>
         /// <param name="description"></param>
         /// <param name="dynamicVariable"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LiteralJsonSchemaProperty(
             global::ElevenLabs.LiteralJsonSchemaPropertyType type,
             string? description,

@@ -39,7 +39,9 @@ namespace ElevenLabs
         /// The group ids of the user<br/>
         /// Example: [group_id_1, group_id_2]
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyInviteUserV1WorkspaceInvitesAddPost(
             string email,
             global::System.Collections.Generic.IList<string>? groupIds)

@@ -51,7 +51,9 @@ namespace ElevenLabs
         /// <param name="apiSchema">
         /// Configuration for a webhook that will be called by an LLM tool.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public WebhookToolConfig(
             string name,
             string description,

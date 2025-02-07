@@ -41,7 +41,9 @@ namespace ElevenLabs
         /// <param name="apiKey">
         /// Used to reference a secret from the agent's secret store.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public CustomLLM(
             string url,
             string? modelId,

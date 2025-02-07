@@ -28,7 +28,9 @@ namespace ElevenLabs
         /// <param name="feedback">
         /// Either 'like' or 'dislike' to indicate the feedback for the conversation.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodySendConversationFeedbackV1ConvaiConversationsConversationIdFeedbackPost(
             global::ElevenLabs.UserFeedbackScore feedback)
         {

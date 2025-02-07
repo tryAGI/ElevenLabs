@@ -50,7 +50,9 @@ namespace ElevenLabs
         /// <param name="purpose">
         /// Default Value: signed_url
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationTokenDBModel(
             string agentId,
             string conversationToken,

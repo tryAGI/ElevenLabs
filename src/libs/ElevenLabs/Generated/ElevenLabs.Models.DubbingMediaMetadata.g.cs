@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="contentType"></param>
         /// <param name="duration"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DubbingMediaMetadata(
             string contentType,
             double duration)

@@ -118,7 +118,9 @@ namespace ElevenLabs
         /// <param name="xiApiKeyPreview"></param>
         /// <param name="referralLinkCode"></param>
         /// <param name="partnerstackPartnerDefaultLink"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public UserResponseModel(
             string userId,
             global::ElevenLabs.SubscriptionResponseModel subscription,

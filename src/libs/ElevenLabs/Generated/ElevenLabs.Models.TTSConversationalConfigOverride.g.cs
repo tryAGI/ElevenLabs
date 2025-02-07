@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="TTSConversationalConfigOverride" /> class.
         /// </summary>
         /// <param name="voiceId"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public TTSConversationalConfigOverride(
             string? voiceId)
         {

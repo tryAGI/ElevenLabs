@@ -64,7 +64,9 @@ namespace ElevenLabs
         /// <param name="metadata"></param>
         /// <param name="platformSettings"></param>
         /// <param name="secrets"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetAgentResponseModel(
             string agentId,
             string name,

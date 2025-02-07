@@ -57,7 +57,9 @@ namespace ElevenLabs
         /// <param name="words">
         /// List of words with their timing information.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public SpeechToTextChunkResponseModel(
             string languageCode,
             double languageProbability,

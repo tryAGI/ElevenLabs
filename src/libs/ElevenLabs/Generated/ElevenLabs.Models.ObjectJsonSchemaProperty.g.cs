@@ -48,7 +48,9 @@ namespace ElevenLabs
         /// <param name="properties"></param>
         /// <param name="required"></param>
         /// <param name="description"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ObjectJsonSchemaProperty(
             global::ElevenLabs.ObjectJsonSchemaPropertyType? type,
             object? properties,

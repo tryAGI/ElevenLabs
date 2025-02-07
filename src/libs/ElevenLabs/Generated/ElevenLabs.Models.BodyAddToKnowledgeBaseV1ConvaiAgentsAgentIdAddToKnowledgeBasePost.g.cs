@@ -44,7 +44,9 @@ namespace ElevenLabs
         /// <param name="filename">
         /// Documentation that the agent will have access to in order to interact with users.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyAddToKnowledgeBaseV1ConvaiAgentsAgentIdAddToKnowledgeBasePost(
             string? url,
             byte[]? file,

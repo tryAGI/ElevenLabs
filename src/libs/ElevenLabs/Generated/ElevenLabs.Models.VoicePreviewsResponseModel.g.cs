@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="previews"></param>
         /// <param name="text"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public VoicePreviewsResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.VoicePreviewResponseModel> previews,
             string text)

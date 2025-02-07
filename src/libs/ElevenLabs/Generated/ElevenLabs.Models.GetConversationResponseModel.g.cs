@@ -72,7 +72,9 @@ namespace ElevenLabs
         /// <param name="metadata"></param>
         /// <param name="analysis"></param>
         /// <param name="conversationInitiationClientData"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetConversationResponseModel(
             string agentId,
             string conversationId,

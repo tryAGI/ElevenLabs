@@ -35,7 +35,9 @@ namespace ElevenLabs
         /// <param name="content">
         /// The chapter content to use.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyEditChapterV1ProjectsProjectIdChaptersChapterIdPatch(
             string? name,
             global::ElevenLabs.ChapterContentInputModel? content)

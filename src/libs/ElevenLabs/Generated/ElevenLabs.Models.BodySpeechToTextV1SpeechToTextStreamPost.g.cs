@@ -76,7 +76,9 @@ namespace ElevenLabs
         /// <param name="numSpeakers">
         /// The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 31. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodySpeechToTextV1SpeechToTextStreamPost(
             byte[] file,
             string filename,

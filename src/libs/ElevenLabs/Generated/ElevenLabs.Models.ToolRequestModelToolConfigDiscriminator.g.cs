@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ToolRequestModelToolConfigDiscriminator" /> class.
         /// </summary>
         /// <param name="type"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ToolRequestModelToolConfigDiscriminator(
             global::ElevenLabs.ToolRequestModelToolConfigDiscriminatorType? type)
         {

@@ -34,7 +34,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="id"></param>
         /// <param name="toolConfig"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ToolResponseModel(
             string id,
             global::ElevenLabs.ToolConfig2 toolConfig)

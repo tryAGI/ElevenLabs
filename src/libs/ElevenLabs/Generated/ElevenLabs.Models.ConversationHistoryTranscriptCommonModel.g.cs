@@ -69,7 +69,9 @@ namespace ElevenLabs
         /// <param name="feedback"></param>
         /// <param name="timeInCallSecs"></param>
         /// <param name="conversationTurnMetrics"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationHistoryTranscriptCommonModel(
             global::ElevenLabs.ConversationHistoryTranscriptCommonModelRole role,
             int timeInCallSecs,

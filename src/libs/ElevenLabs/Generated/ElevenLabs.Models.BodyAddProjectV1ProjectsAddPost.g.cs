@@ -295,7 +295,9 @@ namespace ElevenLabs
         /// [Alpha Feature] Whether automatically assign voices to phrases in the create Project.<br/>
         /// Default Value: false
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyAddProjectV1ProjectsAddPost(
             string name,
             string defaultTitleVoiceId,

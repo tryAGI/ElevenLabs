@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// <param name="customLlmExtraBody">
         /// Default Value: false
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationInitiationClientDataConfig(
             global::ElevenLabs.ConversationConfigClientOverrideConfig? conversationConfigOverride,
             bool? customLlmExtraBody)

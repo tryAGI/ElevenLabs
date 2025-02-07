@@ -42,7 +42,9 @@ namespace ElevenLabs
         /// <param name="type"></param>
         /// <param name="name"></param>
         /// <param name="id"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public KnowledgeBaseLocator(
             global::ElevenLabs.KnowledgeBaseLocatorType type,
             string name,

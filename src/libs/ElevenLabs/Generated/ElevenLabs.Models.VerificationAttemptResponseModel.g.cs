@@ -64,7 +64,9 @@ namespace ElevenLabs
         /// <param name="similarity"></param>
         /// <param name="levenshteinDistance"></param>
         /// <param name="recording"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public VerificationAttemptResponseModel(
             string text,
             int dateUnix,

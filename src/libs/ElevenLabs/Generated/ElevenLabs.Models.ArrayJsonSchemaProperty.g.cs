@@ -45,7 +45,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="items"></param>
         /// <param name="description"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ArrayJsonSchemaProperty(
             global::ElevenLabs.AnyOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaProperty, global::ElevenLabs.ArrayJsonSchemaProperty> items,
             global::ElevenLabs.ArrayJsonSchemaPropertyType? type,

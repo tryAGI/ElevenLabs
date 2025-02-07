@@ -32,7 +32,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="properties"></param>
         /// <param name="required"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public QueryParamsJsonSchema(
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty> properties,
             global::System.Collections.Generic.IList<string>? required)

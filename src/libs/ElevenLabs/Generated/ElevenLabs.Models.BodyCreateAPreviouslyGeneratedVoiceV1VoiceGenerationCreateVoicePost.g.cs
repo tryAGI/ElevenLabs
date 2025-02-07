@@ -74,7 +74,9 @@ namespace ElevenLabs
         /// <param name="labels">
         /// Optional, metadata to add to the created voice. Defaults to None.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyCreateAPreviouslyGeneratedVoiceV1VoiceGenerationCreateVoicePost(
             string voiceName,
             string voiceDescription,

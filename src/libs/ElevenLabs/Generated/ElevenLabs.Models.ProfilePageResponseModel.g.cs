@@ -57,7 +57,9 @@ namespace ElevenLabs
         /// <param name="name"></param>
         /// <param name="bio"></param>
         /// <param name="profilePicture"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ProfilePageResponseModel(
             string handle,
             string publicUserId,

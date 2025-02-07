@@ -35,7 +35,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="blockId"></param>
         /// <param name="nodes"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChapterContentBlockResponseModel(
             string blockId,
             global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ChapterContentBlockTtsNodeResponseModel, global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModel>> nodes)

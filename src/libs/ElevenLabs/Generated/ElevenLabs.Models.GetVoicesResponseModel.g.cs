@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="GetVoicesResponseModel" /> class.
         /// </summary>
         /// <param name="voices"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetVoicesResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.VoiceResponseModel> voices)
         {

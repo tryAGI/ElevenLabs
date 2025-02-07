@@ -27,7 +27,9 @@ namespace ElevenLabs
         /// <param name="newName">
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyAddSharingVoiceV1VoicesAddPublicUserIdVoiceIdPost(
             string newName)
         {

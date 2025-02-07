@@ -84,7 +84,9 @@ namespace ElevenLabs
         /// <param name="callSuccessful">
         /// An enumeration.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationSummaryResponseModel(
             string agentId,
             string conversationId,

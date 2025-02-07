@@ -35,7 +35,9 @@ namespace ElevenLabs
         /// <param name="dailyLimit">
         /// Default Value: 100000
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AgentCallLimits(
             int? agentConcurrencyLimit,
             int? dailyLimit)

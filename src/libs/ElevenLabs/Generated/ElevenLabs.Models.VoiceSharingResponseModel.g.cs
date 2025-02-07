@@ -270,7 +270,9 @@ namespace ElevenLabs
         /// <param name="tiktokUsername"></param>
         /// <param name="moderationCheck"></param>
         /// <param name="readerRestrictedOn"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public VoiceSharingResponseModel(
             global::ElevenLabs.VoiceSharingResponseModelStatus status,
             string historyItemSampleId,

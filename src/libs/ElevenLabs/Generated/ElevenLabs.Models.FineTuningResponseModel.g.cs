@@ -120,7 +120,9 @@ namespace ElevenLabs
         /// <param name="manualVerification"></param>
         /// <param name="maxVerificationAttempts"></param>
         /// <param name="nextMaxVerificationAttemptsResetUnixMs"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public FineTuningResponseModel(
             bool isAllowedToFineTune,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2> state,

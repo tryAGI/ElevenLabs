@@ -45,7 +45,9 @@ namespace ElevenLabs
         /// <param name="dislikes">
         /// Default Value: 0
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationHistoryFeedbackCommonModel(
             global::ElevenLabs.UserFeedbackScore? overallScore,
             int? likes,

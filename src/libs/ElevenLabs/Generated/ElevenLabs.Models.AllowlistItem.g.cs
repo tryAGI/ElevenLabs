@@ -25,7 +25,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="AllowlistItem" /> class.
         /// </summary>
         /// <param name="hostname"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AllowlistItem(
             string hostname)
         {

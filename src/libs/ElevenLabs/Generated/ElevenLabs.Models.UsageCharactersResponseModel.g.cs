@@ -33,7 +33,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="time"></param>
         /// <param name="usage"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public UsageCharactersResponseModel(
             global::System.Collections.Generic.IList<int> time,
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<int>> usage)

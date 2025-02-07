@@ -86,7 +86,9 @@ namespace ElevenLabs
         /// <param name="statistics"></param>
         /// <param name="lastConversionError"></param>
         /// <param name="content"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChapterWithContentResponseModel(
             string chapterId,
             string name,

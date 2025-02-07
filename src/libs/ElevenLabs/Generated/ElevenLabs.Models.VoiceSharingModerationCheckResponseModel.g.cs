@@ -80,7 +80,9 @@ namespace ElevenLabs
         /// <param name="sampleChecks"></param>
         /// <param name="captchaIds"></param>
         /// <param name="captchaChecks"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public VoiceSharingModerationCheckResponseModel(
             int? dateCheckedUnix,
             string? nameValue,
