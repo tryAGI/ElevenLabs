@@ -3233,6 +3233,130 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /v1/workspace/groups/search:
+    get:
+      tags:
+        - workspace
+      summary: Search User Groups
+      description: Searches for user groups in the workspace. Multiple or no groups may be returned.
+      operationId: Search_user_groups_v1_workspace_groups_search_get
+      parameters:
+        - name: name
+          in: query
+          description: Name of the group to find.
+          required: true
+          schema:
+            title: Name
+            type: string
+            description: Name of the group to find.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          required: true
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Search User Groups V1 Workspace Groups Search Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkspaceGroupByNameResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/workspace/groups/{group_id}/members':
+    post:
+      tags:
+        - workspace
+      summary: Add Member To User Group
+      description: Adds a member of your workspace to the specified group. This endpoint may only be called by workspace administrators.
+      operationId: Add_member_to_user_group_v1_workspace_groups__group_id__members_post
+      parameters:
+        - name: group_id
+          in: path
+          description: The ID of the target group.
+          required: true
+          schema:
+            title: Group Id
+            type: string
+            description: The ID of the target group.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          required: true
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/workspace/groups/{group_id}/members/remove':
+    post:
+      tags:
+        - workspace
+      summary: Delete Member From User Group
+      description: Removes a member from the specified group. This endpoint may only be called by workspace administrators.
+      operationId: Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
+      parameters:
+        - name: group_id
+          in: path
+          description: The ID of the target group.
+          required: true
+          schema:
+            title: Group Id
+            type: string
+            description: The ID of the target group.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          required: true
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   '/profile/{handle}':
     get:
       tags:
@@ -4553,6 +4677,45 @@ paths:
               schema: { }
 components:
   schemas:
+    WorkspaceGroupByNameResponseModel:
+      title: WorkspaceGroupByNameResponseModel
+      required:
+        - name
+        - id
+        - members_emails
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        id:
+          title: Id
+          type: string
+        members_emails:
+          title: Members Emails
+          type: array
+          items:
+            type: string
+    Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post:
+      title: Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          title: Email
+          type: string
+          description: The email of the target workspace member.
+    Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post:
+      title: Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          title: Email
+          type: string
+          description: The email of the target workspace member.
     ASRConversationalConfig:
       title: ASRConversationalConfig
       type: object
