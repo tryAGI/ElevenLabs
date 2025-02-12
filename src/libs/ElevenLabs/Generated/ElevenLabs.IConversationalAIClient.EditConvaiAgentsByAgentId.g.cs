@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
+        /// <param name="useToolIds">
+        /// Use tool ids instead of tools specs from request payload.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -20,6 +24,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentResponseModel> EditConvaiAgentsByAgentIdAsync(
             string agentId,
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request,
+            bool? useToolIds = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -29,6 +34,10 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="useToolIds">
+        /// Use tool ids instead of tools specs from request payload.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -49,6 +58,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentResponseModel> EditConvaiAgentsByAgentIdAsync(
             string agentId,
+            bool? useToolIds = default,
             string? xiApiKey = default,
             object? conversationConfig = default,
             object? platformSettings = default,

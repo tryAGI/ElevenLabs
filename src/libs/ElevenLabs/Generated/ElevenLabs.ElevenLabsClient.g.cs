@@ -157,6 +157,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public StudioClient Studio => new StudioClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public DubbingClient Dubbing => new DubbingClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,

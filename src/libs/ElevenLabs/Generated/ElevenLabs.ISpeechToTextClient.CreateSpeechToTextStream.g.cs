@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface ISpeechToTextClient
     {
         /// <summary>
-        /// Speech To Text<br/>
-        /// Transcribe an audio or video file with a streamed response.
+        /// Speech To Text Stream<br/>
+        /// Transcribe an audio or video file with streaming response. Returns chunks of transcription as they become available, with each chunk separated by double newlines (\n\n).
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -14,26 +14,26 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task CreateSpeechToTextStreamAsync(
-            global::ElevenLabs.BodySpeechToTextV1SpeechToTextStreamPost request,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextStreamResponseModel> CreateSpeechToTextStreamAsync(
+            global::ElevenLabs.BodySpeechToTextStreamV1SpeechToTextStreamPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Speech To Text<br/>
-        /// Transcribe an audio or video file with a streamed response.
+        /// Speech To Text Stream<br/>
+        /// Transcribe an audio or video file with streaming response. Returns chunks of transcription as they become available, with each chunk separated by double newlines (\n\n).
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
+        /// <param name="modelId">
+        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
         /// </param>
         /// <param name="file">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
         /// </param>
         /// <param name="filename">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
-        /// </param>
-        /// <param name="modelId">
-        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
         /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
@@ -47,11 +47,11 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task CreateSpeechToTextStreamAsync(
-            byte[] file,
-            string filename,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextStreamResponseModel> CreateSpeechToTextStreamAsync(
             string modelId,
             string? xiApiKey = default,
+            byte[]? file = default,
+            string? filename = default,
             string? languageCode = default,
             bool? tagAudioEvents = default,
             int? numSpeakers = default,

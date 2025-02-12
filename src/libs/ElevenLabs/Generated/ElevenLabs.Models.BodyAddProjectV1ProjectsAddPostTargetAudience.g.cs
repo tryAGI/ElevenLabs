@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// An optional target audience of the project.
+    /// An optional target audience of the Studio project.
     /// </summary>
     public enum BodyAddProjectV1ProjectsAddPostTargetAudience
     {

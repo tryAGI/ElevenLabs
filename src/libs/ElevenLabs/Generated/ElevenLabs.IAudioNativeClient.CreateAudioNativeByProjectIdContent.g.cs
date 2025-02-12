@@ -9,7 +9,7 @@ namespace ElevenLabs
         /// Updates content for the specific AudioNative Project.
         /// </summary>
         /// <param name="projectId">
-        /// The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.
+        /// The ID of the Studio project.
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// Updates content for the specific AudioNative Project.
         /// </summary>
         /// <param name="projectId">
-        /// The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.
+        /// The ID of the Studio project.
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class BodyEditBasicProjectInfoV1ProjectsProjectIdPost
     {
         /// <summary>
-        /// The name of the project, used for identification only.
+        /// The name of the Studio project, used for identification only.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -30,25 +30,25 @@ namespace ElevenLabs
         public required string DefaultParagraphVoiceId { get; set; }
 
         /// <summary>
-        /// An optional name of the author of the project, this will be added as metadata to the mp3 file on project / chapter download.
+        /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// An optional name of the author of the project, this will be added as metadata to the mp3 file on project / chapter download.
+        /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("author")]
         public string? Author { get; set; }
 
         /// <summary>
-        /// An optional ISBN number of the project you want to create, this will be added as metadata to the mp3 file on project / chapter download.
+        /// An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("isbn_number")]
         public string? IsbnNumber { get; set; }
 
         /// <summary>
-        /// When the project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements<br/>
+        /// When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_normalization")]
@@ -70,7 +70,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyEditBasicProjectInfoV1ProjectsProjectIdPost" /> class.
         /// </summary>
         /// <param name="name">
-        /// The name of the project, used for identification only.
+        /// The name of the Studio project, used for identification only.
         /// </param>
         /// <param name="defaultTitleVoiceId">
         /// The voice_id that corresponds to the default voice used for new titles.
@@ -79,16 +79,16 @@ namespace ElevenLabs
         /// The voice_id that corresponds to the default voice used for new paragraphs.
         /// </param>
         /// <param name="title">
-        /// An optional name of the author of the project, this will be added as metadata to the mp3 file on project / chapter download.
+        /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.
         /// </param>
         /// <param name="author">
-        /// An optional name of the author of the project, this will be added as metadata to the mp3 file on project / chapter download.
+        /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.
         /// </param>
         /// <param name="isbnNumber">
-        /// An optional ISBN number of the project you want to create, this will be added as metadata to the mp3 file on project / chapter download.
+        /// An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.
         /// </param>
         /// <param name="volumeNormalization">
-        /// When the project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements<br/>
+        /// When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements<br/>
         /// Default Value: false
         /// </param>
         /// <param name="qualityCheckOn">

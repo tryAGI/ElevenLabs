@@ -35,7 +35,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetKnowledgeBaseReponseModel> GetConvaiKnowledgeBaseByDocumentationIdAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetKnowledgeBaseResponseModel> GetConvaiKnowledgeBaseByDocumentationIdAsync(
             string documentationId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -167,7 +167,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.GetKnowledgeBaseReponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.GetKnowledgeBaseResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -197,7 +197,7 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.GetKnowledgeBaseReponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.GetKnowledgeBaseResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }

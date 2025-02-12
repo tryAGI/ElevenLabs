@@ -9,25 +9,25 @@ namespace ElevenLabs
     public sealed partial class BodyEditProjectContentV1ProjectsProjectIdContentPost
     {
         /// <summary>
-        /// An optional URL from which we will extract content to initialize the project. If this is set, 'from_url' must be null. If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
+        /// An optional URL from which we will extract content to initialize the Studio project. If this is set, 'from_url' must be null. If neither 'from_url' or 'from_document' are provided we will initialize the Studio project as blank.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_url")]
         public string? FromUrl { get; set; }
 
         /// <summary>
-        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
+        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the Studio project as blank.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_document")]
         public byte[]? FromDocument { get; set; }
 
         /// <summary>
-        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
+        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the Studio project as blank.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_documentname")]
         public string? FromDocumentname { get; set; }
 
         /// <summary>
-        /// Whether to auto convert the project to audio or not.<br/>
+        /// Whether to auto convert the Studio project to audio or not.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_convert")]
@@ -43,16 +43,16 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyEditProjectContentV1ProjectsProjectIdContentPost" /> class.
         /// </summary>
         /// <param name="fromUrl">
-        /// An optional URL from which we will extract content to initialize the project. If this is set, 'from_url' must be null. If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
+        /// An optional URL from which we will extract content to initialize the Studio project. If this is set, 'from_url' must be null. If neither 'from_url' or 'from_document' are provided we will initialize the Studio project as blank.
         /// </param>
         /// <param name="fromDocument">
-        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
+        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the Studio project as blank.
         /// </param>
         /// <param name="fromDocumentname">
-        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the project as blank.
+        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, 'from_url' must be null.  If neither 'from_url' or 'from_document' are provided we will initialize the Studio project as blank.
         /// </param>
         /// <param name="autoConvert">
-        /// Whether to auto convert the project to audio or not.<br/>
+        /// Whether to auto convert the Studio project to audio or not.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

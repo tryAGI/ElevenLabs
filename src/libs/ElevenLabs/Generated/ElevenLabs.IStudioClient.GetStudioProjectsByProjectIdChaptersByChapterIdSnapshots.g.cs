@@ -1,0 +1,28 @@
+#nullable enable
+
+namespace ElevenLabs
+{
+    public partial interface IStudioClient
+    {
+        /// <summary>
+        /// List Chapter Snapshots<br/>
+        /// Gets information about all the snapshots of a chapter, each snapshot corresponds can be downloaded as audio. Whenever a chapter is converted a snapshot will be automatically created.
+        /// </summary>
+        /// <param name="projectId">
+        /// The ID of the Studio project.
+        /// </param>
+        /// <param name="chapterId">
+        /// The ID of the chapter.
+        /// </param>
+        /// <param name="xiApiKey">
+        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ChapterSnapshotsResponseModel> GetStudioProjectsByProjectIdChaptersByChapterIdSnapshotsAsync(
+            string projectId,
+            string chapterId,
+            string? xiApiKey = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

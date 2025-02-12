@@ -30,7 +30,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel>> GetConvaiToolsAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolsResponseModel> GetConvaiToolsAsync(
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -159,7 +159,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel>), JsonSerializerContext) as global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel> ??
+                    global::ElevenLabs.ToolsResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -189,7 +189,7 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel>), JsonSerializerContext).ConfigureAwait(false) as global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel> ??
+                    await global::ElevenLabs.ToolsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
