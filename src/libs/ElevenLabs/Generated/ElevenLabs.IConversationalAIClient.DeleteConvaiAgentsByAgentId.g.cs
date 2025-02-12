@@ -16,7 +16,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> DeleteConvaiAgentsByAgentIdAsync(
+        global::System.Threading.Tasks.Task<string> DeleteConvaiAgentsByAgentIdAsync(
             string agentId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

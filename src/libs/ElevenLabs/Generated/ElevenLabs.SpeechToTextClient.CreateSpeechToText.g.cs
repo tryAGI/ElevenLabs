@@ -88,12 +88,15 @@ namespace ElevenLabs
                     name: "xi-api-key");
             } 
             __httpRequestContent.Add(
-                content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
-                name: "file",
-                fileName: request.Filename ?? string.Empty);
-            __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.ModelId}"),
                 name: "model_id");
+            if (request.File != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
+                    name: "file",
+                    fileName: request.Filename ?? string.Empty);
+            } 
             if (request.LanguageCode != default)
             {
                 __httpRequestContent.Add(
@@ -242,14 +245,14 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="modelId">
+        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
+        /// </param>
         /// <param name="file">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
         /// </param>
         /// <param name="filename">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
-        /// </param>
-        /// <param name="modelId">
-        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
         /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
@@ -264,10 +267,10 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
-            byte[] file,
-            string filename,
             string modelId,
             string? xiApiKey = default,
+            byte[]? file = default,
+            string? filename = default,
             string? languageCode = default,
             bool? tagAudioEvents = default,
             int? numSpeakers = default,
@@ -275,9 +278,9 @@ namespace ElevenLabs
         {
             var __request = new global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost
             {
+                ModelId = modelId,
                 File = file,
                 Filename = filename,
-                ModelId = modelId,
                 LanguageCode = languageCode,
                 TagAudioEvents = tagAudioEvents,
                 NumSpeakers = numSpeakers,

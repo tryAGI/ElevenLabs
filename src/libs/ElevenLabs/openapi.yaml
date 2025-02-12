@@ -322,6 +322,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-streaming: true
       x-fern-sdk-method-name: audio_isolation_stream
       x-fern-sdk-group-name: audio_isolation
   '/v1/voices/{voice_id}/samples/{sample_id}':
@@ -614,6 +615,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-streaming: true
       x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: text_to_speech
   '/v1/text-to-speech/{voice_id}/stream/with-timestamps':
@@ -679,9 +681,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-streaming: true
       x-fern-sdk-method-name: stream_with_timestamps
       x-fern-sdk-group-name: text_to_speech
-      x-fern-streaming: true
   '/v1/speech-to-speech/{voice_id}':
     post:
       tags:
@@ -812,6 +814,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-streaming: true
       x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: speech_to_speech
   /v1/voice-generation/generate-voice/parameters:
@@ -828,8 +831,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceGenerationParameterResponseModel'
-      x-fern-sdk-group-name: voice_generation
       x-fern-sdk-method-name: generate_parameters
+      x-fern-sdk-group-name: voice_generation
   /v1/voice-generation/generate-voice:
     post:
       tags:
@@ -1106,8 +1109,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceSettingsResponseModel'
-      x-fern-sdk-group-name: voices
       x-fern-sdk-method-name: get_default_settings
+      x-fern-sdk-group-name: voices
   '/v1/voices/{voice_id}/settings':
     get:
       tags:
@@ -1166,12 +1169,13 @@ paths:
           example: 21m00Tcm4TlvDq8ikWAM
         - name: with_settings
           in: query
-          description: 'If set will return settings information corresponding to the voice, requires authorization.'
+          description: This parameter is now deprecated. It is ignored and will be removed in a future version.
+          deprecated: true
           schema:
             title: With Settings
             type: boolean
-            description: 'If set will return settings information corresponding to the voice, requires authorization.'
-            default: false
+            description: This parameter is now deprecated. It is ignored and will be removed in a future version.
+            default: true
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1412,12 +1416,48 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: add_sharing_voice
       x-fern-sdk-group-name: voices
+  /v1/studio/podcasts:
+    post:
+      tags:
+        - studio
+      summary: Create Podcast
+      description: 'Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.'
+      operationId: Create_podcast_v1_studio_podcasts_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PodcastProjectResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: create_podcast
+      x-fern-sdk-group-name: studio
   /v1/projects/podcast/create:
     post:
       tags:
         - projects
       summary: Create Podcast
-      description: 'Create and auto-convert a podcast project. Currently, the LLM cost is covered by us. In the future, this cost will be passed onto you.'
+      description: 'Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.'
       operationId: Create_podcast_v1_projects_podcast_create_post
       parameters:
         - name: xi-api-key
@@ -1446,8 +1486,76 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_podcast
-      x-fern-sdk-group-name: projects
+      deprecated: true
+  /v1/studio/projects:
+    get:
+      tags:
+        - studio
+      summary: List Studio Projects
+      description: Returns a list of your Studio projects with metadata.
+      operationId: List_Studio_projects_v1_studio_projects_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProjectsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: get_all
+      x-fern-sdk-group-name:
+        - studio
+        - projects
+    post:
+      tags:
+        - studio
+      summary: Create Studio Project
+      description: 'Creates a new Studio project, it can be either initialized as blank, from a document or from a URL.'
+      operationId: Create_Studio_project_v1_studio_projects_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Create_Studio_project_v1_studio_projects_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddProjectResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: add
+      x-fern-sdk-group-name:
+        - studio
+        - projects
   /v1/projects:
     get:
       tags:
@@ -1476,8 +1584,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
-      x-fern-sdk-group-name: projects
+      deprecated: true
   /v1/projects/add:
     post:
       tags:
@@ -1512,24 +1619,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add
-      x-fern-sdk-group-name: projects
-  '/v1/projects/{project_id}':
+      deprecated: true
+  '/v1/studio/projects/{project_id}':
     get:
       tags:
-        - projects
-      summary: Get Project By Id
-      description: Returns information about a specific project. This endpoint returns more detailed information about a project than GET api.elevenlabs.io/v1/projects.
-      operationId: Get_project_by_ID_v1_projects__project_id__get
+        - studio
+      summary: Get Studio Project
+      description: Returns information about a specific Studio project. This endpoint returns more detailed information about a project than `GET /v1/studio`.
+      operationId: Get_Studio_project_v1_studio_projects__project_id__get
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1552,7 +1658,132 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: get
-      x-fern-sdk-group-name: projects
+      x-fern-sdk-group-name:
+        - studio
+        - projects
+    post:
+      tags:
+        - studio
+      summary: Update Studio Project Metadata
+      description: Updates Studio project metadata.
+      operationId: Update_Studio_project_metadata_v1_studio_projects__project_id__post
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Update_Studio_project_metadata_v1_studio_projects__project_id__post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EditProjectResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: update_metadata
+      x-fern-sdk-group-name:
+        - studio
+        - projects
+    delete:
+      tags:
+        - studio
+      summary: Delete Studio Project
+      description: Deletes a Studio project.
+      operationId: Delete_Studio_project_v1_studio_projects__project_id__delete
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: delete
+      x-fern-sdk-group-name:
+        - studio
+        - projects
+  '/v1/projects/{project_id}':
+    get:
+      tags:
+        - projects
+      summary: Get Project By Id
+      description: Returns information about a specific project. This endpoint returns more detailed information about a project than `GET /v1/projects`.
+      operationId: Get_project_by_ID_v1_projects__project_id__get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectExtendedResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
     post:
       tags:
         - projects
@@ -1562,12 +1793,12 @@ paths:
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1595,23 +1826,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: edit_basic_project_info
-      x-fern-sdk-group-name: projects
+      deprecated: true
     delete:
       tags:
         - projects
       summary: Delete Project
-      description: Delete a project by its project_id.
+      description: Deletes a project.
       operationId: Delete_project_v1_projects__project_id__delete
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1632,8 +1862,53 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
-      x-fern-sdk-group-name: projects
+      deprecated: true
+  '/v1/studio/projects/{project_id}/content':
+    post:
+      tags:
+        - studio
+      summary: Update Studio Project Content
+      description: Updates Studio project content.
+      operationId: Update_Studio_project_content_v1_studio_projects__project_id__content_post
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Update_Studio_project_content_v1_studio_projects__project_id__content_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EditProjectResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: update_content
+      x-fern-sdk-group-name:
+        - studio
+        - projects
   '/v1/projects/{project_id}/content':
     post:
       tags:
@@ -1644,12 +1919,12 @@ paths:
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1676,24 +1951,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_content
-      x-fern-sdk-group-name: projects
-  '/v1/projects/{project_id}/convert':
+      deprecated: true
+  '/v1/studio/projects/{project_id}/convert':
     post:
       tags:
-        - projects
-      summary: Convert Project
-      description: Starts conversion of a project and all of its chapters.
-      operationId: Convert_project_v1_projects__project_id__convert_post
+        - studio
+      summary: Convert Studio Project
+      description: Starts conversion of a Studio project and all of its chapters.
+      operationId: Convert_Studio_project_v1_studio_projects__project_id__convert_post
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1715,23 +1989,62 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: convert
-      x-fern-sdk-group-name: projects
-  '/v1/projects/{project_id}/snapshots':
-    get:
+      x-fern-sdk-group-name:
+        - studio
+        - projects
+  '/v1/projects/{project_id}/convert':
+    post:
       tags:
         - projects
-      summary: Get Project Snapshots
-      description: Gets the snapshots of a project.
-      operationId: Get_project_snapshots_v1_projects__project_id__snapshots_get
+      summary: Convert Project
+      description: Starts conversion of a project and all of its chapters.
+      operationId: Convert_project_v1_projects__project_id__convert_post
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  '/v1/studio/projects/{project_id}/snapshots':
+    get:
+      tags:
+        - studio
+      summary: List Studio Project Snapshots
+      description: Gets the snapshots of a Studio project.
+      operationId: List_Studio_project_snapshots_v1_studio_projects__project_id__snapshots_get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1754,7 +2067,99 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: get_snapshots
-      x-fern-sdk-group-name: projects
+      x-fern-sdk-group-name:
+        - studio
+        - projects
+  '/v1/projects/{project_id}/snapshots':
+    get:
+      tags:
+        - projects
+      summary: Get Project Snapshots
+      description: Gets the snapshots of a project.
+      operationId: Get_project_snapshots_v1_projects__project_id__snapshots_get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectSnapshotsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  '/v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/stream':
+    post:
+      tags:
+        - studio
+      summary: Stream Studio Project Audio
+      description: Stream the audio from a Studio project snapshot.
+      operationId: Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: project_snapshot_id
+          in: path
+          description: The ID of the Studio project snapshot.
+          required: true
+          schema:
+            title: Project Snapshot Id
+            type: string
+            description: The ID of the Studio project snapshot.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post'
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-streaming: true
+      x-fern-sdk-method-name: stream_audio
+      x-fern-sdk-group-name:
+        - studio
+        - projects
   '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/stream':
     post:
       tags:
@@ -1765,21 +2170,21 @@ paths:
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: project_snapshot_id
           in: path
-          description: 'The project_snapshot_id of the project snapshot. You can query GET /v1/projects/{project_id}/snapshots to list all available snapshots for a project.'
+          description: The ID of the Studio project snapshot.
           required: true
           schema:
             title: Project Snapshot Id
             type: string
-            description: 'The project_snapshot_id of the project snapshot. You can query GET /v1/projects/{project_id}/snapshots to list all available snapshots for a project.'
+            description: The ID of the Studio project snapshot.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1802,33 +2207,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_audio
-      x-fern-sdk-group-name: projects
-  '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/archive':
+      deprecated: true
+  '/v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/archive':
     post:
       tags:
-        - projects
-      summary: Streams Archive With Project Audio
-      description: Streams archive with project audio.
-      operationId: Streams_archive_with_project_audio_v1_projects__project_id__snapshots__project_snapshot_id__archive_post
+        - studio
+      summary: Streams Archive With Studio Project Audio
+      description: Returns a compressed archive of the Studio project's audio.
+      operationId: Streams_archive_with_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__archive_post
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: project_snapshot_id
           in: path
-          description: 'The project_snapshot_id of the project snapshot. You can query GET /v1/projects/{project_id}/snapshots to list all available snapshots for a project.'
+          description: The ID of the Studio project snapshot.
           required: true
           schema:
             title: Project Snapshot Id
             type: string
-            description: 'The project_snapshot_id of the project snapshot. You can query GET /v1/projects/{project_id}/snapshots to list all available snapshots for a project.'
+            description: The ID of the Studio project snapshot.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1847,23 +2251,68 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: stream_archive
-      x-fern-sdk-group-name: projects
-  '/v1/projects/{project_id}/chapters':
-    get:
+      x-fern-sdk-group-name:
+        - studio
+        - projects
+  '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/archive':
+    post:
       tags:
         - projects
-      summary: Get Chapters
-      description: Returns a list of your chapters for a project together and its metadata.
-      operationId: Get_chapters_v1_projects__project_id__chapters_get
+      summary: Streams Archive With Project Audio
+      description: Streams archive with project audio.
+      operationId: Streams_archive_with_project_audio_v1_projects__project_id__snapshots__project_snapshot_id__archive_post
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: project_snapshot_id
+          in: path
+          description: The ID of the Studio project snapshot.
+          required: true
+          schema:
+            title: Project Snapshot Id
+            type: string
+            description: The ID of the Studio project snapshot.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  '/v1/studio/projects/{project_id}/chapters':
+    get:
+      tags:
+        - studio
+      summary: List Chapters
+      description: Returns a list of a Studio project's chapters.
+      operationId: List_chapters_v1_studio_projects__project_id__chapters_get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1886,32 +2335,118 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: get_all
-      x-fern-sdk-group-name: chapters
-  '/v1/projects/{project_id}/chapters/{chapter_id}':
-    get:
+      x-fern-sdk-group-name:
+        - studio
+        - chapters
+    post:
       tags:
-        - projects
-      summary: Get Chapter By Id
-      description: Returns information about a specific chapter.
-      operationId: Get_chapter_by_ID_v1_projects__project_id__chapters__chapter_id__get
+        - studio
+      summary: Create Chapter
+      description: Creates a new chapter either as blank or from a URL.
+      operationId: Create_chapter_v1_studio_projects__project_id__chapters_post
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Create_chapter_v1_studio_projects__project_id__chapters_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddChapterResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: create
+      x-fern-sdk-group-name:
+        - studio
+        - chapters
+  '/v1/projects/{project_id}/chapters':
+    get:
+      tags:
+        - projects
+      summary: Get Chapters
+      description: Returns a list of your chapters for a project together and its metadata.
+      operationId: Get_chapters_v1_projects__project_id__chapters_get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetChaptersResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  '/v1/studio/projects/{project_id}/chapters/{chapter_id}':
+    get:
+      tags:
+        - studio
+      summary: Get Chapter
+      description: Returns information about a specific chapter.
+      operationId: Get_chapter_v1_studio_projects__project_id__chapters__chapter_id__get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
-          description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+          description: The ID of the chapter.
           required: true
           schema:
             title: Chapter Id
             type: string
-            description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+            description: The ID of the chapter.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1934,31 +2469,87 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: get
-      x-fern-sdk-group-name: chapters
-    delete:
+      x-fern-sdk-group-name:
+        - studio
+        - chapters
+    post:
       tags:
-        - projects
-      summary: Delete Chapter
-      description: Delete a chapter by its chapter_id.
-      operationId: Delete_chapter_v1_projects__project_id__chapters__chapter_id__delete
+        - studio
+      summary: Update Chapter
+      description: Updates a chapter.
+      operationId: Update_chapter_v1_studio_projects__project_id__chapters__chapter_id__post
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
-          description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+          description: The ID of the chapter.
           required: true
           schema:
             title: Chapter Id
             type: string
-            description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+            description: The ID of the chapter.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Update_chapter_v1_studio_projects__project_id__chapters__chapter_id__post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EditChapterResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: edit
+      x-fern-sdk-group-name:
+        - studio
+        - chapters
+    delete:
+      tags:
+        - studio
+      summary: Delete Chapter
+      description: Deletes a chapter.
+      operationId: Delete_chapter_v1_studio_projects__project_id__chapters__chapter_id__delete
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: chapter_id
+          in: path
+          description: The ID of the chapter.
+          required: true
+          schema:
+            title: Chapter Id
+            type: string
+            description: The ID of the chapter.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -1980,7 +2571,101 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: delete
-      x-fern-sdk-group-name: chapters
+      x-fern-sdk-group-name:
+        - studio
+        - chapters
+  '/v1/projects/{project_id}/chapters/{chapter_id}':
+    get:
+      tags:
+        - projects
+      summary: Get Chapter By Id
+      description: Returns information about a specific chapter.
+      operationId: Get_chapter_by_ID_v1_projects__project_id__chapters__chapter_id__get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: chapter_id
+          in: path
+          description: The ID of the chapter.
+          required: true
+          schema:
+            title: Chapter Id
+            type: string
+            description: The ID of the chapter.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChapterWithContentResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+    delete:
+      tags:
+        - projects
+      summary: Delete Chapter
+      description: Deletes a chapter.
+      operationId: Delete_chapter_v1_projects__project_id__chapters__chapter_id__delete
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: chapter_id
+          in: path
+          description: The ID of the chapter.
+          required: true
+          schema:
+            title: Chapter Id
+            type: string
+            description: The ID of the chapter.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
     patch:
       tags:
         - projects
@@ -1990,21 +2675,21 @@ paths:
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
-          description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+          description: The ID of the chapter.
           required: true
           schema:
             title: Chapter Id
             type: string
-            description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+            description: The ID of the chapter.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -2031,8 +2716,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: edit
-      x-fern-sdk-group-name: chapters
+      deprecated: true
   '/v1/projects/{project_id}/chapters/add':
     post:
       tags:
@@ -2043,12 +2727,12 @@ paths:
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -2076,33 +2760,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create
-      x-fern-sdk-group-name: chapters
-  '/v1/projects/{project_id}/chapters/{chapter_id}/convert':
+      deprecated: true
+  '/v1/studio/projects/{project_id}/chapters/{chapter_id}/convert':
     post:
       tags:
-        - projects
+        - studio
       summary: Convert Chapter
       description: Starts conversion of a specific chapter.
-      operationId: Convert_chapter_v1_projects__project_id__chapters__chapter_id__convert_post
+      operationId: Convert_chapter_v1_studio_projects__project_id__chapters__chapter_id__convert_post
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
-          description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+          description: The ID of the chapter.
           required: true
           schema:
             title: Chapter Id
             type: string
-            description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+            description: The ID of the chapter.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -2124,32 +2807,80 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: convert
-      x-fern-sdk-group-name: chapters
-  '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots':
-    get:
+      x-fern-sdk-group-name:
+        - studio
+        - chapters
+  '/v1/projects/{project_id}/chapters/{chapter_id}/convert':
+    post:
       tags:
         - projects
-      summary: Get Chapter Snapshots
-      description: 'Gets information about all the snapshots of a chapter, each snapshot corresponds can be downloaded as audio. Whenever a chapter is converted a snapshot will be automatically created.'
-      operationId: Get_chapter_snapshots_v1_projects__project_id__chapters__chapter_id__snapshots_get
+      summary: Convert Chapter
+      description: Starts conversion of a specific chapter.
+      operationId: Convert_chapter_v1_projects__project_id__chapters__chapter_id__convert_post
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
-          description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+          description: The ID of the chapter.
           required: true
           schema:
             title: Chapter Id
             type: string
-            description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+            description: The ID of the chapter.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  '/v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots':
+    get:
+      tags:
+        - studio
+      summary: List Chapter Snapshots
+      description: 'Gets information about all the snapshots of a chapter, each snapshot corresponds can be downloaded as audio. Whenever a chapter is converted a snapshot will be automatically created.'
+      operationId: List_chapter_snapshots_v1_studio_projects__project_id__chapters__chapter_id__snapshots_get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: chapter_id
+          in: path
+          description: The ID of the chapter.
+          required: true
+          schema:
+            title: Chapter Id
+            type: string
+            description: The ID of the chapter.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -2172,7 +2903,117 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: get_all_snapshots
-      x-fern-sdk-group-name: chapters
+      x-fern-sdk-group-name:
+        - studio
+        - chapters
+  '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots':
+    get:
+      tags:
+        - projects
+      summary: List Chapter Snapshots
+      description: 'Gets information about all the snapshots of a chapter, each snapshot corresponds can be downloaded as audio. Whenever a chapter is converted a snapshot will be automatically created.'
+      operationId: List_chapter_snapshots_v1_projects__project_id__chapters__chapter_id__snapshots_get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: chapter_id
+          in: path
+          description: The ID of the chapter.
+          required: true
+          schema:
+            title: Chapter Id
+            type: string
+            description: The ID of the chapter.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChapterSnapshotsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  '/v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}/stream':
+    post:
+      tags:
+        - studio
+      summary: Stream Chapter Audio
+      description: 'Stream the audio from a chapter snapshot. Use `GET /v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots` to return the snapshots of a chapter.'
+      operationId: Stream_chapter_audio_v1_studio_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: chapter_id
+          in: path
+          description: The ID of the chapter.
+          required: true
+          schema:
+            title: Chapter Id
+            type: string
+            description: The ID of the chapter.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: chapter_snapshot_id
+          in: path
+          description: The ID of the chapter snapshot.
+          required: true
+          schema:
+            title: Chapter Snapshot Id
+            type: string
+            description: The ID of the chapter snapshot.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Stream_chapter_audio_v1_studio_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post'
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-streaming: true
+      x-fern-sdk-method-name: stream_snapshot
+      x-fern-sdk-group-name:
+        - studio
+        - chapters
   '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}/stream':
     post:
       tags:
@@ -2183,30 +3024,30 @@ paths:
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
-          description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+          description: The ID of the chapter.
           required: true
           schema:
             title: Chapter Id
             type: string
-            description: 'The chapter_id of the chapter. You can query GET https://api.elevenlabs.io/v1/projects/{project_id}/chapters to list all available chapters for a project.'
+            description: The ID of the chapter.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_snapshot_id
           in: path
-          description: 'The chapter_snapshot_id of the chapter snapshot. You can query GET /v1/projects/{project_id}/chapters/{chapter_id}/snapshots to the all available snapshots for a chapter.'
+          description: The ID of the chapter snapshot.
           required: true
           schema:
             title: Chapter Snapshot Id
             type: string
-            description: 'The chapter_snapshot_id of the chapter snapshot. You can query GET /v1/projects/{project_id}/chapters/{chapter_id}/snapshots to the all available snapshots for a chapter.'
+            description: The ID of the chapter snapshot.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -2229,8 +3070,53 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_snapshot
-      x-fern-sdk-group-name: chapters
+      deprecated: true
+  '/v1/studio/projects/{project_id}/pronunciation-dictionaries':
+    post:
+      tags:
+        - studio
+      summary: Create Pronunciation Dictionaries
+      description: Create a set of pronunciation dictionaries acting on a project. This will automatically mark text within this project as requiring reconverting where the new dictionary would apply or the old one no longer does.
+      operationId: Create_Pronunciation_Dictionaries_v1_studio_projects__project_id__pronunciation_dictionaries_post
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Create_Pronunciation_Dictionaries_v1_studio_projects__project_id__pronunciation_dictionaries_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: update_pronunciation_dictionaries
+      x-fern-sdk-group-name:
+        - studio
+        - projects
   '/v1/projects/{project_id}/update-pronunciation-dictionaries':
     post:
       tags:
@@ -2241,12 +3127,12 @@ paths:
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -2273,8 +3159,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_pronunciation_dictionaries
-      x-fern-sdk-group-name: projects
+      deprecated: true
   /v1/dubbing:
     post:
       tags:
@@ -2564,12 +3449,12 @@ paths:
       parameters:
         - name: project_id
           in: path
-          description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+          description: The ID of the Studio project.
           required: true
           schema:
             title: Project Id
             type: string
-            description: 'The project_id of the project, you can query GET https://api.elevenlabs.io/v1/projects to list all available projects.'
+            description: The ID of the Studio project.
           example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
@@ -3101,6 +3986,130 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: pronunciation_dictionary
+  /v1/workspace/groups/search:
+    get:
+      tags:
+        - workspace
+      summary: Search User Groups
+      description: Searches for user groups in the workspace. Multiple or no groups may be returned.
+      operationId: Search_user_groups_v1_workspace_groups_search_get
+      parameters:
+        - name: name
+          in: query
+          description: Name of the group to find.
+          required: true
+          schema:
+            title: Name
+            type: string
+            description: Name of the group to find.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          required: true
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Search User Groups V1 Workspace Groups Search Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkspaceGroupByNameResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/workspace/groups/{group_id}/members/remove':
+    post:
+      tags:
+        - workspace
+      summary: Delete Member From User Group
+      description: Removes a member from the specified group. This endpoint may only be called by workspace administrators.
+      operationId: Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
+      parameters:
+        - name: group_id
+          in: path
+          description: The ID of the target group.
+          required: true
+          schema:
+            title: Group Id
+            type: string
+            description: The ID of the target group.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          required: true
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/workspace/groups/{group_id}/members':
+    post:
+      tags:
+        - workspace
+      summary: Add Member To User Group
+      description: Adds a member of your workspace to the specified group. This endpoint may only be called by workspace administrators.
+      operationId: Add_member_to_user_group_v1_workspace_groups__group_id__members_post
+      parameters:
+        - name: group_id
+          in: path
+          description: The ID of the target group.
+          required: true
+          schema:
+            title: Group Id
+            type: string
+            description: The ID of the target group.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          required: true
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /v1/workspace/invites/add:
     post:
       tags:
@@ -3233,130 +4242,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /v1/workspace/groups/search:
-    get:
-      tags:
-        - workspace
-      summary: Search User Groups
-      description: Searches for user groups in the workspace. Multiple or no groups may be returned.
-      operationId: Search_user_groups_v1_workspace_groups_search_get
-      parameters:
-        - name: name
-          in: query
-          description: Name of the group to find.
-          required: true
-          schema:
-            title: Name
-            type: string
-            description: Name of the group to find.
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          required: true
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                title: Response Search User Groups V1 Workspace Groups Search Get
-                type: array
-                items:
-                  $ref: '#/components/schemas/WorkspaceGroupByNameResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  '/v1/workspace/groups/{group_id}/members':
-    post:
-      tags:
-        - workspace
-      summary: Add Member To User Group
-      description: Adds a member of your workspace to the specified group. This endpoint may only be called by workspace administrators.
-      operationId: Add_member_to_user_group_v1_workspace_groups__group_id__members_post
-      parameters:
-        - name: group_id
-          in: path
-          description: The ID of the target group.
-          required: true
-          schema:
-            title: Group Id
-            type: string
-            description: The ID of the target group.
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          required: true
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  '/v1/workspace/groups/{group_id}/members/remove':
-    post:
-      tags:
-        - workspace
-      summary: Delete Member From User Group
-      description: Removes a member from the specified group. This endpoint may only be called by workspace administrators.
-      operationId: Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
-      parameters:
-        - name: group_id
-          in: path
-          description: The ID of the target group.
-          required: true
-          schema:
-            title: Group Id
-            type: string
-            description: The ID of the target group.
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          required: true
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   '/profile/{handle}':
     get:
       tags:
@@ -3429,9 +4314,9 @@ paths:
     post:
       tags:
         - speech-to-text
-      summary: Speech To Text
-      description: Transcribe an audio or video file with a streamed response.
-      operationId: Speech_to_Text_v1_speech_to_text_stream_post
+      summary: Speech To Text Stream
+      description: 'Transcribe an audio or video file with streaming response. Returns chunks of transcription as they become available, with each chunk separated by double newlines (\n\n).'
+      operationId: Speech_to_Text_Stream_v1_speech_to_text_stream_post
       parameters:
         - name: xi-api-key
           in: header
@@ -3444,17 +4329,28 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_stream_post'
+              $ref: '#/components/schemas/Body_Speech_to_Text_Stream_v1_speech_to_text_stream_post'
         required: true
       responses:
         '200':
-          description: Successful Response
+          description: Stream of transcription chunks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeechToTextStreamResponseModel'
+        '400':
+          description: Invalid input file or parameters
+          content:
+            application/json:
+              example:
+                detail: File size must be less than 100MB
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-streaming: true
       x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: speech_to_text
   /v1/convai/conversation/get_signed_url:
@@ -3504,6 +4400,14 @@ paths:
       description: Create an agent from a config object
       operationId: Create_Agent_v1_convai_agents_create_post
       parameters:
+        - name: use_tool_ids
+          in: query
+          description: Use tool ids instead of tools specs from request payload.
+          schema:
+            title: Use Tool Ids
+            type: boolean
+            description: Use tool ids instead of tools specs from request payload.
+            default: false
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -3599,11 +4503,7 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema:
-                title: Response Delete Agent V1 Convai Agents  Agent Id  Delete
-                type: object
-                additionalProperties:
-                  type: string
+              schema: { }
         '422':
           description: Validation Error
           content:
@@ -3628,6 +4528,14 @@ paths:
             type: string
             description: The id of an agent. This is returned on agent creation.
           example: 21m00Tcm4TlvDq8ikWAM
+        - name: use_tool_ids
+          in: query
+          description: Use tool ids instead of tools specs from request payload.
+          schema:
+            title: Use Tool Ids
+            type: boolean
+            description: Use tool ids instead of tools specs from request payload.
+            default: false
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4291,6 +5199,52 @@ paths:
       x-fern-sdk-method-name: get_phone_numbers
       x-fern-sdk-group-name: conversational_ai
   /v1/convai/knowledge-base:
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Knowledge Base List
+      description: Get a list of available knowledge base documents
+      operationId: Get_knowledge_base_list_v1_convai_knowledge_base_get
+      parameters:
+        - name: cursor
+          in: query
+          description: Used for fetching next page. Cursor is returned in the response.
+          schema:
+            title: Cursor
+            type: string
+            description: Used for fetching next page. Cursor is returned in the response.
+        - name: page_size
+          in: query
+          description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
+          schema:
+            title: Page Size
+            maximum: 100.0
+            minimum: 1.0
+            type: integer
+            description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
+            default: 30
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetKnowledgeBaseListResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: get_knowledge_base_list
+      x-fern-sdk-group-name: conversational_ai
     post:
       tags:
         - Conversational AI
@@ -4425,7 +5379,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetKnowledgeBaseReponseModel'
+                $ref: '#/components/schemas/GetKnowledgeBaseResponseModel'
         '422':
           description: Validation Error
           content:
@@ -4433,6 +5387,43 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: get_knowledge_base_document_by_id
+      x-fern-sdk-group-name: conversational_ai
+    delete:
+      tags:
+        - Conversational AI
+      summary: Delete Knowledge Base Document
+      description: Delete a document from the knowledge base
+      operationId: Delete_knowledge_base_document_v1_convai_knowledge_base__documentation_id__delete
+      parameters:
+        - name: documentation_id
+          in: path
+          description: The id of a document from the knowledge base. This is returned on document addition.
+          required: true
+          schema:
+            title: Documentation Id
+            type: string
+            description: The id of a document from the knowledge base. This is returned on document addition.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: delete_knowledge_base_document
       x-fern-sdk-group-name: conversational_ai
   '/v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}':
     get:
@@ -4464,7 +5455,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetKnowledgeBaseReponseModel'
+                $ref: '#/components/schemas/GetKnowledgeBaseResponseModel'
         '422':
           description: Validation Error
           content:
@@ -4473,13 +5464,98 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       deprecated: true
       x-fern-sdk-group-name: conversational_ai
-  /v1/convai/add-tool:
+  '/v1/convai/knowledge-base/{documentation_id}/dependent-agents':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Dependent Agents List
+      description: Get a list of agents depending on this knowledge base document
+      operationId: Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get
+      parameters:
+        - name: documentation_id
+          in: path
+          description: The id of a document from the knowledge base. This is returned on document addition.
+          required: true
+          schema:
+            title: Documentation Id
+            type: string
+            description: The id of a document from the knowledge base. This is returned on document addition.
+          example: 21m00Tcm4TlvDq8ikWAM
+        - name: cursor
+          in: query
+          description: Used for fetching next page. Cursor is returned in the response.
+          schema:
+            title: Cursor
+            type: string
+            description: Used for fetching next page. Cursor is returned in the response.
+        - name: page_size
+          in: query
+          description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
+          schema:
+            title: Page Size
+            maximum: 100.0
+            minimum: 1.0
+            type: integer
+            description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
+            default: 30
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetKnowledgeBaseDependentAgentsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: get_dependent_agents
+      x-fern-sdk-group-name: conversational_ai
+  /v1/convai/tools:
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Tools
+      description: Get all available tools available in the workspace.
+      operationId: Get_tools_v1_convai_tools_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ToolsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: get_tools
+      x-fern-sdk-group-name: conversational_ai
     post:
       tags:
         - Conversational AI
       summary: Add Tool
       description: Add a new tool to the available tools in the workspace.
-      operationId: Add_tool_v1_convai_add_tool_post
+      operationId: Add_tool_v1_convai_tools_post
       parameters:
         - name: xi-api-key
           in: header
@@ -4632,39 +5708,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: update_tool
       x-fern-sdk-group-name: conversational_ai
-  /v1/convai/tools:
-    get:
-      tags:
-        - Conversational AI
-      summary: Get Tools
-      description: Get all available tools available in the workspace.
-      operationId: Get_tools_v1_convai_tools_get
-      parameters:
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                title: Response Get Tools V1 Convai Tools Get
-                type: array
-                items:
-                  $ref: '#/components/schemas/ToolResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_tools
-      x-fern-sdk-group-name: conversational_ai
   /docs:
     get:
       summary: Redirect To Mintlify
@@ -4677,45 +5720,6 @@ paths:
               schema: { }
 components:
   schemas:
-    WorkspaceGroupByNameResponseModel:
-      title: WorkspaceGroupByNameResponseModel
-      required:
-        - name
-        - id
-        - members_emails
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        id:
-          title: Id
-          type: string
-        members_emails:
-          title: Members Emails
-          type: array
-          items:
-            type: string
-    Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post:
-      title: Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
-      required:
-        - email
-      type: object
-      properties:
-        email:
-          title: Email
-          type: string
-          description: The email of the target workspace member.
-    Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post:
-      title: Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post
-      required:
-        - email
-      type: object
-      properties:
-        email:
-          title: Email
-          type: string
-          description: The email of the target workspace member.
     ASRConversationalConfig:
       title: ASRConversationalConfig
       type: object
@@ -5146,7 +6150,17 @@ components:
         from_url:
           title: From Url
           type: string
-          description: 'An optional URL from which we will extract content to initialize the project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the project as blank.'
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+    Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post:
+      title: Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          title: Email
+          type: string
+          description: The email of the target workspace member.
     Body_Add_project_v1_projects_add_post:
       title: Body_Add_project_v1_projects_add_post
       required:
@@ -5159,7 +6173,7 @@ components:
         name:
           title: Name
           type: string
-          description: 'The name of the project, used for identification only.'
+          description: 'The name of the Studio project, used for identification only.'
         default_title_voice_id:
           title: Default Title Voice Id
           type: string
@@ -5171,15 +6185,15 @@ components:
         default_model_id:
           title: Default Model Id
           type: string
-          description: 'The model_id of the model to be used for this project, you can query GET https://api.elevenlabs.io/v1/models to list all available models.'
+          description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
         from_url:
           title: From Url
           type: string
-          description: 'An optional URL from which we will extract content to initialize the project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the project as blank.'
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
         from_document:
           title: From Document
           type: string
-          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the project as blank.'
+          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
           format: binary
         quality_preset:
           title: Quality of the generated audio.
@@ -5189,21 +6203,21 @@ components:
         title:
           title: Title
           type: string
-          description: 'An optional name of the author of the project, this will be added as metadata to the mp3 file on project / chapter download.'
+          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
         author:
           title: Author
           type: string
-          description: 'An optional name of the author of the project, this will be added as metadata to the mp3 file on project / chapter download.'
+          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
         description:
           title: Description
           type: string
-          description: An optional description of the project.
+          description: An optional description of the Studio project.
         genres:
           title: Genres
           type: array
           items:
             type: string
-          description: An optional list of genres associated with the project.
+          description: An optional list of genres associated with the Studio project.
         target_audience:
           title: Target Audience
           enum:
@@ -5212,58 +6226,58 @@ components:
             - adult
             - all ages
           type: string
-          description: An optional target audience of the project.
+          description: An optional target audience of the Studio project.
         language:
           title: Language
           maxLength: 2
           minLength: 2
           type: string
-          description: An optional language of the project. Two-letter language code (ISO 639-1).
+          description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
         content_type:
           title: Content Type
           type: string
-          description: An optional content type of the project.
+          description: An optional content type of the Studio project.
         original_publication_date:
           title: Original Publication Date
           pattern: '^\d{4}-\d{2}-\d{2}$|^\d{4}$'
           type: string
-          description: 'An optional original publication date of the project, in the format YYYY-MM-DD or YYYY.'
+          description: 'An optional original publication date of the Studio project, in the format YYYY-MM-DD or YYYY.'
         mature_content:
           title: Mature Content
           type: boolean
-          description: An optional mature content of the project.
+          description: An optional specification of whether this Studio project contains mature content.
           default: false
         isbn_number:
           title: Isbn Number
           type: string
-          description: 'An optional ISBN number of the project you want to create, this will be added as metadata to the mp3 file on project / chapter download.'
+          description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
         acx_volume_normalization:
           title: Acx Volume Normalization
           type: boolean
-          description: '[Deprecated] When the project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
+          description: '[Deprecated] When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
         volume_normalization:
           title: Volume Normalization
           type: boolean
-          description: 'When the project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
+          description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
         pronunciation_dictionary_locators:
           title: Pronunciation Dictionary Locators
           type: array
           items:
             type: string
-          description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text.  A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+          description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
         callback_url:
           title: Callback Url
           type: string
-          description: A url that will be called by our service when the project is converted with a json containing the status of the conversion
+          description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
         fiction:
           title: Fiction
           enum:
             - fiction
             - non-fiction
           type: string
-          description: An optional fiction of the project.
+          description: An optional specification of whether the content of this Studio project is fiction.
         quality_check_on:
           title: Quality Check On
           type: boolean
@@ -5280,7 +6294,7 @@ components:
         auto_convert:
           title: Auto Convert
           type: boolean
-          description: Whether to auto convert the project to audio or not.
+          description: Whether to auto convert the Studio project to audio or not.
           default: false
         auto_assign_voices:
           title: Auto Assign Voices
@@ -5423,6 +6437,158 @@ components:
           title: Name
           type: string
           description: A name to make the agent easier to find
+    Body_Create_Pronunciation_Dictionaries_v1_studio_projects__project_id__pronunciation_dictionaries_post:
+      title: Body_Create_Pronunciation_Dictionaries_v1_studio_projects__project_id__pronunciation_dictionaries_post
+      required:
+        - pronunciation_dictionary_locators
+      type: object
+      properties:
+        pronunciation_dictionary_locators:
+          title: Pronunciation Dictionary Locators
+          type: array
+          items:
+            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
+          description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+    Body_Create_Studio_project_v1_studio_projects_post:
+      title: Body_Create_Studio_project_v1_studio_projects_post
+      required:
+        - name
+        - default_title_voice_id
+        - default_paragraph_voice_id
+        - default_model_id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: 'The name of the Studio project, used for identification only.'
+        default_title_voice_id:
+          title: Default Title Voice Id
+          type: string
+          description: The voice_id that corresponds to the default voice used for new titles.
+        default_paragraph_voice_id:
+          title: Default Paragraph Voice Id
+          type: string
+          description: The voice_id that corresponds to the default voice used for new paragraphs.
+        default_model_id:
+          title: Default Model Id
+          type: string
+          description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
+        from_url:
+          title: From Url
+          type: string
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+        from_document:
+          title: From Document
+          type: string
+          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          format: binary
+        quality_preset:
+          title: Quality of the generated audio.
+          type: string
+          description: "Output quality of the generated audio. Must be one of:\nstandard - standard output format, 128kbps with 44.1kHz sample rate.\nhigh - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.\nultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.\nultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.\n"
+          default: standard
+        title:
+          title: Title
+          type: string
+          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+        author:
+          title: Author
+          type: string
+          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+        description:
+          title: Description
+          type: string
+          description: An optional description of the Studio project.
+        genres:
+          title: Genres
+          type: array
+          items:
+            type: string
+          description: An optional list of genres associated with the Studio project.
+        target_audience:
+          title: Target Audience
+          enum:
+            - children
+            - young adult
+            - adult
+            - all ages
+          type: string
+          description: An optional target audience of the Studio project.
+        language:
+          title: Language
+          maxLength: 2
+          minLength: 2
+          type: string
+          description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
+        content_type:
+          title: Content Type
+          type: string
+          description: An optional content type of the Studio project.
+        original_publication_date:
+          title: Original Publication Date
+          pattern: '^\d{4}-\d{2}-\d{2}$|^\d{4}$'
+          type: string
+          description: 'An optional original publication date of the Studio project, in the format YYYY-MM-DD or YYYY.'
+        mature_content:
+          title: Mature Content
+          type: boolean
+          description: An optional specification of whether this Studio project contains mature content.
+          default: false
+        isbn_number:
+          title: Isbn Number
+          type: string
+          description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+        acx_volume_normalization:
+          title: Acx Volume Normalization
+          type: boolean
+          description: '[Deprecated] When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
+          default: false
+        volume_normalization:
+          title: Volume Normalization
+          type: boolean
+          description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
+          default: false
+        pronunciation_dictionary_locators:
+          title: Pronunciation Dictionary Locators
+          type: array
+          items:
+            type: string
+          description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+        callback_url:
+          title: Callback Url
+          type: string
+          description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+        fiction:
+          title: Fiction
+          enum:
+            - fiction
+            - non-fiction
+          type: string
+          description: An optional specification of whether the content of this Studio project is fiction.
+        quality_check_on:
+          title: Quality Check On
+          type: boolean
+          description: '[Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.'
+        apply_text_normalization:
+          title: Apply Text Normalization
+          enum:
+            - auto
+            - on
+            - off
+            - apply_english
+          type: string
+          description: "\n    This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.\n    When set to 'auto', the system will automatically decide whether to apply text normalization \n    (e.g., spelling out numbers). With 'on', text normalization will always be applied, while \n    with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.\n    "
+        auto_convert:
+          title: Auto Convert
+          type: boolean
+          description: Whether to auto convert the Studio project to audio or not.
+          default: false
+        auto_assign_voices:
+          title: Auto Assign Voices
+          type: boolean
+          description: '[Alpha Feature] Whether automatically assign voices to phrases in the create Project.'
+          default: false
     Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_create_voice_from_preview_post:
       title: Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_create_voice_from_preview_post
       required:
@@ -5499,6 +6665,20 @@ components:
           description: 'Optional, metadata to add to the created voice. Defaults to None.'
           example:
             language: en
+    Body_Create_chapter_v1_studio_projects__project_id__chapters_post:
+      title: Body_Create_chapter_v1_studio_projects__project_id__chapters_post
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: 'The name of the chapter, used for identification only.'
+        from_url:
+          title: From Url
+          type: string
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
     Body_Create_podcast_v1_projects_podcast_create_post:
       title: Body_Create_podcast_v1_projects_podcast_create_post
       required:
@@ -5510,7 +6690,7 @@ components:
         model_id:
           title: Model Id
           type: string
-          description: 'The model_id of the model to be used for this project, you can query GET https://api.elevenlabs.io/v1/models to list all available models.'
+          description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
         mode:
           title: Mode
           anyOf:
@@ -5522,6 +6702,11 @@ components:
           anyOf:
             - $ref: '#/components/schemas/PodcastTextSource'
             - $ref: '#/components/schemas/PodcastURLSource'
+            - type: array
+              items:
+                anyOf:
+                  - $ref: '#/components/schemas/PodcastTextSource'
+                  - $ref: '#/components/schemas/PodcastURLSource'
           description: The source content for the Podcast.
         quality_preset:
           title: Quality of the generated audio.
@@ -5548,7 +6733,7 @@ components:
           maxLength: 2
           minLength: 2
           type: string
-          description: An optional language of the project. Two-letter language code (ISO 639-1).
+          description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
         highlights:
           title: Highlights
           maxLength: 70
@@ -5558,11 +6743,80 @@ components:
             maxLength: 70
             minLength: 10
             type: string
-          description: 'A brief summary or highlights of the project''s content, providing key points or themes. This should be between 10 and 70 characters.'
+          description: 'A brief summary or highlights of the Studio project''s content, providing key points or themes. This should be between 10 and 70 characters.'
         callback_url:
           title: Callback Url
           type: string
-          description: A url that will be called by our service when the project is converted with a json containing the status of the conversion
+          description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+    Body_Create_podcast_v1_studio_podcasts_post:
+      title: Body_Create_podcast_v1_studio_podcasts_post
+      required:
+        - model_id
+        - mode
+        - source
+      type: object
+      properties:
+        model_id:
+          title: Model Id
+          type: string
+          description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
+        mode:
+          title: Mode
+          anyOf:
+            - $ref: '#/components/schemas/PodcastConversationMode'
+            - $ref: '#/components/schemas/PodcastBulletinMode'
+          description: The type of podcast to generate
+        source:
+          title: Source
+          anyOf:
+            - $ref: '#/components/schemas/PodcastTextSource'
+            - $ref: '#/components/schemas/PodcastURLSource'
+            - type: array
+              items:
+                anyOf:
+                  - $ref: '#/components/schemas/PodcastTextSource'
+                  - $ref: '#/components/schemas/PodcastURLSource'
+          description: The source content for the Podcast.
+        quality_preset:
+          title: Quality of the generated audio.
+          enum:
+            - standard
+            - high
+            - highest
+            - ultra
+            - ultra_lossless
+          type: string
+          description: "Output quality of the generated audio. Must be one of:\nstandard - standard output format, 128kbps with 44.1kHz sample rate.\nhigh - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.\nultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.\nultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.\n"
+          default: standard
+        duration_scale:
+          title: 'The duration of the generated podcast. This varies depending on the format, voice and language.'
+          enum:
+            - short
+            - default
+            - long
+          type: string
+          description: "Duration of the generated podcast. Must be one of:\nshort - produces podcasts shorter than 3 minutes.\ndefault - produces podcasts roughly between 3-7 minutes.\nlong - prodces podcasts longer than 7 minutes.\n"
+          default: default
+        language:
+          title: Language
+          maxLength: 2
+          minLength: 2
+          type: string
+          description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
+        highlights:
+          title: Highlights
+          maxLength: 70
+          minLength: 10
+          type: array
+          items:
+            maxLength: 70
+            minLength: 10
+            type: string
+          description: 'A brief summary or highlights of the Studio project''s content, providing key points or themes. This should be between 10 and 70 characters.'
+        callback_url:
+          title: Callback Url
+          type: string
+          description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
     Body_Creates_AudioNative_enabled_project__v1_audio_native_post:
       title: Body_Creates_AudioNative_enabled_project__v1_audio_native_post
       required:
@@ -5631,6 +6885,16 @@ components:
           title: Email
           type: string
           description: The email of the customer
+    Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post:
+      title: Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          title: Email
+          type: string
+          description: The email of the target workspace member.
     Body_Download_history_items_v1_history_download_post:
       title: Body_Download_history_items_v1_history_download_post
       required:
@@ -5716,7 +6980,7 @@ components:
         name:
           title: Name
           type: string
-          description: 'The name of the project, used for identification only.'
+          description: 'The name of the Studio project, used for identification only.'
         default_title_voice_id:
           title: Default Title Voice Id
           type: string
@@ -5728,19 +6992,19 @@ components:
         title:
           title: Title
           type: string
-          description: 'An optional name of the author of the project, this will be added as metadata to the mp3 file on project / chapter download.'
+          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
         author:
           title: Author
           type: string
-          description: 'An optional name of the author of the project, this will be added as metadata to the mp3 file on project / chapter download.'
+          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
         isbn_number:
           title: Isbn Number
           type: string
-          description: 'An optional ISBN number of the project you want to create, this will be added as metadata to the mp3 file on project / chapter download.'
+          description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
         volume_normalization:
           title: Volume Normalization
           type: boolean
-          description: 'When the project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
+          description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
         quality_check_on:
           title: Quality Check On
@@ -5766,16 +7030,16 @@ components:
         from_url:
           title: From Url
           type: string
-          description: 'An optional URL from which we will extract content to initialize the project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the project as blank.'
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
         from_document:
           title: From Document
           type: string
-          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the project as blank.'
+          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
           format: binary
         auto_convert:
           title: Auto Convert
           type: boolean
-          description: Whether to auto convert the project to audio or not.
+          description: Whether to auto convert the Studio project to audio or not.
           default: false
     Body_Edit_voice_v1_voices__voice_id__edit_post:
       title: Body_Edit_voice_v1_voices__voice_id__edit_post
@@ -6037,22 +7301,51 @@ components:
           type: boolean
           description: If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.
           default: false
+    Body_Speech_to_Text_Stream_v1_speech_to_text_stream_post:
+      title: Body_Speech_to_Text_Stream_v1_speech_to_text_stream_post
+      required:
+        - model_id
+      type: object
+      properties:
+        model_id:
+          title: Model Id
+          type: string
+          description: 'The ID of the model to use for transcription, currently only ''scribe_v1'' is available.'
+        file:
+          title: File
+          type: string
+          description: The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
+          format: binary
+        language_code:
+          title: Language Code
+          type: string
+          description: 'An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.'
+        tag_audio_events:
+          title: Tag Audio Events
+          type: boolean
+          description: 'Whether to tag audio events like (laughter), (footsteps), etc. in the transcription.'
+          default: true
+        num_speakers:
+          title: Num Speakers
+          maximum: 31.0
+          minimum: 1.0
+          type: integer
+          description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 31. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
     Body_Speech_to_Text_v1_speech_to_text_post:
       title: Body_Speech_to_Text_v1_speech_to_text_post
       required:
-        - file
         - model_id
       type: object
       properties:
+        model_id:
+          title: Model Id
+          type: string
+          description: 'The ID of the model to use for transcription, currently only ''scribe_v1'' is available.'
         file:
           title: File
           type: string
           description: The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
           format: binary
-        model_id:
-          title: Model Id
-          type: string
-          description: 'The ID of the model to use for transcription, currently only ''scribe_v1'' is available.'
         language_code:
           title: Language Code
           type: string
@@ -6068,39 +7361,26 @@ components:
           minimum: 1.0
           type: integer
           description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 31. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
-    Body_Speech_to_Text_v1_speech_to_text_stream_post:
-      title: Body_Speech_to_Text_v1_speech_to_text_stream_post
-      required:
-        - file
-        - model_id
+    Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
+      title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
       properties:
-        file:
-          title: File
-          type: string
-          description: The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
-          format: binary
-        model_id:
-          title: Model Id
-          type: string
-          description: 'The ID of the model to use for transcription, currently only ''scribe_v1'' is available.'
-        language_code:
-          title: Language Code
-          type: string
-          description: 'An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.'
-        tag_audio_events:
-          title: Tag Audio Events
+        convert_to_mpeg:
+          title: Convert To Mpeg
           type: boolean
-          description: 'Whether to tag audio events like (laughter), (footsteps), etc. in the transcription.'
-          default: true
-        num_speakers:
-          title: Num Speakers
-          maximum: 31.0
-          minimum: 1.0
-          type: integer
-          description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 31. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
+          description: Whether to convert the audio to mpeg format.
+          default: false
     Body_Stream_chapter_audio_v1_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post:
       title: Body_Stream_chapter_audio_v1_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post
+      type: object
+      properties:
+        convert_to_mpeg:
+          title: Convert To Mpeg
+          type: boolean
+          description: Whether to convert the audio to mpeg format.
+          default: false
+    Body_Stream_chapter_audio_v1_studio_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post:
+      title: Body_Stream_chapter_audio_v1_studio_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post
       type: object
       properties:
         convert_to_mpeg:
@@ -6400,7 +7680,66 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
-          description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text.  A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+          description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+    Body_Update_Studio_project_content_v1_studio_projects__project_id__content_post:
+      title: Body_Update_Studio_project_content_v1_studio_projects__project_id__content_post
+      type: object
+      properties:
+        from_url:
+          title: From Url
+          type: string
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+        from_document:
+          title: From Document
+          type: string
+          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          format: binary
+        auto_convert:
+          title: Auto Convert
+          type: boolean
+          description: Whether to auto convert the Studio project to audio or not.
+          default: false
+    Body_Update_Studio_project_metadata_v1_studio_projects__project_id__post:
+      title: Body_Update_Studio_project_metadata_v1_studio_projects__project_id__post
+      required:
+        - name
+        - default_title_voice_id
+        - default_paragraph_voice_id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: 'The name of the Studio project, used for identification only.'
+        default_title_voice_id:
+          title: Default Title Voice Id
+          type: string
+          description: The voice_id that corresponds to the default voice used for new titles.
+        default_paragraph_voice_id:
+          title: Default Paragraph Voice Id
+          type: string
+          description: The voice_id that corresponds to the default voice used for new paragraphs.
+        title:
+          title: Title
+          type: string
+          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+        author:
+          title: Author
+          type: string
+          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+        isbn_number:
+          title: Isbn Number
+          type: string
+          description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+        volume_normalization:
+          title: Volume Normalization
+          type: boolean
+          description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
+          default: false
+        quality_check_on:
+          title: Quality Check On
+          type: boolean
+          description: '[Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.'
     Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post:
       title: Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post
       type: object
@@ -6420,6 +7759,19 @@ components:
           type: boolean
           description: Whether to auto publish the new project snapshot after it's converted.
           default: false
+    Body_Update_chapter_v1_studio_projects__project_id__chapters__chapter_id__post:
+      title: Body_Update_chapter_v1_studio_projects__project_id__chapters__chapter_id__post
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: 'The name of the chapter, used for identification only.'
+        content:
+          title: Content
+          allOf:
+            - $ref: '#/components/schemas/ChapterContentInputModel'
+          description: The chapter content to use.
     Body_Update_member_v1_workspace_members_post:
       title: Body_Update_member_v1_workspace_members_post
       required:
@@ -7208,6 +8560,48 @@ components:
         rationale:
           title: Rationale
           type: string
+    DependentAvailableAgentIdentifier:
+      title: DependentAvailableAgentIdentifier
+      required:
+        - id
+        - name
+        - created_at_unix_secs
+        - access_level
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        type:
+          title: Type
+          enum:
+            - available
+          type: string
+          default: available
+        created_at_unix_secs:
+          title: Created At Unix Secs
+          type: integer
+        access_level:
+          title: Access Level
+          enum:
+            - admin
+            - editor
+            - viewer
+          type: string
+    DependentUnknownAgentIdentifier:
+      title: DependentUnknownAgentIdentifier
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - unknown
+          type: string
+          default: unknown
+      description: "A model that represents an agent dependent on a knowledge base/tools\nto which the user has no direct access."
     DoDubbingResponseModel:
       title: DoDubbingResponseModel
       required:
@@ -7656,16 +9050,64 @@ components:
         has_more:
           title: Has More
           type: boolean
-    GetKnowledgeBaseReponseModel:
-      title: GetKnowledgeBaseReponseModel
+    GetKnowledgeBaseDependentAgentsResponseModel:
+      title: GetKnowledgeBaseDependentAgentsResponseModel
+      required:
+        - agents
+        - has_more
+      type: object
+      properties:
+        agents:
+          title: Agents
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DependentAvailableAgentIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownAgentIdentifier'
+            discriminator:
+              propertyName: type
+              mapping:
+                available: '#/components/schemas/DependentAvailableAgentIdentifier'
+                unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
+        next_cursor:
+          title: Next Cursor
+          type: string
+        has_more:
+          title: Has More
+          type: boolean
+    GetKnowledgeBaseListResponseModel:
+      title: GetKnowledgeBaseListResponseModel
+      required:
+        - documents
+        - has_more
+      type: object
+      properties:
+        documents:
+          title: Documents
+          type: array
+          items:
+            $ref: '#/components/schemas/GetKnowledgeBaseSummaryResponseModel'
+        next_cursor:
+          title: Next Cursor
+          type: string
+        has_more:
+          title: Has More
+          type: boolean
+    GetKnowledgeBaseResponseModel:
+      title: GetKnowledgeBaseResponseModel
       required:
         - id
+        - name
         - type
         - extracted_inner_html
+        - access_level
       type: object
       properties:
         id:
           title: Id
+          type: string
+        name:
+          title: Name
           type: string
         type:
           title: Type
@@ -7675,6 +9117,54 @@ components:
           type: string
         extracted_inner_html:
           title: Extracted Inner Html
+          type: string
+        access_level:
+          title: Access Level
+          enum:
+            - admin
+            - editor
+            - viewer
+          type: string
+    GetKnowledgeBaseSummaryResponseModel:
+      title: GetKnowledgeBaseSummaryResponseModel
+      required:
+        - id
+        - name
+        - type
+        - dependent_agents
+        - access_level
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        type:
+          title: Type
+          enum:
+            - file
+            - url
+          type: string
+        dependent_agents:
+          title: Dependent Agents
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DependentAvailableAgentIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownAgentIdentifier'
+            discriminator:
+              propertyName: type
+              mapping:
+                available: '#/components/schemas/DependentAvailableAgentIdentifier'
+                unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
+        access_level:
+          title: Access Level
+          enum:
+            - admin
+            - editor
+            - viewer
           type: string
     GetLibraryVoicesResponseModel:
       title: GetLibraryVoicesResponseModel
@@ -7908,7 +9398,7 @@ components:
         - gpt-3.5-turbo
         - gemini-1.5-pro
         - gemini-1.5-flash
-        - gemini-2.0-flash-exp
+        - gemini-2.0-flash-001
         - gemini-1.0-pro
         - claude-3-5-sonnet
         - claude-3-haiku
@@ -8848,16 +10338,21 @@ components:
                 webhook: '#/components/schemas/WebhookToolConfig'
                 client: '#/components/schemas/ClientToolConfig'
                 system: '#/components/schemas/SystemToolConfig'
-        used_tools:
-          title: Used Tools
+        tool_ids:
+          title: Tool Ids
           type: array
           items:
-            $ref: '#/components/schemas/ToolConfigLocator'
+            type: string
         knowledge_base:
           title: Knowledge Base
           type: array
           items:
             $ref: '#/components/schemas/KnowledgeBaseLocator'
+        knowledge_base_document_ids:
+          title: Knowledge Base Document Ids
+          type: array
+          items:
+            type: string
         custom_llm:
           $ref: '#/components/schemas/CustomLLM'
     PromptAgentOverride:
@@ -9272,12 +10767,59 @@ components:
             end: 1.2
             type: word
             speaker_id: speaker_1
+    SpeechToTextStreamResponseModel:
+      title: SpeechToTextStreamResponseModel
+      required:
+        - language_code
+        - language_probability
+        - text
+        - words
+      type: object
+      properties:
+        language_code:
+          title: Language Code
+          type: string
+          description: The detected language code (e.g. 'eng' for English).
+        language_probability:
+          title: Language Probability
+          type: number
+          description: The confidence score of the language detection (0 to 1).
+        text:
+          title: Text
+          type: string
+          description: The raw text of the transcription.
+        words:
+          title: Words
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechToTextWordResponseModel'
+          description: List of words with their timing information.
+      description: "\n            The streaming endpoint returns a sequence of these chunks, each separated by double newlines.\n            Example stream (formatted for readability):\n\n            {\"language_code\": \"en\", \"language_probability\": 0.0, \"text\": \"This is an example\", \"words\": [...]}\\n\\n\n            {\"language_code\": \"en\", \"language_probability\": 0.0, \"text\": \"of a streamed transcription\", \"words\": [...]}\\n\\n\n            {\"language_code\": \"en\", \"language_probability\": 1.0, \"text\": \"with each chunk separated by double newlines.\", \"words\": [...]}\n            "
+      example:
+        language_code: en
+        language_probability: 0.98
+        text: Hello world!
+        words:
+          - text: Hello
+            start: 0
+            end: 0.5
+            type: word
+            speaker_id: speaker_0
+          - text: ' '
+            start: 0.5
+            end: 0.5
+            type: spacing
+            speaker_id: speaker_0
+          - text: world!
+            start: 0.5
+            end: 1.2
+            type: word
+            speaker_id: speaker_0
     SpeechToTextWordResponseModel:
       title: SpeechToTextWordResponseModel
       required:
         - text
         - type
-        - speaker_id
       type: object
       properties:
         text:
@@ -9547,15 +11089,6 @@ components:
         - twilio
       type: string
       description: An enumeration.
-    ToolConfigLocator:
-      title: ToolConfigLocator
-      required:
-        - id
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
     ToolRequestModel:
       title: ToolRequestModel
       required:
@@ -9579,6 +11112,7 @@ components:
       required:
         - id
         - tool_config
+        - dependent_agents
       type: object
       properties:
         id:
@@ -9596,6 +11130,29 @@ components:
               webhook: '#/components/schemas/WebhookToolConfig'
               client: '#/components/schemas/ClientToolConfig'
               system: '#/components/schemas/SystemToolConfig'
+        dependent_agents:
+          title: Dependent Agents
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DependentAvailableAgentIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownAgentIdentifier'
+            discriminator:
+              propertyName: type
+              mapping:
+                available: '#/components/schemas/DependentAvailableAgentIdentifier'
+                unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
+    ToolsResponseModel:
+      title: ToolsResponseModel
+      required:
+        - tools
+      type: object
+      properties:
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/ToolResponseModel'
     TurnConfig:
       title: TurnConfig
       type: object
@@ -10460,6 +12017,25 @@ components:
         - end
       type: string
       description: An enumeration.
+    WorkspaceGroupByNameResponseModel:
+      title: WorkspaceGroupByNameResponseModel
+      required:
+        - name
+        - id
+        - members_emails
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        id:
+          title: Id
+          type: string
+        members_emails:
+          title: Members Emails
+          type: array
+          items:
+            type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

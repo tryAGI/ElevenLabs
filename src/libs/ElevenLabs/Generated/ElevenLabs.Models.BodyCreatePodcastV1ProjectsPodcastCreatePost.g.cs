@@ -11,7 +11,7 @@ namespace ElevenLabs
     public sealed partial class BodyCreatePodcastV1ProjectsPodcastCreatePost
     {
         /// <summary>
-        /// The model_id of the model to be used for this project, you can query GET https://api.elevenlabs.io/v1/models to list all available models.
+        /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -29,9 +29,9 @@ namespace ElevenLabs
         /// The source content for the Podcast.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource> Source { get; set; }
+        public required global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> Source { get; set; }
 
         /// <summary>
         /// Output quality of the generated audio. Must be one of:<br/>
@@ -57,19 +57,19 @@ namespace ElevenLabs
         public global::ElevenLabs.BodyCreatePodcastV1ProjectsPodcastCreatePostDurationScale? DurationScale { get; set; }
 
         /// <summary>
-        /// An optional language of the project. Two-letter language code (ISO 639-1).
+        /// An optional language of the Studio project. Two-letter language code (ISO 639-1).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         public string? Language { get; set; }
 
         /// <summary>
-        /// A brief summary or highlights of the project's content, providing key points or themes. This should be between 10 and 70 characters.
+        /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("highlights")]
         public global::System.Collections.Generic.IList<string>? Highlights { get; set; }
 
         /// <summary>
-        /// A url that will be called by our service when the project is converted with a json containing the status of the conversion
+        /// A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
         public string? CallbackUrl { get; set; }
@@ -84,7 +84,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyCreatePodcastV1ProjectsPodcastCreatePost" /> class.
         /// </summary>
         /// <param name="modelId">
-        /// The model_id of the model to be used for this project, you can query GET https://api.elevenlabs.io/v1/models to list all available models.
+        /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
         /// </param>
         /// <param name="mode">
         /// The type of podcast to generate
@@ -108,13 +108,13 @@ namespace ElevenLabs
         /// Default Value: default
         /// </param>
         /// <param name="language">
-        /// An optional language of the project. Two-letter language code (ISO 639-1).
+        /// An optional language of the Studio project. Two-letter language code (ISO 639-1).
         /// </param>
         /// <param name="highlights">
-        /// A brief summary or highlights of the project's content, providing key points or themes. This should be between 10 and 70 characters.
+        /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.
         /// </param>
         /// <param name="callbackUrl">
-        /// A url that will be called by our service when the project is converted with a json containing the status of the conversion
+        /// A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -122,7 +122,7 @@ namespace ElevenLabs
         public BodyCreatePodcastV1ProjectsPodcastCreatePost(
             string modelId,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> mode,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource> source,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> source,
             global::ElevenLabs.BodyCreatePodcastV1ProjectsPodcastCreatePostQualityPreset? qualityPreset,
             global::ElevenLabs.BodyCreatePodcastV1ProjectsPodcastCreatePostDurationScale? durationScale,
             string? language,

@@ -39,8 +39,7 @@ namespace ElevenLabs
         /// Unique identifier for the speaker of this word.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SpeakerId { get; set; }
+        public string? SpeakerId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -72,15 +71,15 @@ namespace ElevenLabs
         public SpeechToTextWordResponseModel(
             string text,
             global::ElevenLabs.SpeechToTextWordResponseModelType type,
-            string speakerId,
             double? start,
-            double? end)
+            double? end,
+            string? speakerId)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Type = type;
-            this.SpeakerId = speakerId ?? throw new global::System.ArgumentNullException(nameof(speakerId));
             this.Start = start;
             this.End = end;
+            this.SpeakerId = speakerId;
         }
 
         /// <summary>

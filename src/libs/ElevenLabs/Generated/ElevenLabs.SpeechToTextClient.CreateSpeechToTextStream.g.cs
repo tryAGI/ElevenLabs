@@ -8,19 +8,24 @@ namespace ElevenLabs
         partial void PrepareCreateSpeechToTextStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::ElevenLabs.BodySpeechToTextV1SpeechToTextStreamPost request);
+            global::ElevenLabs.BodySpeechToTextStreamV1SpeechToTextStreamPost request);
         partial void PrepareCreateSpeechToTextStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::ElevenLabs.BodySpeechToTextV1SpeechToTextStreamPost request);
+            global::ElevenLabs.BodySpeechToTextStreamV1SpeechToTextStreamPost request);
         partial void ProcessCreateSpeechToTextStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessCreateSpeechToTextStreamResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Speech To Text<br/>
-        /// Transcribe an audio or video file with a streamed response.
+        /// Speech To Text Stream<br/>
+        /// Transcribe an audio or video file with streaming response. Returns chunks of transcription as they become available, with each chunk separated by double newlines (\n\n).
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -28,8 +33,8 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task CreateSpeechToTextStreamAsync(
-            global::ElevenLabs.BodySpeechToTextV1SpeechToTextStreamPost request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextStreamResponseModel> CreateSpeechToTextStreamAsync(
+            global::ElevenLabs.BodySpeechToTextStreamV1SpeechToTextStreamPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,12 +88,15 @@ namespace ElevenLabs
                     name: "xi-api-key");
             } 
             __httpRequestContent.Add(
-                content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
-                name: "file",
-                fileName: request.Filename ?? string.Empty);
-            __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.ModelId}"),
                 name: "model_id");
+            if (request.File != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
+                    name: "file",
+                    fileName: request.Filename ?? string.Empty);
+            } 
             if (request.LanguageCode != default)
             {
                 __httpRequestContent.Add(
@@ -129,40 +137,146 @@ namespace ElevenLabs
             ProcessCreateSpeechToTextStreamResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            try
+            // Invalid input file or parameters
+            if ((int)__response.StatusCode == 400)
             {
-                __response.EnsureSuccessStatusCode();
-            }
-            catch (global::System.Net.Http.HttpRequestException __ex)
-            {
+                string? __content_400 = null;
+                if (ReadResponseAsString)
+                {
+                    __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                }
+                else
+                {
+                    var __contentStream_400 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                }
+
                 throw new global::ElevenLabs.ApiException(
                     message: __response.ReasonPhrase ?? string.Empty,
-                    innerException: __ex,
                     statusCode: __response.StatusCode)
                 {
+                    ResponseBody = __content_400,
                     ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                         __response.Headers,
                         h => h.Key,
                         h => h.Value),
                 };
             }
+            // Validation Error
+            if ((int)__response.StatusCode == 422)
+            {
+                string? __content_422 = null;
+                global::ElevenLabs.HTTPValidationError? __value_422 = null;
+                if (ReadResponseAsString)
+                {
+                    __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                    __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                }
+                else
+                {
+                    var __contentStream_422 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                    __value_422 = await global::ElevenLabs.HTTPValidationError.FromJsonStreamAsync(__contentStream_422, JsonSerializerContext).ConfigureAwait(false);
+                }
+
+                throw new global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>(
+                    message: __response.ReasonPhrase ?? string.Empty,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_422,
+                    ResponseObject = __value_422,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
+
+            if (ReadResponseAsString)
+            {
+                var __content = await __response.Content.ReadAsStringAsync(
+#if NET5_0_OR_GREATER
+                    cancellationToken
+#endif
+                ).ConfigureAwait(false);
+
+                ProcessResponseContent(
+                    client: HttpClient,
+                    response: __response,
+                    content: ref __content);
+                ProcessCreateSpeechToTextStreamResponseContent(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response,
+                    content: ref __content);
+
+                try
+                {
+                    __response.EnsureSuccessStatusCode();
+                }
+                catch (global::System.Net.Http.HttpRequestException __ex)
+                {
+                    throw new global::ElevenLabs.ApiException(
+                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                        innerException: __ex,
+                        statusCode: __response.StatusCode)
+                    {
+                        ResponseBody = __content,
+                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                            __response.Headers,
+                            h => h.Key,
+                            h => h.Value),
+                    };
+                }
+
+                return
+                    global::ElevenLabs.SpeechToTextStreamResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            }
+            else
+            {
+                try
+                {
+                    __response.EnsureSuccessStatusCode();
+                }
+                catch (global::System.Net.Http.HttpRequestException __ex)
+                {
+                    throw new global::ElevenLabs.ApiException(
+                        message: __response.ReasonPhrase ?? string.Empty,
+                        innerException: __ex,
+                        statusCode: __response.StatusCode)
+                    {
+                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                            __response.Headers,
+                            h => h.Key,
+                            h => h.Value),
+                    };
+                }
+
+                using var __content = await __response.Content.ReadAsStreamAsync(
+#if NET5_0_OR_GREATER
+                    cancellationToken
+#endif
+                ).ConfigureAwait(false);
+
+                return
+                    await global::ElevenLabs.SpeechToTextStreamResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    throw new global::System.InvalidOperationException("Response deserialization failed.");
+            }
         }
 
         /// <summary>
-        /// Speech To Text<br/>
-        /// Transcribe an audio or video file with a streamed response.
+        /// Speech To Text Stream<br/>
+        /// Transcribe an audio or video file with streaming response. Returns chunks of transcription as they become available, with each chunk separated by double newlines (\n\n).
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
+        /// <param name="modelId">
+        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
         /// </param>
         /// <param name="file">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
         /// </param>
         /// <param name="filename">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
-        /// </param>
-        /// <param name="modelId">
-        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
         /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
@@ -176,27 +290,27 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task CreateSpeechToTextStreamAsync(
-            byte[] file,
-            string filename,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextStreamResponseModel> CreateSpeechToTextStreamAsync(
             string modelId,
             string? xiApiKey = default,
+            byte[]? file = default,
+            string? filename = default,
             string? languageCode = default,
             bool? tagAudioEvents = default,
             int? numSpeakers = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySpeechToTextV1SpeechToTextStreamPost
+            var __request = new global::ElevenLabs.BodySpeechToTextStreamV1SpeechToTextStreamPost
             {
+                ModelId = modelId,
                 File = file,
                 Filename = filename,
-                ModelId = modelId,
                 LanguageCode = languageCode,
                 TagAudioEvents = tagAudioEvents,
                 NumSpeakers = numSpeakers,
             };
 
-            await CreateSpeechToTextStreamAsync(
+            return await CreateSpeechToTextStreamAsync(
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

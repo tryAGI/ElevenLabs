@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Gemini20FlashExp,
+        Gemini20Flash001,
         /// <summary>
         /// 
         /// </summary>
@@ -81,7 +81,7 @@ namespace ElevenLabs
                 LLM.Gpt35Turbo => "gpt-3.5-turbo",
                 LLM.Gemini15Pro => "gemini-1.5-pro",
                 LLM.Gemini15Flash => "gemini-1.5-flash",
-                LLM.Gemini20FlashExp => "gemini-2.0-flash-exp",
+                LLM.Gemini20Flash001 => "gemini-2.0-flash-001",
                 LLM.Gemini10Pro => "gemini-1.0-pro",
                 LLM.Claude35Sonnet => "claude-3-5-sonnet",
                 LLM.Claude3Haiku => "claude-3-haiku",
@@ -104,7 +104,7 @@ namespace ElevenLabs
                 "gpt-3.5-turbo" => LLM.Gpt35Turbo,
                 "gemini-1.5-pro" => LLM.Gemini15Pro,
                 "gemini-1.5-flash" => LLM.Gemini15Flash,
-                "gemini-2.0-flash-exp" => LLM.Gemini20FlashExp,
+                "gemini-2.0-flash-001" => LLM.Gemini20Flash001,
                 "gemini-1.0-pro" => LLM.Gemini10Pro,
                 "claude-3-5-sonnet" => LLM.Claude35Sonnet,
                 "claude-3-haiku" => LLM.Claude3Haiku,

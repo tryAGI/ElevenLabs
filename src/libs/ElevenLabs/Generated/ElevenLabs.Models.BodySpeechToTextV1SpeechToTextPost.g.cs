@@ -9,25 +9,23 @@ namespace ElevenLabs
     public sealed partial class BodySpeechToTextV1SpeechToTextPost
     {
         /// <summary>
-        /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("file")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required byte[] File { get; set; }
-
-        /// <summary>
-        /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Filename { get; set; }
-
-        /// <summary>
         /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ModelId { get; set; }
+
+        /// <summary>
+        /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file")]
+        public byte[]? File { get; set; }
+
+        /// <summary>
+        /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
+        public string? Filename { get; set; }
 
         /// <summary>
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
@@ -57,14 +55,14 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BodySpeechToTextV1SpeechToTextPost" /> class.
         /// </summary>
+        /// <param name="modelId">
+        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
+        /// </param>
         /// <param name="file">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
         /// </param>
         /// <param name="filename">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 100MB.
-        /// </param>
-        /// <param name="modelId">
-        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
         /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
@@ -80,16 +78,16 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodySpeechToTextV1SpeechToTextPost(
-            byte[] file,
-            string filename,
             string modelId,
+            byte[]? file,
+            string? filename,
             string? languageCode,
             bool? tagAudioEvents,
             int? numSpeakers)
         {
-            this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
-            this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
+            this.File = file;
+            this.Filename = filename;
             this.LanguageCode = languageCode;
             this.TagAudioEvents = tagAudioEvents;
             this.NumSpeakers = numSpeakers;

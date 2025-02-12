@@ -105,6 +105,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public StudioClient Studio { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public DubbingClient Dubbing { get; }
 
         /// <summary>
