@@ -225,8 +225,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ProjectSnapshotUploadResponseModelStatusJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ProjectSnapshotUploadResponseModelStatusNullableJsonConverter),
-            typeof(global::ElevenLabs.JsonConverters.SpeechToTextWordResponseModelTypeJsonConverter),
-            typeof(global::ElevenLabs.JsonConverters.SpeechToTextWordResponseModelTypeNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.SubscriptionResponseModelCurrencyJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.SubscriptionResponseModelCurrencyNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.SubscriptionResponseModelStatusJsonConverter),
