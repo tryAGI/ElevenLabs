@@ -75,8 +75,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: history
+      x-fern-sdk-method-name: get_all
   '/v1/history/{history_item_id}':
     get:
       tags:
@@ -114,8 +114,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: history
+      x-fern-sdk-method-name: get
     delete:
       tags:
         - speech-history
@@ -151,8 +151,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name: history
+      x-fern-sdk-method-name: delete
   '/v1/history/{history_item_id}/audio':
     get:
       tags:
@@ -188,8 +188,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_audio
       x-fern-sdk-group-name: history
+      x-fern-sdk-method-name: get_audio
   /v1/history/download:
     post:
       tags:
@@ -220,8 +220,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: download
       x-fern-sdk-group-name: history
+      x-fern-sdk-method-name: download
   /v1/sound-generation:
     post:
       tags:
@@ -254,8 +254,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name: text_to_sound_effects
+      x-fern-sdk-method-name: convert
   /v1/audio-isolation:
     post:
       tags:
@@ -288,8 +288,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: audio_isolation
       x-fern-sdk-group-name: audio_isolation
+      x-fern-sdk-method-name: audio_isolation
   /v1/audio-isolation/stream:
     post:
       tags:
@@ -322,8 +322,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: audio_isolation_stream
       x-fern-sdk-group-name: audio_isolation
+      x-fern-sdk-method-name: audio_isolation_stream
       x-fern-streaming: true
   '/v1/voices/{voice_id}/samples/{sample_id}':
     delete:
@@ -370,8 +370,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name: samples
+      x-fern-sdk-method-name: delete
   '/v1/voices/{voice_id}/samples/{sample_id}/audio':
     get:
       tags:
@@ -416,8 +416,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_audio
       x-fern-sdk-group-name: samples
+      x-fern-sdk-method-name: get_audio
   '/v1/text-to-speech/{voice_id}':
     post:
       tags:
@@ -483,8 +483,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name: text_to_speech
+      x-fern-sdk-method-name: convert
   '/v1/text-to-speech/{voice_id}/with-timestamps':
     post:
       tags:
@@ -550,8 +550,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert_with_timestamps
       x-fern-sdk-group-name: text_to_speech
+      x-fern-sdk-method-name: convert_with_timestamps
   '/v1/text-to-speech/{voice_id}/stream':
     post:
       tags:
@@ -615,8 +615,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: text_to_speech
+      x-fern-sdk-method-name: convert_as_stream
       x-fern-streaming: true
   '/v1/text-to-speech/{voice_id}/stream/with-timestamps':
     post:
@@ -681,8 +681,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_with_timestamps
       x-fern-sdk-group-name: text_to_speech
+      x-fern-sdk-method-name: stream_with_timestamps
       x-fern-streaming: true
   '/v1/speech-to-speech/{voice_id}':
     post:
@@ -752,8 +752,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name: speech_to_speech
+      x-fern-sdk-method-name: convert
   '/v1/speech-to-speech/{voice_id}/stream':
     post:
       tags:
@@ -822,8 +822,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: speech_to_speech
+      x-fern-sdk-method-name: convert_as_stream
       x-fern-streaming: true
   /v1/voice-generation/generate-voice/parameters:
     get:
@@ -839,8 +839,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceGenerationParameterResponseModel'
-      x-fern-sdk-method-name: generate_parameters
       x-fern-sdk-group-name: voice_generation
+      x-fern-sdk-method-name: generate_parameters
   /v1/voice-generation/generate-voice:
     post:
       tags:
@@ -873,8 +873,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: generate
       x-fern-sdk-group-name: voice_generation
+      x-fern-sdk-method-name: generate
   /v1/text-to-voice/create-previews:
     post:
       tags:
@@ -930,8 +930,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_previews
       x-fern-sdk-group-name: text_to_voice
+      x-fern-sdk-method-name: create_previews
   /v1/voice-generation/create-voice:
     post:
       tags:
@@ -966,8 +966,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_a_previously_generated_voice
       x-fern-sdk-group-name: voice_generation
+      x-fern-sdk-method-name: create_a_previously_generated_voice
   /v1/text-to-voice/create-voice-from-preview:
     post:
       tags:
@@ -1002,8 +1002,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_voice_from_preview
       x-fern-sdk-group-name: text_to_voice
+      x-fern-sdk-method-name: create_voice_from_preview
   /v1/user/subscription:
     get:
       tags:
@@ -1032,8 +1032,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_subscription
       x-fern-sdk-group-name: user
+      x-fern-sdk-method-name: get_subscription
   /v1/user:
     get:
       tags:
@@ -1062,8 +1062,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: user
+      x-fern-sdk-method-name: get
   /v1/voices:
     get:
       tags:
@@ -1101,8 +1101,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: get_all
   /v1/voices/settings/default:
     get:
       tags:
@@ -1117,8 +1117,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceSettingsResponseModel'
-      x-fern-sdk-method-name: get_default_settings
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: get_default_settings
   '/v1/voices/{voice_id}/settings':
     get:
       tags:
@@ -1156,8 +1156,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_settings
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: get_settings
   '/v1/voices/{voice_id}':
     get:
       tags:
@@ -1204,8 +1204,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: get
     delete:
       tags:
         - voices
@@ -1241,8 +1241,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: delete
   '/v1/voices/{voice_id}/settings/edit':
     post:
       tags:
@@ -1288,8 +1288,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: edit_settings
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: edit_settings
   /v1/voices/add:
     post:
       tags:
@@ -1324,8 +1324,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: add
   '/v1/voices/{voice_id}/edit':
     post:
       tags:
@@ -1368,8 +1368,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: edit
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: edit
   '/v1/voices/add/{public_user_id}/{voice_id}':
     post:
       tags:
@@ -1422,8 +1422,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_sharing_voice
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: add_sharing_voice
   /v1/studio/podcasts:
     post:
       tags:
@@ -1458,8 +1458,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_podcast
       x-fern-sdk-group-name: studio
+      x-fern-sdk-method-name: create_podcast
   /v1/projects/podcast/create:
     post:
       tags:
@@ -1523,10 +1523,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: get_all
     post:
       tags:
         - studio
@@ -1560,10 +1560,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: add
   /v1/projects:
     get:
       tags:
@@ -1665,10 +1665,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: get
     post:
       tags:
         - studio
@@ -1711,10 +1711,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_metadata
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: update_metadata
     delete:
       tags:
         - studio
@@ -1750,10 +1750,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: delete
   '/v1/projects/{project_id}':
     get:
       tags:
@@ -1913,10 +1913,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_content
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: update_content
   '/v1/projects/{project_id}/content':
     post:
       tags:
@@ -1996,10 +1996,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: convert
   '/v1/projects/{project_id}/convert':
     post:
       tags:
@@ -2074,10 +2074,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_snapshots
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: get_snapshots
   '/v1/projects/{project_id}/snapshots':
     get:
       tags:
@@ -2163,10 +2163,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_audio
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: stream_audio
       x-fern-streaming: true
   '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/stream':
     post:
@@ -2258,10 +2258,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_archive
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: stream_archive
   '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/archive':
     post:
       tags:
@@ -2342,10 +2342,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name:
         - studio
         - chapters
+      x-fern-sdk-method-name: get_all
     post:
       tags:
         - studio
@@ -2388,10 +2388,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create
       x-fern-sdk-group-name:
         - studio
         - chapters
+      x-fern-sdk-method-name: create
   '/v1/projects/{project_id}/chapters':
     get:
       tags:
@@ -2476,10 +2476,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name:
         - studio
         - chapters
+      x-fern-sdk-method-name: get
     post:
       tags:
         - studio
@@ -2530,10 +2530,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: edit
       x-fern-sdk-group-name:
         - studio
         - chapters
+      x-fern-sdk-method-name: edit
     delete:
       tags:
         - studio
@@ -2578,10 +2578,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete
       x-fern-sdk-group-name:
         - studio
         - chapters
+      x-fern-sdk-method-name: delete
   '/v1/projects/{project_id}/chapters/{chapter_id}':
     get:
       tags:
@@ -2814,10 +2814,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name:
         - studio
         - chapters
+      x-fern-sdk-method-name: convert
   '/v1/projects/{project_id}/chapters/{chapter_id}/convert':
     post:
       tags:
@@ -2910,10 +2910,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all_snapshots
       x-fern-sdk-group-name:
         - studio
         - chapters
+      x-fern-sdk-method-name: get_all_snapshots
   '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots':
     get:
       tags:
@@ -3017,10 +3017,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: stream_snapshot
       x-fern-sdk-group-name:
         - studio
         - chapters
+      x-fern-sdk-method-name: stream_snapshot
       x-fern-streaming: true
   '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}/stream':
     post:
@@ -3121,10 +3121,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_pronunciation_dictionaries
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-sdk-method-name: update_pronunciation_dictionaries
   '/v1/projects/{project_id}/update-pronunciation-dictionaries':
     post:
       tags:
@@ -3201,8 +3201,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: dub_a_video_or_an_audio_file
       x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: dub_a_video_or_an_audio_file
   '/v1/dubbing/{dubbing_id}':
     get:
       tags:
@@ -3239,8 +3239,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_dubbing_project_metadata
       x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: get_dubbing_project_metadata
     delete:
       tags:
         - dubbing
@@ -3275,8 +3275,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete_dubbing_project
       x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: delete_dubbing_project
   '/v1/dubbing/{dubbing_id}/audio/{language_code}':
     get:
       tags:
@@ -3319,8 +3319,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_dubbed_file
       x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: get_dubbed_file
   '/v1/dubbing/{dubbing_id}/transcript/{language_code}':
     get:
       tags:
@@ -3376,8 +3376,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_dubbing_transcript
       x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: get_dubbing_transcript
   /v1/models:
     get:
       tags:
@@ -3409,8 +3409,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: models
+      x-fern-sdk-method-name: get_all
   /v1/audio-native:
     post:
       tags:
@@ -3445,8 +3445,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create
       x-fern-sdk-group-name: audio_native
+      x-fern-sdk-method-name: create
   '/v1/audio-native/{project_id}/content':
     post:
       tags:
@@ -3489,8 +3489,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_content
       x-fern-sdk-group-name: audio_native
+      x-fern-sdk-method-name: update_content
   /v1/shared-voices:
     get:
       tags:
@@ -3635,8 +3635,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_shared
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: get_shared
   /v1/similar-voices:
     post:
       tags:
@@ -3670,8 +3670,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_similar_library_voices
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: get_similar_library_voices
   /v1/usage/character-stats:
     get:
       tags:
@@ -3734,8 +3734,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_characters_usage_metrics
       x-fern-sdk-group-name: usage
+      x-fern-sdk-method-name: get_characters_usage_metrics
   /v1/pronunciation-dictionaries/add-from-file:
     post:
       tags:
@@ -3770,8 +3770,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_from_file
       x-fern-sdk-group-name: pronunciation_dictionary
+      x-fern-sdk-method-name: add_from_file
   '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/add-rules':
     post:
       tags:
@@ -3815,8 +3815,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_rules
       x-fern-sdk-group-name: pronunciation_dictionary
+      x-fern-sdk-method-name: add_rules
   '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/remove-rules':
     post:
       tags:
@@ -3860,8 +3860,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: remove_rules
       x-fern-sdk-group-name: pronunciation_dictionary
+      x-fern-sdk-method-name: remove_rules
   '/v1/pronunciation-dictionaries/{dictionary_id}/{version_id}/download':
     get:
       tags:
@@ -3906,8 +3906,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: download
       x-fern-sdk-group-name: pronunciation_dictionary
+      x-fern-sdk-method-name: download
   '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/':
     get:
       tags:
@@ -3945,8 +3945,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: pronunciation_dictionary
+      x-fern-sdk-method-name: get
   /v1/pronunciation-dictionaries/:
     get:
       tags:
@@ -3967,8 +3967,8 @@ paths:
           description: 'How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -3992,8 +3992,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_all
       x-fern-sdk-group-name: pronunciation_dictionary
+      x-fern-sdk-method-name: get_all
   /v1/workspace/groups/search:
     get:
       tags:
@@ -4280,8 +4280,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get
       x-fern-sdk-group-name: profile
+      x-fern-sdk-method-name: get
   /v1/speech-to-text:
     post:
       tags:
@@ -4316,8 +4316,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert
       x-fern-sdk-group-name: speech_to_text
+      x-fern-sdk-method-name: convert
   /v1/speech-to-text/stream:
     post:
       tags:
@@ -4358,8 +4358,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: speech_to_text
+      x-fern-sdk-method-name: convert_as_stream
       x-fern-streaming: true
   /v1/convai/conversation/get_signed_url:
     get:
@@ -4398,8 +4398,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_signed_url
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_signed_url
   /v1/convai/agents/create:
     post:
       tags:
@@ -4442,8 +4442,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_agent
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: create_agent
   '/v1/convai/agents/{agent_id}':
     get:
       tags:
@@ -4481,8 +4481,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_agent
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_agent
     delete:
       tags:
         - Conversational AI
@@ -4518,8 +4518,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete_agent
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: delete_agent
     patch:
       tags:
         - Conversational AI
@@ -4569,8 +4569,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_agent
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: update_agent
   '/v1/convai/agents/{agent_id}/widget':
     get:
       tags:
@@ -4615,8 +4615,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_agent_widget
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_agent_widget
   '/v1/convai/agents/{agent_id}/link':
     get:
       tags:
@@ -4654,8 +4654,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_agent_link
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_agent_link
   '/v1/convai/agents/{agent_id}/avatar':
     post:
       tags:
@@ -4699,8 +4699,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: post_agent_avatar
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: post_agent_avatar
   '/v1/convai/agents/{agent_id}/add-secret':
     post:
       tags:
@@ -4744,8 +4744,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_agent_secret
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: add_agent_secret
   /v1/convai/agents:
     get:
       tags:
@@ -4766,8 +4766,8 @@ paths:
           description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -4798,8 +4798,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_agents
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_agents
   /v1/convai/conversations:
     get:
       tags:
@@ -4836,8 +4836,8 @@ paths:
           description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -4861,8 +4861,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_conversations
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_conversations
   '/v1/convai/conversations/{conversation_id}':
     get:
       tags:
@@ -4900,8 +4900,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_conversation
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_conversation
     delete:
       tags:
         - Conversational AI
@@ -4937,8 +4937,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete_conversation
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: delete_conversation
   '/v1/convai/conversations/{conversation_id}/audio':
     get:
       tags:
@@ -4972,8 +4972,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_conversation_audio
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_conversation_audio
   '/v1/convai/conversations/{conversation_id}/feedback':
     post:
       tags:
@@ -5009,8 +5009,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: post_conversation_feedback
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: post_conversation_feedback
   /v1/convai/phone-numbers/create:
     post:
       tags:
@@ -5048,8 +5048,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_phone_number
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: create_phone_number
   '/v1/convai/phone-numbers/{phone_number_id}':
     get:
       tags:
@@ -5087,8 +5087,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_phone_number
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_phone_number
     delete:
       tags:
         - Conversational AI
@@ -5124,8 +5124,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete_phone_number
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: delete_phone_number
     patch:
       tags:
         - Conversational AI
@@ -5171,8 +5171,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_phone_number
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: update_phone_number
   /v1/convai/phone-numbers/:
     get:
       tags:
@@ -5204,8 +5204,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_phone_numbers
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_phone_numbers
   /v1/convai/knowledge-base:
     get:
       tags:
@@ -5226,8 +5226,8 @@ paths:
           description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -5251,8 +5251,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_knowledge_base_list
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_knowledge_base_list
     post:
       tags:
         - Conversational AI
@@ -5285,8 +5285,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_to_knowledge_base
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: add_to_knowledge_base
   /v1/convai/add-to-knowledge-base:
     post:
       tags:
@@ -5394,8 +5394,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_knowledge_base_document_by_id
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_knowledge_base_document_by_id
     delete:
       tags:
         - Conversational AI
@@ -5431,8 +5431,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: delete_knowledge_base_document
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: delete_knowledge_base_document
   '/v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}':
     get:
       tags:
@@ -5501,8 +5501,8 @@ paths:
           description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -5526,8 +5526,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_dependent_agents
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_dependent_agents
   /v1/convai/tools:
     get:
       tags:
@@ -5556,8 +5556,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_tools
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_tools
     post:
       tags:
         - Conversational AI
@@ -5594,8 +5594,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: add_tool
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: add_tool
   '/v1/convai/tools/{tool_id}':
     get:
       tags:
@@ -5632,8 +5632,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_tool
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_tool
     delete:
       tags:
         - Conversational AI
@@ -5668,8 +5668,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: remove_tool
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: remove_tool
     patch:
       tags:
         - Conversational AI
@@ -5714,8 +5714,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_tool
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: update_tool
   /v1/convai/settings:
     get:
       tags:
@@ -5744,8 +5744,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_settings
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_settings
     patch:
       tags:
         - Conversational AI
@@ -5782,8 +5782,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: update_settings
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: update_settings
   /v1/convai/secrets:
     get:
       summary: Get Convai Workspace Secrets For The User
@@ -5810,8 +5810,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_secrets
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_secrets
     post:
       tags:
         - Conversational AI
@@ -5848,8 +5848,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: create_secret
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: create_secret
   /docs:
     get:
       summary: Redirect To Mintlify
@@ -7495,8 +7495,8 @@ components:
           default: true
         num_speakers:
           title: Num Speakers
-          maximum: 32.0
-          minimum: 1.0
+          maximum: 32
+          minimum: 1
           type: integer
           description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
         timestamps_granularity:
@@ -7534,8 +7534,8 @@ components:
           default: true
         num_speakers:
           title: Num Speakers
-          maximum: 32.0
-          minimum: 1.0
+          maximum: 32
+          minimum: 1
           type: integer
           description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
         timestamps_granularity:
@@ -8270,8 +8270,8 @@ components:
           default: false
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30.0
-          minimum: 1.0
+          maximum: 30
+          minimum: 1
           type: integer
       description: A client tool is one that sends an event to the user's client to trigger something client side
     ConvAINewSecretConfig:
