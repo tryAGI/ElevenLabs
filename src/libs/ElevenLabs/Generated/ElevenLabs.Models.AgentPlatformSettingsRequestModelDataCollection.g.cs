@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class AgentPlatformSettingsDataCollection
+    public sealed partial class AgentPlatformSettingsRequestModelDataCollection
     {
 
         /// <summary>

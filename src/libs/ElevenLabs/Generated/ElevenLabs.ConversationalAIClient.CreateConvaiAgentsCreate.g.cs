@@ -246,7 +246,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationalConfig conversationConfig,
             bool? useToolIds = default,
             string? xiApiKey = default,
-            global::ElevenLabs.AgentPlatformSettings? platformSettings = default,
+            global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings = default,
             string? name = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

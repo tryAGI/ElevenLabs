@@ -40,7 +40,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("platform_settings")]
-        public global::ElevenLabs.AgentPlatformSettings? PlatformSettings { get; set; }
+        public global::ElevenLabs.AgentPlatformSettingsResponseModel? PlatformSettings { get; set; }
 
         /// <summary>
         /// 
@@ -48,6 +48,12 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("secrets")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIStoredSecretConfig> Secrets { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("phone_numbers")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? PhoneNumbers { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -64,6 +70,7 @@ namespace ElevenLabs
         /// <param name="metadata"></param>
         /// <param name="platformSettings"></param>
         /// <param name="secrets"></param>
+        /// <param name="phoneNumbers"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,7 +80,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationalConfig conversationConfig,
             global::ElevenLabs.AgentMetadataResponseModel metadata,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIStoredSecretConfig> secrets,
-            global::ElevenLabs.AgentPlatformSettings? platformSettings)
+            global::ElevenLabs.AgentPlatformSettingsResponseModel? platformSettings,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? phoneNumbers)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -81,6 +89,7 @@ namespace ElevenLabs
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.Secrets = secrets ?? throw new global::System.ArgumentNullException(nameof(secrets));
             this.PlatformSettings = platformSettings;
+            this.PhoneNumbers = phoneNumbers;
         }
 
         /// <summary>
