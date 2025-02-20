@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Speech To Speech Streaming<br/>
-        /// Create speech by combining the content and emotion of the uploaded audio with a voice of your choice and returns an audio stream.
+        /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
@@ -45,7 +45,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task CreateSpeechToSpeechByVoiceIdStreamAsync(
+        global::System.Threading.Tasks.Task<byte[]> CreateSpeechToSpeechByVoiceIdStreamAsync(
             string voiceId,
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
             bool? enableLogging = default,
@@ -56,7 +56,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Speech To Speech Streaming<br/>
-        /// Create speech by combining the content and emotion of the uploaded audio with a voice of your choice and returns an audio stream.
+        /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
@@ -114,7 +114,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task CreateSpeechToSpeechByVoiceIdStreamAsync(
+        global::System.Threading.Tasks.Task<byte[]> CreateSpeechToSpeechByVoiceIdStreamAsync(
             string voiceId,
             byte[] audio,
             string audioname,

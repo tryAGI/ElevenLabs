@@ -21,6 +21,12 @@ namespace ElevenLabs
         public bool? CustomLlmExtraBody { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_conversation_initiation_client_data_from_webhook")]
+        public bool? EnableConversationInitiationClientDataFromWebhook { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -33,15 +39,20 @@ namespace ElevenLabs
         /// <param name="customLlmExtraBody">
         /// Default Value: false
         /// </param>
+        /// <param name="enableConversationInitiationClientDataFromWebhook">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationInitiationClientDataConfig(
             global::ElevenLabs.ConversationConfigClientOverrideConfig? conversationConfigOverride,
-            bool? customLlmExtraBody)
+            bool? customLlmExtraBody,
+            bool? enableConversationInitiationClientDataFromWebhook)
         {
             this.ConversationConfigOverride = conversationConfigOverride;
             this.CustomLlmExtraBody = customLlmExtraBody;
+            this.EnableConversationInitiationClientDataFromWebhook = enableConversationInitiationClientDataFromWebhook;
         }
 
         /// <summary>

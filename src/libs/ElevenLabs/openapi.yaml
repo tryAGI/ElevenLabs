@@ -322,9 +322,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-streaming: true
       x-fern-sdk-method-name: audio_isolation_stream
       x-fern-sdk-group-name: audio_isolation
+      x-fern-streaming: true
   '/v1/voices/{voice_id}/samples/{sample_id}':
     delete:
       tags:
@@ -615,9 +615,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-streaming: true
       x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: text_to_speech
+      x-fern-streaming: true
   '/v1/text-to-speech/{voice_id}/stream/with-timestamps':
     post:
       tags:
@@ -681,15 +681,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-streaming: true
       x-fern-sdk-method-name: stream_with_timestamps
       x-fern-sdk-group-name: text_to_speech
+      x-fern-streaming: true
   '/v1/speech-to-speech/{voice_id}':
     post:
       tags:
         - speech-to-speech
       summary: Speech To Speech
-      description: Create speech by combining the content and emotion of the uploaded audio with a voice of your choice.
+      description: 'Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.'
       operationId: Speech_to_Speech_v1_speech_to_speech__voice_id__post
       parameters:
         - name: voice_id
@@ -740,9 +740,12 @@ paths:
         required: true
       responses:
         '200':
-          description: Successful Response
+          description: The generated audio file
           content:
-            audio/mpeg: { }
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
         '422':
           description: Validation Error
           content:
@@ -756,7 +759,7 @@ paths:
       tags:
         - speech-to-speech
       summary: Speech To Speech Streaming
-      description: Create speech by combining the content and emotion of the uploaded audio with a voice of your choice and returns an audio stream.
+      description: 'Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.'
       operationId: Speech_to_Speech_Streaming_v1_speech_to_speech__voice_id__stream_post
       parameters:
         - name: voice_id
@@ -807,16 +810,21 @@ paths:
         required: true
       responses:
         '200':
-          description: Successful Response
+          description: Streaming audio data
+          content:
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-streaming: true
       x-fern-sdk-method-name: convert_as_stream
       x-fern-sdk-group-name: speech_to_speech
+      x-fern-streaming: true
   /v1/voice-generation/generate-voice/parameters:
     get:
       tags:
@@ -2155,11 +2163,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-streaming: true
       x-fern-sdk-method-name: stream_audio
       x-fern-sdk-group-name:
         - studio
         - projects
+      x-fern-streaming: true
   '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/stream':
     post:
       tags:
@@ -3009,11 +3017,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-streaming: true
       x-fern-sdk-method-name: stream_snapshot
       x-fern-sdk-group-name:
         - studio
         - chapters
+      x-fern-streaming: true
   '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}/stream':
     post:
       tags:
@@ -4274,6 +4282,85 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: get
       x-fern-sdk-group-name: profile
+  /v1/speech-to-text:
+    post:
+      tags:
+        - speech-to-text
+      summary: Speech To Text
+      description: Transcribe an audio or video file.
+      operationId: Speech_to_Text_v1_speech_to_text_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeechToTextChunkResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: convert
+      x-fern-sdk-group-name: speech_to_text
+  /v1/speech-to-text/stream:
+    post:
+      tags:
+        - speech-to-text
+      summary: Speech To Text Stream
+      description: 'Transcribe an audio or video file with streaming response. Returns chunks of transcription as they become available, with each chunk separated by double newlines (\n\n).'
+      operationId: Speech_to_Text_Stream_v1_speech_to_text_stream_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Speech_to_Text_Stream_v1_speech_to_text_stream_post'
+        required: true
+      responses:
+        '200':
+          description: Stream of transcription chunks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeechToTextStreamResponseModel'
+        '400':
+          description: Invalid input file or parameters
+          content:
+            application/json:
+              example:
+                detail: File size must be less than 100MB
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: convert_as_stream
+      x-fern-sdk-group-name: speech_to_text
+      x-fern-streaming: true
   /v1/convai/conversation/get_signed_url:
     get:
       tags:
@@ -5629,6 +5716,140 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-method-name: update_tool
       x-fern-sdk-group-name: conversational_ai
+  /v1/convai/settings:
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Convai Settings
+      description: Retrieve Convai settings for the workspace
+      operationId: Get_Convai_settings_v1_convai_settings_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConvaiSettingsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: get_settings
+      x-fern-sdk-group-name: conversational_ai
+    patch:
+      tags:
+        - Conversational AI
+      summary: Update Convai Settings
+      description: Update Convai settings for the workspace
+      operationId: Update_Convai_settings_v1_convai_settings_patch
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Request Body
+              allOf:
+                - $ref: '#/components/schemas/PatchConvaiSettingsRequest'
+              description: Convai settings to update
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConvaiSettingsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: update_settings
+      x-fern-sdk-group-name: conversational_ai
+  /v1/convai/secrets:
+    get:
+      summary: Get Convai Workspace Secrets For The User
+      description: Get all secrets for the workspace
+      operationId: Get_Convai_workspace_secrets_for_the_user_v1_convai_secrets_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetWorkspaceSecretsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: get_secrets
+      x-fern-sdk-group-name: conversational_ai
+    post:
+      tags:
+        - Conversational AI
+      summary: Create Convai Workspace Secret
+      description: Create a new secret for the workspace
+      operationId: Create_Convai_workspace_secret_v1_convai_secrets_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Request Body
+              allOf:
+                - $ref: '#/components/schemas/PostWorkspaceSecretRequest'
+              description: Secret to create
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostWorkspaceSecretResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-method-name: create_secret
+      x-fern-sdk-group-name: conversational_ai
   /docs:
     get:
       summary: Redirect To Mintlify
@@ -5864,8 +6085,8 @@ components:
         created_at_unix_secs:
           title: Created At Unix Secs
           type: integer
-    AgentPlatformSettings:
-      title: AgentPlatformSettings
+    AgentPlatformSettingsRequestModel:
+      title: AgentPlatformSettingsRequestModel
       type: object
       properties:
         auth:
@@ -5885,10 +6106,35 @@ components:
           $ref: '#/components/schemas/AgentCallLimits'
         ban:
           $ref: '#/components/schemas/AgentBan'
-        safety:
-          $ref: '#/components/schemas/Safety'
         privacy:
           $ref: '#/components/schemas/PrivacyConfig'
+        safety:
+          $ref: '#/components/schemas/SafetyCommonModel'
+    AgentPlatformSettingsResponseModel:
+      title: AgentPlatformSettingsResponseModel
+      type: object
+      properties:
+        auth:
+          $ref: '#/components/schemas/AuthSettings'
+        evaluation:
+          $ref: '#/components/schemas/EvaluationSettings'
+        widget:
+          $ref: '#/components/schemas/WidgetConfig'
+        data_collection:
+          title: Data Collection
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LiteralJsonSchemaProperty'
+        overrides:
+          $ref: '#/components/schemas/ConversationInitiationClientDataConfig'
+        call_limits:
+          $ref: '#/components/schemas/AgentCallLimits'
+        ban:
+          $ref: '#/components/schemas/AgentBan'
+        privacy:
+          $ref: '#/components/schemas/PrivacyConfig'
+        safety:
+          $ref: '#/components/schemas/SafetyResponseModel'
     AgentSummaryResponseModel:
       title: AgentSummaryResponseModel
       required:
@@ -6352,7 +6598,7 @@ components:
         platform_settings:
           title: Platform Settings
           allOf:
-            - $ref: '#/components/schemas/AgentPlatformSettings'
+            - $ref: '#/components/schemas/AgentPlatformSettingsRequestModel'
           description: Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
         name:
           title: Name
@@ -7226,6 +7472,7 @@ components:
       title: Body_Speech_to_Text_Stream_v1_speech_to_text_stream_post
       required:
         - model_id
+        - file
       type: object
       properties:
         model_id:
@@ -7248,14 +7495,23 @@ components:
           default: true
         num_speakers:
           title: Num Speakers
-          maximum: 31.0
+          maximum: 32.0
           minimum: 1.0
           type: integer
-          description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 31. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
+          description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
+        timestamps_granularity:
+          title: Timestamps Granularity
+          enum:
+            - word
+            - character
+          type: string
+          description: The granularity of the timestamps in the transcription. 'word' provides word-level timestamps and 'character' provides character-level timestamps per word.
+          default: word
     Body_Speech_to_Text_v1_speech_to_text_post:
       title: Body_Speech_to_Text_v1_speech_to_text_post
       required:
         - model_id
+        - file
       type: object
       properties:
         model_id:
@@ -7278,10 +7534,18 @@ components:
           default: true
         num_speakers:
           title: Num Speakers
-          maximum: 31.0
+          maximum: 32.0
           minimum: 1.0
           type: integer
-          description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 31. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
+          description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
+        timestamps_granularity:
+          title: Timestamps Granularity
+          enum:
+            - word
+            - character
+          type: string
+          description: The granularity of the timestamps in the transcription. 'word' provides word-level timestamps and 'character' provides character-level timestamps per word.
+          default: word
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -7355,23 +7619,23 @@ components:
         previous_text:
           title: Previous Text
           type: string
-          description: The text that came before the text of the current request. Can be used to improve the flow of prosody when concatenating together multiple generations or to influence the prosody in the current generation.
+          description: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
         next_text:
           title: Next Text
           type: string
-          description: The text that comes after the text of the current request. Can be used to improve the flow of prosody when concatenating together multiple generations or to influence the prosody in the current generation.
+          description: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
         previous_request_ids:
           title: Previous Request Ids
           type: array
           items:
             type: string
-          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
         next_request_ids:
           title: Next Request Ids
           type: array
           items:
             type: string
-          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
         use_pvc_as_ivc:
           title: Use Pvc As Ivc
           type: boolean
@@ -7423,23 +7687,23 @@ components:
         previous_text:
           title: Previous Text
           type: string
-          description: The text that came before the text of the current request. Can be used to improve the flow of prosody when concatenating together multiple generations or to influence the prosody in the current generation.
+          description: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
         next_text:
           title: Next Text
           type: string
-          description: The text that comes after the text of the current request. Can be used to improve the flow of prosody when concatenating together multiple generations or to influence the prosody in the current generation.
+          description: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
         previous_request_ids:
           title: Previous Request Ids
           type: array
           items:
             type: string
-          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
         next_request_ids:
           title: Next Request Ids
           type: array
           items:
             type: string
-          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
         use_pvc_as_ivc:
           title: Use Pvc As Ivc
           type: boolean
@@ -7491,23 +7755,23 @@ components:
         previous_text:
           title: Previous Text
           type: string
-          description: The text that came before the text of the current request. Can be used to improve the flow of prosody when concatenating together multiple generations or to influence the prosody in the current generation.
+          description: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
         next_text:
           title: Next Text
           type: string
-          description: The text that comes after the text of the current request. Can be used to improve the flow of prosody when concatenating together multiple generations or to influence the prosody in the current generation.
+          description: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
         previous_request_ids:
           title: Previous Request Ids
           type: array
           items:
             type: string
-          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
         next_request_ids:
           title: Next Request Ids
           type: array
           items:
             type: string
-          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
         use_pvc_as_ivc:
           title: Use Pvc As Ivc
           type: boolean
@@ -7559,23 +7823,23 @@ components:
         previous_text:
           title: Previous Text
           type: string
-          description: The text that came before the text of the current request. Can be used to improve the flow of prosody when concatenating together multiple generations or to influence the prosody in the current generation.
+          description: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
         next_text:
           title: Next Text
           type: string
-          description: The text that comes after the text of the current request. Can be used to improve the flow of prosody when concatenating together multiple generations or to influence the prosody in the current generation.
+          description: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
         previous_request_ids:
           title: Previous Request Ids
           type: array
           items:
             type: string
-          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
         next_request_ids:
           title: Next Request Ids
           type: array
           items:
             type: string
-          description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the flow of prosody when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
         use_pvc_as_ivc:
           title: Use Pvc As Ivc
           type: boolean
@@ -8308,6 +8572,27 @@ components:
           title: Custom Llm Extra Body
           type: boolean
           default: false
+        enable_conversation_initiation_client_data_from_webhook:
+          title: Enable Conversation Initiation Client Data From Webhook
+          type: boolean
+          default: false
+    ConversationInitiationClientDataWebhook:
+      title: ConversationInitiationClientDataWebhook
+      required:
+        - url
+        - request_headers
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+        request_headers:
+          title: Request Headers
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - $ref: '#/components/schemas/ConvAISecretLocator'
     ConversationSignedUrlResponseModel:
       title: ConversationSignedUrlResponseModel
       required:
@@ -8885,12 +9170,17 @@ components:
         metadata:
           $ref: '#/components/schemas/AgentMetadataResponseModel'
         platform_settings:
-          $ref: '#/components/schemas/AgentPlatformSettings'
+          $ref: '#/components/schemas/AgentPlatformSettingsResponseModel'
         secrets:
           title: Secrets
           type: array
           items:
             $ref: '#/components/schemas/ConvAIStoredSecretConfig'
+        phone_numbers:
+          title: Phone Numbers
+          type: array
+          items:
+            $ref: '#/components/schemas/GetPhoneNumberResponseModel'
     GetAgentsPageResponseModel:
       title: GetAgentsPageResponseModel
       required:
@@ -8920,6 +9210,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ChapterResponseModel'
+    GetConvaiSettingsResponseModel:
+      title: GetConvaiSettingsResponseModel
+      required:
+        - secrets
+      type: object
+      properties:
+        conversation_initiation_client_data_webhook:
+          $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
+        secrets:
+          title: Secrets
+          type: array
+          items:
+            $ref: '#/components/schemas/ConvAIStoredSecretConfig'
     GetConversationResponseModel:
       title: GetConversationResponseModel
       required:
@@ -9219,6 +9522,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VoiceResponseModel'
+    GetWorkspaceSecretsResponseModel:
+      title: GetWorkspaceSecretsResponseModel
+      required:
+        - secrets
+      type: object
+      properties:
+        secrets:
+          title: Secrets
+          type: array
+          items:
+            $ref: '#/components/schemas/ConvAIStoredSecretConfig'
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -9723,6 +10037,21 @@ components:
           title: Color 2
           type: string
           default: '#9ce6e6'
+    PatchConvaiSettingsRequest:
+      title: PatchConvaiSettingsRequest
+      required:
+        - secrets
+      type: object
+      properties:
+        conversation_initiation_client_data_webhook:
+          $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
+        secrets:
+          title: Secrets
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/ConvAINewSecretConfig'
+              - $ref: '#/components/schemas/ConvAIStoredSecretConfig'
     PhoneNumberAgentInfo:
       title: PhoneNumberAgentInfo
       required:
@@ -9835,6 +10164,44 @@ components:
           type: string
         avatar_url:
           title: Avatar Url
+          type: string
+    PostWorkspaceSecretRequest:
+      title: PostWorkspaceSecretRequest
+      required:
+        - type
+        - name
+        - value
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - new
+          type: string
+        name:
+          title: Name
+          type: string
+        value:
+          title: Value
+          type: string
+    PostWorkspaceSecretResponseModel:
+      title: PostWorkspaceSecretResponseModel
+      required:
+        - type
+        - secret_id
+        - name
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - stored
+          type: string
+        secret_id:
+          title: Secret Id
+          type: string
+        name:
+          title: Name
           type: string
     PrivacyConfig:
       title: PrivacyConfig
@@ -10489,8 +10856,8 @@ components:
         version_id:
           title: Version Id
           type: string
-    Safety:
-      title: Safety
+    SafetyCommonModel:
+      title: SafetyCommonModel
       type: object
       properties:
         ivc:
@@ -10519,6 +10886,18 @@ components:
           items:
             $ref: '#/components/schemas/SafetyRule'
       description: "Safety evaluation of the agent. Prompt and first message is taken into account.\nThe unsafe reason is provided from the evaluation"
+    SafetyResponseModel:
+      title: SafetyResponseModel
+      type: object
+      properties:
+        is_blocked_ivc:
+          title: Is Blocked Ivc
+          type: boolean
+          default: false
+        is_blocked_non_ivc:
+          title: Is Blocked Non Ivc
+          type: boolean
+          default: false
     SafetyRule:
       title: SafetyRule
       enum:
@@ -10640,6 +11019,186 @@ components:
           type: string
         alignments:
           $ref: '#/components/schemas/HistoryAlignmentsResponseModel'
+    SpeechToTextCharacterResponseModel:
+      title: SpeechToTextCharacterResponseModel
+      required:
+        - text
+        - start
+        - end
+      type: object
+      properties:
+        text:
+          title: Text
+          type: string
+          description: The character that was transcribed.
+        start:
+          title: Start
+          type: number
+          description: The start time of the character in seconds.
+        end:
+          title: End
+          type: number
+          description: The end time of the character in seconds.
+      example:
+        char: H
+        start: 0
+        end: 0.1
+    SpeechToTextChunkResponseModel:
+      title: SpeechToTextChunkResponseModel
+      required:
+        - language_code
+        - language_probability
+        - text
+        - words
+      type: object
+      properties:
+        language_code:
+          title: Language Code
+          type: string
+          description: The detected language code (e.g. 'eng' for English).
+        language_probability:
+          title: Language Probability
+          type: number
+          description: The confidence score of the language detection (0 to 1).
+        text:
+          title: Text
+          type: string
+          description: The raw text of the transcription.
+        words:
+          title: Words
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechToTextWordResponseModel'
+          description: List of words with their timing information.
+      description: Chunk-level detail of the transcription with timing information.
+      example:
+        language_code: en
+        language_probability: 0.98
+        text: Hello world!
+        words:
+          - text: Hello
+            start: 0
+            end: 0.5
+            type: word
+            speaker_id: speaker_1
+          - text: ' '
+            start: 0.5
+            end: 0.5
+            type: spacing
+            speaker_id: speaker_1
+          - text: world!
+            start: 0.5
+            end: 1.2
+            type: word
+            speaker_id: speaker_1
+    SpeechToTextStreamResponseModel:
+      title: SpeechToTextStreamResponseModel
+      required:
+        - language_code
+        - language_probability
+        - text
+        - words
+      type: object
+      properties:
+        language_code:
+          title: Language Code
+          type: string
+          description: The detected language code (e.g. 'eng' for English).
+        language_probability:
+          title: Language Probability
+          type: number
+          description: The confidence score of the language detection (0 to 1).
+        text:
+          title: Text
+          type: string
+          description: The raw text of the transcription.
+        words:
+          title: Words
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechToTextWordResponseModel'
+          description: List of words with their timing information.
+      description: "\n            The streaming endpoint returns a sequence of these chunks, each separated by double newlines.\n            Example stream (formatted for readability):\n\n            {\"language_code\": \"en\", \"language_probability\": 0.0, \"text\": \"This is an example\", \"words\": [...]}\\n\\n\n            {\"language_code\": \"en\", \"language_probability\": 0.0, \"text\": \"of a streamed transcription\", \"words\": [...]}\\n\\n\n            {\"language_code\": \"en\", \"language_probability\": 1.0, \"text\": \"with each chunk separated by double newlines.\", \"words\": [...]}\n            "
+      example:
+        language_code: en
+        language_probability: 0.98
+        text: Hello world!
+        words:
+          - text: Hello
+            start: 0
+            end: 0.5
+            type: word
+            speaker_id: speaker_0
+          - text: ' '
+            start: 0.5
+            end: 0.5
+            type: spacing
+            speaker_id: speaker_0
+          - text: world!
+            start: 0.5
+            end: 1.2
+            type: word
+            speaker_id: speaker_0
+    SpeechToTextWordResponseModel:
+      title: SpeechToTextWordResponseModel
+      required:
+        - text
+        - type
+      type: object
+      properties:
+        text:
+          title: Text
+          type: string
+          description: The word or sound that was transcribed.
+        start:
+          title: Start
+          type: number
+          description: The start time of the word or sound in seconds.
+        end:
+          title: End
+          type: number
+          description: The end time of the word or sound in seconds.
+        type:
+          title: Type
+          enum:
+            - word
+            - spacing
+            - audio_event
+          type: string
+          description: The type of the word or sound. 'audio_event' is used for non-word sounds like laughter or footsteps.
+        speaker_id:
+          title: Speaker Id
+          type: string
+          description: Unique identifier for the speaker of this word.
+        characters:
+          title: Characters
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechToTextCharacterResponseModel'
+          description: The characters that make up the word and their timing information.
+      description: Word-level detail of the transcription with timing information.
+      example:
+        text: Hello
+        start: 0
+        end: 0.5
+        type: word
+        speaker_id: speaker_1
+        characters:
+          - char: H
+            start: 0
+            end: 0.1
+          - char: e
+            start: 0.1
+            end: 0.2
+          - char: l
+            start: 0.2
+            end: 0.3
+          - char: l
+            start: 0.3
+            end: 0.4
+          - char: o
+            start: 0.4
+            end: 0.5
     SubscriptionExtrasResponseModel:
       title: SubscriptionExtrasResponseModel
       required:
@@ -10651,6 +11210,9 @@ components:
         - can_request_manual_pro_voice_verification
         - can_bypass_voice_captcha
         - moderation
+        - unused_characters_rolled_over_from_previous_period
+        - overused_characters_rolled_over_from_previous_period
+        - usage
       type: object
       properties:
         concurrency:
@@ -10676,6 +11238,14 @@ components:
           type: boolean
         moderation:
           $ref: '#/components/schemas/ModerationStatusResponseModel'
+        unused_characters_rolled_over_from_previous_period:
+          title: Unused Characters Rolled Over From Previous Period
+          type: integer
+        overused_characters_rolled_over_from_previous_period:
+          title: Overused Characters Rolled Over From Previous Period
+          type: integer
+        usage:
+          $ref: '#/components/schemas/SubscriptionUsageResponseModel'
     SubscriptionResponseModel:
       title: SubscriptionResponseModel
       required:
@@ -10771,6 +11341,43 @@ components:
             - monthly_period
             - annual_period
           type: string
+    SubscriptionUsageResponseModel:
+      title: SubscriptionUsageResponseModel
+      required:
+        - rollover_credits_quota
+        - subscription_cycle_credits_quota
+        - manually_gifted_credits_quota
+        - rollover_credits_used
+        - subscription_cycle_credits_used
+        - manually_gifted_credits_used
+        - paid_usage_based_credits_used
+        - actual_reported_credits
+      type: object
+      properties:
+        rollover_credits_quota:
+          title: Rollover Credits Quota
+          type: integer
+        subscription_cycle_credits_quota:
+          title: Subscription Cycle Credits Quota
+          type: integer
+        manually_gifted_credits_quota:
+          title: Manually Gifted Credits Quota
+          type: integer
+        rollover_credits_used:
+          title: Rollover Credits Used
+          type: integer
+        subscription_cycle_credits_used:
+          title: Subscription Cycle Credits Used
+          type: integer
+        manually_gifted_credits_used:
+          title: Manually Gifted Credits Used
+          type: integer
+        paid_usage_based_credits_used:
+          title: Paid Usage Based Credits Used
+          type: integer
+        actual_reported_credits:
+          title: Actual Reported Credits
+          type: integer
     SystemToolConfig:
       title: SystemToolConfig
       required:
@@ -11835,6 +12442,8 @@ tags:
     description: Convert text into lifelike speech using a voice of your choice.
   - name: speech-to-speech
     description: Create speech by combining the style and content of an audio file you upload with a voice of your choice.
+  - name: speech-to-text
+    description: Transcribe your audio files with detailed speaker annotations and precise timestamps using our cutting-edge model. Speech-to-text is currently in alpha and available to a select group of users. We plan to roll it out more broadly soon.
   - name: models
     description: Access the different models of the platform.
   - name: voices

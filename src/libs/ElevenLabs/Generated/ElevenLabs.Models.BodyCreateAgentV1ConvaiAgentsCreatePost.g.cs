@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("platform_settings")]
-        public global::ElevenLabs.AgentPlatformSettings? PlatformSettings { get; set; }
+        public global::ElevenLabs.AgentPlatformSettingsRequestModel? PlatformSettings { get; set; }
 
         /// <summary>
         /// A name to make the agent easier to find
@@ -50,7 +50,7 @@ namespace ElevenLabs
 #endif
         public BodyCreateAgentV1ConvaiAgentsCreatePost(
             global::ElevenLabs.ConversationalConfig conversationConfig,
-            global::ElevenLabs.AgentPlatformSettings? platformSettings,
+            global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings,
             string? name)
         {
             this.ConversationConfig = conversationConfig ?? throw new global::System.ArgumentNullException(nameof(conversationConfig));

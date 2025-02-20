@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class AgentPlatformSettings
+    public sealed partial class AgentPlatformSettingsRequestModel
     {
         /// <summary>
         /// 
@@ -52,16 +52,16 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentBan? Ban { get; set; }
 
         /// <summary>
-        /// Safety object that has the information of safety evaluations based on used voice.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("safety")]
-        public global::ElevenLabs.Safety? Safety { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("privacy")]
         public global::ElevenLabs.PrivacyConfig? Privacy { get; set; }
+
+        /// <summary>
+        /// Safety object that has the information of safety evaluations based on used voice.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("safety")]
+        public global::ElevenLabs.SafetyCommonModel? Safety { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -70,7 +70,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentPlatformSettings" /> class.
+        /// Initializes a new instance of the <see cref="AgentPlatformSettingsRequestModel" /> class.
         /// </summary>
         /// <param name="auth"></param>
         /// <param name="evaluation">
@@ -82,14 +82,14 @@ namespace ElevenLabs
         /// <param name="overrides"></param>
         /// <param name="callLimits"></param>
         /// <param name="ban"></param>
+        /// <param name="privacy"></param>
         /// <param name="safety">
         /// Safety object that has the information of safety evaluations based on used voice.
         /// </param>
-        /// <param name="privacy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public AgentPlatformSettings(
+        public AgentPlatformSettingsRequestModel(
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.EvaluationSettings? evaluation,
             global::ElevenLabs.WidgetConfig? widget,
@@ -97,8 +97,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationClientDataConfig? overrides,
             global::ElevenLabs.AgentCallLimits? callLimits,
             global::ElevenLabs.AgentBan? ban,
-            global::ElevenLabs.Safety? safety,
-            global::ElevenLabs.PrivacyConfig? privacy)
+            global::ElevenLabs.PrivacyConfig? privacy,
+            global::ElevenLabs.SafetyCommonModel? safety)
         {
             this.Auth = auth;
             this.Evaluation = evaluation;
@@ -107,14 +107,14 @@ namespace ElevenLabs
             this.Overrides = overrides;
             this.CallLimits = callLimits;
             this.Ban = ban;
-            this.Safety = safety;
             this.Privacy = privacy;
+            this.Safety = safety;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentPlatformSettings" /> class.
+        /// Initializes a new instance of the <see cref="AgentPlatformSettingsRequestModel" /> class.
         /// </summary>
-        public AgentPlatformSettings()
+        public AgentPlatformSettingsRequestModel()
         {
         }
     }

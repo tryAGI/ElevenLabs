@@ -65,6 +65,27 @@ namespace ElevenLabs
         public required global::ElevenLabs.ModerationStatusResponseModel Moderation { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("unused_characters_rolled_over_from_previous_period")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int UnusedCharactersRolledOverFromPreviousPeriod { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("overused_characters_rolled_over_from_previous_period")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int OverusedCharactersRolledOverFromPreviousPeriod { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.SubscriptionUsageResponseModel Usage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -81,6 +102,9 @@ namespace ElevenLabs
         /// <param name="canRequestManualProVoiceVerification"></param>
         /// <param name="canBypassVoiceCaptcha"></param>
         /// <param name="moderation"></param>
+        /// <param name="unusedCharactersRolledOverFromPreviousPeriod"></param>
+        /// <param name="overusedCharactersRolledOverFromPreviousPeriod"></param>
+        /// <param name="usage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -92,7 +116,10 @@ namespace ElevenLabs
             bool forceLoggingDisabled,
             bool canRequestManualProVoiceVerification,
             bool canBypassVoiceCaptcha,
-            global::ElevenLabs.ModerationStatusResponseModel moderation)
+            global::ElevenLabs.ModerationStatusResponseModel moderation,
+            int unusedCharactersRolledOverFromPreviousPeriod,
+            int overusedCharactersRolledOverFromPreviousPeriod,
+            global::ElevenLabs.SubscriptionUsageResponseModel usage)
         {
             this.Concurrency = concurrency;
             this.ConvaiConcurrency = convaiConcurrency;
@@ -102,6 +129,9 @@ namespace ElevenLabs
             this.CanRequestManualProVoiceVerification = canRequestManualProVoiceVerification;
             this.CanBypassVoiceCaptcha = canBypassVoiceCaptcha;
             this.Moderation = moderation ?? throw new global::System.ArgumentNullException(nameof(moderation));
+            this.UnusedCharactersRolledOverFromPreviousPeriod = unusedCharactersRolledOverFromPreviousPeriod;
+            this.OverusedCharactersRolledOverFromPreviousPeriod = overusedCharactersRolledOverFromPreviousPeriod;
+            this.Usage = usage ?? throw new global::System.ArgumentNullException(nameof(usage));
         }
 
         /// <summary>
