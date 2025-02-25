@@ -212,7 +212,8 @@ namespace ElevenLabs
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="emails">
-        /// The email of the customer
+        /// The email of the customer<br/>
+        /// Example: john.doe@testmail.com
         /// </param>
         /// <param name="groupIds">
         /// The group ids of the user<br/>

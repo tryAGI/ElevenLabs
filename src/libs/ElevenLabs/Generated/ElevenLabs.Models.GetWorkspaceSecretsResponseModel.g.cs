@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secrets")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIStoredSecretConfig> Secrets { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> Secrets { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -29,7 +29,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetWorkspaceSecretsResponseModel(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIStoredSecretConfig> secrets)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> secrets)
         {
             this.Secrets = secrets ?? throw new global::System.ArgumentNullException(nameof(secrets));
         }

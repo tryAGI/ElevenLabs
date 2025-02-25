@@ -17,37 +17,29 @@ namespace ElevenLabs.JsonConverters
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PromptAgentToolDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PromptAgentToolDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PromptAgentToolDiscriminator)}");
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
-            global::ElevenLabs.WebhookToolConfig? webhook = default;
-            if (discriminator?.Type == global::ElevenLabs.PromptAgentToolDiscriminatorType.Webhook)
+            global::ElevenLabs.DependentAvailableToolIdentifier? available = default;
+            if (discriminator?.Type == global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType.Available)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WebhookToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WebhookToolConfig> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WebhookToolConfig)}");
-                webhook = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentAvailableToolIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentAvailableToolIdentifier> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DependentAvailableToolIdentifier)}");
+                available = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.ClientToolConfig? client = default;
-            if (discriminator?.Type == global::ElevenLabs.PromptAgentToolDiscriminatorType.Client)
+            global::ElevenLabs.DependentUnknownToolIdentifier? unknown = default;
+            if (discriminator?.Type == global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType.Unknown)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ClientToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ClientToolConfig> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ClientToolConfig)}");
-                client = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.SystemToolConfig? system = default;
-            if (discriminator?.Type == global::ElevenLabs.PromptAgentToolDiscriminatorType.System)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SystemToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SystemToolConfig> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SystemToolConfig)}");
-                system = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentUnknownToolIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentUnknownToolIdentifier> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DependentUnknownToolIdentifier)}");
+                unknown = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var result = new global::ElevenLabs.ToolsItem(
                 discriminator?.Type,
-                webhook,
-                client,
-                system
+                available,
+                unknown
                 );
 
             return result;
@@ -62,23 +54,17 @@ namespace ElevenLabs.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsWebhook)
+            if (value.IsAvailable)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WebhookToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WebhookToolConfig?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WebhookToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Webhook, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentAvailableToolIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentAvailableToolIdentifier?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DependentAvailableToolIdentifier).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Available, typeInfo);
             }
-            else if (value.IsClient)
+            else if (value.IsUnknown)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ClientToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ClientToolConfig?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ClientToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Client, typeInfo);
-            }
-            else if (value.IsSystem)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SystemToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SystemToolConfig?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SystemToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.System, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentUnknownToolIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentUnknownToolIdentifier?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DependentUnknownToolIdentifier).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Unknown, typeInfo);
             }
         }
     }

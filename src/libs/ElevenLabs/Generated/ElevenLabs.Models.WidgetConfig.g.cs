@@ -18,6 +18,13 @@ namespace ElevenLabs
         public global::ElevenLabs.EmbedVariant? Variant { get; set; }
 
         /// <summary>
+        /// Default Value: never
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("expandable")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetExpandableJsonConverter))]
+        public global::ElevenLabs.WidgetExpandable? Expandable { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avatar")]
@@ -142,6 +149,19 @@ namespace ElevenLabs
         /// <summary>
         /// Default Value: false
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("show_avatar_when_collapsed")]
+        public bool? ShowAvatarWhenCollapsed { get; set; }
+
+        /// <summary>
+        /// Whether to disable the ConvAI widget banner<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("disable_banner")]
+        public bool? DisableBanner { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_selector")]
         public bool? LanguageSelector { get; set; }
 
@@ -162,6 +182,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="variant">
         /// Default Value: full
+        /// </param>
+        /// <param name="expandable">
+        /// Default Value: never
         /// </param>
         /// <param name="avatar"></param>
         /// <param name="feedbackMode">
@@ -197,6 +220,13 @@ namespace ElevenLabs
         /// <param name="termsText"></param>
         /// <param name="termsHtml"></param>
         /// <param name="termsKey"></param>
+        /// <param name="showAvatarWhenCollapsed">
+        /// Default Value: false
+        /// </param>
+        /// <param name="disableBanner">
+        /// Whether to disable the ConvAI widget banner<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="languageSelector">
         /// Default Value: false
         /// </param>
@@ -206,6 +236,7 @@ namespace ElevenLabs
 #endif
         public WidgetConfig(
             global::ElevenLabs.EmbedVariant? variant,
+            global::ElevenLabs.WidgetExpandable? expandable,
             global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? avatar,
             global::ElevenLabs.WidgetFeedbackMode? feedbackMode,
             string? bgColor,
@@ -226,10 +257,13 @@ namespace ElevenLabs
             string? termsText,
             string? termsHtml,
             string? termsKey,
+            bool? showAvatarWhenCollapsed,
+            bool? disableBanner,
             bool? languageSelector,
             string? customAvatarPath)
         {
             this.Variant = variant;
+            this.Expandable = expandable;
             this.Avatar = avatar;
             this.FeedbackMode = feedbackMode;
             this.BgColor = bgColor;
@@ -250,6 +284,8 @@ namespace ElevenLabs
             this.TermsText = termsText;
             this.TermsHtml = termsHtml;
             this.TermsKey = termsKey;
+            this.ShowAvatarWhenCollapsed = showAvatarWhenCollapsed;
+            this.DisableBanner = disableBanner;
             this.LanguageSelector = languageSelector;
             this.CustomAvatarPath = customAvatarPath;
         }

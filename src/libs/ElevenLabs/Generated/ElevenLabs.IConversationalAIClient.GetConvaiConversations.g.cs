@@ -12,10 +12,12 @@ namespace ElevenLabs
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// The id of the agent you're taking the action on.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="callSuccessful">
-        /// The result of the success evaluation
+        /// The result of the success evaluation<br/>
+        /// Example: success
         /// </param>
         /// <param name="pageSize">
         /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>

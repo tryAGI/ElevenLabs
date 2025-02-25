@@ -9,18 +9,19 @@ namespace ElevenLabs
     public sealed partial class InvoiceResponseModel
     {
         /// <summary>
-        /// 
+        /// The amount due in cents.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("amount_due_cents")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int AmountDueCents { get; set; }
 
         /// <summary>
-        /// 
+        /// The Unix timestamp of the next payment attempt.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_payment_attempt_unix")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int NextPaymentAttemptUnix { get; set; }
+        public required global::System.DateTimeOffset NextPaymentAttemptUnix { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,14 +32,18 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoiceResponseModel" /> class.
         /// </summary>
-        /// <param name="amountDueCents"></param>
-        /// <param name="nextPaymentAttemptUnix"></param>
+        /// <param name="amountDueCents">
+        /// The amount due in cents.
+        /// </param>
+        /// <param name="nextPaymentAttemptUnix">
+        /// The Unix timestamp of the next payment attempt.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public InvoiceResponseModel(
             int amountDueCents,
-            int nextPaymentAttemptUnix)
+            global::System.DateTimeOffset nextPaymentAttemptUnix)
         {
             this.AmountDueCents = amountDueCents;
             this.NextPaymentAttemptUnix = nextPaymentAttemptUnix;

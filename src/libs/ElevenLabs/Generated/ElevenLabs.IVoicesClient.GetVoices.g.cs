@@ -10,7 +10,8 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="showLegacy">
         /// If set to true, legacy premade voices will be included in responses from /v1/voices<br/>
-        /// Default Value: false
+        /// Default Value: false<br/>
+        /// Example: true
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

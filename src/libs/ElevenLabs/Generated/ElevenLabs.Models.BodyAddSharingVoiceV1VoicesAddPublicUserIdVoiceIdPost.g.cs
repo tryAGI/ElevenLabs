@@ -9,8 +9,10 @@ namespace ElevenLabs
     public sealed partial class BodyAddSharingVoiceV1VoicesAddPublicUserIdVoiceIdPost
     {
         /// <summary>
-        /// The name that identifies this voice. This will be displayed in the dropdown of the website.
+        /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
+        /// Example: Joe Rogan
         /// </summary>
+        /// <example>Joe Rogan</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("new_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string NewName { get; set; }
@@ -25,7 +27,8 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyAddSharingVoiceV1VoicesAddPublicUserIdVoiceIdPost" /> class.
         /// </summary>
         /// <param name="newName">
-        /// The name that identifies this voice. This will be displayed in the dropdown of the website.
+        /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
+        /// Example: Joe Rogan
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

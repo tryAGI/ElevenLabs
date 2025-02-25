@@ -37,7 +37,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2>? Tools { get; set; }
 
         /// <summary>
         /// 
@@ -95,7 +95,7 @@ namespace ElevenLabs
             global::ElevenLabs.LLM? llm,
             double? temperature,
             int? maxTokens,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? tools,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2>? tools,
             global::System.Collections.Generic.IList<string>? toolIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::System.Collections.Generic.IList<string>? knowledgeBaseDocumentIds,

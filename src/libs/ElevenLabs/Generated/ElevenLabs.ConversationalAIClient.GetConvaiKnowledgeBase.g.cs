@@ -9,12 +9,18 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
+            ref string? search,
+            ref bool? showOnlyOwnedDocuments,
+            ref bool? useTypesense,
             ref string? xiApiKey);
         partial void PrepareGetConvaiKnowledgeBaseRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
             int? pageSize,
+            string? search,
+            bool? showOnlyOwnedDocuments,
+            bool? useTypesense,
             string? xiApiKey);
         partial void ProcessGetConvaiKnowledgeBaseResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -36,6 +42,17 @@ namespace ElevenLabs
         /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
+        /// <param name="search">
+        /// If specified, the endpoint returns only such knowledge base documents whose names start with this string.
+        /// </param>
+        /// <param name="showOnlyOwnedDocuments">
+        /// If set to true, the endpoint will return only documents owned by you (and not shared from somebody else).<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useTypesense">
+        /// If set to true, the endpoint will use typesense DB to search for the documents).<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -44,6 +61,9 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetKnowledgeBaseListResponseModel> GetConvaiKnowledgeBaseAsync(
             string? cursor = default,
             int? pageSize = default,
+            string? search = default,
+            bool? showOnlyOwnedDocuments = default,
+            bool? useTypesense = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -53,6 +73,9 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 cursor: ref cursor,
                 pageSize: ref pageSize,
+                search: ref search,
+                showOnlyOwnedDocuments: ref showOnlyOwnedDocuments,
+                useTypesense: ref useTypesense,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
@@ -61,6 +84,9 @@ namespace ElevenLabs
             __pathBuilder 
                 .AddOptionalParameter("cursor", cursor) 
                 .AddOptionalParameter("page_size", pageSize?.ToString()) 
+                .AddOptionalParameter("search", search) 
+                .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString()) 
+                .AddOptionalParameter("use_typesense", useTypesense?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -101,6 +127,9 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 cursor: cursor,
                 pageSize: pageSize,
+                search: search,
+                showOnlyOwnedDocuments: showOnlyOwnedDocuments,
+                useTypesense: useTypesense,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

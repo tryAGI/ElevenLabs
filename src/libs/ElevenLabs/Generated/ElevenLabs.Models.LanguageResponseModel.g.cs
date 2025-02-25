@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class LanguageResponseModel
     {
         /// <summary>
-        /// 
+        /// The unique identifier of the language.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string LanguageId { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the language.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="LanguageResponseModel" /> class.
         /// </summary>
-        /// <param name="languageId"></param>
-        /// <param name="name"></param>
+        /// <param name="languageId">
+        /// The unique identifier of the language.
+        /// </param>
+        /// <param name="name">
+        /// The name of the language.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

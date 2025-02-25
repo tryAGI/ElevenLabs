@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The currency of the user's subscription.
     /// </summary>
     public enum ExtendedSubscriptionResponseModelCurrency
     {

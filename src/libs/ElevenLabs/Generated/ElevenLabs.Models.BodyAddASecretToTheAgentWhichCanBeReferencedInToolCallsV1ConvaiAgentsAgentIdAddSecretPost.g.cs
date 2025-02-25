@@ -9,15 +9,19 @@ namespace ElevenLabs
     public sealed partial class BodyAddASecretToTheAgentWhichCanBeReferencedInToolCallsV1ConvaiAgentsAgentIdAddSecretPost
     {
         /// <summary>
-        /// A name to help identify a particular agent secret
+        /// A name to help identify a particular agent secret<br/>
+        /// Example: MY API KEY
         /// </summary>
+        /// <example>MY API KEY</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// A value to be encrypted and used by the agent
+        /// A value to be encrypted and used by the agent<br/>
+        /// Example: sk_api_12354abc
         /// </summary>
+        /// <example>sk_api_12354abc</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_value")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SecretValue { get; set; }
@@ -32,10 +36,12 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyAddASecretToTheAgentWhichCanBeReferencedInToolCallsV1ConvaiAgentsAgentIdAddSecretPost" /> class.
         /// </summary>
         /// <param name="name">
-        /// A name to help identify a particular agent secret
+        /// A name to help identify a particular agent secret<br/>
+        /// Example: MY API KEY
         /// </param>
         /// <param name="secretValue">
-        /// A value to be encrypted and used by the agent
+        /// A value to be encrypted and used by the agent<br/>
+        /// Example: sk_api_12354abc
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

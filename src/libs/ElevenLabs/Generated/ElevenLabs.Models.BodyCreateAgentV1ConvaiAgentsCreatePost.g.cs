@@ -22,8 +22,10 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentPlatformSettingsRequestModel? PlatformSettings { get; set; }
 
         /// <summary>
-        /// A name to make the agent easier to find
+        /// A name to make the agent easier to find<br/>
+        /// Example: My agent
         /// </summary>
+        /// <example>My agent</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
 
@@ -43,7 +45,8 @@ namespace ElevenLabs
         /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
         /// </param>
         /// <param name="name">
-        /// A name to make the agent easier to find
+        /// A name to make the agent easier to find<br/>
+        /// Example: My agent
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

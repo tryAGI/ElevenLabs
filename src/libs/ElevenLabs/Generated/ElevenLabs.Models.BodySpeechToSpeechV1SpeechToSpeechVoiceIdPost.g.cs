@@ -36,15 +36,19 @@ namespace ElevenLabs
         public string? VoiceSettings { get; set; }
 
         /// <summary>
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
+        /// Example: 12345
         /// </summary>
+        /// <example>12345</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
         public int? Seed { get; set; }
 
         /// <summary>
         /// If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
-        /// Default Value: false
+        /// Default Value: false<br/>
+        /// Example: true
         /// </summary>
+        /// <example>true</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("remove_background_noise")]
         public bool? RemoveBackgroundNoise { get; set; }
 
@@ -71,11 +75,13 @@ namespace ElevenLabs
         /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
         /// </param>
         /// <param name="seed">
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
+        /// Example: 12345
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
-        /// Default Value: false
+        /// Default Value: false<br/>
+        /// Example: true
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

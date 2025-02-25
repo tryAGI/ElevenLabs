@@ -239,10 +239,12 @@ namespace ElevenLabs
         /// <param name="audioFile"></param>
         /// <param name="audioFilename"></param>
         /// <param name="similarityThreshold">
-        /// Threshold for voice similarity between provided sample and library voices. Must be in range &lt;0, 2&gt;. The smaller the value the more similar voices will be returned.
+        /// Threshold for voice similarity between provided sample and library voices. Must be in range &lt;0, 2&gt;. The smaller the value the more similar voices will be returned.<br/>
+        /// Example: 0.5
         /// </param>
         /// <param name="topK">
-        /// Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Must be in range &lt;1, 100&gt;.
+        /// Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Must be in range &lt;1, 100&gt;.<br/>
+        /// Example: 10
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

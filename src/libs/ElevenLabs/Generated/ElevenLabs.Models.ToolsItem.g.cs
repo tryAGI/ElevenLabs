@@ -12,137 +12,100 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PromptAgentToolDiscriminatorType? Type { get; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// A webhook tool is a tool that calls an external webhook from our server
+        /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.WebhookToolConfig? Webhook { get; init; }
+        public global::ElevenLabs.DependentAvailableToolIdentifier? Available { get; init; }
 #else
-        public global::ElevenLabs.WebhookToolConfig? Webhook { get; }
+        public global::ElevenLabs.DependentAvailableToolIdentifier? Available { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Webhook))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Available))]
 #endif
-        public bool IsWebhook => Webhook != null;
+        public bool IsAvailable => Available != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem(global::ElevenLabs.WebhookToolConfig value) => new ToolsItem(value);
+        public static implicit operator ToolsItem(global::ElevenLabs.DependentAvailableToolIdentifier value) => new ToolsItem(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.WebhookToolConfig?(ToolsItem @this) => @this.Webhook;
+        public static implicit operator global::ElevenLabs.DependentAvailableToolIdentifier?(ToolsItem @this) => @this.Available;
 
         /// <summary>
         /// 
         /// </summary>
-        public ToolsItem(global::ElevenLabs.WebhookToolConfig? value)
+        public ToolsItem(global::ElevenLabs.DependentAvailableToolIdentifier? value)
         {
-            Webhook = value;
+            Available = value;
         }
 
         /// <summary>
-        /// A client tool is one that sends an event to the user's client to trigger something client side
+        /// A model that represents an tool dependent on a knowledge base/tools<br/>
+        /// to which the user has no direct access.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.ClientToolConfig? Client { get; init; }
+        public global::ElevenLabs.DependentUnknownToolIdentifier? Unknown { get; init; }
 #else
-        public global::ElevenLabs.ClientToolConfig? Client { get; }
+        public global::ElevenLabs.DependentUnknownToolIdentifier? Unknown { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Client))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Unknown))]
 #endif
-        public bool IsClient => Client != null;
+        public bool IsUnknown => Unknown != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem(global::ElevenLabs.ClientToolConfig value) => new ToolsItem(value);
+        public static implicit operator ToolsItem(global::ElevenLabs.DependentUnknownToolIdentifier value) => new ToolsItem(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.ClientToolConfig?(ToolsItem @this) => @this.Client;
+        public static implicit operator global::ElevenLabs.DependentUnknownToolIdentifier?(ToolsItem @this) => @this.Unknown;
 
         /// <summary>
         /// 
         /// </summary>
-        public ToolsItem(global::ElevenLabs.ClientToolConfig? value)
+        public ToolsItem(global::ElevenLabs.DependentUnknownToolIdentifier? value)
         {
-            Client = value;
-        }
-
-        /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.SystemToolConfig? System { get; init; }
-#else
-        public global::ElevenLabs.SystemToolConfig? System { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
-#endif
-        public bool IsSystem => System != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator ToolsItem(global::ElevenLabs.SystemToolConfig value) => new ToolsItem(value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.SystemToolConfig?(ToolsItem @this) => @this.System;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ToolsItem(global::ElevenLabs.SystemToolConfig? value)
-        {
-            System = value;
+            Unknown = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public ToolsItem(
-            global::ElevenLabs.PromptAgentToolDiscriminatorType? type,
-            global::ElevenLabs.WebhookToolConfig? webhook,
-            global::ElevenLabs.ClientToolConfig? client,
-            global::ElevenLabs.SystemToolConfig? system
+            global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType? type,
+            global::ElevenLabs.DependentAvailableToolIdentifier? available,
+            global::ElevenLabs.DependentUnknownToolIdentifier? unknown
             )
         {
             Type = type;
 
-            Webhook = webhook;
-            Client = client;
-            System = system;
+            Available = available;
+            Unknown = unknown;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            System as object ??
-            Client as object ??
-            Webhook as object 
+            Unknown as object ??
+            Available as object 
             ;
 
         /// <summary>
@@ -150,16 +113,15 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsWebhook && !IsClient && !IsSystem || !IsWebhook && IsClient && !IsSystem || !IsWebhook && !IsClient && IsSystem;
+            return IsAvailable && !IsUnknown || !IsAvailable && IsUnknown;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.WebhookToolConfig?, TResult>? webhook = null,
-            global::System.Func<global::ElevenLabs.ClientToolConfig?, TResult>? client = null,
-            global::System.Func<global::ElevenLabs.SystemToolConfig?, TResult>? system = null,
+            global::System.Func<global::ElevenLabs.DependentAvailableToolIdentifier?, TResult>? available = null,
+            global::System.Func<global::ElevenLabs.DependentUnknownToolIdentifier?, TResult>? unknown = null,
             bool validate = true)
         {
             if (validate)
@@ -167,17 +129,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsWebhook && webhook != null)
+            if (IsAvailable && available != null)
             {
-                return webhook(Webhook!);
+                return available(Available!);
             }
-            else if (IsClient && client != null)
+            else if (IsUnknown && unknown != null)
             {
-                return client(Client!);
-            }
-            else if (IsSystem && system != null)
-            {
-                return system(System!);
+                return unknown(Unknown!);
             }
 
             return default(TResult);
@@ -187,9 +145,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.WebhookToolConfig?>? webhook = null,
-            global::System.Action<global::ElevenLabs.ClientToolConfig?>? client = null,
-            global::System.Action<global::ElevenLabs.SystemToolConfig?>? system = null,
+            global::System.Action<global::ElevenLabs.DependentAvailableToolIdentifier?>? available = null,
+            global::System.Action<global::ElevenLabs.DependentUnknownToolIdentifier?>? unknown = null,
             bool validate = true)
         {
             if (validate)
@@ -197,17 +154,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsWebhook)
+            if (IsAvailable)
             {
-                webhook?.Invoke(Webhook!);
+                available?.Invoke(Available!);
             }
-            else if (IsClient)
+            else if (IsUnknown)
             {
-                client?.Invoke(Client!);
-            }
-            else if (IsSystem)
-            {
-                system?.Invoke(System!);
+                unknown?.Invoke(Unknown!);
             }
         }
 
@@ -218,12 +171,10 @@ namespace ElevenLabs
         {
             var fields = new object?[]
             {
-                Webhook,
-                typeof(global::ElevenLabs.WebhookToolConfig),
-                Client,
-                typeof(global::ElevenLabs.ClientToolConfig),
-                System,
-                typeof(global::ElevenLabs.SystemToolConfig),
+                Available,
+                typeof(global::ElevenLabs.DependentAvailableToolIdentifier),
+                Unknown,
+                typeof(global::ElevenLabs.DependentUnknownToolIdentifier),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -240,9 +191,8 @@ namespace ElevenLabs
         public bool Equals(ToolsItem other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookToolConfig?>.Default.Equals(Webhook, other.Webhook) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfig?>.Default.Equals(Client, other.Client) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfig?>.Default.Equals(System, other.System) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentAvailableToolIdentifier?>.Default.Equals(Available, other.Available) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentUnknownToolIdentifier?>.Default.Equals(Unknown, other.Unknown) 
                 ;
         }
 

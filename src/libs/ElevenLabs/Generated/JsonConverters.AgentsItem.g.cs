@@ -17,19 +17,19 @@ namespace ElevenLabs.JsonConverters
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminator)}");
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.DependentAvailableAgentIdentifier? available = default;
-            if (discriminator?.Type == global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminatorType.Available)
+            if (discriminator?.Type == global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminatorType.Available)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentAvailableAgentIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentAvailableAgentIdentifier> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DependentAvailableAgentIdentifier)}");
                 available = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.DependentUnknownAgentIdentifier? unknown = default;
-            if (discriminator?.Type == global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminatorType.Unknown)
+            if (discriminator?.Type == global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminatorType.Unknown)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentUnknownAgentIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentUnknownAgentIdentifier> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DependentUnknownAgentIdentifier)}");

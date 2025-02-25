@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Source of the generated history item
+    /// Source of the generated history item<br/>
+    /// Example: TTS
     /// </summary>
     public enum GetGeneratedItemsV1HistoryGetSource
     {

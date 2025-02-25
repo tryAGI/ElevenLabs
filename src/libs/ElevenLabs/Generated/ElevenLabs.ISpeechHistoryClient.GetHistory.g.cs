@@ -19,10 +19,12 @@ namespace ElevenLabs
         /// Voice ID to be filtered for, you can use GET https://api.elevenlabs.io/v1/voices to receive a list of voices and their IDs.
         /// </param>
         /// <param name="search">
-        /// search term used for filtering
+        /// search term used for filtering<br/>
+        /// Example: In the land far far away
         /// </param>
         /// <param name="source">
-        /// Source of the generated history item
+        /// Source of the generated history item<br/>
+        /// Example: TTS
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

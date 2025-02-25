@@ -238,7 +238,8 @@ namespace ElevenLabs
         /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
         /// </param>
         /// <param name="name">
-        /// A name to make the agent easier to find
+        /// A name to make the agent easier to find<br/>
+        /// Example: My agent
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

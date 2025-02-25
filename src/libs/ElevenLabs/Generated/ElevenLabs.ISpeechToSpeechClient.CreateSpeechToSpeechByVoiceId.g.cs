@@ -9,7 +9,8 @@ namespace ElevenLabs
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
@@ -59,7 +60,8 @@ namespace ElevenLabs
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
@@ -106,11 +108,13 @@ namespace ElevenLabs
         /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
         /// </param>
         /// <param name="seed">
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
+        /// Example: 12345
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
-        /// Default Value: false
+        /// Default Value: false<br/>
+        /// Example: true
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

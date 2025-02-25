@@ -13,42 +13,58 @@ namespace ElevenLabs
         /// Default Value: 30
         /// </param>
         /// <param name="category">
-        /// voice category used for filtering
+        /// voice category used for filtering<br/>
+        /// Example: professional
         /// </param>
         /// <param name="gender">
-        /// gender used for filtering
+        /// gender used for filtering<br/>
+        /// Example: male
         /// </param>
         /// <param name="age">
-        /// age used for filtering
+        /// age used for filtering<br/>
+        /// Example: young
         /// </param>
         /// <param name="accent">
-        /// accent used for filtering
+        /// accent used for filtering<br/>
+        /// Example: american
         /// </param>
         /// <param name="language">
-        /// language used for filtering
+        /// language used for filtering<br/>
+        /// Example: en
         /// </param>
         /// <param name="search">
-        /// search term used for filtering
+        /// search term used for filtering<br/>
+        /// Example: tiktok
         /// </param>
         /// <param name="useCases">
-        /// use-case used for filtering
+        /// use-case used for filtering<br/>
+        /// Example: audiobook
         /// </param>
         /// <param name="descriptives">
-        /// search term used for filtering
+        /// search term used for filtering<br/>
+        /// Example: tiktok
         /// </param>
         /// <param name="featured">
         /// Filter featured voices<br/>
-        /// Default Value: false
+        /// Default Value: false<br/>
+        /// Example: true
+        /// </param>
+        /// <param name="minNoticePeriodDays">
+        /// Filter voices with a minimum notice period of the given number of days.<br/>
+        /// Example: 30
         /// </param>
         /// <param name="readerAppEnabled">
         /// Filter voices that are enabled for the reader app<br/>
-        /// Default Value: false
+        /// Default Value: false<br/>
+        /// Example: true
         /// </param>
         /// <param name="ownerId">
-        /// Filter voices by public owner ID
+        /// Filter voices by public owner ID<br/>
+        /// Example: 7c9fab611d9a0e1fb2e7448a0c294a8804efc2bcc324b0a366a5d5232b7d1532
         /// </param>
         /// <param name="sort">
-        /// sort criteria
+        /// sort criteria<br/>
+        /// Example: created_date
         /// </param>
         /// <param name="page">
         /// Default Value: 0
@@ -69,6 +85,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? useCases = default,
             global::System.Collections.Generic.IList<string>? descriptives = default,
             bool? featured = default,
+            int? minNoticePeriodDays = default,
             bool? readerAppEnabled = default,
             string? ownerId = default,
             string? sort = default,

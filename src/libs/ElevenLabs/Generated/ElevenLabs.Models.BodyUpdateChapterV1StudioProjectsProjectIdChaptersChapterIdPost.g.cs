@@ -9,8 +9,10 @@ namespace ElevenLabs
     public sealed partial class BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost
     {
         /// <summary>
-        /// The name of the chapter, used for identification only.
+        /// The name of the chapter, used for identification only.<br/>
+        /// Example: Chapter 1
         /// </summary>
+        /// <example>Chapter 1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
 
@@ -30,7 +32,8 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost" /> class.
         /// </summary>
         /// <param name="name">
-        /// The name of the chapter, used for identification only.
+        /// The name of the chapter, used for identification only.<br/>
+        /// Example: Chapter 1
         /// </param>
         /// <param name="content">
         /// The chapter content to use.

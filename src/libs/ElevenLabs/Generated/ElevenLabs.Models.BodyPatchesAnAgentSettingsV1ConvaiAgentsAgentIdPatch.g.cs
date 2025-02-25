@@ -29,8 +29,10 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAINewSecretConfig, global::ElevenLabs.ConvAIStoredSecretConfig>>? Secrets { get; set; }
 
         /// <summary>
-        /// A name to make the agent easier to find
+        /// A name to make the agent easier to find<br/>
+        /// Example: My agent
         /// </summary>
+        /// <example>My agent</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
 
@@ -53,7 +55,8 @@ namespace ElevenLabs
         /// A list of secrets for the agent. Can be used to add new secrets or update and delete the existing ones
         /// </param>
         /// <param name="name">
-        /// A name to make the agent easier to find
+        /// A name to make the agent easier to find<br/>
+        /// Example: My agent
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

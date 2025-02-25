@@ -43,7 +43,7 @@ paths:
             title: Search
             type: string
             description: search term used for filtering
-          example: In the land far far away
+            example: In the land far far away
         - name: source
           in: query
           description: Source of the generated history item
@@ -54,7 +54,7 @@ paths:
               - STS
             type: string
             description: Source of the generated history item
-          example: TTS
+            example: TTS
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -93,7 +93,7 @@ paths:
             title: History Item Id
             type: string
             description: 'History item ID to be used, you can use GET https://api.elevenlabs.io/v1/history to receive a list of history items and their IDs.'
-          example: VW7YKqPnjY4h39yTbx2L
+            example: VW7YKqPnjY4h39yTbx2L
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -131,7 +131,7 @@ paths:
             title: History Item Id
             type: string
             description: 'History item ID to be used, you can use GET https://api.elevenlabs.io/v1/history to receive a list of history items and their IDs.'
-          example: VW7YKqPnjY4h39yTbx2L
+            example: VW7YKqPnjY4h39yTbx2L
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -169,7 +169,7 @@ paths:
             title: History Item Id
             type: string
             description: 'History item ID to be used, you can use GET https://api.elevenlabs.io/v1/history to receive a list of history items and their IDs.'
-          example: VW7YKqPnjY4h39yTbx2L
+            example: VW7YKqPnjY4h39yTbx2L
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -341,7 +341,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: sample_id
           in: path
           description: 'Sample ID to be used, you can use GET https://api.elevenlabs.io/v1/voices/{voice_id} to list all the available samples for a voice.'
@@ -350,7 +350,7 @@ paths:
             title: Sample Id
             type: string
             description: 'Sample ID to be used, you can use GET https://api.elevenlabs.io/v1/voices/{voice_id} to list all the available samples for a voice.'
-          example: VW7YKqPnjY4h39yTbx2L
+            example: VW7YKqPnjY4h39yTbx2L
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -388,7 +388,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: sample_id
           in: path
           description: 'Sample ID to be used, you can use GET https://api.elevenlabs.io/v1/voices/{voice_id} to list all the available samples for a voice.'
@@ -397,7 +397,7 @@ paths:
             title: Sample Id
             type: string
             description: 'Sample ID to be used, you can use GET https://api.elevenlabs.io/v1/voices/{voice_id} to list all the available samples for a voice.'
-          example: VW7YKqPnjY4h39yTbx2L
+            example: VW7YKqPnjY4h39yTbx2L
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -434,7 +434,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: enable_logging
           in: query
           description: 'When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.'
@@ -474,9 +474,12 @@ paths:
         required: true
       responses:
         '200':
-          description: Successful Response
+          description: The generated audio file
           content:
-            audio/mpeg: { }
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
         '422':
           description: Validation Error
           content:
@@ -490,7 +493,7 @@ paths:
       tags:
         - text-to-speech
       summary: Text To Speech With Timestamps
-      description: Converts text into speech using a voice of your choice and returns JSON containing audio as a base64 encoded string together with information on when which character was spoken.
+      description: Generate speech from text with precise character-level timing information for audio-text synchronization.
       operationId: Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post
       parameters:
         - name: voice_id
@@ -501,7 +504,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: enable_logging
           in: query
           description: 'When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.'
@@ -543,7 +546,9 @@ paths:
         '200':
           description: Successful Response
           content:
-            application/json: { }
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AudioWithTimestampsResponseModel'
         '422':
           description: Validation Error
           content:
@@ -568,7 +573,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: enable_logging
           in: query
           description: 'When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.'
@@ -608,7 +613,12 @@ paths:
         required: true
       responses:
         '200':
-          description: Successful Response
+          description: Streaming audio data
+          content:
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
         '422':
           description: Validation Error
           content:
@@ -634,7 +644,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: enable_logging
           in: query
           description: 'When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.'
@@ -674,7 +684,11 @@ paths:
         required: true
       responses:
         '200':
-          description: Successful Response
+          description: Stream of transcription chunks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamingAudioChunkWithTimestampsResponseModel'
         '422':
           description: Validation Error
           content:
@@ -700,7 +714,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: enable_logging
           in: query
           description: 'When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.'
@@ -770,7 +784,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: enable_logging
           in: query
           description: 'When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.'
@@ -1080,7 +1094,7 @@ paths:
             type: boolean
             description: 'If set to true, legacy premade voices will be included in responses from /v1/voices'
             default: false
-          example: true
+            example: true
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1135,7 +1149,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1174,7 +1188,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: with_settings
           in: query
           description: This parameter is now deprecated. It is ignored and will be removed in a future version.
@@ -1221,7 +1235,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1259,7 +1273,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1342,7 +1356,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1386,7 +1400,7 @@ paths:
             title: Public User Id
             type: string
             description: Public user ID used to publicly identify ElevenLabs users.
-          example: 63e06b7e7cafdc46be4d2e0b3f045940231ae058d508589653d74d1265a574ca
+            example: 63e06b7e7cafdc46be4d2e0b3f045940231ae058d508589653d74d1265a574ca
         - name: voice_id
           in: path
           description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
@@ -1395,7 +1409,7 @@ paths:
             title: Voice Id
             type: string
             description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1644,7 +1658,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1684,7 +1698,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1730,7 +1744,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1770,7 +1784,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1807,7 +1821,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1850,7 +1864,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1887,7 +1901,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1933,7 +1947,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -1976,7 +1990,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2016,7 +2030,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2053,7 +2067,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2094,7 +2108,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2132,7 +2146,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: project_snapshot_id
           in: path
           description: The ID of the Studio project snapshot.
@@ -2141,7 +2155,7 @@ paths:
             title: Project Snapshot Id
             type: string
             description: The ID of the Studio project snapshot.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2184,7 +2198,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: project_snapshot_id
           in: path
           description: The ID of the Studio project snapshot.
@@ -2193,7 +2207,7 @@ paths:
             title: Project Snapshot Id
             type: string
             description: The ID of the Studio project snapshot.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2232,7 +2246,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: project_snapshot_id
           in: path
           description: The ID of the Studio project snapshot.
@@ -2241,7 +2255,7 @@ paths:
             title: Project Snapshot Id
             type: string
             description: The ID of the Studio project snapshot.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2278,7 +2292,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: project_snapshot_id
           in: path
           description: The ID of the Studio project snapshot.
@@ -2287,7 +2301,7 @@ paths:
             title: Project Snapshot Id
             type: string
             description: The ID of the Studio project snapshot.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2321,7 +2335,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2361,7 +2375,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2408,7 +2422,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2446,7 +2460,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2455,7 +2469,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2495,7 +2509,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2504,7 +2518,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2549,7 +2563,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2558,7 +2572,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2598,7 +2612,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2607,7 +2621,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2644,7 +2658,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2653,7 +2667,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2689,7 +2703,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2698,7 +2712,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2741,7 +2755,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2785,7 +2799,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2794,7 +2808,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2834,7 +2848,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2843,7 +2857,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2880,7 +2894,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2889,7 +2903,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2930,7 +2944,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2939,7 +2953,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -2977,7 +2991,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -2986,7 +3000,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_snapshot_id
           in: path
           description: The ID of the chapter snapshot.
@@ -2995,7 +3009,7 @@ paths:
             title: Chapter Snapshot Id
             type: string
             description: The ID of the chapter snapshot.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -3038,7 +3052,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_id
           in: path
           description: The ID of the chapter.
@@ -3047,7 +3061,7 @@ paths:
             title: Chapter Id
             type: string
             description: The ID of the chapter.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: chapter_snapshot_id
           in: path
           description: The ID of the chapter snapshot.
@@ -3056,7 +3070,7 @@ paths:
             title: Chapter Snapshot Id
             type: string
             description: The ID of the chapter snapshot.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -3095,7 +3109,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -3141,7 +3155,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -3447,6 +3461,45 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: audio_native
       x-fern-sdk-method-name: create
+  '/v1/audio-native/{project_id}/settings':
+    get:
+      tags:
+        - audio-native
+      summary: Audionative Settings
+      description: Get player settings for the specific project.
+      operationId: AudioNative_settings_v1_audio_native__project_id__settings_get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAudioNativeProjectSettingsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: audio_native
+      x-fern-sdk-method-name: get_settings
   '/v1/audio-native/{project_id}/content':
     post:
       tags:
@@ -3463,7 +3516,7 @@ paths:
             title: Project Id
             type: string
             description: The ID of the Studio project.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -3514,7 +3567,7 @@ paths:
             title: Category
             type: string
             description: voice category used for filtering
-          example: professional
+            example: professional
         - name: gender
           in: query
           description: gender used for filtering
@@ -3522,7 +3575,7 @@ paths:
             title: Gender
             type: string
             description: gender used for filtering
-          example: male
+            example: male
         - name: age
           in: query
           description: age used for filtering
@@ -3530,7 +3583,7 @@ paths:
             title: Age
             type: string
             description: age used for filtering
-          example: young
+            example: young
         - name: accent
           in: query
           description: accent used for filtering
@@ -3538,7 +3591,7 @@ paths:
             title: Accent
             type: string
             description: accent used for filtering
-          example: american
+            example: american
         - name: language
           in: query
           description: language used for filtering
@@ -3546,7 +3599,7 @@ paths:
             title: Language
             type: string
             description: language used for filtering
-          example: en
+            example: en
         - name: search
           in: query
           description: search term used for filtering
@@ -3554,7 +3607,7 @@ paths:
             title: Search
             type: string
             description: search term used for filtering
-          example: tiktok
+            example: tiktok
         - name: use_cases
           in: query
           description: use-case used for filtering
@@ -3564,7 +3617,7 @@ paths:
             items:
               type: string
             description: use-case used for filtering
-          example: audiobook
+            example: audiobook
         - name: descriptives
           in: query
           description: search term used for filtering
@@ -3574,7 +3627,7 @@ paths:
             items:
               type: string
             description: search term used for filtering
-          example: tiktok
+            example: tiktok
         - name: featured
           in: query
           description: Filter featured voices
@@ -3583,7 +3636,15 @@ paths:
             type: boolean
             description: Filter featured voices
             default: false
-          example: true
+            example: true
+        - name: min_notice_period_days
+          in: query
+          description: Filter voices with a minimum notice period of the given number of days.
+          schema:
+            title: Min Notice Period Days
+            type: integer
+            description: Filter voices with a minimum notice period of the given number of days.
+            example: 30
         - name: reader_app_enabled
           in: query
           description: Filter voices that are enabled for the reader app
@@ -3592,7 +3653,7 @@ paths:
             type: boolean
             description: Filter voices that are enabled for the reader app
             default: false
-          example: true
+            example: true
         - name: owner_id
           in: query
           description: Filter voices by public owner ID
@@ -3600,7 +3661,7 @@ paths:
             title: Owner Id
             type: string
             description: Filter voices by public owner ID
-          example: 7c9fab611d9a0e1fb2e7448a0c294a8804efc2bcc324b0a366a5d5232b7d1532
+            example: 7c9fab611d9a0e1fb2e7448a0c294a8804efc2bcc324b0a366a5d5232b7d1532
         - name: sort
           in: query
           description: sort criteria
@@ -3608,7 +3669,7 @@ paths:
             title: Sort
             type: string
             description: sort criteria
-          example: created_date
+            example: created_date
         - name: page
           in: query
           schema:
@@ -3688,7 +3749,7 @@ paths:
             title: Start Unix
             type: integer
             description: 'UTC Unix timestamp for the start of the usage window, in milliseconds. To include the first day of the window, the timestamp should be at 00:00:00 of that day.'
-          example: '1685574000'
+            example: '1685574000'
         - name: end_unix
           in: query
           description: 'UTC Unix timestamp for the end of the usage window, in milliseconds. To include the last day of the window, the timestamp should be at 23:59:59 of that day.'
@@ -3697,7 +3758,7 @@ paths:
             title: End Unix
             type: integer
             description: 'UTC Unix timestamp for the end of the usage window, in milliseconds. To include the last day of the window, the timestamp should be at 23:59:59 of that day.'
-          example: '1688165999'
+            example: '1688165999'
         - name: include_workspace_metrics
           in: query
           description: Whether or not to include the statistics of the entire workspace.
@@ -3788,7 +3849,7 @@ paths:
             title: Pronunciation Dictionary Id
             type: string
             description: The id of the pronunciation dictionary
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -3833,7 +3894,7 @@ paths:
             title: Pronunciation Dictionary Id
             type: string
             description: The id of the pronunciation dictionary
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -3878,7 +3939,7 @@ paths:
             title: Dictionary Id
             type: string
             description: The id of the pronunciation dictionary
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: version_id
           in: path
           description: The id of the version of the pronunciation dictionary
@@ -3887,7 +3948,7 @@ paths:
             title: Version Id
             type: string
             description: The id of the version of the pronunciation dictionary
-          example: BdF0s0aZ3oFoKnDYdTox
+            example: BdF0s0aZ3oFoKnDYdTox
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -3924,7 +3985,7 @@ paths:
             title: Pronunciation Dictionary Id
             type: string
             description: The id of the pronunciation dictionary
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4266,7 +4327,7 @@ paths:
             title: Handle
             type: string
             description: Handle for a VA's profile page
-          example: talexgeorge
+            example: talexgeorge
       responses:
         '200':
           description: Successful Response
@@ -4377,7 +4438,7 @@ paths:
             title: Agent Id
             type: string
             description: The id of the agent you're taking the action on.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4460,7 +4521,7 @@ paths:
             title: Agent Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4498,7 +4559,7 @@ paths:
             title: Agent Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4535,7 +4596,7 @@ paths:
             title: Agent Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: use_tool_ids
           in: query
           description: Use tool ids instead of tools specs from request payload.
@@ -4587,7 +4648,7 @@ paths:
             title: Agent Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: conversation_signature
           in: query
           description: An expiring token that enables a conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
@@ -4633,7 +4694,7 @@ paths:
             title: Agent Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4672,7 +4733,7 @@ paths:
             title: Agent Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4717,7 +4778,7 @@ paths:
             title: Agent Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4822,7 +4883,7 @@ paths:
             title: Agent Id
             type: string
             description: The id of the agent you're taking the action on.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: call_successful
           in: query
           description: The result of the success evaluation
@@ -4830,7 +4891,7 @@ paths:
             allOf:
               - $ref: '#/components/schemas/EvaluationSuccessResult'
             description: The result of the success evaluation
-          example: success
+            example: success
         - name: page_size
           in: query
           description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
@@ -4879,7 +4940,7 @@ paths:
             title: Conversation Id
             type: string
             description: The id of the conversation you're taking the action on.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4917,7 +4978,7 @@ paths:
             title: Conversation Id
             type: string
             description: The id of the conversation you're taking the action on.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4955,7 +5016,7 @@ paths:
             title: Conversation Id
             type: string
             description: The id of the conversation you're taking the action on.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -4990,7 +5051,7 @@ paths:
             title: Conversation Id
             type: string
             description: The id of the conversation you're taking the action on.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
       requestBody:
         content:
           application/json:
@@ -5066,7 +5127,7 @@ paths:
             title: Phone Number Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: TeaqRRdTcIfIu2i7BYfT
+            example: TeaqRRdTcIfIu2i7BYfT
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -5104,7 +5165,7 @@ paths:
             title: Phone Number Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: TeaqRRdTcIfIu2i7BYfT
+            example: TeaqRRdTcIfIu2i7BYfT
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -5141,7 +5202,7 @@ paths:
             title: Phone Number Id
             type: string
             description: The id of an agent. This is returned on agent creation.
-          example: TeaqRRdTcIfIu2i7BYfT
+            example: TeaqRRdTcIfIu2i7BYfT
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -5231,6 +5292,29 @@ paths:
             type: integer
             description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
+        - name: search
+          in: query
+          description: 'If specified, the endpoint returns only such knowledge base documents whose names start with this string.'
+          schema:
+            title: Search
+            type: string
+            description: 'If specified, the endpoint returns only such knowledge base documents whose names start with this string.'
+        - name: show_only_owned_documents
+          in: query
+          description: 'If set to true, the endpoint will return only documents owned by you (and not shared from somebody else).'
+          schema:
+            title: Show Only Owned Documents
+            type: boolean
+            description: 'If set to true, the endpoint will return only documents owned by you (and not shared from somebody else).'
+            default: false
+        - name: use_typesense
+          in: query
+          description: 'If set to true, the endpoint will use typesense DB to search for the documents).'
+          schema:
+            title: Use Typesense
+            type: boolean
+            description: 'If set to true, the endpoint will use typesense DB to search for the documents).'
+            default: false
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -5373,7 +5457,7 @@ paths:
             title: Documentation Id
             type: string
             description: The id of a document from the knowledge base. This is returned on document addition.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -5411,7 +5495,7 @@ paths:
             title: Documentation Id
             type: string
             description: The id of a document from the knowledge base. This is returned on document addition.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -5449,7 +5533,7 @@ paths:
             title: Documentation Id
             type: string
             description: The id of a document from the knowledge base. This is returned on document addition.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -5488,7 +5572,7 @@ paths:
             title: Documentation Id
             type: string
             description: The id of a document from the knowledge base. This is returned on document addition.
-          example: 21m00Tcm4TlvDq8ikWAM
+            example: 21m00Tcm4TlvDq8ikWAM
         - name: cursor
           in: query
           description: Used for fetching next page. Cursor is returned in the response.
@@ -6230,6 +6314,107 @@ components:
         html_snippet:
           title: Html Snippet
           type: string
+    AudioNativeProjectSettingsResponseModel:
+      title: AudioNativeProjectSettingsResponseModel
+      required:
+        - title
+        - image
+        - author
+        - small
+        - text_color
+        - background_color
+        - sessionization
+        - audio_path
+        - audio_url
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+        image:
+          title: Image
+          type: string
+        author:
+          title: Author
+          type: string
+        small:
+          title: Small
+          type: boolean
+        text_color:
+          title: Text Color
+          type: string
+        background_color:
+          title: Background Color
+          type: string
+        sessionization:
+          title: Sessionization
+          type: integer
+        audio_path:
+          title: Audio Path
+          type: string
+        audio_url:
+          title: Audio Url
+          type: string
+    AudioWithTimestampsResponseModel:
+      title: AudioWithTimestampsResponseModel
+      required:
+        - audio_base64
+      type: object
+      properties:
+        audio_base64:
+          title: Audio Base64
+          type: string
+          description: Base64 encoded audio data
+        alignment:
+          title: Alignment
+          allOf:
+            - $ref: '#/components/schemas/CharacterAlignmentResponseModel'
+          description: Timestamp information for each character in the original text
+        normalized_alignment:
+          title: Normalized Alignment
+          allOf:
+            - $ref: '#/components/schemas/CharacterAlignmentResponseModel'
+          description: Timestamp information for each character in the normalized text
+      example:
+        audio_base64: base64_encoded_audio_string
+        alignment:
+          characters:
+            - H
+            - e
+            - l
+            - l
+            - o
+          character_start_times_seconds:
+            - 0
+            - 0.1
+            - 0.2
+            - 0.3
+            - 0.4
+          character_end_times_seconds:
+            - 0.1
+            - 0.2
+            - 0.3
+            - 0.4
+            - 0.5
+        normalized_alignment:
+          characters:
+            - H
+            - e
+            - l
+            - l
+            - o
+          character_start_times_seconds:
+            - 0
+            - 0.1
+            - 0.2
+            - 0.3
+            - 0.4
+          character_end_times_seconds:
+            - 0.1
+            - 0.2
+            - 0.3
+            - 0.4
+            - 0.5
     AuthSettings:
       title: AuthSettings
       type: object
@@ -6272,6 +6457,7 @@ components:
           title: Name
           type: string
           description: 'The name of the pronunciation dictionary, used for identification only.'
+          example: My Dictionary
         file:
           title: File
           type: string
@@ -6281,6 +6467,7 @@ components:
           title: Description
           type: string
           description: 'A description of the pronunciation dictionary, used for identification only.'
+          example: Contains pronunciation's of our character names
         workspace_access:
           title: Workspace Access
           enum:
@@ -6289,6 +6476,7 @@ components:
             - viewer
           type: string
           description: 'Should be one of ''editor'' or ''viewer''. If not provided, defaults to no access.'
+          example: viewer
     Body_Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post:
       title: Body_Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post
       required:
@@ -6300,10 +6488,12 @@ components:
           title: Name
           type: string
           description: A name to help identify a particular agent secret
+          example: MY API KEY
         secret_value:
           title: Secret Value
           type: string
           description: A value to be encrypted and used by the agent
+          example: sk_api_12354abc
     Body_Add_chapter_to_a_project_v1_projects__project_id__chapters_add_post:
       title: Body_Add_chapter_to_a_project_v1_projects__project_id__chapters_add_post
       required:
@@ -6314,10 +6504,12 @@ components:
           title: Name
           type: string
           description: 'The name of the chapter, used for identification only.'
+          example: Chapter 1
         from_url:
           title: From Url
           type: string
           description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
     Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post:
       title: Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post
       required:
@@ -6341,22 +6533,27 @@ components:
           title: Name
           type: string
           description: 'The name of the Studio project, used for identification only.'
+          example: Project 1
         default_title_voice_id:
           title: Default Title Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new titles.
+          example: 21m00Tcm4TlvDq8ikWAM
         default_paragraph_voice_id:
           title: Default Paragraph Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new paragraphs.
+          example: 21m00Tcm4TlvDq8ikWAM
         default_model_id:
           title: Default Model Id
           type: string
           description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
+          example: 21m00Tcm4TlvDq8ikWAM
         from_url:
           title: From Url
           type: string
           description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
         from_document:
           title: From Document
           type: string
@@ -6367,24 +6564,31 @@ components:
           type: string
           description: "Output quality of the generated audio. Must be one of:\nstandard - standard output format, 128kbps with 44.1kHz sample rate.\nhigh - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.\nultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.\nultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.\n"
           default: standard
+          example: standard
         title:
           title: Title
           type: string
           description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: Romeo and Juliet
         author:
           title: Author
           type: string
           description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: William Shakespeare
         description:
           title: Description
           type: string
           description: An optional description of the Studio project.
+          example: A tragic love story between two young lovers.
         genres:
           title: Genres
           type: array
           items:
             type: string
           description: An optional list of genres associated with the Studio project.
+          example:
+            - Romance
+            - Drama
         target_audience:
           title: Target Audience
           enum:
@@ -6394,50 +6598,62 @@ components:
             - all ages
           type: string
           description: An optional target audience of the Studio project.
+          example: adult
         language:
           title: Language
           maxLength: 2
           minLength: 2
           type: string
           description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
+          example: en
         content_type:
           title: Content Type
           type: string
           description: An optional content type of the Studio project.
+          example: Book
         original_publication_date:
           title: Original Publication Date
           pattern: '^\d{4}-\d{2}-\d{2}$|^\d{4}$'
           type: string
           description: 'An optional original publication date of the Studio project, in the format YYYY-MM-DD or YYYY.'
+          example: '1597-01-01'
         mature_content:
           title: Mature Content
           type: boolean
           description: An optional specification of whether this Studio project contains mature content.
           default: false
+          example: false
         isbn_number:
           title: Isbn Number
           type: string
           description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: 0-306-40615-2
         acx_volume_normalization:
           title: Acx Volume Normalization
           type: boolean
           description: '[Deprecated] When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
+          example: false
         volume_normalization:
           title: Volume Normalization
           type: boolean
           description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
+          example: false
         pronunciation_dictionary_locators:
           title: Pronunciation Dictionary Locators
           type: array
           items:
             type: string
           description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+          example:
+            - '{"pronunciation_dictionary_id": "test", "version_id": "id2"}'
         callback_url:
           title: Callback Url
           type: string
           description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+          example:
+            - https://www.test.com/my-api/projects-status
         fiction:
           title: Fiction
           enum:
@@ -6445,10 +6661,7 @@ components:
             - non-fiction
           type: string
           description: An optional specification of whether the content of this Studio project is fiction.
-        quality_check_on:
-          title: Quality Check On
-          type: boolean
-          description: '[Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.'
+          example: fiction
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -6482,6 +6695,7 @@ components:
               - $ref: '#/components/schemas/PronunciationDictionaryAliasRuleRequestModel'
               - $ref: '#/components/schemas/PronunciationDictionaryPhonemeRuleRequestModel'
           description: "List of pronunciation rules. Rule can be either:\n    an alias rule: {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b', }\n    or a phoneme rule: {'string_to_replace': 'a', 'type': 'phoneme', 'phoneme': 'b', 'alphabet': 'ipa' }"
+          example: "\n    [\n        {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b' },\n        {'string_to_replace': 'c', 'type': 'phoneme', 'phoneme': 'd', 'alphabet': 'ipa' }\n    ]"
     Body_Add_sharing_voice_v1_voices_add__public_user_id___voice_id__post:
       title: Body_Add_sharing_voice_v1_voices_add__public_user_id___voice_id__post
       required:
@@ -6492,6 +6706,7 @@ components:
           title: New Name
           type: string
           description: The name that identifies this voice. This will be displayed in the dropdown of the website.
+          example: Joe Rogan
     Body_Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post:
       title: Body_Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post
       type: object
@@ -6542,6 +6757,7 @@ components:
           title: Name
           type: string
           description: The name that identifies this voice. This will be displayed in the dropdown of the website.
+          example: Joe Rogan
         files:
           title: Files
           type: array
@@ -6554,10 +6770,12 @@ components:
           type: boolean
           description: 'If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.'
           default: false
+          example: true
         description:
           title: Description
           type: string
           description: How would you describe the voice?
+          example: An old American male voice with a slight hoarseness in his throat. Perfect for news.
         labels:
           title: Labels
           type: string
@@ -6604,6 +6822,7 @@ components:
           title: Name
           type: string
           description: A name to make the agent easier to find
+          example: My agent
     Body_Create_Pronunciation_Dictionaries_v1_studio_projects__project_id__pronunciation_dictionaries_post:
       title: Body_Create_Pronunciation_Dictionaries_v1_studio_projects__project_id__pronunciation_dictionaries_post
       required:
@@ -6616,6 +6835,14 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+          example:
+            - '{"pronunciation_dictionary_id": "test", "version_id": "id2"}'
+        invalidate_affected_text:
+          title: Invalidate Affected Text
+          type: boolean
+          description: This will automatically mark text in this project for reconversion when the new dictionary applies or the old one no longer does.
+          default: true
+          example: false
     Body_Create_Studio_project_v1_studio_projects_post:
       title: Body_Create_Studio_project_v1_studio_projects_post
       required:
@@ -6629,22 +6856,27 @@ components:
           title: Name
           type: string
           description: 'The name of the Studio project, used for identification only.'
+          example: Project 1
         default_title_voice_id:
           title: Default Title Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new titles.
+          example: 21m00Tcm4TlvDq8ikWAM
         default_paragraph_voice_id:
           title: Default Paragraph Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new paragraphs.
+          example: 21m00Tcm4TlvDq8ikWAM
         default_model_id:
           title: Default Model Id
           type: string
           description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
+          example: 21m00Tcm4TlvDq8ikWAM
         from_url:
           title: From Url
           type: string
           description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
         from_document:
           title: From Document
           type: string
@@ -6655,24 +6887,31 @@ components:
           type: string
           description: "Output quality of the generated audio. Must be one of:\nstandard - standard output format, 128kbps with 44.1kHz sample rate.\nhigh - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.\nultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.\nultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.\n"
           default: standard
+          example: standard
         title:
           title: Title
           type: string
           description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: Romeo and Juliet
         author:
           title: Author
           type: string
           description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: William Shakespeare
         description:
           title: Description
           type: string
           description: An optional description of the Studio project.
+          example: A tragic love story between two young lovers.
         genres:
           title: Genres
           type: array
           items:
             type: string
           description: An optional list of genres associated with the Studio project.
+          example:
+            - Romance
+            - Drama
         target_audience:
           title: Target Audience
           enum:
@@ -6682,50 +6921,62 @@ components:
             - all ages
           type: string
           description: An optional target audience of the Studio project.
+          example: adult
         language:
           title: Language
           maxLength: 2
           minLength: 2
           type: string
           description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
+          example: en
         content_type:
           title: Content Type
           type: string
           description: An optional content type of the Studio project.
+          example: Book
         original_publication_date:
           title: Original Publication Date
           pattern: '^\d{4}-\d{2}-\d{2}$|^\d{4}$'
           type: string
           description: 'An optional original publication date of the Studio project, in the format YYYY-MM-DD or YYYY.'
+          example: '1597-01-01'
         mature_content:
           title: Mature Content
           type: boolean
           description: An optional specification of whether this Studio project contains mature content.
           default: false
+          example: false
         isbn_number:
           title: Isbn Number
           type: string
           description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: 0-306-40615-2
         acx_volume_normalization:
           title: Acx Volume Normalization
           type: boolean
           description: '[Deprecated] When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
+          example: false
         volume_normalization:
           title: Volume Normalization
           type: boolean
           description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
+          example: false
         pronunciation_dictionary_locators:
           title: Pronunciation Dictionary Locators
           type: array
           items:
             type: string
           description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+          example:
+            - '{"pronunciation_dictionary_id": "test", "version_id": "id2"}'
         callback_url:
           title: Callback Url
           type: string
           description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+          example:
+            - https://www.test.com/my-api/projects-status
         fiction:
           title: Fiction
           enum:
@@ -6733,10 +6984,7 @@ components:
             - non-fiction
           type: string
           description: An optional specification of whether the content of this Studio project is fiction.
-        quality_check_on:
-          title: Quality Check On
-          type: boolean
-          description: '[Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.'
+          example: fiction
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -6842,10 +7090,12 @@ components:
           title: Name
           type: string
           description: 'The name of the chapter, used for identification only.'
+          example: Chapter 1
         from_url:
           title: From Url
           type: string
           description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
     Body_Create_podcast_v1_projects_podcast_create_post:
       title: Body_Create_podcast_v1_projects_podcast_create_post
       required:
@@ -6858,12 +7108,18 @@ components:
           title: Model Id
           type: string
           description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
+          example: 21m00Tcm4TlvDq8ikWAM
         mode:
           title: Mode
           anyOf:
             - $ref: '#/components/schemas/PodcastConversationMode'
             - $ref: '#/components/schemas/PodcastBulletinMode'
           description: The type of podcast to generate
+          example:
+            type: conversation
+            conversation:
+              host_voice_id: 6lCwbsX1yVjD49QmpkTR
+              guest_voice_id: bYTqZQo3Jz7LQtmGTgwi
         source:
           title: Source
           anyOf:
@@ -6875,6 +7131,9 @@ components:
                   - $ref: '#/components/schemas/PodcastTextSource'
                   - $ref: '#/components/schemas/PodcastURLSource'
           description: The source content for the Podcast.
+          example:
+            type: url
+            url: https://en.wikipedia.org/wiki/Cognitive_science
         quality_preset:
           title: Quality of the generated audio.
           enum:
@@ -6886,6 +7145,7 @@ components:
           type: string
           description: "Output quality of the generated audio. Must be one of:\nstandard - standard output format, 128kbps with 44.1kHz sample rate.\nhigh - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.\nultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.\nultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.\n"
           default: standard
+          example: standard
         duration_scale:
           title: 'The duration of the generated podcast. This varies depending on the format, voice and language.'
           enum:
@@ -6895,12 +7155,14 @@ components:
           type: string
           description: "Duration of the generated podcast. Must be one of:\nshort - produces podcasts shorter than 3 minutes.\ndefault - produces podcasts roughly between 3-7 minutes.\nlong - prodces podcasts longer than 7 minutes.\n"
           default: default
+          example: short
         language:
           title: Language
           maxLength: 2
           minLength: 2
           type: string
           description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
+          example: en
         highlights:
           title: Highlights
           maxLength: 70
@@ -6911,10 +7173,14 @@ components:
             minLength: 10
             type: string
           description: 'A brief summary or highlights of the Studio project''s content, providing key points or themes. This should be between 10 and 70 characters.'
+          example:
+            - Emphasize the importance of AI on education
         callback_url:
           title: Callback Url
           type: string
           description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+          example:
+            - https://www.test.com/my-api/projects-status
     Body_Create_podcast_v1_studio_podcasts_post:
       title: Body_Create_podcast_v1_studio_podcasts_post
       required:
@@ -6927,12 +7193,18 @@ components:
           title: Model Id
           type: string
           description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
+          example: 21m00Tcm4TlvDq8ikWAM
         mode:
           title: Mode
           anyOf:
             - $ref: '#/components/schemas/PodcastConversationMode'
             - $ref: '#/components/schemas/PodcastBulletinMode'
           description: The type of podcast to generate
+          example:
+            type: conversation
+            conversation:
+              host_voice_id: 6lCwbsX1yVjD49QmpkTR
+              guest_voice_id: bYTqZQo3Jz7LQtmGTgwi
         source:
           title: Source
           anyOf:
@@ -6944,6 +7216,9 @@ components:
                   - $ref: '#/components/schemas/PodcastTextSource'
                   - $ref: '#/components/schemas/PodcastURLSource'
           description: The source content for the Podcast.
+          example:
+            type: url
+            url: https://en.wikipedia.org/wiki/Cognitive_science
         quality_preset:
           title: Quality of the generated audio.
           enum:
@@ -6955,6 +7230,7 @@ components:
           type: string
           description: "Output quality of the generated audio. Must be one of:\nstandard - standard output format, 128kbps with 44.1kHz sample rate.\nhigh - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.\nultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.\nultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.\n"
           default: standard
+          example: standard
         duration_scale:
           title: 'The duration of the generated podcast. This varies depending on the format, voice and language.'
           enum:
@@ -6964,12 +7240,14 @@ components:
           type: string
           description: "Duration of the generated podcast. Must be one of:\nshort - produces podcasts shorter than 3 minutes.\ndefault - produces podcasts roughly between 3-7 minutes.\nlong - prodces podcasts longer than 7 minutes.\n"
           default: default
+          example: short
         language:
           title: Language
           maxLength: 2
           minLength: 2
           type: string
           description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
+          example: en
         highlights:
           title: Highlights
           maxLength: 70
@@ -6980,10 +7258,14 @@ components:
             minLength: 10
             type: string
           description: 'A brief summary or highlights of the Studio project''s content, providing key points or themes. This should be between 10 and 70 characters.'
+          example:
+            - Emphasize the importance of AI on education
         callback_url:
           title: Callback Url
           type: string
           description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+          example:
+            - https://www.test.com/my-api/projects-status
     Body_Creates_AudioNative_enabled_project__v1_audio_native_post:
       title: Body_Creates_AudioNative_enabled_project__v1_audio_native_post
       required:
@@ -7052,6 +7334,7 @@ components:
           title: Email
           type: string
           description: The email of the customer
+          example: john.doe@testmail.com
     Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post:
       title: Body_Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
       required:
@@ -7148,35 +7431,38 @@ components:
           title: Name
           type: string
           description: 'The name of the Studio project, used for identification only.'
+          example: Project 1
         default_title_voice_id:
           title: Default Title Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new titles.
+          example: 21m00Tcm4TlvDq8ikWAM
         default_paragraph_voice_id:
           title: Default Paragraph Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new paragraphs.
+          example: 21m00Tcm4TlvDq8ikWAM
         title:
           title: Title
           type: string
           description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: Romeo and Juliet
         author:
           title: Author
           type: string
           description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: William Shakespeare
         isbn_number:
           title: Isbn Number
           type: string
           description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: 0-306-40615-2
         volume_normalization:
           title: Volume Normalization
           type: boolean
           description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
-        quality_check_on:
-          title: Quality Check On
-          type: boolean
-          description: '[Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.'
+          example: false
     Body_Edit_chapter_v1_projects__project_id__chapters__chapter_id__patch:
       title: Body_Edit_chapter_v1_projects__project_id__chapters__chapter_id__patch
       type: object
@@ -7185,6 +7471,7 @@ components:
           title: Name
           type: string
           description: 'The name of the chapter, used for identification only.'
+          example: Chapter 1
         content:
           title: Content
           allOf:
@@ -7198,6 +7485,7 @@ components:
           title: From Url
           type: string
           description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
         from_document:
           title: From Document
           type: string
@@ -7218,6 +7506,7 @@ components:
           title: Name
           type: string
           description: The name that identifies this voice. This will be displayed in the dropdown of the website.
+          example: Joe Rogan
         files:
           title: Files
           type: array
@@ -7230,10 +7519,12 @@ components:
           type: boolean
           description: 'If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.'
           default: false
+          example: true
         description:
           title: Description
           type: string
           description: How would you describe the voice?
+          example: An old American male voice with a slight hoarseness in his throat. Perfect for news.
         labels:
           title: Labels
           type: string
@@ -7255,10 +7546,12 @@ components:
             - male
           type: string
           description: 'Category code corresponding to the gender of the generated voice. Possible values: female, male.'
+          example: female
         accent:
           title: Accent
           type: string
           description: 'Category code corresponding to the accent of the generated voice. Possible values: british, american, african, australian, indian.'
+          example: british
         age:
           title: Age
           enum:
@@ -7267,6 +7560,7 @@ components:
             - old
           type: string
           description: 'Category code corresponding to the age of the generated voice. Possible values: young, middle_aged, old.'
+          example: young
         accent_strength:
           title: Accent Strength
           type: number
@@ -7290,10 +7584,12 @@ components:
           title: Similarity Threshold
           type: number
           description: 'Threshold for voice similarity between provided sample and library voices. Must be in range <0, 2>. The smaller the value the more similar voices will be returned.'
+          example: 0.5
         top_k:
           title: Top K
           type: integer
           description: 'Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Must be in range <1, 100>.'
+          example: 10
     Body_Invite_multiple_users_v1_workspace_invites_add_bulk_post:
       title: Body_Invite_multiple_users_v1_workspace_invites_add_bulk_post
       required:
@@ -7306,6 +7602,7 @@ components:
           items:
             type: string
           description: The email of the customer
+          example: john.doe@testmail.com
         group_ids:
           title: Group Ids
           type: array
@@ -7325,6 +7622,7 @@ components:
           title: Email
           type: string
           description: The email of the customer
+          example: john.doe@testmail.com
         group_ids:
           title: Group Ids
           type: array
@@ -7358,6 +7656,7 @@ components:
           title: Name
           type: string
           description: A name to make the agent easier to find
+          example: My agent
     Body_Post_Agent_avatar_v1_convai_agents__agent_id__avatar_post:
       title: Body_Post_Agent_avatar_v1_convai_agents__agent_id__avatar_post
       required:
@@ -7381,6 +7680,7 @@ components:
           items:
             type: string
           description: List of strings to remove from the pronunciation dictionary.
+          example: '[''a'', ''b'']'
     Body_Send_Conversation_Feedback_v1_convai_conversations__conversation_id__feedback_post:
       title: Body_Send_Conversation_Feedback_v1_convai_conversations__conversation_id__feedback_post
       required:
@@ -7391,6 +7691,7 @@ components:
           allOf:
             - $ref: '#/components/schemas/UserFeedbackScore'
           description: Either 'like' or 'dislike' to indicate the feedback for the conversation.
+          example: like
     Body_Sound_Generation_v1_sound_generation_post:
       title: Body_Sound_Generation_v1_sound_generation_post
       required:
@@ -7401,6 +7702,7 @@ components:
           title: Text
           type: string
           description: The text that will get converted into a sound effect.
+          example: 'A large, ancient wooden door slowly opening in an eerie, abandoned castle..'
         duration_seconds:
           title: Duration Seconds
           type: number
@@ -7434,11 +7736,13 @@ components:
           title: Seed
           type: integer
           description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.'
+          example: 12345
         remove_background_noise:
           title: Remove Background Noise
           type: boolean
           description: If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.
           default: false
+          example: true
     Body_Speech_to_Speech_v1_speech_to_speech__voice_id__post:
       title: Body_Speech_to_Speech_v1_speech_to_speech__voice_id__post
       required:
@@ -7463,11 +7767,13 @@ components:
           title: Seed
           type: integer
           description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.'
+          example: 12345
         remove_background_noise:
           title: Remove Background Noise
           type: boolean
           description: If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.
           default: false
+          example: true
     Body_Speech_to_Text_Stream_v1_speech_to_text_stream_post:
       title: Body_Speech_to_Text_Stream_v1_speech_to_text_stream_post
       required:
@@ -7592,6 +7898,7 @@ components:
           title: Text
           type: string
           description: The text that will get converted into speech.
+          example: This is a test for the API of ElevenLabs.
         model_id:
           title: Model Id
           type: string
@@ -7612,35 +7919,50 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
+          example:
+            - pronunciation_dictionary_id: test
+              version_id: id2
         seed:
           title: Seed
           type: integer
           description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.'
+          example: 12345
         previous_text:
           title: Previous Text
           type: string
           description: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+          example: In the heart of a lush valley surrounded by towering mountains lies the quaint village of Willowbrook.
         next_text:
           title: Next Text
           type: string
           description: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+          example: 'The Willowbrook Festival, held every spring, celebrates the blossoming of the wild bluebells that carpet the nearby forest floors, creating a breathtaking sea of blue under the canopy of fresh green leaves.'
         previous_request_ids:
           title: Previous Request Ids
           type: array
           items:
             type: string
           description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          example:
+            - 09bOJkdYVjKy2oOiiVtR
+            - 0p2uKqOnZyce22SPZ9d5
+            - 1KYvY8WZAKmcjCJ1mvVB
         next_request_ids:
           title: Next Request Ids
           type: array
           items:
             type: string
           description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          example:
+            - 3tPgBrD1UdW3snUkGw1K
+            - 4D1jAxiRFkolBNUGzXkU
+            - 4c8Z4aWliVR2oipYRXhj
         use_pvc_as_ivc:
           title: Use Pvc As Ivc
           type: boolean
           description: 'If true, we won''t use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.'
           default: false
+          example: true
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -7650,6 +7972,7 @@ components:
           type: string
           description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' model.'
           default: auto
+          example: 'true'
     Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post:
       title: Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post
       required:
@@ -7660,6 +7983,7 @@ components:
           title: Text
           type: string
           description: The text that will get converted into speech.
+          example: This is a test for the API of ElevenLabs.
         model_id:
           title: Model Id
           type: string
@@ -7680,35 +8004,50 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
+          example:
+            - pronunciation_dictionary_id: test
+              version_id: id2
         seed:
           title: Seed
           type: integer
           description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.'
+          example: 12345
         previous_text:
           title: Previous Text
           type: string
           description: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+          example: In the heart of a lush valley surrounded by towering mountains lies the quaint village of Willowbrook.
         next_text:
           title: Next Text
           type: string
           description: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+          example: 'The Willowbrook Festival, held every spring, celebrates the blossoming of the wild bluebells that carpet the nearby forest floors, creating a breathtaking sea of blue under the canopy of fresh green leaves.'
         previous_request_ids:
           title: Previous Request Ids
           type: array
           items:
             type: string
           description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          example:
+            - 09bOJkdYVjKy2oOiiVtR
+            - 0p2uKqOnZyce22SPZ9d5
+            - 1KYvY8WZAKmcjCJ1mvVB
         next_request_ids:
           title: Next Request Ids
           type: array
           items:
             type: string
           description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          example:
+            - 3tPgBrD1UdW3snUkGw1K
+            - 4D1jAxiRFkolBNUGzXkU
+            - 4c8Z4aWliVR2oipYRXhj
         use_pvc_as_ivc:
           title: Use Pvc As Ivc
           type: boolean
           description: 'If true, we won''t use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.'
           default: false
+          example: true
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -7718,6 +8057,7 @@ components:
           type: string
           description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' model.'
           default: auto
+          example: 'true'
     Body_Text_to_speech_v1_text_to_speech__voice_id__post:
       title: Body_Text_to_speech_v1_text_to_speech__voice_id__post
       required:
@@ -7728,6 +8068,7 @@ components:
           title: Text
           type: string
           description: The text that will get converted into speech.
+          example: This is a test for the API of ElevenLabs.
         model_id:
           title: Model Id
           type: string
@@ -7748,35 +8089,50 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
+          example:
+            - pronunciation_dictionary_id: test
+              version_id: id2
         seed:
           title: Seed
           type: integer
           description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.'
+          example: 12345
         previous_text:
           title: Previous Text
           type: string
           description: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+          example: In the heart of a lush valley surrounded by towering mountains lies the quaint village of Willowbrook.
         next_text:
           title: Next Text
           type: string
           description: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+          example: 'The Willowbrook Festival, held every spring, celebrates the blossoming of the wild bluebells that carpet the nearby forest floors, creating a breathtaking sea of blue under the canopy of fresh green leaves.'
         previous_request_ids:
           title: Previous Request Ids
           type: array
           items:
             type: string
           description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          example:
+            - 09bOJkdYVjKy2oOiiVtR
+            - 0p2uKqOnZyce22SPZ9d5
+            - 1KYvY8WZAKmcjCJ1mvVB
         next_request_ids:
           title: Next Request Ids
           type: array
           items:
             type: string
           description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          example:
+            - 3tPgBrD1UdW3snUkGw1K
+            - 4D1jAxiRFkolBNUGzXkU
+            - 4c8Z4aWliVR2oipYRXhj
         use_pvc_as_ivc:
           title: Use Pvc As Ivc
           type: boolean
           description: 'If true, we won''t use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.'
           default: false
+          example: true
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -7786,6 +8142,7 @@ components:
           type: string
           description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' model.'
           default: auto
+          example: 'true'
     Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post:
       title: Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post
       required:
@@ -7796,6 +8153,7 @@ components:
           title: Text
           type: string
           description: The text that will get converted into speech.
+          example: This is a test for the API of ElevenLabs.
         model_id:
           title: Model Id
           type: string
@@ -7816,35 +8174,50 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
+          example:
+            - pronunciation_dictionary_id: test
+              version_id: id2
         seed:
           title: Seed
           type: integer
           description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.'
+          example: 12345
         previous_text:
           title: Previous Text
           type: string
           description: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+          example: In the heart of a lush valley surrounded by towering mountains lies the quaint village of Willowbrook.
         next_text:
           title: Next Text
           type: string
           description: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+          example: 'The Willowbrook Festival, held every spring, celebrates the blossoming of the wild bluebells that carpet the nearby forest floors, creating a breathtaking sea of blue under the canopy of fresh green leaves.'
         previous_request_ids:
           title: Previous Request Ids
           type: array
           items:
             type: string
           description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          example:
+            - 09bOJkdYVjKy2oOiiVtR
+            - 0p2uKqOnZyce22SPZ9d5
+            - 1KYvY8WZAKmcjCJ1mvVB
         next_request_ids:
           title: Next Request Ids
           type: array
           items:
             type: string
           description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          example:
+            - 3tPgBrD1UdW3snUkGw1K
+            - 4D1jAxiRFkolBNUGzXkU
+            - 4c8Z4aWliVR2oipYRXhj
         use_pvc_as_ivc:
           title: Use Pvc As Ivc
           type: boolean
           description: 'If true, we won''t use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.'
           default: false
+          example: true
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -7854,6 +8227,7 @@ components:
           type: string
           description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' model.'
           default: auto
+          example: 'true'
     Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post:
       title: Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post
       required:
@@ -7866,6 +8240,14 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
+          example:
+            - '{"pronunciation_dictionary_id": "test", "version_id": "id2"}'
+        invalidate_affected_text:
+          title: Invalidate Affected Text
+          type: boolean
+          description: This will automatically mark text in this project for reconversion when the new dictionary applies or the old one no longer does.
+          default: true
+          example: false
     Body_Update_Studio_project_content_v1_studio_projects__project_id__content_post:
       title: Body_Update_Studio_project_content_v1_studio_projects__project_id__content_post
       type: object
@@ -7874,6 +8256,7 @@ components:
           title: From Url
           type: string
           description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
         from_document:
           title: From Document
           type: string
@@ -7896,35 +8279,38 @@ components:
           title: Name
           type: string
           description: 'The name of the Studio project, used for identification only.'
+          example: Project 1
         default_title_voice_id:
           title: Default Title Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new titles.
+          example: 21m00Tcm4TlvDq8ikWAM
         default_paragraph_voice_id:
           title: Default Paragraph Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new paragraphs.
+          example: 21m00Tcm4TlvDq8ikWAM
         title:
           title: Title
           type: string
           description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: Romeo and Juliet
         author:
           title: Author
           type: string
           description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: William Shakespeare
         isbn_number:
           title: Isbn Number
           type: string
           description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
+          example: 0-306-40615-2
         volume_normalization:
           title: Volume Normalization
           type: boolean
           description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
           default: false
-        quality_check_on:
-          title: Quality Check On
-          type: boolean
-          description: '[Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.'
+          example: false
     Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post:
       title: Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post
       type: object
@@ -7952,6 +8338,7 @@ components:
           title: Name
           type: string
           description: 'The name of the chapter, used for identification only.'
+          example: Chapter 1
         content:
           title: Content
           allOf:
@@ -8225,6 +8612,29 @@ components:
           type: string
         content:
           $ref: '#/components/schemas/ChapterContentResponseModel'
+    CharacterAlignmentResponseModel:
+      title: CharacterAlignmentResponseModel
+      required:
+        - characters
+        - character_start_times_seconds
+        - character_end_times_seconds
+      type: object
+      properties:
+        characters:
+          title: Characters
+          type: array
+          items:
+            type: string
+        character_start_times_seconds:
+          title: Character Start Times Seconds
+          type: array
+          items:
+            type: number
+        character_end_times_seconds:
+          title: Character End Times Seconds
+          type: array
+          items:
+            type: number
     ClientEvent:
       title: ClientEvent
       enum:
@@ -8322,6 +8732,71 @@ components:
         name:
           title: Name
           type: string
+    ConvAIStoredSecretDependencies:
+      title: ConvAIStoredSecretDependencies
+      required:
+        - tools
+        - agents
+        - others
+      type: object
+      properties:
+        tools:
+          title: Tools
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DependentAvailableToolIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownToolIdentifier'
+            discriminator:
+              propertyName: type
+              mapping:
+                available: '#/components/schemas/DependentAvailableToolIdentifier'
+                unknown: '#/components/schemas/DependentUnknownToolIdentifier'
+        agents:
+          title: Agents
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DependentAvailableAgentIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownAgentIdentifier'
+            discriminator:
+              propertyName: type
+              mapping:
+                available: '#/components/schemas/DependentAvailableAgentIdentifier'
+                unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
+        others:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecretDependencyType'
+    ConvAIWebhooks:
+      title: ConvAIWebhooks
+      type: object
+      properties:
+        post_call_webhook_id:
+          title: Post Call Webhook Id
+          type: string
+    ConvAIWorkspaceStoredSecretConfig:
+      title: ConvAIWorkspaceStoredSecretConfig
+      required:
+        - type
+        - secret_id
+        - name
+        - used_by
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - stored
+          type: string
+        secret_id:
+          title: Secret Id
+          type: string
+        name:
+          title: Name
+          type: string
+        used_by:
+          $ref: '#/components/schemas/ConvAIStoredSecretDependencies'
     ConversationChargingCommonModel:
       title: ConversationChargingCommonModel
       type: object
@@ -8797,6 +9272,37 @@ components:
             - editor
             - viewer
           type: string
+    DependentAvailableToolIdentifier:
+      title: DependentAvailableToolIdentifier
+      required:
+        - id
+        - name
+        - created_at_unix_secs
+        - access_level
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        type:
+          title: Type
+          enum:
+            - available
+          type: string
+          default: available
+        created_at_unix_secs:
+          title: Created At Unix Secs
+          type: integer
+        access_level:
+          title: Access Level
+          enum:
+            - admin
+            - editor
+            - viewer
+          type: string
     DependentUnknownAgentIdentifier:
       title: DependentUnknownAgentIdentifier
       type: object
@@ -8808,6 +9314,17 @@ components:
           type: string
           default: unknown
       description: "A model that represents an agent dependent on a knowledge base/tools\nto which the user has no direct access."
+    DependentUnknownToolIdentifier:
+      title: DependentUnknownToolIdentifier
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - unknown
+          type: string
+          default: unknown
+      description: "A model that represents an tool dependent on a knowledge base/tools\nto which the user has no direct access."
     DoDubbingResponseModel:
       title: DoDubbingResponseModel
       required:
@@ -8925,71 +9442,80 @@ components:
         - character_limit
         - can_extend_character_limit
         - allowed_to_extend_character_limit
-        - next_character_count_reset_unix
         - voice_slots_used
         - voice_limit
-        - max_voice_add_edits
         - voice_add_edit_counter
         - professional_voice_limit
         - can_extend_voice_limit
         - can_use_instant_voice_cloning
         - can_use_professional_voice_cloning
-        - currency
         - status
-        - billing_period
-        - character_refresh_period
-        - next_invoice
         - has_open_invoices
       type: object
       properties:
         tier:
           title: Tier
           type: string
+          description: The tier of the user's subscription.
         character_count:
           title: Character Count
           type: integer
+          description: The number of characters used by the user.
         character_limit:
           title: Character Limit
           type: integer
+          description: The maximum number of characters allowed in the current billing period.
         can_extend_character_limit:
           title: Can Extend Character Limit
           type: boolean
+          description: Whether the user can extend their character limit.
         allowed_to_extend_character_limit:
           title: Allowed To Extend Character Limit
           type: boolean
+          description: Whether the user is allowed to extend their character limit.
         next_character_count_reset_unix:
           title: Next Character Count Reset Unix
           type: integer
+          description: The Unix timestamp of the next character count reset.
         voice_slots_used:
           title: Voice Slots Used
           type: integer
+          description: The number of voice slots used by the user.
         voice_limit:
           title: Voice Limit
           type: integer
+          description: The maximum number of voice slots allowed for the user.
         max_voice_add_edits:
           title: Max Voice Add Edits
           type: integer
+          description: The maximum number of voice add/edits allowed for the user.
         voice_add_edit_counter:
           title: Voice Add Edit Counter
           type: integer
+          description: The number of voice add/edits used by the user.
         professional_voice_limit:
           title: Professional Voice Limit
           type: integer
+          description: The maximum number of professional voices allowed for the user.
         can_extend_voice_limit:
           title: Can Extend Voice Limit
           type: boolean
+          description: Whether the user can extend their voice limit.
         can_use_instant_voice_cloning:
           title: Can Use Instant Voice Cloning
           type: boolean
+          description: Whether the user can use instant voice cloning.
         can_use_professional_voice_cloning:
           title: Can Use Professional Voice Cloning
           type: boolean
+          description: Whether the user can use professional voice cloning.
         currency:
           title: Currency
           enum:
             - usd
             - eur
           type: string
+          description: The currency of the user's subscription.
         status:
           title: Status
           enum:
@@ -9002,23 +9528,35 @@ components:
             - unpaid
             - free
           type: string
+          description: The status of the user's subscription.
         billing_period:
           title: Billing Period
           enum:
             - monthly_period
             - annual_period
           type: string
+          description: The billing period of the user's subscription.
         character_refresh_period:
           title: Character Refresh Period
           enum:
             - monthly_period
             - annual_period
           type: string
+          description: The character refresh period of the user's subscription.
         next_invoice:
-          $ref: '#/components/schemas/InvoiceResponseModel'
+          title: Next Invoice
+          allOf:
+            - $ref: '#/components/schemas/InvoiceResponseModel'
+          description: The next invoice for the user.
         has_open_invoices:
           title: Has Open Invoices
           type: boolean
+          description: Whether the user has open invoices.
+      example:
+        next_invoice:
+          amount_due_cents: 1000
+          next_payment_attempt_unix: 1738356858
+        has_open_invoices: false
     FeedbackResponseModel:
       title: FeedbackResponseModel
       required:
@@ -9199,6 +9737,22 @@ components:
         has_more:
           title: Has More
           type: boolean
+    GetAudioNativeProjectSettingsResponseModel:
+      title: GetAudioNativeProjectSettingsResponseModel
+      required:
+        - enabled
+        - snapshot_id
+        - settings
+      type: object
+      properties:
+        enabled:
+          title: Enabled
+          type: boolean
+        snapshot_id:
+          title: Snapshot Id
+          type: string
+        settings:
+          $ref: '#/components/schemas/AudioNativeProjectSettingsResponseModel'
     GetChaptersResponseModel:
       title: GetChaptersResponseModel
       required:
@@ -9218,11 +9772,13 @@ components:
       properties:
         conversation_initiation_client_data_webhook:
           $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
+        webhooks:
+          $ref: '#/components/schemas/ConvAIWebhooks'
         secrets:
           title: Secrets
           type: array
           items:
-            $ref: '#/components/schemas/ConvAIStoredSecretConfig'
+            $ref: '#/components/schemas/ConvAIWorkspaceStoredSecretConfig'
     GetConversationResponseModel:
       title: GetConversationResponseModel
       required:
@@ -9532,7 +10088,7 @@ components:
           title: Secrets
           type: array
           items:
-            $ref: '#/components/schemas/ConvAIStoredSecretConfig'
+            $ref: '#/components/schemas/ConvAIWorkspaceStoredSecretConfig'
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -9600,9 +10156,14 @@ components:
         amount_due_cents:
           title: Amount Due Cents
           type: integer
+          description: The amount due in cents.
         next_payment_attempt_unix:
           title: Next Payment Attempt Unix
           type: integer
+          description: The Unix timestamp of the next payment attempt.
+      example:
+        amount_due_cents: 1000
+        next_payment_attempt_unix: 1738356858
     KnowledgeBaseLocator:
       title: KnowledgeBaseLocator
       required:
@@ -9674,9 +10235,14 @@ components:
         language_id:
           title: Language Id
           type: string
+          description: The unique identifier of the language.
         name:
           title: Name
           type: string
+          description: The name of the language.
+      example:
+        language_id: en
+        name: English
     LibraryVoiceResponseModel:
       title: LibraryVoiceResponseModel
       required:
@@ -9773,6 +10339,11 @@ components:
         featured:
           title: Featured
           type: boolean
+        verified_languages:
+          title: Verified Languages
+          type: array
+          items:
+            $ref: '#/components/schemas/VerifiedVoiceLanguageResponseModel'
         notice_period:
           title: Notice Period
           type: integer
@@ -9791,6 +10362,40 @@ components:
         image_url:
           title: Image Url
           type: string
+        is_added_by_user:
+          title: Is Added By User
+          type: boolean
+    ListUnclaimedReviewTasksPayload:
+      title: ListUnclaimedReviewTasksPayload
+      required:
+        - tags
+      type: object
+      properties:
+        tags:
+          title: Tags
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/TagModel'
+    ListUserReviewTasksPayload:
+      title: ListUserReviewTasksPayload
+      required:
+        - tags
+        - state
+      type: object
+      properties:
+        tags:
+          title: Tags
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/TagModel'
+        state:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewState'
     LiteralJsonSchemaProperty:
       title: LiteralJsonSchemaProperty
       required:
@@ -9866,6 +10471,9 @@ components:
         character_cost_multiplier:
           title: Character Cost Multiplier
           type: number
+          description: The cost multiplier for characters.
+      example:
+        character_cost_multiplier: 1
     ModelResponseModel:
       title: ModelResponseModel
       required:
@@ -9891,58 +10499,98 @@ components:
         model_id:
           title: Model Id
           type: string
+          description: The unique identifier of the model.
         name:
           title: Name
           type: string
+          description: The name of the model.
         can_be_finetuned:
           title: Can Be Finetuned
           type: boolean
+          description: Whether the model can be finetuned.
         can_do_text_to_speech:
           title: Can Do Text To Speech
           type: boolean
+          description: Whether the model can do text-to-speech.
         can_do_voice_conversion:
           title: Can Do Voice Conversion
           type: boolean
+          description: Whether the model can do voice conversion.
         can_use_style:
           title: Can Use Style
           type: boolean
+          description: Whether the model can use style.
         can_use_speaker_boost:
           title: Can Use Speaker Boost
           type: boolean
+          description: Whether the model can use speaker boost.
         serves_pro_voices:
           title: Serves Pro Voices
           type: boolean
+          description: Whether the model serves pro voices.
         token_cost_factor:
           title: Token Cost Factor
           type: number
+          description: The cost factor for the model.
         description:
           title: Description
           type: string
+          description: The description of the model.
         requires_alpha_access:
           title: Requires Alpha Access
           type: boolean
+          description: Whether the model requires alpha access.
         max_characters_request_free_user:
           title: Max Characters Request Free User
           type: integer
+          description: The maximum number of characters that can be requested by a free user.
         max_characters_request_subscribed_user:
           title: Max Characters Request Subscribed User
           type: integer
+          description: The maximum number of characters that can be requested by a subscribed user.
         maximum_text_length_per_request:
           title: Maximum Text Length Per Request
           type: integer
+          description: The maximum length of text that can be requested for this model.
         languages:
           title: Languages
           type: array
           items:
             $ref: '#/components/schemas/LanguageResponseModel'
+          description: The languages supported by the model.
         model_rates:
-          $ref: '#/components/schemas/ModelRatesResponseModel'
+          title: Model Rates
+          allOf:
+            - $ref: '#/components/schemas/ModelRatesResponseModel'
+          description: The rates for the model.
         concurrency_group:
           title: Concurrency Group
           enum:
             - standard
             - turbo
           type: string
+          description: The concurrency group for the model.
+      example:
+        model_id: eleven_multilingual_v2
+        name: Eleven Multilingual v2
+        can_be_finetuned: true
+        can_do_text_to_speech: true
+        can_do_voice_conversion: true
+        can_use_style: true
+        can_use_speaker_boost: true
+        serves_pro_voices: false
+        token_cost_factor: 1
+        description: 'Our state of the art multilingual speech synthesis model, able to generate life-like speech in 29 languages.'
+        requires_alpha_access: false
+        max_characters_request_free_user: 2500
+        max_characters_request_subscribed_user: 5000
+        maximum_text_length_per_request: 1000000
+        languages:
+          - language_id: en
+            name: English
+        model_rates:
+          character_cost_multiplier: 1
+        concurrency_group: standard
     ModerationStatusResponseModel:
       title: ModerationStatusResponseModel
       required:
@@ -9952,29 +10600,33 @@ components:
         - never_live_moderate
         - nogo_voice_similar_voice_upload_count
         - enterprise_background_moderation_enabled
-        - safety_status
-        - warning_status
         - on_watchlist
       type: object
       properties:
         is_in_probation:
           title: Is In Probation
           type: boolean
+          description: Whether the user is in probation.
         enterprise_check_nogo_voice:
           title: Enterprise Check Nogo Voice
           type: boolean
+          description: Whether the user's enterprise check nogo voice is enabled.
         enterprise_check_block_nogo_voice:
           title: Enterprise Check Block Nogo Voice
           type: boolean
+          description: Whether the user's enterprise check block nogo voice is enabled.
         never_live_moderate:
           title: Never Live Moderate
           type: boolean
+          description: Whether the user's never live moderate is enabled.
         nogo_voice_similar_voice_upload_count:
           title: Nogo Voice Similar Voice Upload Count
           type: integer
+          description: The number of similar voice uploads that have been blocked.
         enterprise_background_moderation_enabled:
           title: Enterprise Background Moderation Enabled
           type: boolean
+          description: Whether the user's enterprise background moderation is enabled.
         safety_status:
           title: Safety Status
           enum:
@@ -9982,15 +10634,26 @@ components:
             - appeal_denied
             - false_positive
           type: string
+          description: The safety status of the user.
         warning_status:
           title: Warning Status
           enum:
             - warning
             - warning_cleared
           type: string
+          description: The warning status of the user.
         on_watchlist:
           title: On Watchlist
           type: boolean
+          description: Whether the user is on the watchlist.
+      example:
+        is_in_probation: false
+        enterprise_check_nogo_voice: false
+        enterprise_check_block_nogo_voice: false
+        never_live_moderate: false
+        nogo_voice_similar_voice_upload_count: 0
+        enterprise_background_moderation_enabled: false
+        on_watchlist: false
     ObjectJsonSchemaProperty:
       title: ObjectJsonSchemaProperty
       type: object
@@ -10037,6 +10700,20 @@ components:
           title: Color 2
           type: string
           default: '#9ce6e6'
+    PaginatedListedReviewTaskPreviewModel:
+      title: PaginatedListedReviewTaskPreviewModel
+      required:
+        - review_tasks
+      type: object
+      properties:
+        review_tasks:
+          title: Review Tasks
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewTaskPreviewModel'
+        cursor:
+          title: Cursor
+          type: string
     PatchConvaiSettingsRequest:
       title: PatchConvaiSettingsRequest
       required:
@@ -10045,6 +10722,8 @@ components:
       properties:
         conversation_initiation_client_data_webhook:
           $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
+        webhooks:
+          $ref: '#/components/schemas/ConvAIWebhooks'
         secrets:
           title: Secrets
           type: array
@@ -10802,6 +11481,48 @@ components:
           items:
             type: string
       additionalProperties: false
+    QuoteRequestModel:
+      title: QuoteRequestModel
+      required:
+        - content_hash
+        - duration_s
+        - speaker_count
+        - language
+      type: object
+      properties:
+        content_hash:
+          title: Content Hash
+          type: string
+        duration_s:
+          title: Duration S
+          type: number
+        speaker_count:
+          title: Speaker Count
+          type: integer
+        language:
+          title: Language
+          type: string
+    QuoteResponseModel:
+      title: QuoteResponseModel
+      required:
+        - quote_usd
+        - valid_until
+        - request
+        - quote_token
+      type: object
+      properties:
+        quote_usd:
+          title: Quote Usd
+          type: number
+        valid_until:
+          title: Valid Until
+          type: string
+          format: date-time
+        request:
+          $ref: '#/components/schemas/QuoteRequestModel'
+        quote_token:
+          title: Quote Token
+          type: string
     ReaderResourceResponseModel:
       title: ReaderResourceResponseModel
       required:
@@ -10856,6 +11577,47 @@ components:
         version_id:
           title: Version Id
           type: string
+    ReviewState:
+      title: ReviewState
+      enum:
+        - unclaimed
+        - claimed
+        - submitted
+        - done
+        - rejected
+        - in_progress
+      type: string
+      description: An enumeration.
+    ReviewTaskPreviewModel:
+      title: ReviewTaskPreviewModel
+      required:
+        - id
+        - state
+        - tags
+        - bounty_usd
+        - deadline
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        state:
+          $ref: '#/components/schemas/ReviewState'
+        duration_secs:
+          title: Duration Secs
+          type: number
+        tags:
+          title: Tags
+          type: array
+          items:
+            $ref: '#/components/schemas/TagDbModel'
+        bounty_usd:
+          title: Bounty Usd
+          type: number
+        deadline:
+          title: Deadline
+          type: string
+          format: date-time
     SafetyCommonModel:
       title: SafetyCommonModel
       type: object
@@ -10937,6 +11699,12 @@ components:
         hash:
           title: Hash
           type: string
+    SecretDependencyType:
+      title: SecretDependencyType
+      enum:
+        - conversation_initiation_webhook
+      type: string
+      description: An enumeration.
     SpeechHistoryItemResponseModel:
       title: SpeechHistoryItemResponseModel
       required:
@@ -11199,53 +11967,132 @@ components:
           - char: o
             start: 0.4
             end: 0.5
+    StreamingAudioChunkWithTimestampsResponseModel:
+      title: StreamingAudioChunkWithTimestampsResponseModel
+      required:
+        - audio_base64
+      type: object
+      properties:
+        audio_base64:
+          title: Audio Base64
+          type: string
+          description: Base64 encoded audio data
+        alignment:
+          title: Alignment
+          allOf:
+            - $ref: '#/components/schemas/CharacterAlignmentResponseModel'
+          description: Timestamp information for each character in the original text
+        normalized_alignment:
+          title: Normalized Alignment
+          allOf:
+            - $ref: '#/components/schemas/CharacterAlignmentResponseModel'
+          description: Timestamp information for each character in the normalized text
+      example:
+        audio_base64: base64_encoded_audio_chunk
+        alignment:
+          characters:
+            - H
+            - e
+          character_start_times_seconds:
+            - 0
+            - 0.1
+          character_end_times_seconds:
+            - 0.1
+            - 0.2
+        normalized_alignment:
+          characters:
+            - H
+            - e
+          character_start_times_seconds:
+            - 0
+            - 0.1
+          character_end_times_seconds:
+            - 0.1
+            - 0.2
     SubscriptionExtrasResponseModel:
       title: SubscriptionExtrasResponseModel
       required:
         - concurrency
         - convai_concurrency
-        - convai_chars_per_minute
-        - convai_asr_chars_per_minute
         - force_logging_disabled
         - can_request_manual_pro_voice_verification
         - can_bypass_voice_captcha
         - moderation
-        - unused_characters_rolled_over_from_previous_period
-        - overused_characters_rolled_over_from_previous_period
-        - usage
       type: object
       properties:
         concurrency:
           title: Concurrency
           type: integer
+          description: The concurrency of the user.
         convai_concurrency:
           title: Convai Concurrency
           type: integer
+          description: The Convai concurrency of the user.
         convai_chars_per_minute:
           title: Convai Chars Per Minute
           type: integer
+          description: The Convai characters per minute of the user.
         convai_asr_chars_per_minute:
           title: Convai Asr Chars Per Minute
           type: integer
+          description: The Convai ASR characters per minute of the user.
         force_logging_disabled:
           title: Force Logging Disabled
           type: boolean
+          description: Whether the user's logging is disabled.
         can_request_manual_pro_voice_verification:
           title: Can Request Manual Pro Voice Verification
           type: boolean
+          description: Whether the user can request manual pro voice verification.
         can_bypass_voice_captcha:
           title: Can Bypass Voice Captcha
           type: boolean
+          description: Whether the user can bypass the voice captcha.
         moderation:
-          $ref: '#/components/schemas/ModerationStatusResponseModel'
+          title: Moderation
+          allOf:
+            - $ref: '#/components/schemas/ModerationStatusResponseModel'
+          description: The moderation status of the user.
         unused_characters_rolled_over_from_previous_period:
           title: Unused Characters Rolled Over From Previous Period
           type: integer
+          description: The unused characters rolled over from the previous period.
         overused_characters_rolled_over_from_previous_period:
           title: Overused Characters Rolled Over From Previous Period
           type: integer
+          description: The overused characters rolled over from the previous period.
         usage:
-          $ref: '#/components/schemas/SubscriptionUsageResponseModel'
+          title: Usage
+          allOf:
+            - $ref: '#/components/schemas/SubscriptionUsageResponseModel'
+          description: Data on how the subscription is being used.
+      example:
+        concurrency: 10
+        convai_concurrency: 10
+        convai_chars_per_minute: 1000
+        convai_asr_chars_per_minute: 1000
+        force_logging_disabled: false
+        can_request_manual_pro_voice_verification: true
+        can_bypass_voice_captcha: true
+        moderation:
+          is_in_probation: false
+          enterprise_check_nogo_voice: false
+          enterprise_check_block_nogo_voice: false
+          never_live_moderate: false
+          nogo_voice_similar_voice_upload_count: 0
+          enterprise_background_moderation_enabled: false
+          on_watchlist: false
+        unused_characters_rolled_over_from_previous_period: 1000
+        overused_characters_rolled_over_from_previous_period: 1000
+        usage:
+          rollover_credits_quota: 1000
+          subscription_cycle_credits_quota: 1000
+          manually_gifted_credits_quota: 1000
+          rollover_credits_used: 1000
+          subscription_cycle_credits_used: 1000
+          manually_gifted_credits_used: 1000
+          paid_usage_based_credits_used: 1000
+          actual_reported_credits: 1000
     SubscriptionResponseModel:
       title: SubscriptionResponseModel
       required:
@@ -11254,69 +12101,79 @@ components:
         - character_limit
         - can_extend_character_limit
         - allowed_to_extend_character_limit
-        - next_character_count_reset_unix
         - voice_slots_used
         - voice_limit
-        - max_voice_add_edits
         - voice_add_edit_counter
         - professional_voice_limit
         - can_extend_voice_limit
         - can_use_instant_voice_cloning
         - can_use_professional_voice_cloning
-        - currency
         - status
-        - billing_period
-        - character_refresh_period
       type: object
       properties:
         tier:
           title: Tier
           type: string
+          description: The tier of the user's subscription.
         character_count:
           title: Character Count
           type: integer
+          description: The number of characters used by the user.
         character_limit:
           title: Character Limit
           type: integer
+          description: The maximum number of characters allowed in the current billing period.
         can_extend_character_limit:
           title: Can Extend Character Limit
           type: boolean
+          description: Whether the user can extend their character limit.
         allowed_to_extend_character_limit:
           title: Allowed To Extend Character Limit
           type: boolean
+          description: Whether the user is allowed to extend their character limit.
         next_character_count_reset_unix:
           title: Next Character Count Reset Unix
           type: integer
+          description: The Unix timestamp of the next character count reset.
         voice_slots_used:
           title: Voice Slots Used
           type: integer
+          description: The number of voice slots used by the user.
         voice_limit:
           title: Voice Limit
           type: integer
+          description: The maximum number of voice slots allowed for the user.
         max_voice_add_edits:
           title: Max Voice Add Edits
           type: integer
+          description: The maximum number of voice add/edits allowed for the user.
         voice_add_edit_counter:
           title: Voice Add Edit Counter
           type: integer
+          description: The number of voice add/edits used by the user.
         professional_voice_limit:
           title: Professional Voice Limit
           type: integer
+          description: The maximum number of professional voices allowed for the user.
         can_extend_voice_limit:
           title: Can Extend Voice Limit
           type: boolean
+          description: Whether the user can extend their voice limit.
         can_use_instant_voice_cloning:
           title: Can Use Instant Voice Cloning
           type: boolean
+          description: Whether the user can use instant voice cloning.
         can_use_professional_voice_cloning:
           title: Can Use Professional Voice Cloning
           type: boolean
+          description: Whether the user can use professional voice cloning.
         currency:
           title: Currency
           enum:
             - usd
             - eur
           type: string
+          description: The currency of the user's subscription.
         status:
           title: Status
           enum:
@@ -11329,18 +12186,40 @@ components:
             - unpaid
             - free
           type: string
+          description: The status of the user's subscription.
         billing_period:
           title: Billing Period
           enum:
             - monthly_period
             - annual_period
           type: string
+          description: The billing period of the user's subscription.
         character_refresh_period:
           title: Character Refresh Period
           enum:
             - monthly_period
             - annual_period
           type: string
+          description: The character refresh period of the user's subscription.
+      example:
+        tier: trial
+        character_count: 17231
+        character_limit: 100000
+        can_extend_character_limit: false
+        allowed_to_extend_character_limit: false
+        next_character_count_reset_unix: 1738356858
+        voice_slots_used: 1
+        voice_limit: 120
+        max_voice_add_edits: 230
+        voice_add_edit_counter: 212
+        professional_voice_limit: 1
+        can_extend_voice_limit: false
+        can_use_instant_voice_cloning: true
+        can_use_professional_voice_cloning: true
+        currency: usd
+        status: free
+        billing_period: monthly_period
+        character_refresh_period: monthly_period
     SubscriptionUsageResponseModel:
       title: SubscriptionUsageResponseModel
       required:
@@ -11357,27 +12236,44 @@ components:
         rollover_credits_quota:
           title: Rollover Credits Quota
           type: integer
+          description: The rollover credits quota.
         subscription_cycle_credits_quota:
           title: Subscription Cycle Credits Quota
           type: integer
+          description: The subscription cycle credits quota.
         manually_gifted_credits_quota:
           title: Manually Gifted Credits Quota
           type: integer
+          description: The manually gifted credits quota.
         rollover_credits_used:
           title: Rollover Credits Used
           type: integer
+          description: The rollover credits used.
         subscription_cycle_credits_used:
           title: Subscription Cycle Credits Used
           type: integer
+          description: The subscription cycle credits used.
         manually_gifted_credits_used:
           title: Manually Gifted Credits Used
           type: integer
+          description: The manually gifted credits used.
         paid_usage_based_credits_used:
           title: Paid Usage Based Credits Used
           type: integer
+          description: The paid usage based credits used.
         actual_reported_credits:
           title: Actual Reported Credits
           type: integer
+          description: The actual reported credits.
+      example:
+        rollover_credits_quota: 1000
+        subscription_cycle_credits_quota: 1000
+        manually_gifted_credits_quota: 1000
+        rollover_credits_used: 1000
+        subscription_cycle_credits_used: 1000
+        manually_gifted_credits_used: 1000
+        paid_usage_based_credits_used: 1000
+        actual_reported_credits: 1000
     SystemToolConfig:
       title: SystemToolConfig
       required:
@@ -11477,6 +12373,37 @@ components:
         - ulaw_8000
       type: string
       description: An enumeration.
+    TagDbModel:
+      title: TagDbModel
+      required:
+        - kind
+        - value
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/TagKind'
+        value:
+          title: Value
+          type: string
+    TagKind:
+      title: TagKind
+      enum:
+        - lang
+        - job_type
+      type: string
+      description: An enumeration.
+    TagModel:
+      title: TagModel
+      required:
+        - kind
+        - value
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/TagKind'
+        value:
+          title: Value
+          type: string
     TelephonyProvider:
       title: TelephonyProvider
       enum:
@@ -11630,9 +12557,7 @@ components:
       required:
         - user_id
         - subscription
-        - subscription_extras
         - is_new_user
-        - xi_api_key
         - can_use_delayed_payment_methods
         - is_onboarding_completed
         - is_onboarding_checklist_completed
@@ -11641,41 +12566,113 @@ components:
         user_id:
           title: User Id
           type: string
+          description: The unique identifier of the user.
         subscription:
-          $ref: '#/components/schemas/SubscriptionResponseModel'
+          title: Subscription
+          allOf:
+            - $ref: '#/components/schemas/SubscriptionResponseModel'
+          description: Details of the user's subscription.
         subscription_extras:
-          $ref: '#/components/schemas/SubscriptionExtrasResponseModel'
+          title: Subscription Extras
+          allOf:
+            - $ref: '#/components/schemas/SubscriptionExtrasResponseModel'
+          description: Optional additional details about the user's subscription.
         is_new_user:
           title: Is New User
           type: boolean
+          description: Whether the user is new.
         xi_api_key:
           title: Xi Api Key
           type: string
+          description: The API key of the user.
         can_use_delayed_payment_methods:
           title: Can Use Delayed Payment Methods
           type: boolean
+          description: Whether the user can use delayed payment methods.
         is_onboarding_completed:
           title: Is Onboarding Completed
           type: boolean
+          description: Whether the user's onboarding is completed.
         is_onboarding_checklist_completed:
           title: Is Onboarding Checklist Completed
           type: boolean
+          description: Whether the user's onboarding checklist is completed.
         first_name:
           title: First Name
           type: string
+          description: First name of the user.
         is_api_key_hashed:
           title: Is Api Key Hashed
           type: boolean
+          description: Whether the user's API key is hashed.
           default: false
         xi_api_key_preview:
           title: Xi Api Key Preview
           type: string
+          description: The preview of the user's API key.
         referral_link_code:
           title: Referral Link Code
           type: string
+          description: The referral link code of the user.
         partnerstack_partner_default_link:
           title: Partnerstack Partner Default Link
           type: string
+          description: The Partnerstack partner default link of the user.
+      example:
+        user_id: '1234567890'
+        subscription:
+          tier: trial
+          character_count: 17231
+          character_limit: 100000
+          can_extend_character_limit: false
+          allowed_to_extend_character_limit: false
+          next_character_count_reset_unix: 1738356858
+          voice_slots_used: 1
+          voice_limit: 120
+          max_voice_add_edits: 230
+          voice_add_edit_counter: 212
+          professional_voice_limit: 1
+          can_extend_voice_limit: false
+          can_use_instant_voice_cloning: true
+          can_use_professional_voice_cloning: true
+          currency: usd
+          status: free
+          billing_period: monthly_period
+          character_refresh_period: monthly_period
+        subscription_extras:
+          concurrency: 10
+          convai_concurrency: 10
+          convai_chars_per_minute: 1000
+          convai_asr_chars_per_minute: 1000
+          force_logging_disabled: false
+          can_request_manual_pro_voice_verification: true
+          can_bypass_voice_captcha: true
+          moderation:
+            is_in_probation: false
+            enterprise_check_nogo_voice: false
+            enterprise_check_block_nogo_voice: false
+            never_live_moderate: false
+            nogo_voice_similar_voice_upload_count: 0
+            enterprise_background_moderation_enabled: false
+            on_watchlist: false
+          unused_characters_rolled_over_from_previous_period: 1000
+          overused_characters_rolled_over_from_previous_period: 1000
+          usage:
+            rollover_credits_quota: 1000
+            subscription_cycle_credits_quota: 1000
+            manually_gifted_credits_quota: 1000
+            rollover_credits_used: 1000
+            subscription_cycle_credits_used: 1000
+            manually_gifted_credits_used: 1000
+            paid_usage_based_credits_used: 1000
+            actual_reported_credits: 1000
+        is_new_user: false
+        xi_api_key: 8so27l7327189x0h939ekx293380l920
+        can_use_delayed_payment_methods: true
+        is_onboarding_completed: true
+        is_onboarding_checklist_completed: true
+        first_name: John
+        is_api_key_hashed: false
     ValidationError:
       title: ValidationError
       required:
@@ -11724,6 +12721,22 @@ components:
           type: number
         recording:
           $ref: '#/components/schemas/RecordingResponseModel'
+    VerifiedVoiceLanguageResponseModel:
+      title: VerifiedVoiceLanguageResponseModel
+      required:
+        - language
+        - model_id
+      type: object
+      properties:
+        language:
+          title: Language
+          type: string
+        model_id:
+          title: Model Id
+          type: string
+        accent:
+          title: Accent
+          type: string
     VoiceGenerationParameterOptionResponseModel:
       title: VoiceGenerationParameterOptionResponseModel
       required:
@@ -11903,6 +12916,11 @@ components:
           type: array
           items:
             type: string
+        verified_languages:
+          title: Verified Languages
+          type: array
+          items:
+            $ref: '#/components/schemas/VerifiedVoiceLanguageResponseModel'
         safety_control:
           title: Safety Control
           enum:
@@ -11953,6 +12971,10 @@ components:
           title: Use Speaker Boost
           type: boolean
           default: true
+        speed:
+          title: Speed
+          type: number
+          default: 1
     VoiceSharingModerationCheckResponseModel:
       title: VoiceSharingModerationCheckResponseModel
       type: object
@@ -12238,6 +13260,10 @@ components:
           allOf:
             - $ref: '#/components/schemas/EmbedVariant'
           default: full
+        expandable:
+          allOf:
+            - $ref: '#/components/schemas/WidgetExpandable'
+          default: never
         avatar:
           title: Avatar
           anyOf:
@@ -12308,6 +13334,15 @@ components:
         terms_key:
           title: Terms Key
           type: string
+        show_avatar_when_collapsed:
+          title: Show Avatar When Collapsed
+          type: boolean
+          default: false
+        disable_banner:
+          title: Disable Banner
+          type: boolean
+          description: Whether to disable the ConvAI widget banner
+          default: false
         language_selector:
           title: Language Selector
           type: boolean
@@ -12325,6 +13360,10 @@ components:
           allOf:
             - $ref: '#/components/schemas/EmbedVariant'
           default: full
+        expandable:
+          allOf:
+            - $ref: '#/components/schemas/WidgetExpandable'
+          default: never
         avatar:
           title: Avatar
           anyOf:
@@ -12395,6 +13434,15 @@ components:
         terms_key:
           title: Terms Key
           type: string
+        show_avatar_when_collapsed:
+          title: Show Avatar When Collapsed
+          type: boolean
+          default: false
+        disable_banner:
+          title: Disable Banner
+          type: boolean
+          description: Whether to disable the ConvAI widget banner
+          default: false
         language:
           title: Language
           type: string
@@ -12403,6 +13451,15 @@ components:
           type: array
           items:
             type: string
+    WidgetExpandable:
+      title: WidgetExpandable
+      enum:
+        - never
+        - mobile
+        - desktop
+        - always
+      type: string
+      description: An enumeration.
     WidgetFeedbackMode:
       title: WidgetFeedbackMode
       enum:

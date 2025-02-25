@@ -30,7 +30,8 @@ namespace ElevenLabs
         /// Add rules to the pronunciation dictionary
         /// </summary>
         /// <param name="pronunciationDictionaryId">
-        /// The id of the pronunciation dictionary
+        /// The id of the pronunciation dictionary<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -221,7 +222,8 @@ namespace ElevenLabs
         /// Add rules to the pronunciation dictionary
         /// </summary>
         /// <param name="pronunciationDictionaryId">
-        /// The id of the pronunciation dictionary
+        /// The id of the pronunciation dictionary<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -229,7 +231,12 @@ namespace ElevenLabs
         /// <param name="rules">
         /// List of pronunciation rules. Rule can be either:<br/>
         ///     an alias rule: {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b', }<br/>
-        ///     or a phoneme rule: {'string_to_replace': 'a', 'type': 'phoneme', 'phoneme': 'b', 'alphabet': 'ipa' }
+        ///     or a phoneme rule: {'string_to_replace': 'a', 'type': 'phoneme', 'phoneme': 'b', 'alphabet': 'ipa' }<br/>
+        /// Example: <br/>
+        ///     [<br/>
+        ///         {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b' },<br/>
+        ///         {'string_to_replace': 'c', 'type': 'phoneme', 'phoneme': 'd', 'alphabet': 'ipa' }<br/>
+        ///     ]
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
