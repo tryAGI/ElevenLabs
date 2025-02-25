@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ModelRatesResponseModel
     {
         /// <summary>
-        /// 
+        /// The cost multiplier for characters.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_cost_multiplier")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelRatesResponseModel" /> class.
         /// </summary>
-        /// <param name="characterCostMultiplier"></param>
+        /// <param name="characterCostMultiplier">
+        /// The cost multiplier for characters.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

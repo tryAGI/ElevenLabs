@@ -34,10 +34,12 @@ namespace ElevenLabs
         /// Returns the credit usage metrics for the current user or the entire workspace they are part of. The response will return a time axis with unix timestamps for each day and daily usage along that axis. The usage will be broken down by the specified breakdown type. For example, breakdown type "voice" will return the usage of each voice along the time axis.
         /// </summary>
         /// <param name="startUnix">
-        /// UTC Unix timestamp for the start of the usage window, in milliseconds. To include the first day of the window, the timestamp should be at 00:00:00 of that day.
+        /// UTC Unix timestamp for the start of the usage window, in milliseconds. To include the first day of the window, the timestamp should be at 00:00:00 of that day.<br/>
+        /// Example: 1685574000
         /// </param>
         /// <param name="endUnix">
-        /// UTC Unix timestamp for the end of the usage window, in milliseconds. To include the last day of the window, the timestamp should be at 23:59:59 of that day.
+        /// UTC Unix timestamp for the end of the usage window, in milliseconds. To include the last day of the window, the timestamp should be at 23:59:59 of that day.<br/>
+        /// Example: 1688165999
         /// </param>
         /// <param name="includeWorkspaceMetrics">
         /// Whether or not to include the statistics of the entire workspace.<br/>

@@ -15,6 +15,17 @@ namespace ElevenLabs
         /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
+        /// <param name="search">
+        /// If specified, the endpoint returns only such knowledge base documents whose names start with this string.
+        /// </param>
+        /// <param name="showOnlyOwnedDocuments">
+        /// If set to true, the endpoint will return only documents owned by you (and not shared from somebody else).<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useTypesense">
+        /// If set to true, the endpoint will use typesense DB to search for the documents).<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -23,6 +34,9 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetKnowledgeBaseListResponseModel> GetConvaiKnowledgeBaseAsync(
             string? cursor = default,
             int? pageSize = default,
+            string? search = default,
+            bool? showOnlyOwnedDocuments = default,
+            bool? useTypesense = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

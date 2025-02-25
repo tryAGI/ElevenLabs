@@ -129,7 +129,8 @@ namespace ElevenLabs
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="text">
-        /// The text that will get converted into a sound effect.
+        /// The text that will get converted into a sound effect.<br/>
+        /// Example: A large, ancient wooden door slowly opening in an eerie, abandoned castle..
         /// </param>
         /// <param name="durationSeconds">
         /// The duration of the sound which will be generated in seconds. Must be at least 0.5 and at most 22. If set to None we will guess the optimal duration using the prompt. Defaults to None.

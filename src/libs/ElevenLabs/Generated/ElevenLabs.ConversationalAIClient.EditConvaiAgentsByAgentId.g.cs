@@ -32,7 +32,8 @@ namespace ElevenLabs
         /// Patches an Agent settings
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// The id of an agent. This is returned on agent creation.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="useToolIds">
         /// Use tool ids instead of tools specs from request payload.<br/>
@@ -233,7 +234,8 @@ namespace ElevenLabs
         /// Patches an Agent settings
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// The id of an agent. This is returned on agent creation.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="useToolIds">
         /// Use tool ids instead of tools specs from request payload.<br/>
@@ -252,7 +254,8 @@ namespace ElevenLabs
         /// A list of secrets for the agent. Can be used to add new secrets or update and delete the existing ones
         /// </param>
         /// <param name="name">
-        /// A name to make the agent easier to find
+        /// A name to make the agent easier to find<br/>
+        /// Example: My agent
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

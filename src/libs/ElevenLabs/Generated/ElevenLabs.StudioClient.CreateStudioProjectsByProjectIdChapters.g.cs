@@ -30,7 +30,8 @@ namespace ElevenLabs
         /// Creates a new chapter either as blank or from a URL.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.
+        /// The ID of the Studio project.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -221,16 +222,19 @@ namespace ElevenLabs
         /// Creates a new chapter either as blank or from a URL.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.
+        /// The ID of the Studio project.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
-        /// The name of the chapter, used for identification only.
+        /// The name of the chapter, used for identification only.<br/>
+        /// Example: Chapter 1
         /// </param>
         /// <param name="fromUrl">
-        /// An optional URL from which we will extract content to initialize the Studio project. If this is set, 'from_url' must be null. If neither 'from_url' or 'from_document' are provided we will initialize the Studio project as blank.
+        /// An optional URL from which we will extract content to initialize the Studio project. If this is set, 'from_url' must be null. If neither 'from_url' or 'from_document' are provided we will initialize the Studio project as blank.<br/>
+        /// Example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

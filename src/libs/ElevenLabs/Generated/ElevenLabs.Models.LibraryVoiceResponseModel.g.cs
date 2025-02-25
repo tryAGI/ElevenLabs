@@ -159,6 +159,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("verified_languages")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? VerifiedLanguages { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notice_period")]
         public int? NoticePeriod { get; set; }
 
@@ -193,6 +199,12 @@ namespace ElevenLabs
         public string? ImageUrl { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_added_by_user")]
+        public bool? IsAddedByUser { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -222,12 +234,14 @@ namespace ElevenLabs
         /// <param name="freeUsersAllowed"></param>
         /// <param name="liveModerationEnabled"></param>
         /// <param name="featured"></param>
+        /// <param name="verifiedLanguages"></param>
         /// <param name="noticePeriod"></param>
         /// <param name="instagramUsername"></param>
         /// <param name="twitterUsername"></param>
         /// <param name="youtubeUsername"></param>
         /// <param name="tiktokUsername"></param>
         /// <param name="imageUrl"></param>
+        /// <param name="isAddedByUser"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -253,12 +267,14 @@ namespace ElevenLabs
             bool freeUsersAllowed,
             bool liveModerationEnabled,
             bool featured,
+            global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? verifiedLanguages,
             int? noticePeriod,
             string? instagramUsername,
             string? twitterUsername,
             string? youtubeUsername,
             string? tiktokUsername,
-            string? imageUrl)
+            string? imageUrl,
+            bool? isAddedByUser)
         {
             this.PublicOwnerId = publicOwnerId ?? throw new global::System.ArgumentNullException(nameof(publicOwnerId));
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
@@ -281,12 +297,14 @@ namespace ElevenLabs
             this.FreeUsersAllowed = freeUsersAllowed;
             this.LiveModerationEnabled = liveModerationEnabled;
             this.Featured = featured;
+            this.VerifiedLanguages = verifiedLanguages;
             this.NoticePeriod = noticePeriod;
             this.InstagramUsername = instagramUsername;
             this.TwitterUsername = twitterUsername;
             this.YoutubeUsername = youtubeUsername;
             this.TiktokUsername = tiktokUsername;
             this.ImageUrl = imageUrl;
+            this.IsAddedByUser = isAddedByUser;
         }
 
         /// <summary>

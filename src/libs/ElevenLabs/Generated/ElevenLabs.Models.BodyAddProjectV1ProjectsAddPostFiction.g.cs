@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// An optional specification of whether the content of this Studio project is fiction.
+    /// An optional specification of whether the content of this Studio project is fiction.<br/>
+    /// Example: fiction
     /// </summary>
     public enum BodyAddProjectV1ProjectsAddPostFiction
     {

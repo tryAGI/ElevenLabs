@@ -30,7 +30,8 @@ namespace ElevenLabs
         /// Updates Studio project metadata.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.
+        /// The ID of the Studio project.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -221,35 +222,40 @@ namespace ElevenLabs
         /// Updates Studio project metadata.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.
+        /// The ID of the Studio project.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
-        /// The name of the Studio project, used for identification only.
+        /// The name of the Studio project, used for identification only.<br/>
+        /// Example: Project 1
         /// </param>
         /// <param name="defaultTitleVoiceId">
-        /// The voice_id that corresponds to the default voice used for new titles.
+        /// The voice_id that corresponds to the default voice used for new titles.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="defaultParagraphVoiceId">
-        /// The voice_id that corresponds to the default voice used for new paragraphs.
+        /// The voice_id that corresponds to the default voice used for new paragraphs.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="title">
-        /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.
+        /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.<br/>
+        /// Example: Romeo and Juliet
         /// </param>
         /// <param name="author">
-        /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.
+        /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.<br/>
+        /// Example: William Shakespeare
         /// </param>
         /// <param name="isbnNumber">
-        /// An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.
+        /// An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.<br/>
+        /// Example: 0-306-40615-2
         /// </param>
         /// <param name="volumeNormalization">
         /// When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="qualityCheckOn">
-        /// [Depracated] Whether to run quality check on the generated audio and regenerate if needed. Applies to individual block conversion.
+        /// Default Value: false<br/>
+        /// Example: false
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -263,7 +269,6 @@ namespace ElevenLabs
             string? author = default,
             string? isbnNumber = default,
             bool? volumeNormalization = default,
-            bool? qualityCheckOn = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyUpdateStudioProjectMetadataV1StudioProjectsProjectIdPost
@@ -275,7 +280,6 @@ namespace ElevenLabs
                 Author = author,
                 IsbnNumber = isbnNumber,
                 VolumeNormalization = volumeNormalization,
-                QualityCheckOn = qualityCheckOn,
             };
 
             return await CreateStudioProjectsByProjectIdAsync(

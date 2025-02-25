@@ -9,7 +9,8 @@ namespace ElevenLabs
         /// Deletes a Studio project.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.
+        /// The ID of the Studio project.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

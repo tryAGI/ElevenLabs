@@ -9,7 +9,8 @@ namespace ElevenLabs
         /// Returns information about an history item by its ID.
         /// </summary>
         /// <param name="historyItemId">
-        /// History item ID to be used, you can use GET https://api.elevenlabs.io/v1/history to receive a list of history items and their IDs.
+        /// History item ID to be used, you can use GET https://api.elevenlabs.io/v1/history to receive a list of history items and their IDs.<br/>
+        /// Example: VW7YKqPnjY4h39yTbx2L
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

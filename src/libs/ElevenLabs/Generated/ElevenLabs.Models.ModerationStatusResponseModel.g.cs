@@ -9,65 +9,63 @@ namespace ElevenLabs
     public sealed partial class ModerationStatusResponseModel
     {
         /// <summary>
-        /// 
+        /// Whether the user is in probation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_in_probation")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsInProbation { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the user's enterprise check nogo voice is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enterprise_check_nogo_voice")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool EnterpriseCheckNogoVoice { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the user's enterprise check block nogo voice is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enterprise_check_block_nogo_voice")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool EnterpriseCheckBlockNogoVoice { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the user's never live moderate is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("never_live_moderate")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool NeverLiveModerate { get; set; }
 
         /// <summary>
-        /// 
+        /// The number of similar voice uploads that have been blocked.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("nogo_voice_similar_voice_upload_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int NogoVoiceSimilarVoiceUploadCount { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the user's enterprise background moderation is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enterprise_background_moderation_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool EnterpriseBackgroundModerationEnabled { get; set; }
 
         /// <summary>
-        /// 
+        /// The safety status of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety_status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ModerationStatusResponseModelSafetyStatusJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ModerationStatusResponseModelSafetyStatus SafetyStatus { get; set; }
+        public global::ElevenLabs.ModerationStatusResponseModelSafetyStatus? SafetyStatus { get; set; }
 
         /// <summary>
-        /// 
+        /// The warning status of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warning_status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ModerationStatusResponseModelWarningStatusJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ModerationStatusResponseModelWarningStatus WarningStatus { get; set; }
+        public global::ElevenLabs.ModerationStatusResponseModelWarningStatus? WarningStatus { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the user is on the watchlist.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("on_watchlist")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -82,15 +80,33 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ModerationStatusResponseModel" /> class.
         /// </summary>
-        /// <param name="isInProbation"></param>
-        /// <param name="enterpriseCheckNogoVoice"></param>
-        /// <param name="enterpriseCheckBlockNogoVoice"></param>
-        /// <param name="neverLiveModerate"></param>
-        /// <param name="nogoVoiceSimilarVoiceUploadCount"></param>
-        /// <param name="enterpriseBackgroundModerationEnabled"></param>
-        /// <param name="safetyStatus"></param>
-        /// <param name="warningStatus"></param>
-        /// <param name="onWatchlist"></param>
+        /// <param name="isInProbation">
+        /// Whether the user is in probation.
+        /// </param>
+        /// <param name="enterpriseCheckNogoVoice">
+        /// Whether the user's enterprise check nogo voice is enabled.
+        /// </param>
+        /// <param name="enterpriseCheckBlockNogoVoice">
+        /// Whether the user's enterprise check block nogo voice is enabled.
+        /// </param>
+        /// <param name="neverLiveModerate">
+        /// Whether the user's never live moderate is enabled.
+        /// </param>
+        /// <param name="nogoVoiceSimilarVoiceUploadCount">
+        /// The number of similar voice uploads that have been blocked.
+        /// </param>
+        /// <param name="enterpriseBackgroundModerationEnabled">
+        /// Whether the user's enterprise background moderation is enabled.
+        /// </param>
+        /// <param name="safetyStatus">
+        /// The safety status of the user.
+        /// </param>
+        /// <param name="warningStatus">
+        /// The warning status of the user.
+        /// </param>
+        /// <param name="onWatchlist">
+        /// Whether the user is on the watchlist.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -101,9 +117,9 @@ namespace ElevenLabs
             bool neverLiveModerate,
             int nogoVoiceSimilarVoiceUploadCount,
             bool enterpriseBackgroundModerationEnabled,
-            global::ElevenLabs.ModerationStatusResponseModelSafetyStatus safetyStatus,
-            global::ElevenLabs.ModerationStatusResponseModelWarningStatus warningStatus,
-            bool onWatchlist)
+            bool onWatchlist,
+            global::ElevenLabs.ModerationStatusResponseModelSafetyStatus? safetyStatus,
+            global::ElevenLabs.ModerationStatusResponseModelWarningStatus? warningStatus)
         {
             this.IsInProbation = isInProbation;
             this.EnterpriseCheckNogoVoice = enterpriseCheckNogoVoice;
@@ -111,9 +127,9 @@ namespace ElevenLabs
             this.NeverLiveModerate = neverLiveModerate;
             this.NogoVoiceSimilarVoiceUploadCount = nogoVoiceSimilarVoiceUploadCount;
             this.EnterpriseBackgroundModerationEnabled = enterpriseBackgroundModerationEnabled;
+            this.OnWatchlist = onWatchlist;
             this.SafetyStatus = safetyStatus;
             this.WarningStatus = warningStatus;
-            this.OnWatchlist = onWatchlist;
         }
 
         /// <summary>

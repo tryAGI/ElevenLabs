@@ -96,6 +96,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("verified_languages")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? VerifiedLanguages { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety_control")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelSafetyControlJsonConverter))]
         public global::ElevenLabs.VoiceResponseModelSafetyControl? SafetyControl { get; set; }
@@ -157,6 +163,7 @@ namespace ElevenLabs
         /// <param name="settings"></param>
         /// <param name="sharing"></param>
         /// <param name="highQualityBaseModelIds"></param>
+        /// <param name="verifiedLanguages"></param>
         /// <param name="safetyControl"></param>
         /// <param name="voiceVerification"></param>
         /// <param name="permissionOnResource"></param>
@@ -184,6 +191,7 @@ namespace ElevenLabs
             global::ElevenLabs.VoiceSettingsResponseModel settings,
             global::ElevenLabs.VoiceSharingResponseModel sharing,
             global::System.Collections.Generic.IList<string> highQualityBaseModelIds,
+            global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? verifiedLanguages,
             global::ElevenLabs.VoiceResponseModelSafetyControl? safetyControl,
             global::ElevenLabs.VoiceVerificationResponseModel? voiceVerification,
             string? permissionOnResource,
@@ -204,6 +212,7 @@ namespace ElevenLabs
             this.Settings = settings ?? throw new global::System.ArgumentNullException(nameof(settings));
             this.Sharing = sharing ?? throw new global::System.ArgumentNullException(nameof(sharing));
             this.HighQualityBaseModelIds = highQualityBaseModelIds ?? throw new global::System.ArgumentNullException(nameof(highQualityBaseModelIds));
+            this.VerifiedLanguages = verifiedLanguages;
             this.SafetyControl = safetyControl;
             this.VoiceVerification = voiceVerification;
             this.PermissionOnResource = permissionOnResource;

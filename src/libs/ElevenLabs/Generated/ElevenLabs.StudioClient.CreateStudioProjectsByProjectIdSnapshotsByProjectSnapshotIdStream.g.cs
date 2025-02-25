@@ -27,10 +27,12 @@ namespace ElevenLabs
         /// Stream the audio from a Studio project snapshot.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.
+        /// The ID of the Studio project.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="projectSnapshotId">
-        /// The ID of the Studio project snapshot.
+        /// The ID of the Studio project snapshot.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -142,10 +144,12 @@ namespace ElevenLabs
         /// Stream the audio from a Studio project snapshot.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.
+        /// The ID of the Studio project.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="projectSnapshotId">
-        /// The ID of the Studio project snapshot.
+        /// The ID of the Studio project snapshot.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

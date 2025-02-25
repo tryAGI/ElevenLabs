@@ -28,7 +28,8 @@ namespace ElevenLabs
         /// Send the feedback for the given conversation
         /// </summary>
         /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
+        /// The id of the conversation you're taking the action on.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -203,10 +204,12 @@ namespace ElevenLabs
         /// Send the feedback for the given conversation
         /// </summary>
         /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
+        /// The id of the conversation you're taking the action on.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="feedback">
-        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.
+        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.<br/>
+        /// Example: like
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

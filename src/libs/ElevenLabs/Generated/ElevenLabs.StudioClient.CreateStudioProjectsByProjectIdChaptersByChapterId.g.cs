@@ -32,10 +32,12 @@ namespace ElevenLabs
         /// Updates a chapter.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.
+        /// The ID of the Studio project.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="chapterId">
-        /// The ID of the chapter.
+        /// The ID of the chapter.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -229,16 +231,19 @@ namespace ElevenLabs
         /// Updates a chapter.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.
+        /// The ID of the Studio project.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="chapterId">
-        /// The ID of the chapter.
+        /// The ID of the chapter.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
-        /// The name of the chapter, used for identification only.
+        /// The name of the chapter, used for identification only.<br/>
+        /// Example: Chapter 1
         /// </param>
         /// <param name="content">
         /// The chapter content to use.

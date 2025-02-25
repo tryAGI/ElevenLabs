@@ -9,81 +9,76 @@ namespace ElevenLabs
     public sealed partial class SubscriptionExtrasResponseModel
     {
         /// <summary>
-        /// 
+        /// The concurrency of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("concurrency")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Concurrency { get; set; }
 
         /// <summary>
-        /// 
+        /// The Convai concurrency of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("convai_concurrency")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ConvaiConcurrency { get; set; }
 
         /// <summary>
-        /// 
+        /// The Convai characters per minute of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("convai_chars_per_minute")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ConvaiCharsPerMinute { get; set; }
+        public int? ConvaiCharsPerMinute { get; set; }
 
         /// <summary>
-        /// 
+        /// The Convai ASR characters per minute of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("convai_asr_chars_per_minute")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ConvaiAsrCharsPerMinute { get; set; }
+        public int? ConvaiAsrCharsPerMinute { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the user's logging is disabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("force_logging_disabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool ForceLoggingDisabled { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the user can request manual pro voice verification.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_request_manual_pro_voice_verification")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool CanRequestManualProVoiceVerification { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the user can bypass the voice captcha.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_bypass_voice_captcha")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool CanBypassVoiceCaptcha { get; set; }
 
         /// <summary>
-        /// 
+        /// The moderation status of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("moderation")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ModerationStatusResponseModel Moderation { get; set; }
 
         /// <summary>
-        /// 
+        /// The unused characters rolled over from the previous period.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("unused_characters_rolled_over_from_previous_period")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int UnusedCharactersRolledOverFromPreviousPeriod { get; set; }
+        public int? UnusedCharactersRolledOverFromPreviousPeriod { get; set; }
 
         /// <summary>
-        /// 
+        /// The overused characters rolled over from the previous period.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overused_characters_rolled_over_from_previous_period")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int OverusedCharactersRolledOverFromPreviousPeriod { get; set; }
+        public int? OverusedCharactersRolledOverFromPreviousPeriod { get; set; }
 
         /// <summary>
-        /// 
+        /// Data on how the subscription is being used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SubscriptionUsageResponseModel Usage { get; set; }
+        public global::ElevenLabs.SubscriptionUsageResponseModel? Usage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -94,44 +89,66 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="SubscriptionExtrasResponseModel" /> class.
         /// </summary>
-        /// <param name="concurrency"></param>
-        /// <param name="convaiConcurrency"></param>
-        /// <param name="convaiCharsPerMinute"></param>
-        /// <param name="convaiAsrCharsPerMinute"></param>
-        /// <param name="forceLoggingDisabled"></param>
-        /// <param name="canRequestManualProVoiceVerification"></param>
-        /// <param name="canBypassVoiceCaptcha"></param>
-        /// <param name="moderation"></param>
-        /// <param name="unusedCharactersRolledOverFromPreviousPeriod"></param>
-        /// <param name="overusedCharactersRolledOverFromPreviousPeriod"></param>
-        /// <param name="usage"></param>
+        /// <param name="concurrency">
+        /// The concurrency of the user.
+        /// </param>
+        /// <param name="convaiConcurrency">
+        /// The Convai concurrency of the user.
+        /// </param>
+        /// <param name="convaiCharsPerMinute">
+        /// The Convai characters per minute of the user.
+        /// </param>
+        /// <param name="convaiAsrCharsPerMinute">
+        /// The Convai ASR characters per minute of the user.
+        /// </param>
+        /// <param name="forceLoggingDisabled">
+        /// Whether the user's logging is disabled.
+        /// </param>
+        /// <param name="canRequestManualProVoiceVerification">
+        /// Whether the user can request manual pro voice verification.
+        /// </param>
+        /// <param name="canBypassVoiceCaptcha">
+        /// Whether the user can bypass the voice captcha.
+        /// </param>
+        /// <param name="moderation">
+        /// The moderation status of the user.
+        /// </param>
+        /// <param name="unusedCharactersRolledOverFromPreviousPeriod">
+        /// The unused characters rolled over from the previous period.
+        /// </param>
+        /// <param name="overusedCharactersRolledOverFromPreviousPeriod">
+        /// The overused characters rolled over from the previous period.
+        /// </param>
+        /// <param name="usage">
+        /// Data on how the subscription is being used.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SubscriptionExtrasResponseModel(
             int concurrency,
             int convaiConcurrency,
-            int convaiCharsPerMinute,
-            int convaiAsrCharsPerMinute,
             bool forceLoggingDisabled,
             bool canRequestManualProVoiceVerification,
             bool canBypassVoiceCaptcha,
             global::ElevenLabs.ModerationStatusResponseModel moderation,
-            int unusedCharactersRolledOverFromPreviousPeriod,
-            int overusedCharactersRolledOverFromPreviousPeriod,
-            global::ElevenLabs.SubscriptionUsageResponseModel usage)
+            int? convaiCharsPerMinute,
+            int? convaiAsrCharsPerMinute,
+            int? unusedCharactersRolledOverFromPreviousPeriod,
+            int? overusedCharactersRolledOverFromPreviousPeriod,
+            global::ElevenLabs.SubscriptionUsageResponseModel? usage)
         {
             this.Concurrency = concurrency;
             this.ConvaiConcurrency = convaiConcurrency;
-            this.ConvaiCharsPerMinute = convaiCharsPerMinute;
-            this.ConvaiAsrCharsPerMinute = convaiAsrCharsPerMinute;
             this.ForceLoggingDisabled = forceLoggingDisabled;
             this.CanRequestManualProVoiceVerification = canRequestManualProVoiceVerification;
             this.CanBypassVoiceCaptcha = canBypassVoiceCaptcha;
             this.Moderation = moderation ?? throw new global::System.ArgumentNullException(nameof(moderation));
+            this.ConvaiCharsPerMinute = convaiCharsPerMinute;
+            this.ConvaiAsrCharsPerMinute = convaiAsrCharsPerMinute;
             this.UnusedCharactersRolledOverFromPreviousPeriod = unusedCharactersRolledOverFromPreviousPeriod;
             this.OverusedCharactersRolledOverFromPreviousPeriod = overusedCharactersRolledOverFromPreviousPeriod;
-            this.Usage = usage ?? throw new global::System.ArgumentNullException(nameof(usage));
+            this.Usage = usage;
         }
 
         /// <summary>

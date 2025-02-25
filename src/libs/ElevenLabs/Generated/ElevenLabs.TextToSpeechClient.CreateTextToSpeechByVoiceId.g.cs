@@ -26,12 +26,18 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessCreateTextToSpeechByVoiceIdResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
         /// Text To Speech<br/>
         /// Converts text into speech using a voice of your choice and returns audio.
         /// </summary>
         /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
@@ -67,7 +73,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task CreateTextToSpeechByVoiceIdAsync(
+        public async global::System.Threading.Tasks.Task<byte[]> CreateTextToSpeechByVoiceIdAsync(
             string voiceId,
             global::ElevenLabs.BodyTextToSpeechV1TextToSpeechVoiceIdPost request,
             bool? enableLogging = default,
@@ -158,22 +164,104 @@ namespace ElevenLabs
             ProcessCreateTextToSpeechByVoiceIdResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            try
+            // Validation Error
+            if ((int)__response.StatusCode == 422)
             {
-                __response.EnsureSuccessStatusCode();
-            }
-            catch (global::System.Net.Http.HttpRequestException __ex)
-            {
-                throw new global::ElevenLabs.ApiException(
+                string? __content_422 = null;
+                global::ElevenLabs.HTTPValidationError? __value_422 = null;
+                if (ReadResponseAsString)
+                {
+                    __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                    __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                }
+                else
+                {
+                    var __contentStream_422 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                    __value_422 = await global::ElevenLabs.HTTPValidationError.FromJsonStreamAsync(__contentStream_422, JsonSerializerContext).ConfigureAwait(false);
+                }
+
+                throw new global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>(
                     message: __response.ReasonPhrase ?? string.Empty,
-                    innerException: __ex,
                     statusCode: __response.StatusCode)
                 {
+                    ResponseBody = __content_422,
+                    ResponseObject = __value_422,
                     ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                         __response.Headers,
                         h => h.Key,
                         h => h.Value),
                 };
+            }
+
+            if (ReadResponseAsString)
+            {
+                var __content = await __response.Content.ReadAsStringAsync(
+#if NET5_0_OR_GREATER
+                    cancellationToken
+#endif
+                ).ConfigureAwait(false);
+
+                ProcessResponseContent(
+                    client: HttpClient,
+                    response: __response,
+                    content: ref __content);
+                ProcessCreateTextToSpeechByVoiceIdResponseContent(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response,
+                    content: ref __content);
+
+                try
+                {
+                    __response.EnsureSuccessStatusCode();
+                }
+                catch (global::System.Net.Http.HttpRequestException __ex)
+                {
+                    throw new global::ElevenLabs.ApiException(
+                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                        innerException: __ex,
+                        statusCode: __response.StatusCode)
+                    {
+                        ResponseBody = __content,
+                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                            __response.Headers,
+                            h => h.Key,
+                            h => h.Value),
+                    };
+                }
+
+                return
+                    global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(byte[]), JsonSerializerContext) as byte[] ??
+                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            }
+            else
+            {
+                try
+                {
+                    __response.EnsureSuccessStatusCode();
+                }
+                catch (global::System.Net.Http.HttpRequestException __ex)
+                {
+                    throw new global::ElevenLabs.ApiException(
+                        message: __response.ReasonPhrase ?? string.Empty,
+                        innerException: __ex,
+                        statusCode: __response.StatusCode)
+                    {
+                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                            __response.Headers,
+                            h => h.Key,
+                            h => h.Value),
+                    };
+                }
+
+                using var __content = await __response.Content.ReadAsStreamAsync(
+#if NET5_0_OR_GREATER
+                    cancellationToken
+#endif
+                ).ConfigureAwait(false);
+
+                return
+                    await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(byte[]), JsonSerializerContext).ConfigureAwait(false) as byte[] ??
+                    throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
@@ -182,7 +270,8 @@ namespace ElevenLabs
         /// Converts text into speech using a voice of your choice and returns audio.
         /// </summary>
         /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
@@ -216,7 +305,8 @@ namespace ElevenLabs
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="text">
-        /// The text that will get converted into speech.
+        /// The text that will get converted into speech.<br/>
+        /// Example: This is a test for the API of ElevenLabs.
         /// </param>
         /// <param name="modelId">
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.<br/>
@@ -229,34 +319,42 @@ namespace ElevenLabs
         /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request.
         /// </param>
         /// <param name="pronunciationDictionaryLocators">
-        /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
+        /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
+        /// Example: []
         /// </param>
         /// <param name="seed">
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
+        /// Example: 12345
         /// </param>
         /// <param name="previousText">
-        /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+        /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.<br/>
+        /// Example: In the heart of a lush valley surrounded by towering mountains lies the quaint village of Willowbrook.
         /// </param>
         /// <param name="nextText">
-        /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+        /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.<br/>
+        /// Example: The Willowbrook Festival, held every spring, celebrates the blossoming of the wild bluebells that carpet the nearby forest floors, creating a breathtaking sea of blue under the canopy of fresh green leaves.
         /// </param>
         /// <param name="previousRequestIds">
-        /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
+        /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.<br/>
+        /// Example: [09bOJkdYVjKy2oOiiVtR, 0p2uKqOnZyce22SPZ9d5, 1KYvY8WZAKmcjCJ1mvVB]
         /// </param>
         /// <param name="nextRequestIds">
-        /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
+        /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.<br/>
+        /// Example: [3tPgBrD1UdW3snUkGw1K, 4D1jAxiRFkolBNUGzXkU, 4c8Z4aWliVR2oipYRXhj]
         /// </param>
         /// <param name="usePvcAsIvc">
         /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.<br/>
-        /// Default Value: false
+        /// Default Value: false<br/>
+        /// Example: true
         /// </param>
         /// <param name="applyTextNormalization">
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. Cannot be turned on for 'eleven_turbo_v2_5' model.<br/>
-        /// Default Value: auto
+        /// Default Value: auto<br/>
+        /// Example: true
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task CreateTextToSpeechByVoiceIdAsync(
+        public async global::System.Threading.Tasks.Task<byte[]> CreateTextToSpeechByVoiceIdAsync(
             string voiceId,
             string text,
             bool? enableLogging = default,
@@ -292,7 +390,7 @@ namespace ElevenLabs
                 ApplyTextNormalization = applyTextNormalization,
             };
 
-            await CreateTextToSpeechByVoiceIdAsync(
+            return await CreateTextToSpeechByVoiceIdAsync(
                 voiceId: voiceId,
                 enableLogging: enableLogging,
                 optimizeStreamingLatency: optimizeStreamingLatency,

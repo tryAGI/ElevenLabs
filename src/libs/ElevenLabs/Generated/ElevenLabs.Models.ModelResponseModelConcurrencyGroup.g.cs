@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The concurrency group for the model.
     /// </summary>
     public enum ModelResponseModelConcurrencyGroup
     {

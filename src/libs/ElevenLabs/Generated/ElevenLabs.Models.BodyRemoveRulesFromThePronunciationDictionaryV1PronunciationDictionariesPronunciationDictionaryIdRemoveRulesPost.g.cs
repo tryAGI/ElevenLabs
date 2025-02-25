@@ -9,8 +9,10 @@ namespace ElevenLabs
     public sealed partial class BodyRemoveRulesFromThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdRemoveRulesPost
     {
         /// <summary>
-        /// List of strings to remove from the pronunciation dictionary.
+        /// List of strings to remove from the pronunciation dictionary.<br/>
+        /// Example: ['a', 'b']
         /// </summary>
+        /// <example>['a', 'b']</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("rule_strings")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> RuleStrings { get; set; }
@@ -25,7 +27,8 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyRemoveRulesFromThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdRemoveRulesPost" /> class.
         /// </summary>
         /// <param name="ruleStrings">
-        /// List of strings to remove from the pronunciation dictionary.
+        /// List of strings to remove from the pronunciation dictionary.<br/>
+        /// Example: ['a', 'b']
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

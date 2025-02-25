@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The warning status of the user.
     /// </summary>
     public enum ModerationStatusResponseModelWarningStatus
     {

@@ -35,6 +35,12 @@ namespace ElevenLabs
         public bool? UseSpeakerBoost { get; set; }
 
         /// <summary>
+        /// Default Value: 1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
+        public double? Speed { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -51,6 +57,9 @@ namespace ElevenLabs
         /// <param name="useSpeakerBoost">
         /// Default Value: true
         /// </param>
+        /// <param name="speed">
+        /// Default Value: 1
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -58,12 +67,14 @@ namespace ElevenLabs
             double stability,
             double similarityBoost,
             double? style,
-            bool? useSpeakerBoost)
+            bool? useSpeakerBoost,
+            double? speed)
         {
             this.Stability = stability;
             this.SimilarityBoost = similarityBoost;
             this.Style = style;
             this.UseSpeakerBoost = useSpeakerBoost;
+            this.Speed = speed;
         }
 
         /// <summary>
