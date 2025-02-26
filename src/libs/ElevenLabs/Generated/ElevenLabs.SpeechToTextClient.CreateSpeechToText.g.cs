@@ -117,6 +117,12 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.TimestampsGranularity?.ToValueString()}"),
                     name: "timestamps_granularity");
+            } 
+            if (request.Diarize != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.Diarize}"),
+                    name: "diarize");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -271,6 +277,10 @@ namespace ElevenLabs
         /// The granularity of the timestamps in the transcription. 'word' provides word-level timestamps and 'character' provides character-level timestamps per word.<br/>
         /// Default Value: word
         /// </param>
+        /// <param name="diarize">
+        /// Whether to annotate which speaker is currently talking in the uploaded file. Enabling this will limit the maximum duration of your inputs to 8 minutes.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
@@ -282,6 +292,7 @@ namespace ElevenLabs
             bool? tagAudioEvents = default,
             int? numSpeakers = default,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity = default,
+            bool? diarize = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost
@@ -293,6 +304,7 @@ namespace ElevenLabs
                 TagAudioEvents = tagAudioEvents,
                 NumSpeakers = numSpeakers,
                 TimestampsGranularity = timestampsGranularity,
+                Diarize = diarize,
             };
 
             return await CreateSpeechToTextAsync(

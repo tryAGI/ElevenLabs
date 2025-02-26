@@ -12,6 +12,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        None,
+        /// <summary>
+        /// 
+        /// </summary>
         Word,
         /// <summary>
         /// 
@@ -31,6 +35,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                BodySpeechToTextV1SpeechToTextPostTimestampsGranularity.None => "none",
                 BodySpeechToTextV1SpeechToTextPostTimestampsGranularity.Word => "word",
                 BodySpeechToTextV1SpeechToTextPostTimestampsGranularity.Character => "character",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -43,6 +48,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "none" => BodySpeechToTextV1SpeechToTextPostTimestampsGranularity.None,
                 "word" => BodySpeechToTextV1SpeechToTextPostTimestampsGranularity.Word,
                 "character" => BodySpeechToTextV1SpeechToTextPostTimestampsGranularity.Character,
                 _ => null,
