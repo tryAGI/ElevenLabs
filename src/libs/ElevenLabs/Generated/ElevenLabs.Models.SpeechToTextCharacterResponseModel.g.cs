@@ -19,15 +19,13 @@ namespace ElevenLabs
         /// The start time of the character in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Start { get; set; }
+        public double? Start { get; set; }
 
         /// <summary>
         /// The end time of the character in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required double End { get; set; }
+        public double? End { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -52,8 +50,8 @@ namespace ElevenLabs
 #endif
         public SpeechToTextCharacterResponseModel(
             string text,
-            double start,
-            double end)
+            double? start,
+            double? end)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Start = start;

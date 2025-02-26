@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public enum AgentSummaryResponseModelAccessLevel
+    public enum ResourceAccessInfoRole
     {
         /// <summary>
         /// 
@@ -25,31 +25,31 @@ namespace ElevenLabs
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class AgentSummaryResponseModelAccessLevelExtensions
+    public static class ResourceAccessInfoRoleExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this AgentSummaryResponseModelAccessLevel value)
+        public static string ToValueString(this ResourceAccessInfoRole value)
         {
             return value switch
             {
-                AgentSummaryResponseModelAccessLevel.Admin => "admin",
-                AgentSummaryResponseModelAccessLevel.Editor => "editor",
-                AgentSummaryResponseModelAccessLevel.Viewer => "viewer",
+                ResourceAccessInfoRole.Admin => "admin",
+                ResourceAccessInfoRole.Editor => "editor",
+                ResourceAccessInfoRole.Viewer => "viewer",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static AgentSummaryResponseModelAccessLevel? ToEnum(string value)
+        public static ResourceAccessInfoRole? ToEnum(string value)
         {
             return value switch
             {
-                "admin" => AgentSummaryResponseModelAccessLevel.Admin,
-                "editor" => AgentSummaryResponseModelAccessLevel.Editor,
-                "viewer" => AgentSummaryResponseModelAccessLevel.Viewer,
+                "admin" => ResourceAccessInfoRole.Admin,
+                "editor" => ResourceAccessInfoRole.Editor,
+                "viewer" => ResourceAccessInfoRole.Viewer,
                 _ => null,
             };
         }

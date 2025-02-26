@@ -57,6 +57,13 @@ namespace ElevenLabs
         public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? TimestampsGranularity { get; set; }
 
         /// <summary>
+        /// Whether to annotate which speaker is currently talking in the uploaded file. Enabling this will limit the maximum duration of your inputs to 8 minutes.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("diarize")]
+        public bool? Diarize { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -88,6 +95,10 @@ namespace ElevenLabs
         /// The granularity of the timestamps in the transcription. 'word' provides word-level timestamps and 'character' provides character-level timestamps per word.<br/>
         /// Default Value: word
         /// </param>
+        /// <param name="diarize">
+        /// Whether to annotate which speaker is currently talking in the uploaded file. Enabling this will limit the maximum duration of your inputs to 8 minutes.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -98,7 +109,8 @@ namespace ElevenLabs
             string? languageCode,
             bool? tagAudioEvents,
             int? numSpeakers,
-            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity)
+            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity,
+            bool? diarize)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
@@ -107,6 +119,7 @@ namespace ElevenLabs
             this.TagAudioEvents = tagAudioEvents;
             this.NumSpeakers = numSpeakers;
             this.TimestampsGranularity = timestampsGranularity;
+            this.Diarize = diarize;
         }
 
         /// <summary>

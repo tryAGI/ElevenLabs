@@ -49,6 +49,10 @@ namespace ElevenLabs
         /// The granularity of the timestamps in the transcription. 'word' provides word-level timestamps and 'character' provides character-level timestamps per word.<br/>
         /// Default Value: word
         /// </param>
+        /// <param name="diarize">
+        /// Whether to annotate which speaker is currently talking in the uploaded file. Enabling this will limit the maximum duration of your inputs to 8 minutes.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
@@ -60,6 +64,7 @@ namespace ElevenLabs
             bool? tagAudioEvents = default,
             int? numSpeakers = default,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity = default,
+            bool? diarize = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

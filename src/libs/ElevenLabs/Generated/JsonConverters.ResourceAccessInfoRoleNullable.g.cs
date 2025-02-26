@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class AgentSummaryResponseModelAccessLevelNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.AgentSummaryResponseModelAccessLevel?>
+    public sealed class ResourceAccessInfoRoleNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.ResourceAccessInfoRole?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.AgentSummaryResponseModelAccessLevel? Read(
+        public override global::ElevenLabs.ResourceAccessInfoRole? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.AgentSummaryResponseModelAccessLevelExtensions.ToEnum(stringValue);
+                        return global::ElevenLabs.ResourceAccessInfoRoleExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.AgentSummaryResponseModelAccessLevel)numValue;
+                    return (global::ElevenLabs.ResourceAccessInfoRole)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,7 +38,7 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.AgentSummaryResponseModelAccessLevel? value,
+            global::ElevenLabs.ResourceAccessInfoRole? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
@@ -49,7 +49,7 @@ namespace ElevenLabs.JsonConverters
             }
             else
             {
-                writer.WriteStringValue(global::ElevenLabs.AgentSummaryResponseModelAccessLevelExtensions.ToValueString(value.Value));
+                writer.WriteStringValue(global::ElevenLabs.ResourceAccessInfoRoleExtensions.ToValueString(value.Value));
             }
         }
     }
