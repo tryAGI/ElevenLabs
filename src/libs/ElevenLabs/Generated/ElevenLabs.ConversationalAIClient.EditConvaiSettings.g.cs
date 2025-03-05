@@ -8,12 +8,12 @@ namespace ElevenLabs
         partial void PrepareEditConvaiSettingsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvaiSettingsRequest> request);
+            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvAISettingsRequest> request);
         partial void PrepareEditConvaiSettingsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvaiSettingsRequest> request);
+            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvAISettingsRequest> request);
         partial void ProcessEditConvaiSettingsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -33,8 +33,8 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvaiSettingsResponseModel> EditConvaiSettingsAsync(
-            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvaiSettingsRequest> request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> EditConvaiSettingsAsync(
+            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvAISettingsRequest> request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -171,7 +171,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.GetConvaiSettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.GetConvAISettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -201,7 +201,7 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.GetConvaiSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.GetConvAISettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
@@ -215,11 +215,11 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvaiSettingsResponseModel> EditConvaiSettingsAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> EditConvaiSettingsAsync(
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvaiSettingsRequest>
+            var __request = new global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvAISettingsRequest>
             {
             };
 

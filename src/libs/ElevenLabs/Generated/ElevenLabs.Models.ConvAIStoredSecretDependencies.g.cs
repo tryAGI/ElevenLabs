@@ -18,9 +18,9 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("agents")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem> Agents { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentToolsItem> AgentTools { get; set; }
 
         /// <summary>
         /// 
@@ -39,18 +39,18 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConvAIStoredSecretDependencies" /> class.
         /// </summary>
         /// <param name="tools"></param>
-        /// <param name="agents"></param>
+        /// <param name="agentTools"></param>
         /// <param name="others"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConvAIStoredSecretDependencies(
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem> tools,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem> agents,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentToolsItem> agentTools,
             global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType> others)
         {
             this.Tools = tools ?? throw new global::System.ArgumentNullException(nameof(tools));
-            this.Agents = agents ?? throw new global::System.ArgumentNullException(nameof(agents));
+            this.AgentTools = agentTools ?? throw new global::System.ArgumentNullException(nameof(agentTools));
             this.Others = others ?? throw new global::System.ArgumentNullException(nameof(others));
         }
 

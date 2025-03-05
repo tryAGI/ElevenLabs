@@ -45,13 +45,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("secrets")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIStoredSecretConfig> Secrets { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_numbers")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? PhoneNumbers { get; set; }
 
@@ -69,7 +62,6 @@ namespace ElevenLabs
         /// <param name="conversationConfig"></param>
         /// <param name="metadata"></param>
         /// <param name="platformSettings"></param>
-        /// <param name="secrets"></param>
         /// <param name="phoneNumbers"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -79,7 +71,6 @@ namespace ElevenLabs
             string name,
             global::ElevenLabs.ConversationalConfig conversationConfig,
             global::ElevenLabs.AgentMetadataResponseModel metadata,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIStoredSecretConfig> secrets,
             global::ElevenLabs.AgentPlatformSettingsResponseModel? platformSettings,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? phoneNumbers)
         {
@@ -87,7 +78,6 @@ namespace ElevenLabs
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ConversationConfig = conversationConfig ?? throw new global::System.ArgumentNullException(nameof(conversationConfig));
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
-            this.Secrets = secrets ?? throw new global::System.ArgumentNullException(nameof(secrets));
             this.PlatformSettings = platformSettings;
             this.PhoneNumbers = phoneNumbers;
         }

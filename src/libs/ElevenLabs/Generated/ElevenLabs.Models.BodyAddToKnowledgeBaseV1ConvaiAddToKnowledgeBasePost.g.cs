@@ -9,6 +9,12 @@ namespace ElevenLabs
     public sealed partial class BodyAddToKnowledgeBaseV1ConvaiAddToKnowledgeBasePost
     {
         /// <summary>
+        /// A custom, human-readable name for the document.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
         /// URL to a page of documentation that the agent will have access to in order to interact with users.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
@@ -35,6 +41,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BodyAddToKnowledgeBaseV1ConvaiAddToKnowledgeBasePost" /> class.
         /// </summary>
+        /// <param name="name">
+        /// A custom, human-readable name for the document.
+        /// </param>
         /// <param name="url">
         /// URL to a page of documentation that the agent will have access to in order to interact with users.
         /// </param>
@@ -48,10 +57,12 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyAddToKnowledgeBaseV1ConvaiAddToKnowledgeBasePost(
+            string? name,
             string? url,
             byte[]? file,
             string? filename)
         {
+            this.Name = name;
             this.Url = url;
             this.File = file;
             this.Filename = filename;

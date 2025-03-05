@@ -40,6 +40,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt_injectable")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool PromptInjectable { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_level")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.GetKnowledgeBaseResponseModelAccessLevelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -58,6 +65,7 @@ namespace ElevenLabs
         /// <param name="name"></param>
         /// <param name="type"></param>
         /// <param name="extractedInnerHtml"></param>
+        /// <param name="promptInjectable"></param>
         /// <param name="accessLevel"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -67,12 +75,14 @@ namespace ElevenLabs
             string name,
             global::ElevenLabs.GetKnowledgeBaseResponseModelType type,
             string extractedInnerHtml,
+            bool promptInjectable,
             global::ElevenLabs.GetKnowledgeBaseResponseModelAccessLevel accessLevel)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
             this.ExtractedInnerHtml = extractedInnerHtml ?? throw new global::System.ArgumentNullException(nameof(extractedInnerHtml));
+            this.PromptInjectable = promptInjectable;
             this.AccessLevel = accessLevel;
         }
 

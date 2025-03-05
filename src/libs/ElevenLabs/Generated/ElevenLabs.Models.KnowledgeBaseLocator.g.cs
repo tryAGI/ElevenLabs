@@ -31,6 +31,13 @@ namespace ElevenLabs
         public required string Id { get; set; }
 
         /// <summary>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("usage_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DocumentUsageModeEnumJsonConverter))]
+        public global::ElevenLabs.DocumentUsageModeEnum? UsageMode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -42,17 +49,22 @@ namespace ElevenLabs
         /// <param name="type"></param>
         /// <param name="name"></param>
         /// <param name="id"></param>
+        /// <param name="usageMode">
+        /// Default Value: auto
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public KnowledgeBaseLocator(
             global::ElevenLabs.KnowledgeBaseLocatorType type,
             string name,
-            string id)
+            string id,
+            global::ElevenLabs.DocumentUsageModeEnum? usageMode)
         {
             this.Type = type;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.UsageMode = usageMode;
         }
 
         /// <summary>

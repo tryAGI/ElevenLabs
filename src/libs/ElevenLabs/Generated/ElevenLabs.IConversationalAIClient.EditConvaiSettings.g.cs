@@ -14,8 +14,8 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvaiSettingsResponseModel> EditConvaiSettingsAsync(
-            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvaiSettingsRequest> request,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> EditConvaiSettingsAsync(
+            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvAISettingsRequest> request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvaiSettingsResponseModel> EditConvaiSettingsAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> EditConvaiSettingsAsync(
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

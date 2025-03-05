@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class DubbingMediaMetadata
     {
         /// <summary>
-        /// 
+        /// The content type of the media.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ContentType { get; set; }
 
         /// <summary>
-        /// 
+        /// The duration of the media in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="DubbingMediaMetadata" /> class.
         /// </summary>
-        /// <param name="contentType"></param>
-        /// <param name="duration"></param>
+        /// <param name="contentType">
+        /// The content type of the media.
+        /// </param>
+        /// <param name="duration">
+        /// The duration of the media in seconds.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

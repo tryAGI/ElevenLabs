@@ -115,6 +115,16 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public ResourceClient Resource { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SegmentClient Segment { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AudioNativeClient AudioNative { get; }
 
         /// <summary>

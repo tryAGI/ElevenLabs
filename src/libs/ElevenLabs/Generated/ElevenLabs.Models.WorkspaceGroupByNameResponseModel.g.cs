@@ -9,21 +9,21 @@ namespace ElevenLabs
     public sealed partial class WorkspaceGroupByNameResponseModel
     {
         /// <summary>
-        /// 
+        /// The name of the workspace group.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the workspace group.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        /// The emails of the members of the workspace group.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("members_emails")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -38,9 +38,15 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkspaceGroupByNameResponseModel" /> class.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="id"></param>
-        /// <param name="membersEmails"></param>
+        /// <param name="name">
+        /// The name of the workspace group.
+        /// </param>
+        /// <param name="id">
+        /// The ID of the workspace group.
+        /// </param>
+        /// <param name="membersEmails">
+        /// The emails of the members of the workspace group.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

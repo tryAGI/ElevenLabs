@@ -17,7 +17,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateWorkspaceGroupsByGroupIdMembersRemoveAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteWorkspaceGroupMemberResponseModel> CreateWorkspaceGroupsByGroupIdMembersRemoveAsync(
             string groupId,
             string xiApiKey,
             global::ElevenLabs.BodyDeleteMemberFromUserGroupV1WorkspaceGroupsGroupIdMembersRemovePost request,
@@ -38,7 +38,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateWorkspaceGroupsByGroupIdMembersRemoveAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteWorkspaceGroupMemberResponseModel> CreateWorkspaceGroupsByGroupIdMembersRemoveAsync(
             string groupId,
             string xiApiKey,
             string email,

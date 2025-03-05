@@ -9,14 +9,14 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string dubbingId,
             ref string languageCode,
-            ref global::ElevenLabs.GetTranscriptForDubV1DubbingDubbingIdTranscriptLanguageCodeGetFormatType? formatType,
+            ref global::ElevenLabs.GetDubbedTranscriptV1DubbingDubbingIdTranscriptLanguageCodeGetFormatType? formatType,
             ref string? xiApiKey);
         partial void PrepareGetDubbingByDubbingIdTranscriptByLanguageCodeRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string dubbingId,
             string languageCode,
-            global::ElevenLabs.GetTranscriptForDubV1DubbingDubbingIdTranscriptLanguageCodeGetFormatType? formatType,
+            global::ElevenLabs.GetDubbedTranscriptV1DubbingDubbingIdTranscriptLanguageCodeGetFormatType? formatType,
             string? xiApiKey);
         partial void ProcessGetDubbingByDubbingIdTranscriptByLanguageCodeResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -28,8 +28,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Transcript For Dub<br/>
-        /// Returns transcript for the dub as an SRT file.
+        /// Get Dubbed Transcript<br/>
+        /// Returns transcript for the dub as an SRT or WEBVTT file.
         /// </summary>
         /// <param name="dubbingId">
         /// ID of the dubbing project.
@@ -49,7 +49,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<string> GetDubbingByDubbingIdTranscriptByLanguageCodeAsync(
             string dubbingId,
             string languageCode,
-            global::ElevenLabs.GetTranscriptForDubV1DubbingDubbingIdTranscriptLanguageCodeGetFormatType? formatType = default,
+            global::ElevenLabs.GetDubbedTranscriptV1DubbingDubbingIdTranscriptLanguageCodeGetFormatType? formatType = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -121,6 +121,54 @@ namespace ElevenLabs
             ProcessGetDubbingByDubbingIdTranscriptByLanguageCodeResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
+            // Anonymous users cannot use this function
+            if ((int)__response.StatusCode == 403)
+            {
+                string? __content_403 = null;
+                if (ReadResponseAsString)
+                {
+                    __content_403 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                }
+                else
+                {
+                    var __contentStream_403 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                }
+
+                throw new global::ElevenLabs.ApiException(
+                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_403,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
+            // Dubbing or transcript not found
+            if ((int)__response.StatusCode == 404)
+            {
+                string? __content_404 = null;
+                if (ReadResponseAsString)
+                {
+                    __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                }
+                else
+                {
+                    var __contentStream_404 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                }
+
+                throw new global::ElevenLabs.ApiException(
+                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_404,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
             // Validation Error
             if ((int)__response.StatusCode == 422)
             {
@@ -143,6 +191,30 @@ namespace ElevenLabs
                 {
                     ResponseBody = __content_422,
                     ResponseObject = __value_422,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
+            // Dubbing not ready
+            if ((int)__response.StatusCode == 425)
+            {
+                string? __content_425 = null;
+                if (ReadResponseAsString)
+                {
+                    __content_425 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                }
+                else
+                {
+                    var __contentStream_425 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                }
+
+                throw new global::ElevenLabs.ApiException(
+                    message: __content_425 ?? __response.ReasonPhrase ?? string.Empty,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_425,
                     ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                         __response.Headers,
                         h => h.Key,

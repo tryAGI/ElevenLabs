@@ -33,7 +33,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> DeleteWorkspaceInvitesAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteWorkspaceInviteResponseModel> DeleteWorkspaceInvitesAsync(
             global::ElevenLabs.BodyDeleteExistingInvitationV1WorkspaceInvitesDelete request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -172,7 +172,9 @@ namespace ElevenLabs
                     };
                 }
 
-                return __content;
+                return
+                    global::ElevenLabs.DeleteWorkspaceInviteResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
             {
@@ -194,13 +196,15 @@ namespace ElevenLabs
                     };
                 }
 
-                var __content = await __response.Content.ReadAsStringAsync(
+                using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                return __content;
+                return
+                    await global::ElevenLabs.DeleteWorkspaceInviteResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
@@ -217,7 +221,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> DeleteWorkspaceInvitesAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteWorkspaceInviteResponseModel> DeleteWorkspaceInvitesAsync(
             string email,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

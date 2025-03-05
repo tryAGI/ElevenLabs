@@ -50,7 +50,7 @@ namespace ElevenLabs
         /// Default Value: word
         /// </param>
         /// <param name="diarize">
-        /// Whether to annotate which speaker is currently talking in the uploaded file. Enabling this will limit the maximum duration of your inputs to 8 minutes.<br/>
+        /// Whether to annotate which speaker is currently talking in the uploaded file.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

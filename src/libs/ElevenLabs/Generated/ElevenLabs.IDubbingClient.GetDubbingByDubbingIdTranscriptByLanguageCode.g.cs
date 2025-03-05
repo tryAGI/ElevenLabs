@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface IDubbingClient
     {
         /// <summary>
-        /// Get Transcript For Dub<br/>
-        /// Returns transcript for the dub as an SRT file.
+        /// Get Dubbed Transcript<br/>
+        /// Returns transcript for the dub as an SRT or WEBVTT file.
         /// </summary>
         /// <param name="dubbingId">
         /// ID of the dubbing project.
@@ -26,7 +26,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<string> GetDubbingByDubbingIdTranscriptByLanguageCodeAsync(
             string dubbingId,
             string languageCode,
-            global::ElevenLabs.GetTranscriptForDubV1DubbingDubbingIdTranscriptLanguageCodeGetFormatType? formatType = default,
+            global::ElevenLabs.GetDubbedTranscriptV1DubbingDubbingIdTranscriptLanguageCodeGetFormatType? formatType = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

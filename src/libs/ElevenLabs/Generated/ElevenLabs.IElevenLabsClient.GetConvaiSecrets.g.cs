@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface IElevenLabsClient
     {
         /// <summary>
-        /// Get Convai Workspace Secrets For The User<br/>
-        /// Get all secrets for the workspace
+        /// Get Convai Workspace Secrets<br/>
+        /// Get all workspace secrets for the user
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

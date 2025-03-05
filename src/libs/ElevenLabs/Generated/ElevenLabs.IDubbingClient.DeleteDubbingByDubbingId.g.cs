@@ -5,7 +5,7 @@ namespace ElevenLabs
     public partial interface IDubbingClient
     {
         /// <summary>
-        /// Delete Dubbing Project<br/>
+        /// Delete Dubbing<br/>
         /// Deletes a dubbing project.
         /// </summary>
         /// <param name="dubbingId">
@@ -16,7 +16,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> DeleteDubbingByDubbingIdAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteDubbingResponseModel> DeleteDubbingByDubbingIdAsync(
             string dubbingId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

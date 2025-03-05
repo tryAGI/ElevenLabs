@@ -41,6 +41,12 @@ namespace ElevenLabs
         public double? Stability { get; set; }
 
         /// <summary>
+        /// Default Value: 1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
+        public double? Speed { get; set; }
+
+        /// <summary>
         /// Default Value: 0.8
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("similarity_boost")]
@@ -76,6 +82,9 @@ namespace ElevenLabs
         /// <param name="stability">
         /// Default Value: 0.5
         /// </param>
+        /// <param name="speed">
+        /// Default Value: 1
+        /// </param>
         /// <param name="similarityBoost">
         /// Default Value: 0.8
         /// </param>
@@ -89,6 +98,7 @@ namespace ElevenLabs
             global::ElevenLabs.TTSOutputFormat? agentOutputAudioFormat,
             int? optimizeStreamingLatency,
             double? stability,
+            double? speed,
             double? similarityBoost,
             global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? pronunciationDictionaryLocators)
         {
@@ -97,6 +107,7 @@ namespace ElevenLabs
             this.AgentOutputAudioFormat = agentOutputAudioFormat;
             this.OptimizeStreamingLatency = optimizeStreamingLatency;
             this.Stability = stability;
+            this.Speed = speed;
             this.SimilarityBoost = similarityBoost;
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
         }

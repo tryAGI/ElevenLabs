@@ -250,9 +250,6 @@ namespace ElevenLabs
         /// <param name="platformSettings">
         /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
         /// </param>
-        /// <param name="secrets">
-        /// A list of secrets for the agent. Can be used to add new secrets or update and delete the existing ones
-        /// </param>
         /// <param name="name">
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
@@ -265,7 +262,6 @@ namespace ElevenLabs
             string? xiApiKey = default,
             object? conversationConfig = default,
             object? platformSettings = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAINewSecretConfig, global::ElevenLabs.ConvAIStoredSecretConfig>>? secrets = default,
             string? name = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -273,7 +269,6 @@ namespace ElevenLabs
             {
                 ConversationConfig = conversationConfig,
                 PlatformSettings = platformSettings,
-                Secrets = secrets,
                 Name = name,
             };
 

@@ -227,7 +227,7 @@ paths:
       tags:
         - sound-generation
       summary: Sound Generation
-      description: Converts a text of your choice into sound
+      description: 'Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects model in the world.'
       operationId: Sound_Generation_v1_sound_generation_post
       parameters:
         - name: xi-api-key
@@ -245,9 +245,17 @@ paths:
         required: true
       responses:
         '200':
-          description: Successful Response
+          description: The generated sound effect as an MP3 file
+          headers:
+            character-cost:
+              description: The number of characters used for billing
+              schema:
+                type: string
           content:
-            audio/mpeg: { }
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
         '422':
           description: Validation Error
           content:
@@ -2131,6 +2139,56 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       deprecated: true
+  '/v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}':
+    get:
+      tags:
+        - studio
+      summary: Get Project Snapshot
+      description: Returns the project snapshot.
+      operationId: Get_project_snapshot_v1_studio_projects__project_id__snapshots__project_snapshot_id__get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: project_snapshot_id
+          in: path
+          description: The ID of the Studio project snapshot.
+          required: true
+          schema:
+            title: Project Snapshot Id
+            type: string
+            description: The ID of the Studio project snapshot.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectSnapshotExtendedResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - studio
+        - projects
+      x-fern-sdk-method-name: get_project_snapshot
   '/v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/stream':
     post:
       tags:
@@ -2976,6 +3034,65 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       deprecated: true
+  '/v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}':
+    get:
+      tags:
+        - studio
+      summary: Get Chapter Snapshot
+      description: Returns the chapter snapshot.
+      operationId: Get_chapter_snapshot_v1_studio_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__get
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID of the Studio project.
+          required: true
+          schema:
+            title: Project Id
+            type: string
+            description: The ID of the Studio project.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: chapter_id
+          in: path
+          description: The ID of the chapter.
+          required: true
+          schema:
+            title: Chapter Id
+            type: string
+            description: The ID of the chapter.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: chapter_snapshot_id
+          in: path
+          description: The ID of the chapter snapshot.
+          required: true
+          schema:
+            title: Chapter Snapshot Id
+            type: string
+            description: The ID of the chapter snapshot.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChapterSnapshotExtendedResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - studio
+        - chapters
+      x-fern-sdk-method-name: get_chapter_snapshot
   '/v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}/stream':
     post:
       tags:
@@ -3183,12 +3300,390 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       deprecated: true
+  '/v1/dubbing/resource/{dubbing_id}':
+    get:
+      tags:
+        - dubbing
+        - resource
+        - segment
+      summary: Get The Dubbing Resource For An Id.
+      description: 'Given a dubbing ID generated from the ''/v1/dubbing'' endpoint with studio enabled, returns the dubbing resource.'
+      operationId: Get_the_dubbing_resource_for_an_ID__v1_dubbing_resource__dubbing_id__get
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DubbingResource'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/dubbing/resource/{dubbing_id}/language':
+    post:
+      tags:
+        - dubbing
+        - resource
+        - segment
+      summary: Add A Language To The Resource
+      description: Adds the given ElevenLab Turbo V2/V2.5 language code to the resource. Does not automatically generate transcripts/translations/audio.
+      operationId: Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LanguageAddedResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}/segment':
+    post:
+      tags:
+        - dubbing
+        - resource
+        - segment
+      summary: Create A Segment For The Speaker
+      description: Creates a new segment in dubbing resource with a start and end time for the speaker in every available language. Does not automatically generate transcripts/translations/audio.
+      operationId: Create_a_segment_for_the_speaker_v1_dubbing_resource__dubbing_id__speaker__speaker_id__segment_post
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: speaker_id
+          in: path
+          description: ID of the speaker.
+          required: true
+          schema:
+            title: Speaker Id
+            type: string
+            description: ID of the speaker.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Segment
+              allOf:
+                - $ref: '#/components/schemas/SegmentCreatePayload'
+              description: 'The text, and start and end times of a segment.'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SegmentCreateResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/dubbing/resource/{dubbing_id}/segment/{segment_id}/{language}':
+    patch:
+      tags:
+        - dubbing
+        - resource
+        - segment
+      summary: Modify A Single Segment
+      description: Modifies a single segment with new text and/or start/end times. Will update the values for only a specific language of a segment. Does not automatically regenerate the dub.
+      operationId: Modify_a_single_segment_v1_dubbing_resource__dubbing_id__segment__segment_id___language__patch
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: segment_id
+          in: path
+          description: ID of the segment
+          required: true
+          schema:
+            title: Segment Id
+            type: string
+            description: ID of the segment
+        - name: language
+          in: path
+          description: ID of the language.
+          required: true
+          schema:
+            title: Language
+            type: string
+            description: ID of the language.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Updates
+              allOf:
+                - $ref: '#/components/schemas/SegmentUpdatePayload'
+              description: 'The text, and start and end times of a segment.'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SegmentUpdateResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/dubbing/resource/{dubbing_id}/segment/{segment_id}':
+    delete:
+      tags:
+        - dubbing
+        - resource
+        - segment
+      summary: Deletes A Single Segment
+      description: Deletes a single segment from the dubbing.
+      operationId: Deletes_a_single_segment_v1_dubbing_resource__dubbing_id__segment__segment_id__delete
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: segment_id
+          in: path
+          description: ID of the segment
+          required: true
+          schema:
+            title: Segment Id
+            type: string
+            description: ID of the segment
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SegmentDeleteResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/dubbing/resource/{dubbing_id}/transcribe':
+    post:
+      tags:
+        - dubbing
+        - resource
+        - segment
+      summary: Transcribes Segments
+      description: Regenerate the transcriptions for the specified segments. Does not automatically regenerate translations or dubs.
+      operationId: Transcribes_segments_v1_dubbing_resource__dubbing_id__transcribe_post
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Transcribes_segments_v1_dubbing_resource__dubbing_id__transcribe_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SegmentTranscriptionResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/dubbing/resource/{dubbing_id}/translate':
+    post:
+      tags:
+        - dubbing
+        - resource
+        - segment
+      summary: Translates All Or Some Segments And Languages
+      description: Regenerate the translations for either the entire resource or the specified segments/languages. Will automatically transcribe missing transcriptions. Will not automatically regenerate the dubs.
+      operationId: Translates_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__translate_post
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Translates_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__translate_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SegmentTranslationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/dubbing/resource/{dubbing_id}/dub':
+    post:
+      tags:
+        - dubbing
+        - resource
+        - segment
+      summary: Dubs All Or Some Segments And Languages
+      description: Regenerate the dubs for either the entire resource or the specified segments/languages. Will automatically transcribe and translate any missing transcriptions and translations.
+      operationId: Dubs_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__dub_post
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Dubs_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__dub_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SegmentDubResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /v1/dubbing:
     post:
       tags:
         - dubbing
       summary: Dub A Video Or An Audio File
-      description: Dubs provided audio or video file into given language.
+      description: Dubs a provided audio or video file into given language.
       operationId: Dub_a_video_or_an_audio_file_v1_dubbing_post
       parameters:
         - name: xi-api-key
@@ -3222,9 +3717,9 @@ paths:
     get:
       tags:
         - dubbing
-      summary: Get Dubbing Project Metadata
+      summary: Get Dubbing
       description: 'Returns metadata about a dubbing project, including whether it''s still in progress or not'
-      operationId: Get_dubbing_project_metadata_v1_dubbing__dubbing_id__get
+      operationId: Get_dubbing_v1_dubbing__dubbing_id__get
       parameters:
         - name: dubbing_id
           in: path
@@ -3259,9 +3754,9 @@ paths:
     delete:
       tags:
         - dubbing
-      summary: Delete Dubbing Project
+      summary: Delete Dubbing
       description: Deletes a dubbing project.
-      operationId: Delete_dubbing_project_v1_dubbing__dubbing_id__delete
+      operationId: Delete_dubbing_v1_dubbing__dubbing_id__delete
       parameters:
         - name: dubbing_id
           in: path
@@ -3283,7 +3778,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/DeleteDubbingResponseModel'
         '422':
           description: Validation Error
           content:
@@ -3325,24 +3821,52 @@ paths:
             description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
       responses:
         '200':
-          description: Successful Response
+          description: The dubbed audio or video file
           content:
-            application/octet-stream: { }
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+        '403':
+          description: Permission denied
+          content:
+            application/json:
+              example:
+                error: permission_denied
+                message: User does not have required permissions
+        '404':
+          description: Dubbing not found
+          content:
+            application/json:
+              example:
+                error: dubbing_not_found
+                message: 'There is no dubbing for language {language_code}.'
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+        '425':
+          description: Dubbing not ready
+          content:
+            application/json:
+              example:
+                error: dubbing_not_dubbed
+                message: Dubbing has not finished yet.
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: get_dubbed_file
   '/v1/dubbing/{dubbing_id}/transcript/{language_code}':
     get:
       tags:
         - dubbing
-      summary: Get Transcript For Dub
-      description: Returns transcript for the dub as an SRT file.
-      operationId: Get_transcript_for_dub_v1_dubbing__dubbing_id__transcript__language_code__get
+      summary: Get Dubbed Transcript
+      description: Returns transcript for the dub as an SRT or WEBVTT file.
+      operationId: Get_dubbed_transcript_v1_dubbing__dubbing_id__transcript__language_code__get
       parameters:
         - name: dubbing_id
           in: path
@@ -3383,16 +3907,41 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: { }
-            application/text: { }
+              schema:
+                type: string
+              example: "1\n00:00:01,000 --> 00:00:04,000\nHello, this is the first subtitle line\n\n2\n00:00:05,000 --> 00:00:07,000\nAnd here's the second subtitle line"
+            text/plain:
+              schema:
+                type: string
+        '403':
+          description: Anonymous users cannot use this function
+          content:
+            application/json:
+              example:
+                error: anonymous_not_allowed
+                message: Anonymous users cannot use this function
+        '404':
+          description: Dubbing or transcript not found
+          content:
+            application/json:
+              example:
+                error: transcript_not_found
+                message: No transcript was found for the dub.
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+        '425':
+          description: Dubbing not ready
+          content:
+            application/json:
+              example:
+                error: dubbing_not_dubbed
+                message: Dubbing has not finished yet.
       x-fern-sdk-group-name: dubbing
-      x-fern-sdk-method-name: get_dubbing_transcript
+      x-fern-sdk-method-name: get_transcript_for_dub
   /v1/models:
     get:
       tags:
@@ -4131,7 +4680,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/DeleteWorkspaceGroupMemberResponseModel'
         '422':
           description: Validation Error
           content:
@@ -4173,7 +4723,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/AddWorkspaceGroupMemberResponseModel'
         '422':
           description: Validation Error
           content:
@@ -4206,7 +4757,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/AddWorkspaceInviteResponseModel'
         '422':
           description: Validation Error
           content:
@@ -4239,7 +4791,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/AddWorkspaceInviteResponseModel'
         '422':
           description: Validation Error
           content:
@@ -4272,7 +4825,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/DeleteWorkspaceInviteResponseModel'
         '422':
           description: Validation Error
           content:
@@ -4305,7 +4859,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/UpdateWorkspaceMemberResponseModel'
         '422':
           description: Validation Error
           content:
@@ -5399,6 +5954,62 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       deprecated: true
       x-fern-sdk-group-name: conversational_ai
+  '/v1/convai/knowledge-base/{documentation_id}/rag-index':
+    post:
+      tags:
+        - Conversational AI
+      summary: Compute Rag Index.
+      description: 'In case the document is not RAG indexed, it triggers rag indexing task, otherwise it just returns the current status.'
+      operationId: Compute_RAG_index__v1_convai_knowledge_base__documentation_id__rag_index_post
+      parameters:
+        - name: documentation_id
+          in: path
+          description: The id of a document from the knowledge base. This is returned on document addition.
+          required: true
+          schema:
+            title: Documentation Id
+            type: string
+            description: The id of a document from the knowledge base. This is returned on document addition.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: force_reindex
+          in: query
+          description: 'In case the document is indexed and for some reason you want to reindex it, set this param as true.'
+          schema:
+            title: Force Reindex
+            type: boolean
+            description: 'In case the document is indexed and for some reason you want to reindex it, set this param as true.'
+            default: false
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Body
+              allOf:
+                - $ref: '#/components/schemas/RAGIndexRequestModel'
+              description: Payload for RAG index status endpoint.
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RAGIndexResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: rag_index_status
   '/v1/convai/knowledge-base/{documentation_id}':
     get:
       tags:
@@ -5779,7 +6390,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetConvaiSettingsResponseModel'
+                $ref: '#/components/schemas/GetConvAISettingsResponseModel'
         '422':
           description: Validation Error
           content:
@@ -5808,7 +6419,7 @@ paths:
             schema:
               title: Request Body
               allOf:
-                - $ref: '#/components/schemas/PatchConvaiSettingsRequest'
+                - $ref: '#/components/schemas/PatchConvAISettingsRequest'
               description: Convai settings to update
         required: true
       responses:
@@ -5817,7 +6428,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetConvaiSettingsResponseModel'
+                $ref: '#/components/schemas/GetConvAISettingsResponseModel'
         '422':
           description: Validation Error
           content:
@@ -5828,9 +6439,9 @@ paths:
       x-fern-sdk-method-name: update_settings
   /v1/convai/secrets:
     get:
-      summary: Get Convai Workspace Secrets For The User
-      description: Get all secrets for the workspace
-      operationId: Get_Convai_workspace_secrets_for_the_user_v1_convai_secrets_get
+      summary: Get Convai Workspace Secrets
+      description: Get all workspace secrets for the user
+      operationId: Get_ConvAI_workspace_secrets_v1_convai_secrets_get
       parameters:
         - name: xi-api-key
           in: header
@@ -5859,7 +6470,7 @@ paths:
         - Conversational AI
       summary: Create Convai Workspace Secret
       description: Create a new secret for the workspace
-      operationId: Create_Convai_workspace_secret_v1_convai_secrets_post
+      operationId: Create_ConvAI_workspace_secret_v1_convai_secrets_post
       parameters:
         - name: xi-api-key
           in: header
@@ -5892,6 +6503,38 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: create_secret
+  '/v1/convai/secrets/{secret_id}':
+    delete:
+      tags:
+        - Conversational AI
+      summary: Delete Convai Workspace Secret
+      description: Delete a workspace secret if it's not in use
+      operationId: Delete_ConvAI_workspace_secret_v1_convai_secrets__secret_id__delete
+      parameters:
+        - name: secret_id
+          in: path
+          required: true
+          schema:
+            title: Secret Id
+            type: string
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+      responses:
+        '204':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: delete_secret
   /docs:
     get:
       summary: Redirect To Mintlify
@@ -5973,11 +6616,15 @@ components:
       title: AddKnowledgeBaseResponseModel
       required:
         - id
+        - prompt_injectable
       type: object
       properties:
         id:
           title: Id
           type: string
+        prompt_injectable:
+          title: Prompt Injectable
+          type: boolean
     AddProjectResponseModel:
       title: AddProjectResponseModel
       required:
@@ -6049,6 +6696,30 @@ components:
         voice_id:
           title: Voice Id
           type: string
+    AddWorkspaceGroupMemberResponseModel:
+      title: AddWorkspaceGroupMemberResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the workspace group member addition request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
+    AddWorkspaceInviteResponseModel:
+      title: AddWorkspaceInviteResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the workspace invite request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
     AgentBan:
       title: AgentBan
       required:
@@ -6400,6 +7071,16 @@ components:
         - manual
       type: string
       description: An enumeration.
+    Body_Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post:
+      title: Body_Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post
+      required:
+        - language
+      type: object
+      properties:
+        language:
+          title: Language
+          type: string
+          description: The Target language.
     Body_Add_a_pronunciation_dictionary_v1_pronunciation_dictionaries_add_from_file_post:
       title: Body_Add_a_pronunciation_dictionary_v1_pronunciation_dictionaries_add_from_file_post
       required:
@@ -6664,6 +7345,10 @@ components:
       title: Body_Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post
       type: object
       properties:
+        name:
+          title: Name
+          type: string
+          description: 'A custom, human-readable name for the document.'
         url:
           title: Url
           type: string
@@ -6677,6 +7362,10 @@ components:
       title: Body_Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post
       type: object
       properties:
+        name:
+          title: Name
+          type: string
+          description: 'A custom, human-readable name for the document.'
         url:
           title: Url
           type: string
@@ -6690,6 +7379,10 @@ components:
       title: Body_Add_to_knowledge_base_v1_convai_knowledge_base_post
       type: object
       properties:
+        name:
+          title: Name
+          type: string
+          description: 'A custom, human-readable name for the document.'
         url:
           title: Url
           type: string
@@ -7372,6 +8065,25 @@ components:
           title: Use Profanity Filter
           type: boolean
           description: '[BETA] Whether transcripts should have profanities censored with the words ''[censored]'''
+    Body_Dubs_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__dub_post:
+      title: Body_Dubs_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__dub_post
+      required:
+        - segments
+        - languages
+      type: object
+      properties:
+        segments:
+          title: Segments
+          type: array
+          items:
+            type: string
+          description: Dub only this list of segments.
+        languages:
+          title: Languages
+          type: array
+          items:
+            type: string
+          description: Dub only these languages for each segment.
     Body_Edit_basic_project_info_v1_projects__project_id__post:
       title: Body_Edit_basic_project_info_v1_projects__project_id__post
       required:
@@ -7597,14 +8309,6 @@ components:
           title: Platform Settings
           type: object
           description: Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
-        secrets:
-          title: Secrets
-          type: array
-          items:
-            anyOf:
-              - $ref: '#/components/schemas/ConvAINewSecretConfig'
-              - $ref: '#/components/schemas/ConvAIStoredSecretConfig'
-          description: A list of secrets for the agent. Can be used to add new secrets or update and delete the existing ones
         name:
           title: Name
           type: string
@@ -7770,7 +8474,7 @@ components:
         diarize:
           title: Diarize
           type: boolean
-          description: Whether to annotate which speaker is currently talking in the uploaded file. Enabling this will limit the maximum duration of your inputs to 8 minutes.
+          description: Whether to annotate which speaker is currently talking in the uploaded file.
           default: false
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
@@ -8148,6 +8852,37 @@ components:
           description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' model.'
           default: auto
           example: 'true'
+    Body_Transcribes_segments_v1_dubbing_resource__dubbing_id__transcribe_post:
+      title: Body_Transcribes_segments_v1_dubbing_resource__dubbing_id__transcribe_post
+      required:
+        - segments
+      type: object
+      properties:
+        segments:
+          title: Segments
+          type: array
+          items:
+            type: string
+          description: Transcribe this specific list of segments.
+    Body_Translates_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__translate_post:
+      title: Body_Translates_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__translate_post
+      required:
+        - segments
+        - languages
+      type: object
+      properties:
+        segments:
+          title: Segments
+          type: array
+          items:
+            type: string
+          description: Translate only this list of segments.
+        languages:
+          title: Languages
+          type: array
+          items:
+            type: string
+          description: Translate only these languages for each segment.
     Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post:
       title: Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post
       required:
@@ -8437,6 +9172,37 @@ components:
         last_conversion_error:
           title: Last Conversion Error
           type: string
+    ChapterSnapshotExtendedResponseModel:
+      title: ChapterSnapshotExtendedResponseModel
+      required:
+        - chapter_snapshot_id
+        - project_id
+        - chapter_id
+        - created_at_unix
+        - name
+        - character_alignments
+      type: object
+      properties:
+        chapter_snapshot_id:
+          title: Chapter Snapshot Id
+          type: string
+        project_id:
+          title: Project Id
+          type: string
+        chapter_id:
+          title: Chapter Id
+          type: string
+        created_at_unix:
+          title: Created At Unix
+          type: integer
+        name:
+          title: Name
+          type: string
+        character_alignments:
+          title: Character Alignments
+          type: array
+          items:
+            $ref: '#/components/schemas/CharacterAlignmentModel'
     ChapterSnapshotResponseModel:
       title: ChapterSnapshotResponseModel
       required:
@@ -8532,6 +9298,29 @@ components:
           type: string
         content:
           $ref: '#/components/schemas/ChapterContentResponseModel'
+    CharacterAlignmentModel:
+      title: CharacterAlignmentModel
+      required:
+        - characters
+        - character_start_times_seconds
+        - character_end_times_seconds
+      type: object
+      properties:
+        characters:
+          title: Characters
+          type: array
+          items:
+            type: string
+        character_start_times_seconds:
+          title: Character Start Times Seconds
+          type: array
+          items:
+            type: number
+        character_end_times_seconds:
+          title: Character End Times Seconds
+          type: array
+          items:
+            type: number
     CharacterAlignmentResponseModel:
       title: CharacterAlignmentResponseModel
       required:
@@ -8604,25 +9393,6 @@ components:
           minimum: 1
           type: integer
       description: A client tool is one that sends an event to the user's client to trigger something client side
-    ConvAINewSecretConfig:
-      title: ConvAINewSecretConfig
-      required:
-        - type
-        - name
-        - value
-      type: object
-      properties:
-        type:
-          title: Type
-          enum:
-            - new
-          type: string
-        name:
-          title: Name
-          type: string
-        value:
-          title: Value
-          type: string
     ConvAISecretLocator:
       title: ConvAISecretLocator
       required:
@@ -8633,30 +9403,11 @@ components:
           title: Secret Id
           type: string
       description: Used to reference a secret from the agent's secret store.
-    ConvAIStoredSecretConfig:
-      title: ConvAIStoredSecretConfig
-      required:
-        - type
-        - secret_id
-        - name
-      type: object
-      properties:
-        type:
-          title: Type
-          enum:
-            - stored
-          type: string
-        secret_id:
-          title: Secret Id
-          type: string
-        name:
-          title: Name
-          type: string
     ConvAIStoredSecretDependencies:
       title: ConvAIStoredSecretDependencies
       required:
         - tools
-        - agents
+        - agent_tools
         - others
       type: object
       properties:
@@ -8672,18 +9423,18 @@ components:
               mapping:
                 available: '#/components/schemas/DependentAvailableToolIdentifier'
                 unknown: '#/components/schemas/DependentUnknownToolIdentifier'
-        agents:
-          title: Agents
+        agent_tools:
+          title: Agent Tools
           type: array
           items:
             oneOf:
-              - $ref: '#/components/schemas/DependentAvailableAgentIdentifier'
-              - $ref: '#/components/schemas/DependentUnknownAgentIdentifier'
+              - $ref: '#/components/schemas/DependentAvailableAgentToolIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownAgentToolIdentifier'
             discriminator:
               propertyName: type
               mapping:
-                available: '#/components/schemas/DependentAvailableAgentIdentifier'
-                unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
+                available: '#/components/schemas/DependentAvailableAgentToolIdentifier'
+                unknown: '#/components/schemas/DependentUnknownAgentToolIdentifier'
         others:
           type: array
           items:
@@ -9161,6 +9912,18 @@ components:
         rationale:
           title: Rationale
           type: string
+    DeleteDubbingResponseModel:
+      title: DeleteDubbingResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the dubbing project. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
     DeleteSampleResponseModel:
       title: DeleteSampleResponseModel
       required:
@@ -9171,6 +9934,30 @@ components:
           title: Status
           type: string
           description: 'The status of the sample deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
+    DeleteWorkspaceGroupMemberResponseModel:
+      title: DeleteWorkspaceGroupMemberResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the workspace group member deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
+    DeleteWorkspaceInviteResponseModel:
+      title: DeleteWorkspaceInviteResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the workspace invite deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
     DependentAvailableAgentIdentifier:
@@ -9188,6 +9975,43 @@ components:
         name:
           title: Name
           type: string
+        type:
+          title: Type
+          enum:
+            - available
+          type: string
+          default: available
+        created_at_unix_secs:
+          title: Created At Unix Secs
+          type: integer
+        access_level:
+          title: Access Level
+          enum:
+            - admin
+            - editor
+            - viewer
+          type: string
+    DependentAvailableAgentToolIdentifier:
+      title: DependentAvailableAgentToolIdentifier
+      required:
+        - agent_id
+        - agent_name
+        - used_by
+        - created_at_unix_secs
+        - access_level
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        agent_name:
+          title: Agent Name
+          type: string
+        used_by:
+          title: Used By
+          type: array
+          items:
+            type: string
         type:
           title: Type
           enum:
@@ -9246,6 +10070,17 @@ components:
           type: string
           default: unknown
       description: "A model that represents an agent dependent on a knowledge base/tools\nto which the user has no direct access."
+    DependentUnknownAgentToolIdentifier:
+      title: DependentUnknownAgentToolIdentifier
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - unknown
+          type: string
+          default: unknown
+      description: "A model that represents an tool dependent on a knowledge base/tools\nto which the user has no direct access."
     DependentUnknownToolIdentifier:
       title: DependentUnknownToolIdentifier
       type: object
@@ -9267,9 +10102,41 @@ components:
         dubbing_id:
           title: Dubbing Id
           type: string
+          description: The ID of the dubbing project.
         expected_duration_sec:
           title: Expected Duration Sec
           type: number
+          description: The expected duration of the dubbing project in seconds.
+      example:
+        dubbing_id: 21m00Tcm4TlvDq8ikWAM
+        expected_duration_sec: 127.5
+    DocumentUsageModeEnum:
+      title: DocumentUsageModeEnum
+      enum:
+        - prompt
+        - auto
+      type: string
+      description: An enumeration.
+    DubbedSegment:
+      title: DubbedSegment
+      required:
+        - start_time
+        - end_time
+        - text
+        - media_ref
+      type: object
+      properties:
+        start_time:
+          title: Start Time
+          type: number
+        end_time:
+          title: End Time
+          type: number
+        text:
+          title: Text
+          type: string
+        media_ref:
+          $ref: '#/components/schemas/DubbingMediaReference'
     DubbingMediaMetadata:
       title: DubbingMediaMetadata
       required:
@@ -9280,9 +10147,44 @@ components:
         content_type:
           title: Content Type
           type: string
+          description: The content type of the media.
         duration:
           title: Duration
           type: number
+          description: The duration of the media in seconds.
+    DubbingMediaReference:
+      title: DubbingMediaReference
+      required:
+        - src
+        - content_type
+        - bucket_name
+        - random_path_slug
+        - duration_secs
+        - is_audio
+        - url
+      type: object
+      properties:
+        src:
+          title: Src
+          type: string
+        content_type:
+          title: Content Type
+          type: string
+        bucket_name:
+          title: Bucket Name
+          type: string
+        random_path_slug:
+          title: Random Path Slug
+          type: string
+        duration_secs:
+          title: Duration Secs
+          type: number
+        is_audio:
+          title: Is Audio
+          type: boolean
+        url:
+          title: Url
+          type: string
     DubbingMetadataResponse:
       title: DubbingMetadataResponse
       required:
@@ -9295,22 +10197,82 @@ components:
         dubbing_id:
           title: Dubbing Id
           type: string
+          description: The ID of the dubbing project.
         name:
           title: Name
           type: string
+          description: The name of the dubbing project.
         status:
           title: Status
+          type: string
+          description: 'The status of the dubbing project. Either ''dubbed'', ''dubbing'' or ''failed''.'
+        target_languages:
+          title: Target Languages
+          type: array
+          items:
+            type: string
+          description: The target languages of the dubbing project.
+        media_metadata:
+          title: Media Metadata
+          allOf:
+            - $ref: '#/components/schemas/DubbingMediaMetadata'
+          description: The media metadata of the dubbing project.
+        error:
+          title: Error
+          type: string
+          description: Optional error message if the dubbing project failed.
+      example:
+        dubbing_id: 21m00Tcm4TlvDq8ikWAM
+        name: My Dubbing Project
+        status: dubbed
+        target_languages:
+          - es
+          - fr
+          - de
+        media_metadata:
+          content_type: video/mp4
+          duration: 127.5
+    DubbingResource:
+      title: DubbingResource
+      required:
+        - id
+        - version
+        - source_language
+        - target_languages
+        - background
+        - foreground
+        - speaker_tracks
+        - speaker_segments
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        version:
+          title: Version
+          type: integer
+        source_language:
+          title: Source Language
           type: string
         target_languages:
           title: Target Languages
           type: array
           items:
             type: string
-        media_metadata:
-          $ref: '#/components/schemas/DubbingMediaMetadata'
-        error:
-          title: Error
-          type: string
+        background:
+          $ref: '#/components/schemas/DubbingMediaReference'
+        foreground:
+          $ref: '#/components/schemas/DubbingMediaReference'
+        speaker_tracks:
+          title: Speaker Tracks
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SpeakerTrack'
+        speaker_segments:
+          title: Speaker Segments
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SpeakerSegment'
     DynamicVariablesConfig:
       title: DynamicVariablesConfig
       type: object
@@ -9346,6 +10308,13 @@ components:
         - compact
         - full
         - expandable
+      type: string
+      description: An enumeration.
+    EmbeddingModelEnum:
+      title: EmbeddingModelEnum
+      enum:
+        - e5_mistral_7b_instruct
+        - gte_Qwen2_15B_instruct
       type: string
       description: An enumeration.
     EvaluationSettings:
@@ -9626,7 +10595,6 @@ components:
         - name
         - conversation_config
         - metadata
-        - secrets
       type: object
       properties:
         agent_id:
@@ -9641,11 +10609,6 @@ components:
           $ref: '#/components/schemas/AgentMetadataResponseModel'
         platform_settings:
           $ref: '#/components/schemas/AgentPlatformSettingsResponseModel'
-        secrets:
-          title: Secrets
-          type: array
-          items:
-            $ref: '#/components/schemas/ConvAIStoredSecretConfig'
         phone_numbers:
           title: Phone Numbers
           type: array
@@ -9696,21 +10659,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ChapterResponseModel'
-    GetConvaiSettingsResponseModel:
-      title: GetConvaiSettingsResponseModel
-      required:
-        - secrets
+    GetConvAISettingsResponseModel:
+      title: GetConvAISettingsResponseModel
       type: object
       properties:
         conversation_initiation_client_data_webhook:
           $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
         webhooks:
           $ref: '#/components/schemas/ConvAIWebhooks'
-        secrets:
-          title: Secrets
-          type: array
-          items:
-            $ref: '#/components/schemas/ConvAIWorkspaceStoredSecretConfig'
     GetConversationResponseModel:
       title: GetConversationResponseModel
       required:
@@ -9812,6 +10768,7 @@ components:
         - name
         - type
         - extracted_inner_html
+        - prompt_injectable
         - access_level
       type: object
       properties:
@@ -9830,6 +10787,9 @@ components:
         extracted_inner_html:
           title: Extracted Inner Html
           type: string
+        prompt_injectable:
+          title: Prompt Injectable
+          type: boolean
         access_level:
           title: Access Level
           enum:
@@ -9843,6 +10803,7 @@ components:
         - id
         - name
         - type
+        - prompt_injectable
         - dependent_agents
         - access_level
       type: object
@@ -9859,6 +10820,9 @@ components:
             - file
             - url
           type: string
+        prompt_injectable:
+          title: Prompt Injectable
+          type: boolean
         dependent_agents:
           title: Dependent Agents
           type: array
@@ -10116,6 +11080,10 @@ components:
         id:
           title: Id
           type: string
+        usage_mode:
+          allOf:
+            - $ref: '#/components/schemas/DocumentUsageModeEnum'
+          default: auto
     LLM:
       title: LLM
       enum:
@@ -10134,6 +11102,15 @@ components:
         - custom-llm
       type: string
       description: An enumeration.
+    LanguageAddedResponse:
+      title: LanguageAddedResponse
+      required:
+        - version
+      type: object
+      properties:
+        version:
+          title: Version
+          type: integer
     LanguagePreset:
       title: LanguagePreset
       required:
@@ -10601,23 +11578,14 @@ components:
           title: Color 2
           type: string
           default: '#9ce6e6'
-    PatchConvaiSettingsRequest:
-      title: PatchConvaiSettingsRequest
-      required:
-        - secrets
+    PatchConvAISettingsRequest:
+      title: PatchConvAISettingsRequest
       type: object
       properties:
         conversation_initiation_client_data_webhook:
           $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
         webhooks:
           $ref: '#/components/schemas/ConvAIWebhooks'
-        secrets:
-          title: Secrets
-          type: array
-          items:
-            anyOf:
-              - $ref: '#/components/schemas/ConvAINewSecretConfig'
-              - $ref: '#/components/schemas/ConvAIStoredSecretConfig'
     PhoneNumberAgentInfo:
       title: PhoneNumberAgentInfo
       required:
@@ -11105,6 +12073,37 @@ components:
           type: boolean
         creation_meta:
           $ref: '#/components/schemas/ProjectCreationMetaResponseModel'
+    ProjectSnapshotExtendedResponseModel:
+      title: ProjectSnapshotExtendedResponseModel
+      required:
+        - project_snapshot_id
+        - project_id
+        - created_at_unix
+        - name
+        - character_alignments
+      type: object
+      properties:
+        project_snapshot_id:
+          title: Project Snapshot Id
+          type: string
+        project_id:
+          title: Project Id
+          type: string
+        created_at_unix:
+          title: Created At Unix
+          type: integer
+        name:
+          title: Name
+          type: string
+        audio_upload:
+          $ref: '#/components/schemas/ProjectSnapshotUploadResponseModel'
+        zip_upload:
+          $ref: '#/components/schemas/ProjectSnapshotUploadResponseModel'
+        character_alignments:
+          title: Character Alignments
+          type: array
+          items:
+            $ref: '#/components/schemas/CharacterAlignmentModel'
     ProjectSnapshotResponseModel:
       title: ProjectSnapshotResponseModel
       required:
@@ -11209,6 +12208,8 @@ components:
             type: string
         custom_llm:
           $ref: '#/components/schemas/CustomLLM'
+        rag:
+          $ref: '#/components/schemas/RagConfig'
     PromptAgentOverride:
       title: PromptAgentOverride
       type: object
@@ -11368,6 +12369,67 @@ components:
           items:
             type: string
       additionalProperties: false
+    RAGIndexRequestModel:
+      title: RAGIndexRequestModel
+      required:
+        - model
+      type: object
+      properties:
+        model:
+          $ref: '#/components/schemas/EmbeddingModelEnum'
+    RAGIndexResponseModel:
+      title: RAGIndexResponseModel
+      required:
+        - status
+        - progress_percentage
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/RAGIndexStatus'
+        progress_percentage:
+          title: Progress Percentage
+          type: number
+    RAGIndexStatus:
+      title: RAGIndexStatus
+      enum:
+        - created
+        - processing
+        - failed
+        - succeeded
+      type: string
+      description: An enumeration.
+    RagConfig:
+      title: RagConfig
+      type: object
+      properties:
+        enabled:
+          title: Enabled
+          type: boolean
+          default: false
+        embedding_model:
+          allOf:
+            - $ref: '#/components/schemas/EmbeddingModelEnum'
+          default: e5_mistral_7b_instruct
+        max_vector_distance:
+          title: Max Vector Distance
+          maximum: 1
+          exclusiveMaximum: true
+          minimum: 0
+          exclusiveMinimum: true
+          type: number
+          description: Maximum vector distance of retrieved chunks.
+          default: 0.6
+          example: 0.5
+        max_documents_length:
+          title: Max Documents Length
+          maximum: 10000000
+          exclusiveMaximum: true
+          minimum: 0
+          exclusiveMinimum: true
+          type: integer
+          description: Maximum total length of document chunks retrieved from RAG.
+          default: 50000
+          example: '50000'
     ReaderResourceResponseModel:
       title: ReaderResourceResponseModel
       required:
@@ -11534,6 +12596,142 @@ components:
         - conversation_initiation_webhook
       type: string
       description: An enumeration.
+    SegmentCreatePayload:
+      title: SegmentCreatePayload
+      required:
+        - start_time
+        - end_time
+      type: object
+      properties:
+        start_time:
+          title: Start Time
+          type: number
+        end_time:
+          title: End Time
+          type: number
+        text:
+          title: Text
+          type: string
+    SegmentCreateResponse:
+      title: SegmentCreateResponse
+      required:
+        - version
+        - new_segment
+      type: object
+      properties:
+        version:
+          title: Version
+          type: integer
+        new_segment:
+          title: New Segment
+          type: string
+    SegmentDeleteResponse:
+      title: SegmentDeleteResponse
+      required:
+        - version
+      type: object
+      properties:
+        version:
+          title: Version
+          type: integer
+    SegmentDubResponse:
+      title: SegmentDubResponse
+      required:
+        - version
+      type: object
+      properties:
+        version:
+          title: Version
+          type: integer
+    SegmentTranscriptionResponse:
+      title: SegmentTranscriptionResponse
+      required:
+        - version
+      type: object
+      properties:
+        version:
+          title: Version
+          type: integer
+    SegmentTranslationResponse:
+      title: SegmentTranslationResponse
+      required:
+        - version
+      type: object
+      properties:
+        version:
+          title: Version
+          type: integer
+    SegmentUpdatePayload:
+      title: SegmentUpdatePayload
+      type: object
+      properties:
+        start_time:
+          title: Start Time
+          type: number
+        end_time:
+          title: End Time
+          type: number
+        text:
+          title: Text
+          type: string
+    SegmentUpdateResponse:
+      title: SegmentUpdateResponse
+      required:
+        - version
+      type: object
+      properties:
+        version:
+          title: Version
+          type: integer
+    SpeakerSegment:
+      title: SpeakerSegment
+      required:
+        - id
+        - start_time
+        - end_time
+        - text
+        - dubs
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        start_time:
+          title: Start Time
+          type: number
+        end_time:
+          title: End Time
+          type: number
+        text:
+          title: Text
+          type: string
+        dubs:
+          title: Dubs
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DubbedSegment'
+    SpeakerTrack:
+      title: SpeakerTrack
+      required:
+        - id
+        - media_ref
+        - speaker_name
+        - segments
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        media_ref:
+          $ref: '#/components/schemas/DubbingMediaReference'
+        speaker_name:
+          title: Speaker Name
+          type: string
+        segments:
+          title: Segments
+          type: array
+          items:
+            type: string
     SpeechHistoryItemResponseModel:
       title: SpeechHistoryItemResponseModel
       required:
@@ -12096,10 +13294,20 @@ components:
           default: 3
         stability:
           title: Stability
+          maximum: 1
+          minimum: 0
           type: number
           default: 0.5
+        speed:
+          title: Speed
+          maximum: 1.2
+          minimum: 0.7
+          type: number
+          default: 1
         similarity_boost:
           title: Similarity Boost
+          maximum: 1
+          minimum: 0
           type: number
           default: 0.8
         pronunciation_dictionary_locators:
@@ -12262,6 +13470,18 @@ components:
         agent_id:
           title: Agent Id
           type: string
+    UpdateWorkspaceMemberResponseModel:
+      title: UpdateWorkspaceMemberResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the workspace member update request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
     UsageCharactersResponseModel:
       title: UsageCharactersResponseModel
       required:
@@ -13227,14 +14447,23 @@ components:
         name:
           title: Name
           type: string
+          description: The name of the workspace group.
         id:
           title: Id
           type: string
+          description: The ID of the workspace group.
         members_emails:
           title: Members Emails
           type: array
           items:
             type: string
+          description: The emails of the members of the workspace group.
+      example:
+        name: My Workspace Group
+        id: '1234567890'
+        members_emails:
+          - john.doe@example.com
+          - jane.smith@example.com
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

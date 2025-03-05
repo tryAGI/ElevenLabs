@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Sound Generation<br/>
-        /// Converts a text of your choice into sound
+        /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects model in the world.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -14,14 +14,14 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task CreateSoundGenerationAsync(
+        global::System.Threading.Tasks.Task<byte[]> CreateSoundGenerationAsync(
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Sound Generation<br/>
-        /// Converts a text of your choice into sound
+        /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects model in the world.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task CreateSoundGenerationAsync(
+        global::System.Threading.Tasks.Task<byte[]> CreateSoundGenerationAsync(
             string text,
             string? xiApiKey = default,
             double? durationSeconds = default,

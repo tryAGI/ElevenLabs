@@ -14,7 +14,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateWorkspaceInvitesAddAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceInviteResponseModel> CreateWorkspaceInvitesAddAsync(
             global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -36,7 +36,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateWorkspaceInvitesAddAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceInviteResponseModel> CreateWorkspaceInvitesAddAsync(
             string email,
             string? xiApiKey = default,
             global::System.Collections.Generic.IList<string>? groupIds = default,

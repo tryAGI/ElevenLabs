@@ -87,6 +87,12 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
                     name: "xi-api-key");
             } 
+            if (request.Name != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.Name}"),
+                    name: "name");
+            } 
             if (request.Url != default)
             {
                 __httpRequestContent.Add(
@@ -230,6 +236,9 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="name">
+        /// A custom, human-readable name for the document.
+        /// </param>
         /// <param name="url">
         /// URL to a page of documentation that the agent will have access to in order to interact with users.
         /// </param>
@@ -243,6 +252,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseAsync(
             string? xiApiKey = default,
+            string? name = default,
             string? url = default,
             byte[]? file = default,
             string? filename = default,
@@ -250,6 +260,7 @@ namespace ElevenLabs
         {
             var __request = new global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiKnowledgeBasePost
             {
+                Name = name,
                 Url = url,
                 File = file,
                 Filename = filename,

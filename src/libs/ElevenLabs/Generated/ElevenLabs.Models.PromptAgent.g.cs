@@ -64,6 +64,12 @@ namespace ElevenLabs
         public global::ElevenLabs.CustomLLM? CustomLlm { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rag")]
+        public global::ElevenLabs.RagConfig? Rag { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -87,6 +93,7 @@ namespace ElevenLabs
         /// <param name="knowledgeBase"></param>
         /// <param name="knowledgeBaseDocumentIds"></param>
         /// <param name="customLlm"></param>
+        /// <param name="rag"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -99,7 +106,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::System.Collections.Generic.IList<string>? knowledgeBaseDocumentIds,
-            global::ElevenLabs.CustomLLM? customLlm)
+            global::ElevenLabs.CustomLLM? customLlm,
+            global::ElevenLabs.RagConfig? rag)
         {
             this.Prompt = prompt;
             this.Llm = llm;
@@ -110,6 +118,7 @@ namespace ElevenLabs
             this.KnowledgeBase = knowledgeBase;
             this.KnowledgeBaseDocumentIds = knowledgeBaseDocumentIds;
             this.CustomLlm = customLlm;
+            this.Rag = rag;
         }
 
         /// <summary>

@@ -16,6 +16,13 @@ namespace ElevenLabs
         public required string Id { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt_injectable")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool PromptInjectable { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -25,13 +32,16 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="AddKnowledgeBaseResponseModel" /> class.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="promptInjectable"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AddKnowledgeBaseResponseModel(
-            string id)
+            string id,
+            bool promptInjectable)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.PromptInjectable = promptInjectable;
         }
 
         /// <summary>
