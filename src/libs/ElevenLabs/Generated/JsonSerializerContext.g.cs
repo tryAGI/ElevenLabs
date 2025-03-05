@@ -308,8 +308,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.CreatePhoneNumberRequest>),
             typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.UpdatePhoneNumberRequest>),
             typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.RAGIndexRequestModel>),
-            typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.ToolRequestModel>),
-            typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.ToolRequestModel>),
             typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.PatchConvAISettingsRequest>),
             typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.PostWorkspaceSecretRequest>),
             typeof(global::ElevenLabs.JsonConverters.AllOfJsonConverter<global::ElevenLabs.BreakdownTypes?>),
