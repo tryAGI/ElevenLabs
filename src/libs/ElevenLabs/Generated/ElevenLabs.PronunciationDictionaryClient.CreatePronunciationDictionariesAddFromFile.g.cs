@@ -254,7 +254,7 @@ namespace ElevenLabs
         /// Example: Contains pronunciation's of our character names
         /// </param>
         /// <param name="workspaceAccess">
-        /// Should be one of 'editor' or 'viewer'. If not provided, defaults to no access.<br/>
+        /// Should be one of 'admin', 'editor' or 'viewer'. If not provided, defaults to no access.<br/>
         /// Example: viewer
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

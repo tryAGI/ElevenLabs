@@ -10,14 +10,14 @@ namespace ElevenLabs
             ref string publicUserId,
             ref string voiceId,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyAddSharingVoiceV1VoicesAddPublicUserIdVoiceIdPost request);
+            global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost request);
         partial void PrepareCreateVoicesAddByPublicUserIdByVoiceIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string publicUserId,
             string voiceId,
             string? xiApiKey,
-            global::ElevenLabs.BodyAddSharingVoiceV1VoicesAddPublicUserIdVoiceIdPost request);
+            global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost request);
         partial void ProcessCreateVoicesAddByPublicUserIdByVoiceIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,8 +28,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Add Sharing Voice<br/>
-        /// Add a sharing voice to your collection of voices in VoiceLab.
+        /// Add Shared Voice<br/>
+        /// Add a shared voice to your collection of voices.
         /// </summary>
         /// <param name="publicUserId">
         /// Public user ID used to publicly identify ElevenLabs users.<br/>
@@ -48,7 +48,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> CreateVoicesAddByPublicUserIdByVoiceIdAsync(
             string publicUserId,
             string voiceId,
-            global::ElevenLabs.BodyAddSharingVoiceV1VoicesAddPublicUserIdVoiceIdPost request,
+            global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -227,8 +227,8 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Add Sharing Voice<br/>
-        /// Add a sharing voice to your collection of voices in VoiceLab.
+        /// Add Shared Voice<br/>
+        /// Add a shared voice to your collection of voices.
         /// </summary>
         /// <param name="publicUserId">
         /// Public user ID used to publicly identify ElevenLabs users.<br/>
@@ -254,7 +254,7 @@ namespace ElevenLabs
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyAddSharingVoiceV1VoicesAddPublicUserIdVoiceIdPost
+            var __request = new global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost
             {
                 NewName = newName,
             };

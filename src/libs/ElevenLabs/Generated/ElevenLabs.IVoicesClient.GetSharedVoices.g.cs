@@ -6,42 +6,42 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Get Voices<br/>
-        /// Gets a list of shared voices.
+        /// Retrieves a list of shared voices.
         /// </summary>
         /// <param name="pageSize">
         /// How many shared voices to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
         /// <param name="category">
-        /// voice category used for filtering<br/>
+        /// Voice category used for filtering<br/>
         /// Example: professional
         /// </param>
         /// <param name="gender">
-        /// gender used for filtering<br/>
+        /// Gender used for filtering<br/>
         /// Example: male
         /// </param>
         /// <param name="age">
-        /// age used for filtering<br/>
+        /// Age used for filtering<br/>
         /// Example: young
         /// </param>
         /// <param name="accent">
-        /// accent used for filtering<br/>
+        /// Accent used for filtering<br/>
         /// Example: american
         /// </param>
         /// <param name="language">
-        /// language used for filtering<br/>
+        /// Language used for filtering<br/>
         /// Example: en
         /// </param>
         /// <param name="search">
-        /// search term used for filtering<br/>
+        /// Search term used for filtering<br/>
         /// Example: tiktok
         /// </param>
         /// <param name="useCases">
-        /// use-case used for filtering<br/>
+        /// Use-case used for filtering<br/>
         /// Example: audiobook
         /// </param>
         /// <param name="descriptives">
-        /// search term used for filtering<br/>
+        /// Search term used for filtering<br/>
         /// Example: tiktok
         /// </param>
         /// <param name="featured">
@@ -63,7 +63,7 @@ namespace ElevenLabs
         /// Example: 7c9fab611d9a0e1fb2e7448a0c294a8804efc2bcc324b0a366a5d5232b7d1532
         /// </param>
         /// <param name="sort">
-        /// sort criteria<br/>
+        /// Sort criteria<br/>
         /// Example: created_date
         /// </param>
         /// <param name="page">
@@ -76,7 +76,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetLibraryVoicesResponseModel> GetSharedVoicesAsync(
             int? pageSize = default,
-            string? category = default,
+            global::ElevenLabs.GetVoicesV1SharedVoicesGetCategory? category = default,
             string? gender = default,
             string? age = default,
             string? accent = default,

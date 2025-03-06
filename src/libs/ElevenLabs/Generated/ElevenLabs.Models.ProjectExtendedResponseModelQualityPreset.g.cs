@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The quality preset level of the project.
     /// </summary>
     public enum ProjectExtendedResponseModelQualityPreset
     {

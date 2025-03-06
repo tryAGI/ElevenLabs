@@ -9,25 +9,23 @@ namespace ElevenLabs
     public sealed partial class GetAudioNativeProjectSettingsResponseModel
     {
         /// <summary>
-        /// 
+        /// Whether the project is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Enabled { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the latest snapshot of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("snapshot_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SnapshotId { get; set; }
+        public string? SnapshotId { get; set; }
 
         /// <summary>
-        /// 
+        /// The settings of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AudioNativeProjectSettingsResponseModel Settings { get; set; }
+        public global::ElevenLabs.AudioNativeProjectSettingsResponseModel? Settings { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,20 +36,26 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAudioNativeProjectSettingsResponseModel" /> class.
         /// </summary>
-        /// <param name="enabled"></param>
-        /// <param name="snapshotId"></param>
-        /// <param name="settings"></param>
+        /// <param name="enabled">
+        /// Whether the project is enabled.
+        /// </param>
+        /// <param name="snapshotId">
+        /// The ID of the latest snapshot of the project.
+        /// </param>
+        /// <param name="settings">
+        /// The settings of the project.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetAudioNativeProjectSettingsResponseModel(
             bool enabled,
-            string snapshotId,
-            global::ElevenLabs.AudioNativeProjectSettingsResponseModel settings)
+            string? snapshotId,
+            global::ElevenLabs.AudioNativeProjectSettingsResponseModel? settings)
         {
             this.Enabled = enabled;
-            this.SnapshotId = snapshotId ?? throw new global::System.ArgumentNullException(nameof(snapshotId));
-            this.Settings = settings ?? throw new global::System.ArgumentNullException(nameof(settings));
+            this.SnapshotId = snapshotId;
+            this.Settings = settings;
         }
 
         /// <summary>

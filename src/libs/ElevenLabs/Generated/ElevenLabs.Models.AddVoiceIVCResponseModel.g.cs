@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class AddVoiceIVCResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the newly created voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VoiceId { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the voice requires verification
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requires_verification")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AddVoiceIVCResponseModel" /> class.
         /// </summary>
-        /// <param name="voiceId"></param>
-        /// <param name="requiresVerification"></param>
+        /// <param name="voiceId">
+        /// The ID of the newly created voice.
+        /// </param>
+        /// <param name="requiresVerification">
+        /// Whether the voice requires verification
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

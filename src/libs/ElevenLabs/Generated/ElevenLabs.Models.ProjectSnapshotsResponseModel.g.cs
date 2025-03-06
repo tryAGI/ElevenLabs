@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ProjectSnapshotsResponseModel
     {
         /// <summary>
-        /// 
+        /// List of project snapshots.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("snapshots")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectSnapshotsResponseModel" /> class.
         /// </summary>
-        /// <param name="snapshots"></param>
+        /// <param name="snapshots">
+        /// List of project snapshots.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

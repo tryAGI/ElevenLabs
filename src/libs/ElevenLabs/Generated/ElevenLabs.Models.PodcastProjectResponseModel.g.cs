@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class PodcastProjectResponseModel
     {
         /// <summary>
-        /// 
+        /// The project associated with the created podcast.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PodcastProjectResponseModel" /> class.
         /// </summary>
-        /// <param name="project"></param>
+        /// <param name="project">
+        /// The project associated with the created podcast.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

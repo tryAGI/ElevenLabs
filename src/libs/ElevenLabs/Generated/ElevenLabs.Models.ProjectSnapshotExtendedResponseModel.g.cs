@@ -9,41 +9,41 @@ namespace ElevenLabs
     public sealed partial class ProjectSnapshotExtendedResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the project snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_snapshot_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ProjectSnapshotId { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ProjectId { get; set; }
 
         /// <summary>
-        /// 
+        /// The creation date of the project snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CreatedAtUnix { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the project snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// The audio upload of the project snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_upload")]
         public global::ElevenLabs.ProjectSnapshotUploadResponseModel? AudioUpload { get; set; }
 
         /// <summary>
-        /// 
+        /// The zip upload of the project snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("zip_upload")]
         public global::ElevenLabs.ProjectSnapshotUploadResponseModel? ZipUpload { get; set; }
@@ -64,12 +64,24 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectSnapshotExtendedResponseModel" /> class.
         /// </summary>
-        /// <param name="projectSnapshotId"></param>
-        /// <param name="projectId"></param>
-        /// <param name="createdAtUnix"></param>
-        /// <param name="name"></param>
-        /// <param name="audioUpload"></param>
-        /// <param name="zipUpload"></param>
+        /// <param name="projectSnapshotId">
+        /// The ID of the project snapshot.
+        /// </param>
+        /// <param name="projectId">
+        /// The ID of the project.
+        /// </param>
+        /// <param name="createdAtUnix">
+        /// The creation date of the project snapshot.
+        /// </param>
+        /// <param name="name">
+        /// The name of the project snapshot.
+        /// </param>
+        /// <param name="audioUpload">
+        /// The audio upload of the project snapshot.
+        /// </param>
+        /// <param name="zipUpload">
+        /// The zip upload of the project snapshot.
+        /// </param>
         /// <param name="characterAlignments"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

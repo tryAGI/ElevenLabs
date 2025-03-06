@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The type of the project creation action.
     /// </summary>
     public enum ProjectCreationMetaResponseModelType
     {

@@ -27,7 +27,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// List Chapter Snapshots<br/>
-        /// Gets information about all the snapshots of a chapter, each snapshot corresponds can be downloaded as audio. Whenever a chapter is converted a snapshot will be automatically created.
+        /// Gets information about all the snapshots of a chapter. Each snapshot can be downloaded as audio. Whenever a chapter is converted a snapshot will automatically be created.
         /// </summary>
         /// <param name="projectId">
         /// The ID of the Studio project.<br/>

@@ -10,7 +10,7 @@ namespace ElevenLabs
             ref string voiceId,
             ref bool? enableLogging,
             ref int? optimizeStreamingLatency,
-            ref string? outputFormat,
+            ref global::ElevenLabs.SpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostOutputFormat? outputFormat,
             ref string? xiApiKey,
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request);
         partial void PrepareCreateSpeechToSpeechByVoiceIdStreamRequest(
@@ -19,7 +19,7 @@ namespace ElevenLabs
             string voiceId,
             bool? enableLogging,
             int? optimizeStreamingLatency,
-            string? outputFormat,
+            global::ElevenLabs.SpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostOutputFormat? outputFormat,
             string? xiApiKey,
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request);
         partial void ProcessCreateSpeechToSpeechByVoiceIdStreamResponse(
@@ -53,18 +53,7 @@ namespace ElevenLabs
         /// Defaults to None.
         /// </param>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Must be one of:<br/>
-        /// mp3_22050_32 - output format, mp3 with 22.05kHz sample rate at 32kbps.<br/>
-        /// mp3_44100_32 - output format, mp3 with 44.1kHz sample rate at 32kbps.<br/>
-        /// mp3_44100_64 - output format, mp3 with 44.1kHz sample rate at 64kbps.<br/>
-        /// mp3_44100_96 - output format, mp3 with 44.1kHz sample rate at 96kbps.<br/>
-        /// mp3_44100_128 - default output format, mp3 with 44.1kHz sample rate at 128kbps.<br/>
-        /// mp3_44100_192 - output format, mp3 with 44.1kHz sample rate at 192kbps. Requires you to be subscribed to Creator tier or above.<br/>
-        /// pcm_16000 - PCM format (S16LE) with 16kHz sample rate.<br/>
-        /// pcm_22050 - PCM format (S16LE) with 22.05kHz sample rate.<br/>
-        /// pcm_24000 - PCM format (S16LE) with 24kHz sample rate.<br/>
-        /// pcm_44100 - PCM format (S16LE) with 44.1kHz sample rate. Requires you to be subscribed to Pro tier or above.<br/>
-        /// ulaw_8000 - μ-law format (sometimes written mu-law, often approximated as u-law) with 8kHz sample rate. Note that this format is commonly used for Twilio audio inputs.<br/>
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
@@ -78,7 +67,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            string? outputFormat = default,
+            global::ElevenLabs.SpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -101,7 +90,7 @@ namespace ElevenLabs
             __pathBuilder 
                 .AddOptionalParameter("enable_logging", enableLogging?.ToString()) 
                 .AddOptionalParameter("optimize_streaming_latency", optimizeStreamingLatency?.ToString()) 
-                .AddOptionalParameter("output_format", outputFormat) 
+                .AddOptionalParameter("output_format", outputFormat?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -152,7 +141,7 @@ namespace ElevenLabs
             if (outputFormat != default)
             {
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{outputFormat}"),
+                    content: new global::System.Net.Http.StringContent($"{outputFormat?.ToValueString()}"),
                     name: "output_format");
             } 
             if (xiApiKey != default)
@@ -338,18 +327,7 @@ namespace ElevenLabs
         /// Defaults to None.
         /// </param>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Must be one of:<br/>
-        /// mp3_22050_32 - output format, mp3 with 22.05kHz sample rate at 32kbps.<br/>
-        /// mp3_44100_32 - output format, mp3 with 44.1kHz sample rate at 32kbps.<br/>
-        /// mp3_44100_64 - output format, mp3 with 44.1kHz sample rate at 64kbps.<br/>
-        /// mp3_44100_96 - output format, mp3 with 44.1kHz sample rate at 96kbps.<br/>
-        /// mp3_44100_128 - default output format, mp3 with 44.1kHz sample rate at 128kbps.<br/>
-        /// mp3_44100_192 - output format, mp3 with 44.1kHz sample rate at 192kbps. Requires you to be subscribed to Creator tier or above.<br/>
-        /// pcm_16000 - PCM format (S16LE) with 16kHz sample rate.<br/>
-        /// pcm_22050 - PCM format (S16LE) with 22.05kHz sample rate.<br/>
-        /// pcm_24000 - PCM format (S16LE) with 24kHz sample rate.<br/>
-        /// pcm_44100 - PCM format (S16LE) with 44.1kHz sample rate. Requires you to be subscribed to Pro tier or above.<br/>
-        /// ulaw_8000 - μ-law format (sometimes written mu-law, often approximated as u-law) with 8kHz sample rate. Note that this format is commonly used for Twilio audio inputs.<br/>
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
@@ -366,14 +344,14 @@ namespace ElevenLabs
         /// Default Value: eleven_english_sts_v2
         /// </param>
         /// <param name="voiceSettings">
-        /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
+        /// Voice settings overriding stored settings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
         /// </param>
         /// <param name="seed">
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
         /// Example: 12345
         /// </param>
         /// <param name="removeBackgroundNoise">
-        /// If set will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
+        /// If set, will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
         /// Default Value: false<br/>
         /// Example: true
         /// </param>
@@ -385,7 +363,7 @@ namespace ElevenLabs
             string audioname,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            string? outputFormat = default,
+            global::ElevenLabs.SpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             string? modelId = default,
             string? voiceSettings = default,

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The type of source to create.
     /// </summary>
     public enum PodcastTextSourceType
     {

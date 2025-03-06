@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The type of resource.
     /// </summary>
     public enum ReaderResourceResponseModelResourceType
     {

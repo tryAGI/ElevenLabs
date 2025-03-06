@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class PodcastURLSource
     {
         /// <summary>
-        /// 
+        /// The type of source to create.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PodcastURLSourceTypeJsonConverter))]
         public global::ElevenLabs.PodcastURLSourceType Type { get; set; }
 
         /// <summary>
-        /// 
+        /// The URL to create the podcast from.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PodcastURLSource" /> class.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="url"></param>
+        /// <param name="type">
+        /// The type of source to create.
+        /// </param>
+        /// <param name="url">
+        /// The URL to create the podcast from.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

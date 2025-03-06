@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationalConfig ConversationConfig { get; set; }
+        public required global::ElevenLabs.ConversationalConfigAPIModel ConversationConfig { get; set; }
 
         /// <summary>
         /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
@@ -52,7 +52,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyCreateAgentV1ConvaiAgentsCreatePost(
-            global::ElevenLabs.ConversationalConfig conversationConfig,
+            global::ElevenLabs.ConversationalConfigAPIModel conversationConfig,
             global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings,
             string? name)
         {

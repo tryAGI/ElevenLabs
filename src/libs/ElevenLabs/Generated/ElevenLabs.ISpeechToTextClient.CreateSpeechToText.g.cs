@@ -8,6 +8,10 @@ namespace ElevenLabs
         /// Speech To Text<br/>
         /// Transcribe an audio or video file.
         /// </summary>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -16,6 +20,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request,
+            bool? enableLogging = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -23,6 +28,10 @@ namespace ElevenLabs
         /// Speech To Text<br/>
         /// Transcribe an audio or video file.
         /// </summary>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -59,6 +68,7 @@ namespace ElevenLabs
             string modelId,
             byte[] file,
             string filename,
+            bool? enableLogging = default,
             string? xiApiKey = default,
             string? languageCode = default,
             bool? tagAudioEvents = default,

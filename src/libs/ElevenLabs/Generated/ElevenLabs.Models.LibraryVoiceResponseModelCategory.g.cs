@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The category of the voice.
     /// </summary>
     public enum LibraryVoiceResponseModelCategory
     {

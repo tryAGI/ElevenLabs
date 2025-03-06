@@ -21,7 +21,7 @@ namespace ElevenLabs
         public string? AudioFilename { get; set; }
 
         /// <summary>
-        /// Threshold for voice similarity between provided sample and library voices. Must be in range &lt;0, 2&gt;. The smaller the value the more similar voices will be returned.<br/>
+        /// Threshold for voice similarity between provided sample and library voices. Values range from 0 to 2. The smaller the value the more similar voices will be returned.<br/>
         /// Example: 0.5
         /// </summary>
         /// <example>0.5</example>
@@ -29,7 +29,7 @@ namespace ElevenLabs
         public double? SimilarityThreshold { get; set; }
 
         /// <summary>
-        /// Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Must be in range &lt;1, 100&gt;.<br/>
+        /// Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Values range from 1 to 100.<br/>
         /// Example: 10
         /// </summary>
         /// <example>10</example>
@@ -48,11 +48,11 @@ namespace ElevenLabs
         /// <param name="audioFile"></param>
         /// <param name="audioFilename"></param>
         /// <param name="similarityThreshold">
-        /// Threshold for voice similarity between provided sample and library voices. Must be in range &lt;0, 2&gt;. The smaller the value the more similar voices will be returned.<br/>
+        /// Threshold for voice similarity between provided sample and library voices. Values range from 0 to 2. The smaller the value the more similar voices will be returned.<br/>
         /// Example: 0.5
         /// </param>
         /// <param name="topK">
-        /// Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Must be in range &lt;1, 100&gt;.<br/>
+        /// Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Values range from 1 to 100.<br/>
         /// Example: 10
         /// </param>
 #if NET7_0_OR_GREATER

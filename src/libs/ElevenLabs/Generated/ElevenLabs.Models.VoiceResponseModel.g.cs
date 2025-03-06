@@ -9,28 +9,27 @@ namespace ElevenLabs
     public sealed partial class VoiceResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VoiceId { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// List of samples associated with the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("samples")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.SampleResponseModel> Samples { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SampleResponseModel>? Samples { get; set; }
 
         /// <summary>
-        /// 
+        /// The category of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("category")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelCategoryJsonConverter))]
@@ -38,106 +37,103 @@ namespace ElevenLabs
         public required global::ElevenLabs.VoiceResponseModelCategory Category { get; set; }
 
         /// <summary>
-        /// 
+        /// Fine-tuning information for the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fine_tuning")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.FineTuningResponseModel FineTuning { get; set; }
+        public global::ElevenLabs.FineTuningResponseModel? FineTuning { get; set; }
 
         /// <summary>
-        /// 
+        /// Labels associated with the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.Dictionary<string, string> Labels { get; set; }
 
         /// <summary>
-        /// 
+        /// The description of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
-        /// 
+        /// The preview URL of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("preview_url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PreviewUrl { get; set; }
+        public string? PreviewUrl { get; set; }
 
         /// <summary>
-        /// 
+        /// The tiers the voice is available for.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("available_for_tiers")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> AvailableForTiers { get; set; }
 
         /// <summary>
-        /// 
+        /// The settings of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.VoiceSettingsResponseModel Settings { get; set; }
+        public global::ElevenLabs.VoiceSettingsResponseModel? Settings { get; set; }
 
         /// <summary>
-        /// 
+        /// The sharing information of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sharing")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.VoiceSharingResponseModel Sharing { get; set; }
+        public global::ElevenLabs.VoiceSharingResponseModel? Sharing { get; set; }
 
         /// <summary>
-        /// 
+        /// The base model IDs for high-quality voices.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("high_quality_base_model_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> HighQualityBaseModelIds { get; set; }
 
         /// <summary>
-        /// 
+        /// The verified languages of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verified_languages")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? VerifiedLanguages { get; set; }
 
         /// <summary>
-        /// 
+        /// The safety controls of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety_control")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelSafetyControlJsonConverter))]
         public global::ElevenLabs.VoiceResponseModelSafetyControl? SafetyControl { get; set; }
 
         /// <summary>
-        /// 
+        /// The voice verification of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_verification")]
         public global::ElevenLabs.VoiceVerificationResponseModel? VoiceVerification { get; set; }
 
         /// <summary>
-        /// 
+        /// The permission on the resource of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
         public string? PermissionOnResource { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the voice is owned by the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_owner")]
         public bool? IsOwner { get; set; }
 
         /// <summary>
+        /// Whether the voice is legacy.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_legacy")]
         public bool? IsLegacy { get; set; }
 
         /// <summary>
+        /// Whether the voice is mixed.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_mixed")]
         public bool? IsMixed { get; set; }
 
         /// <summary>
-        /// 
+        /// The creation time of the voice in Unix time.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         public int? CreatedAtUnix { get; set; }
@@ -151,46 +147,84 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="VoiceResponseModel" /> class.
         /// </summary>
-        /// <param name="voiceId"></param>
-        /// <param name="name"></param>
-        /// <param name="samples"></param>
-        /// <param name="category"></param>
-        /// <param name="fineTuning"></param>
-        /// <param name="labels"></param>
-        /// <param name="description"></param>
-        /// <param name="previewUrl"></param>
-        /// <param name="availableForTiers"></param>
-        /// <param name="settings"></param>
-        /// <param name="sharing"></param>
-        /// <param name="highQualityBaseModelIds"></param>
-        /// <param name="verifiedLanguages"></param>
-        /// <param name="safetyControl"></param>
-        /// <param name="voiceVerification"></param>
-        /// <param name="permissionOnResource"></param>
-        /// <param name="isOwner"></param>
+        /// <param name="voiceId">
+        /// The ID of the voice.
+        /// </param>
+        /// <param name="name">
+        /// The name of the voice.
+        /// </param>
+        /// <param name="samples">
+        /// List of samples associated with the voice.
+        /// </param>
+        /// <param name="category">
+        /// The category of the voice.
+        /// </param>
+        /// <param name="fineTuning">
+        /// Fine-tuning information for the voice.
+        /// </param>
+        /// <param name="labels">
+        /// Labels associated with the voice.
+        /// </param>
+        /// <param name="description">
+        /// The description of the voice.
+        /// </param>
+        /// <param name="previewUrl">
+        /// The preview URL of the voice.
+        /// </param>
+        /// <param name="availableForTiers">
+        /// The tiers the voice is available for.
+        /// </param>
+        /// <param name="settings">
+        /// The settings of the voice.
+        /// </param>
+        /// <param name="sharing">
+        /// The sharing information of the voice.
+        /// </param>
+        /// <param name="highQualityBaseModelIds">
+        /// The base model IDs for high-quality voices.
+        /// </param>
+        /// <param name="verifiedLanguages">
+        /// The verified languages of the voice.
+        /// </param>
+        /// <param name="safetyControl">
+        /// The safety controls of the voice.
+        /// </param>
+        /// <param name="voiceVerification">
+        /// The voice verification of the voice.
+        /// </param>
+        /// <param name="permissionOnResource">
+        /// The permission on the resource of the voice.
+        /// </param>
+        /// <param name="isOwner">
+        /// Whether the voice is owned by the user.
+        /// </param>
         /// <param name="isLegacy">
+        /// Whether the voice is legacy.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="isMixed">
+        /// Whether the voice is mixed.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="createdAtUnix"></param>
+        /// <param name="createdAtUnix">
+        /// The creation time of the voice in Unix time.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VoiceResponseModel(
             string voiceId,
             string name,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SampleResponseModel> samples,
             global::ElevenLabs.VoiceResponseModelCategory category,
-            global::ElevenLabs.FineTuningResponseModel fineTuning,
             global::System.Collections.Generic.Dictionary<string, string> labels,
-            string description,
-            string previewUrl,
             global::System.Collections.Generic.IList<string> availableForTiers,
-            global::ElevenLabs.VoiceSettingsResponseModel settings,
-            global::ElevenLabs.VoiceSharingResponseModel sharing,
             global::System.Collections.Generic.IList<string> highQualityBaseModelIds,
+            global::System.Collections.Generic.IList<global::ElevenLabs.SampleResponseModel>? samples,
+            global::ElevenLabs.FineTuningResponseModel? fineTuning,
+            string? description,
+            string? previewUrl,
+            global::ElevenLabs.VoiceSettingsResponseModel? settings,
+            global::ElevenLabs.VoiceSharingResponseModel? sharing,
             global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? verifiedLanguages,
             global::ElevenLabs.VoiceResponseModelSafetyControl? safetyControl,
             global::ElevenLabs.VoiceVerificationResponseModel? voiceVerification,
@@ -202,16 +236,16 @@ namespace ElevenLabs
         {
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Samples = samples ?? throw new global::System.ArgumentNullException(nameof(samples));
             this.Category = category;
-            this.FineTuning = fineTuning ?? throw new global::System.ArgumentNullException(nameof(fineTuning));
             this.Labels = labels ?? throw new global::System.ArgumentNullException(nameof(labels));
-            this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
-            this.PreviewUrl = previewUrl ?? throw new global::System.ArgumentNullException(nameof(previewUrl));
             this.AvailableForTiers = availableForTiers ?? throw new global::System.ArgumentNullException(nameof(availableForTiers));
-            this.Settings = settings ?? throw new global::System.ArgumentNullException(nameof(settings));
-            this.Sharing = sharing ?? throw new global::System.ArgumentNullException(nameof(sharing));
             this.HighQualityBaseModelIds = highQualityBaseModelIds ?? throw new global::System.ArgumentNullException(nameof(highQualityBaseModelIds));
+            this.Samples = samples;
+            this.FineTuning = fineTuning;
+            this.Description = description;
+            this.PreviewUrl = previewUrl;
+            this.Settings = settings;
+            this.Sharing = sharing;
             this.VerifiedLanguages = verifiedLanguages;
             this.SafetyControl = safetyControl;
             this.VoiceVerification = voiceVerification;

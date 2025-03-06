@@ -21,7 +21,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateStudioProjectsByProjectIdChaptersByChapterIdConvertAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ConvertChapterResponseModel> CreateStudioProjectsByProjectIdChaptersByChapterIdConvertAsync(
             string projectId,
             string chapterId,
             string? xiApiKey = default,

@@ -159,6 +159,12 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.UseProfanityFilter}"),
                     name: "use_profanity_filter");
+            } 
+            if (request.DubbingStudio != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.DubbingStudio}"),
+                    name: "dubbing_studio");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -334,6 +340,10 @@ namespace ElevenLabs
         /// <param name="useProfanityFilter">
         /// [BETA] Whether transcripts should have profanities censored with the words '[censored]'
         /// </param>
+        /// <param name="dubbingStudio">
+        /// Whether to prepare dub for edits in dubbing studio or edits as a dubbing resource.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> CreateDubbingAsync(
@@ -351,6 +361,7 @@ namespace ElevenLabs
             bool? highestResolution = default,
             bool? dropBackgroundAudio = default,
             bool? useProfanityFilter = default,
+            bool? dubbingStudio = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost
@@ -368,6 +379,7 @@ namespace ElevenLabs
                 HighestResolution = highestResolution,
                 DropBackgroundAudio = dropBackgroundAudio,
                 UseProfanityFilter = useProfanityFilter,
+                DubbingStudio = dubbingStudio,
             };
 
             return await CreateDubbingAsync(

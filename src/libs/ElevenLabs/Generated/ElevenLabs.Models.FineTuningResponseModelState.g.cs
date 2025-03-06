@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The state of the fine-tuning process for each model.
     /// </summary>
     public sealed partial class FineTuningResponseModelState
     {

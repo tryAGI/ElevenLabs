@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The status of the project creation action.
     /// </summary>
     public enum ProjectCreationMetaResponseModelStatus
     {

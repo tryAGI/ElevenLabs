@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class ProjectCreationMetaResponseModel
     {
         /// <summary>
-        /// 
+        /// The progress of the project creation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_progress")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double CreationProgress { get; set; }
 
         /// <summary>
-        /// 
+        /// The status of the project creation action.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectCreationMetaResponseModelStatusJsonConverter))]
@@ -24,7 +24,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.ProjectCreationMetaResponseModelStatus Status { get; set; }
 
         /// <summary>
-        /// 
+        /// The type of the project creation action.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectCreationMetaResponseModelTypeJsonConverter))]
@@ -40,9 +40,15 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectCreationMetaResponseModel" /> class.
         /// </summary>
-        /// <param name="creationProgress"></param>
-        /// <param name="status"></param>
-        /// <param name="type"></param>
+        /// <param name="creationProgress">
+        /// The progress of the project creation.
+        /// </param>
+        /// <param name="status">
+        /// The status of the project creation action.
+        /// </param>
+        /// <param name="type">
+        /// The type of the project creation action.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -33,6 +33,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_injectable")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool PromptInjectable { get; set; }
@@ -64,6 +71,7 @@ namespace ElevenLabs
         /// <param name="id"></param>
         /// <param name="name"></param>
         /// <param name="type"></param>
+        /// <param name="metadata"></param>
         /// <param name="promptInjectable"></param>
         /// <param name="dependentAgents"></param>
         /// <param name="accessLevel"></param>
@@ -74,6 +82,7 @@ namespace ElevenLabs
             string id,
             string name,
             global::ElevenLabs.GetKnowledgeBaseSummaryResponseModelType type,
+            global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel metadata,
             bool promptInjectable,
             global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem> dependentAgents,
             global::ElevenLabs.GetKnowledgeBaseSummaryResponseModelAccessLevel accessLevel)
@@ -81,6 +90,7 @@ namespace ElevenLabs
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
+            this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.PromptInjectable = promptInjectable;
             this.DependentAgents = dependentAgents ?? throw new global::System.ArgumentNullException(nameof(dependentAgents));
             this.AccessLevel = accessLevel;

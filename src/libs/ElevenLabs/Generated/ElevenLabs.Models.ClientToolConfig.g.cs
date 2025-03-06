@@ -48,6 +48,12 @@ namespace ElevenLabs
         public int? ResponseTimeoutSecs { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
+        public global::ElevenLabs.DynamicVariablesConfig? DynamicVariables { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -64,6 +70,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="responseTimeoutSecs"></param>
+        /// <param name="dynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,7 +80,8 @@ namespace ElevenLabs
             global::ElevenLabs.ClientToolConfigType type,
             global::ElevenLabs.ObjectJsonSchemaProperty? parameters,
             bool? expectsResponse,
-            int? responseTimeoutSecs)
+            int? responseTimeoutSecs,
+            global::ElevenLabs.DynamicVariablesConfig? dynamicVariables)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
@@ -81,6 +89,7 @@ namespace ElevenLabs
             this.Parameters = parameters;
             this.ExpectsResponse = expectsResponse;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
+            this.DynamicVariables = dynamicVariables;
         }
 
         /// <summary>

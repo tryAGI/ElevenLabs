@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface IStudioClient
     {
         /// <summary>
-        /// Update Studio Project Metadata<br/>
-        /// Updates Studio project metadata.
+        /// Update Studio Project<br/>
+        /// Updates the specified Studio project by setting the values of the parameters passed.
         /// </summary>
         /// <param name="projectId">
         /// The ID of the Studio project.<br/>
@@ -20,13 +20,13 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateStudioProjectsByProjectIdAsync(
             string projectId,
-            global::ElevenLabs.BodyUpdateStudioProjectMetadataV1StudioProjectsProjectIdPost request,
+            global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Update Studio Project Metadata<br/>
-        /// Updates Studio project metadata.
+        /// Update Studio Project<br/>
+        /// Updates the specified Studio project by setting the values of the parameters passed.
         /// </summary>
         /// <param name="projectId">
         /// The ID of the Studio project.<br/>

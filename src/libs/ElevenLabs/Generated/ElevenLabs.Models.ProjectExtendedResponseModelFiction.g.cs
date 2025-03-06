@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Whether the project is fiction.
     /// </summary>
     public enum ProjectExtendedResponseModelFiction
     {

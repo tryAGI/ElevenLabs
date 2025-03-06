@@ -33,6 +33,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extracted_inner_html")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ExtractedInnerHtml { get; set; }
@@ -64,6 +71,7 @@ namespace ElevenLabs
         /// <param name="id"></param>
         /// <param name="name"></param>
         /// <param name="type"></param>
+        /// <param name="metadata"></param>
         /// <param name="extractedInnerHtml"></param>
         /// <param name="promptInjectable"></param>
         /// <param name="accessLevel"></param>
@@ -74,6 +82,7 @@ namespace ElevenLabs
             string id,
             string name,
             global::ElevenLabs.GetKnowledgeBaseResponseModelType type,
+            global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel metadata,
             string extractedInnerHtml,
             bool promptInjectable,
             global::ElevenLabs.GetKnowledgeBaseResponseModelAccessLevel accessLevel)
@@ -81,6 +90,7 @@ namespace ElevenLabs
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
+            this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.ExtractedInnerHtml = extractedInnerHtml ?? throw new global::System.ArgumentNullException(nameof(extractedInnerHtml));
             this.PromptInjectable = promptInjectable;
             this.AccessLevel = accessLevel;
