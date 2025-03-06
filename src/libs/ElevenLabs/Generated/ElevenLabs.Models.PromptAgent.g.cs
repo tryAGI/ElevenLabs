@@ -54,12 +54,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("knowledge_base_document_ids")]
-        public global::System.Collections.Generic.IList<string>? KnowledgeBaseDocumentIds { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_llm")]
         public global::ElevenLabs.CustomLLM? CustomLlm { get; set; }
 
@@ -91,7 +85,6 @@ namespace ElevenLabs
         /// <param name="tools"></param>
         /// <param name="toolIds"></param>
         /// <param name="knowledgeBase"></param>
-        /// <param name="knowledgeBaseDocumentIds"></param>
         /// <param name="customLlm"></param>
         /// <param name="rag"></param>
 #if NET7_0_OR_GREATER
@@ -105,7 +98,6 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2>? tools,
             global::System.Collections.Generic.IList<string>? toolIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
-            global::System.Collections.Generic.IList<string>? knowledgeBaseDocumentIds,
             global::ElevenLabs.CustomLLM? customLlm,
             global::ElevenLabs.RagConfig? rag)
         {
@@ -116,7 +108,6 @@ namespace ElevenLabs
             this.Tools = tools;
             this.ToolIds = toolIds;
             this.KnowledgeBase = knowledgeBase;
-            this.KnowledgeBaseDocumentIds = knowledgeBaseDocumentIds;
             this.CustomLlm = customLlm;
             this.Rag = rag;
         }

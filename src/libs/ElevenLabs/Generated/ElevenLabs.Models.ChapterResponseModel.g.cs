@@ -9,40 +9,40 @@ namespace ElevenLabs
     public sealed partial class ChapterResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ChapterId { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// The last conversion date of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_conversion_date_unix")]
         public int? LastConversionDateUnix { get; set; }
 
         /// <summary>
-        /// 
+        /// The conversion progress of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversion_progress")]
         public double? ConversionProgress { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the chapter can be downloaded.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_be_downloaded")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool CanBeDownloaded { get; set; }
 
         /// <summary>
-        /// 
+        /// The state of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ChapterResponseModelStateJsonConverter))]
@@ -50,13 +50,13 @@ namespace ElevenLabs
         public required global::ElevenLabs.ChapterResponseModelState State { get; set; }
 
         /// <summary>
-        /// 
+        /// The statistics of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("statistics")]
         public global::ElevenLabs.ChapterStatisticsResponseModel? Statistics { get; set; }
 
         /// <summary>
-        /// 
+        /// The last conversion error of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_conversion_error")]
         public string? LastConversionError { get; set; }
@@ -70,14 +70,30 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ChapterResponseModel" /> class.
         /// </summary>
-        /// <param name="chapterId"></param>
-        /// <param name="name"></param>
-        /// <param name="lastConversionDateUnix"></param>
-        /// <param name="conversionProgress"></param>
-        /// <param name="canBeDownloaded"></param>
-        /// <param name="state"></param>
-        /// <param name="statistics"></param>
-        /// <param name="lastConversionError"></param>
+        /// <param name="chapterId">
+        /// The ID of the chapter.
+        /// </param>
+        /// <param name="name">
+        /// The name of the chapter.
+        /// </param>
+        /// <param name="lastConversionDateUnix">
+        /// The last conversion date of the chapter.
+        /// </param>
+        /// <param name="conversionProgress">
+        /// The conversion progress of the chapter.
+        /// </param>
+        /// <param name="canBeDownloaded">
+        /// Whether the chapter can be downloaded.
+        /// </param>
+        /// <param name="state">
+        /// The state of the chapter.
+        /// </param>
+        /// <param name="statistics">
+        /// The statistics of the chapter.
+        /// </param>
+        /// <param name="lastConversionError">
+        /// The last conversion error of the chapter.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

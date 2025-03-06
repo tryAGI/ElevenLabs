@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class PodcastConversationMode
     {
         /// <summary>
-        /// 
+        /// The type of podcast to create.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PodcastConversationModeTypeJsonConverter))]
         public global::ElevenLabs.PodcastConversationModeType Type { get; set; }
 
         /// <summary>
-        /// 
+        /// The voice settings for the conversation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PodcastConversationMode" /> class.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="conversation"></param>
+        /// <param name="type">
+        /// The type of podcast to create.
+        /// </param>
+        /// <param name="conversation">
+        /// The voice settings for the conversation.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

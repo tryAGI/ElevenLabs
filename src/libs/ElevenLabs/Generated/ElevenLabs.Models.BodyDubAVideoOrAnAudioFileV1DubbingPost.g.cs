@@ -92,6 +92,13 @@ namespace ElevenLabs
         public bool? UseProfanityFilter { get; set; }
 
         /// <summary>
+        /// Whether to prepare dub for edits in dubbing studio or edits as a dubbing resource.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dubbing_studio")]
+        public bool? DubbingStudio { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -144,6 +151,10 @@ namespace ElevenLabs
         /// <param name="useProfanityFilter">
         /// [BETA] Whether transcripts should have profanities censored with the words '[censored]'
         /// </param>
+        /// <param name="dubbingStudio">
+        /// Whether to prepare dub for edits in dubbing studio or edits as a dubbing resource.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -160,7 +171,8 @@ namespace ElevenLabs
             int? endTime,
             bool? highestResolution,
             bool? dropBackgroundAudio,
-            bool? useProfanityFilter)
+            bool? useProfanityFilter,
+            bool? dubbingStudio)
         {
             this.File = file;
             this.Filename = filename;
@@ -175,6 +187,7 @@ namespace ElevenLabs
             this.HighestResolution = highestResolution;
             this.DropBackgroundAudio = dropBackgroundAudio;
             this.UseProfanityFilter = useProfanityFilter;
+            this.DubbingStudio = dubbingStudio;
         }
 
         /// <summary>

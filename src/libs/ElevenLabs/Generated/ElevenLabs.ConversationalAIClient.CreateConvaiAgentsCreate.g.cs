@@ -244,7 +244,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentResponseModel> CreateConvaiAgentsCreateAsync(
-            global::ElevenLabs.ConversationalConfig conversationConfig,
+            global::ElevenLabs.ConversationalConfigAPIModel conversationConfig,
             bool? useToolIds = default,
             string? xiApiKey = default,
             global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings = default,

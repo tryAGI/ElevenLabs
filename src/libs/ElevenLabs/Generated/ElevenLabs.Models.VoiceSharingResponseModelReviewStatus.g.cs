@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The review status of the voice.
     /// </summary>
     public enum VoiceSharingResponseModelReviewStatus
     {

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The access level of the project.
     /// </summary>
     public enum ProjectExtendedResponseModelAccessLevel
     {

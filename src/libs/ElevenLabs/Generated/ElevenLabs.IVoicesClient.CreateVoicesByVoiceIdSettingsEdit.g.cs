@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Edit Voice Settings<br/>
-        /// Edit your settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateVoicesByVoiceIdSettingsEditAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> CreateVoicesByVoiceIdSettingsEditAsync(
             string voiceId,
             global::ElevenLabs.AllOf<global::ElevenLabs.VoiceSettingsResponseModel> request,
             string? xiApiKey = default,
@@ -26,7 +26,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Edit Voice Settings<br/>
-        /// Edit your settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
@@ -37,7 +37,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateVoicesByVoiceIdSettingsEditAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> CreateVoicesByVoiceIdSettingsEditAsync(
             string voiceId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

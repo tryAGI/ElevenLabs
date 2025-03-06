@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The state of the chapter.
     /// </summary>
     public enum ChapterResponseModelState
     {

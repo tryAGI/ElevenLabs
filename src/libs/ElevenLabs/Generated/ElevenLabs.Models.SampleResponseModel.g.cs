@@ -9,35 +9,35 @@ namespace ElevenLabs
     public sealed partial class SampleResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the sample.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SampleId { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string FileName { get; set; }
 
         /// <summary>
-        /// 
+        /// The MIME type of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string MimeType { get; set; }
 
         /// <summary>
-        /// 
+        /// The size of the sample file in bytes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int SizeBytes { get; set; }
 
         /// <summary>
-        /// 
+        /// The hash of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hash")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -52,11 +52,21 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="SampleResponseModel" /> class.
         /// </summary>
-        /// <param name="sampleId"></param>
-        /// <param name="fileName"></param>
-        /// <param name="mimeType"></param>
-        /// <param name="sizeBytes"></param>
-        /// <param name="hash"></param>
+        /// <param name="sampleId">
+        /// The ID of the sample.
+        /// </param>
+        /// <param name="fileName">
+        /// The name of the sample file.
+        /// </param>
+        /// <param name="mimeType">
+        /// The MIME type of the sample file.
+        /// </param>
+        /// <param name="sizeBytes">
+        /// The size of the sample file in bytes.
+        /// </param>
+        /// <param name="hash">
+        /// The hash of the sample file.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

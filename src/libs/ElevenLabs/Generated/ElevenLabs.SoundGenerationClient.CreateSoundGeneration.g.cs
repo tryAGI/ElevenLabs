@@ -7,11 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareCreateSoundGenerationArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat,
             ref string? xiApiKey,
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request);
         partial void PrepareCreateSoundGenerationRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat,
             string? xiApiKey,
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request);
         partial void ProcessCreateSoundGenerationResponse(
@@ -27,6 +29,10 @@ namespace ElevenLabs
         /// Sound Generation<br/>
         /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects model in the world.
         /// </summary>
+        /// <param name="outputFormat">
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+        /// Default Value: mp3_44100_128
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -35,6 +41,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> CreateSoundGenerationAsync(
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
+            global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -44,12 +51,16 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreateSoundGenerationArguments(
                 httpClient: HttpClient,
+                outputFormat: ref outputFormat,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/v1/sound-generation",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("output_format", outputFormat?.ToValueString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -93,6 +104,7 @@ namespace ElevenLabs
             PrepareCreateSoundGenerationRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                outputFormat: outputFormat,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -212,6 +224,10 @@ namespace ElevenLabs
         /// Sound Generation<br/>
         /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects model in the world.
         /// </summary>
+        /// <param name="outputFormat">
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+        /// Default Value: mp3_44100_128
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -230,6 +246,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> CreateSoundGenerationAsync(
             string text,
+            global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             double? durationSeconds = default,
             double? promptInfluence = default,
@@ -243,6 +260,7 @@ namespace ElevenLabs
             };
 
             return await CreateSoundGenerationAsync(
+                outputFormat: outputFormat,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

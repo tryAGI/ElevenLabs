@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The status of the snapshot upload.
     /// </summary>
     public enum ProjectSnapshotUploadResponseModelStatus
     {

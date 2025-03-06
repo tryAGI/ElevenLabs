@@ -70,6 +70,10 @@ namespace ElevenLabs
         /// <param name="useProfanityFilter">
         /// [BETA] Whether transcripts should have profanities censored with the words '[censored]'
         /// </param>
+        /// <param name="dubbingStudio">
+        /// Whether to prepare dub for edits in dubbing studio or edits as a dubbing resource.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> CreateDubbingAsync(
@@ -87,6 +91,7 @@ namespace ElevenLabs
             bool? highestResolution = default,
             bool? dropBackgroundAudio = default,
             bool? useProfanityFilter = default,
+            bool? dubbingStudio = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

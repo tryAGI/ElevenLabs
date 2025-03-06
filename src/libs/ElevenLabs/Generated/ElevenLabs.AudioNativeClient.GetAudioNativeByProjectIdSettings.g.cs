@@ -24,7 +24,7 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Audionative Settings<br/>
+        /// Get Audio Native Project Settings<br/>
         /// Get player settings for the specific project.
         /// </summary>
         /// <param name="projectId">

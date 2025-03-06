@@ -20,7 +20,7 @@ namespace ElevenLabs
         public required string ModelId { get; set; }
 
         /// <summary>
-        /// The type of podcast to generate
+        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode>))]
@@ -100,7 +100,7 @@ namespace ElevenLabs
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="mode">
-        /// The type of podcast to generate
+        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.
         /// </param>
         /// <param name="source">
         /// The source content for the Podcast.

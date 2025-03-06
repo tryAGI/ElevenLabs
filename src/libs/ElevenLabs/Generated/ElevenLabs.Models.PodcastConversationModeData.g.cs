@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class PodcastConversationModeData
     {
         /// <summary>
-        /// 
+        /// The ID of the host voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("host_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string HostVoiceId { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the guest voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("guest_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PodcastConversationModeData" /> class.
         /// </summary>
-        /// <param name="hostVoiceId"></param>
-        /// <param name="guestVoiceId"></param>
+        /// <param name="hostVoiceId">
+        /// The ID of the host voice.
+        /// </param>
+        /// <param name="guestVoiceId">
+        /// The ID of the guest voice.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

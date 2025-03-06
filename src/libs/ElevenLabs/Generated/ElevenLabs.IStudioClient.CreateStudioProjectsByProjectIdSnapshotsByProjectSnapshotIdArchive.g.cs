@@ -5,7 +5,7 @@ namespace ElevenLabs
     public partial interface IStudioClient
     {
         /// <summary>
-        /// Streams Archive With Studio Project Audio<br/>
+        /// Stream Archive With Studio Project Audio<br/>
         /// Returns a compressed archive of the Studio project's audio.
         /// </summary>
         /// <param name="projectId">
@@ -21,7 +21,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task CreateStudioProjectsByProjectIdSnapshotsByProjectSnapshotIdArchiveAsync(
+        global::System.Threading.Tasks.Task<byte[]> CreateStudioProjectsByProjectIdSnapshotsByProjectSnapshotIdArchiveAsync(
             string projectId,
             string projectSnapshotId,
             string? xiApiKey = default,

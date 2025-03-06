@@ -25,7 +25,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// List Studio Project Snapshots<br/>
-        /// Gets the snapshots of a Studio project.
+        /// Retrieves a list of snapshots for a Studio project.
         /// </summary>
         /// <param name="projectId">
         /// The ID of the Studio project.<br/>

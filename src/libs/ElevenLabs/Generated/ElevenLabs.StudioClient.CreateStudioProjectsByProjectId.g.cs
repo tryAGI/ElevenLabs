@@ -9,13 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string projectId,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyUpdateStudioProjectMetadataV1StudioProjectsProjectIdPost request);
+            global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost request);
         partial void PrepareCreateStudioProjectsByProjectIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string projectId,
             string? xiApiKey,
-            global::ElevenLabs.BodyUpdateStudioProjectMetadataV1StudioProjectsProjectIdPost request);
+            global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost request);
         partial void ProcessCreateStudioProjectsByProjectIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -26,8 +26,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Studio Project Metadata<br/>
-        /// Updates Studio project metadata.
+        /// Update Studio Project<br/>
+        /// Updates the specified Studio project by setting the values of the parameters passed.
         /// </summary>
         /// <param name="projectId">
         /// The ID of the Studio project.<br/>
@@ -41,7 +41,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateStudioProjectsByProjectIdAsync(
             string projectId,
-            global::ElevenLabs.BodyUpdateStudioProjectMetadataV1StudioProjectsProjectIdPost request,
+            global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -218,8 +218,8 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Update Studio Project Metadata<br/>
-        /// Updates Studio project metadata.
+        /// Update Studio Project<br/>
+        /// Updates the specified Studio project by setting the values of the parameters passed.
         /// </summary>
         /// <param name="projectId">
         /// The ID of the Studio project.<br/>
@@ -271,7 +271,7 @@ namespace ElevenLabs
             bool? volumeNormalization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyUpdateStudioProjectMetadataV1StudioProjectsProjectIdPost
+            var __request = new global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost
             {
                 Name = name,
                 DefaultTitleVoiceId = defaultTitleVoiceId,

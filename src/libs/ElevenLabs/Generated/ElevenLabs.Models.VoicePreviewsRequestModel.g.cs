@@ -10,9 +10,9 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Description to use for the created voice.<br/>
-        /// Example: A sassy little squeaky mouse
+        /// Example: A sassy squeaky mouse
         /// </summary>
-        /// <example>A sassy little squeaky mouse</example>
+        /// <example>A sassy squeaky mouse</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VoiceDescription { get; set; }
@@ -44,7 +44,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="voiceDescription">
         /// Description to use for the created voice.<br/>
-        /// Example: A sassy little squeaky mouse
+        /// Example: A sassy squeaky mouse
         /// </param>
         /// <param name="text">
         /// Text to generate, text length has to be between 100 and 1000.<br/>

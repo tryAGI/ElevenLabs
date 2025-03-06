@@ -5,8 +5,8 @@ namespace ElevenLabs
 {
     /// <summary>
     ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
-    ///     When set to 'auto', the system will automatically decide whether to apply text normalization <br/>
-    ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while <br/>
+    ///     When set to 'auto', the system will automatically decide whether to apply text normalization<br/>
+    ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while<br/>
     ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
     ///     
     /// </summary>

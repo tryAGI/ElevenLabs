@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateVoicesByVoiceIdEditAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceResponseModel> CreateVoicesByVoiceIdEditAsync(
             string voiceId,
             global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost request,
             string? xiApiKey = default,
@@ -48,7 +48,7 @@ namespace ElevenLabs
         /// Example: true
         /// </param>
         /// <param name="description">
-        /// How would you describe the voice?<br/>
+        /// A description of the voice.<br/>
         /// Example: An old American male voice with a slight hoarseness in his throat. Perfect for news.
         /// </param>
         /// <param name="labels">
@@ -56,7 +56,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateVoicesByVoiceIdEditAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceResponseModel> CreateVoicesByVoiceIdEditAsync(
             string voiceId,
             string name,
             string? xiApiKey = default,

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The type of podcast to create.
     /// </summary>
     public enum PodcastBulletinModeType
     {

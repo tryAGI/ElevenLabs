@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class AddPronunciationDictionaryRulesResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        /// The version ID of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AddPronunciationDictionaryRulesResponseModel" /> class.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="versionId"></param>
+        /// <param name="id">
+        /// The ID of the pronunciation dictionary.
+        /// </param>
+        /// <param name="versionId">
+        /// The version ID of the pronunciation dictionary.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

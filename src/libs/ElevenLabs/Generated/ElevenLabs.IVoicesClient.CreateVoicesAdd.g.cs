@@ -31,7 +31,7 @@ namespace ElevenLabs
         /// Example: Joe Rogan
         /// </param>
         /// <param name="files">
-        /// A list of file paths to audio recordings intended for voice cloning
+        /// A list of file paths to audio recordings intended for voice cloning.
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// Example: true
         /// </param>
         /// <param name="description">
-        /// How would you describe the voice?<br/>
+        /// A description of the voice.<br/>
         /// Example: An old American male voice with a slight hoarseness in his throat. Perfect for news.
         /// </param>
         /// <param name="labels">

@@ -31,7 +31,7 @@ namespace ElevenLabs
         public string? LanguageCode { get; set; }
 
         /// <summary>
-        /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request.
+        /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_settings")]
         public global::ElevenLabs.VoiceSettingsResponseModel? VoiceSettings { get; set; }
@@ -124,7 +124,7 @@ namespace ElevenLabs
         /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
         /// </param>
         /// <param name="voiceSettings">
-        /// Voice settings overriding stored setttings for the given voice. They are applied only on the given request.
+        /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
         /// </param>
         /// <param name="pronunciationDictionaryLocators">
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>

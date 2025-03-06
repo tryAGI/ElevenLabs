@@ -129,6 +129,12 @@ namespace ElevenLabs
         public string? ShareablePageText { get; set; }
 
         /// <summary>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("shareable_page_show_terms")]
+        public bool? ShareablePageShowTerms { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("terms_text")]
@@ -217,6 +223,9 @@ namespace ElevenLabs
         /// <param name="listeningText"></param>
         /// <param name="speakingText"></param>
         /// <param name="shareablePageText"></param>
+        /// <param name="shareablePageShowTerms">
+        /// Default Value: true
+        /// </param>
         /// <param name="termsText"></param>
         /// <param name="termsHtml"></param>
         /// <param name="termsKey"></param>
@@ -254,6 +263,7 @@ namespace ElevenLabs
             string? listeningText,
             string? speakingText,
             string? shareablePageText,
+            bool? shareablePageShowTerms,
             string? termsText,
             string? termsHtml,
             string? termsKey,
@@ -281,6 +291,7 @@ namespace ElevenLabs
             this.ListeningText = listeningText;
             this.SpeakingText = speakingText;
             this.ShareablePageText = shareablePageText;
+            this.ShareablePageShowTerms = shareablePageShowTerms;
             this.TermsText = termsText;
             this.TermsHtml = termsHtml;
             this.TermsKey = termsKey;

@@ -9,21 +9,21 @@ namespace ElevenLabs
     public sealed partial class PronunciationDictionaryAliasRuleRequestModel
     {
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PronunciationDictionaryAliasRuleRequestModelTypeJsonConverter))]
-        public global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModelType Type { get; set; }
-
-        /// <summary>
-        /// 
+        /// The string to replace. Must be a non-empty string.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("string_to_replace")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string StringToReplace { get; set; }
 
         /// <summary>
-        /// 
+        /// The type of the rule.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PronunciationDictionaryAliasRuleRequestModelTypeJsonConverter))]
+        public global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModelType Type { get; set; }
+
+        /// <summary>
+        /// The alias for the string to be replaced.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -38,9 +38,15 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PronunciationDictionaryAliasRuleRequestModel" /> class.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="stringToReplace"></param>
-        /// <param name="alias"></param>
+        /// <param name="stringToReplace">
+        /// The string to replace. Must be a non-empty string.
+        /// </param>
+        /// <param name="type">
+        /// The type of the rule.
+        /// </param>
+        /// <param name="alias">
+        /// The alias for the string to be replaced.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

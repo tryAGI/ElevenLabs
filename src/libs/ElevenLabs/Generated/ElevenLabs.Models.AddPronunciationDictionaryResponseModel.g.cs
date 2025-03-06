@@ -9,42 +9,43 @@ namespace ElevenLabs
     public sealed partial class AddPronunciationDictionaryResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the created pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the created pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// The user ID of the creator of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string CreatedBy { get; set; }
 
         /// <summary>
-        /// 
+        /// The creation time of the pronunciation dictionary in Unix timestamp.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_time_unix")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreationTimeUnix { get; set; }
+        public required global::System.DateTimeOffset CreationTimeUnix { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the created pronunciation dictionary version.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VersionId { get; set; }
 
         /// <summary>
-        /// 
+        /// The description of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -58,12 +59,24 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AddPronunciationDictionaryResponseModel" /> class.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="createdBy"></param>
-        /// <param name="creationTimeUnix"></param>
-        /// <param name="versionId"></param>
-        /// <param name="description"></param>
+        /// <param name="id">
+        /// The ID of the created pronunciation dictionary.
+        /// </param>
+        /// <param name="name">
+        /// The name of the created pronunciation dictionary.
+        /// </param>
+        /// <param name="createdBy">
+        /// The user ID of the creator of the pronunciation dictionary.
+        /// </param>
+        /// <param name="creationTimeUnix">
+        /// The creation time of the pronunciation dictionary in Unix timestamp.
+        /// </param>
+        /// <param name="versionId">
+        /// The ID of the created pronunciation dictionary version.
+        /// </param>
+        /// <param name="description">
+        /// The description of the pronunciation dictionary.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -71,7 +84,7 @@ namespace ElevenLabs
             string id,
             string name,
             string createdBy,
-            int creationTimeUnix,
+            global::System.DateTimeOffset creationTimeUnix,
             string versionId,
             string? description)
         {

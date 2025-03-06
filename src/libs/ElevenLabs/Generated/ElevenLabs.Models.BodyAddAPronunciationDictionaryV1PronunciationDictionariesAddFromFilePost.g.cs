@@ -38,7 +38,7 @@ namespace ElevenLabs
         public string? Description { get; set; }
 
         /// <summary>
-        /// Should be one of 'editor' or 'viewer'. If not provided, defaults to no access.<br/>
+        /// Should be one of 'admin', 'editor' or 'viewer'. If not provided, defaults to no access.<br/>
         /// Example: viewer
         /// </summary>
         /// <example>viewer</example>
@@ -70,7 +70,7 @@ namespace ElevenLabs
         /// Example: Contains pronunciation's of our character names
         /// </param>
         /// <param name="workspaceAccess">
-        /// Should be one of 'editor' or 'viewer'. If not provided, defaults to no access.<br/>
+        /// Should be one of 'admin', 'editor' or 'viewer'. If not provided, defaults to no access.<br/>
         /// Example: viewer
         /// </param>
 #if NET7_0_OR_GREATER

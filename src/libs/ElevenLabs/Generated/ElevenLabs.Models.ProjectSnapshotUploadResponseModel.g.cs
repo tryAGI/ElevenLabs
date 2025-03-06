@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ProjectSnapshotUploadResponseModel
     {
         /// <summary>
-        /// 
+        /// The status of the snapshot upload.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectSnapshotUploadResponseModelStatusJsonConverter))]
@@ -17,7 +17,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.ProjectSnapshotUploadResponseModelStatus Status { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether volume normalization was applied to the snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("acx_volume_normalization")]
         public bool? AcxVolumeNormalization { get; set; }
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectSnapshotUploadResponseModel" /> class.
         /// </summary>
-        /// <param name="status"></param>
-        /// <param name="acxVolumeNormalization"></param>
+        /// <param name="status">
+        /// The status of the snapshot upload.
+        /// </param>
+        /// <param name="acxVolumeNormalization">
+        /// Whether volume normalization was applied to the snapshot.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

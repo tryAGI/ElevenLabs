@@ -43,11 +43,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gemini20FlashLite,
+        /// <summary>
+        /// 
+        /// </summary>
         Gemini10Pro,
         /// <summary>
         /// 
         /// </summary>
+        Claude37Sonnet,
+        /// <summary>
+        /// 
+        /// </summary>
         Claude35Sonnet,
+        /// <summary>
+        /// 
+        /// </summary>
+        Claude35SonnetV1,
         /// <summary>
         /// 
         /// </summary>
@@ -82,8 +94,11 @@ namespace ElevenLabs
                 LLM.Gemini15Pro => "gemini-1.5-pro",
                 LLM.Gemini15Flash => "gemini-1.5-flash",
                 LLM.Gemini20Flash001 => "gemini-2.0-flash-001",
+                LLM.Gemini20FlashLite => "gemini-2.0-flash-lite",
                 LLM.Gemini10Pro => "gemini-1.0-pro",
+                LLM.Claude37Sonnet => "claude-3-7-sonnet",
                 LLM.Claude35Sonnet => "claude-3-5-sonnet",
+                LLM.Claude35SonnetV1 => "claude-3-5-sonnet-v1",
                 LLM.Claude3Haiku => "claude-3-haiku",
                 LLM.GrokBeta => "grok-beta",
                 LLM.CustomLlm => "custom-llm",
@@ -105,8 +120,11 @@ namespace ElevenLabs
                 "gemini-1.5-pro" => LLM.Gemini15Pro,
                 "gemini-1.5-flash" => LLM.Gemini15Flash,
                 "gemini-2.0-flash-001" => LLM.Gemini20Flash001,
+                "gemini-2.0-flash-lite" => LLM.Gemini20FlashLite,
                 "gemini-1.0-pro" => LLM.Gemini10Pro,
+                "claude-3-7-sonnet" => LLM.Claude37Sonnet,
                 "claude-3-5-sonnet" => LLM.Claude35Sonnet,
+                "claude-3-5-sonnet-v1" => LLM.Claude35SonnetV1,
                 "claude-3-haiku" => LLM.Claude3Haiku,
                 "grok-beta" => LLM.GrokBeta,
                 "custom-llm" => LLM.CustomLlm,

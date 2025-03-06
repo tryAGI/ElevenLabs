@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The message of the fine-tuning process.
     /// </summary>
     public sealed partial class FineTuningResponseModelMessage
     {

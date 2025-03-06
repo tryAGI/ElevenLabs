@@ -37,6 +37,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.WebhookToolApiSchemaConfig ApiSchema { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
+        public global::ElevenLabs.DynamicVariablesConfig? DynamicVariables { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -51,6 +57,7 @@ namespace ElevenLabs
         /// <param name="apiSchema">
         /// Configuration for a webhook that will be called by an LLM tool.
         /// </param>
+        /// <param name="dynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -58,12 +65,14 @@ namespace ElevenLabs
             string name,
             string description,
             global::ElevenLabs.WebhookToolApiSchemaConfig apiSchema,
-            global::ElevenLabs.WebhookToolConfigType type)
+            global::ElevenLabs.WebhookToolConfigType type,
+            global::ElevenLabs.DynamicVariablesConfig? dynamicVariables)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.ApiSchema = apiSchema ?? throw new global::System.ArgumentNullException(nameof(apiSchema));
             this.Type = type;
+            this.DynamicVariables = dynamicVariables;
         }
 
         /// <summary>

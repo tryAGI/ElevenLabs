@@ -9,136 +9,136 @@ namespace ElevenLabs
     public sealed partial class ProjectExtendedResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ProjectId { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// The creation date of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("create_date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CreateDateUnix { get; set; }
 
         /// <summary>
-        /// 
+        /// The default title voice ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_title_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string DefaultTitleVoiceId { get; set; }
 
         /// <summary>
-        /// 
+        /// The default paragraph voice ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_paragraph_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string DefaultParagraphVoiceId { get; set; }
 
         /// <summary>
-        /// 
+        /// The default model ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string DefaultModelId { get; set; }
 
         /// <summary>
-        /// 
+        /// The last conversion date of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_conversion_date_unix")]
         public int? LastConversionDateUnix { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the project can be downloaded.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_be_downloaded")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool CanBeDownloaded { get; set; }
 
         /// <summary>
-        /// 
+        /// The title of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// 
+        /// The author of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("author")]
         public string? Author { get; set; }
 
         /// <summary>
-        /// 
+        /// The description of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// 
+        /// List of genres of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("genres")]
         public global::System.Collections.Generic.IList<string>? Genres { get; set; }
 
         /// <summary>
-        /// 
+        /// The cover image URL of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cover_image_url")]
         public string? CoverImageUrl { get; set; }
 
         /// <summary>
-        /// 
+        /// The target audience of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_audience")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelTargetAudienceJsonConverter))]
         public global::ElevenLabs.ProjectExtendedResponseModelTargetAudience? TargetAudience { get; set; }
 
         /// <summary>
-        /// 
+        /// Two-letter language code (ISO 639-1) of the language of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         public string? Language { get; set; }
 
         /// <summary>
-        /// 
+        /// The content type of the project, e.g. 'Novel' or 'Short Story'
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content_type")]
         public string? ContentType { get; set; }
 
         /// <summary>
-        /// 
+        /// The original publication date of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("original_publication_date")]
         public string? OriginalPublicationDate { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the project contains mature content.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mature_content")]
         public bool? MatureContent { get; set; }
 
         /// <summary>
-        /// 
+        /// The ISBN number of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("isbn_number")]
         public string? IsbnNumber { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the project uses volume normalization.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_normalization")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool VolumeNormalization { get; set; }
 
         /// <summary>
-        /// 
+        /// The state of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelStateJsonConverter))]
@@ -146,7 +146,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.ProjectExtendedResponseModelState State { get; set; }
 
         /// <summary>
-        /// 
+        /// The access level of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_level")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelAccessLevelJsonConverter))]
@@ -154,34 +154,41 @@ namespace ElevenLabs
         public required global::ElevenLabs.ProjectExtendedResponseModelAccessLevel AccessLevel { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the project is fiction.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fiction")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelFictionJsonConverter))]
         public global::ElevenLabs.ProjectExtendedResponseModelFiction? Fiction { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether quality check is enabled for this project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool QualityCheckOn { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether quality check is enabled on the project when bulk converting.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on_when_bulk_convert")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool QualityCheckOnWhenBulkConvert { get; set; }
 
         /// <summary>
-        /// 
+        /// The creation meta of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_meta")]
         public global::ElevenLabs.ProjectCreationMetaResponseModel? CreationMeta { get; set; }
 
         /// <summary>
-        /// 
+        /// The source type of the project.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelSourceTypeJsonConverter))]
+        public global::ElevenLabs.ProjectExtendedResponseModelSourceType? SourceType { get; set; }
+
+        /// <summary>
+        /// The quality preset level of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelQualityPresetJsonConverter))]
@@ -189,21 +196,21 @@ namespace ElevenLabs
         public required global::ElevenLabs.ProjectExtendedResponseModelQualityPreset QualityPreset { get; set; }
 
         /// <summary>
-        /// 
+        /// List of chapters of the project and their metadata.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapters")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> Chapters { get; set; }
 
         /// <summary>
-        /// 
+        /// List of pronunciation dictionary versions of the project and their metadata.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_versions")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> PronunciationDictionaryVersions { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether text normalization is applied to the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationJsonConverter))]
@@ -211,7 +218,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization ApplyTextNormalization { get; set; }
 
         /// <summary>
-        /// 
+        /// Experimental features of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -226,37 +233,102 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectExtendedResponseModel" /> class.
         /// </summary>
-        /// <param name="projectId"></param>
-        /// <param name="name"></param>
-        /// <param name="createDateUnix"></param>
-        /// <param name="defaultTitleVoiceId"></param>
-        /// <param name="defaultParagraphVoiceId"></param>
-        /// <param name="defaultModelId"></param>
-        /// <param name="lastConversionDateUnix"></param>
-        /// <param name="canBeDownloaded"></param>
-        /// <param name="title"></param>
-        /// <param name="author"></param>
-        /// <param name="description"></param>
-        /// <param name="genres"></param>
-        /// <param name="coverImageUrl"></param>
-        /// <param name="targetAudience"></param>
-        /// <param name="language"></param>
-        /// <param name="contentType"></param>
-        /// <param name="originalPublicationDate"></param>
-        /// <param name="matureContent"></param>
-        /// <param name="isbnNumber"></param>
-        /// <param name="volumeNormalization"></param>
-        /// <param name="state"></param>
-        /// <param name="accessLevel"></param>
-        /// <param name="fiction"></param>
-        /// <param name="qualityCheckOn"></param>
-        /// <param name="qualityCheckOnWhenBulkConvert"></param>
-        /// <param name="creationMeta"></param>
-        /// <param name="qualityPreset"></param>
-        /// <param name="chapters"></param>
-        /// <param name="pronunciationDictionaryVersions"></param>
-        /// <param name="applyTextNormalization"></param>
-        /// <param name="experimental"></param>
+        /// <param name="projectId">
+        /// The ID of the project.
+        /// </param>
+        /// <param name="name">
+        /// The name of the project.
+        /// </param>
+        /// <param name="createDateUnix">
+        /// The creation date of the project.
+        /// </param>
+        /// <param name="defaultTitleVoiceId">
+        /// The default title voice ID.
+        /// </param>
+        /// <param name="defaultParagraphVoiceId">
+        /// The default paragraph voice ID.
+        /// </param>
+        /// <param name="defaultModelId">
+        /// The default model ID.
+        /// </param>
+        /// <param name="lastConversionDateUnix">
+        /// The last conversion date of the project.
+        /// </param>
+        /// <param name="canBeDownloaded">
+        /// Whether the project can be downloaded.
+        /// </param>
+        /// <param name="title">
+        /// The title of the project.
+        /// </param>
+        /// <param name="author">
+        /// The author of the project.
+        /// </param>
+        /// <param name="description">
+        /// The description of the project.
+        /// </param>
+        /// <param name="genres">
+        /// List of genres of the project.
+        /// </param>
+        /// <param name="coverImageUrl">
+        /// The cover image URL of the project.
+        /// </param>
+        /// <param name="targetAudience">
+        /// The target audience of the project.
+        /// </param>
+        /// <param name="language">
+        /// Two-letter language code (ISO 639-1) of the language of the project.
+        /// </param>
+        /// <param name="contentType">
+        /// The content type of the project, e.g. 'Novel' or 'Short Story'
+        /// </param>
+        /// <param name="originalPublicationDate">
+        /// The original publication date of the project.
+        /// </param>
+        /// <param name="matureContent">
+        /// Whether the project contains mature content.
+        /// </param>
+        /// <param name="isbnNumber">
+        /// The ISBN number of the project.
+        /// </param>
+        /// <param name="volumeNormalization">
+        /// Whether the project uses volume normalization.
+        /// </param>
+        /// <param name="state">
+        /// The state of the project.
+        /// </param>
+        /// <param name="accessLevel">
+        /// The access level of the project.
+        /// </param>
+        /// <param name="fiction">
+        /// Whether the project is fiction.
+        /// </param>
+        /// <param name="qualityCheckOn">
+        /// Whether quality check is enabled for this project.
+        /// </param>
+        /// <param name="qualityCheckOnWhenBulkConvert">
+        /// Whether quality check is enabled on the project when bulk converting.
+        /// </param>
+        /// <param name="creationMeta">
+        /// The creation meta of the project.
+        /// </param>
+        /// <param name="sourceType">
+        /// The source type of the project.
+        /// </param>
+        /// <param name="qualityPreset">
+        /// The quality preset level of the project.
+        /// </param>
+        /// <param name="chapters">
+        /// List of chapters of the project and their metadata.
+        /// </param>
+        /// <param name="pronunciationDictionaryVersions">
+        /// List of pronunciation dictionary versions of the project and their metadata.
+        /// </param>
+        /// <param name="applyTextNormalization">
+        /// Whether text normalization is applied to the project.
+        /// </param>
+        /// <param name="experimental">
+        /// Experimental features of the project.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -291,7 +363,8 @@ namespace ElevenLabs
             bool? matureContent,
             string? isbnNumber,
             global::ElevenLabs.ProjectExtendedResponseModelFiction? fiction,
-            global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta)
+            global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta,
+            global::ElevenLabs.ProjectExtendedResponseModelSourceType? sourceType)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -324,6 +397,7 @@ namespace ElevenLabs
             this.IsbnNumber = isbnNumber;
             this.Fiction = fiction;
             this.CreationMeta = creationMeta;
+            this.SourceType = sourceType;
         }
 
         /// <summary>

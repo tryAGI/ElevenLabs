@@ -30,6 +30,12 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType> Others { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("phone_numbers")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? PhoneNumbers { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,17 +47,20 @@ namespace ElevenLabs
         /// <param name="tools"></param>
         /// <param name="agentTools"></param>
         /// <param name="others"></param>
+        /// <param name="phoneNumbers"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConvAIStoredSecretDependencies(
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem> tools,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentToolsItem> agentTools,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType> others)
+            global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType> others,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? phoneNumbers)
         {
             this.Tools = tools ?? throw new global::System.ArgumentNullException(nameof(tools));
             this.AgentTools = agentTools ?? throw new global::System.ArgumentNullException(nameof(agentTools));
             this.Others = others ?? throw new global::System.ArgumentNullException(nameof(others));
+            this.PhoneNumbers = phoneNumbers;
         }
 
         /// <summary>

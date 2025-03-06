@@ -27,7 +27,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Edit Voice Settings<br/>
-        /// Edit your settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> CreateVoicesByVoiceIdSettingsEditAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> CreateVoicesByVoiceIdSettingsEditAsync(
             string voiceId,
             global::ElevenLabs.AllOf<global::ElevenLabs.VoiceSettingsResponseModel> request,
             string? xiApiKey = default,
@@ -179,7 +179,9 @@ namespace ElevenLabs
                     };
                 }
 
-                return __content;
+                return
+                    global::ElevenLabs.EditVoiceSettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
             {
@@ -201,19 +203,21 @@ namespace ElevenLabs
                     };
                 }
 
-                var __content = await __response.Content.ReadAsStringAsync(
+                using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                return __content;
+                return
+                    await global::ElevenLabs.EditVoiceSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
         /// <summary>
         /// Edit Voice Settings<br/>
-        /// Edit your settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
@@ -224,7 +228,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> CreateVoicesByVoiceIdSettingsEditAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> CreateVoicesByVoiceIdSettingsEditAsync(
             string voiceId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

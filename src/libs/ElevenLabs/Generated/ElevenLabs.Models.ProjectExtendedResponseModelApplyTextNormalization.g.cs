@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Whether text normalization is applied to the project.
     /// </summary>
     public enum ProjectExtendedResponseModelApplyTextNormalization
     {

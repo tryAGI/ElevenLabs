@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface IVoicesClient
     {
         /// <summary>
-        /// Get Voices<br/>
-        /// Gets a list of all available voices for a user.
+        /// List Voices<br/>
+        /// Returns a list of all available voices for a user.
         /// </summary>
         /// <param name="showLegacy">
         /// If set to true, legacy premade voices will be included in responses from /v1/voices<br/>

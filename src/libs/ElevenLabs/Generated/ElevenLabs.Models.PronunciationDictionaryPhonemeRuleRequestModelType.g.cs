@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The type of the rule.
     /// </summary>
     public enum PronunciationDictionaryPhonemeRuleRequestModelType
     {

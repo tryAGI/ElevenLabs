@@ -37,7 +37,7 @@ namespace ElevenLabs
         public required string Sid { get; set; }
 
         /// <summary>
-        /// Twilio Token
+        /// Twilio Auth Token
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -65,7 +65,7 @@ namespace ElevenLabs
         /// Twilio Account SID
         /// </param>
         /// <param name="token">
-        /// Twilio Token
+        /// Twilio Auth Token
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

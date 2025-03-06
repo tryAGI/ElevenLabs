@@ -7,11 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareCreateSpeechToTextArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool? enableLogging,
             ref string? xiApiKey,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request);
         partial void PrepareCreateSpeechToTextRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? enableLogging,
             string? xiApiKey,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request);
         partial void ProcessCreateSpeechToTextResponse(
@@ -27,6 +29,10 @@ namespace ElevenLabs
         /// Speech To Text<br/>
         /// Transcribe an audio or video file.
         /// </summary>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -35,6 +41,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request,
+            bool? enableLogging = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -44,12 +51,16 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreateSpeechToTextArguments(
                 httpClient: HttpClient,
+                enableLogging: ref enableLogging,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/v1/speech-to-text",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("enable_logging", enableLogging?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -81,6 +92,12 @@ namespace ElevenLabs
             }
 
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+            if (enableLogging != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{enableLogging}"),
+                    name: "enable_logging");
+            } 
             if (xiApiKey != default)
             {
                 __httpRequestContent.Add(
@@ -132,6 +149,7 @@ namespace ElevenLabs
             PrepareCreateSpeechToTextRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                enableLogging: enableLogging,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -251,6 +269,10 @@ namespace ElevenLabs
         /// Speech To Text<br/>
         /// Transcribe an audio or video file.
         /// </summary>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -287,6 +309,7 @@ namespace ElevenLabs
             string modelId,
             byte[] file,
             string filename,
+            bool? enableLogging = default,
             string? xiApiKey = default,
             string? languageCode = default,
             bool? tagAudioEvents = default,
@@ -308,6 +331,7 @@ namespace ElevenLabs
             };
 
             return await CreateSpeechToTextAsync(
+                enableLogging: enableLogging,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

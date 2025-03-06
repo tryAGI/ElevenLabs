@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The category of the voice.
     /// </summary>
     public enum VoiceSharingResponseModelCategory
     {
@@ -15,15 +15,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Cloned,
+        /// <summary>
+        /// 
+        /// </summary>
+        Premade,
+        /// <summary>
+        /// 
+        /// </summary>
         Professional,
         /// <summary>
         /// 
         /// </summary>
-        HighQuality,
+        Famous,
         /// <summary>
         /// 
         /// </summary>
-        Famous,
+        HighQuality,
     }
 
     /// <summary>
@@ -39,9 +47,11 @@ namespace ElevenLabs
             return value switch
             {
                 VoiceSharingResponseModelCategory.Generated => "generated",
+                VoiceSharingResponseModelCategory.Cloned => "cloned",
+                VoiceSharingResponseModelCategory.Premade => "premade",
                 VoiceSharingResponseModelCategory.Professional => "professional",
-                VoiceSharingResponseModelCategory.HighQuality => "high_quality",
                 VoiceSharingResponseModelCategory.Famous => "famous",
+                VoiceSharingResponseModelCategory.HighQuality => "high_quality",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -53,9 +63,11 @@ namespace ElevenLabs
             return value switch
             {
                 "generated" => VoiceSharingResponseModelCategory.Generated,
+                "cloned" => VoiceSharingResponseModelCategory.Cloned,
+                "premade" => VoiceSharingResponseModelCategory.Premade,
                 "professional" => VoiceSharingResponseModelCategory.Professional,
-                "high_quality" => VoiceSharingResponseModelCategory.HighQuality,
                 "famous" => VoiceSharingResponseModelCategory.Famous,
+                "high_quality" => VoiceSharingResponseModelCategory.HighQuality,
                 _ => null,
             };
         }

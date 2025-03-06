@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The safety controls of the voice.
     /// </summary>
     public enum VoiceResponseModelSafetyControl
     {

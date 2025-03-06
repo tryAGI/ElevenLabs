@@ -24,8 +24,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Creates Audionative Enabled Project.<br/>
-        /// Creates AudioNative enabled project, optionally starts conversion and returns project id and embeddable html snippet.
+        /// Creates Audio Native Enabled Project.<br/>
+        /// Creates Audio Native enabled project, optionally starts conversion and returns project ID and embeddable HTML snippet.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -281,8 +281,8 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Creates Audionative Enabled Project.<br/>
-        /// Creates AudioNative enabled project, optionally starts conversion and returns project id and embeddable html snippet.
+        /// Creates Audio Native Enabled Project.<br/>
+        /// Creates Audio Native enabled project, optionally starts conversion and returns project ID and embeddable HTML snippet.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
