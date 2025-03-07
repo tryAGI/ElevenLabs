@@ -961,8 +961,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceGenerationParameterResponseModel'
-      x-fern-sdk-method-name: generate_parameters
       x-fern-sdk-group-name: voice_generation
+      x-fern-sdk-method-name: generate_parameters
   /v1/voice-generation/generate-voice:
     post:
       tags:
@@ -1239,8 +1239,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VoiceSettingsResponseModel'
-      x-fern-sdk-method-name: get_default_settings
       x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: get_default_settings
   '/v1/voices/{voice_id}/settings':
     get:
       tags:
@@ -3978,6 +3978,12 @@ paths:
               example:
                 error: dubbing_not_found
                 message: 'There is no dubbing for language {language_code}.'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -3985,12 +3991,6 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: get_dubbed_file
   '/v1/dubbing/{dubbing_id}/transcript/{language_code}':
@@ -4039,13 +4039,13 @@ paths:
         '200':
           description: Successful Response
           content:
-            text/plain:
-              schema:
-                type: string
             application/json:
               schema:
                 type: string
               example: "1\n00:00:01,000 --> 00:00:04,000\nHello, this is the first subtitle line\n\n2\n00:00:05,000 --> 00:00:07,000\nAnd here's the second subtitle line"
+            text/plain:
+              schema:
+                type: string
         '403':
           description: Anonymous users cannot use this function
           content:
@@ -4060,6 +4060,12 @@ paths:
               example:
                 error: transcript_not_found
                 message: No transcript was found for the dub.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -4067,12 +4073,6 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: get_transcript_for_dub
   /v1/models:
@@ -4723,8 +4723,8 @@ paths:
           description: 'How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -5493,8 +5493,8 @@ paths:
           description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many Agents to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -5563,8 +5563,8 @@ paths:
           description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -5953,8 +5953,8 @@ paths:
           description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -6307,8 +6307,8 @@ paths:
           description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
           schema:
             title: Page Size
-            maximum: 100.0
-            minimum: 1.0
+            maximum: 100
+            minimum: 1
             type: integer
             description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
@@ -6428,8 +6428,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-method-name: get_secrets
       x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_secrets
     post:
       tags:
         - Conversational AI
@@ -8487,8 +8487,8 @@ components:
           default: true
         num_speakers:
           title: Num Speakers
-          maximum: 32.0
-          minimum: 1.0
+          maximum: 32
+          minimum: 1
           type: integer
           description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
         timestamps_granularity:
@@ -9503,8 +9503,8 @@ components:
           default: false
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30.0
-          minimum: 1.0
+          maximum: 30
+          minimum: 1
           type: integer
         dynamic_variables:
           $ref: '#/components/schemas/DynamicVariablesConfig'
@@ -13243,9 +13243,9 @@ components:
           default: e5_mistral_7b_instruct
         max_vector_distance:
           title: Max Vector Distance
-          maximum: 1.0
+          maximum: 1
           exclusiveMaximum: true
-          minimum: 0.0
+          minimum: 0
           exclusiveMinimum: true
           type: number
           description: Maximum vector distance of retrieved chunks.
@@ -13253,9 +13253,9 @@ components:
           example: 0.5
         max_documents_length:
           title: Max Documents Length
-          maximum: 10000000.0
+          maximum: 10000000
           exclusiveMaximum: true
-          minimum: 0.0
+          minimum: 0
           exclusiveMinimum: true
           type: integer
           description: Maximum total length of document chunks retrieved from RAG.
@@ -14157,8 +14157,8 @@ components:
           default: 3
         stability:
           title: Stability
-          maximum: 1.0
-          minimum: 0.0
+          maximum: 1
+          minimum: 0
           type: number
           default: 0.5
         speed:
@@ -14169,8 +14169,8 @@ components:
           default: 1
         similarity_boost:
           title: Similarity Boost
-          maximum: 1.0
-          minimum: 0.0
+          maximum: 1
+          minimum: 0
           type: number
           default: 0.8
         pronunciation_dictionary_locators:
