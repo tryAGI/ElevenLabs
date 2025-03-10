@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The category of the voice. Either 'premade', 'cloned', 'generated' or 'professional'.
     /// </summary>
     public enum SpeechHistoryItemResponseModelVoiceCategory
     {

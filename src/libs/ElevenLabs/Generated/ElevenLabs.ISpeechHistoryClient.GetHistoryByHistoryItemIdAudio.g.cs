@@ -17,7 +17,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task GetHistoryByHistoryItemIdAudioAsync(
+        global::System.Threading.Tasks.Task<byte[]> GetHistoryByHistoryItemIdAudioAsync(
             string historyItemId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

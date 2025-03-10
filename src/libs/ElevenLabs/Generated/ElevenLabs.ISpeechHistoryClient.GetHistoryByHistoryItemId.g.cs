@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface ISpeechHistoryClient
     {
         /// <summary>
-        /// Get History Item By Id<br/>
-        /// Returns information about an history item by its ID.
+        /// Get History Item<br/>
+        /// Retrieves a history item.
         /// </summary>
         /// <param name="historyItemId">
         /// History item ID to be used, you can use GET https://api.elevenlabs.io/v1/history to receive a list of history items and their IDs.<br/>

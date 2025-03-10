@@ -11,7 +11,7 @@ namespace ElevenLabs
             ref string? startAfterHistoryItemId,
             ref string? voiceId,
             ref string? search,
-            ref global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource? source,
+            ref global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource? source,
             ref string? xiApiKey);
         partial void PrepareGetHistoryRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -20,7 +20,7 @@ namespace ElevenLabs
             string? startAfterHistoryItemId,
             string? voiceId,
             string? search,
-            global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource? source,
+            global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource? source,
             string? xiApiKey);
         partial void ProcessGetHistoryResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -32,8 +32,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Generated Items<br/>
-        /// Returns metadata about all your generated audio.
+        /// List Generated Items<br/>
+        /// Returns a list of your generated audio.
         /// </summary>
         /// <param name="pageSize">
         /// How many history items to return at maximum. Can not exceed 1000, defaults to 100.<br/>
@@ -63,7 +63,7 @@ namespace ElevenLabs
             string? startAfterHistoryItemId = default,
             string? voiceId = default,
             string? search = default,
-            global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource? source = default,
+            global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource? source = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

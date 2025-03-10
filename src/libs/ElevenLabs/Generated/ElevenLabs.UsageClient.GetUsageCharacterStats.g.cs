@@ -30,7 +30,7 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Characters Usage Metrics<br/>
+        /// Get Character Usage Metrics<br/>
         /// Returns the credit usage metrics for the current user or the entire workspace they are part of. The response will return a time axis with unix timestamps for each day and daily usage along that axis. The usage will be broken down by the specified breakdown type. For example, breakdown type "voice" will return the usage of each voice along the time axis.
         /// </summary>
         /// <param name="startUnix">
