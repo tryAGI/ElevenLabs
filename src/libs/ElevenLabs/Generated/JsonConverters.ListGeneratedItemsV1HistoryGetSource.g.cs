@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class GetGeneratedItemsV1HistoryGetSourceJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource>
+    public sealed class ListGeneratedItemsV1HistoryGetSourceJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource Read(
+        public override global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.GetGeneratedItemsV1HistoryGetSourceExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.ListGeneratedItemsV1HistoryGetSourceExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource)numValue;
+                    return (global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,12 +38,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource value,
+            global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.GetGeneratedItemsV1HistoryGetSourceExtensions.ToValueString(value));
+            writer.WriteStringValue(global::ElevenLabs.ListGeneratedItemsV1HistoryGetSourceExtensions.ToValueString(value));
         }
     }
 }

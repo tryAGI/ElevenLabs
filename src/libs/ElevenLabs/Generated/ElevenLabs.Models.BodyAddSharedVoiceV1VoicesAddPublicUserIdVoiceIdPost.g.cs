@@ -10,9 +10,9 @@ namespace ElevenLabs
     {
         /// <summary>
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
-        /// Example: Joe Rogan
+        /// Example: John Smith
         /// </summary>
-        /// <example>Joe Rogan</example>
+        /// <example>John Smith</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("new_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string NewName { get; set; }
@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="newName">
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
-        /// Example: Joe Rogan
+        /// Example: John Smith
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

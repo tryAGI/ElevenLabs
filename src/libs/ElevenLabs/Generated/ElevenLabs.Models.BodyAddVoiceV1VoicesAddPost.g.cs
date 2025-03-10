@@ -10,9 +10,9 @@ namespace ElevenLabs
     {
         /// <summary>
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
-        /// Example: Joe Rogan
+        /// Example: John Smith
         /// </summary>
-        /// <example>Joe Rogan</example>
+        /// <example>John Smith</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
@@ -58,7 +58,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="name">
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
-        /// Example: Joe Rogan
+        /// Example: John Smith
         /// </param>
         /// <param name="files">
         /// A list of file paths to audio recordings intended for voice cloning.

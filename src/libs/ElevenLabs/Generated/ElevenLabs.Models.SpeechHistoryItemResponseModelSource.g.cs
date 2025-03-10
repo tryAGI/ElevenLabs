@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The source of the history item. Either TTS (text to speech), STS (speech to text) or STT (speech to text).
     /// </summary>
     public enum SpeechHistoryItemResponseModelSource
     {
@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         STS,
+        /// <summary>
+        /// 
+        /// </summary>
+        STT,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 SpeechHistoryItemResponseModelSource.TTS => "TTS",
                 SpeechHistoryItemResponseModelSource.STS => "STS",
+                SpeechHistoryItemResponseModelSource.STT => "STT",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "TTS" => SpeechHistoryItemResponseModelSource.TTS,
                 "STS" => SpeechHistoryItemResponseModelSource.STS,
+                "STT" => SpeechHistoryItemResponseModelSource.STT,
                 _ => null,
             };
         }

@@ -262,7 +262,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="name">
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
-        /// Example: Joe Rogan
+        /// Example: John Smith
         /// </param>
         /// <param name="files">
         /// Audio files to add to the voice

@@ -46,7 +46,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="newName">
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
-        /// Example: Joe Rogan
+        /// Example: John Smith
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

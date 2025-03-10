@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface ISpeechHistoryClient
     {
         /// <summary>
-        /// Get Generated Items<br/>
-        /// Returns metadata about all your generated audio.
+        /// List Generated Items<br/>
+        /// Returns a list of your generated audio.
         /// </summary>
         /// <param name="pageSize">
         /// How many history items to return at maximum. Can not exceed 1000, defaults to 100.<br/>
@@ -36,7 +36,7 @@ namespace ElevenLabs
             string? startAfterHistoryItemId = default,
             string? voiceId = default,
             string? search = default,
-            global::ElevenLabs.GetGeneratedItemsV1HistoryGetSource? source = default,
+            global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource? source = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

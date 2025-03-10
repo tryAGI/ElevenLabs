@@ -10,9 +10,9 @@ paths:
     get:
       tags:
         - speech-history
-      summary: Get Generated Items
-      description: Returns metadata about all your generated audio.
-      operationId: Get_generated_items_v1_history_get
+      summary: List Generated Items
+      description: Returns a list of your generated audio.
+      operationId: List_generated_items_v1_history_get
       parameters:
         - name: page_size
           in: query
@@ -81,9 +81,9 @@ paths:
     get:
       tags:
         - speech-history
-      summary: Get History Item By Id
-      description: Returns information about an history item by its ID.
-      operationId: Get_history_item_by_ID_v1_history__history_item_id__get
+      summary: Get History Item
+      description: Retrieves a history item.
+      operationId: Get_history_item_v1_history__history_item_id__get
       parameters:
         - name: history_item_id
           in: path
@@ -144,7 +144,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/DeleteHistoryItemResponse'
         '422':
           description: Validation Error
           content:
@@ -179,9 +180,12 @@ paths:
             description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
       responses:
         '200':
-          description: Successful Response
+          description: The audio file of the history item.
           content:
-            audio/mpeg: { }
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
         '422':
           description: Validation Error
           content:
@@ -213,7 +217,19 @@ paths:
         required: true
       responses:
         '200':
-          description: Successful Response
+          description: 'The requested audio file, or a zip file containing multiple audio files when multiple history items are requested.'
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              example:
+                error: invalid_output_format
+                message: output_format must be wav or none
         '422':
           description: Validation Error
           content:
@@ -4424,9 +4440,9 @@ paths:
     get:
       tags:
         - usage
-      summary: Get Characters Usage Metrics
+      summary: Get Character Usage Metrics
       description: 'Returns the credit usage metrics for the current user or the entire workspace they are part of. The response will return a time axis with unix timestamps for each day and daily usage along that axis. The usage will be broken down by the specified breakdown type. For example, breakdown type "voice" will return the usage of each voice along the time axis.'
-      operationId: Get_characters_usage_metrics_v1_usage_character_stats_get
+      operationId: Get_character_usage_metrics_v1_usage_character_stats_get
       parameters:
         - name: start_unix
           in: query
@@ -7364,7 +7380,7 @@ components:
           title: New Name
           type: string
           description: The name that identifies this voice. This will be displayed in the dropdown of the website.
-          example: Joe Rogan
+          example: John Smith
     Body_Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post:
       title: Body_Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post
       type: object
@@ -7427,7 +7443,7 @@ components:
           title: Name
           type: string
           description: The name that identifies this voice. This will be displayed in the dropdown of the website.
-          example: Joe Rogan
+          example: John Smith
         files:
           title: Files
           type: array
@@ -8200,7 +8216,7 @@ components:
           title: Name
           type: string
           description: The name that identifies this voice. This will be displayed in the dropdown of the website.
-          example: Joe Rogan
+          example: John Smith
         files:
           title: Files
           type: array
@@ -8505,6 +8521,12 @@ components:
           type: boolean
           description: Whether to annotate which speaker is currently talking in the uploaded file.
           default: false
+        biased_keywords:
+          title: Biased Keywords
+          type: array
+          items:
+            type: string
+          description: 'A list of keywords and their biases.          The keywords are the words that you want to bias the transcription towards.           The biases decide how much the model should boost or suppress the keyword.           The biases should be numbers between -10 and 10. The number of keywords cannot exceed 100.          The length of each keyword must be less than 50 characters.          Each keyword-bias pair must be separated by a colon.          For example ["keyword_a:0.42", "keyword_b:-0.5"]'
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -10093,6 +10115,18 @@ components:
           description: 'The status of the dubbing project. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
+    DeleteHistoryItemResponse:
+      title: DeleteHistoryItemResponse
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with http code 500 will be returned.'
+      example:
+        status: ok
     DeleteProjectResponseModel:
       title: DeleteProjectResponseModel
       required:
@@ -10710,28 +10744,45 @@ components:
         thumbs_up:
           title: Thumbs Up
           type: boolean
+          description: Whether the user liked the generated item.
         feedback:
           title: Feedback
           type: string
+          description: The feedback text provided by the user.
         emotions:
           title: Emotions
           type: boolean
+          description: Whether the user provided emotions.
         inaccurate_clone:
           title: Inaccurate Clone
           type: boolean
+          description: Whether the user thinks the clone is inaccurate.
         glitches:
           title: Glitches
           type: boolean
+          description: Whether the user thinks there are glitches in the audio.
         audio_quality:
           title: Audio Quality
           type: boolean
+          description: Whether the user thinks the audio quality is good.
         other:
           title: Other
           type: boolean
+          description: Whether the user provided other feedback.
         review_status:
           title: Review Status
           type: string
+          description: The review status of the item. Defaults to 'not_reviewed'.
           default: not_reviewed
+      example:
+        thumbs_up: true
+        feedback: This is an example of test feedback.
+        emotions: true
+        inaccurate_clone: false
+        glitches: true
+        audio_quality: true
+        other: false
+        review_status: not_reviewed
     FineTuningResponseModel:
       title: FineTuningResponseModel
       required:
@@ -11315,7 +11366,6 @@ components:
       title: GetSpeechHistoryResponseModel
       required:
         - history
-        - last_history_item_id
         - has_more
       type: object
       properties:
@@ -11324,12 +11374,37 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SpeechHistoryItemResponseModel'
+          description: A list of speech history items.
         last_history_item_id:
           title: Last History Item Id
           type: string
+          description: The ID of the last history item.
         has_more:
           title: Has More
           type: boolean
+          description: Whether there are more history items to fetch.
+      example:
+        history:
+          - history_item_id: ja9xsmfGhxYcymxGcOGB
+            request_id: BF0BZg4IwLGBlaVjv9Im
+            voice_id: 21m00Tcm4TlvDq8ikWAM
+            model_id: eleven_multilingual_v2
+            voice_name: Rachel
+            voice_category: premade
+            text: 'Hello, world!'
+            date_unix: 1714650306
+            character_count_change_from: 17189
+            character_count_change_to: 17231
+            content_type: audio/mpeg
+            state: created
+            settings:
+              similarity_boost: 0.5
+              stability: 0.71
+              style: 0
+              use_speaker_boost: true
+            source: TTS
+        last_history_item_id: ja9xsmfGhxYcymxGcOGB
+        has_more: true
     GetVoicesResponseModel:
       title: GetVoicesResponseModel
       required:
@@ -11485,16 +11560,19 @@ components:
           type: array
           items:
             type: string
+          description: The characters in the alignment.
         character_start_times_seconds:
           title: Character Start Times Seconds
           type: array
           items:
             type: number
+          description: The start times of the characters in seconds.
         character_end_times_seconds:
           title: Character End Times Seconds
           type: array
           items:
             type: number
+          description: The end times of the characters in seconds.
     HistoryAlignmentsResponseModel:
       title: HistoryAlignmentsResponseModel
       required:
@@ -11503,9 +11581,15 @@ components:
       type: object
       properties:
         alignment:
-          $ref: '#/components/schemas/HistoryAlignmentResponseModel'
+          title: Alignment
+          allOf:
+            - $ref: '#/components/schemas/HistoryAlignmentResponseModel'
+          description: The alignment of the text.
         normalized_alignment:
-          $ref: '#/components/schemas/HistoryAlignmentResponseModel'
+          title: Normalized Alignment
+          allOf:
+            - $ref: '#/components/schemas/HistoryAlignmentResponseModel'
+          description: The normalized alignment of the text.
     ImageAvatar:
       title: ImageAvatar
       type: object
@@ -13599,38 +13683,36 @@ components:
       title: SpeechHistoryItemResponseModel
       required:
         - history_item_id
-        - request_id
         - voice_id
-        - model_id
         - voice_name
-        - voice_category
         - text
         - date_unix
         - character_count_change_from
         - character_count_change_to
         - content_type
         - state
-        - settings
-        - feedback
-        - share_link_id
-        - source
       type: object
       properties:
         history_item_id:
           title: History Item Id
           type: string
+          description: The ID of the history item.
         request_id:
           title: Request Id
           type: string
+          description: The ID of the request.
         voice_id:
           title: Voice Id
           type: string
+          description: The ID of the voice used.
         model_id:
           title: Model Id
           type: string
+          description: The ID of the model.
         voice_name:
           title: Voice Name
           type: string
+          description: The name of the voice.
         voice_category:
           title: Voice Category
           enum:
@@ -13639,21 +13721,27 @@ components:
             - generated
             - professional
           type: string
+          description: 'The category of the voice. Either ''premade'', ''cloned'', ''generated'' or ''professional''.'
         text:
           title: Text
           type: string
+          description: The text used to generate the audio item.
         date_unix:
           title: Date Unix
           type: integer
+          description: Unix timestamp of when the item was created.
         character_count_change_from:
           title: Character Count Change From
           type: integer
+          description: The character count change from.
         character_count_change_to:
           title: Character Count Change To
           type: integer
+          description: The character count change to.
         content_type:
           title: Content Type
           type: string
+          description: The content type of the generated item.
         state:
           title: State
           enum:
@@ -13661,22 +13749,52 @@ components:
             - deleted
             - processing
           type: string
+          description: The state of the history item.
         settings:
           title: Settings
           type: object
+          description: The settings of the history item.
         feedback:
-          $ref: '#/components/schemas/FeedbackResponseModel'
+          title: Feedback
+          allOf:
+            - $ref: '#/components/schemas/FeedbackResponseModel'
+          description: Feedback associated with the generated item. Returns null if no feedback has been provided.
         share_link_id:
           title: Share Link Id
           type: string
+          description: The ID of the share link.
         source:
           title: Source
           enum:
             - TTS
             - STS
+            - STT
           type: string
+          description: 'The source of the history item. Either TTS (text to speech), STS (speech to text) or STT (speech to text).'
         alignments:
-          $ref: '#/components/schemas/HistoryAlignmentsResponseModel'
+          title: Alignments
+          allOf:
+            - $ref: '#/components/schemas/HistoryAlignmentsResponseModel'
+          description: The alignments of the history item.
+      example:
+        history_item_id: ja9xsmfGhxYcymxGcOGB
+        request_id: BF0BZg4IwLGBlaVjv9Im
+        voice_id: 21m00Tcm4TlvDq8ikWAM
+        model_id: eleven_multilingual_v2
+        voice_name: Rachel
+        voice_category: premade
+        text: 'Hello, world!'
+        date_unix: 1714650306
+        character_count_change_from: 17189
+        character_count_change_to: 17231
+        content_type: audio/mpeg
+        state: created
+        settings:
+          similarity_boost: 0.5
+          stability: 0.71
+          style: 0
+          use_speaker_boost: true
+        source: TTS
     SpeechToTextCharacterResponseModel:
       title: SpeechToTextCharacterResponseModel
       required:
@@ -14293,6 +14411,7 @@ components:
           type: array
           items:
             type: integer
+          description: The time axis with unix timestamps for each day.
         usage:
           title: Usage
           type: object
@@ -14300,6 +14419,15 @@ components:
             type: array
             items:
               type: integer
+          description: The usage of each breakdown type along the time axis.
+      example:
+        time:
+          - '1738252091000'
+          - '1739404800000'
+        usage:
+          All:
+            - 49
+            - 1053
     UserFeedback:
       title: UserFeedback
       required:
@@ -14634,6 +14762,37 @@ components:
           type: boolean
           description: Whether to automatically generate a text suitable for the voice description.
           default: false
+        loudness:
+          title: Loudness
+          maximum: 1
+          minimum: -1
+          type: number
+          description: 'Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.'
+          default: 0.5
+          example: 0.5
+        quality:
+          title: Quality
+          maximum: 1
+          minimum: -1
+          type: number
+          description: Higher quality results in better voice output but less variety.
+          default: 0.9
+          example: 0.9
+        seed:
+          title: Seed
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: Random number that controls the voice generation. Same seed with same inputs produces same voice.
+          example: 11
+        guidance_scale:
+          title: Guidance Scale
+          maximum: 100
+          minimum: 0
+          type: number
+          description: 'Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.'
+          default: 5
+          example: 5
     VoicePreviewsResponseModel:
       title: VoicePreviewsResponseModel
       required:

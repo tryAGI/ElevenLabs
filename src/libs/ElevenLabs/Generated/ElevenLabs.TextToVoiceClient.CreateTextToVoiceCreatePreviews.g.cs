@@ -243,6 +243,25 @@ namespace ElevenLabs
         /// Whether to automatically generate a text suitable for the voice description.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="loudness">
+        /// Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.<br/>
+        /// Default Value: 0.5<br/>
+        /// Example: 0.5
+        /// </param>
+        /// <param name="quality">
+        /// Higher quality results in better voice output but less variety.<br/>
+        /// Default Value: 0.9<br/>
+        /// Example: 0.9
+        /// </param>
+        /// <param name="seed">
+        /// Random number that controls the voice generation. Same seed with same inputs produces same voice.<br/>
+        /// Example: 11
+        /// </param>
+        /// <param name="guidanceScale">
+        /// Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.<br/>
+        /// Default Value: 5<br/>
+        /// Example: 5
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreateTextToVoiceCreatePreviewsAsync(
@@ -251,6 +270,10 @@ namespace ElevenLabs
             global::ElevenLabs.GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             bool? autoGenerateText = default,
+            double? loudness = default,
+            double? quality = default,
+            int? seed = default,
+            double? guidanceScale = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.VoicePreviewsRequestModel
@@ -258,6 +281,10 @@ namespace ElevenLabs
                 VoiceDescription = voiceDescription,
                 Text = text,
                 AutoGenerateText = autoGenerateText,
+                Loudness = loudness,
+                Quality = quality,
+                Seed = seed,
+                GuidanceScale = guidanceScale,
             };
 
             return await CreateTextToVoiceCreatePreviewsAsync(

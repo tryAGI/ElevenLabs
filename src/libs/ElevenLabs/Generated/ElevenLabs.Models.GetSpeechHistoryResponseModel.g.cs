@@ -9,21 +9,20 @@ namespace ElevenLabs
     public sealed partial class GetSpeechHistoryResponseModel
     {
         /// <summary>
-        /// 
+        /// A list of speech history items.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel> History { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the last history item.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_history_item_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string LastHistoryItemId { get; set; }
+        public string? LastHistoryItemId { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether there are more history items to fetch.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -38,20 +37,26 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="GetSpeechHistoryResponseModel" /> class.
         /// </summary>
-        /// <param name="history"></param>
-        /// <param name="lastHistoryItemId"></param>
-        /// <param name="hasMore"></param>
+        /// <param name="history">
+        /// A list of speech history items.
+        /// </param>
+        /// <param name="lastHistoryItemId">
+        /// The ID of the last history item.
+        /// </param>
+        /// <param name="hasMore">
+        /// Whether there are more history items to fetch.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetSpeechHistoryResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel> history,
-            string lastHistoryItemId,
-            bool hasMore)
+            bool hasMore,
+            string? lastHistoryItemId)
         {
             this.History = history ?? throw new global::System.ArgumentNullException(nameof(history));
-            this.LastHistoryItemId = lastHistoryItemId ?? throw new global::System.ArgumentNullException(nameof(lastHistoryItemId));
             this.HasMore = hasMore;
+            this.LastHistoryItemId = lastHistoryItemId;
         }
 
         /// <summary>

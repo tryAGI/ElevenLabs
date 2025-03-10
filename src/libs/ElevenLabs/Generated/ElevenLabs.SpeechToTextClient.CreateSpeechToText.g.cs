@@ -140,6 +140,12 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Diarize}"),
                     name: "diarize");
+            } 
+            if (request.BiasedKeywords != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.BiasedKeywords, x => x))}]"),
+                    name: "biased_keywords");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -303,6 +309,9 @@ namespace ElevenLabs
         /// Whether to annotate which speaker is currently talking in the uploaded file.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="biasedKeywords">
+        /// A list of keywords and their biases.          The keywords are the words that you want to bias the transcription towards.           The biases decide how much the model should boost or suppress the keyword.           The biases should be numbers between -10 and 10. The number of keywords cannot exceed 100.          The length of each keyword must be less than 50 characters.          Each keyword-bias pair must be separated by a colon.          For example ["keyword_a:0.42", "keyword_b:-0.5"]
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
@@ -316,6 +325,7 @@ namespace ElevenLabs
             int? numSpeakers = default,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity = default,
             bool? diarize = default,
+            global::System.Collections.Generic.IList<string>? biasedKeywords = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost
@@ -328,6 +338,7 @@ namespace ElevenLabs
                 NumSpeakers = numSpeakers,
                 TimestampsGranularity = timestampsGranularity,
                 Diarize = diarize,
+                BiasedKeywords = biasedKeywords,
             };
 
             return await CreateSpeechToTextAsync(
