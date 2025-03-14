@@ -30,7 +30,7 @@ namespace ElevenLabs
         public required string Label { get; set; }
 
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyProviderJsonConverter))]
@@ -48,9 +48,7 @@ namespace ElevenLabs
         /// <param name="phoneNumberId"></param>
         /// <param name="phoneNumber"></param>
         /// <param name="label"></param>
-        /// <param name="provider">
-        /// An enumeration.
-        /// </param>
+        /// <param name="provider"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

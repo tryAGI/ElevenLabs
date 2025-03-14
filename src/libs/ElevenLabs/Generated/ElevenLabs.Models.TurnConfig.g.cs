@@ -15,7 +15,7 @@ namespace ElevenLabs
         public double? TurnTimeout { get; set; }
 
         /// <summary>
-        /// Default Value: turn
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TurnModeJsonConverter))]
@@ -33,9 +33,7 @@ namespace ElevenLabs
         /// <param name="turnTimeout">
         /// Default Value: 7
         /// </param>
-        /// <param name="mode">
-        /// Default Value: turn
-        /// </param>
+        /// <param name="mode"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

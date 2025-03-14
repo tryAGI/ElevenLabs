@@ -16,14 +16,14 @@ namespace ElevenLabs
         public required string UserId { get; set; }
 
         /// <summary>
-        /// Details of the user's subscription.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("subscription")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.SubscriptionResponseModel Subscription { get; set; }
 
         /// <summary>
-        /// Optional additional details about the user's subscription.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("subscription_extras")]
         public global::ElevenLabs.SubscriptionExtrasResponseModel? SubscriptionExtras { get; set; }
@@ -105,12 +105,8 @@ namespace ElevenLabs
         /// <param name="userId">
         /// The unique identifier of the user.
         /// </param>
-        /// <param name="subscription">
-        /// Details of the user's subscription.
-        /// </param>
-        /// <param name="subscriptionExtras">
-        /// Optional additional details about the user's subscription.
-        /// </param>
+        /// <param name="subscription"></param>
+        /// <param name="subscriptionExtras"></param>
         /// <param name="isNewUser">
         /// Whether the user is new.
         /// </param>

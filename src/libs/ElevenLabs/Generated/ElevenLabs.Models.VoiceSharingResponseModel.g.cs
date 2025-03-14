@@ -210,7 +210,7 @@ namespace ElevenLabs
         public string? TiktokUsername { get; set; }
 
         /// <summary>
-        /// The moderation check of the voice.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("moderation_check")]
         public global::ElevenLabs.VoiceSharingModerationCheckResponseModel? ModerationCheck { get; set; }
@@ -320,9 +320,7 @@ namespace ElevenLabs
         /// <param name="tiktokUsername">
         /// The TikTok username of the voice.
         /// </param>
-        /// <param name="moderationCheck">
-        /// The moderation check of the voice.
-        /// </param>
+        /// <param name="moderationCheck"></param>
         /// <param name="readerRestrictedOn">
         /// The reader restricted on of the voice.
         /// </param>

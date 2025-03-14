@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class TTSConversationalConfig
     {
         /// <summary>
-        /// Default Value: eleven_turbo_v2
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TTSConversationalModelJsonConverter))]
@@ -22,14 +22,14 @@ namespace ElevenLabs
         public string? VoiceId { get; set; }
 
         /// <summary>
-        /// Default Value: pcm_16000
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_output_audio_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TTSOutputFormatJsonConverter))]
         public global::ElevenLabs.TTSOutputFormat? AgentOutputAudioFormat { get; set; }
 
         /// <summary>
-        /// Default Value: 3
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("optimize_streaming_latency")]
         public int? OptimizeStreamingLatency { get; set; }
@@ -67,18 +67,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="TTSConversationalConfig" /> class.
         /// </summary>
-        /// <param name="modelId">
-        /// Default Value: eleven_turbo_v2
-        /// </param>
+        /// <param name="modelId"></param>
         /// <param name="voiceId">
         /// Default Value: cjVigY5qzO86Huf0OWal
         /// </param>
-        /// <param name="agentOutputAudioFormat">
-        /// Default Value: pcm_16000
-        /// </param>
-        /// <param name="optimizeStreamingLatency">
-        /// Default Value: 3
-        /// </param>
+        /// <param name="agentOutputAudioFormat"></param>
+        /// <param name="optimizeStreamingLatency"></param>
         /// <param name="stability">
         /// Default Value: 0.5
         /// </param>

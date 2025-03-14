@@ -56,15 +56,6 @@ namespace ElevenLabs
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
         /// Default Value: true
         /// </param>
-        /// <param name="optimizeStreamingLatency">
-        /// You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:<br/>
-        /// 0 - default mode (no latency optimizations)<br/>
-        /// 1 - normal latency optimizations (about 50% of possible latency improvement of option 3)<br/>
-        /// 2 - strong latency optimizations (about 75% of possible latency improvement of option 3)<br/>
-        /// 3 - max latency optimizations<br/>
-        /// 4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).<br/>
-        /// Defaults to None.
-        /// </param>
         /// <param name="outputFormat">
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
@@ -101,7 +92,6 @@ namespace ElevenLabs
             byte[] audio,
             string audioname,
             bool? enableLogging = default,
-            int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             string? modelId = default,

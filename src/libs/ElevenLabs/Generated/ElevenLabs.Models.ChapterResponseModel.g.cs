@@ -50,7 +50,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.ChapterResponseModelState State { get; set; }
 
         /// <summary>
-        /// The statistics of the chapter.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("statistics")]
         public global::ElevenLabs.ChapterStatisticsResponseModel? Statistics { get; set; }
@@ -88,9 +88,7 @@ namespace ElevenLabs
         /// <param name="state">
         /// The state of the chapter.
         /// </param>
-        /// <param name="statistics">
-        /// The statistics of the chapter.
-        /// </param>
+        /// <param name="statistics"></param>
         /// <param name="lastConversionError">
         /// The last conversion error of the chapter.
         /// </param>

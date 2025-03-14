@@ -16,7 +16,7 @@ namespace ElevenLabs
         public global::ElevenLabs.PodcastConversationModeType Type { get; set; }
 
         /// <summary>
-        /// The voice settings for the conversation.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -34,9 +34,7 @@ namespace ElevenLabs
         /// <param name="type">
         /// The type of podcast to create.
         /// </param>
-        /// <param name="conversation">
-        /// The voice settings for the conversation.
-        /// </param>
+        /// <param name="conversation"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

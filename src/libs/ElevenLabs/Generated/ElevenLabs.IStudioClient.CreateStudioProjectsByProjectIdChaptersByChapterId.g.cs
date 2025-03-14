@@ -48,9 +48,7 @@ namespace ElevenLabs
         /// The name of the chapter, used for identification only.<br/>
         /// Example: Chapter 1
         /// </param>
-        /// <param name="content">
-        /// The chapter content to use.
-        /// </param>
+        /// <param name="content"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditChapterResponseModel> CreateStudioProjectsByProjectIdChaptersByChapterIdAsync(

@@ -41,7 +41,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationHistoryFeedbackCommonModel? Feedback { get; set; }
 
         /// <summary>
-        /// Default Value: public
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("authorization_method")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter))]
@@ -52,6 +52,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("charging")]
         public global::ElevenLabs.ConversationChargingCommonModel? Charging { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("phone_call")]
+        public global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? PhoneCall { get; set; }
 
         /// <summary>
         /// 
@@ -73,10 +79,9 @@ namespace ElevenLabs
         /// <param name="cost"></param>
         /// <param name="deletionSettings"></param>
         /// <param name="feedback"></param>
-        /// <param name="authorizationMethod">
-        /// Default Value: public
-        /// </param>
+        /// <param name="authorizationMethod"></param>
         /// <param name="charging"></param>
+        /// <param name="phoneCall"></param>
         /// <param name="terminationReason"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -89,6 +94,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryFeedbackCommonModel? feedback,
             global::ElevenLabs.AuthorizationMethod? authorizationMethod,
             global::ElevenLabs.ConversationChargingCommonModel? charging,
+            global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? phoneCall,
             string? terminationReason)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
@@ -98,6 +104,7 @@ namespace ElevenLabs
             this.Feedback = feedback;
             this.AuthorizationMethod = authorizationMethod;
             this.Charging = charging;
+            this.PhoneCall = phoneCall;
             this.TerminationReason = terminationReason;
         }
 

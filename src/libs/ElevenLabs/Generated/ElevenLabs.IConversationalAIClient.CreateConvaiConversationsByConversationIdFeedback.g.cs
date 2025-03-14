@@ -28,10 +28,7 @@ namespace ElevenLabs
         /// The id of the conversation you're taking the action on.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
-        /// <param name="feedback">
-        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.<br/>
-        /// Example: like
-        /// </param>
+        /// <param name="feedback"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> CreateConvaiConversationsByConversationIdFeedbackAsync(

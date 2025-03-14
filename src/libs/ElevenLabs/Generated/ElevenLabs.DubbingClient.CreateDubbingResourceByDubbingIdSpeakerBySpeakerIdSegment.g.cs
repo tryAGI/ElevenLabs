@@ -10,14 +10,14 @@ namespace ElevenLabs
             ref string dubbingId,
             ref string speakerId,
             ref string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.SegmentCreatePayload> request);
+            global::ElevenLabs.SegmentCreatePayload request);
         partial void PrepareCreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string dubbingId,
             string speakerId,
             string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.SegmentCreatePayload> request);
+            global::ElevenLabs.SegmentCreatePayload request);
         partial void ProcessCreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,10 +46,12 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentCreateResponse> CreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentAsync(
             string dubbingId,
             string speakerId,
-            global::ElevenLabs.AllOf<global::ElevenLabs.SegmentCreatePayload> request,
+            global::ElevenLabs.SegmentCreatePayload request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareCreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentArguments(
@@ -235,16 +237,25 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="text"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentCreateResponse> CreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentAsync(
             string dubbingId,
             string speakerId,
+            double startTime,
+            double endTime,
             string? xiApiKey = default,
+            string? text = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AllOf<global::ElevenLabs.SegmentCreatePayload>
+            var __request = new global::ElevenLabs.SegmentCreatePayload
             {
+                StartTime = startTime,
+                EndTime = endTime,
+                Text = text,
             };
 
             return await CreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentAsync(

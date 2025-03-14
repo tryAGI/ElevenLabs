@@ -29,7 +29,7 @@ namespace ElevenLabs
         public int? ExpirationTimeUnixSecs { get; set; }
 
         /// <summary>
-        /// Default Value: signed_url
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationTokenPurposeJsonConverter))]
@@ -47,9 +47,7 @@ namespace ElevenLabs
         /// <param name="agentId"></param>
         /// <param name="conversationToken"></param>
         /// <param name="expirationTimeUnixSecs"></param>
-        /// <param name="purpose">
-        /// Default Value: signed_url
-        /// </param>
+        /// <param name="purpose"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

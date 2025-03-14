@@ -15,10 +15,7 @@ namespace ElevenLabs
         /// The id of the agent you're taking the action on.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
-        /// <param name="callSuccessful">
-        /// The result of the success evaluation<br/>
-        /// Example: success
-        /// </param>
+        /// <param name="callSuccessful"></param>
         /// <param name="pageSize">
         /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -31,7 +28,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetConversationsPageResponseModel> GetConvaiConversationsAsync(
             string? cursor = default,
             string? agentId = default,
-            global::ElevenLabs.AllOf<global::ElevenLabs.EvaluationSuccessResult?>? callSuccessful = default,
+            global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? pageSize = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

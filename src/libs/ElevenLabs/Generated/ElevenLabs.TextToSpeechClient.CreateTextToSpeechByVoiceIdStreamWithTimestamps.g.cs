@@ -266,15 +266,6 @@ namespace ElevenLabs
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
         /// Default Value: true
         /// </param>
-        /// <param name="optimizeStreamingLatency">
-        /// You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:<br/>
-        /// 0 - default mode (no latency optimizations)<br/>
-        /// 1 - normal latency optimizations (about 50% of possible latency improvement of option 3)<br/>
-        /// 2 - strong latency optimizations (about 75% of possible latency improvement of option 3)<br/>
-        /// 3 - max latency optimizations<br/>
-        /// 4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).<br/>
-        /// Defaults to None.
-        /// </param>
         /// <param name="outputFormat">
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
@@ -293,9 +284,7 @@ namespace ElevenLabs
         /// <param name="languageCode">
         /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
         /// </param>
-        /// <param name="voiceSettings">
-        /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
-        /// </param>
+        /// <param name="voiceSettings"></param>
         /// <param name="pronunciationDictionaryLocators">
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
         /// Example: []
@@ -320,11 +309,6 @@ namespace ElevenLabs
         /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.<br/>
         /// Example: [3tPgBrD1UdW3snUkGw1K, 4D1jAxiRFkolBNUGzXkU, 4c8Z4aWliVR2oipYRXhj]
         /// </param>
-        /// <param name="usePvcAsIvc">
-        /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.<br/>
-        /// Default Value: false<br/>
-        /// Example: true
-        /// </param>
         /// <param name="applyTextNormalization">
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. Cannot be turned on for 'eleven_turbo_v2_5' model.<br/>
         /// Default Value: auto<br/>
@@ -336,7 +320,6 @@ namespace ElevenLabs
             string voiceId,
             string text,
             bool? enableLogging = default,
-            int? optimizeStreamingLatency = default,
             global::ElevenLabs.TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             string? modelId = default,
@@ -348,7 +331,6 @@ namespace ElevenLabs
             string? nextText = default,
             global::System.Collections.Generic.IList<string>? previousRequestIds = default,
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
-            bool? usePvcAsIvc = default,
             global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostApplyTextNormalization? applyTextNormalization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -364,7 +346,6 @@ namespace ElevenLabs
                 NextText = nextText,
                 PreviousRequestIds = previousRequestIds,
                 NextRequestIds = nextRequestIds,
-                UsePvcAsIvc = usePvcAsIvc,
                 ApplyTextNormalization = applyTextNormalization,
             };
 

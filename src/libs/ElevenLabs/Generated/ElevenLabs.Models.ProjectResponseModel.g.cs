@@ -175,7 +175,7 @@ namespace ElevenLabs
         public required bool QualityCheckOnWhenBulkConvert { get; set; }
 
         /// <summary>
-        /// The creation meta of the project.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_meta")]
         public global::ElevenLabs.ProjectCreationMetaResponseModel? CreationMeta { get; set; }
@@ -271,9 +271,7 @@ namespace ElevenLabs
         /// <param name="qualityCheckOnWhenBulkConvert">
         /// Whether quality check is enabled on the project when bulk converting.
         /// </param>
-        /// <param name="creationMeta">
-        /// The creation meta of the project.
-        /// </param>
+        /// <param name="creationMeta"></param>
         /// <param name="sourceType">
         /// The source type of the project.
         /// </param>

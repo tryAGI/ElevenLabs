@@ -8,12 +8,12 @@ namespace ElevenLabs
         partial void PrepareEditConvaiSettingsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvAISettingsRequest> request);
+            global::ElevenLabs.PatchConvAISettingsRequest request);
         partial void PrepareEditConvaiSettingsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvAISettingsRequest> request);
+            global::ElevenLabs.PatchConvAISettingsRequest request);
         partial void ProcessEditConvaiSettingsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -34,10 +34,12 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> EditConvaiSettingsAsync(
-            global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvAISettingsRequest> request,
+            global::ElevenLabs.PatchConvAISettingsRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareEditConvaiSettingsArguments(
@@ -213,14 +215,20 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="conversationInitiationClientDataWebhook"></param>
+        /// <param name="webhooks"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> EditConvaiSettingsAsync(
             string? xiApiKey = default,
+            global::ElevenLabs.ConversationInitiationClientDataWebhook? conversationInitiationClientDataWebhook = default,
+            global::ElevenLabs.ConvAIWebhooks? webhooks = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AllOf<global::ElevenLabs.PatchConvAISettingsRequest>
+            var __request = new global::ElevenLabs.PatchConvAISettingsRequest
             {
+                ConversationInitiationClientDataWebhook = conversationInitiationClientDataWebhook,
+                Webhooks = webhooks,
             };
 
             return await EditConvaiSettingsAsync(

@@ -58,7 +58,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.ConversationSummaryResponseModelStatus Status { get; set; }
 
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
@@ -81,9 +81,7 @@ namespace ElevenLabs
         /// <param name="callDurationSecs"></param>
         /// <param name="messageCount"></param>
         /// <param name="status"></param>
-        /// <param name="callSuccessful">
-        /// An enumeration.
-        /// </param>
+        /// <param name="callSuccessful"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

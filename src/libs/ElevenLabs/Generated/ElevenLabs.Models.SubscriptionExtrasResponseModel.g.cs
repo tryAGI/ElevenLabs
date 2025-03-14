@@ -56,7 +56,7 @@ namespace ElevenLabs
         public required bool CanBypassVoiceCaptcha { get; set; }
 
         /// <summary>
-        /// The moderation status of the user.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("moderation")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -75,7 +75,7 @@ namespace ElevenLabs
         public int? OverusedCharactersRolledOverFromPreviousPeriod { get; set; }
 
         /// <summary>
-        /// Data on how the subscription is being used.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         public global::ElevenLabs.SubscriptionUsageResponseModel? Usage { get; set; }
@@ -110,18 +110,14 @@ namespace ElevenLabs
         /// <param name="canBypassVoiceCaptcha">
         /// Whether the user can bypass the voice captcha.
         /// </param>
-        /// <param name="moderation">
-        /// The moderation status of the user.
-        /// </param>
+        /// <param name="moderation"></param>
         /// <param name="unusedCharactersRolledOverFromPreviousPeriod">
         /// The unused characters rolled over from the previous period.
         /// </param>
         /// <param name="overusedCharactersRolledOverFromPreviousPeriod">
         /// The overused characters rolled over from the previous period.
         /// </param>
-        /// <param name="usage">
-        /// Data on how the subscription is being used.
-        /// </param>
+        /// <param name="usage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

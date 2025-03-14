@@ -74,6 +74,10 @@ namespace ElevenLabs
         /// Whether to prepare dub for edits in dubbing studio or edits as a dubbing resource.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="useReplacementVoicesFromLibrary">
+        /// [BETA] Whether the dub should use replacement voices from the voice library instead of cloning.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> CreateDubbingAsync(
@@ -92,6 +96,7 @@ namespace ElevenLabs
             bool? dropBackgroundAudio = default,
             bool? useProfanityFilter = default,
             bool? dubbingStudio = default,
+            bool? useReplacementVoicesFromLibrary = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

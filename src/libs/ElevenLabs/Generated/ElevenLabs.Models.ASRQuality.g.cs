@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// An enumeration.
+    /// 
     /// </summary>
     public enum ASRQuality
     {

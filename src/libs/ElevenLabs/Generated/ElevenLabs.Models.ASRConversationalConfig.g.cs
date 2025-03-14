@@ -9,21 +9,21 @@ namespace ElevenLabs
     public sealed partial class ASRConversationalConfig
     {
         /// <summary>
-        /// Default Value: high
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASRQualityJsonConverter))]
         public global::ElevenLabs.ASRQuality? Quality { get; set; }
 
         /// <summary>
-        /// Default Value: elevenlabs
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASRProviderJsonConverter))]
         public global::ElevenLabs.ASRProvider? Provider { get; set; }
 
         /// <summary>
-        /// Default Value: pcm_16000
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_input_audio_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASRInputFormatJsonConverter))]
@@ -44,15 +44,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ASRConversationalConfig" /> class.
         /// </summary>
-        /// <param name="quality">
-        /// Default Value: high
-        /// </param>
-        /// <param name="provider">
-        /// Default Value: elevenlabs
-        /// </param>
-        /// <param name="userInputAudioFormat">
-        /// Default Value: pcm_16000
-        /// </param>
+        /// <param name="quality"></param>
+        /// <param name="provider"></param>
+        /// <param name="userInputAudioFormat"></param>
         /// <param name="keywords"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -37,7 +37,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
-        public global::ElevenLabs.ConversationInitiationClientDataConfig? Overrides { get; set; }
+        public global::ElevenLabs.ConversationInitiationClientDataConfigInput? Overrides { get; set; }
 
         /// <summary>
         /// 
@@ -94,7 +94,7 @@ namespace ElevenLabs
             global::ElevenLabs.EvaluationSettings? evaluation,
             global::ElevenLabs.WidgetConfig? widget,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection,
-            global::ElevenLabs.ConversationInitiationClientDataConfig? overrides,
+            global::ElevenLabs.ConversationInitiationClientDataConfigInput? overrides,
             global::ElevenLabs.AgentCallLimits? callLimits,
             global::ElevenLabs.AgentBan? ban,
             global::ElevenLabs.PrivacyConfig? privacy,

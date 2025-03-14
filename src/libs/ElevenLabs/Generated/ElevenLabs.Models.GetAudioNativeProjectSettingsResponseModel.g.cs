@@ -22,7 +22,7 @@ namespace ElevenLabs
         public string? SnapshotId { get; set; }
 
         /// <summary>
-        /// The settings of the project.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         public global::ElevenLabs.AudioNativeProjectSettingsResponseModel? Settings { get; set; }
@@ -42,9 +42,7 @@ namespace ElevenLabs
         /// <param name="snapshotId">
         /// The ID of the latest snapshot of the project.
         /// </param>
-        /// <param name="settings">
-        /// The settings of the project.
-        /// </param>
+        /// <param name="settings"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

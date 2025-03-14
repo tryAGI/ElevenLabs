@@ -43,6 +43,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("llm_override")]
+        public string? LlmOverride { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int TimeInCallSecs { get; set; }
@@ -51,7 +57,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_turn_metrics")]
-        public object? ConversationTurnMetrics { get; set; }
+        public global::ElevenLabs.ConversationTurnMetrics? ConversationTurnMetrics { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -67,6 +73,7 @@ namespace ElevenLabs
         /// <param name="toolCalls"></param>
         /// <param name="toolResults"></param>
         /// <param name="feedback"></param>
+        /// <param name="llmOverride"></param>
         /// <param name="timeInCallSecs"></param>
         /// <param name="conversationTurnMetrics"></param>
 #if NET7_0_OR_GREATER
@@ -79,7 +86,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModel>? toolCalls,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolResultCommonModel>? toolResults,
             global::ElevenLabs.UserFeedback? feedback,
-            object? conversationTurnMetrics)
+            string? llmOverride,
+            global::ElevenLabs.ConversationTurnMetrics? conversationTurnMetrics)
         {
             this.Role = role;
             this.TimeInCallSecs = timeInCallSecs;
@@ -87,6 +95,7 @@ namespace ElevenLabs
             this.ToolCalls = toolCalls;
             this.ToolResults = toolResults;
             this.Feedback = feedback;
+            this.LlmOverride = llmOverride;
             this.ConversationTurnMetrics = conversationTurnMetrics;
         }
 

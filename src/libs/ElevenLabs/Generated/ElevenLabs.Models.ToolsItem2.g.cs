@@ -12,15 +12,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PromptAgentToolDiscriminatorType? Type { get; }
+        public global::ElevenLabs.PromptAgentInputToolDiscriminatorType? Type { get; }
 
         /// <summary>
         /// A webhook tool is a tool that calls an external webhook from our server
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.WebhookToolConfig? Webhook { get; init; }
+        public global::ElevenLabs.WebhookToolConfigInput? Webhook { get; init; }
 #else
-        public global::ElevenLabs.WebhookToolConfig? Webhook { get; }
+        public global::ElevenLabs.WebhookToolConfigInput? Webhook { get; }
 #endif
 
         /// <summary>
@@ -34,17 +34,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem2(global::ElevenLabs.WebhookToolConfig value) => new ToolsItem2(value);
+        public static implicit operator ToolsItem2(global::ElevenLabs.WebhookToolConfigInput value) => new ToolsItem2(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.WebhookToolConfig?(ToolsItem2 @this) => @this.Webhook;
+        public static implicit operator global::ElevenLabs.WebhookToolConfigInput?(ToolsItem2 @this) => @this.Webhook;
 
         /// <summary>
         /// 
         /// </summary>
-        public ToolsItem2(global::ElevenLabs.WebhookToolConfig? value)
+        public ToolsItem2(global::ElevenLabs.WebhookToolConfigInput? value)
         {
             Webhook = value;
         }
@@ -53,9 +53,9 @@ namespace ElevenLabs
         /// A client tool is one that sends an event to the user's client to trigger something client side
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.ClientToolConfig? Client { get; init; }
+        public global::ElevenLabs.ClientToolConfigInput? Client { get; init; }
 #else
-        public global::ElevenLabs.ClientToolConfig? Client { get; }
+        public global::ElevenLabs.ClientToolConfigInput? Client { get; }
 #endif
 
         /// <summary>
@@ -69,17 +69,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem2(global::ElevenLabs.ClientToolConfig value) => new ToolsItem2(value);
+        public static implicit operator ToolsItem2(global::ElevenLabs.ClientToolConfigInput value) => new ToolsItem2(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.ClientToolConfig?(ToolsItem2 @this) => @this.Client;
+        public static implicit operator global::ElevenLabs.ClientToolConfigInput?(ToolsItem2 @this) => @this.Client;
 
         /// <summary>
         /// 
         /// </summary>
-        public ToolsItem2(global::ElevenLabs.ClientToolConfig? value)
+        public ToolsItem2(global::ElevenLabs.ClientToolConfigInput? value)
         {
             Client = value;
         }
@@ -123,9 +123,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public ToolsItem2(
-            global::ElevenLabs.PromptAgentToolDiscriminatorType? type,
-            global::ElevenLabs.WebhookToolConfig? webhook,
-            global::ElevenLabs.ClientToolConfig? client,
+            global::ElevenLabs.PromptAgentInputToolDiscriminatorType? type,
+            global::ElevenLabs.WebhookToolConfigInput? webhook,
+            global::ElevenLabs.ClientToolConfigInput? client,
             global::ElevenLabs.SystemToolConfig? system
             )
         {
@@ -157,8 +157,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.WebhookToolConfig?, TResult>? webhook = null,
-            global::System.Func<global::ElevenLabs.ClientToolConfig?, TResult>? client = null,
+            global::System.Func<global::ElevenLabs.WebhookToolConfigInput?, TResult>? webhook = null,
+            global::System.Func<global::ElevenLabs.ClientToolConfigInput?, TResult>? client = null,
             global::System.Func<global::ElevenLabs.SystemToolConfig?, TResult>? system = null,
             bool validate = true)
         {
@@ -187,8 +187,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.WebhookToolConfig?>? webhook = null,
-            global::System.Action<global::ElevenLabs.ClientToolConfig?>? client = null,
+            global::System.Action<global::ElevenLabs.WebhookToolConfigInput?>? webhook = null,
+            global::System.Action<global::ElevenLabs.ClientToolConfigInput?>? client = null,
             global::System.Action<global::ElevenLabs.SystemToolConfig?>? system = null,
             bool validate = true)
         {
@@ -219,9 +219,9 @@ namespace ElevenLabs
             var fields = new object?[]
             {
                 Webhook,
-                typeof(global::ElevenLabs.WebhookToolConfig),
+                typeof(global::ElevenLabs.WebhookToolConfigInput),
                 Client,
-                typeof(global::ElevenLabs.ClientToolConfig),
+                typeof(global::ElevenLabs.ClientToolConfigInput),
                 System,
                 typeof(global::ElevenLabs.SystemToolConfig),
             };
@@ -240,8 +240,8 @@ namespace ElevenLabs
         public bool Equals(ToolsItem2 other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookToolConfig?>.Default.Equals(Webhook, other.Webhook) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfig?>.Default.Equals(Client, other.Client) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookToolConfigInput?>.Default.Equals(Webhook, other.Webhook) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfigInput?>.Default.Equals(Client, other.Client) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfig?>.Default.Equals(System, other.System) 
                 ;
         }

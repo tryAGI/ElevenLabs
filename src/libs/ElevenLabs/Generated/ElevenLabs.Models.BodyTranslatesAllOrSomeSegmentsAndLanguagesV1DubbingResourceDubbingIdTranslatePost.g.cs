@@ -20,7 +20,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("languages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Languages { get; set; }
+        public required global::System.Collections.Generic.IList<string>? Languages { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,7 +42,7 @@ namespace ElevenLabs
 #endif
         public BodyTranslatesAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdTranslatePost(
             global::System.Collections.Generic.IList<string> segments,
-            global::System.Collections.Generic.IList<string> languages)
+            global::System.Collections.Generic.IList<string>? languages)
         {
             this.Segments = segments ?? throw new global::System.ArgumentNullException(nameof(segments));
             this.Languages = languages ?? throw new global::System.ArgumentNullException(nameof(languages));

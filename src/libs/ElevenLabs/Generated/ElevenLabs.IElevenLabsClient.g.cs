@@ -53,6 +53,11 @@ namespace ElevenLabs
         public SpeechToTextClient SpeechToText { get; }
 
         /// <summary>
+        /// Force align an audio file to a text transcript to get precise word-level and character level timing information. Response is a list of characters with their start and end times as milliseconds elapsed from the start of the recording.
+        /// </summary>
+        public ForcedAlignmentClient ForcedAlignment { get; }
+
+        /// <summary>
         /// Access the different models of the platform.
         /// </summary>
         public ModelsClient Models { get; }

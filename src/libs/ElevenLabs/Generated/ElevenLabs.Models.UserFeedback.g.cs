@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class UserFeedback
     {
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("score")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UserFeedbackScoreJsonConverter))]
@@ -32,9 +32,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="UserFeedback" /> class.
         /// </summary>
-        /// <param name="score">
-        /// An enumeration.
-        /// </param>
+        /// <param name="score"></param>
         /// <param name="timeInCallSecs"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -9,7 +9,7 @@ namespace ElevenLabs
         /// Searches for user groups in the workspace. Multiple or no groups may be returned.
         /// </summary>
         /// <param name="name">
-        /// Name of the group to find.
+        /// Name of the target group.
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

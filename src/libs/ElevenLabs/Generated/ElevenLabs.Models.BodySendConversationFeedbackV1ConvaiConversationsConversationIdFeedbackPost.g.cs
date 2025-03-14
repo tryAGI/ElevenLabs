@@ -9,10 +9,8 @@ namespace ElevenLabs
     public sealed partial class BodySendConversationFeedbackV1ConvaiConversationsConversationIdFeedbackPost
     {
         /// <summary>
-        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.<br/>
-        /// Example: like
+        /// 
         /// </summary>
-        /// <example>like</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UserFeedbackScoreJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -27,10 +25,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BodySendConversationFeedbackV1ConvaiConversationsConversationIdFeedbackPost" /> class.
         /// </summary>
-        /// <param name="feedback">
-        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.<br/>
-        /// Example: like
-        /// </param>
+        /// <param name="feedback"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
