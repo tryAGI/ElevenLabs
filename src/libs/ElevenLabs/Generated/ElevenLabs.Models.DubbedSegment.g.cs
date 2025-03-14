@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public required string? Text { get; set; }
 
         /// <summary>
         /// 
@@ -55,7 +55,7 @@ namespace ElevenLabs
         public DubbedSegment(
             double startTime,
             double endTime,
-            string text,
+            string? text,
             global::ElevenLabs.DubbingMediaReference mediaRef)
         {
             this.StartTime = startTime;

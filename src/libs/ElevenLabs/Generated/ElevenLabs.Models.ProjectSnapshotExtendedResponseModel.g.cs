@@ -37,13 +37,13 @@ namespace ElevenLabs
         public required string Name { get; set; }
 
         /// <summary>
-        /// The audio upload of the project snapshot.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_upload")]
         public global::ElevenLabs.ProjectSnapshotUploadResponseModel? AudioUpload { get; set; }
 
         /// <summary>
-        /// The zip upload of the project snapshot.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("zip_upload")]
         public global::ElevenLabs.ProjectSnapshotUploadResponseModel? ZipUpload { get; set; }
@@ -76,12 +76,8 @@ namespace ElevenLabs
         /// <param name="name">
         /// The name of the project snapshot.
         /// </param>
-        /// <param name="audioUpload">
-        /// The audio upload of the project snapshot.
-        /// </param>
-        /// <param name="zipUpload">
-        /// The zip upload of the project snapshot.
-        /// </param>
+        /// <param name="audioUpload"></param>
+        /// <param name="zipUpload"></param>
         /// <param name="characterAlignments"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

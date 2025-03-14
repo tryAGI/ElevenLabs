@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationalConfigAPIModel ConversationConfig { get; set; }
+        public required global::ElevenLabs.ConversationalConfigAPIModelOutput ConversationConfig { get; set; }
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public GetAgentResponseModel(
             string agentId,
             string name,
-            global::ElevenLabs.ConversationalConfigAPIModel conversationConfig,
+            global::ElevenLabs.ConversationalConfigAPIModelOutput conversationConfig,
             global::ElevenLabs.AgentMetadataResponseModel metadata,
             global::ElevenLabs.AgentPlatformSettingsResponseModel? platformSettings,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? phoneNumbers)

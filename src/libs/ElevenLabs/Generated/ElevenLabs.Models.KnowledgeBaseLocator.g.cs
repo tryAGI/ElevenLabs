@@ -31,7 +31,7 @@ namespace ElevenLabs
         public required string Id { get; set; }
 
         /// <summary>
-        /// Default Value: auto
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DocumentUsageModeEnumJsonConverter))]
@@ -49,9 +49,7 @@ namespace ElevenLabs
         /// <param name="type"></param>
         /// <param name="name"></param>
         /// <param name="id"></param>
-        /// <param name="usageMode">
-        /// Default Value: auto
-        /// </param>
+        /// <param name="usageMode"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

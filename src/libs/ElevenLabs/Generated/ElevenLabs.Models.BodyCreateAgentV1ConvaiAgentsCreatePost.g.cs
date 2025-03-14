@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class BodyCreateAgentV1ConvaiAgentsCreatePost
     {
         /// <summary>
-        /// Conversation configuration for an agent
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationalConfigAPIModel ConversationConfig { get; set; }
+        public required global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; }
 
         /// <summary>
-        /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("platform_settings")]
         public global::ElevenLabs.AgentPlatformSettingsRequestModel? PlatformSettings { get; set; }
@@ -38,12 +38,8 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BodyCreateAgentV1ConvaiAgentsCreatePost" /> class.
         /// </summary>
-        /// <param name="conversationConfig">
-        /// Conversation configuration for an agent
-        /// </param>
-        /// <param name="platformSettings">
-        /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
-        /// </param>
+        /// <param name="conversationConfig"></param>
+        /// <param name="platformSettings"></param>
         /// <param name="name">
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
@@ -52,7 +48,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyCreateAgentV1ConvaiAgentsCreatePost(
-            global::ElevenLabs.ConversationalConfigAPIModel conversationConfig,
+            global::ElevenLabs.ConversationalConfigAPIModelInput conversationConfig,
             global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings,
             string? name)
         {

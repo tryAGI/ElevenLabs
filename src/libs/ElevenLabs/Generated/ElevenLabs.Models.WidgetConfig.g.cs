@@ -11,14 +11,14 @@ namespace ElevenLabs
     public sealed partial class WidgetConfig
     {
         /// <summary>
-        /// Default Value: full
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("variant")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbedVariantJsonConverter))]
         public global::ElevenLabs.EmbedVariant? Variant { get; set; }
 
         /// <summary>
-        /// Default Value: never
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expandable")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetExpandableJsonConverter))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? Avatar { get; set; }
 
         /// <summary>
-        /// Default Value: none
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetFeedbackModeJsonConverter))]
@@ -186,16 +186,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WidgetConfig" /> class.
         /// </summary>
-        /// <param name="variant">
-        /// Default Value: full
-        /// </param>
-        /// <param name="expandable">
-        /// Default Value: never
-        /// </param>
+        /// <param name="variant"></param>
+        /// <param name="expandable"></param>
         /// <param name="avatar"></param>
-        /// <param name="feedbackMode">
-        /// Default Value: none
-        /// </param>
+        /// <param name="feedbackMode"></param>
         /// <param name="bgColor">
         /// Default Value: #ffffff
         /// </param>

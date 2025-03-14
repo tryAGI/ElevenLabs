@@ -10,14 +10,14 @@ namespace ElevenLabs
             ref string documentationId,
             ref bool? forceReindex,
             ref string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.RAGIndexRequestModel> request);
+            global::ElevenLabs.RAGIndexRequestModel request);
         partial void PrepareCreateConvaiKnowledgeBaseByDocumentationIdRagIndexRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string documentationId,
             bool? forceReindex,
             string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.RAGIndexRequestModel> request);
+            global::ElevenLabs.RAGIndexRequestModel request);
         partial void ProcessCreateConvaiKnowledgeBaseByDocumentationIdRagIndexResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -47,11 +47,13 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
-            global::ElevenLabs.AllOf<global::ElevenLabs.RAGIndexRequestModel> request,
+            global::ElevenLabs.RAGIndexRequestModel request,
             bool? forceReindex = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareCreateConvaiKnowledgeBaseByDocumentationIdRagIndexArguments(
@@ -242,16 +244,19 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="model"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
+            global::ElevenLabs.EmbeddingModelEnum model,
             bool? forceReindex = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AllOf<global::ElevenLabs.RAGIndexRequestModel>
+            var __request = new global::ElevenLabs.RAGIndexRequestModel
             {
+                Model = model,
             };
 
             return await CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(

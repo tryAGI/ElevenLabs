@@ -31,7 +31,7 @@ namespace ElevenLabs
         public string? LanguageCode { get; set; }
 
         /// <summary>
-        /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_settings")]
         public global::ElevenLabs.VoiceSettingsResponseModel? VoiceSettings { get; set; }
@@ -91,6 +91,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>true</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_pvc_as_ivc")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? UsePvcAsIvc { get; set; }
 
         /// <summary>
@@ -123,9 +124,7 @@ namespace ElevenLabs
         /// <param name="languageCode">
         /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
         /// </param>
-        /// <param name="voiceSettings">
-        /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
-        /// </param>
+        /// <param name="voiceSettings"></param>
         /// <param name="pronunciationDictionaryLocators">
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
         /// Example: []
@@ -150,11 +149,6 @@ namespace ElevenLabs
         /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.<br/>
         /// Example: [3tPgBrD1UdW3snUkGw1K, 4D1jAxiRFkolBNUGzXkU, 4c8Z4aWliVR2oipYRXhj]
         /// </param>
-        /// <param name="usePvcAsIvc">
-        /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.<br/>
-        /// Default Value: false<br/>
-        /// Example: true
-        /// </param>
         /// <param name="applyTextNormalization">
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. Cannot be turned on for 'eleven_turbo_v2_5' model.<br/>
         /// Default Value: auto<br/>
@@ -174,7 +168,6 @@ namespace ElevenLabs
             string? nextText,
             global::System.Collections.Generic.IList<string>? previousRequestIds,
             global::System.Collections.Generic.IList<string>? nextRequestIds,
-            bool? usePvcAsIvc,
             global::ElevenLabs.BodyTextToSpeechV1TextToSpeechVoiceIdPostApplyTextNormalization? applyTextNormalization)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
@@ -187,7 +180,6 @@ namespace ElevenLabs
             this.NextText = nextText;
             this.PreviousRequestIds = previousRequestIds;
             this.NextRequestIds = nextRequestIds;
-            this.UsePvcAsIvc = usePvcAsIvc;
             this.ApplyTextNormalization = applyTextNormalization;
         }
 

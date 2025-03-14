@@ -9,13 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string phoneNumberId,
             ref string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.UpdatePhoneNumberRequest> request);
+            global::ElevenLabs.UpdatePhoneNumberRequest request);
         partial void PrepareEditConvaiPhoneNumbersByPhoneNumberIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string phoneNumberId,
             string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.UpdatePhoneNumberRequest> request);
+            global::ElevenLabs.UpdatePhoneNumberRequest request);
         partial void ProcessEditConvaiPhoneNumbersByPhoneNumberIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -41,10 +41,12 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberResponseModel> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
             string phoneNumberId,
-            global::ElevenLabs.AllOf<global::ElevenLabs.UpdatePhoneNumberRequest> request,
+            global::ElevenLabs.UpdatePhoneNumberRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareEditConvaiPhoneNumbersByPhoneNumberIdArguments(
@@ -226,15 +228,18 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="agentId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberResponseModel> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
             string phoneNumberId,
             string? xiApiKey = default,
+            string? agentId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AllOf<global::ElevenLabs.UpdatePhoneNumberRequest>
+            var __request = new global::ElevenLabs.UpdatePhoneNumberRequest
             {
+                AgentId = agentId,
             };
 
             return await EditConvaiPhoneNumbersByPhoneNumberIdAsync(

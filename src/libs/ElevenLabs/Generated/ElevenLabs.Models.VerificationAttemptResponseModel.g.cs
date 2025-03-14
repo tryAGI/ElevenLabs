@@ -44,7 +44,7 @@ namespace ElevenLabs
         public required double LevenshteinDistance { get; set; }
 
         /// <summary>
-        /// The recording of the verification attempt.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recording")]
         public global::ElevenLabs.RecordingResponseModel? Recording { get; set; }
@@ -73,9 +73,7 @@ namespace ElevenLabs
         /// <param name="levenshteinDistance">
         /// The Levenshtein distance of the verification attempt.
         /// </param>
-        /// <param name="recording">
-        /// The recording of the verification attempt.
-        /// </param>
+        /// <param name="recording"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

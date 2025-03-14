@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -29,6 +31,13 @@ namespace ElevenLabs
         public string? DynamicVariable { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("constant_value")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?>))]
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?>? ConstantValue { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,17 +49,20 @@ namespace ElevenLabs
         /// <param name="type"></param>
         /// <param name="description"></param>
         /// <param name="dynamicVariable"></param>
+        /// <param name="constantValue"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LiteralJsonSchemaProperty(
             global::ElevenLabs.LiteralJsonSchemaPropertyType type,
             string? description,
-            string? dynamicVariable)
+            string? dynamicVariable,
+            global::ElevenLabs.AnyOf<string, int?, double?, bool?>? constantValue)
         {
             this.Type = type;
             this.Description = description;
             this.DynamicVariable = dynamicVariable;
+            this.ConstantValue = constantValue;
         }
 
         /// <summary>

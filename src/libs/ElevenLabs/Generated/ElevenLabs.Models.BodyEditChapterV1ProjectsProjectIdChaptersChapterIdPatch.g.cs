@@ -17,7 +17,7 @@ namespace ElevenLabs
         public string? Name { get; set; }
 
         /// <summary>
-        /// The chapter content to use.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         public global::ElevenLabs.ChapterContentInputModel? Content { get; set; }
@@ -35,9 +35,7 @@ namespace ElevenLabs
         /// The name of the chapter, used for identification only.<br/>
         /// Example: Chapter 1
         /// </param>
-        /// <param name="content">
-        /// The chapter content to use.
-        /// </param>
+        /// <param name="content"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

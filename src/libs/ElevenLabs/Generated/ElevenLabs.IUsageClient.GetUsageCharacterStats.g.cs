@@ -21,8 +21,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="breakdownType">
-        /// How to break down the information. Cannot be "user" if include_workspace_metrics is False.<br/>
-        /// Default Value: none
+        /// How to break down the information. Cannot be "user" or "api_key" if include_workspace_metrics is False.
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -33,7 +32,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset startUnix,
             global::System.DateTimeOffset endUnix,
             bool? includeWorkspaceMetrics = default,
-            global::ElevenLabs.AllOf<global::ElevenLabs.BreakdownTypes?>? breakdownType = default,
+            global::ElevenLabs.BreakdownTypes? breakdownType = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

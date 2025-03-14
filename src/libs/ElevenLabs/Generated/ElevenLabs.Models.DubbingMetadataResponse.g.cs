@@ -37,7 +37,7 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> TargetLanguages { get; set; }
 
         /// <summary>
-        /// The media metadata of the dubbing project.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_metadata")]
         public global::ElevenLabs.DubbingMediaMetadata? MediaMetadata { get; set; }
@@ -69,9 +69,7 @@ namespace ElevenLabs
         /// <param name="targetLanguages">
         /// The target languages of the dubbing project.
         /// </param>
-        /// <param name="mediaMetadata">
-        /// The media metadata of the dubbing project.
-        /// </param>
+        /// <param name="mediaMetadata"></param>
         /// <param name="error">
         /// Optional error message if the dubbing project failed.
         /// </param>

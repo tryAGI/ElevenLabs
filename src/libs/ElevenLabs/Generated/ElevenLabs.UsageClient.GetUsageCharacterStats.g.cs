@@ -10,7 +10,7 @@ namespace ElevenLabs
             ref global::System.DateTimeOffset startUnix,
             ref global::System.DateTimeOffset endUnix,
             ref bool? includeWorkspaceMetrics,
-            ref global::ElevenLabs.AllOf<global::ElevenLabs.BreakdownTypes?>? breakdownType,
+            ref global::ElevenLabs.BreakdownTypes? breakdownType,
             ref string? xiApiKey);
         partial void PrepareGetUsageCharacterStatsRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -18,7 +18,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset startUnix,
             global::System.DateTimeOffset endUnix,
             bool? includeWorkspaceMetrics,
-            global::ElevenLabs.AllOf<global::ElevenLabs.BreakdownTypes?>? breakdownType,
+            global::ElevenLabs.BreakdownTypes? breakdownType,
             string? xiApiKey);
         partial void ProcessGetUsageCharacterStatsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -46,8 +46,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="breakdownType">
-        /// How to break down the information. Cannot be "user" if include_workspace_metrics is False.<br/>
-        /// Default Value: none
+        /// How to break down the information. Cannot be "user" or "api_key" if include_workspace_metrics is False.
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -58,7 +57,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset startUnix,
             global::System.DateTimeOffset endUnix,
             bool? includeWorkspaceMetrics = default,
-            global::ElevenLabs.AllOf<global::ElevenLabs.BreakdownTypes?>? breakdownType = default,
+            global::ElevenLabs.BreakdownTypes? breakdownType = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,7 +78,7 @@ namespace ElevenLabs
                 .AddRequiredParameter("start_unix", startUnix.ToString()) 
                 .AddRequiredParameter("end_unix", endUnix.ToString()) 
                 .AddOptionalParameter("include_workspace_metrics", includeWorkspaceMetrics?.ToString()) 
-                .AddOptionalParameter("breakdown_type", breakdownType?.ToString() ?? string.Empty) 
+                .AddOptionalParameter("breakdown_type", breakdownType?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

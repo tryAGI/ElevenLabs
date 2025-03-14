@@ -21,7 +21,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? DataCollectionResults { get; set; }
 
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
@@ -46,9 +46,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="evaluationCriteriaResults"></param>
         /// <param name="dataCollectionResults"></param>
-        /// <param name="callSuccessful">
-        /// An enumeration.
-        /// </param>
+        /// <param name="callSuccessful"></param>
         /// <param name="transcriptSummary"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -37,7 +37,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.VoiceResponseModelCategory Category { get; set; }
 
         /// <summary>
-        /// Fine-tuning information for the voice.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fine_tuning")]
         public global::ElevenLabs.FineTuningResponseModel? FineTuning { get; set; }
@@ -69,13 +69,13 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> AvailableForTiers { get; set; }
 
         /// <summary>
-        /// The settings of the voice.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         public global::ElevenLabs.VoiceSettingsResponseModel? Settings { get; set; }
 
         /// <summary>
-        /// The sharing information of the voice.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sharing")]
         public global::ElevenLabs.VoiceSharingResponseModel? Sharing { get; set; }
@@ -101,7 +101,7 @@ namespace ElevenLabs
         public global::ElevenLabs.VoiceResponseModelSafetyControl? SafetyControl { get; set; }
 
         /// <summary>
-        /// The voice verification of the voice.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_verification")]
         public global::ElevenLabs.VoiceVerificationResponseModel? VoiceVerification { get; set; }
@@ -159,9 +159,7 @@ namespace ElevenLabs
         /// <param name="category">
         /// The category of the voice.
         /// </param>
-        /// <param name="fineTuning">
-        /// Fine-tuning information for the voice.
-        /// </param>
+        /// <param name="fineTuning"></param>
         /// <param name="labels">
         /// Labels associated with the voice.
         /// </param>
@@ -174,12 +172,8 @@ namespace ElevenLabs
         /// <param name="availableForTiers">
         /// The tiers the voice is available for.
         /// </param>
-        /// <param name="settings">
-        /// The settings of the voice.
-        /// </param>
-        /// <param name="sharing">
-        /// The sharing information of the voice.
-        /// </param>
+        /// <param name="settings"></param>
+        /// <param name="sharing"></param>
         /// <param name="highQualityBaseModelIds">
         /// The base model IDs for high-quality voices.
         /// </param>
@@ -189,9 +183,7 @@ namespace ElevenLabs
         /// <param name="safetyControl">
         /// The safety controls of the voice.
         /// </param>
-        /// <param name="voiceVerification">
-        /// The voice verification of the voice.
-        /// </param>
+        /// <param name="voiceVerification"></param>
         /// <param name="permissionOnResource">
         /// The permission on the resource of the voice.
         /// </param>

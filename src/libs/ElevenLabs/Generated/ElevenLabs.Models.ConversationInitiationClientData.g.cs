@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config_override")]
-        public global::ElevenLabs.ConversationConfigClientOverride? ConversationConfigOverride { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideOutput? ConversationConfigOverride { get; set; }
 
         /// <summary>
         /// 
@@ -42,7 +42,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationInitiationClientData(
-            global::ElevenLabs.ConversationConfigClientOverride? conversationConfigOverride,
+            global::ElevenLabs.ConversationConfigClientOverrideOutput? conversationConfigOverride,
             object? customLlmExtraBody,
             object? dynamicVariables)
         {

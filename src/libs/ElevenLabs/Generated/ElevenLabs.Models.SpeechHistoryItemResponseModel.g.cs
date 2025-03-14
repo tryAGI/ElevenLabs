@@ -99,7 +99,7 @@ namespace ElevenLabs
         public object? Settings { get; set; }
 
         /// <summary>
-        /// Feedback associated with the generated item. Returns null if no feedback has been provided.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
         public global::ElevenLabs.FeedbackResponseModel? Feedback { get; set; }
@@ -118,7 +118,7 @@ namespace ElevenLabs
         public global::ElevenLabs.SpeechHistoryItemResponseModelSource? Source { get; set; }
 
         /// <summary>
-        /// The alignments of the history item.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alignments")]
         public global::ElevenLabs.HistoryAlignmentsResponseModel? Alignments { get; set; }
@@ -171,18 +171,14 @@ namespace ElevenLabs
         /// <param name="settings">
         /// The settings of the history item.
         /// </param>
-        /// <param name="feedback">
-        /// Feedback associated with the generated item. Returns null if no feedback has been provided.
-        /// </param>
+        /// <param name="feedback"></param>
         /// <param name="shareLinkId">
         /// The ID of the share link.
         /// </param>
         /// <param name="source">
         /// The source of the history item. Either TTS (text to speech), STS (speech to text) or STT (speech to text).
         /// </param>
-        /// <param name="alignments">
-        /// The alignments of the history item.
-        /// </param>
+        /// <param name="alignments"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

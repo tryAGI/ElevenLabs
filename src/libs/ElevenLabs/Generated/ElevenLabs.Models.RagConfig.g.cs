@@ -15,7 +15,7 @@ namespace ElevenLabs
         public bool? Enabled { get; set; }
 
         /// <summary>
-        /// Default Value: e5_mistral_7b_instruct
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
@@ -51,9 +51,7 @@ namespace ElevenLabs
         /// <param name="enabled">
         /// Default Value: false
         /// </param>
-        /// <param name="embeddingModel">
-        /// Default Value: e5_mistral_7b_instruct
-        /// </param>
+        /// <param name="embeddingModel"></param>
         /// <param name="maxVectorDistance">
         /// Maximum vector distance of retrieved chunks.<br/>
         /// Default Value: 0.6<br/>

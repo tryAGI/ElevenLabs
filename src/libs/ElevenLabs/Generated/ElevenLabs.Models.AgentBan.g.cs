@@ -22,7 +22,7 @@ namespace ElevenLabs
         public string? Reason { get; set; }
 
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reason_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BanReasonTypeJsonConverter))]
@@ -40,9 +40,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="atUnix"></param>
         /// <param name="reason"></param>
-        /// <param name="reasonType">
-        /// An enumeration.
-        /// </param>
+        /// <param name="reasonType"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

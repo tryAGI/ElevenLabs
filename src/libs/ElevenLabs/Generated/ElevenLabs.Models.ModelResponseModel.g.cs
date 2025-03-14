@@ -114,7 +114,7 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.LanguageResponseModel> Languages { get; set; }
 
         /// <summary>
-        /// The rates for the model.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_rates")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -182,9 +182,7 @@ namespace ElevenLabs
         /// <param name="languages">
         /// The languages supported by the model.
         /// </param>
-        /// <param name="modelRates">
-        /// The rates for the model.
-        /// </param>
+        /// <param name="modelRates"></param>
         /// <param name="concurrencyGroup">
         /// The concurrency group for the model.
         /// </param>

@@ -16,7 +16,7 @@ namespace ElevenLabs
         public required string CriteriaId { get; set; }
 
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
@@ -40,9 +40,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationHistoryEvaluationCriteriaResultCommonModel" /> class.
         /// </summary>
         /// <param name="criteriaId"></param>
-        /// <param name="result">
-        /// An enumeration.
-        /// </param>
+        /// <param name="result"></param>
         /// <param name="rationale"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

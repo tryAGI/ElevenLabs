@@ -80,7 +80,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? SliceIds { get; set; }
 
         /// <summary>
-        /// The manual verification of the fine-tuning process.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("manual_verification")]
         public global::ElevenLabs.ManualVerificationResponseModel? ManualVerification { get; set; }
@@ -139,9 +139,7 @@ namespace ElevenLabs
         /// <param name="sliceIds">
         /// List of slice IDs.
         /// </param>
-        /// <param name="manualVerification">
-        /// The manual verification of the fine-tuning process.
-        /// </param>
+        /// <param name="manualVerification"></param>
         /// <param name="maxVerificationAttempts">
         /// The maximum number of verification attempts.
         /// </param>

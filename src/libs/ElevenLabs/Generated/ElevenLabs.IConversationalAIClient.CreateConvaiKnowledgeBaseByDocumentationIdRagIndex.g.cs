@@ -24,7 +24,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
-            global::ElevenLabs.AllOf<global::ElevenLabs.RAGIndexRequestModel> request,
+            global::ElevenLabs.RAGIndexRequestModel request,
             bool? forceReindex = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -44,10 +44,12 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="model"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
+            global::ElevenLabs.EmbeddingModelEnum model,
             bool? forceReindex = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -23,7 +23,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentCreateResponse> CreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentAsync(
             string dubbingId,
             string speakerId,
-            global::ElevenLabs.AllOf<global::ElevenLabs.SegmentCreatePayload> request,
+            global::ElevenLabs.SegmentCreatePayload request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -40,12 +40,18 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="text"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentCreateResponse> CreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentAsync(
             string dubbingId,
             string speakerId,
+            double startTime,
+            double endTime,
             string? xiApiKey = default,
+            string? text = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

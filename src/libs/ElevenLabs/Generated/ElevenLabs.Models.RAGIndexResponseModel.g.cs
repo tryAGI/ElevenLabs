@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class RAGIndexResponseModel
     {
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RAGIndexStatusJsonConverter))]
@@ -32,9 +32,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="RAGIndexResponseModel" /> class.
         /// </summary>
-        /// <param name="status">
-        /// An enumeration.
-        /// </param>
+        /// <param name="status"></param>
         /// <param name="progressPercentage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

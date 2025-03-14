@@ -16,13 +16,13 @@ namespace ElevenLabs
         public required string AudioBase64 { get; set; }
 
         /// <summary>
-        /// Timestamp information for each character in the original text
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alignment")]
         public global::ElevenLabs.CharacterAlignmentResponseModel? Alignment { get; set; }
 
         /// <summary>
-        /// Timestamp information for each character in the normalized text
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("normalized_alignment")]
         public global::ElevenLabs.CharacterAlignmentResponseModel? NormalizedAlignment { get; set; }
@@ -39,12 +39,8 @@ namespace ElevenLabs
         /// <param name="audioBase64">
         /// Base64 encoded audio data
         /// </param>
-        /// <param name="alignment">
-        /// Timestamp information for each character in the original text
-        /// </param>
-        /// <param name="normalizedAlignment">
-        /// Timestamp information for each character in the normalized text
-        /// </param>
+        /// <param name="alignment"></param>
+        /// <param name="normalizedAlignment"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

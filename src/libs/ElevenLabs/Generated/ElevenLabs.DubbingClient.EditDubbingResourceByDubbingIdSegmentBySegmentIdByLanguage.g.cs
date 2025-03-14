@@ -11,7 +11,7 @@ namespace ElevenLabs
             ref string segmentId,
             ref string language,
             ref string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.SegmentUpdatePayload> request);
+            global::ElevenLabs.SegmentUpdatePayload request);
         partial void PrepareEditDubbingResourceByDubbingIdSegmentBySegmentIdByLanguageRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -19,7 +19,7 @@ namespace ElevenLabs
             string segmentId,
             string language,
             string? xiApiKey,
-            global::ElevenLabs.AllOf<global::ElevenLabs.SegmentUpdatePayload> request);
+            global::ElevenLabs.SegmentUpdatePayload request);
         partial void ProcessEditDubbingResourceByDubbingIdSegmentBySegmentIdByLanguageResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -52,10 +52,12 @@ namespace ElevenLabs
             string dubbingId,
             string segmentId,
             string language,
-            global::ElevenLabs.AllOf<global::ElevenLabs.SegmentUpdatePayload> request,
+            global::ElevenLabs.SegmentUpdatePayload request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareEditDubbingResourceByDubbingIdSegmentBySegmentIdByLanguageArguments(
@@ -246,6 +248,9 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="text"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentUpdateResponse> EditDubbingResourceByDubbingIdSegmentBySegmentIdByLanguageAsync(
@@ -253,10 +258,16 @@ namespace ElevenLabs
             string segmentId,
             string language,
             string? xiApiKey = default,
+            double? startTime = default,
+            double? endTime = default,
+            string? text = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AllOf<global::ElevenLabs.SegmentUpdatePayload>
+            var __request = new global::ElevenLabs.SegmentUpdatePayload
             {
+                StartTime = startTime,
+                EndTime = endTime,
+                Text = text,
             };
 
             return await EditDubbingResourceByDubbingIdSegmentBySegmentIdByLanguageAsync(

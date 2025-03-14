@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ConversationHistoryFeedbackCommonModel
     {
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overall_score")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UserFeedbackScoreJsonConverter))]
@@ -36,9 +36,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationHistoryFeedbackCommonModel" /> class.
         /// </summary>
-        /// <param name="overallScore">
-        /// An enumeration.
-        /// </param>
+        /// <param name="overallScore"></param>
         /// <param name="likes">
         /// Default Value: 0
         /// </param>

@@ -135,7 +135,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ExtendedSubscriptionResponseModelCharacterRefreshPeriod? CharacterRefreshPeriod { get; set; }
 
         /// <summary>
-        /// The next invoice for the user.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_invoice")]
         public global::ElevenLabs.InvoiceResponseModel? NextInvoice { get; set; }
@@ -210,9 +210,7 @@ namespace ElevenLabs
         /// <param name="characterRefreshPeriod">
         /// The character refresh period of the user's subscription.
         /// </param>
-        /// <param name="nextInvoice">
-        /// The next invoice for the user.
-        /// </param>
+        /// <param name="nextInvoice"></param>
         /// <param name="hasOpenInvoices">
         /// Whether the user has open invoices.
         /// </param>

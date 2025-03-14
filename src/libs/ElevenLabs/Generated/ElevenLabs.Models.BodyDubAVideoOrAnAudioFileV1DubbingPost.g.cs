@@ -99,6 +99,13 @@ namespace ElevenLabs
         public bool? DubbingStudio { get; set; }
 
         /// <summary>
+        /// [BETA] Whether the dub should use replacement voices from the voice library instead of cloning.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_replacement_voices_from_library")]
+        public bool? UseReplacementVoicesFromLibrary { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -155,6 +162,10 @@ namespace ElevenLabs
         /// Whether to prepare dub for edits in dubbing studio or edits as a dubbing resource.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="useReplacementVoicesFromLibrary">
+        /// [BETA] Whether the dub should use replacement voices from the voice library instead of cloning.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -172,7 +183,8 @@ namespace ElevenLabs
             bool? highestResolution,
             bool? dropBackgroundAudio,
             bool? useProfanityFilter,
-            bool? dubbingStudio)
+            bool? dubbingStudio,
+            bool? useReplacementVoicesFromLibrary)
         {
             this.File = file;
             this.Filename = filename;
@@ -188,6 +200,7 @@ namespace ElevenLabs
             this.DropBackgroundAudio = dropBackgroundAudio;
             this.UseProfanityFilter = useProfanityFilter;
             this.DubbingStudio = dubbingStudio;
+            this.UseReplacementVoicesFromLibrary = useReplacementVoicesFromLibrary;
         }
 
         /// <summary>

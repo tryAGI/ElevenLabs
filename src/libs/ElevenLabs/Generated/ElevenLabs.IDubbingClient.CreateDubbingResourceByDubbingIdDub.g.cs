@@ -44,7 +44,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentDubResponse> CreateDubbingResourceByDubbingIdDubAsync(
             string dubbingId,
             global::System.Collections.Generic.IList<string> segments,
-            global::System.Collections.Generic.IList<string> languages,
+            global::System.Collections.Generic.IList<string>? languages,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -16,7 +16,7 @@ namespace ElevenLabs
         public required string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Phone provider
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyProviderJsonConverter))]
@@ -55,9 +55,7 @@ namespace ElevenLabs
         /// <param name="phoneNumber">
         /// Phone number
         /// </param>
-        /// <param name="provider">
-        /// Phone provider
-        /// </param>
+        /// <param name="provider"></param>
         /// <param name="label">
         /// Label for the phone number
         /// </param>

@@ -44,6 +44,36 @@ namespace ElevenLabs
         public required string Hash { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("duration_secs")]
+        public double? DurationSecs { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("remove_background_noise")]
+        public bool? RemoveBackgroundNoise { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_isolated_audio")]
+        public bool? HasIsolatedAudio { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_isolated_audio_preview")]
+        public bool? HasIsolatedAudioPreview { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("speaker_separation")]
+        public global::ElevenLabs.SpeakerSeparationResponseModel? SpeakerSeparation { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -67,6 +97,11 @@ namespace ElevenLabs
         /// <param name="hash">
         /// The hash of the sample file.
         /// </param>
+        /// <param name="durationSecs"></param>
+        /// <param name="removeBackgroundNoise"></param>
+        /// <param name="hasIsolatedAudio"></param>
+        /// <param name="hasIsolatedAudioPreview"></param>
+        /// <param name="speakerSeparation"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -75,13 +110,23 @@ namespace ElevenLabs
             string fileName,
             string mimeType,
             int sizeBytes,
-            string hash)
+            string hash,
+            double? durationSecs,
+            bool? removeBackgroundNoise,
+            bool? hasIsolatedAudio,
+            bool? hasIsolatedAudioPreview,
+            global::ElevenLabs.SpeakerSeparationResponseModel? speakerSeparation)
         {
             this.SampleId = sampleId ?? throw new global::System.ArgumentNullException(nameof(sampleId));
             this.FileName = fileName ?? throw new global::System.ArgumentNullException(nameof(fileName));
             this.MimeType = mimeType ?? throw new global::System.ArgumentNullException(nameof(mimeType));
             this.SizeBytes = sizeBytes;
             this.Hash = hash ?? throw new global::System.ArgumentNullException(nameof(hash));
+            this.DurationSecs = durationSecs;
+            this.RemoveBackgroundNoise = removeBackgroundNoise;
+            this.HasIsolatedAudio = hasIsolatedAudio;
+            this.HasIsolatedAudioPreview = hasIsolatedAudioPreview;
+            this.SpeakerSeparation = speakerSeparation;
         }
 
         /// <summary>

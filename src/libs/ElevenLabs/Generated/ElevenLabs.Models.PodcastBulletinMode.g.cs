@@ -16,7 +16,7 @@ namespace ElevenLabs
         public global::ElevenLabs.PodcastBulletinModeType Type { get; set; }
 
         /// <summary>
-        /// The voice settings for the bulletin.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bulletin")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -34,9 +34,7 @@ namespace ElevenLabs
         /// <param name="type">
         /// The type of podcast to create.
         /// </param>
-        /// <param name="bulletin">
-        /// The voice settings for the bulletin.
-        /// </param>
+        /// <param name="bulletin"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
