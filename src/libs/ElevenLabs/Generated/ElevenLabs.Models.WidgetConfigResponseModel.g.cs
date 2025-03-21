@@ -166,6 +166,12 @@ namespace ElevenLabs
         public bool? DisableBanner { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mic_muting_enabled")]
+        public bool? MicMutingEnabled { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -231,6 +237,9 @@ namespace ElevenLabs
         /// Whether to disable the ConvAI widget banner<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="micMutingEnabled">
+        /// Default Value: false
+        /// </param>
         /// <param name="language"></param>
         /// <param name="supportedLanguageOverrides"></param>
 #if NET7_0_OR_GREATER
@@ -263,6 +272,7 @@ namespace ElevenLabs
             string? termsKey,
             bool? showAvatarWhenCollapsed,
             bool? disableBanner,
+            bool? micMutingEnabled,
             global::System.Collections.Generic.IList<string>? supportedLanguageOverrides)
         {
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
@@ -291,6 +301,7 @@ namespace ElevenLabs
             this.TermsKey = termsKey;
             this.ShowAvatarWhenCollapsed = showAvatarWhenCollapsed;
             this.DisableBanner = disableBanner;
+            this.MicMutingEnabled = micMutingEnabled;
             this.SupportedLanguageOverrides = supportedLanguageOverrides;
         }
 

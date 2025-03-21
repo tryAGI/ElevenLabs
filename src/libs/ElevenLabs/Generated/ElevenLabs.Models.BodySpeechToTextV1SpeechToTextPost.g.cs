@@ -64,12 +64,6 @@ namespace ElevenLabs
         public bool? Diarize { get; set; }
 
         /// <summary>
-        /// A list of keywords and their biases.          The keywords are the words that you want to bias the transcription towards.           The biases decide how much the model should boost or suppress the keyword.           The biases should be numbers between -10 and 10. The number of keywords cannot exceed 100.          The length of each keyword must be less than 50 characters.          Each keyword-bias pair must be separated by a colon.          For example ["keyword_a:0.42", "keyword_b:-0.5"]
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("biased_keywords")]
-        public global::System.Collections.Generic.IList<string>? BiasedKeywords { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -105,9 +99,6 @@ namespace ElevenLabs
         /// Whether to annotate which speaker is currently talking in the uploaded file.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="biasedKeywords">
-        /// A list of keywords and their biases.          The keywords are the words that you want to bias the transcription towards.           The biases decide how much the model should boost or suppress the keyword.           The biases should be numbers between -10 and 10. The number of keywords cannot exceed 100.          The length of each keyword must be less than 50 characters.          Each keyword-bias pair must be separated by a colon.          For example ["keyword_a:0.42", "keyword_b:-0.5"]
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -119,8 +110,7 @@ namespace ElevenLabs
             bool? tagAudioEvents,
             int? numSpeakers,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity,
-            bool? diarize,
-            global::System.Collections.Generic.IList<string>? biasedKeywords)
+            bool? diarize)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
@@ -130,7 +120,6 @@ namespace ElevenLabs
             this.NumSpeakers = numSpeakers;
             this.TimestampsGranularity = timestampsGranularity;
             this.Diarize = diarize;
-            this.BiasedKeywords = biasedKeywords;
         }
 
         /// <summary>

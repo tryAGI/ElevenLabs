@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.GetKnowledgeBaseSummaryResponseModel> Documents { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.DocumentsItem> Documents { get; set; }
 
         /// <summary>
         /// 
@@ -44,7 +44,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetKnowledgeBaseListResponseModel(
-            global::System.Collections.Generic.IList<global::ElevenLabs.GetKnowledgeBaseSummaryResponseModel> documents,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DocumentsItem> documents,
             bool hasMore,
             string? nextCursor)
         {

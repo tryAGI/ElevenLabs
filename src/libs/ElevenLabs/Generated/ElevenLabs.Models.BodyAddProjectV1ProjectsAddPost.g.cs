@@ -228,6 +228,15 @@ namespace ElevenLabs
         public bool? AutoAssignVoices { get; set; }
 
         /// <summary>
+        /// The type of Studio project to create.<br/>
+        /// Example: book
+        /// </summary>
+        /// <example>book</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyAddProjectV1ProjectsAddPostSourceTypeJsonConverter))]
+        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostSourceType? SourceType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -349,6 +358,10 @@ namespace ElevenLabs
         /// [Alpha Feature] Whether automatically assign voices to phrases in the create Project.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="sourceType">
+        /// The type of Studio project to create.<br/>
+        /// Example: book
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -378,7 +391,8 @@ namespace ElevenLabs
             global::ElevenLabs.BodyAddProjectV1ProjectsAddPostFiction? fiction,
             global::ElevenLabs.BodyAddProjectV1ProjectsAddPostApplyTextNormalization? applyTextNormalization,
             bool? autoConvert,
-            bool? autoAssignVoices)
+            bool? autoAssignVoices,
+            global::ElevenLabs.BodyAddProjectV1ProjectsAddPostSourceType? sourceType)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.DefaultTitleVoiceId = defaultTitleVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultTitleVoiceId));
@@ -406,6 +420,7 @@ namespace ElevenLabs
             this.ApplyTextNormalization = applyTextNormalization;
             this.AutoConvert = autoConvert;
             this.AutoAssignVoices = autoAssignVoices;
+            this.SourceType = sourceType;
         }
 
         /// <summary>

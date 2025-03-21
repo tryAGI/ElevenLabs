@@ -60,6 +60,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workspace_overrides")]
+        public global::ElevenLabs.AgentWorkspaceOverridesOutput? WorkspaceOverrides { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety")]
         public global::ElevenLabs.SafetyResponseModel? Safety { get; set; }
 
@@ -83,6 +89,7 @@ namespace ElevenLabs
         /// <param name="callLimits"></param>
         /// <param name="ban"></param>
         /// <param name="privacy"></param>
+        /// <param name="workspaceOverrides"></param>
         /// <param name="safety"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -96,6 +103,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentCallLimits? callLimits,
             global::ElevenLabs.AgentBan? ban,
             global::ElevenLabs.PrivacyConfig? privacy,
+            global::ElevenLabs.AgentWorkspaceOverridesOutput? workspaceOverrides,
             global::ElevenLabs.SafetyResponseModel? safety)
         {
             this.Auth = auth;
@@ -106,6 +114,7 @@ namespace ElevenLabs
             this.CallLimits = callLimits;
             this.Ban = ban;
             this.Privacy = privacy;
+            this.WorkspaceOverrides = workspaceOverrides;
             this.Safety = safety;
         }
 
