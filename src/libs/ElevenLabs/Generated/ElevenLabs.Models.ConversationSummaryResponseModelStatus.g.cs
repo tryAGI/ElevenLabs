@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Done,
+        /// <summary>
+        /// 
+        /// </summary>
+        Failed,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 ConversationSummaryResponseModelStatus.Processing => "processing",
                 ConversationSummaryResponseModelStatus.Done => "done",
+                ConversationSummaryResponseModelStatus.Failed => "failed",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "processing" => ConversationSummaryResponseModelStatus.Processing,
                 "done" => ConversationSummaryResponseModelStatus.Done,
+                "failed" => ConversationSummaryResponseModelStatus.Failed,
                 _ => null,
             };
         }

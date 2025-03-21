@@ -4085,12 +4085,6 @@ paths:
               example:
                 error: dubbing_not_found
                 message: 'There is no dubbing for language {language_code}.'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -4098,6 +4092,12 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: get_dubbed_file
   '/v1/dubbing/{dubbing_id}/transcript/{language_code}':
@@ -4147,13 +4147,13 @@ paths:
         '200':
           description: Successful Response
           content:
+            text/plain:
+              schema:
+                type: string
             application/json:
               schema:
                 type: string
               example: "1\n00:00:01,000 --> 00:00:04,000\nHello, this is the first subtitle line\n\n2\n00:00:05,000 --> 00:00:07,000\nAnd here's the second subtitle line"
-            text/plain:
-              schema:
-                type: string
         '403':
           description: Anonymous users cannot use this function
           content:
@@ -4168,12 +4168,6 @@ paths:
               example:
                 error: transcript_not_found
                 message: No transcript was found for the dub.
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -4181,6 +4175,12 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: get_transcript_for_dub
   /v1/models:
@@ -6475,7 +6475,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetKnowledgeBaseResponseModel'
+                title: Response Get Documentation From Knowledge Base V1 Convai Knowledge Base  Documentation Id  Get
+                oneOf:
+                  - $ref: '#/components/schemas/GetKnowledgeBaseURLResponseModel'
+                  - $ref: '#/components/schemas/GetKnowledgeBaseFileResponseModel'
+                discriminator:
+                  propertyName: type
+                  mapping:
+                    url: '#/components/schemas/GetKnowledgeBaseURLResponseModel'
+                    file: '#/components/schemas/GetKnowledgeBaseFileResponseModel'
         '422':
           description: Validation Error
           content:
@@ -6553,7 +6561,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetKnowledgeBaseResponseModel'
+                title: Response Get Documentation From Knowledge Base V1 Convai Agents  Agent Id  Knowledge Base  Documentation Id  Get
+                oneOf:
+                  - $ref: '#/components/schemas/GetKnowledgeBaseURLResponseModel'
+                  - $ref: '#/components/schemas/GetKnowledgeBaseFileResponseModel'
+                discriminator:
+                  propertyName: type
+                  mapping:
+                    url: '#/components/schemas/GetKnowledgeBaseURLResponseModel'
+                    file: '#/components/schemas/GetKnowledgeBaseFileResponseModel'
         '422':
           description: Validation Error
           content:
@@ -6620,6 +6636,93 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: get_dependent_agents
+  '/v1/convai/knowledge-base/{documentation_id}/content':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Document Content
+      description: Get the entire content of a document from the knowledge base
+      operationId: Get_document_content_v1_convai_knowledge_base__documentation_id__content_get
+      parameters:
+        - name: documentation_id
+          in: path
+          description: The id of a document from the knowledge base. This is returned on document addition.
+          required: true
+          schema:
+            title: Documentation Id
+            type: string
+            description: The id of a document from the knowledge base. This is returned on document addition.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            text/html: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_knowledge_base_document_content
+  '/v1/convai/knowledge-base/{documentation_id}/chunk/{chunk_id}':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Documentation Chunk From Knowledge Base
+      description: Get details about a specific documentation part used by RAG.
+      operationId: Get_documentation_chunk_from_knowledge_base_v1_convai_knowledge_base__documentation_id__chunk__chunk_id__get
+      parameters:
+        - name: documentation_id
+          in: path
+          description: The id of a document from the knowledge base. This is returned on document addition.
+          required: true
+          schema:
+            title: Documentation Id
+            type: string
+            description: The id of a document from the knowledge base. This is returned on document addition.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: chunk_id
+          in: path
+          description: The id of a document RAG chunk from the knowledge base.
+          required: true
+          schema:
+            title: Chunk Id
+            type: string
+            description: The id of a document RAG chunk from the knowledge base.
+            example: '1'
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeBaseDocumentChunkResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_knowledge_base_document_part_by_id
   /v1/convai/settings:
     get:
       tags:
@@ -7108,6 +7211,8 @@ components:
           $ref: '#/components/schemas/AgentBan'
         privacy:
           $ref: '#/components/schemas/PrivacyConfig'
+        workspace_overrides:
+          $ref: '#/components/schemas/AgentWorkspaceOverrides-Input'
         safety:
           $ref: '#/components/schemas/SafetyCommonModel'
     AgentPlatformSettingsResponseModel:
@@ -7133,6 +7238,8 @@ components:
           $ref: '#/components/schemas/AgentBan'
         privacy:
           $ref: '#/components/schemas/PrivacyConfig'
+        workspace_overrides:
+          $ref: '#/components/schemas/AgentWorkspaceOverrides-Output'
         safety:
           $ref: '#/components/schemas/SafetyResponseModel'
     AgentSummaryResponseModel:
@@ -7155,6 +7262,18 @@ components:
           type: integer
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
+    AgentWorkspaceOverrides-Input:
+      title: AgentWorkspaceOverrides
+      type: object
+      properties:
+        conversation_initiation_client_data_webhook:
+          $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
+    AgentWorkspaceOverrides-Output:
+      title: AgentWorkspaceOverrides
+      type: object
+      properties:
+        conversation_initiation_client_data_webhook:
+          $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
     AllowlistItem:
       title: AllowlistItem
       required:
@@ -7673,6 +7792,17 @@ components:
           description: '[Alpha Feature] Whether automatically assign voices to phrases in the create Project.'
           default: false
           nullable: true
+        source_type:
+          title: Source Type
+          enum:
+            - blank
+            - book
+            - article
+            - genfm
+          type: string
+          description: The type of Studio project to create.
+          nullable: true
+          example: book
     Body_Add_rules_to_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__add_rules_post:
       title: Body_Add_rules_to_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__add_rules_post
       required:
@@ -8023,6 +8153,17 @@ components:
           description: '[Alpha Feature] Whether automatically assign voices to phrases in the create Project.'
           default: false
           nullable: true
+        source_type:
+          title: Source Type
+          enum:
+            - blank
+            - book
+            - article
+            - genfm
+          type: string
+          description: The type of Studio project to create.
+          nullable: true
+          example: book
     Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_create_voice_from_preview_post:
       title: Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_create_voice_from_preview_post
       required:
@@ -8093,6 +8234,7 @@ components:
           items:
             type: string
           description: List of voice ids that the user has played but not selected. Used for RLHF.
+          nullable: true
         labels:
           title: Labels
           type: object
@@ -8195,6 +8337,7 @@ components:
             minLength: 10
             type: string
           description: 'A brief summary or highlights of the Studio project''s content, providing key points or themes. This should be between 10 and 70 characters.'
+          nullable: true
           example:
             - Emphasize the importance of AI on education
         callback_url:
@@ -8280,6 +8423,7 @@ components:
             minLength: 10
             type: string
           description: 'A brief summary or highlights of the Studio project''s content, providing key points or themes. This should be between 10 and 70 characters.'
+          nullable: true
           example:
             - Emphasize the importance of AI on education
         callback_url:
@@ -8907,8 +9051,8 @@ components:
           default: true
         num_speakers:
           title: Num Speakers
-          maximum: 32
-          minimum: 1
+          maximum: 32.0
+          minimum: 1.0
           type: integer
           description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
           nullable: true
@@ -8926,12 +9070,6 @@ components:
           type: boolean
           description: Whether to annotate which speaker is currently talking in the uploaded file.
           default: false
-        biased_keywords:
-          title: Biased Keywords
-          type: array
-          items:
-            type: string
-          description: 'A list of keywords and their biases.          The keywords are the words that you want to bias the transcription towards.           The biases decide how much the model should boost or suppress the keyword.           The biases should be numbers between -10 and 10. The number of keywords cannot exceed 100.          The length of each keyword must be less than 50 characters.          Each keyword-bias pair must be separated by a colon.          For example ["keyword_a:0.42", "keyword_b:-0.5"]'
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -8997,6 +9135,7 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
+          nullable: true
           example:
             - pronunciation_dictionary_id: test
               version_id: id2
@@ -9024,6 +9163,7 @@ components:
           items:
             type: string
           description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          nullable: true
           example:
             - 09bOJkdYVjKy2oOiiVtR
             - 0p2uKqOnZyce22SPZ9d5
@@ -9034,6 +9174,7 @@ components:
           items:
             type: string
           description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          nullable: true
           example:
             - 3tPgBrD1UdW3snUkGw1K
             - 4D1jAxiRFkolBNUGzXkU
@@ -9084,6 +9225,7 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
+          nullable: true
           example:
             - pronunciation_dictionary_id: test
               version_id: id2
@@ -9111,6 +9253,7 @@ components:
           items:
             type: string
           description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          nullable: true
           example:
             - 09bOJkdYVjKy2oOiiVtR
             - 0p2uKqOnZyce22SPZ9d5
@@ -9121,6 +9264,7 @@ components:
           items:
             type: string
           description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          nullable: true
           example:
             - 3tPgBrD1UdW3snUkGw1K
             - 4D1jAxiRFkolBNUGzXkU
@@ -9171,6 +9315,7 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
+          nullable: true
           example:
             - pronunciation_dictionary_id: test
               version_id: id2
@@ -9198,6 +9343,7 @@ components:
           items:
             type: string
           description: 'A list of request_id of the samples that were generated before this generation. Can be used to improve the speech''s continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.'
+          nullable: true
           example:
             - 09bOJkdYVjKy2oOiiVtR
             - 0p2uKqOnZyce22SPZ9d5
@@ -9208,6 +9354,7 @@ components:
           items:
             type: string
           description: 'A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech''s continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.'
+          nullable: true
           example:
             - 3tPgBrD1UdW3snUkGw1K
             - 4D1jAxiRFkolBNUGzXkU
@@ -9965,8 +10112,8 @@ components:
           default: false
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30
-          minimum: 1
+          maximum: 30.0
+          minimum: 1.0
           type: integer
           nullable: true
         dynamic_variables:
@@ -10002,8 +10149,8 @@ components:
           default: false
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30
-          minimum: 1
+          maximum: 30.0
+          minimum: 1.0
           type: integer
           nullable: true
         dynamic_variables:
@@ -10301,6 +10448,8 @@ components:
           type: integer
         conversation_turn_metrics:
           $ref: '#/components/schemas/ConversationTurnMetrics'
+        rag_retrieval_info:
+          $ref: '#/components/schemas/RagRetrievalInfo'
     ConversationHistoryTranscriptToolCallCommonModel:
       title: ConversationHistoryTranscriptToolCallCommonModel
       required:
@@ -10385,24 +10534,6 @@ components:
         call_sid:
           title: Call Sid
           type: string
-    ConversationInitiationClientData:
-      title: ConversationInitiationClientData
-      type: object
-      properties:
-        conversation_config_override:
-          $ref: '#/components/schemas/ConversationConfigClientOverride-Output'
-        custom_llm_extra_body:
-          title: Custom Llm Extra Body
-          type: object
-        dynamic_variables:
-          title: Dynamic Variables
-          type: object
-          additionalProperties:
-            anyOf:
-              - type: string
-              - type: number
-              - type: integer
-              - type: boolean
     ConversationInitiationClientDataConfig-Input:
       title: ConversationInitiationClientDataConfig
       type: object
@@ -10431,6 +10562,25 @@ components:
           title: Enable Conversation Initiation Client Data From Webhook
           type: boolean
           default: false
+    ConversationInitiationClientDataRequest:
+      title: ConversationInitiationClientDataRequest
+      type: object
+      properties:
+        conversation_config_override:
+          $ref: '#/components/schemas/ConversationConfigClientOverride-Output'
+        custom_llm_extra_body:
+          title: Custom Llm Extra Body
+          type: object
+        dynamic_variables:
+          title: Dynamic Variables
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+            nullable: true
     ConversationInitiationClientDataWebhook:
       title: ConversationInitiationClientDataWebhook
       required:
@@ -10493,6 +10643,7 @@ components:
           enum:
             - processing
             - done
+            - failed
           type: string
         call_successful:
           $ref: '#/components/schemas/EvaluationSuccessResult'
@@ -11608,6 +11759,7 @@ components:
           enum:
             - processing
             - done
+            - failed
           type: string
         transcript:
           title: Transcript
@@ -11619,7 +11771,7 @@ components:
         analysis:
           $ref: '#/components/schemas/ConversationHistoryAnalysisCommonModel'
         conversation_initiation_client_data:
-          $ref: '#/components/schemas/ConversationInitiationClientData'
+          $ref: '#/components/schemas/ConversationInitiationClientDataRequest'
     GetConversationsPageResponseModel:
       title: GetConversationsPageResponseModel
       required:
@@ -11665,6 +11817,39 @@ components:
         has_more:
           title: Has More
           type: boolean
+    GetKnowledgeBaseFileResponseModel:
+      title: GetKnowledgeBaseFileResponseModel
+      required:
+        - id
+        - name
+        - metadata
+        - prompt_injectable
+        - access_info
+        - extracted_inner_html
+        - type
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        metadata:
+          $ref: '#/components/schemas/KnowledgeBaseDocumentMetadataResponseModel'
+        prompt_injectable:
+          title: Prompt Injectable
+          type: boolean
+        access_info:
+          $ref: '#/components/schemas/ResourceAccessInfo'
+        extracted_inner_html:
+          title: Extracted Inner Html
+          type: string
+        type:
+          title: Type
+          enum:
+            - file
+          type: string
     GetKnowledgeBaseListResponseModel:
       title: GetKnowledgeBaseListResponseModel
       required:
@@ -11676,7 +11861,14 @@ components:
           title: Documents
           type: array
           items:
-            $ref: '#/components/schemas/GetKnowledgeBaseSummaryResponseModel'
+            oneOf:
+              - $ref: '#/components/schemas/GetKnowledgeBaseSummaryURLResponseModel'
+              - $ref: '#/components/schemas/GetKnowledgeBaseSummaryFileResponseModel'
+            discriminator:
+              propertyName: type
+              mapping:
+                file: '#/components/schemas/GetKnowledgeBaseSummaryFileResponseModel'
+                url: '#/components/schemas/GetKnowledgeBaseSummaryURLResponseModel'
         next_cursor:
           title: Next Cursor
           type: string
@@ -11684,55 +11876,16 @@ components:
         has_more:
           title: Has More
           type: boolean
-    GetKnowledgeBaseResponseModel:
-      title: GetKnowledgeBaseResponseModel
+    GetKnowledgeBaseSummaryFileResponseModel:
+      title: GetKnowledgeBaseSummaryFileResponseModel
       required:
         - id
         - name
-        - type
-        - metadata
-        - extracted_inner_html
-        - prompt_injectable
-        - access_level
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-        name:
-          title: Name
-          type: string
-        type:
-          title: Type
-          enum:
-            - file
-            - url
-          type: string
-        metadata:
-          $ref: '#/components/schemas/KnowledgeBaseDocumentMetadataResponseModel'
-        extracted_inner_html:
-          title: Extracted Inner Html
-          type: string
-        prompt_injectable:
-          title: Prompt Injectable
-          type: boolean
-        access_level:
-          title: Access Level
-          enum:
-            - admin
-            - editor
-            - viewer
-          type: string
-    GetKnowledgeBaseSummaryResponseModel:
-      title: GetKnowledgeBaseSummaryResponseModel
-      required:
-        - id
-        - name
-        - type
         - metadata
         - prompt_injectable
+        - access_info
         - dependent_agents
-        - access_level
+        - type
       type: object
       properties:
         id:
@@ -11741,17 +11894,13 @@ components:
         name:
           title: Name
           type: string
-        type:
-          title: Type
-          enum:
-            - file
-            - url
-          type: string
         metadata:
           $ref: '#/components/schemas/KnowledgeBaseDocumentMetadataResponseModel'
         prompt_injectable:
           title: Prompt Injectable
           type: boolean
+        access_info:
+          $ref: '#/components/schemas/ResourceAccessInfo'
         dependent_agents:
           title: Dependent Agents
           type: array
@@ -11764,12 +11913,93 @@ components:
               mapping:
                 available: '#/components/schemas/DependentAvailableAgentIdentifier'
                 unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
-        access_level:
-          title: Access Level
+        type:
+          title: Type
           enum:
-            - admin
-            - editor
-            - viewer
+            - file
+          type: string
+    GetKnowledgeBaseSummaryURLResponseModel:
+      title: GetKnowledgeBaseSummaryURLResponseModel
+      required:
+        - id
+        - name
+        - metadata
+        - prompt_injectable
+        - access_info
+        - dependent_agents
+        - type
+        - url
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        metadata:
+          $ref: '#/components/schemas/KnowledgeBaseDocumentMetadataResponseModel'
+        prompt_injectable:
+          title: Prompt Injectable
+          type: boolean
+        access_info:
+          $ref: '#/components/schemas/ResourceAccessInfo'
+        dependent_agents:
+          title: Dependent Agents
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DependentAvailableAgentIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownAgentIdentifier'
+            discriminator:
+              propertyName: type
+              mapping:
+                available: '#/components/schemas/DependentAvailableAgentIdentifier'
+                unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
+        type:
+          title: Type
+          enum:
+            - url
+          type: string
+        url:
+          title: Url
+          type: string
+    GetKnowledgeBaseURLResponseModel:
+      title: GetKnowledgeBaseURLResponseModel
+      required:
+        - id
+        - name
+        - metadata
+        - prompt_injectable
+        - access_info
+        - extracted_inner_html
+        - type
+        - url
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        metadata:
+          $ref: '#/components/schemas/KnowledgeBaseDocumentMetadataResponseModel'
+        prompt_injectable:
+          title: Prompt Injectable
+          type: boolean
+        access_info:
+          $ref: '#/components/schemas/ResourceAccessInfo'
+        extracted_inner_html:
+          title: Extracted Inner Html
+          type: string
+        type:
+          title: Type
+          enum:
+            - url
+          type: string
+        url:
+          title: Url
           type: string
     GetLibraryVoicesResponseModel:
       title: GetLibraryVoicesResponseModel
@@ -12214,6 +12444,23 @@ components:
       example:
         amount_due_cents: 1000
         next_payment_attempt_unix: 1738356858
+    KnowledgeBaseDocumentChunkResponseModel:
+      title: KnowledgeBaseDocumentChunkResponseModel
+      required:
+        - id
+        - name
+        - content
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        content:
+          title: Content
+          type: string
     KnowledgeBaseDocumentMetadataResponseModel:
       title: KnowledgeBaseDocumentMetadataResponseModel
       required:
@@ -13329,6 +13576,12 @@ components:
           type: string
           description: The source type of the project.
           nullable: true
+        chapters_enabled:
+          title: Chapters Enabled
+          type: boolean
+          description: Whether chapters are enabled for the project.
+          default: true
+          nullable: true
         quality_preset:
           title: Quality Preset
           enum:
@@ -13558,6 +13811,12 @@ components:
             - genfm
           type: string
           description: The source type of the project.
+          nullable: true
+        chapters_enabled:
+          title: Chapters Enabled
+          type: boolean
+          description: Whether chapters are enabled for the project.
+          default: true
           nullable: true
       example:
         access_level: viewer
@@ -14019,6 +14278,23 @@ components:
         - failed
         - succeeded
       type: string
+    RagChunkMetadata:
+      title: RagChunkMetadata
+      required:
+        - document_id
+        - chunk_id
+        - vector_distance
+      type: object
+      properties:
+        document_id:
+          title: Document Id
+          type: string
+        chunk_id:
+          title: Chunk Id
+          type: string
+        vector_distance:
+          title: Vector Distance
+          type: number
     RagConfig:
       title: RagConfig
       type: object
@@ -14031,9 +14307,9 @@ components:
           $ref: '#/components/schemas/EmbeddingModelEnum'
         max_vector_distance:
           title: Max Vector Distance
-          maximum: 1
+          maximum: 1.0
           exclusiveMaximum: true
-          minimum: 0
+          minimum: 0.0
           exclusiveMinimum: true
           type: number
           description: Maximum vector distance of retrieved chunks.
@@ -14041,14 +14317,36 @@ components:
           example: 0.5
         max_documents_length:
           title: Max Documents Length
-          maximum: 10000000
+          maximum: 10000000.0
           exclusiveMaximum: true
-          minimum: 0
+          minimum: 0.0
           exclusiveMinimum: true
           type: integer
           description: Maximum total length of document chunks retrieved from RAG.
           default: 50000
           example: '50000'
+    RagRetrievalInfo:
+      title: RagRetrievalInfo
+      required:
+        - chunks
+        - embedding_model
+        - retrieval_query
+        - rag_latency_secs
+      type: object
+      properties:
+        chunks:
+          title: Chunks
+          type: array
+          items:
+            $ref: '#/components/schemas/RagChunkMetadata'
+        embedding_model:
+          $ref: '#/components/schemas/EmbeddingModelEnum'
+        retrieval_query:
+          title: Retrieval Query
+          type: string
+        rag_latency_secs:
+          title: Rag Latency Secs
+          type: number
     ReaderResourceResponseModel:
       title: ReaderResourceResponseModel
       required:
@@ -15129,8 +15427,8 @@ components:
           $ref: '#/components/schemas/TTSOptimizeStreamingLatency'
         stability:
           title: Stability
-          maximum: 1
-          minimum: 0
+          maximum: 1.0
+          minimum: 0.0
           type: number
           default: 0.5
         speed:
@@ -15141,8 +15439,8 @@ components:
           default: 1
         similarity_boost:
           title: Similarity Boost
-          maximum: 1
-          minimum: 0
+          maximum: 1.0
+          minimum: 0.0
           type: number
           default: 0.8
         pronunciation_dictionary_locators:
@@ -15624,32 +15922,32 @@ components:
           default: false
         loudness:
           title: Loudness
-          maximum: 1
-          minimum: -1
+          maximum: 1.0
+          minimum: -1.0
           type: number
           description: 'Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.'
           default: 0.5
           example: 0.5
         quality:
           title: Quality
-          maximum: 1
-          minimum: -1
+          maximum: 1.0
+          minimum: -1.0
           type: number
           description: Higher quality results in better voice output but less variety.
           default: 0.9
           example: 0.9
         seed:
           title: Seed
-          maximum: 2147483647
-          minimum: 0
+          maximum: 2147483647.0
+          minimum: 0.0
           type: integer
           description: Random number that controls the voice generation. Same seed with same inputs produces same voice.
           nullable: true
           example: 11
         guidance_scale:
           title: Guidance Scale
-          maximum: 100
-          minimum: 0
+          maximum: 100.0
+          minimum: 0.0
           type: number
           description: 'Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.'
           default: 5
@@ -15897,34 +16195,33 @@ components:
           verification_failures: [ ]
     VoiceSettingsResponseModel:
       title: VoiceSettingsResponseModel
-      required:
-        - stability
-        - similarity_boost
       type: object
       properties:
         stability:
           title: Stability
           type: number
           description: Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.
+          nullable: true
         similarity_boost:
           title: Similarity Boost
           type: number
           description: Determines how closely the AI should adhere to the original voice when attempting to replicate it.
+          nullable: true
         style:
           title: Style
           type: number
           description: Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.
-          default: 0
+          nullable: true
         use_speaker_boost:
           title: Use Speaker Boost
           type: boolean
           description: 'This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.'
-          default: true
+          nullable: true
         speed:
           title: Speed
           type: number
           description: 'Controls the speed of the generated speech. Values range from 0.7 to 1.2, with 1.0 being the default speed. Lower values create slower, more deliberate speech while higher values produce faster-paced speech. Extreme values can impact the quality of the generated speech.'
-          default: 1
+          nullable: true
       example:
         similarity_boost: 1
         speed: 1
@@ -16525,6 +16822,10 @@ components:
           type: boolean
           description: Whether to disable the ConvAI widget banner
           default: false
+        mic_muting_enabled:
+          title: Mic Muting Enabled
+          type: boolean
+          default: false
         language_selector:
           title: Language Selector
           type: boolean
@@ -16636,6 +16937,10 @@ components:
           title: Disable Banner
           type: boolean
           description: Whether to disable the ConvAI widget banner
+          default: false
+        mic_muting_enabled:
+          title: Mic Muting Enabled
+          type: boolean
           default: false
         language:
           title: Language

@@ -139,6 +139,10 @@ namespace ElevenLabs
         /// [Alpha Feature] Whether automatically assign voices to phrases in the create Project.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="sourceType">
+        /// The type of Studio project to create.<br/>
+        /// Example: book
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddProjectResponseModel> CreateStudioProjectsAsync(
@@ -169,6 +173,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization? applyTextNormalization = default,
             bool? autoConvert = default,
             bool? autoAssignVoices = default,
+            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType? sourceType = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

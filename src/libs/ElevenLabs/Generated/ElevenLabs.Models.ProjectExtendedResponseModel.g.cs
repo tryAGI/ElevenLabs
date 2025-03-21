@@ -188,6 +188,13 @@ namespace ElevenLabs
         public global::ElevenLabs.ProjectExtendedResponseModelSourceType? SourceType { get; set; }
 
         /// <summary>
+        /// Whether chapters are enabled for the project.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chapters_enabled")]
+        public bool? ChaptersEnabled { get; set; }
+
+        /// <summary>
         /// The quality preset level of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
@@ -312,6 +319,10 @@ namespace ElevenLabs
         /// <param name="sourceType">
         /// The source type of the project.
         /// </param>
+        /// <param name="chaptersEnabled">
+        /// Whether chapters are enabled for the project.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="qualityPreset">
         /// The quality preset level of the project.
         /// </param>
@@ -362,7 +373,8 @@ namespace ElevenLabs
             string? isbnNumber,
             global::ElevenLabs.ProjectExtendedResponseModelFiction? fiction,
             global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta,
-            global::ElevenLabs.ProjectExtendedResponseModelSourceType? sourceType)
+            global::ElevenLabs.ProjectExtendedResponseModelSourceType? sourceType,
+            bool? chaptersEnabled)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -396,6 +408,7 @@ namespace ElevenLabs
             this.Fiction = fiction;
             this.CreationMeta = creationMeta;
             this.SourceType = sourceType;
+            this.ChaptersEnabled = chaptersEnabled;
         }
 
         /// <summary>

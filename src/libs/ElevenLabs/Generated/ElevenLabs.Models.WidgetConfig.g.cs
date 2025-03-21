@@ -168,6 +168,12 @@ namespace ElevenLabs
         /// <summary>
         /// Default Value: false
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mic_muting_enabled")]
+        public bool? MicMutingEnabled { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_selector")]
         public bool? LanguageSelector { get; set; }
 
@@ -230,6 +236,9 @@ namespace ElevenLabs
         /// Whether to disable the ConvAI widget banner<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="micMutingEnabled">
+        /// Default Value: false
+        /// </param>
         /// <param name="languageSelector">
         /// Default Value: false
         /// </param>
@@ -263,6 +272,7 @@ namespace ElevenLabs
             string? termsKey,
             bool? showAvatarWhenCollapsed,
             bool? disableBanner,
+            bool? micMutingEnabled,
             bool? languageSelector,
             string? customAvatarPath)
         {
@@ -291,6 +301,7 @@ namespace ElevenLabs
             this.TermsKey = termsKey;
             this.ShowAvatarWhenCollapsed = showAvatarWhenCollapsed;
             this.DisableBanner = disableBanner;
+            this.MicMutingEnabled = micMutingEnabled;
             this.LanguageSelector = languageSelector;
             this.CustomAvatarPath = customAvatarPath;
         }

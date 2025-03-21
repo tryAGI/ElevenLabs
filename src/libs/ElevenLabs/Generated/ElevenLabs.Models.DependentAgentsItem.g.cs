@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryResponseModelDependentAgentDiscriminatorType? Type { get; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModelDependentAgentDiscriminatorType? Type { get; }
 
         /// <summary>
         /// 
@@ -89,7 +89,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public DependentAgentsItem(
-            global::ElevenLabs.GetKnowledgeBaseSummaryResponseModelDependentAgentDiscriminatorType? type,
+            global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModelDependentAgentDiscriminatorType? type,
             global::ElevenLabs.DependentAvailableAgentIdentifier? available,
             global::ElevenLabs.DependentUnknownAgentIdentifier? unknown
             )
