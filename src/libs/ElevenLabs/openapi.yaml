@@ -4085,6 +4085,12 @@ paths:
               example:
                 error: dubbing_not_found
                 message: 'There is no dubbing for language {language_code}.'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -4092,12 +4098,6 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: get_dubbed_file
   '/v1/dubbing/{dubbing_id}/transcript/{language_code}':
@@ -4147,13 +4147,13 @@ paths:
         '200':
           description: Successful Response
           content:
-            text/plain:
-              schema:
-                type: string
             application/json:
               schema:
                 type: string
               example: "1\n00:00:01,000 --> 00:00:04,000\nHello, this is the first subtitle line\n\n2\n00:00:05,000 --> 00:00:07,000\nAnd here's the second subtitle line"
+            text/plain:
+              schema:
+                type: string
         '403':
           description: Anonymous users cannot use this function
           content:
@@ -4168,6 +4168,12 @@ paths:
               example:
                 error: transcript_not_found
                 message: No transcript was found for the dub.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -4175,12 +4181,6 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: get_transcript_for_dub
   /v1/models:
@@ -9051,8 +9051,8 @@ components:
           default: true
         num_speakers:
           title: Num Speakers
-          maximum: 32.0
-          minimum: 1.0
+          maximum: 32
+          minimum: 1
           type: integer
           description: 'The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports.'
           nullable: true
@@ -10112,8 +10112,8 @@ components:
           default: false
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30.0
-          minimum: 1.0
+          maximum: 30
+          minimum: 1
           type: integer
           nullable: true
         dynamic_variables:
@@ -10149,8 +10149,8 @@ components:
           default: false
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30.0
-          minimum: 1.0
+          maximum: 30
+          minimum: 1
           type: integer
           nullable: true
         dynamic_variables:
@@ -14307,9 +14307,9 @@ components:
           $ref: '#/components/schemas/EmbeddingModelEnum'
         max_vector_distance:
           title: Max Vector Distance
-          maximum: 1.0
+          maximum: 1
           exclusiveMaximum: true
-          minimum: 0.0
+          minimum: 0
           exclusiveMinimum: true
           type: number
           description: Maximum vector distance of retrieved chunks.
@@ -14317,9 +14317,9 @@ components:
           example: 0.5
         max_documents_length:
           title: Max Documents Length
-          maximum: 10000000.0
+          maximum: 10000000
           exclusiveMaximum: true
-          minimum: 0.0
+          minimum: 0
           exclusiveMinimum: true
           type: integer
           description: Maximum total length of document chunks retrieved from RAG.
@@ -15427,8 +15427,8 @@ components:
           $ref: '#/components/schemas/TTSOptimizeStreamingLatency'
         stability:
           title: Stability
-          maximum: 1.0
-          minimum: 0.0
+          maximum: 1
+          minimum: 0
           type: number
           default: 0.5
         speed:
@@ -15439,8 +15439,8 @@ components:
           default: 1
         similarity_boost:
           title: Similarity Boost
-          maximum: 1.0
-          minimum: 0.0
+          maximum: 1
+          minimum: 0
           type: number
           default: 0.8
         pronunciation_dictionary_locators:
@@ -15922,32 +15922,32 @@ components:
           default: false
         loudness:
           title: Loudness
-          maximum: 1.0
-          minimum: -1.0
+          maximum: 1
+          minimum: -1
           type: number
           description: 'Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.'
           default: 0.5
           example: 0.5
         quality:
           title: Quality
-          maximum: 1.0
-          minimum: -1.0
+          maximum: 1
+          minimum: -1
           type: number
           description: Higher quality results in better voice output but less variety.
           default: 0.9
           example: 0.9
         seed:
           title: Seed
-          maximum: 2147483647.0
-          minimum: 0.0
+          maximum: 2147483647
+          minimum: 0
           type: integer
           description: Random number that controls the voice generation. Same seed with same inputs produces same voice.
           nullable: true
           example: 11
         guidance_scale:
           title: Guidance Scale
-          maximum: 100.0
-          minimum: 0.0
+          maximum: 100
+          minimum: 0
           type: number
           description: 'Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.'
           default: 5
