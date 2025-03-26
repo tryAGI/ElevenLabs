@@ -37,16 +37,16 @@ namespace ElevenLabs
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// (Deprecated)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_upload")]
-        public global::ElevenLabs.ProjectSnapshotUploadResponseModel? AudioUpload { get; set; }
+        public object? AudioUpload { get; set; }
 
         /// <summary>
-        /// 
+        /// (Deprecated)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("zip_upload")]
-        public global::ElevenLabs.ProjectSnapshotUploadResponseModel? ZipUpload { get; set; }
+        public object? ZipUpload { get; set; }
 
         /// <summary>
         /// 
@@ -76,8 +76,12 @@ namespace ElevenLabs
         /// <param name="name">
         /// The name of the project snapshot.
         /// </param>
-        /// <param name="audioUpload"></param>
-        /// <param name="zipUpload"></param>
+        /// <param name="audioUpload">
+        /// (Deprecated)
+        /// </param>
+        /// <param name="zipUpload">
+        /// (Deprecated)
+        /// </param>
         /// <param name="characterAlignments"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -88,8 +92,8 @@ namespace ElevenLabs
             int createdAtUnix,
             string name,
             global::System.Collections.Generic.IList<global::ElevenLabs.CharacterAlignmentModel> characterAlignments,
-            global::ElevenLabs.ProjectSnapshotUploadResponseModel? audioUpload,
-            global::ElevenLabs.ProjectSnapshotUploadResponseModel? zipUpload)
+            object? audioUpload,
+            object? zipUpload)
         {
             this.ProjectSnapshotId = projectSnapshotId ?? throw new global::System.ArgumentNullException(nameof(projectSnapshotId));
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));

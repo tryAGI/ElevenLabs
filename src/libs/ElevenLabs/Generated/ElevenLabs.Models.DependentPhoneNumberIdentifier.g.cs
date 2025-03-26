@@ -34,7 +34,8 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyProviderJsonConverter))]
-        public global::ElevenLabs.TelephonyProvider Provider { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.TelephonyProvider Provider { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

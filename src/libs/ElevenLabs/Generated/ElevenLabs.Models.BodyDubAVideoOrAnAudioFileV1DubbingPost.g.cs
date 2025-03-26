@@ -21,6 +21,42 @@ namespace ElevenLabs
         public string? Filename { get; set; }
 
         /// <summary>
+        /// CSV file containing transcription/translation metadata
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("csv_file")]
+        public byte[]? CsvFile { get; set; }
+
+        /// <summary>
+        /// CSV file containing transcription/translation metadata
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("csv_filename")]
+        public string? CsvFilename { get; set; }
+
+        /// <summary>
+        /// For use only with csv input
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("foreground_audio_file")]
+        public byte[]? ForegroundAudioFile { get; set; }
+
+        /// <summary>
+        /// For use only with csv input
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("foreground_audio_filename")]
+        public string? ForegroundAudioFilename { get; set; }
+
+        /// <summary>
+        /// For use only with csv input
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("background_audio_file")]
+        public byte[]? BackgroundAudioFile { get; set; }
+
+        /// <summary>
+        /// For use only with csv input
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("background_audio_filename")]
+        public string? BackgroundAudioFilename { get; set; }
+
+        /// <summary>
         /// Name of the dubbing project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -106,6 +142,13 @@ namespace ElevenLabs
         public bool? UseReplacementVoicesFromLibrary { get; set; }
 
         /// <summary>
+        /// automatic or manual. Manual mode is only supported when creating a dubbing studio project<br/>
+        /// Default Value: automatic
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
+        public string? Mode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -119,6 +162,24 @@ namespace ElevenLabs
         /// </param>
         /// <param name="filename">
         /// A list of file paths to audio recordings intended for voice cloning
+        /// </param>
+        /// <param name="csvFile">
+        /// CSV file containing transcription/translation metadata
+        /// </param>
+        /// <param name="csvFilename">
+        /// CSV file containing transcription/translation metadata
+        /// </param>
+        /// <param name="foregroundAudioFile">
+        /// For use only with csv input
+        /// </param>
+        /// <param name="foregroundAudioFilename">
+        /// For use only with csv input
+        /// </param>
+        /// <param name="backgroundAudioFile">
+        /// For use only with csv input
+        /// </param>
+        /// <param name="backgroundAudioFilename">
+        /// For use only with csv input
         /// </param>
         /// <param name="name">
         /// Name of the dubbing project.
@@ -166,12 +227,22 @@ namespace ElevenLabs
         /// [BETA] Whether the dub should use replacement voices from the voice library instead of cloning.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="mode">
+        /// automatic or manual. Manual mode is only supported when creating a dubbing studio project<br/>
+        /// Default Value: automatic
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyDubAVideoOrAnAudioFileV1DubbingPost(
             byte[]? file,
             string? filename,
+            byte[]? csvFile,
+            string? csvFilename,
+            byte[]? foregroundAudioFile,
+            string? foregroundAudioFilename,
+            byte[]? backgroundAudioFile,
+            string? backgroundAudioFilename,
             string? name,
             string? sourceUrl,
             string? sourceLang,
@@ -184,10 +255,17 @@ namespace ElevenLabs
             bool? dropBackgroundAudio,
             bool? useProfanityFilter,
             bool? dubbingStudio,
-            bool? useReplacementVoicesFromLibrary)
+            bool? useReplacementVoicesFromLibrary,
+            string? mode)
         {
             this.File = file;
             this.Filename = filename;
+            this.CsvFile = csvFile;
+            this.CsvFilename = csvFilename;
+            this.ForegroundAudioFile = foregroundAudioFile;
+            this.ForegroundAudioFilename = foregroundAudioFilename;
+            this.BackgroundAudioFile = backgroundAudioFile;
+            this.BackgroundAudioFilename = backgroundAudioFilename;
             this.Name = name;
             this.SourceUrl = sourceUrl;
             this.SourceLang = sourceLang;
@@ -201,6 +279,7 @@ namespace ElevenLabs
             this.UseProfanityFilter = useProfanityFilter;
             this.DubbingStudio = dubbingStudio;
             this.UseReplacementVoicesFromLibrary = useReplacementVoicesFromLibrary;
+            this.Mode = mode;
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Unshare Workspace Resource<br/>
-        /// Removes any existing role on a workspace resource from a user or a group. To target a user, pass only the user email. To target a group, pass only the group id. The user must be in your workspace. You must have admin access to the resource to unshare it. You cannot remove permissions from the user who created the resource.
+        /// Removes any existing role on a workspace resource from a user or a group. To target a user, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. You must have admin access to the resource to unshare it. You cannot remove permissions from the user who created the resource.
         /// </summary>
         /// <param name="resourceId">
         /// The ID of the target resource.
@@ -25,7 +25,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Unshare Workspace Resource<br/>
-        /// Removes any existing role on a workspace resource from a user or a group. To target a user, pass only the user email. To target a group, pass only the group id. The user must be in your workspace. You must have admin access to the resource to unshare it. You cannot remove permissions from the user who created the resource.
+        /// Removes any existing role on a workspace resource from a user or a group. To target a user, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. You must have admin access to the resource to unshare it. You cannot remove permissions from the user who created the resource.
         /// </summary>
         /// <param name="resourceId">
         /// The ID of the target resource.
@@ -42,6 +42,9 @@ namespace ElevenLabs
         /// <param name="groupId">
         /// The ID of the target group. To target the permissions principals have by default on this resource, use the value 'default'.
         /// </param>
+        /// <param name="workspaceApiKeyId">
+        /// The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> CreateWorkspaceResourcesByResourceIdUnshareAsync(
@@ -50,6 +53,7 @@ namespace ElevenLabs
             string? xiApiKey = default,
             string? userEmail = default,
             string? groupId = default,
+            string? workspaceApiKeyId = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

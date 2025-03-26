@@ -20,7 +20,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VersionId { get; set; }
+        public required string? VersionId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +38,7 @@ namespace ElevenLabs
 #endif
         public PronunciationDictionaryVersionLocatorDBModel(
             string pronunciationDictionaryId,
-            string versionId)
+            string? versionId)
         {
             this.PronunciationDictionaryId = pronunciationDictionaryId ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryId));
             this.VersionId = versionId ?? throw new global::System.ArgumentNullException(nameof(versionId));

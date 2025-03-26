@@ -37,6 +37,12 @@ namespace ElevenLabs
         public string? GroupId { get; set; }
 
         /// <summary>
+        /// The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workspace_api_key_id")]
+        public string? WorkspaceApiKeyId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -57,6 +63,9 @@ namespace ElevenLabs
         /// <param name="groupId">
         /// The ID of the target group. To target the permissions principals have by default on this resource, use the value 'default'.
         /// </param>
+        /// <param name="workspaceApiKeyId">
+        /// The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -64,12 +73,14 @@ namespace ElevenLabs
             global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRole role,
             global::ElevenLabs.WorkspaceResourceType resourceType,
             string? userEmail,
-            string? groupId)
+            string? groupId,
+            string? workspaceApiKeyId)
         {
             this.Role = role;
             this.ResourceType = resourceType;
             this.UserEmail = userEmail;
             this.GroupId = groupId;
+            this.WorkspaceApiKeyId = workspaceApiKeyId;
         }
 
         /// <summary>

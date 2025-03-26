@@ -12,10 +12,6 @@ namespace ElevenLabs
         /// The id of a document from the knowledge base. This is returned on document addition.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
-        /// <param name="forceReindex">
-        /// In case the document is indexed and for some reason you want to reindex it, set this param as true.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -25,7 +21,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
             global::ElevenLabs.RAGIndexRequestModel request,
-            bool? forceReindex = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -37,10 +32,6 @@ namespace ElevenLabs
         /// The id of a document from the knowledge base. This is returned on document addition.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
-        /// <param name="forceReindex">
-        /// In case the document is indexed and for some reason you want to reindex it, set this param as true.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -50,7 +41,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
             global::ElevenLabs.EmbeddingModelEnum model,
-            bool? forceReindex = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

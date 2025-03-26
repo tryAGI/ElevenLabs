@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ConversationInitiationClientDataRequestDynamicVariables
+    public sealed partial class ConversationInitiationClientDataRequestInputCustomLlmExtraBody
     {
 
         /// <summary>

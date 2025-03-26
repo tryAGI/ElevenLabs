@@ -37,16 +37,16 @@ namespace ElevenLabs
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// (Deprecated)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_upload")]
-        public global::ElevenLabs.ProjectSnapshotUploadResponseModel? AudioUpload { get; set; }
+        public object? AudioUpload { get; set; }
 
         /// <summary>
-        /// 
+        /// (Deprecated)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("zip_upload")]
-        public global::ElevenLabs.ProjectSnapshotUploadResponseModel? ZipUpload { get; set; }
+        public object? ZipUpload { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -69,8 +69,12 @@ namespace ElevenLabs
         /// <param name="name">
         /// The name of the project snapshot.
         /// </param>
-        /// <param name="audioUpload"></param>
-        /// <param name="zipUpload"></param>
+        /// <param name="audioUpload">
+        /// (Deprecated)
+        /// </param>
+        /// <param name="zipUpload">
+        /// (Deprecated)
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -79,8 +83,8 @@ namespace ElevenLabs
             string projectId,
             int createdAtUnix,
             string name,
-            global::ElevenLabs.ProjectSnapshotUploadResponseModel? audioUpload,
-            global::ElevenLabs.ProjectSnapshotUploadResponseModel? zipUpload)
+            object? audioUpload,
+            object? zipUpload)
         {
             this.ProjectSnapshotId = projectSnapshotId ?? throw new global::System.ArgumentNullException(nameof(projectSnapshotId));
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));

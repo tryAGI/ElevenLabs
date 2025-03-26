@@ -8,12 +8,12 @@ namespace ElevenLabs
         partial void PrepareCreateConvaiPhoneNumbersCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::ElevenLabs.CreatePhoneNumberRequest request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequest> request);
         partial void PrepareCreateConvaiPhoneNumbersCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::ElevenLabs.CreatePhoneNumberRequest request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequest> request);
         partial void ProcessCreateConvaiPhoneNumbersCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,7 +25,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Import Phone Number<br/>
-        /// Import Phone Number from Twilio configuration
+        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -34,12 +34,10 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> CreateConvaiPhoneNumbersCreateAsync(
-            global::ElevenLabs.CreatePhoneNumberRequest request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequest> request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
             PrepareCreateConvaiPhoneNumbersCreateArguments(
@@ -210,42 +208,19 @@ namespace ElevenLabs
 
         /// <summary>
         /// Import Phone Number<br/>
-        /// Import Phone Number from Twilio configuration
+        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="phoneNumber">
-        /// Phone number
-        /// </param>
-        /// <param name="provider"></param>
-        /// <param name="label">
-        /// Label for the phone number
-        /// </param>
-        /// <param name="sid">
-        /// Twilio Account SID
-        /// </param>
-        /// <param name="token">
-        /// Twilio Auth Token
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> CreateConvaiPhoneNumbersCreateAsync(
-            string phoneNumber,
-            string label,
-            string sid,
-            string token,
             string? xiApiKey = default,
-            global::ElevenLabs.TelephonyProvider provider = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.CreatePhoneNumberRequest
+            var __request = new global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequest>
             {
-                PhoneNumber = phoneNumber,
-                Provider = provider,
-                Label = label,
-                Sid = sid,
-                Token = token,
             };
 
             return await CreateConvaiPhoneNumbersCreateAsync(

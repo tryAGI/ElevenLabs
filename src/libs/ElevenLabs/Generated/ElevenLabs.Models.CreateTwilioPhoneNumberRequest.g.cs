@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class CreatePhoneNumberRequest
+    public sealed partial class CreateTwilioPhoneNumberRequest
     {
         /// <summary>
         /// Phone number
@@ -20,7 +20,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyProviderJsonConverter))]
-        public global::ElevenLabs.TelephonyProvider Provider { get; set; }
+        public global::ElevenLabs.TelephonyProvider? Provider { get; set; }
 
         /// <summary>
         /// Label for the phone number
@@ -50,7 +50,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreatePhoneNumberRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateTwilioPhoneNumberRequest" /> class.
         /// </summary>
         /// <param name="phoneNumber">
         /// Phone number
@@ -68,12 +68,12 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public CreatePhoneNumberRequest(
+        public CreateTwilioPhoneNumberRequest(
             string phoneNumber,
             string label,
             string sid,
             string token,
-            global::ElevenLabs.TelephonyProvider provider)
+            global::ElevenLabs.TelephonyProvider? provider)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
@@ -83,9 +83,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreatePhoneNumberRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateTwilioPhoneNumberRequest" /> class.
         /// </summary>
-        public CreatePhoneNumberRequest()
+        public CreateTwilioPhoneNumberRequest()
         {
         }
     }
