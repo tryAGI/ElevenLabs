@@ -27,7 +27,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Share Workspace Resource<br/>
-        /// Grants a role on a workspace resource to a user or a group. It overrides any existing role this user/group has on the resource. To target a user, pass only the user email. To target a group, pass only the group id. The user must be in your workspace. You must have admin access to the resource to share it.
+        /// Grants a role on a workspace resource to a user or a group. It overrides any existing role this user/group/workspace api key has on the resource. To target a user, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. You must have admin access to the resource to share it.
         /// </summary>
         /// <param name="resourceId">
         /// The ID of the target resource.
@@ -214,7 +214,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Share Workspace Resource<br/>
-        /// Grants a role on a workspace resource to a user or a group. It overrides any existing role this user/group has on the resource. To target a user, pass only the user email. To target a group, pass only the group id. The user must be in your workspace. You must have admin access to the resource to share it.
+        /// Grants a role on a workspace resource to a user or a group. It overrides any existing role this user/group/workspace api key has on the resource. To target a user, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. You must have admin access to the resource to share it.
         /// </summary>
         /// <param name="resourceId">
         /// The ID of the target resource.
@@ -234,6 +234,9 @@ namespace ElevenLabs
         /// <param name="groupId">
         /// The ID of the target group. To target the permissions principals have by default on this resource, use the value 'default'.
         /// </param>
+        /// <param name="workspaceApiKeyId">
+        /// The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> CreateWorkspaceResourcesByResourceIdShareAsync(
@@ -243,6 +246,7 @@ namespace ElevenLabs
             string? xiApiKey = default,
             string? userEmail = default,
             string? groupId = default,
+            string? workspaceApiKeyId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost
@@ -251,6 +255,7 @@ namespace ElevenLabs
                 ResourceType = resourceType,
                 UserEmail = userEmail,
                 GroupId = groupId,
+                WorkspaceApiKeyId = workspaceApiKeyId,
             };
 
             return await CreateWorkspaceResourcesByResourceIdShareAsync(

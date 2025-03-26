@@ -20,7 +20,8 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyProviderJsonConverter))]
-        public global::ElevenLabs.TelephonyProvider Provider { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.TelephonyProvider Provider { get; set; }
 
         /// <summary>
         /// Label for the phone number
@@ -65,15 +66,15 @@ namespace ElevenLabs
 #endif
         public GetPhoneNumberResponseModel(
             string phoneNumber,
+            global::ElevenLabs.TelephonyProvider provider,
             string label,
             string phoneNumberId,
-            global::ElevenLabs.TelephonyProvider provider,
             global::ElevenLabs.PhoneNumberAgentInfo? assignedAgent)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
+            this.Provider = provider;
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
-            this.Provider = provider;
             this.AssignedAgent = assignedAgent;
         }
 

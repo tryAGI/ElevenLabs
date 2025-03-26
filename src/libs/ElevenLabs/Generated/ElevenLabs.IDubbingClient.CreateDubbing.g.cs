@@ -32,6 +32,24 @@ namespace ElevenLabs
         /// <param name="filename">
         /// A list of file paths to audio recordings intended for voice cloning
         /// </param>
+        /// <param name="csvFile">
+        /// CSV file containing transcription/translation metadata
+        /// </param>
+        /// <param name="csvFilename">
+        /// CSV file containing transcription/translation metadata
+        /// </param>
+        /// <param name="foregroundAudioFile">
+        /// For use only with csv input
+        /// </param>
+        /// <param name="foregroundAudioFilename">
+        /// For use only with csv input
+        /// </param>
+        /// <param name="backgroundAudioFile">
+        /// For use only with csv input
+        /// </param>
+        /// <param name="backgroundAudioFilename">
+        /// For use only with csv input
+        /// </param>
         /// <param name="name">
         /// Name of the dubbing project.
         /// </param>
@@ -78,12 +96,22 @@ namespace ElevenLabs
         /// [BETA] Whether the dub should use replacement voices from the voice library instead of cloning.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="mode">
+        /// automatic or manual. Manual mode is only supported when creating a dubbing studio project<br/>
+        /// Default Value: automatic
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> CreateDubbingAsync(
             string? xiApiKey = default,
             byte[]? file = default,
             string? filename = default,
+            byte[]? csvFile = default,
+            string? csvFilename = default,
+            byte[]? foregroundAudioFile = default,
+            string? foregroundAudioFilename = default,
+            byte[]? backgroundAudioFile = default,
+            string? backgroundAudioFilename = default,
             string? name = default,
             string? sourceUrl = default,
             string? sourceLang = default,
@@ -97,6 +125,7 @@ namespace ElevenLabs
             bool? useProfanityFilter = default,
             bool? dubbingStudio = default,
             bool? useReplacementVoicesFromLibrary = default,
+            string? mode = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareCreateConvaiKnowledgeBaseByDocumentationIdRagIndexArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
-            ref bool? forceReindex,
             ref string? xiApiKey,
             global::ElevenLabs.RAGIndexRequestModel request);
         partial void PrepareCreateConvaiKnowledgeBaseByDocumentationIdRagIndexRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string documentationId,
-            bool? forceReindex,
             string? xiApiKey,
             global::ElevenLabs.RAGIndexRequestModel request);
         partial void ProcessCreateConvaiKnowledgeBaseByDocumentationIdRagIndexResponse(
@@ -35,10 +33,6 @@ namespace ElevenLabs
         /// The id of a document from the knowledge base. This is returned on document addition.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
-        /// <param name="forceReindex">
-        /// In case the document is indexed and for some reason you want to reindex it, set this param as true.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -48,7 +42,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
             global::ElevenLabs.RAGIndexRequestModel request,
-            bool? forceReindex = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -59,16 +52,12 @@ namespace ElevenLabs
             PrepareCreateConvaiKnowledgeBaseByDocumentationIdRagIndexArguments(
                 httpClient: HttpClient,
                 documentationId: ref documentationId,
-                forceReindex: ref forceReindex,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}/rag-index",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("force_reindex", forceReindex?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -113,7 +102,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 documentationId: documentationId,
-                forceReindex: forceReindex,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -237,10 +225,6 @@ namespace ElevenLabs
         /// The id of a document from the knowledge base. This is returned on document addition.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
-        /// <param name="forceReindex">
-        /// In case the document is indexed and for some reason you want to reindex it, set this param as true.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -250,7 +234,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
             global::ElevenLabs.EmbeddingModelEnum model,
-            bool? forceReindex = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -261,7 +244,6 @@ namespace ElevenLabs
 
             return await CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
                 documentationId: documentationId,
-                forceReindex: forceReindex,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

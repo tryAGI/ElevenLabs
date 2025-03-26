@@ -54,7 +54,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_client_data")]
-        public global::ElevenLabs.ConversationInitiationClientDataRequest? ConversationInitiationClientData { get; set; }
+        public global::ElevenLabs.ConversationInitiationClientDataRequestOutput? ConversationInitiationClientData { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -82,7 +82,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModel> transcript,
             global::ElevenLabs.ConversationHistoryMetadataCommonModel metadata,
             global::ElevenLabs.ConversationHistoryAnalysisCommonModel? analysis,
-            global::ElevenLabs.ConversationInitiationClientDataRequest? conversationInitiationClientData)
+            global::ElevenLabs.ConversationInitiationClientDataRequestOutput? conversationInitiationClientData)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));

@@ -6,13 +6,13 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ConversationInitiationClientDataRequest
+    public sealed partial class ConversationInitiationClientDataRequestInput
     {
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config_override")]
-        public global::ElevenLabs.ConversationConfigClientOverrideOutput? ConversationConfigOverride { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideInput? ConversationConfigOverride { get; set; }
 
         /// <summary>
         /// 
@@ -33,7 +33,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationInitiationClientDataRequest" /> class.
+        /// Initializes a new instance of the <see cref="ConversationInitiationClientDataRequestInput" /> class.
         /// </summary>
         /// <param name="conversationConfigOverride"></param>
         /// <param name="customLlmExtraBody"></param>
@@ -41,8 +41,8 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ConversationInitiationClientDataRequest(
-            global::ElevenLabs.ConversationConfigClientOverrideOutput? conversationConfigOverride,
+        public ConversationInitiationClientDataRequestInput(
+            global::ElevenLabs.ConversationConfigClientOverrideInput? conversationConfigOverride,
             object? customLlmExtraBody,
             object? dynamicVariables)
         {
@@ -52,9 +52,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationInitiationClientDataRequest" /> class.
+        /// Initializes a new instance of the <see cref="ConversationInitiationClientDataRequestInput" /> class.
         /// </summary>
-        public ConversationInitiationClientDataRequest()
+        public ConversationInitiationClientDataRequestInput()
         {
         }
     }

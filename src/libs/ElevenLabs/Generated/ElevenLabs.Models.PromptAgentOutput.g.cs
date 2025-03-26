@@ -58,6 +58,12 @@ namespace ElevenLabs
         public global::ElevenLabs.CustomLLM? CustomLlm { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ignore_default_personality")]
+        public bool? IgnoreDefaultPersonality { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rag")]
@@ -84,6 +90,9 @@ namespace ElevenLabs
         /// <param name="toolIds"></param>
         /// <param name="knowledgeBase"></param>
         /// <param name="customLlm"></param>
+        /// <param name="ignoreDefaultPersonality">
+        /// Default Value: false
+        /// </param>
         /// <param name="rag"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -97,6 +106,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::ElevenLabs.CustomLLM? customLlm,
+            bool? ignoreDefaultPersonality,
             global::ElevenLabs.RagConfig? rag)
         {
             this.Prompt = prompt;
@@ -107,6 +117,7 @@ namespace ElevenLabs
             this.ToolIds = toolIds;
             this.KnowledgeBase = knowledgeBase;
             this.CustomLlm = customLlm;
+            this.IgnoreDefaultPersonality = ignoreDefaultPersonality;
             this.Rag = rag;
         }
 

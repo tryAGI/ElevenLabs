@@ -1281,6 +1281,113 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: voices
       x-fern-sdk-method-name: get_all
+  /v2/voices:
+    get:
+      tags:
+        - voices
+      summary: Get Voices V2
+      description: 'Gets a list of all available voices for a user with search, filtering and pagination.'
+      operationId: Get_voices_v2_v2_voices_get
+      parameters:
+        - name: next_page_token
+          in: query
+          description: The next page token to use for pagination. Returned from the previous request.
+          schema:
+            title: Next Page Token
+            type: string
+            description: The next page token to use for pagination. Returned from the previous request.
+            nullable: true
+            example: '0'
+        - name: page_size
+          in: query
+          description: 'How many voices to return at maximum. Can not exceed 100, defaults to 10. Page 0 may include more voices due to default voices being included.'
+          schema:
+            title: Page Size
+            type: integer
+            description: 'How many voices to return at maximum. Can not exceed 100, defaults to 10. Page 0 may include more voices due to default voices being included.'
+            default: 10
+        - name: search
+          in: query
+          description: 'Search term to filter voices by. Searches in name, description, labels, category.'
+          schema:
+            title: Search
+            type: string
+            description: 'Search term to filter voices by. Searches in name, description, labels, category.'
+            nullable: true
+        - name: sort
+          in: query
+          description: 'Which field to sort by, one of ''created_at_unix'' or ''name''. ''created_at_unix'' may not be available for older voices.'
+          schema:
+            title: Sort
+            type: string
+            description: 'Which field to sort by, one of ''created_at_unix'' or ''name''. ''created_at_unix'' may not be available for older voices.'
+            nullable: true
+            example: created_at_unix
+        - name: sort_direction
+          in: query
+          description: Which direction to sort the voices in. 'asc' or 'desc'.
+          schema:
+            title: Sort Direction
+            type: string
+            description: Which direction to sort the voices in. 'asc' or 'desc'.
+            nullable: true
+            example: desc
+        - name: voice_type
+          in: query
+          description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace''.'
+          schema:
+            title: Voice Type
+            type: string
+            description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace''.'
+            nullable: true
+        - name: category
+          in: query
+          description: 'Category of the voice to filter by. One of ''premade'', ''cloned'', ''generated'', ''professional'''
+          schema:
+            title: Category
+            type: string
+            description: 'Category of the voice to filter by. One of ''premade'', ''cloned'', ''generated'', ''professional'''
+            nullable: true
+        - name: fine_tuning_state
+          in: query
+          description: 'State of the voice''s fine tuning to filter by. Applicable only to professional voices clones. One of ''draft'', ''not_verified'', ''not_started'', ''queued'', ''fine_tuning'', ''fine_tuned'', ''failed'', ''delayed'''
+          schema:
+            title: Fine Tuning State
+            type: string
+            description: 'State of the voice''s fine tuning to filter by. Applicable only to professional voices clones. One of ''draft'', ''not_verified'', ''not_started'', ''queued'', ''fine_tuning'', ''fine_tuned'', ''failed'', ''delayed'''
+            nullable: true
+        - name: include_total_count
+          in: query
+          description: Whether to include the total count of voices found in the response. Incurs a performance cost.
+          schema:
+            title: Include Total Count
+            type: boolean
+            description: Whether to include the total count of voices found in the response. Incurs a performance cost.
+            default: true
+            example: true
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVoicesV2ResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: voices
+      x-fern-sdk-method-name: search
   /v1/voices/settings/default:
     get:
       tags:
@@ -4644,6 +4751,43 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: pronunciation_dictionary
       x-fern-sdk-method-name: add_from_file
+  /v1/pronunciation-dictionaries/add-from-rules:
+    post:
+      tags:
+        - Pronunciation Dictionary
+      summary: Add A Pronunciation Dictionary
+      description: Creates a new pronunciation dictionary from provided rules.
+      operationId: Add_a_pronunciation_dictionary_v1_pronunciation_dictionaries_add_from_rules_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Add_a_pronunciation_dictionary_v1_pronunciation_dictionaries_add_from_rules_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddPronunciationDictionaryResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: pronunciation_dictionary
+      x-fern-sdk-method-name: add_from_rules
   '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/add-rules':
     post:
       tags:
@@ -4857,6 +5001,29 @@ paths:
             type: integer
             description: 'How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
+        - name: sort
+          in: query
+          description: 'Which field to sort by, one of ''created_at_unix'' or ''name''.'
+          schema:
+            title: Sort
+            enum:
+              - creation_time_unix
+              - name
+            type: string
+            description: 'Which field to sort by, one of ''created_at_unix'' or ''name''.'
+            default: creation_time_unix
+            nullable: true
+            example: creation_time_unix
+        - name: sort_direction
+          in: query
+          description: Which direction to sort the voices in. 'ascending' or 'descending'.
+          schema:
+            title: Sort Direction
+            type: string
+            description: Which direction to sort the voices in. 'ascending' or 'descending'.
+            default: DESCENDING
+            nullable: true
+            example: descending
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -5194,7 +5361,7 @@ paths:
       tags:
         - workspace
       summary: Share Workspace Resource
-      description: 'Grants a role on a workspace resource to a user or a group. It overrides any existing role this user/group has on the resource. To target a user, pass only the user email. To target a group, pass only the group id. The user must be in your workspace. You must have admin access to the resource to share it.'
+      description: 'Grants a role on a workspace resource to a user or a group. It overrides any existing role this user/group/workspace api key has on the resource. To target a user, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. You must have admin access to the resource to share it.'
       operationId: Share_workspace_resource_v1_workspace_resources__resource_id__share_post
       parameters:
         - name: resource_id
@@ -5236,7 +5403,7 @@ paths:
       tags:
         - workspace
       summary: Unshare Workspace Resource
-      description: 'Removes any existing role on a workspace resource from a user or a group. To target a user, pass only the user email. To target a group, pass only the group id. The user must be in your workspace. You must have admin access to the resource to unshare it. You cannot remove permissions from the user who created the resource.'
+      description: 'Removes any existing role on a workspace resource from a user or a group. To target a user, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. You must have admin access to the resource to unshare it. You cannot remove permissions from the user who created the resource.'
       operationId: Unshare_workspace_resource_v1_workspace_resources__resource_id__unshare_post
       parameters:
         - name: resource_id
@@ -5390,6 +5557,43 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: get_signed_url
+  /v1/convai/twilio/outbound_call:
+    post:
+      tags:
+        - Conversational AI
+      summary: Handle An Outbound Call Via Twilio
+      description: Handle an outbound call via Twilio
+      operationId: Handle_an_outbound_call_via_Twilio_v1_convai_twilio_outbound_call_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Handle_an_outbound_call_via_Twilio_v1_convai_twilio_outbound_call_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwilioOutboundCallResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: twilio_outbound_call
   /v1/convai/agents/create:
     post:
       tags:
@@ -6021,7 +6225,7 @@ paths:
       tags:
         - Conversational AI
       summary: Import Phone Number
-      description: Import Phone Number from Twilio configuration
+      description: Import Phone Number from provider configuration (Twilio or SIP trunk)
       operationId: Import_phone_number_v1_convai_phone_numbers_create_post
       parameters:
         - name: xi-api-key
@@ -6036,7 +6240,11 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreatePhoneNumberRequest'
+              title: Phone Request
+              anyOf:
+                - $ref: '#/components/schemas/CreateTwilioPhoneNumberRequest'
+                - $ref: '#/components/schemas/CreateSIPTrunkPhoneNumberRequest'
+              description: Create Phone Request Information
         required: true
       responses:
         '200':
@@ -6407,14 +6615,6 @@ paths:
             type: string
             description: The id of a document from the knowledge base. This is returned on document addition.
             example: 21m00Tcm4TlvDq8ikWAM
-        - name: force_reindex
-          in: query
-          description: 'In case the document is indexed and for some reason you want to reindex it, set this param as true.'
-          schema:
-            title: Force Reindex
-            type: boolean
-            description: 'In case the document is indexed and for some reason you want to reindex it, set this param as true.'
-            default: false
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -6985,6 +7185,7 @@ components:
         - created_by
         - creation_time_unix
         - version_id
+        - version_rules_num
       type: object
       properties:
         id:
@@ -7007,6 +7208,10 @@ components:
           title: Version Id
           type: string
           description: The ID of the created pronunciation dictionary version.
+        version_rules_num:
+          title: Version Rules Num
+          type: integer
+          description: The number of rules in the version of the pronunciation dictionary.
         description:
           title: Description
           type: string
@@ -7024,6 +7229,7 @@ components:
       required:
         - id
         - version_id
+        - version_rules_num
       type: object
       properties:
         id:
@@ -7034,6 +7240,10 @@ components:
           title: Version Id
           type: string
           description: The version ID of the pronunciation dictionary.
+        version_rules_num:
+          title: Version Rules Num
+          type: integer
+          description: The number of rules in the version of the pronunciation dictionary.
       example:
         id: 5xM3yVvZQKV0EfqQpLrJ
         version_id: 5xM3yVvZQKV0EfqQpLr2
@@ -7556,6 +7766,43 @@ components:
           description: A lexicon .pls file which we will use to initialize the project with.
           format: binary
           nullable: true
+        description:
+          title: Description
+          type: string
+          description: 'A description of the pronunciation dictionary, used for identification only.'
+          nullable: true
+          example: Contains pronunciation's of our character names
+        workspace_access:
+          title: Workspace Access
+          enum:
+            - admin
+            - editor
+            - viewer
+          type: string
+          description: 'Should be one of ''admin'', ''editor'' or ''viewer''. If not provided, defaults to no access.'
+          nullable: true
+          example: viewer
+    Body_Add_a_pronunciation_dictionary_v1_pronunciation_dictionaries_add_from_rules_post:
+      title: Body_Add_a_pronunciation_dictionary_v1_pronunciation_dictionaries_add_from_rules_post
+      required:
+        - rules
+        - name
+      type: object
+      properties:
+        rules:
+          title: Rules
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/PronunciationDictionaryAliasRuleRequestModel'
+              - $ref: '#/components/schemas/PronunciationDictionaryPhonemeRuleRequestModel'
+          description: "List of pronunciation rules. Rule can be either:\n    an alias rule: {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b', }\n    or a phoneme rule: {'string_to_replace': 'a', 'type': 'phoneme', 'phoneme': 'b', 'alphabet': 'ipa' }"
+          example: "\n    [\n        {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b' },\n        {'string_to_replace': 'c', 'type': 'phoneme', 'phoneme': 'd', 'alphabet': 'ipa' }\n    ]"
+        name:
+          title: Name
+          type: string
+          description: 'The name of the pronunciation dictionary, used for identification only.'
+          example: My Dictionary
         description:
           title: Description
           type: string
@@ -8549,6 +8796,24 @@ components:
           description: A list of file paths to audio recordings intended for voice cloning
           format: binary
           nullable: true
+        csv_file:
+          title: Csv File
+          type: string
+          description: CSV file containing transcription/translation metadata
+          format: binary
+          nullable: true
+        foreground_audio_file:
+          title: Foreground Audio File
+          type: string
+          description: For use only with csv input
+          format: binary
+          nullable: true
+        background_audio_file:
+          title: Background Audio File
+          type: string
+          description: For use only with csv input
+          format: binary
+          nullable: true
         name:
           title: Name
           type: string
@@ -8614,6 +8879,12 @@ components:
           type: boolean
           description: '[BETA] Whether the dub should use replacement voices from the voice library instead of cloning.'
           default: false
+        mode:
+          title: Mode
+          type: string
+          description: automatic or manual. Manual mode is only supported when creating a dubbing studio project
+          default: automatic
+          nullable: true
     Body_Dubs_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__dub_post:
       title: Body_Dubs_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__dub_post
       required:
@@ -8812,6 +9083,25 @@ components:
           description: 'Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Values range from 1 to 100.'
           nullable: true
           example: 10
+    Body_Handle_an_outbound_call_via_Twilio_v1_convai_twilio_outbound_call_post:
+      title: Body_Handle_an_outbound_call_via_Twilio_v1_convai_twilio_outbound_call_post
+      required:
+        - agent_id
+        - agent_phone_number_id
+        - to_number
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        agent_phone_number_id:
+          title: Agent Phone Number Id
+          type: string
+        to_number:
+          title: To Number
+          type: string
+        conversation_initiation_client_data:
+          $ref: '#/components/schemas/ConversationInitiationClientDataRequest-Input'
     Body_Invite_multiple_users_v1_workspace_invites_add_bulk_post:
       title: Body_Invite_multiple_users_v1_workspace_invites_add_bulk_post
       required:
@@ -8934,6 +9224,11 @@ components:
           title: Group Id
           type: string
           description: 'The ID of the target group. To target the permissions principals have by default on this resource, use the value ''default''.'
+          nullable: true
+        workspace_api_key_id:
+          title: Workspace Api Key Id
+          type: string
+          description: The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
           nullable: true
     Body_Sound_Generation_v1_sound_generation_post:
       title: Body_Sound_Generation_v1_sound_generation_post
@@ -9193,7 +9488,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' model.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
           default: auto
           example: 'true'
     Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post:
@@ -9283,7 +9578,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' model.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
           default: auto
           example: 'true'
     Body_Text_to_speech_v1_text_to_speech__voice_id__post:
@@ -9373,7 +9668,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' model.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
           default: auto
           example: 'true'
     Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post:
@@ -9460,7 +9755,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' model.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
           default: auto
           example: 'true'
     Body_Transcribes_segments_v1_dubbing_resource__dubbing_id__transcribe_post:
@@ -9512,6 +9807,11 @@ components:
           title: Group Id
           type: string
           description: 'The ID of the target group. To target the permissions principals have by default on this resource, use the value ''default''.'
+          nullable: true
+        workspace_api_key_id:
+          title: Workspace Api Key Id
+          type: string
+          description: The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
           nullable: true
     Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post:
       title: Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post
@@ -10562,7 +10862,26 @@ components:
           title: Enable Conversation Initiation Client Data From Webhook
           type: boolean
           default: false
-    ConversationInitiationClientDataRequest:
+    ConversationInitiationClientDataRequest-Input:
+      title: ConversationInitiationClientDataRequest
+      type: object
+      properties:
+        conversation_config_override:
+          $ref: '#/components/schemas/ConversationConfigClientOverride-Input'
+        custom_llm_extra_body:
+          title: Custom Llm Extra Body
+          type: object
+        dynamic_variables:
+          title: Dynamic Variables
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+            nullable: true
+    ConversationInitiationClientDataRequest-Output:
       title: ConversationInitiationClientDataRequest
       type: object
       properties:
@@ -10752,11 +11071,57 @@ components:
         agent_id:
           title: Agent Id
           type: string
-    CreatePhoneNumberRequest:
-      title: CreatePhoneNumberRequest
+    CreatePhoneNumberResponseModel:
+      title: CreatePhoneNumberResponseModel
+      required:
+        - phone_number_id
+      type: object
+      properties:
+        phone_number_id:
+          title: Phone Number Id
+          type: string
+          description: Phone entity id
+    CreatePronunciationDictionaryResponseModel:
+      title: CreatePronunciationDictionaryResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the create pronunciation dictionary request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
+    CreateSIPTrunkPhoneNumberRequest:
+      title: CreateSIPTrunkPhoneNumberRequest
       required:
         - phone_number
-        - provider
+        - label
+        - termination_uri
+      type: object
+      properties:
+        phone_number:
+          title: Phone Number
+          type: string
+          description: Phone number
+        provider:
+          $ref: '#/components/schemas/TelephonyProvider'
+        label:
+          title: Label
+          type: string
+          description: Label for the phone number
+        termination_uri:
+          title: Termination Uri
+          type: string
+          description: SIP trunk termination URI
+        credentials:
+          $ref: '#/components/schemas/SIPTrunkCredentials'
+      description: "SIP trunk phone number request\n\nIncludes termination URI and optional digest authentication credentials.\nIf credentials are provided, both username and password must be included.\nIf credentials are not provided, ACL authentication is assumed. (user needs to add our ips in their settings)"
+    CreateTwilioPhoneNumberRequest:
+      title: CreateTwilioPhoneNumberRequest
+      required:
+        - phone_number
         - label
         - sid
         - token
@@ -10780,28 +11145,6 @@ components:
           title: Token
           type: string
           description: Twilio Auth Token
-    CreatePhoneNumberResponseModel:
-      title: CreatePhoneNumberResponseModel
-      required:
-        - phone_number_id
-      type: object
-      properties:
-        phone_number_id:
-          title: Phone Number Id
-          type: string
-          description: Phone entity id
-    CreatePronunciationDictionaryResponseModel:
-      title: CreatePronunciationDictionaryResponseModel
-      required:
-        - status
-      type: object
-      properties:
-        status:
-          title: Status
-          type: string
-          description: 'The status of the create pronunciation dictionary request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
-      example:
-        status: ok
     CustomLLM:
       title: CustomLLM
       required:
@@ -11326,6 +11669,7 @@ components:
       enum:
         - e5_mistral_7b_instruct
         - gte_Qwen2_15B_instruct
+        - multilingual_e5_large_instruct
       type: string
     EvaluationSettings:
       title: EvaluationSettings
@@ -11771,7 +12115,7 @@ components:
         analysis:
           $ref: '#/components/schemas/ConversationHistoryAnalysisCommonModel'
         conversation_initiation_client_data:
-          $ref: '#/components/schemas/ConversationInitiationClientDataRequest'
+          $ref: '#/components/schemas/ConversationInitiationClientDataRequest-Output'
     GetConversationsPageResponseModel:
       title: GetConversationsPageResponseModel
       required:
@@ -12152,9 +12496,11 @@ components:
       required:
         - id
         - latest_version_id
+        - latest_version_rules_num
         - name
         - created_by
         - creation_time_unix
+        - archived_time_unix
       type: object
       properties:
         id:
@@ -12165,6 +12511,10 @@ components:
           title: Latest Version Id
           type: string
           description: The ID of the latest version of the pronunciation dictionary.
+        latest_version_rules_num:
+          title: Latest Version Rules Num
+          type: integer
+          description: The number of rules in the latest version of the pronunciation dictionary.
         name:
           title: Name
           type: string
@@ -12177,6 +12527,11 @@ components:
           title: Creation Time Unix
           type: integer
           description: The creation time of the pronunciation dictionary in Unix timestamp.
+        archived_time_unix:
+          title: Archived Time Unix
+          type: integer
+          description: The archive time of the pronunciation dictionary in Unix timestamp.
+          nullable: true
         description:
           title: Description
           type: string
@@ -12355,6 +12710,29 @@ components:
                 text: 'Hello, how are you?'
             verification_attempts_count: 0
             verification_failures: [ ]
+    GetVoicesV2ResponseModel:
+      title: GetVoicesV2ResponseModel
+      required:
+        - voices
+        - has_more
+        - total_count
+      type: object
+      properties:
+        voices:
+          title: Voices
+          type: array
+          items:
+            $ref: '#/components/schemas/VoiceResponseModel'
+        has_more:
+          title: Has More
+          type: boolean
+        total_count:
+          title: Total Count
+          type: integer
+        next_page_token:
+          title: Next Page Token
+          type: string
+          nullable: true
     GetWorkspaceSecretsResponseModel:
       title: GetWorkspaceSecretsResponseModel
       required:
@@ -13877,25 +14255,25 @@ components:
           type: string
           description: The name of the project snapshot.
         audio_upload:
-          $ref: '#/components/schemas/ProjectSnapshotUploadResponseModel'
+          title: Audio Upload
+          type: object
+          description: (Deprecated)
+          nullable: true
         zip_upload:
-          $ref: '#/components/schemas/ProjectSnapshotUploadResponseModel'
+          title: Zip Upload
+          type: object
+          description: (Deprecated)
+          nullable: true
         character_alignments:
           title: Character Alignments
           type: array
           items:
             $ref: '#/components/schemas/CharacterAlignmentModel'
       example:
-        audio_upload:
-          acx_volume_normalization: true
-          status: success
         created_at_unix: 1714204800
         name: My Project Snapshot
         project_id: aw1NgEzBg83R7vgmiJt6
         project_snapshot_id: aw1NgEzBg83R7vgmiJt6
-        zip_upload:
-          acx_volume_normalization: true
-          status: success
     ProjectSnapshotResponseModel:
       title: ProjectSnapshotResponseModel
       required:
@@ -13922,43 +14300,20 @@ components:
           type: string
           description: The name of the project snapshot.
         audio_upload:
-          $ref: '#/components/schemas/ProjectSnapshotUploadResponseModel'
+          title: Audio Upload
+          type: object
+          description: (Deprecated)
+          nullable: true
         zip_upload:
-          $ref: '#/components/schemas/ProjectSnapshotUploadResponseModel'
+          title: Zip Upload
+          type: object
+          description: (Deprecated)
+          nullable: true
       example:
-        audio_upload:
-          acx_volume_normalization: true
-          status: success
         created_at_unix: 1714204800
         name: My Project Snapshot
         project_id: aw1NgEzBg83R7vgmiJt6
         project_snapshot_id: aw1NgEzBg83R7vgmiJt6
-        zip_upload:
-          acx_volume_normalization: true
-          status: success
-    ProjectSnapshotUploadResponseModel:
-      title: ProjectSnapshotUploadResponseModel
-      required:
-        - status
-      type: object
-      properties:
-        status:
-          title: Status
-          enum:
-            - success
-            - in_queue
-            - pending
-            - failed
-          type: string
-          description: The status of the snapshot upload.
-        acx_volume_normalization:
-          title: Acx Volume Normalization
-          type: boolean
-          description: Whether volume normalization was applied to the snapshot.
-          nullable: true
-      example:
-        acx_volume_normalization: true
-        status: success
     ProjectSnapshotsResponseModel:
       title: ProjectSnapshotsResponseModel
       required:
@@ -13973,16 +14328,10 @@ components:
           description: List of project snapshots.
       example:
         snapshots:
-          - audio_upload:
-              acx_volume_normalization: true
-              status: success
-            created_at_unix: 1714204800
+          - created_at_unix: 1714204800
             name: My Project Snapshot
             project_id: aw1NgEzBg83R7vgmiJt6
             project_snapshot_id: aw1NgEzBg83R7vgmiJt6
-            zip_upload:
-              acx_volume_normalization: true
-              status: success
     PromptAgent-Input:
       title: PromptAgent
       type: object
@@ -14027,6 +14376,11 @@ components:
             $ref: '#/components/schemas/KnowledgeBaseLocator'
         custom_llm:
           $ref: '#/components/schemas/CustomLLM'
+        ignore_default_personality:
+          title: Ignore Default Personality
+          type: boolean
+          default: false
+          nullable: true
         rag:
           $ref: '#/components/schemas/RagConfig'
     PromptAgent-Output:
@@ -14073,6 +14427,11 @@ components:
             $ref: '#/components/schemas/KnowledgeBaseLocator'
         custom_llm:
           $ref: '#/components/schemas/CustomLLM'
+        ignore_default_personality:
+          title: Ignore Default Personality
+          type: boolean
+          default: false
+          nullable: true
         rag:
           $ref: '#/components/schemas/RagConfig'
     PromptAgentOverride:
@@ -14190,10 +14549,12 @@ components:
         version_id:
           title: Version Id
           type: string
+          nullable: true
     PronunciationDictionaryVersionResponseModel:
       title: PronunciationDictionaryVersionResponseModel
       required:
         - version_id
+        - version_rules_num
         - pronunciation_dictionary_id
         - dictionary_name
         - version_name
@@ -14204,6 +14565,9 @@ components:
         version_id:
           title: Version Id
           type: string
+        version_rules_num:
+          title: Version Rules Num
+          type: integer
         pronunciation_dictionary_id:
           title: Pronunciation Dictionary Id
           type: string
@@ -14219,6 +14583,10 @@ components:
         creation_time_unix:
           title: Creation Time Unix
           type: integer
+        archived_time_unix:
+          title: Archived Time Unix
+          type: integer
+          nullable: true
     PydanticPronunciationDictionaryVersionLocator:
       title: PydanticPronunciationDictionaryVersionLocator
       required:
@@ -14232,6 +14600,7 @@ components:
         version_id:
           title: Version Id
           type: string
+          nullable: true
       description: "A locator for other documents to be able to reference a specific dictionary and it's version.\nThis is a pydantic version of PronunciationDictionaryVersionLocatorDBModel.\nRequired to ensure compat with the rest of the agent data models."
     QueryParamsJsonSchema:
       title: QueryParamsJsonSchema
@@ -14409,6 +14778,7 @@ components:
       required:
         - id
         - version_id
+        - version_rules_num
       type: object
       properties:
         id:
@@ -14419,6 +14789,10 @@ components:
           title: Version Id
           type: string
           description: The version ID of the pronunciation dictionary.
+        version_rules_num:
+          title: Version Rules Num
+          type: integer
+          description: The number of rules in the version of the pronunciation dictionary.
       example:
         id: 5xM3yVvZQKV0EfqQpLrJ
         version_id: 5xM3yVvZQKV0EfqQpLr2
@@ -14499,6 +14873,21 @@ components:
           - id: x1AfvYKAmiqxCnbvZeNXHqqthJaC
             name: mygroup
             type: group
+    SIPTrunkCredentials:
+      title: SIPTrunkCredentials
+      required:
+        - username
+        - password
+      type: object
+      properties:
+        username:
+          title: Username
+          type: string
+          description: SIP trunk username
+        password:
+          title: Password
+          type: string
+          description: SIP trunk password
     SafetyCommonModel:
       title: SafetyCommonModel
       type: object
@@ -15495,6 +15884,7 @@ components:
       title: TelephonyProvider
       enum:
         - twilio
+        - sip_trunk
       type: string
     TurnConfig:
       title: TurnConfig
@@ -15512,6 +15902,24 @@ components:
         - silence
         - turn
       type: string
+    TwilioOutboundCallResponse:
+      title: TwilioOutboundCallResponse
+      required:
+        - success
+        - message
+        - callSid
+      type: object
+      properties:
+        success:
+          title: Success
+          type: boolean
+        message:
+          title: Message
+          type: string
+        callSid:
+          title: Callsid
+          type: string
+          nullable: true
     URLAvatar:
       title: URLAvatar
       type: object

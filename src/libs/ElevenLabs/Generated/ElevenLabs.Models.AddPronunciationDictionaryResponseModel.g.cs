@@ -45,6 +45,13 @@ namespace ElevenLabs
         public required string VersionId { get; set; }
 
         /// <summary>
+        /// The number of rules in the version of the pronunciation dictionary.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("version_rules_num")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int VersionRulesNum { get; set; }
+
+        /// <summary>
         /// The description of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
@@ -74,6 +81,9 @@ namespace ElevenLabs
         /// <param name="versionId">
         /// The ID of the created pronunciation dictionary version.
         /// </param>
+        /// <param name="versionRulesNum">
+        /// The number of rules in the version of the pronunciation dictionary.
+        /// </param>
         /// <param name="description">
         /// The description of the pronunciation dictionary.
         /// </param>
@@ -86,6 +96,7 @@ namespace ElevenLabs
             string createdBy,
             global::System.DateTimeOffset creationTimeUnix,
             string versionId,
+            int versionRulesNum,
             string? description)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -93,6 +104,7 @@ namespace ElevenLabs
             this.CreatedBy = createdBy ?? throw new global::System.ArgumentNullException(nameof(createdBy));
             this.CreationTimeUnix = creationTimeUnix;
             this.VersionId = versionId ?? throw new global::System.ArgumentNullException(nameof(versionId));
+            this.VersionRulesNum = versionRulesNum;
             this.Description = description;
         }
 

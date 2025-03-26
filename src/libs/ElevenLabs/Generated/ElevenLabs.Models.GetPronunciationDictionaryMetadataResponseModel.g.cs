@@ -23,6 +23,13 @@ namespace ElevenLabs
         public required string LatestVersionId { get; set; }
 
         /// <summary>
+        /// The number of rules in the latest version of the pronunciation dictionary.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("latest_version_rules_num")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int LatestVersionRulesNum { get; set; }
+
+        /// <summary>
         /// The name of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -45,6 +52,14 @@ namespace ElevenLabs
         public required global::System.DateTimeOffset CreationTimeUnix { get; set; }
 
         /// <summary>
+        /// The archive time of the pronunciation dictionary in Unix timestamp.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("archived_time_unix")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.DateTimeOffset? ArchivedTimeUnix { get; set; }
+
+        /// <summary>
         /// The description of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
@@ -65,6 +80,9 @@ namespace ElevenLabs
         /// <param name="latestVersionId">
         /// The ID of the latest version of the pronunciation dictionary.
         /// </param>
+        /// <param name="latestVersionRulesNum">
+        /// The number of rules in the latest version of the pronunciation dictionary.
+        /// </param>
         /// <param name="name">
         /// The name of the pronunciation dictionary.
         /// </param>
@@ -73,6 +91,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="creationTimeUnix">
         /// The creation time of the pronunciation dictionary in Unix timestamp.
+        /// </param>
+        /// <param name="archivedTimeUnix">
+        /// The archive time of the pronunciation dictionary in Unix timestamp.
         /// </param>
         /// <param name="description">
         /// The description of the pronunciation dictionary.
@@ -83,16 +104,20 @@ namespace ElevenLabs
         public GetPronunciationDictionaryMetadataResponseModel(
             string id,
             string latestVersionId,
+            int latestVersionRulesNum,
             string name,
             string createdBy,
             global::System.DateTimeOffset creationTimeUnix,
+            global::System.DateTimeOffset? archivedTimeUnix,
             string? description)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.LatestVersionId = latestVersionId ?? throw new global::System.ArgumentNullException(nameof(latestVersionId));
+            this.LatestVersionRulesNum = latestVersionRulesNum;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.CreatedBy = createdBy ?? throw new global::System.ArgumentNullException(nameof(createdBy));
             this.CreationTimeUnix = creationTimeUnix;
+            this.ArchivedTimeUnix = archivedTimeUnix;
             this.Description = description;
         }
 
