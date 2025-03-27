@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The type of the knowledge base
     /// </summary>
     public enum KnowledgeBaseLocatorType
     {

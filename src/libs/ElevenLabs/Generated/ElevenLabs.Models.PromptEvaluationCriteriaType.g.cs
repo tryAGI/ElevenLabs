@@ -4,6 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// The type of evaluation criteria<br/>
     /// Default Value: prompt
     /// </summary>
     public enum PromptEvaluationCriteriaType

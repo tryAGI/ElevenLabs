@@ -10,7 +10,7 @@ namespace ElevenLabs
     public sealed partial class EvaluationSettings
     {
         /// <summary>
-        /// 
+        /// Individual criteria that the agent should be evaluated against
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("criteria")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? Criteria { get; set; }
@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="EvaluationSettings" /> class.
         /// </summary>
-        /// <param name="criteria"></param>
+        /// <param name="criteria">
+        /// Individual criteria that the agent should be evaluated against
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

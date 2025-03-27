@@ -32,6 +32,10 @@ namespace ElevenLabs
         /// Language used for filtering<br/>
         /// Example: en
         /// </param>
+        /// <param name="locale">
+        /// Locale used for filtering<br/>
+        /// Example: en-US
+        /// </param>
         /// <param name="search">
         /// Search term used for filtering<br/>
         /// Example: tiktok
@@ -81,6 +85,7 @@ namespace ElevenLabs
             string? age = default,
             string? accent = default,
             string? language = default,
+            string? locale = default,
             string? search = default,
             global::System.Collections.Generic.IList<string>? useCases = default,
             global::System.Collections.Generic.IList<string>? descriptives = default,

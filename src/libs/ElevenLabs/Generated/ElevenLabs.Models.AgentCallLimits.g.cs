@@ -9,12 +9,14 @@ namespace ElevenLabs
     public sealed partial class AgentCallLimits
     {
         /// <summary>
+        /// The maximum number of concurrent conversations. -1 indicates that there is no maximum<br/>
         /// Default Value: -1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_concurrency_limit")]
         public int? AgentConcurrencyLimit { get; set; }
 
         /// <summary>
+        /// The maximum number of conversations per day<br/>
         /// Default Value: 100000
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("daily_limit")]
@@ -30,9 +32,11 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="AgentCallLimits" /> class.
         /// </summary>
         /// <param name="agentConcurrencyLimit">
+        /// The maximum number of concurrent conversations. -1 indicates that there is no maximum<br/>
         /// Default Value: -1
         /// </param>
         /// <param name="dailyLimit">
+        /// The maximum number of conversations per day<br/>
         /// Default Value: 100000
         /// </param>
 #if NET7_0_OR_GREATER

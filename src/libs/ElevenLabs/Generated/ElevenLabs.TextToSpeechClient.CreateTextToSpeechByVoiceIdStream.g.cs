@@ -314,6 +314,11 @@ namespace ElevenLabs
         /// Default Value: auto<br/>
         /// Example: true
         /// </param>
+        /// <param name="applyLanguageTextNormalization">
+        /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.<br/>
+        /// Default Value: false<br/>
+        /// Example: true
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> CreateTextToSpeechByVoiceIdStreamAsync(
@@ -332,6 +337,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? previousRequestIds = default,
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
             global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPostApplyTextNormalization? applyTextNormalization = default,
+            bool? applyLanguageTextNormalization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPost
@@ -347,6 +353,7 @@ namespace ElevenLabs
                 PreviousRequestIds = previousRequestIds,
                 NextRequestIds = nextRequestIds,
                 ApplyTextNormalization = applyTextNormalization,
+                ApplyLanguageTextNormalization = applyLanguageTextNormalization,
             };
 
             return await CreateTextToSpeechByVoiceIdStreamAsync(

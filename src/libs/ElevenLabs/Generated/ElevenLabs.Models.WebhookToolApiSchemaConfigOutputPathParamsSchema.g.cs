@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Schema for path parameters, if any. The keys should match the placeholders in the URL.
     /// </summary>
     public sealed partial class WebhookToolApiSchemaConfigOutputPathParamsSchema
     {

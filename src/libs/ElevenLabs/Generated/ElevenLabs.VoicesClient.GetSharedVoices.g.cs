@@ -13,6 +13,7 @@ namespace ElevenLabs
             ref string? age,
             ref string? accent,
             ref string? language,
+            ref string? locale,
             ref string? search,
             global::System.Collections.Generic.IList<string>? useCases,
             global::System.Collections.Generic.IList<string>? descriptives,
@@ -32,6 +33,7 @@ namespace ElevenLabs
             string? age,
             string? accent,
             string? language,
+            string? locale,
             string? search,
             global::System.Collections.Generic.IList<string>? useCases,
             global::System.Collections.Generic.IList<string>? descriptives,
@@ -78,6 +80,10 @@ namespace ElevenLabs
         /// <param name="language">
         /// Language used for filtering<br/>
         /// Example: en
+        /// </param>
+        /// <param name="locale">
+        /// Locale used for filtering<br/>
+        /// Example: en-US
         /// </param>
         /// <param name="search">
         /// Search term used for filtering<br/>
@@ -128,6 +134,7 @@ namespace ElevenLabs
             string? age = default,
             string? accent = default,
             string? language = default,
+            string? locale = default,
             string? search = default,
             global::System.Collections.Generic.IList<string>? useCases = default,
             global::System.Collections.Generic.IList<string>? descriptives = default,
@@ -150,6 +157,7 @@ namespace ElevenLabs
                 age: ref age,
                 accent: ref accent,
                 language: ref language,
+                locale: ref locale,
                 search: ref search,
                 useCases: useCases,
                 descriptives: descriptives,
@@ -171,6 +179,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("age", age) 
                 .AddOptionalParameter("accent", accent) 
                 .AddOptionalParameter("language", language) 
+                .AddOptionalParameter("locale", locale) 
                 .AddOptionalParameter("search", search) 
                 .AddOptionalParameter("use_cases", useCases, delimiter: ",", explode: true) 
                 .AddOptionalParameter("descriptives", descriptives, delimiter: ",", explode: true) 
@@ -224,6 +233,7 @@ namespace ElevenLabs
                 age: age,
                 accent: accent,
                 language: language,
+                locale: locale,
                 search: search,
                 useCases: useCases,
                 descriptives: descriptives,

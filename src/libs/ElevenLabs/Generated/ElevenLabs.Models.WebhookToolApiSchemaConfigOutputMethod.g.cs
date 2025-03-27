@@ -4,6 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// The HTTP method to use for the webhook<br/>
     /// Default Value: GET
     /// </summary>
     public enum WebhookToolApiSchemaConfigOutputMethod

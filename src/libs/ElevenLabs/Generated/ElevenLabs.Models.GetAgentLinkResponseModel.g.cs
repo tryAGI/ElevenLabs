@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class GetAgentLinkResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -30,7 +30,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAgentLinkResponseModel" /> class.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// The ID of the agent
+        /// </param>
         /// <param name="token"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

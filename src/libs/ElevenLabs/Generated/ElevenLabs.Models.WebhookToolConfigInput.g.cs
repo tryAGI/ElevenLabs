@@ -9,11 +9,12 @@ namespace ElevenLabs
     public sealed partial class WebhookToolConfigInput
     {
         /// <summary>
-        /// 
+        /// The type of tool<br/>
+        /// Default Value: webhook
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WebhookToolConfigInputTypeJsonConverter))]
-        public global::ElevenLabs.WebhookToolConfigInputType Type { get; set; }
+        public global::ElevenLabs.WebhookToolConfigInputType? Type { get; set; }
 
         /// <summary>
         /// 
@@ -51,7 +52,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookToolConfigInput" /> class.
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="type">
+        /// The type of tool<br/>
+        /// Default Value: webhook
+        /// </param>
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="apiSchema">
@@ -65,7 +69,7 @@ namespace ElevenLabs
             string name,
             string description,
             global::ElevenLabs.WebhookToolApiSchemaConfigInput apiSchema,
-            global::ElevenLabs.WebhookToolConfigInputType type,
+            global::ElevenLabs.WebhookToolConfigInputType? type,
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));

@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class AgentMetadataResponseModel
     {
         /// <summary>
-        /// 
+        /// The creation time of the agent in unix seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentMetadataResponseModel" /> class.
         /// </summary>
-        /// <param name="createdAtUnixSecs"></param>
+        /// <param name="createdAtUnixSecs">
+        /// The creation time of the agent in unix seconds
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

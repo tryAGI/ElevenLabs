@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The headers to send with the webhook request
     /// </summary>
     public sealed partial class ConversationInitiationClientDataWebhookRequestHeaders
     {

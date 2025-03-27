@@ -15,10 +15,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        GteQwen215BInstruct,
-        /// <summary>
-        /// 
-        /// </summary>
         MultilingualE5LargeInstruct,
     }
 
@@ -35,7 +31,6 @@ namespace ElevenLabs
             return value switch
             {
                 EmbeddingModelEnum.E5Mistral7bInstruct => "e5_mistral_7b_instruct",
-                EmbeddingModelEnum.GteQwen215BInstruct => "gte_Qwen2_15B_instruct",
                 EmbeddingModelEnum.MultilingualE5LargeInstruct => "multilingual_e5_large_instruct",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -48,7 +43,6 @@ namespace ElevenLabs
             return value switch
             {
                 "e5_mistral_7b_instruct" => EmbeddingModelEnum.E5Mistral7bInstruct,
-                "gte_Qwen2_15B_instruct" => EmbeddingModelEnum.GteQwen215BInstruct,
                 "multilingual_e5_large_instruct" => EmbeddingModelEnum.MultilingualE5LargeInstruct,
                 _ => null,
             };

@@ -9,11 +9,12 @@ namespace ElevenLabs
     public sealed partial class ClientToolConfigOutput
     {
         /// <summary>
-        /// 
+        /// The type of tool<br/>
+        /// Default Value: client
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ClientToolConfigOutputTypeJsonConverter))]
-        public global::ElevenLabs.ClientToolConfigOutputType Type { get; set; }
+        public global::ElevenLabs.ClientToolConfigOutputType? Type { get; set; }
 
         /// <summary>
         /// 
@@ -36,13 +37,14 @@ namespace ElevenLabs
         public global::ElevenLabs.ObjectJsonSchemaPropertyOutput? Parameters { get; set; }
 
         /// <summary>
+        /// If true, calling this tool should block the conversation until the client responds with some response which is passed to the llm. If false then we will continue the conversation without waiting for the client to respond, this is useful to show content to a user but not block the conversation<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expects_response")]
         public bool? ExpectsResponse { get; set; }
 
         /// <summary>
-        /// 
+        /// The maximum time in seconds to wait for a response from the client. Should only be set if expects_response is true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
         public int? ResponseTimeoutSecs { get; set; }
@@ -62,14 +64,20 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientToolConfigOutput" /> class.
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="type">
+        /// The type of tool<br/>
+        /// Default Value: client
+        /// </param>
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="parameters"></param>
         /// <param name="expectsResponse">
+        /// If true, calling this tool should block the conversation until the client responds with some response which is passed to the llm. If false then we will continue the conversation without waiting for the client to respond, this is useful to show content to a user but not block the conversation<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="responseTimeoutSecs"></param>
+        /// <param name="responseTimeoutSecs">
+        /// The maximum time in seconds to wait for a response from the client. Should only be set if expects_response is true
+        /// </param>
         /// <param name="dynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -77,7 +85,7 @@ namespace ElevenLabs
         public ClientToolConfigOutput(
             string name,
             string description,
-            global::ElevenLabs.ClientToolConfigOutputType type,
+            global::ElevenLabs.ClientToolConfigOutputType? type,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? parameters,
             bool? expectsResponse,
             int? responseTimeoutSecs,

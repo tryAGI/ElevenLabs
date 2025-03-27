@@ -86,6 +86,12 @@ namespace ElevenLabs
         public string? Language { get; set; }
 
         /// <summary>
+        /// The locale of the voice.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("locale")]
+        public string? Locale { get; set; }
+
+        /// <summary>
         /// The description of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
@@ -242,6 +248,9 @@ namespace ElevenLabs
         /// <param name="language">
         /// The language of the voice.
         /// </param>
+        /// <param name="locale">
+        /// The locale of the voice.
+        /// </param>
         /// <param name="description">
         /// The description of the voice.
         /// </param>
@@ -318,6 +327,7 @@ namespace ElevenLabs
             bool liveModerationEnabled,
             bool featured,
             string? language,
+            string? locale,
             string? description,
             string? previewUrl,
             double? rate,
@@ -348,6 +358,7 @@ namespace ElevenLabs
             this.LiveModerationEnabled = liveModerationEnabled;
             this.Featured = featured;
             this.Language = language;
+            this.Locale = locale;
             this.Description = description;
             this.PreviewUrl = previewUrl;
             this.Rate = rate;

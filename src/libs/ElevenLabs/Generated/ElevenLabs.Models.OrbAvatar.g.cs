@@ -9,6 +9,7 @@ namespace ElevenLabs
     public sealed partial class OrbAvatar
     {
         /// <summary>
+        /// The type of the avatar<br/>
         /// Default Value: orb
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -16,12 +17,14 @@ namespace ElevenLabs
         public global::ElevenLabs.OrbAvatarType? Type { get; set; }
 
         /// <summary>
+        /// The first color of the avatar<br/>
         /// Default Value: #2792dc
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("color_1")]
         public string? Color1 { get; set; }
 
         /// <summary>
+        /// The second color of the avatar<br/>
         /// Default Value: #9ce6e6
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("color_2")]
@@ -37,12 +40,15 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="OrbAvatar" /> class.
         /// </summary>
         /// <param name="type">
+        /// The type of the avatar<br/>
         /// Default Value: orb
         /// </param>
         /// <param name="color1">
+        /// The first color of the avatar<br/>
         /// Default Value: #2792dc
         /// </param>
         /// <param name="color2">
+        /// The second color of the avatar<br/>
         /// Default Value: #9ce6e6
         /// </param>
 #if NET7_0_OR_GREATER

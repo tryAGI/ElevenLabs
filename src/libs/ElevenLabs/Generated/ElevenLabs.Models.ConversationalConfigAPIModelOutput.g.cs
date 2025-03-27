@@ -33,7 +33,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationConfig? Conversation { get; set; }
 
         /// <summary>
-        /// 
+        /// Language presets for conversations
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_presets")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetOutput>? LanguagePresets { get; set; }
@@ -57,7 +57,9 @@ namespace ElevenLabs
         /// <param name="turn"></param>
         /// <param name="tts"></param>
         /// <param name="conversation"></param>
-        /// <param name="languagePresets"></param>
+        /// <param name="languagePresets">
+        /// Language presets for conversations
+        /// </param>
         /// <param name="agent"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

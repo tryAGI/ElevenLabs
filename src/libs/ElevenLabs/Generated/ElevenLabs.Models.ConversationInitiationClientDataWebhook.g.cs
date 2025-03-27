@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class ConversationInitiationClientDataWebhook
     {
         /// <summary>
-        /// 
+        /// The URL to send the webhook to
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Url { get; set; }
 
         /// <summary>
-        /// 
+        /// The headers to send with the webhook request
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationInitiationClientDataWebhook" /> class.
         /// </summary>
-        /// <param name="url"></param>
-        /// <param name="requestHeaders"></param>
+        /// <param name="url">
+        /// The URL to send the webhook to
+        /// </param>
+        /// <param name="requestHeaders">
+        /// The headers to send with the webhook request
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

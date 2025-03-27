@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Headers that should be included in the request
     /// </summary>
     public sealed partial class WebhookToolApiSchemaConfigOutputRequestHeaders
     {

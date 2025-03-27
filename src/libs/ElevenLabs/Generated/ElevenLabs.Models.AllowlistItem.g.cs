@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class AllowlistItem
     {
         /// <summary>
-        /// 
+        /// The hostname of the allowed origin
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hostname")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AllowlistItem" /> class.
         /// </summary>
-        /// <param name="hostname"></param>
+        /// <param name="hostname">
+        /// The hostname of the allowed origin
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

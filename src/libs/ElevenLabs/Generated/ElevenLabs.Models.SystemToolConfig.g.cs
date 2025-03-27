@@ -9,11 +9,12 @@ namespace ElevenLabs
     public sealed partial class SystemToolConfig
     {
         /// <summary>
-        /// 
+        /// The type of tool<br/>
+        /// Default Value: system
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SystemToolConfigTypeJsonConverter))]
-        public global::ElevenLabs.SystemToolConfigType Type { get; set; }
+        public global::ElevenLabs.SystemToolConfigType? Type { get; set; }
 
         /// <summary>
         /// 
@@ -38,7 +39,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemToolConfig" /> class.
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="type">
+        /// The type of tool<br/>
+        /// Default Value: system
+        /// </param>
         /// <param name="name"></param>
         /// <param name="description"></param>
 #if NET7_0_OR_GREATER
@@ -47,7 +51,7 @@ namespace ElevenLabs
         public SystemToolConfig(
             string name,
             string description,
-            global::ElevenLabs.SystemToolConfigType type)
+            global::ElevenLabs.SystemToolConfigType? type)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));

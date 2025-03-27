@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class KnowledgeBaseLocator
     {
         /// <summary>
-        /// 
+        /// The type of the knowledge base
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.KnowledgeBaseLocatorTypeJsonConverter))]
@@ -17,14 +17,14 @@ namespace ElevenLabs
         public required global::ElevenLabs.KnowledgeBaseLocatorType Type { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the knowledge base
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the knowledge base
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -46,9 +46,15 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="KnowledgeBaseLocator" /> class.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="name"></param>
-        /// <param name="id"></param>
+        /// <param name="type">
+        /// The type of the knowledge base
+        /// </param>
+        /// <param name="name">
+        /// The name of the knowledge base
+        /// </param>
+        /// <param name="id">
+        /// The ID of the knowledge base
+        /// </param>
         /// <param name="usageMode"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

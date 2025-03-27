@@ -4,6 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// The type of the avatar<br/>
     /// Default Value: url
     /// </summary>
     public enum URLAvatarType

@@ -9,20 +9,20 @@ namespace ElevenLabs
     public sealed partial class GetAgentsPageResponseModel
     {
         /// <summary>
-        /// 
+        /// A list of agents and their metadata
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agents")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentSummaryResponseModel> Agents { get; set; }
 
         /// <summary>
-        /// 
+        /// The next cursor to paginate through the agents
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_cursor")]
         public string? NextCursor { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether there are more agents to paginate through
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -37,9 +37,15 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAgentsPageResponseModel" /> class.
         /// </summary>
-        /// <param name="agents"></param>
-        /// <param name="nextCursor"></param>
-        /// <param name="hasMore"></param>
+        /// <param name="agents">
+        /// A list of agents and their metadata
+        /// </param>
+        /// <param name="nextCursor">
+        /// The next cursor to paginate through the agents
+        /// </param>
+        /// <param name="hasMore">
+        /// Whether there are more agents to paginate through
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -30,7 +30,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ASRInputFormat? UserInputAudioFormat { get; set; }
 
         /// <summary>
-        /// 
+        /// Keywords to boost prediction probability for
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("keywords")]
         public global::System.Collections.Generic.IList<string>? Keywords { get; set; }
@@ -47,7 +47,9 @@ namespace ElevenLabs
         /// <param name="quality"></param>
         /// <param name="provider"></param>
         /// <param name="userInputAudioFormat"></param>
-        /// <param name="keywords"></param>
+        /// <param name="keywords">
+        /// Keywords to boost prediction probability for
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

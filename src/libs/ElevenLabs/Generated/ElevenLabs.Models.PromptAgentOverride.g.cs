@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class PromptAgentOverride
     {
         /// <summary>
-        /// 
+        /// The initial system message that defines the agent, e.g. “You are a German language teacher named Laura.”
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public string? Prompt { get; set; }
@@ -23,7 +23,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PromptAgentOverride" /> class.
         /// </summary>
-        /// <param name="prompt"></param>
+        /// <param name="prompt">
+        /// The initial system message that defines the agent, e.g. “You are a German language teacher named Laura.”
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -57,6 +57,26 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Ulaw8000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800032,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800064,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800096,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus48000128,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus48000192,
     }
 
     /// <summary>
@@ -83,6 +103,11 @@ namespace ElevenLabs
                 SoundGenerationV1SoundGenerationPostOutputFormat.Pcm24000 => "pcm_24000",
                 SoundGenerationV1SoundGenerationPostOutputFormat.Pcm44100 => "pcm_44100",
                 SoundGenerationV1SoundGenerationPostOutputFormat.Ulaw8000 => "ulaw_8000",
+                SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800032 => "opus_48000_32",
+                SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800064 => "opus_48000_64",
+                SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800096 => "opus_48000_96",
+                SoundGenerationV1SoundGenerationPostOutputFormat.Opus48000128 => "opus_48000_128",
+                SoundGenerationV1SoundGenerationPostOutputFormat.Opus48000192 => "opus_48000_192",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -105,6 +130,11 @@ namespace ElevenLabs
                 "pcm_24000" => SoundGenerationV1SoundGenerationPostOutputFormat.Pcm24000,
                 "pcm_44100" => SoundGenerationV1SoundGenerationPostOutputFormat.Pcm44100,
                 "ulaw_8000" => SoundGenerationV1SoundGenerationPostOutputFormat.Ulaw8000,
+                "opus_48000_32" => SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800032,
+                "opus_48000_64" => SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800064,
+                "opus_48000_96" => SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800096,
+                "opus_48000_128" => SoundGenerationV1SoundGenerationPostOutputFormat.Opus48000128,
+                "opus_48000_192" => SoundGenerationV1SoundGenerationPostOutputFormat.Opus48000192,
                 _ => null,
             };
         }

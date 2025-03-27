@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class GetAgentResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AgentId { get; set; }
 
         /// <summary>
-        /// 
+        /// The name of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -43,7 +43,7 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentPlatformSettingsResponseModel? PlatformSettings { get; set; }
 
         /// <summary>
-        /// 
+        /// The phone numbers of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_numbers")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? PhoneNumbers { get; set; }
@@ -57,12 +57,18 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAgentResponseModel" /> class.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="name"></param>
+        /// <param name="agentId">
+        /// The ID of the agent
+        /// </param>
+        /// <param name="name">
+        /// The name of the agent
+        /// </param>
         /// <param name="conversationConfig"></param>
         /// <param name="metadata"></param>
         /// <param name="platformSettings"></param>
-        /// <param name="phoneNumbers"></param>
+        /// <param name="phoneNumbers">
+        /// The phone numbers of the agent
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

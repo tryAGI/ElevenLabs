@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class CreatePhoneNumberResponseModel
     {
         /// <summary>
-        /// Phone entity id
+        /// Phone entity ID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="CreatePhoneNumberResponseModel" /> class.
         /// </summary>
         /// <param name="phoneNumberId">
-        /// Phone entity id
+        /// Phone entity ID
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
