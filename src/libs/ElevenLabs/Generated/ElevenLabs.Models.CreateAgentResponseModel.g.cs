@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class CreateAgentResponseModel
     {
         /// <summary>
-        /// 
+        /// ID of the created agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateAgentResponseModel" /> class.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the created agent
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

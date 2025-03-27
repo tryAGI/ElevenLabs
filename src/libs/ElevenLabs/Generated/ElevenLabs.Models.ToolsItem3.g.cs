@@ -5,7 +5,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The type of tool
     /// </summary>
     public readonly partial struct ToolsItem3 : global::System.IEquatable<ToolsItem3>
     {

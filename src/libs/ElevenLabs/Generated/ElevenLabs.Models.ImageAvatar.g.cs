@@ -9,6 +9,7 @@ namespace ElevenLabs
     public sealed partial class ImageAvatar
     {
         /// <summary>
+        /// The type of the avatar<br/>
         /// Default Value: image
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -16,7 +17,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ImageAvatarType? Type { get; set; }
 
         /// <summary>
-        /// 
+        /// The URL of the avatar
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         public string? Url { get; set; }
@@ -31,9 +32,12 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ImageAvatar" /> class.
         /// </summary>
         /// <param name="type">
+        /// The type of the avatar<br/>
         /// Default Value: image
         /// </param>
-        /// <param name="url"></param>
+        /// <param name="url">
+        /// The URL of the avatar
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

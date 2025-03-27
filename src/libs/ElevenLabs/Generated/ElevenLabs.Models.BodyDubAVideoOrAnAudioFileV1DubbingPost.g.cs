@@ -135,11 +135,11 @@ namespace ElevenLabs
         public bool? DubbingStudio { get; set; }
 
         /// <summary>
-        /// [BETA] Whether the dub should use replacement voices from the voice library instead of cloning.<br/>
+        /// [BETA] Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library.<br/>
         /// Default Value: false
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("use_replacement_voices_from_library")]
-        public bool? UseReplacementVoicesFromLibrary { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("disable_voice_cloning")]
+        public bool? DisableVoiceCloning { get; set; }
 
         /// <summary>
         /// automatic or manual. Manual mode is only supported when creating a dubbing studio project<br/>
@@ -223,8 +223,8 @@ namespace ElevenLabs
         /// Whether to prepare dub for edits in dubbing studio or edits as a dubbing resource.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="useReplacementVoicesFromLibrary">
-        /// [BETA] Whether the dub should use replacement voices from the voice library instead of cloning.<br/>
+        /// <param name="disableVoiceCloning">
+        /// [BETA] Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="mode">
@@ -255,7 +255,7 @@ namespace ElevenLabs
             bool? dropBackgroundAudio,
             bool? useProfanityFilter,
             bool? dubbingStudio,
-            bool? useReplacementVoicesFromLibrary,
+            bool? disableVoiceCloning,
             string? mode)
         {
             this.File = file;
@@ -278,7 +278,7 @@ namespace ElevenLabs
             this.DropBackgroundAudio = dropBackgroundAudio;
             this.UseProfanityFilter = useProfanityFilter;
             this.DubbingStudio = dubbingStudio;
-            this.UseReplacementVoicesFromLibrary = useReplacementVoicesFromLibrary;
+            this.DisableVoiceCloning = disableVoiceCloning;
             this.Mode = mode;
         }
 

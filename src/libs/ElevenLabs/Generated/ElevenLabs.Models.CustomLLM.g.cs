@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class CustomLLM
     {
         /// <summary>
-        /// 
+        /// The URL of the Chat Completions compatible endpoint
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Url { get; set; }
 
         /// <summary>
-        /// 
+        /// The model ID to be used if URL serves multiple models
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         public string? ModelId { get; set; }
@@ -36,8 +36,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomLLM" /> class.
         /// </summary>
-        /// <param name="url"></param>
-        /// <param name="modelId"></param>
+        /// <param name="url">
+        /// The URL of the Chat Completions compatible endpoint
+        /// </param>
+        /// <param name="modelId">
+        /// The model ID to be used if URL serves multiple models
+        /// </param>
         /// <param name="apiKey">
         /// Used to reference a secret from the agent's secret store.
         /// </param>

@@ -28,8 +28,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Agents Page<br/>
-        /// Returns a page of your agents and their metadata.
+        /// List Agents<br/>
+        /// Returns a list of your agents and their metadata.
         /// </summary>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.

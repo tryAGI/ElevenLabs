@@ -28,7 +28,7 @@ namespace ElevenLabs
         public global::ElevenLabs.WidgetConfig? Widget { get; set; }
 
         /// <summary>
-        /// 
+        /// Data collection settings
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? DataCollection { get; set; }
@@ -44,12 +44,6 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_limits")]
         public global::ElevenLabs.AgentCallLimits? CallLimits { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("ban")]
-        public global::ElevenLabs.AgentBan? Ban { get; set; }
 
         /// <summary>
         /// 
@@ -84,10 +78,11 @@ namespace ElevenLabs
         /// Agents are evaluated against a set of criteria, with success being defined as meeting some combination of those criteria.
         /// </param>
         /// <param name="widget"></param>
-        /// <param name="dataCollection"></param>
+        /// <param name="dataCollection">
+        /// Data collection settings
+        /// </param>
         /// <param name="overrides"></param>
         /// <param name="callLimits"></param>
-        /// <param name="ban"></param>
         /// <param name="privacy"></param>
         /// <param name="workspaceOverrides"></param>
         /// <param name="safety"></param>
@@ -101,7 +96,6 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection,
             global::ElevenLabs.ConversationInitiationClientDataConfigOutput? overrides,
             global::ElevenLabs.AgentCallLimits? callLimits,
-            global::ElevenLabs.AgentBan? ban,
             global::ElevenLabs.PrivacyConfig? privacy,
             global::ElevenLabs.AgentWorkspaceOverridesOutput? workspaceOverrides,
             global::ElevenLabs.SafetyResponseModel? safety)
@@ -112,7 +106,6 @@ namespace ElevenLabs
             this.DataCollection = dataCollection;
             this.Overrides = overrides;
             this.CallLimits = callLimits;
-            this.Ban = ban;
             this.Privacy = privacy;
             this.WorkspaceOverrides = workspaceOverrides;
             this.Safety = safety;

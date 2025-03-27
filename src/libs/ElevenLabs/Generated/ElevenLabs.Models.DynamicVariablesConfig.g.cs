@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class DynamicVariablesConfig
     {
         /// <summary>
-        /// 
+        /// A dictionary of dynamic variable placeholders and their values
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable_placeholders")]
         public object? DynamicVariablePlaceholders { get; set; }
@@ -23,7 +23,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="DynamicVariablesConfig" /> class.
         /// </summary>
-        /// <param name="dynamicVariablePlaceholders"></param>
+        /// <param name="dynamicVariablePlaceholders">
+        /// A dictionary of dynamic variable placeholders and their values
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

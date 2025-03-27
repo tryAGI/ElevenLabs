@@ -57,6 +57,26 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Ulaw8000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800032,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800064,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800096,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus48000128,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus48000192,
     }
 
     /// <summary>
@@ -83,6 +103,11 @@ namespace ElevenLabs
                 GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm24000 => "pcm_24000",
                 GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm44100 => "pcm_44100",
                 GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Ulaw8000 => "ulaw_8000",
+                GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus4800032 => "opus_48000_32",
+                GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus4800064 => "opus_48000_64",
+                GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus4800096 => "opus_48000_96",
+                GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus48000128 => "opus_48000_128",
+                GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus48000192 => "opus_48000_192",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -105,6 +130,11 @@ namespace ElevenLabs
                 "pcm_24000" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm24000,
                 "pcm_44100" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Pcm44100,
                 "ulaw_8000" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Ulaw8000,
+                "opus_48000_32" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus4800032,
+                "opus_48000_64" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus4800064,
+                "opus_48000_96" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus4800096,
+                "opus_48000_128" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus48000128,
+                "opus_48000_192" => GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat.Opus48000192,
                 _ => null,
             };
         }

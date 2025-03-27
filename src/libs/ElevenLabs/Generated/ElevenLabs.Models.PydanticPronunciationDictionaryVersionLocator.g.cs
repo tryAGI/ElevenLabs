@@ -11,14 +11,14 @@ namespace ElevenLabs
     public sealed partial class PydanticPronunciationDictionaryVersionLocator
     {
         /// <summary>
-        /// 
+        /// The ID of the pronunciation dictionary
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string PronunciationDictionaryId { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the version of the pronunciation dictionary
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -33,8 +33,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PydanticPronunciationDictionaryVersionLocator" /> class.
         /// </summary>
-        /// <param name="pronunciationDictionaryId"></param>
-        /// <param name="versionId"></param>
+        /// <param name="pronunciationDictionaryId">
+        /// The ID of the pronunciation dictionary
+        /// </param>
+        /// <param name="versionId">
+        /// The ID of the version of the pronunciation dictionary
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -187,11 +187,11 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{request.DubbingStudio}"),
                     name: "dubbing_studio");
             } 
-            if (request.UseReplacementVoicesFromLibrary != default)
+            if (request.DisableVoiceCloning != default)
             {
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.UseReplacementVoicesFromLibrary}"),
-                    name: "use_replacement_voices_from_library");
+                    content: new global::System.Net.Http.StringContent($"{request.DisableVoiceCloning}"),
+                    name: "disable_voice_cloning");
             } 
             if (request.Mode != default)
             {
@@ -395,8 +395,8 @@ namespace ElevenLabs
         /// Whether to prepare dub for edits in dubbing studio or edits as a dubbing resource.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="useReplacementVoicesFromLibrary">
-        /// [BETA] Whether the dub should use replacement voices from the voice library instead of cloning.<br/>
+        /// <param name="disableVoiceCloning">
+        /// [BETA] Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="mode">
@@ -427,7 +427,7 @@ namespace ElevenLabs
             bool? dropBackgroundAudio = default,
             bool? useProfanityFilter = default,
             bool? dubbingStudio = default,
-            bool? useReplacementVoicesFromLibrary = default,
+            bool? disableVoiceCloning = default,
             string? mode = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -453,7 +453,7 @@ namespace ElevenLabs
                 DropBackgroundAudio = dropBackgroundAudio,
                 UseProfanityFilter = useProfanityFilter,
                 DubbingStudio = dubbingStudio,
-                UseReplacementVoicesFromLibrary = useReplacementVoicesFromLibrary,
+                DisableVoiceCloning = disableVoiceCloning,
                 Mode = mode,
             };
 

@@ -28,7 +28,7 @@ namespace ElevenLabs
         public global::ElevenLabs.WidgetConfig? Widget { get; set; }
 
         /// <summary>
-        /// 
+        /// Data collection settings
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? DataCollection { get; set; }
@@ -48,12 +48,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("ban")]
-        public global::ElevenLabs.AgentBan? Ban { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("privacy")]
         public global::ElevenLabs.PrivacyConfig? Privacy { get; set; }
 
@@ -62,12 +56,6 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace_overrides")]
         public global::ElevenLabs.AgentWorkspaceOverridesInput? WorkspaceOverrides { get; set; }
-
-        /// <summary>
-        /// Safety object that has the information of safety evaluations based on used voice.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("safety")]
-        public global::ElevenLabs.SafetyCommonModel? Safety { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -84,15 +72,13 @@ namespace ElevenLabs
         /// Agents are evaluated against a set of criteria, with success being defined as meeting some combination of those criteria.
         /// </param>
         /// <param name="widget"></param>
-        /// <param name="dataCollection"></param>
+        /// <param name="dataCollection">
+        /// Data collection settings
+        /// </param>
         /// <param name="overrides"></param>
         /// <param name="callLimits"></param>
-        /// <param name="ban"></param>
         /// <param name="privacy"></param>
         /// <param name="workspaceOverrides"></param>
-        /// <param name="safety">
-        /// Safety object that has the information of safety evaluations based on used voice.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -103,10 +89,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection,
             global::ElevenLabs.ConversationInitiationClientDataConfigInput? overrides,
             global::ElevenLabs.AgentCallLimits? callLimits,
-            global::ElevenLabs.AgentBan? ban,
             global::ElevenLabs.PrivacyConfig? privacy,
-            global::ElevenLabs.AgentWorkspaceOverridesInput? workspaceOverrides,
-            global::ElevenLabs.SafetyCommonModel? safety)
+            global::ElevenLabs.AgentWorkspaceOverridesInput? workspaceOverrides)
         {
             this.Auth = auth;
             this.Evaluation = evaluation;
@@ -114,10 +98,8 @@ namespace ElevenLabs
             this.DataCollection = dataCollection;
             this.Overrides = overrides;
             this.CallLimits = callLimits;
-            this.Ban = ban;
             this.Privacy = privacy;
             this.WorkspaceOverrides = workspaceOverrides;
-            this.Safety = safety;
         }
 
         /// <summary>

@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The type of tool<br/>
+    /// Default Value: webhook
     /// </summary>
     public enum WebhookToolConfigOutputType
     {

@@ -9,6 +9,7 @@ namespace ElevenLabs
     public sealed partial class URLAvatar
     {
         /// <summary>
+        /// The type of the avatar<br/>
         /// Default Value: url
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -16,7 +17,7 @@ namespace ElevenLabs
         public global::ElevenLabs.URLAvatarType? Type { get; set; }
 
         /// <summary>
-        /// 
+        /// The custom URL of the avatar
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_url")]
         public string? CustomUrl { get; set; }
@@ -31,9 +32,12 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="URLAvatar" /> class.
         /// </summary>
         /// <param name="type">
+        /// The type of the avatar<br/>
         /// Default Value: url
         /// </param>
-        /// <param name="customUrl"></param>
+        /// <param name="customUrl">
+        /// The custom URL of the avatar
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -15,12 +15,14 @@ namespace ElevenLabs
         public global::ElevenLabs.PromptAgentOverrideConfig? Prompt { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the first message<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("first_message")]
         public bool? FirstMessage { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the language<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -37,9 +39,11 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="prompt"></param>
         /// <param name="firstMessage">
+        /// Whether to allow overriding the first message<br/>
         /// Default Value: false
         /// </param>
         /// <param name="language">
+        /// Whether to allow overriding the language<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

@@ -57,6 +57,26 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Ulaw8000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800032,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800064,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800096,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus48000128,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus48000192,
     }
 
     /// <summary>
@@ -83,6 +103,11 @@ namespace ElevenLabs
                 TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Pcm24000 => "pcm_24000",
                 TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Pcm44100 => "pcm_44100",
                 TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Ulaw8000 => "ulaw_8000",
+                TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus4800032 => "opus_48000_32",
+                TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus4800064 => "opus_48000_64",
+                TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus4800096 => "opus_48000_96",
+                TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus48000128 => "opus_48000_128",
+                TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus48000192 => "opus_48000_192",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -105,6 +130,11 @@ namespace ElevenLabs
                 "pcm_24000" => TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Pcm24000,
                 "pcm_44100" => TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Pcm44100,
                 "ulaw_8000" => TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Ulaw8000,
+                "opus_48000_32" => TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus4800032,
+                "opus_48000_64" => TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus4800064,
+                "opus_48000_96" => TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus4800096,
+                "opus_48000_128" => TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus48000128,
+                "opus_48000_192" => TextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostOutputFormat.Opus48000192,
                 _ => null,
             };
         }

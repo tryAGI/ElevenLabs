@@ -105,6 +105,15 @@ namespace ElevenLabs
         public global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostApplyTextNormalization? ApplyTextNormalization { get; set; }
 
         /// <summary>
+        /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.<br/>
+        /// Default Value: false<br/>
+        /// Example: true
+        /// </summary>
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("apply_language_text_normalization")]
+        public bool? ApplyLanguageTextNormalization { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -154,6 +163,11 @@ namespace ElevenLabs
         /// Default Value: auto<br/>
         /// Example: true
         /// </param>
+        /// <param name="applyLanguageTextNormalization">
+        /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.<br/>
+        /// Default Value: false<br/>
+        /// Example: true
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -168,7 +182,8 @@ namespace ElevenLabs
             string? nextText,
             global::System.Collections.Generic.IList<string>? previousRequestIds,
             global::System.Collections.Generic.IList<string>? nextRequestIds,
-            global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostApplyTextNormalization? applyTextNormalization)
+            global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostApplyTextNormalization? applyTextNormalization,
+            bool? applyLanguageTextNormalization)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.ModelId = modelId;
@@ -181,6 +196,7 @@ namespace ElevenLabs
             this.PreviousRequestIds = previousRequestIds;
             this.NextRequestIds = nextRequestIds;
             this.ApplyTextNormalization = applyTextNormalization;
+            this.ApplyLanguageTextNormalization = applyLanguageTextNormalization;
         }
 
         /// <summary>

@@ -15,12 +15,14 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationConfigClientOverrideConfigOutput? ConversationConfigOverride { get; set; }
 
         /// <summary>
+        /// Whether to include custom LLM extra body<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_llm_extra_body")]
         public bool? CustomLlmExtraBody { get; set; }
 
         /// <summary>
+        /// Whether to enable conversation initiation client data from webhooks<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_conversation_initiation_client_data_from_webhook")]
@@ -37,9 +39,11 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="conversationConfigOverride"></param>
         /// <param name="customLlmExtraBody">
+        /// Whether to include custom LLM extra body<br/>
         /// Default Value: false
         /// </param>
         /// <param name="enableConversationInitiationClientDataFromWebhook">
+        /// Whether to enable conversation initiation client data from webhooks<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

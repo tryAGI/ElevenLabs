@@ -9,13 +9,14 @@ namespace ElevenLabs
     public sealed partial class ConversationConfig
     {
         /// <summary>
+        /// The maximum duration of a conversation in seconds<br/>
         /// Default Value: 600
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_duration_seconds")]
         public int? MaxDurationSeconds { get; set; }
 
         /// <summary>
-        /// 
+        /// The events that will be sent to the client
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_events")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? ClientEvents { get; set; }
@@ -30,9 +31,12 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationConfig" /> class.
         /// </summary>
         /// <param name="maxDurationSeconds">
+        /// The maximum duration of a conversation in seconds<br/>
         /// Default Value: 600
         /// </param>
-        /// <param name="clientEvents"></param>
+        /// <param name="clientEvents">
+        /// The events that will be sent to the client
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

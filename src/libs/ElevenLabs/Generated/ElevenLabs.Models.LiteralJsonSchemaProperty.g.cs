@@ -19,19 +19,19 @@ namespace ElevenLabs
         public required global::ElevenLabs.LiteralJsonSchemaPropertyType Type { get; set; }
 
         /// <summary>
-        /// 
+        /// The description of the property
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// 
+        /// The dynamic variable of the property
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable")]
         public string? DynamicVariable { get; set; }
 
         /// <summary>
-        /// 
+        /// The constant value of the property
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("constant_value")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?>))]
@@ -47,9 +47,15 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="LiteralJsonSchemaProperty" /> class.
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="description"></param>
-        /// <param name="dynamicVariable"></param>
-        /// <param name="constantValue"></param>
+        /// <param name="description">
+        /// The description of the property
+        /// </param>
+        /// <param name="dynamicVariable">
+        /// The dynamic variable of the property
+        /// </param>
+        /// <param name="constantValue">
+        /// The constant value of the property
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Data collection settings
     /// </summary>
     public sealed partial class AgentPlatformSettingsResponseModelDataCollection
     {

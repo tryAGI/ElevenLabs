@@ -57,6 +57,26 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Ulaw8000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800032,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800064,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus4800096,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus48000128,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus48000192,
     }
 
     /// <summary>
@@ -83,6 +103,11 @@ namespace ElevenLabs
                 SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Pcm24000 => "pcm_24000",
                 SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Pcm44100 => "pcm_44100",
                 SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Ulaw8000 => "ulaw_8000",
+                SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800032 => "opus_48000_32",
+                SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800064 => "opus_48000_64",
+                SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800096 => "opus_48000_96",
+                SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus48000128 => "opus_48000_128",
+                SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus48000192 => "opus_48000_192",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -105,6 +130,11 @@ namespace ElevenLabs
                 "pcm_24000" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Pcm24000,
                 "pcm_44100" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Pcm44100,
                 "ulaw_8000" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Ulaw8000,
+                "opus_48000_32" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800032,
+                "opus_48000_64" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800064,
+                "opus_48000_96" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800096,
+                "opus_48000_128" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus48000128,
+                "opus_48000_192" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus48000192,
                 _ => null,
             };
         }

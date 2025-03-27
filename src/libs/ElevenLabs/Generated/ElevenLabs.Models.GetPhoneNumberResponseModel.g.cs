@@ -31,7 +31,7 @@ namespace ElevenLabs
         public required string Label { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the phone number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -59,7 +59,9 @@ namespace ElevenLabs
         /// <param name="label">
         /// Label for the phone number
         /// </param>
-        /// <param name="phoneNumberId"></param>
+        /// <param name="phoneNumberId">
+        /// The ID of the phone number
+        /// </param>
         /// <param name="assignedAgent"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

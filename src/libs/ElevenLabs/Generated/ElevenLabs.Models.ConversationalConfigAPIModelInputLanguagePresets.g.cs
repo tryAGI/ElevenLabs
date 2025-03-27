@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Language presets for conversations
     /// </summary>
     public sealed partial class ConversationalConfigAPIModelInputLanguagePresets
     {

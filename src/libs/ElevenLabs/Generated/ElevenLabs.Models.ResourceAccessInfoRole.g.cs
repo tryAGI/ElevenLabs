@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The role of the user making the request
     /// </summary>
     public enum ResourceAccessInfoRole
     {

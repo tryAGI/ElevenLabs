@@ -9,12 +9,13 @@ namespace ElevenLabs
     public sealed partial class AgentConfigAPIModelOutput
     {
         /// <summary>
-        /// 
+        /// If non-empty, the first message the agent will say. If empty, the agent waits for the user to start the discussion.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("first_message")]
         public string? FirstMessage { get; set; }
 
         /// <summary>
+        /// Language of the agent - used for ASR and TTS<br/>
         /// Default Value: en
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -41,8 +42,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentConfigAPIModelOutput" /> class.
         /// </summary>
-        /// <param name="firstMessage"></param>
+        /// <param name="firstMessage">
+        /// If non-empty, the first message the agent will say. If empty, the agent waits for the user to start the discussion.
+        /// </param>
         /// <param name="language">
+        /// Language of the agent - used for ASR and TTS<br/>
         /// Default Value: en
         /// </param>
         /// <param name="dynamicVariables"></param>

@@ -92,8 +92,8 @@ namespace ElevenLabs
         /// Whether to prepare dub for edits in dubbing studio or edits as a dubbing resource.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="useReplacementVoicesFromLibrary">
-        /// [BETA] Whether the dub should use replacement voices from the voice library instead of cloning.<br/>
+        /// <param name="disableVoiceCloning">
+        /// [BETA] Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="mode">
@@ -124,7 +124,7 @@ namespace ElevenLabs
             bool? dropBackgroundAudio = default,
             bool? useProfanityFilter = default,
             bool? dubbingStudio = default,
-            bool? useReplacementVoicesFromLibrary = default,
+            bool? disableVoiceCloning = default,
             string? mode = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
