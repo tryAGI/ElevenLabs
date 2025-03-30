@@ -111,6 +111,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public override string? ToString() =>
+            Available?.ToString() ??
+            Unknown?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Validate()
         {
             return IsAvailable && !IsUnknown || !IsAvailable && IsUnknown;

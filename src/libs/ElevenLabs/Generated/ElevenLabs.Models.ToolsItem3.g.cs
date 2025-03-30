@@ -148,6 +148,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public override string? ToString() =>
+            Webhook?.ToString() ??
+            Client?.ToString() ??
+            System?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Validate()
         {
             return IsWebhook && !IsClient && !IsSystem || !IsWebhook && IsClient && !IsSystem || !IsWebhook && !IsClient && IsSystem;
