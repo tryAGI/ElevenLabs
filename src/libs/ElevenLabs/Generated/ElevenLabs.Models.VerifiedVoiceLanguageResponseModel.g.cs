@@ -29,6 +29,12 @@ namespace ElevenLabs
         public string? Accent { get; set; }
 
         /// <summary>
+        /// The voice's locale, if applicable.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("locale")]
+        public string? Locale { get; set; }
+
+        /// <summary>
         /// The voice's preview URL, if applicable.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("preview_url")]
@@ -52,6 +58,9 @@ namespace ElevenLabs
         /// <param name="accent">
         /// The voice's accent, if applicable.
         /// </param>
+        /// <param name="locale">
+        /// The voice's locale, if applicable.
+        /// </param>
         /// <param name="previewUrl">
         /// The voice's preview URL, if applicable.
         /// </param>
@@ -62,11 +71,13 @@ namespace ElevenLabs
             string language,
             string modelId,
             string? accent,
+            string? locale,
             string? previewUrl)
         {
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.Accent = accent;
+            this.Locale = locale;
             this.PreviewUrl = previewUrl;
         }
 

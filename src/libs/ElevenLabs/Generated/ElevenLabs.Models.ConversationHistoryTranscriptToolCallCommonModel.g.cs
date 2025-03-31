@@ -11,6 +11,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string RequestId { get; set; }
@@ -45,6 +51,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptToolCallCommonModel" /> class.
         /// </summary>
+        /// <param name="type"></param>
         /// <param name="requestId"></param>
         /// <param name="toolName"></param>
         /// <param name="paramsAsJson"></param>
@@ -56,12 +63,14 @@ namespace ElevenLabs
             string requestId,
             string toolName,
             string paramsAsJson,
-            bool toolHasBeenCalled)
+            bool toolHasBeenCalled,
+            string? type)
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
             this.ParamsAsJson = paramsAsJson ?? throw new global::System.ArgumentNullException(nameof(paramsAsJson));
             this.ToolHasBeenCalled = toolHasBeenCalled;
+            this.Type = type;
         }
 
         /// <summary>
