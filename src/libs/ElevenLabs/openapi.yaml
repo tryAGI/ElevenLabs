@@ -6223,6 +6223,8 @@ paths:
       responses:
         '200':
           description: Successful Response
+          content:
+            audio/mpeg: { }
         '422':
           description: Validation Error
           content:
@@ -6231,6 +6233,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: get_conversation_audio
+      x-fern-streaming: true
   '/v1/convai/conversations/{conversation_id}/feedback':
     post:
       tags:
@@ -6911,7 +6914,7 @@ paths:
             nullable: true
       responses:
         '200':
-          description: Successful Response
+          description: Streaming document content
           content:
             text/html: { }
         '422':
@@ -6922,6 +6925,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: get_knowledge_base_document_content
+      x-fern-sdk-streaming: true
   '/v1/convai/knowledge-base/{documentation_id}/chunk/{chunk_id}':
     get:
       tags:
@@ -7565,12 +7569,16 @@ components:
       properties:
         conversation_initiation_client_data_webhook:
           $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
+        webhooks:
+          $ref: '#/components/schemas/ConvAIWebhooks'
     AgentWorkspaceOverrides-Output:
       title: AgentWorkspaceOverrides
       type: object
       properties:
         conversation_initiation_client_data_webhook:
           $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
+        webhooks:
+          $ref: '#/components/schemas/ConvAIWebhooks'
     AllowlistItem:
       title: AllowlistItem
       required:
@@ -10898,6 +10906,10 @@ components:
         - tool_has_been_called
       type: object
       properties:
+        type:
+          title: Type
+          type: string
+          nullable: true
         request_id:
           title: Request Id
           type: string
@@ -10920,6 +10932,10 @@ components:
         - tool_has_been_called
       type: object
       properties:
+        type:
+          title: Type
+          type: string
+          nullable: true
         request_id:
           title: Request Id
           type: string
@@ -12676,13 +12692,6 @@ components:
       example:
         has_more: false
         next_cursor: 5xM3yVvZQKV0EfqQpLr2
-        pronunciation_dictionaries:
-          - created_by: ar6633Es2kUjFXBdR1iVc9ztsXl1
-            creation_time_unix: 1714156800
-            description: This is a test dictionary
-            id: 5xM3yVvZQKV0EfqQpLrJ
-            latest_version_id: 5xM3yVvZQKV0EfqQpLr2
-            name: My Dictionary
     GetPronunciationDictionaryMetadataResponseModel:
       title: GetPronunciationDictionaryMetadataResponseModel
       required:
@@ -12735,6 +12744,7 @@ components:
         description: This is a test dictionary
         id: 5xM3yVvZQKV0EfqQpLrJ
         latest_version_id: 5xM3yVvZQKV0EfqQpLr2
+        latest_version_rules_num: 2
         name: My Dictionary
     GetSpeechHistoryResponseModel:
       title: GetSpeechHistoryResponseModel
@@ -16536,6 +16546,11 @@ components:
           title: Accent
           type: string
           description: 'The voice''s accent, if applicable.'
+          nullable: true
+        locale:
+          title: Locale
+          type: string
+          description: 'The voice''s locale, if applicable.'
           nullable: true
         preview_url:
           title: Preview Url
