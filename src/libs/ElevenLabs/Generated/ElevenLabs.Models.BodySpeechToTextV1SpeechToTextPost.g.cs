@@ -64,6 +64,12 @@ namespace ElevenLabs
         public bool? Diarize { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("additional_formats")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? AdditionalFormats { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -99,6 +105,7 @@ namespace ElevenLabs
         /// Whether to annotate which speaker is currently talking in the uploaded file.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="additionalFormats"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -110,7 +117,8 @@ namespace ElevenLabs
             bool? tagAudioEvents,
             int? numSpeakers,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity,
-            bool? diarize)
+            bool? diarize,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
@@ -120,6 +128,7 @@ namespace ElevenLabs
             this.NumSpeakers = numSpeakers;
             this.TimestampsGranularity = timestampsGranularity;
             this.Diarize = diarize;
+            this.AdditionalFormats = additionalFormats;
         }
 
         /// <summary>

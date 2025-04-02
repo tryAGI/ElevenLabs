@@ -30,6 +30,13 @@ namespace ElevenLabs
         public required int CharacterLimit { get; set; }
 
         /// <summary>
+        /// Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_character_limit_extension")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int? MaxCharacterLimitExtension { get; set; }
+
+        /// <summary>
         /// Whether the user can extend their character limit.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_extend_character_limit")]
@@ -56,6 +63,13 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_slots_used")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int VoiceSlotsUsed { get; set; }
+
+        /// <summary>
+        /// The number of professional voice slots used by the workspace/user if single seat.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("professional_voice_slots_used")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int ProfessionalVoiceSlotsUsed { get; set; }
 
         /// <summary>
         /// The maximum number of voice slots allowed for the user.
@@ -152,6 +166,9 @@ namespace ElevenLabs
         /// <param name="characterLimit">
         /// The maximum number of characters allowed in the current billing period.
         /// </param>
+        /// <param name="maxCharacterLimitExtension">
+        /// Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
+        /// </param>
         /// <param name="canExtendCharacterLimit">
         /// Whether the user can extend their character limit.
         /// </param>
@@ -163,6 +180,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="voiceSlotsUsed">
         /// The number of voice slots used by the user.
+        /// </param>
+        /// <param name="professionalVoiceSlotsUsed">
+        /// The number of professional voice slots used by the workspace/user if single seat.
         /// </param>
         /// <param name="voiceLimit">
         /// The maximum number of voice slots allowed for the user.
@@ -204,9 +224,11 @@ namespace ElevenLabs
             string tier,
             int characterCount,
             int characterLimit,
+            int? maxCharacterLimitExtension,
             bool canExtendCharacterLimit,
             bool allowedToExtendCharacterLimit,
             int voiceSlotsUsed,
+            int professionalVoiceSlotsUsed,
             int voiceLimit,
             int voiceAddEditCounter,
             int professionalVoiceLimit,
@@ -223,9 +245,11 @@ namespace ElevenLabs
             this.Tier = tier ?? throw new global::System.ArgumentNullException(nameof(tier));
             this.CharacterCount = characterCount;
             this.CharacterLimit = characterLimit;
+            this.MaxCharacterLimitExtension = maxCharacterLimitExtension;
             this.CanExtendCharacterLimit = canExtendCharacterLimit;
             this.AllowedToExtendCharacterLimit = allowedToExtendCharacterLimit;
             this.VoiceSlotsUsed = voiceSlotsUsed;
+            this.ProfessionalVoiceSlotsUsed = professionalVoiceSlotsUsed;
             this.VoiceLimit = voiceLimit;
             this.VoiceAddEditCounter = voiceAddEditCounter;
             this.ProfessionalVoiceLimit = professionalVoiceLimit;

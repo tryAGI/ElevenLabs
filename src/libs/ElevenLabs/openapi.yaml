@@ -5566,6 +5566,43 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: speech_to_text
       x-fern-sdk-method-name: convert
+  /v1/forced-alignment:
+    post:
+      tags:
+        - forced-alignment
+      summary: Create Forced Alignment
+      description: Force align an audio file to text. Use this endpoint to get the timing information for each character and word in an audio file based on a provided text transcript.
+      operationId: Create_forced_alignment_v1_forced_alignment_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Create_forced_alignment_v1_forced_alignment_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForcedAlignmentResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: forced_alignment
+      x-fern-sdk-method-name: create
   /v1/convai/conversation/get_signed_url:
     get:
       tags:
@@ -5951,52 +5988,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: post_agent_avatar
-  '/v1/convai/agents/{agent_id}/add-secret':
-    post:
-      tags:
-        - Conversational AI
-      summary: Add A Secret To The Agent Which Can Be Referenced In Tool Calls
-      description: Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
-      operationId: Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post
-      parameters:
-        - name: agent_id
-          in: path
-          description: The id of an agent. This is returned on agent creation.
-          required: true
-          schema:
-            title: Agent Id
-            type: string
-            description: The id of an agent. This is returned on agent creation.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AddAgentSecretResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: conversational_ai
-      x-fern-sdk-method-name: add_agent_secret
   /v1/convai/agents:
     get:
       tags:
@@ -7195,19 +7186,6 @@ components:
       enum:
         - high
       type: string
-    AddAgentSecretResponseModel:
-      title: AddAgentSecretResponseModel
-      required:
-        - id
-        - name
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-        name:
-          title: Name
-          type: string
     AddChapterResponseModel:
       title: AddChapterResponseModel
       required:
@@ -7361,6 +7339,42 @@ components:
           description: 'The status of the workspace invite request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
+    AdditionalFormatResponseModel:
+      title: AdditionalFormatResponseModel
+      required:
+        - requested_format
+        - file_extension
+        - content_type
+        - is_base64_encoded
+        - content
+      type: object
+      properties:
+        requested_format:
+          title: Requested Format
+          type: string
+          description: The requested format.
+        file_extension:
+          title: File Extension
+          type: string
+          description: The file extension of the additional format.
+        content_type:
+          title: Content Type
+          type: string
+          description: The content type of the additional format.
+        is_base64_encoded:
+          title: Is Base64 Encoded
+          type: boolean
+          description: Whether the content is base64 encoded.
+        content:
+          title: Content
+          type: string
+          description: The content of the additional format.
+    AdditionalFormats:
+      title: AdditionalFormats
+      maxItems: 10
+      type: array
+      items:
+        $ref: '#/components/schemas/ExportOptions'
     AgentBan:
       title: AgentBan
       required:
@@ -7923,23 +7937,6 @@ components:
           description: 'Should be one of ''admin'', ''editor'' or ''viewer''. If not provided, defaults to no access.'
           nullable: true
           example: viewer
-    Body_Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post:
-      title: Body_Add_a_secret_to_the_Agent_which_can_be_referenced_in_tool_calls_v1_convai_agents__agent_id__add_secret_post
-      required:
-        - name
-        - secret_value
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-          description: A name to help identify a particular agent secret
-          example: MY API KEY
-        secret_value:
-          title: Secret Value
-          type: string
-          description: A value to be encrypted and used by the agent
-          example: sk_api_12354abc
     Body_Add_chapter_to_a_project_v1_projects__project_id__chapters_add_post:
       title: Body_Add_chapter_to_a_project_v1_projects__project_id__chapters_add_post
       required:
@@ -8612,6 +8609,22 @@ components:
           description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
           nullable: true
           example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
+    Body_Create_forced_alignment_v1_forced_alignment_post:
+      title: Body_Create_forced_alignment_v1_forced_alignment_post
+      required:
+        - file
+        - text
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          description: The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
+          format: binary
+        text:
+          title: Text
+          type: string
+          description: 'The text to align with the audio or video. The input text can be in any format, however diarization is not supported at this time.'
     Body_Create_podcast_v1_projects_podcast_create_post:
       title: Body_Create_podcast_v1_projects_podcast_create_post
       required:
@@ -9469,6 +9482,8 @@ components:
           type: boolean
           description: Whether to annotate which speaker is currently talking in the uploaded file.
           default: false
+        additional_formats:
+          $ref: '#/components/schemas/AdditionalFormats'
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -11635,6 +11650,37 @@ components:
         - prompt
         - auto
       type: string
+    DocxExportOptions:
+      title: DocxExportOptions
+      required:
+        - format
+      type: object
+      properties:
+        include_speakers:
+          title: Include Speakers
+          type: boolean
+          default: true
+        include_timestamps:
+          title: Include Timestamps
+          type: boolean
+          default: true
+        format:
+          title: Format
+          enum:
+            - docx
+          type: string
+        segment_on_silence_longer_than_s:
+          title: Segment On Silence Longer Than S
+          type: number
+          nullable: true
+        max_segment_duration_s:
+          title: Max Segment Duration S
+          type: number
+          nullable: true
+        max_segment_chars:
+          title: Max Segment Chars
+          type: integer
+          nullable: true
     DubbedSegment:
       title: DubbedSegment
       required:
@@ -11878,15 +11924,35 @@ components:
         - failure
         - unknown
       type: string
+    ExportOptions:
+      title: ExportOptions
+      oneOf:
+        - $ref: '#/components/schemas/SegmentedJsonExportOptions'
+        - $ref: '#/components/schemas/DocxExportOptions'
+        - $ref: '#/components/schemas/PdfExportOptions'
+        - $ref: '#/components/schemas/TxtExportOptions'
+        - $ref: '#/components/schemas/HtmlExportOptions'
+        - $ref: '#/components/schemas/SrtExportOptions'
+      discriminator:
+        propertyName: format
+        mapping:
+          docx: '#/components/schemas/DocxExportOptions'
+          html: '#/components/schemas/HtmlExportOptions'
+          pdf: '#/components/schemas/PdfExportOptions'
+          segmented_json: '#/components/schemas/SegmentedJsonExportOptions'
+          srt: '#/components/schemas/SrtExportOptions'
+          txt: '#/components/schemas/TxtExportOptions'
     ExtendedSubscriptionResponseModel:
       title: ExtendedSubscriptionResponseModel
       required:
         - tier
         - character_count
         - character_limit
+        - max_character_limit_extension
         - can_extend_character_limit
         - allowed_to_extend_character_limit
         - voice_slots_used
+        - professional_voice_slots_used
         - voice_limit
         - voice_add_edit_counter
         - professional_voice_limit
@@ -11909,6 +11975,11 @@ components:
           title: Character Limit
           type: integer
           description: The maximum number of characters allowed in the current billing period.
+        max_character_limit_extension:
+          title: Max Character Limit Extension
+          type: integer
+          description: Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
+          nullable: true
         can_extend_character_limit:
           title: Can Extend Character Limit
           type: boolean
@@ -11926,6 +11997,10 @@ components:
           title: Voice Slots Used
           type: integer
           description: The number of voice slots used by the user.
+        professional_voice_slots_used:
+          title: Professional Voice Slots Used
+          type: integer
+          description: The number of professional voice slots used by the workspace/user if single seat.
         voice_limit:
           title: Voice Limit
           type: integer
@@ -12155,6 +12230,76 @@ components:
           eleven_multilingual_v2: fine_tuned
         verification_attempts_count: 2
         verification_failures: [ ]
+    ForcedAlignmentCharacterResponseModel:
+      title: ForcedAlignmentCharacterResponseModel
+      required:
+        - text
+        - start
+        - end
+      type: object
+      properties:
+        text:
+          title: Text
+          type: string
+          description: The character that was transcribed.
+        start:
+          title: Start
+          type: number
+          description: The start time of the character in seconds.
+        end:
+          title: End
+          type: number
+          description: The end time of the character in seconds.
+      description: Model representing a single character with its timing information from the aligner.
+      example:
+        end: 0.02
+        start: 0
+        text: H
+    ForcedAlignmentResponseModel:
+      title: ForcedAlignmentResponseModel
+      required:
+        - characters
+        - words
+      type: object
+      properties:
+        characters:
+          title: Characters
+          type: array
+          items:
+            $ref: '#/components/schemas/ForcedAlignmentCharacterResponseModel'
+          description: List of characters with their timing information.
+        words:
+          title: Words
+          type: array
+          items:
+            $ref: '#/components/schemas/ForcedAlignmentWordResponseModel'
+          description: List of words with their timing information.
+      description: Model representing the response from the aligner service.
+    ForcedAlignmentWordResponseModel:
+      title: ForcedAlignmentWordResponseModel
+      required:
+        - text
+        - start
+        - end
+      type: object
+      properties:
+        text:
+          title: Text
+          type: string
+          description: The word that was transcribed.
+        start:
+          title: Start
+          type: number
+          description: The start time of the word in seconds.
+        end:
+          title: End
+          type: number
+          description: The end time of the word in seconds.
+      description: Model representing a single word with its timing information from the aligner.
+      example:
+        end: 1.02
+        start: 0
+        text: Hello
     GetAgentEmbedResponseModel:
       title: GetAgentEmbedResponseModel
       required:
@@ -12992,6 +13137,37 @@ components:
           $ref: '#/components/schemas/HistoryAlignmentResponseModel'
         normalized_alignment:
           $ref: '#/components/schemas/HistoryAlignmentResponseModel'
+    HtmlExportOptions:
+      title: HtmlExportOptions
+      required:
+        - format
+      type: object
+      properties:
+        include_speakers:
+          title: Include Speakers
+          type: boolean
+          default: true
+        include_timestamps:
+          title: Include Timestamps
+          type: boolean
+          default: true
+        format:
+          title: Format
+          enum:
+            - html
+          type: string
+        segment_on_silence_longer_than_s:
+          title: Segment On Silence Longer Than S
+          type: number
+          nullable: true
+        max_segment_duration_s:
+          title: Max Segment Duration S
+          type: number
+          nullable: true
+        max_segment_chars:
+          title: Max Segment Chars
+          type: integer
+          nullable: true
     ImageAvatar:
       title: ImageAvatar
       type: object
@@ -13749,6 +13925,37 @@ components:
           $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
         webhooks:
           $ref: '#/components/schemas/ConvAIWebhooks'
+    PdfExportOptions:
+      title: PdfExportOptions
+      required:
+        - format
+      type: object
+      properties:
+        include_speakers:
+          title: Include Speakers
+          type: boolean
+          default: true
+        include_timestamps:
+          title: Include Timestamps
+          type: boolean
+          default: true
+        format:
+          title: Format
+          enum:
+            - pdf
+          type: string
+        segment_on_silence_longer_than_s:
+          title: Segment On Silence Longer Than S
+          type: number
+          nullable: true
+        max_segment_duration_s:
+          title: Max Segment Duration S
+          type: number
+          nullable: true
+        max_segment_chars:
+          title: Max Segment Chars
+          type: integer
+          nullable: true
     PhoneNumberAgentInfo:
       title: PhoneNumberAgentInfo
       required:
@@ -15396,6 +15603,29 @@ components:
         version:
           title: Version
           type: integer
+    SegmentedJsonExportOptions:
+      title: SegmentedJsonExportOptions
+      required:
+        - format
+      type: object
+      properties:
+        format:
+          title: Format
+          enum:
+            - segmented_json
+          type: string
+        segment_on_silence_longer_than_s:
+          title: Segment On Silence Longer Than S
+          type: number
+          nullable: true
+        max_segment_duration_s:
+          title: Max Segment Duration S
+          type: number
+          nullable: true
+        max_segment_chars:
+          title: Max Segment Chars
+          type: integer
+          nullable: true
     ShareOptionResponseModel:
       title: ShareOptionResponseModel
       required:
@@ -15689,6 +15919,13 @@ components:
           items:
             $ref: '#/components/schemas/SpeechToTextWordResponseModel'
           description: List of words with their timing information.
+        additional_formats:
+          title: Additional Formats
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalFormatResponseModel'
+          description: Requested additional formats of the transcript.
+          nullable: true
       description: Chunk-level detail of the transcription with timing information.
       example:
         language_code: en
@@ -15774,6 +16011,45 @@ components:
         start: 0
         text: Hello
         type: word
+    SrtExportOptions:
+      title: SrtExportOptions
+      required:
+        - format
+      type: object
+      properties:
+        max_characters_per_line:
+          title: Max Characters Per Line
+          type: integer
+          default: 50
+          nullable: true
+        include_speakers:
+          title: Include Speakers
+          type: boolean
+          default: false
+        include_timestamps:
+          title: Include Timestamps
+          type: boolean
+          default: true
+        format:
+          title: Format
+          enum:
+            - srt
+          type: string
+        segment_on_silence_longer_than_s:
+          title: Segment On Silence Longer Than S
+          type: number
+          default: 0.6
+          nullable: true
+        max_segment_duration_s:
+          title: Max Segment Duration S
+          type: number
+          default: 5
+          nullable: true
+        max_segment_chars:
+          title: Max Segment Chars
+          type: integer
+          default: 90
+          nullable: true
     StreamingAudioChunkWithTimestampsResponseModel:
       title: StreamingAudioChunkWithTimestampsResponseModel
       required:
@@ -15898,9 +16174,11 @@ components:
         - tier
         - character_count
         - character_limit
+        - max_character_limit_extension
         - can_extend_character_limit
         - allowed_to_extend_character_limit
         - voice_slots_used
+        - professional_voice_slots_used
         - voice_limit
         - voice_add_edit_counter
         - professional_voice_limit
@@ -15922,6 +16200,11 @@ components:
           title: Character Limit
           type: integer
           description: The maximum number of characters allowed in the current billing period.
+        max_character_limit_extension:
+          title: Max Character Limit Extension
+          type: integer
+          description: Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
+          nullable: true
         can_extend_character_limit:
           title: Can Extend Character Limit
           type: boolean
@@ -15939,6 +16222,10 @@ components:
           title: Voice Slots Used
           type: integer
           description: The number of voice slots used by the user.
+        professional_voice_slots_used:
+          title: Professional Voice Slots Used
+          type: integer
+          description: The number of professional voice slots used by the workspace/user if single seat.
         voice_limit:
           title: Voice Limit
           type: integer
@@ -16245,6 +16532,42 @@ components:
         callSid:
           title: Callsid
           type: string
+          nullable: true
+    TxtExportOptions:
+      title: TxtExportOptions
+      required:
+        - format
+      type: object
+      properties:
+        max_characters_per_line:
+          title: Max Characters Per Line
+          type: integer
+          default: 100
+          nullable: true
+        include_speakers:
+          title: Include Speakers
+          type: boolean
+          default: true
+        include_timestamps:
+          title: Include Timestamps
+          type: boolean
+          default: true
+        format:
+          title: Format
+          enum:
+            - txt
+          type: string
+        segment_on_silence_longer_than_s:
+          title: Segment On Silence Longer Than S
+          type: number
+          nullable: true
+        max_segment_duration_s:
+          title: Max Segment Duration S
+          type: number
+          nullable: true
+        max_segment_chars:
+          title: Max Segment Chars
+          type: integer
           nullable: true
     URLAvatar:
       title: URLAvatar
