@@ -62,6 +62,7 @@ namespace ElevenLabs
         /// Whether to annotate which speaker is currently talking in the uploaded file.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="additionalFormats"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
@@ -75,6 +76,7 @@ namespace ElevenLabs
             int? numSpeakers = default,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity = default,
             bool? diarize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

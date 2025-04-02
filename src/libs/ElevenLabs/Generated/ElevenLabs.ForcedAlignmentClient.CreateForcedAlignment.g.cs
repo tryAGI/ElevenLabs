@@ -3,45 +3,38 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ForcedAlignmentClient
     {
-        partial void PrepareCreateConvaiAgentsByAgentIdAddSecretArguments(
+        partial void PrepareCreateForcedAlignmentArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyAddASecretToTheAgentWhichCanBeReferencedInToolCallsV1ConvaiAgentsAgentIdAddSecretPost request);
-        partial void PrepareCreateConvaiAgentsByAgentIdAddSecretRequest(
+            global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost request);
+        partial void PrepareCreateForcedAlignmentRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
             string? xiApiKey,
-            global::ElevenLabs.BodyAddASecretToTheAgentWhichCanBeReferencedInToolCallsV1ConvaiAgentsAgentIdAddSecretPost request);
-        partial void ProcessCreateConvaiAgentsByAgentIdAddSecretResponse(
+            global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost request);
+        partial void ProcessCreateForcedAlignmentResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateConvaiAgentsByAgentIdAddSecretResponseContent(
+        partial void ProcessCreateForcedAlignmentResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Add A Secret To The Agent Which Can Be Referenced In Tool Calls<br/>
-        /// Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
+        /// Create Forced Alignment<br/>
+        /// Force align an audio file to text. Use this endpoint to get the timing information for each character and word in an audio file based on a provided text transcript.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddAgentSecretResponseModel> CreateConvaiAgentsByAgentIdAddSecretAsync(
-            string agentId,
-            global::ElevenLabs.BodyAddASecretToTheAgentWhichCanBeReferencedInToolCallsV1ConvaiAgentsAgentIdAddSecretPost request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ForcedAlignmentResponseModel> CreateForcedAlignmentAsync(
+            global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -49,14 +42,13 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateConvaiAgentsByAgentIdAddSecretArguments(
+            PrepareCreateForcedAlignmentArguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/v1/convai/agents/{agentId}/add-secret",
+                path: "/v1/forced-alignment",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -88,20 +80,28 @@ namespace ElevenLabs
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: __httpRequestContentBody,
-                encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
+            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+            if (xiApiKey != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
+                    name: "xi-api-key");
+            } 
+            __httpRequestContent.Add(
+                content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
+                name: "file",
+                fileName: request.Filename ?? string.Empty);
+            __httpRequestContent.Add(
+                content: new global::System.Net.Http.StringContent($"{request.Text}"),
+                name: "text");
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateConvaiAgentsByAgentIdAddSecretRequest(
+            PrepareCreateForcedAlignmentRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                agentId: agentId,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -113,7 +113,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateConvaiAgentsByAgentIdAddSecretResponse(
+            ProcessCreateForcedAlignmentResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -157,7 +157,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateConvaiAgentsByAgentIdAddSecretResponseContent(
+                ProcessCreateForcedAlignmentResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -182,7 +182,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.AddAgentSecretResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.ForcedAlignmentResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -212,47 +212,44 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.AddAgentSecretResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.ForcedAlignmentResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
         /// <summary>
-        /// Add A Secret To The Agent Which Can Be Referenced In Tool Calls<br/>
-        /// Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
+        /// Create Forced Alignment<br/>
+        /// Force align an audio file to text. Use this endpoint to get the timing information for each character and word in an audio file based on a provided text transcript.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="name">
-        /// A name to help identify a particular agent secret<br/>
-        /// Example: MY API KEY
+        /// <param name="file">
+        /// The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
         /// </param>
-        /// <param name="secretValue">
-        /// A value to be encrypted and used by the agent<br/>
-        /// Example: sk_api_12354abc
+        /// <param name="filename">
+        /// The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
+        /// </param>
+        /// <param name="text">
+        /// The text to align with the audio or video. The input text can be in any format, however diarization is not supported at this time.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddAgentSecretResponseModel> CreateConvaiAgentsByAgentIdAddSecretAsync(
-            string agentId,
-            string name,
-            string secretValue,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ForcedAlignmentResponseModel> CreateForcedAlignmentAsync(
+            byte[] file,
+            string filename,
+            string text,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyAddASecretToTheAgentWhichCanBeReferencedInToolCallsV1ConvaiAgentsAgentIdAddSecretPost
+            var __request = new global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost
             {
-                Name = name,
-                SecretValue = secretValue,
+                File = file,
+                Filename = filename,
+                Text = text,
             };
 
-            return await CreateConvaiAgentsByAgentIdAddSecretAsync(
-                agentId: agentId,
+            return await CreateForcedAlignmentAsync(
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

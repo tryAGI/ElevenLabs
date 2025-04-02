@@ -140,6 +140,12 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Diarize}"),
                     name: "diarize");
+            } 
+            if (request.AdditionalFormats != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.AdditionalFormats, x => x))}]"),
+                    name: "additional_formats");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -303,6 +309,7 @@ namespace ElevenLabs
         /// Whether to annotate which speaker is currently talking in the uploaded file.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="additionalFormats"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
@@ -316,6 +323,7 @@ namespace ElevenLabs
             int? numSpeakers = default,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity = default,
             bool? diarize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost
@@ -328,6 +336,7 @@ namespace ElevenLabs
                 NumSpeakers = numSpeakers,
                 TimestampsGranularity = timestampsGranularity,
                 Diarize = diarize,
+                AdditionalFormats = additionalFormats,
             };
 
             return await CreateSpeechToTextAsync(
