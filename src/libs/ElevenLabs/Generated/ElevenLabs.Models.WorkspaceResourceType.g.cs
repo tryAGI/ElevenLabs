@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        VoiceCollection,
+        /// <summary>
+        /// 
+        /// </summary>
         PronunciationDictionary,
         /// <summary>
         /// 
@@ -67,6 +71,7 @@ namespace ElevenLabs
             return value switch
             {
                 WorkspaceResourceType.Voice => "voice",
+                WorkspaceResourceType.VoiceCollection => "voice_collection",
                 WorkspaceResourceType.PronunciationDictionary => "pronunciation_dictionary",
                 WorkspaceResourceType.Dubbing => "dubbing",
                 WorkspaceResourceType.Project => "project",
@@ -88,6 +93,7 @@ namespace ElevenLabs
             return value switch
             {
                 "voice" => WorkspaceResourceType.Voice,
+                "voice_collection" => WorkspaceResourceType.VoiceCollection,
                 "pronunciation_dictionary" => WorkspaceResourceType.PronunciationDictionary,
                 "dubbing" => WorkspaceResourceType.Dubbing,
                 "project" => WorkspaceResourceType.Project,

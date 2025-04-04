@@ -4,46 +4,40 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The type of the knowledge base
+    /// 
     /// </summary>
-    public enum KnowledgeBaseLocatorType
+    public enum GetKnowledgeBaseTextResponseModelType
     {
         /// <summary>
         /// 
         /// </summary>
-        File,
-        /// <summary>
-        /// 
-        /// </summary>
-        Url,
+        Text,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class KnowledgeBaseLocatorTypeExtensions
+    public static class GetKnowledgeBaseTextResponseModelTypeExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this KnowledgeBaseLocatorType value)
+        public static string ToValueString(this GetKnowledgeBaseTextResponseModelType value)
         {
             return value switch
             {
-                KnowledgeBaseLocatorType.File => "file",
-                KnowledgeBaseLocatorType.Url => "url",
+                GetKnowledgeBaseTextResponseModelType.Text => "text",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static KnowledgeBaseLocatorType? ToEnum(string value)
+        public static GetKnowledgeBaseTextResponseModelType? ToEnum(string value)
         {
             return value switch
             {
-                "file" => KnowledgeBaseLocatorType.File,
-                "url" => KnowledgeBaseLocatorType.Url,
+                "text" => GetKnowledgeBaseTextResponseModelType.Text,
                 _ => null,
             };
         }

@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         File,
+        /// <summary>
+        /// 
+        /// </summary>
+        Text,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponseDiscriminatorType.Url => "url",
                 GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponseDiscriminatorType.File => "file",
+                GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponseDiscriminatorType.Text => "text",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "url" => GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponseDiscriminatorType.Url,
                 "file" => GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponseDiscriminatorType.File,
+                "text" => GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponseDiscriminatorType.Text,
                 _ => null,
             };
         }

@@ -9,12 +9,12 @@ namespace ElevenLabs
     public sealed partial class KnowledgeBaseLocator
     {
         /// <summary>
-        /// The type of the knowledge base
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.KnowledgeBaseLocatorTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.KnowledgeBaseDocumentTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.KnowledgeBaseLocatorType Type { get; set; }
+        public required global::ElevenLabs.KnowledgeBaseDocumentType Type { get; set; }
 
         /// <summary>
         /// The name of the knowledge base
@@ -46,9 +46,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="KnowledgeBaseLocator" /> class.
         /// </summary>
-        /// <param name="type">
-        /// The type of the knowledge base
-        /// </param>
+        /// <param name="type"></param>
         /// <param name="name">
         /// The name of the knowledge base
         /// </param>
@@ -60,7 +58,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public KnowledgeBaseLocator(
-            global::ElevenLabs.KnowledgeBaseLocatorType type,
+            global::ElevenLabs.KnowledgeBaseDocumentType type,
             string name,
             string id,
             global::ElevenLabs.DocumentUsageModeEnum? usageMode)

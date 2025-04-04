@@ -7,12 +7,12 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public readonly partial struct DependentAgentsItem2 : global::System.IEquatable<DependentAgentsItem2>
+    public readonly partial struct DependentAgentsItem3 : global::System.IEquatable<DependentAgentsItem3>
     {
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModelDependentAgentDiscriminatorType? Type { get; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelDependentAgentDiscriminatorType? Type { get; }
 
         /// <summary>
         /// 
@@ -34,17 +34,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator DependentAgentsItem2(global::ElevenLabs.DependentAvailableAgentIdentifier value) => new DependentAgentsItem2(value);
+        public static implicit operator DependentAgentsItem3(global::ElevenLabs.DependentAvailableAgentIdentifier value) => new DependentAgentsItem3(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.DependentAvailableAgentIdentifier?(DependentAgentsItem2 @this) => @this.Available;
+        public static implicit operator global::ElevenLabs.DependentAvailableAgentIdentifier?(DependentAgentsItem3 @this) => @this.Available;
 
         /// <summary>
         /// 
         /// </summary>
-        public DependentAgentsItem2(global::ElevenLabs.DependentAvailableAgentIdentifier? value)
+        public DependentAgentsItem3(global::ElevenLabs.DependentAvailableAgentIdentifier? value)
         {
             Available = value;
         }
@@ -70,17 +70,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator DependentAgentsItem2(global::ElevenLabs.DependentUnknownAgentIdentifier value) => new DependentAgentsItem2(value);
+        public static implicit operator DependentAgentsItem3(global::ElevenLabs.DependentUnknownAgentIdentifier value) => new DependentAgentsItem3(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.DependentUnknownAgentIdentifier?(DependentAgentsItem2 @this) => @this.Unknown;
+        public static implicit operator global::ElevenLabs.DependentUnknownAgentIdentifier?(DependentAgentsItem3 @this) => @this.Unknown;
 
         /// <summary>
         /// 
         /// </summary>
-        public DependentAgentsItem2(global::ElevenLabs.DependentUnknownAgentIdentifier? value)
+        public DependentAgentsItem3(global::ElevenLabs.DependentUnknownAgentIdentifier? value)
         {
             Unknown = value;
         }
@@ -88,8 +88,8 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public DependentAgentsItem2(
-            global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModelDependentAgentDiscriminatorType? type,
+        public DependentAgentsItem3(
+            global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelDependentAgentDiscriminatorType? type,
             global::ElevenLabs.DependentAvailableAgentIdentifier? available,
             global::ElevenLabs.DependentUnknownAgentIdentifier? unknown
             )
@@ -196,7 +196,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public bool Equals(DependentAgentsItem2 other)
+        public bool Equals(DependentAgentsItem3 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentAvailableAgentIdentifier?>.Default.Equals(Available, other.Available) &&
@@ -207,15 +207,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator ==(DependentAgentsItem2 obj1, DependentAgentsItem2 obj2)
+        public static bool operator ==(DependentAgentsItem3 obj1, DependentAgentsItem3 obj2)
         {
-            return global::System.Collections.Generic.EqualityComparer<DependentAgentsItem2>.Default.Equals(obj1, obj2);
+            return global::System.Collections.Generic.EqualityComparer<DependentAgentsItem3>.Default.Equals(obj1, obj2);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator !=(DependentAgentsItem2 obj1, DependentAgentsItem2 obj2)
+        public static bool operator !=(DependentAgentsItem3 obj1, DependentAgentsItem3 obj2)
         {
             return !(obj1 == obj2);
         }
@@ -225,7 +225,7 @@ namespace ElevenLabs
         /// </summary>
         public override bool Equals(object? obj)
         {
-            return obj is DependentAgentsItem2 o && Equals(o);
+            return obj is DependentAgentsItem3 o && Equals(o);
         }
     }
 }

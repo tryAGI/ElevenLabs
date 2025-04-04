@@ -35,11 +35,19 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel)}");
                 file = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? text = default;
+            if (discriminator?.Type == global::ElevenLabs.GetKnowledgeBaseListResponseModelDocumentDiscriminatorType.Text)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel)}");
+                text = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var result = new global::ElevenLabs.DocumentsItem(
                 discriminator?.Type,
                 url,
-                file
+                file,
+                text
                 );
 
             return result;
@@ -65,6 +73,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.File, typeInfo);
+            }
+            else if (value.IsText)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text, typeInfo);
             }
         }
     }

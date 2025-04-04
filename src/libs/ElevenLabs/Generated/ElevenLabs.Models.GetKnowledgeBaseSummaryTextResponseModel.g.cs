@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class GetKnowledgeBaseSummaryURLResponseModel
+    public sealed partial class GetKnowledgeBaseSummaryTextResponseModel
     {
         /// <summary>
         /// 
@@ -48,21 +48,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dependent_agents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem3> DependentAgents { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem2> DependentAgents { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.GetKnowledgeBaseSummaryURLResponseModelTypeJsonConverter))]
-        public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelType Type { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.GetKnowledgeBaseSummaryTextResponseModelTypeJsonConverter))]
+        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModelType Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -71,7 +64,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetKnowledgeBaseSummaryURLResponseModel" /> class.
+        /// Initializes a new instance of the <see cref="GetKnowledgeBaseSummaryTextResponseModel" /> class.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="name"></param>
@@ -80,19 +73,17 @@ namespace ElevenLabs
         /// <param name="accessInfo"></param>
         /// <param name="dependentAgents"></param>
         /// <param name="type"></param>
-        /// <param name="url"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public GetKnowledgeBaseSummaryURLResponseModel(
+        public GetKnowledgeBaseSummaryTextResponseModel(
             string id,
             string name,
             global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel metadata,
             bool promptInjectable,
             global::ElevenLabs.ResourceAccessInfo accessInfo,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem3> dependentAgents,
-            string url,
-            global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelType type)
+            global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem2> dependentAgents,
+            global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModelType type)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -100,14 +91,13 @@ namespace ElevenLabs
             this.PromptInjectable = promptInjectable;
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
             this.DependentAgents = dependentAgents ?? throw new global::System.ArgumentNullException(nameof(dependentAgents));
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.Type = type;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetKnowledgeBaseSummaryURLResponseModel" /> class.
+        /// Initializes a new instance of the <see cref="GetKnowledgeBaseSummaryTextResponseModel" /> class.
         /// </summary>
-        public GetKnowledgeBaseSummaryURLResponseModel()
+        public GetKnowledgeBaseSummaryTextResponseModel()
         {
         }
     }

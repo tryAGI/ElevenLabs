@@ -18,6 +18,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("accepted_time_unix_secs")]
+        public int? AcceptedTimeUnixSecs { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CallDurationSecs { get; set; }
@@ -66,6 +72,12 @@ namespace ElevenLabs
         public string? TerminationReason { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public global::ElevenLabs.ConversationHistoryErrorCommonModel? Error { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -75,6 +87,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationHistoryMetadataCommonModel" /> class.
         /// </summary>
         /// <param name="startTimeUnixSecs"></param>
+        /// <param name="acceptedTimeUnixSecs"></param>
         /// <param name="callDurationSecs"></param>
         /// <param name="cost"></param>
         /// <param name="deletionSettings"></param>
@@ -83,22 +96,26 @@ namespace ElevenLabs
         /// <param name="charging"></param>
         /// <param name="phoneCall"></param>
         /// <param name="terminationReason"></param>
+        /// <param name="error"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationHistoryMetadataCommonModel(
             int startTimeUnixSecs,
             int callDurationSecs,
+            int? acceptedTimeUnixSecs,
             int? cost,
             global::ElevenLabs.ConversationDeletionSettings? deletionSettings,
             global::ElevenLabs.ConversationHistoryFeedbackCommonModel? feedback,
             global::ElevenLabs.AuthorizationMethod? authorizationMethod,
             global::ElevenLabs.ConversationChargingCommonModel? charging,
             global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? phoneCall,
-            string? terminationReason)
+            string? terminationReason,
+            global::ElevenLabs.ConversationHistoryErrorCommonModel? error)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
+            this.AcceptedTimeUnixSecs = acceptedTimeUnixSecs;
             this.Cost = cost;
             this.DeletionSettings = deletionSettings;
             this.Feedback = feedback;
@@ -106,6 +123,7 @@ namespace ElevenLabs
             this.Charging = charging;
             this.PhoneCall = phoneCall;
             this.TerminationReason = terminationReason;
+            this.Error = error;
         }
 
         /// <summary>
