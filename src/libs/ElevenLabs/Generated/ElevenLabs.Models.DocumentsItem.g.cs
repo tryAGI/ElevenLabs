@@ -87,22 +87,60 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? Text { get; init; }
+#else
+        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? Text { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
+#endif
+        public bool IsText => Text != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel value) => new DocumentsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?(DocumentsItem @this) => @this.Text;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? value)
+        {
+            Text = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public DocumentsItem(
             global::ElevenLabs.GetKnowledgeBaseListResponseModelDocumentDiscriminatorType? type,
             global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel? url,
-            global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? file
+            global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? file,
+            global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? text
             )
         {
             Type = type;
 
             Url = url;
             File = file;
+            Text = text;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Text as object ??
             File as object ??
             Url as object 
             ;
@@ -112,7 +150,8 @@ namespace ElevenLabs
         /// </summary>
         public override string? ToString() =>
             Url?.ToString() ??
-            File?.ToString() 
+            File?.ToString() ??
+            Text?.ToString() 
             ;
 
         /// <summary>
@@ -120,7 +159,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsUrl && !IsFile || !IsUrl && IsFile;
+            return IsUrl && !IsFile && !IsText || !IsUrl && IsFile && !IsText || !IsUrl && !IsFile && IsText;
         }
 
         /// <summary>
@@ -129,6 +168,7 @@ namespace ElevenLabs
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel?, TResult>? url = null,
             global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?, TResult>? file = null,
+            global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?, TResult>? text = null,
             bool validate = true)
         {
             if (validate)
@@ -144,6 +184,10 @@ namespace ElevenLabs
             {
                 return file(File!);
             }
+            else if (IsText && text != null)
+            {
+                return text(Text!);
+            }
 
             return default(TResult);
         }
@@ -154,6 +198,7 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel?>? url = null,
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?>? file = null,
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?>? text = null,
             bool validate = true)
         {
             if (validate)
@@ -169,6 +214,10 @@ namespace ElevenLabs
             {
                 file?.Invoke(File!);
             }
+            else if (IsText)
+            {
+                text?.Invoke(Text!);
+            }
         }
 
         /// <summary>
@@ -182,6 +231,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel),
                 File,
                 typeof(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel),
+                Text,
+                typeof(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -199,7 +250,8 @@ namespace ElevenLabs
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel?>.Default.Equals(Url, other.Url) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?>.Default.Equals(File, other.File) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?>.Default.Equals(File, other.File) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?>.Default.Equals(Text, other.Text) 
                 ;
         }
 

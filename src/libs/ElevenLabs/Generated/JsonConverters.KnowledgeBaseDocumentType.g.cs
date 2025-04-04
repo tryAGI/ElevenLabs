@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class KnowledgeBaseLocatorTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.KnowledgeBaseLocatorType>
+    public sealed class KnowledgeBaseDocumentTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.KnowledgeBaseDocumentType>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.KnowledgeBaseLocatorType Read(
+        public override global::ElevenLabs.KnowledgeBaseDocumentType Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.KnowledgeBaseLocatorTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.KnowledgeBaseDocumentTypeExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.KnowledgeBaseLocatorType)numValue;
+                    return (global::ElevenLabs.KnowledgeBaseDocumentType)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,12 +38,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.KnowledgeBaseLocatorType value,
+            global::ElevenLabs.KnowledgeBaseDocumentType value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.KnowledgeBaseLocatorTypeExtensions.ToValueString(value));
+            writer.WriteStringValue(global::ElevenLabs.KnowledgeBaseDocumentTypeExtensions.ToValueString(value));
         }
     }
 }

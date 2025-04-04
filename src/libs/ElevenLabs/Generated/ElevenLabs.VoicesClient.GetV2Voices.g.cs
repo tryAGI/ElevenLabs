@@ -15,6 +15,7 @@ namespace ElevenLabs
             ref string? voiceType,
             ref string? category,
             ref string? fineTuningState,
+            ref string? collectionId,
             ref bool? includeTotalCount,
             ref string? xiApiKey);
         partial void PrepareGetV2VoicesRequest(
@@ -28,6 +29,7 @@ namespace ElevenLabs
             string? voiceType,
             string? category,
             string? fineTuningState,
+            string? collectionId,
             bool? includeTotalCount,
             string? xiApiKey);
         partial void ProcessGetV2VoicesResponse(
@@ -71,6 +73,9 @@ namespace ElevenLabs
         /// <param name="fineTuningState">
         /// State of the voice's fine tuning to filter by. Applicable only to professional voices clones. One of 'draft', 'not_verified', 'not_started', 'queued', 'fine_tuning', 'fine_tuned', 'failed', 'delayed'
         /// </param>
+        /// <param name="collectionId">
+        /// Collection ID to filter voices by.
+        /// </param>
         /// <param name="includeTotalCount">
         /// Whether to include the total count of voices found in the response. Incurs a performance cost.<br/>
         /// Default Value: true<br/>
@@ -90,6 +95,7 @@ namespace ElevenLabs
             string? voiceType = default,
             string? category = default,
             string? fineTuningState = default,
+            string? collectionId = default,
             bool? includeTotalCount = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -106,6 +112,7 @@ namespace ElevenLabs
                 voiceType: ref voiceType,
                 category: ref category,
                 fineTuningState: ref fineTuningState,
+                collectionId: ref collectionId,
                 includeTotalCount: ref includeTotalCount,
                 xiApiKey: ref xiApiKey);
 
@@ -121,6 +128,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("voice_type", voiceType) 
                 .AddOptionalParameter("category", category) 
                 .AddOptionalParameter("fine_tuning_state", fineTuningState) 
+                .AddOptionalParameter("collection_id", collectionId) 
                 .AddOptionalParameter("include_total_count", includeTotalCount?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -168,6 +176,7 @@ namespace ElevenLabs
                 voiceType: voiceType,
                 category: category,
                 fineTuningState: fineTuningState,
+                collectionId: collectionId,
                 includeTotalCount: includeTotalCount,
                 xiApiKey: xiApiKey);
 

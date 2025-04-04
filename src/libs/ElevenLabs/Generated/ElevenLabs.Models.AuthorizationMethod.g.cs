@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Invalid,
+        /// <summary>
+        /// 
+        /// </summary>
         Public,
         /// <summary>
         /// 
@@ -38,6 +42,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                AuthorizationMethod.Invalid => "invalid",
                 AuthorizationMethod.Public => "public",
                 AuthorizationMethod.AuthorizationHeader => "authorization_header",
                 AuthorizationMethod.SignedUrl => "signed_url",
@@ -52,6 +57,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "invalid" => AuthorizationMethod.Invalid,
                 "public" => AuthorizationMethod.Public,
                 "authorization_header" => AuthorizationMethod.AuthorizationHeader,
                 "signed_url" => AuthorizationMethod.SignedUrl,

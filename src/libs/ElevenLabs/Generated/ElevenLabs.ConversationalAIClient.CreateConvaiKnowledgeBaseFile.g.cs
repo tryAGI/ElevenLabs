@@ -5,99 +5,54 @@ namespace ElevenLabs
 {
     public partial class ConversationalAIClient
     {
-        partial void PrepareGetConvaiKnowledgeBaseArguments(
+        partial void PrepareCreateConvaiKnowledgeBaseFileArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? cursor,
-            ref int? pageSize,
-            ref string? search,
-            ref bool? showOnlyOwnedDocuments,
-            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
-            ref bool? useTypesense,
-            ref string? xiApiKey);
-        partial void PrepareGetConvaiKnowledgeBaseRequest(
+            ref string? xiApiKey,
+            global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost request);
+        partial void PrepareCreateConvaiKnowledgeBaseFileRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? cursor,
-            int? pageSize,
-            string? search,
-            bool? showOnlyOwnedDocuments,
-            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
-            bool? useTypesense,
-            string? xiApiKey);
-        partial void ProcessGetConvaiKnowledgeBaseResponse(
+            string? xiApiKey,
+            global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost request);
+        partial void ProcessCreateConvaiKnowledgeBaseFileResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetConvaiKnowledgeBaseResponseContent(
+        partial void ProcessCreateConvaiKnowledgeBaseFileResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Knowledge Base List<br/>
-        /// Get a list of available knowledge base documents
+        /// Create File Document<br/>
+        /// Create a knowledge base document generated form the uploaded file.
         /// </summary>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
-        /// </param>
-        /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
-        /// Default Value: 30
-        /// </param>
-        /// <param name="search">
-        /// If specified, the endpoint returns only such knowledge base documents whose names start with this string.
-        /// </param>
-        /// <param name="showOnlyOwnedDocuments">
-        /// If set to true, the endpoint will return only documents owned by you (and not shared from somebody else).<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="types">
-        /// If present, the endpoint will return only documents of the given types.
-        /// </param>
-        /// <param name="useTypesense">
-        /// If set to true, the endpoint will use typesense DB to search for the documents).<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetKnowledgeBaseListResponseModel> GetConvaiKnowledgeBaseAsync(
-            string? cursor = default,
-            int? pageSize = default,
-            string? search = default,
-            bool? showOnlyOwnedDocuments = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types = default,
-            bool? useTypesense = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseFileAsync(
+            global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetConvaiKnowledgeBaseArguments(
+            PrepareCreateConvaiKnowledgeBaseFileArguments(
                 httpClient: HttpClient,
-                cursor: ref cursor,
-                pageSize: ref pageSize,
-                search: ref search,
-                showOnlyOwnedDocuments: ref showOnlyOwnedDocuments,
-                types: types,
-                useTypesense: ref useTypesense,
-                xiApiKey: ref xiApiKey);
+                xiApiKey: ref xiApiKey,
+                request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/v1/convai/knowledge-base",
+                path: "/v1/convai/knowledge-base/file",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("cursor", cursor) 
-                .AddOptionalParameter("page_size", pageSize?.ToString()) 
-                .AddOptionalParameter("search", search) 
-                .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString()) 
-                .AddOptionalParameter("use_typesense", useTypesense?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Get,
+                method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -125,20 +80,33 @@ namespace ElevenLabs
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
+            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+            if (xiApiKey != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
+                    name: "xi-api-key");
+            } 
+            __httpRequestContent.Add(
+                content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
+                name: "file",
+                fileName: request.Filename ?? string.Empty);
+            if (request.Name != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.Name}"),
+                    name: "name");
+            }
+            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetConvaiKnowledgeBaseRequest(
+            PrepareCreateConvaiKnowledgeBaseFileRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                cursor: cursor,
-                pageSize: pageSize,
-                search: search,
-                showOnlyOwnedDocuments: showOnlyOwnedDocuments,
-                types: types,
-                useTypesense: useTypesense,
-                xiApiKey: xiApiKey);
+                xiApiKey: xiApiKey,
+                request: request);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -148,7 +116,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetConvaiKnowledgeBaseResponse(
+            ProcessCreateConvaiKnowledgeBaseFileResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -192,7 +160,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetConvaiKnowledgeBaseResponseContent(
+                ProcessCreateConvaiKnowledgeBaseFileResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -217,7 +185,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.GetKnowledgeBaseListResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.AddKnowledgeBaseResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -247,9 +215,47 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.GetKnowledgeBaseListResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.AddKnowledgeBaseResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
+        }
+
+        /// <summary>
+        /// Create File Document<br/>
+        /// Create a knowledge base document generated form the uploaded file.
+        /// </summary>
+        /// <param name="xiApiKey">
+        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
+        /// <param name="file">
+        /// Documentation that the agent will have access to in order to interact with users.
+        /// </param>
+        /// <param name="filename">
+        /// Documentation that the agent will have access to in order to interact with users.
+        /// </param>
+        /// <param name="name">
+        /// A custom, human-readable name for the document.
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseFileAsync(
+            byte[] file,
+            string filename,
+            string? xiApiKey = default,
+            string? name = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost
+            {
+                File = file,
+                Filename = filename,
+                Name = name,
+            };
+
+            return await CreateConvaiKnowledgeBaseFileAsync(
+                xiApiKey: xiApiKey,
+                request: __request,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

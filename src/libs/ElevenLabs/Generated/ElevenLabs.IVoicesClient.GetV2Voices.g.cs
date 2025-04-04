@@ -36,6 +36,9 @@ namespace ElevenLabs
         /// <param name="fineTuningState">
         /// State of the voice's fine tuning to filter by. Applicable only to professional voices clones. One of 'draft', 'not_verified', 'not_started', 'queued', 'fine_tuning', 'fine_tuned', 'failed', 'delayed'
         /// </param>
+        /// <param name="collectionId">
+        /// Collection ID to filter voices by.
+        /// </param>
         /// <param name="includeTotalCount">
         /// Whether to include the total count of voices found in the response. Incurs a performance cost.<br/>
         /// Default Value: true<br/>
@@ -55,6 +58,7 @@ namespace ElevenLabs
             string? voiceType = default,
             string? category = default,
             string? fineTuningState = default,
+            string? collectionId = default,
             bool? includeTotalCount = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

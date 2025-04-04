@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class KnowledgeBaseLocatorTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.KnowledgeBaseLocatorType?>
+    public sealed class GetKnowledgeBaseTextResponseModelTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.GetKnowledgeBaseTextResponseModelType?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.KnowledgeBaseLocatorType? Read(
+        public override global::ElevenLabs.GetKnowledgeBaseTextResponseModelType? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.KnowledgeBaseLocatorTypeExtensions.ToEnum(stringValue);
+                        return global::ElevenLabs.GetKnowledgeBaseTextResponseModelTypeExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.KnowledgeBaseLocatorType)numValue;
+                    return (global::ElevenLabs.GetKnowledgeBaseTextResponseModelType)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,7 +38,7 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.KnowledgeBaseLocatorType? value,
+            global::ElevenLabs.GetKnowledgeBaseTextResponseModelType? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
@@ -49,7 +49,7 @@ namespace ElevenLabs.JsonConverters
             }
             else
             {
-                writer.WriteStringValue(global::ElevenLabs.KnowledgeBaseLocatorTypeExtensions.ToValueString(value.Value));
+                writer.WriteStringValue(global::ElevenLabs.GetKnowledgeBaseTextResponseModelTypeExtensions.ToValueString(value.Value));
             }
         }
     }

@@ -87,22 +87,60 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetKnowledgeBaseTextResponseModel? Text { get; init; }
+#else
+        public global::ElevenLabs.GetKnowledgeBaseTextResponseModel? Text { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
+#endif
+        public bool IsText => Text != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponse(global::ElevenLabs.GetKnowledgeBaseTextResponseModel value) => new GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GetKnowledgeBaseTextResponseModel?(GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponse @this) => @this.Text;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponse(global::ElevenLabs.GetKnowledgeBaseTextResponseModel? value)
+        {
+            Text = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponse(
             global::ElevenLabs.GetDocumentationFromKnowledgeBaseV1ConvaiAgentsAgentIdKnowledgeBaseDocumentationIdGetResponseDiscriminatorType? type,
             global::ElevenLabs.GetKnowledgeBaseURLResponseModel? url,
-            global::ElevenLabs.GetKnowledgeBaseFileResponseModel? file
+            global::ElevenLabs.GetKnowledgeBaseFileResponseModel? file,
+            global::ElevenLabs.GetKnowledgeBaseTextResponseModel? text
             )
         {
             Type = type;
 
             Url = url;
             File = file;
+            Text = text;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Text as object ??
             File as object ??
             Url as object 
             ;
@@ -112,7 +150,8 @@ namespace ElevenLabs
         /// </summary>
         public override string? ToString() =>
             Url?.ToString() ??
-            File?.ToString() 
+            File?.ToString() ??
+            Text?.ToString() 
             ;
 
         /// <summary>
@@ -120,7 +159,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsUrl && !IsFile || !IsUrl && IsFile;
+            return IsUrl && !IsFile && !IsText || !IsUrl && IsFile && !IsText || !IsUrl && !IsFile && IsText;
         }
 
         /// <summary>
@@ -129,6 +168,7 @@ namespace ElevenLabs
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.GetKnowledgeBaseURLResponseModel?, TResult>? url = null,
             global::System.Func<global::ElevenLabs.GetKnowledgeBaseFileResponseModel?, TResult>? file = null,
+            global::System.Func<global::ElevenLabs.GetKnowledgeBaseTextResponseModel?, TResult>? text = null,
             bool validate = true)
         {
             if (validate)
@@ -144,6 +184,10 @@ namespace ElevenLabs
             {
                 return file(File!);
             }
+            else if (IsText && text != null)
+            {
+                return text(Text!);
+            }
 
             return default(TResult);
         }
@@ -154,6 +198,7 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseURLResponseModel?>? url = null,
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseFileResponseModel?>? file = null,
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseTextResponseModel?>? text = null,
             bool validate = true)
         {
             if (validate)
@@ -169,6 +214,10 @@ namespace ElevenLabs
             {
                 file?.Invoke(File!);
             }
+            else if (IsText)
+            {
+                text?.Invoke(Text!);
+            }
         }
 
         /// <summary>
@@ -182,6 +231,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.GetKnowledgeBaseURLResponseModel),
                 File,
                 typeof(global::ElevenLabs.GetKnowledgeBaseFileResponseModel),
+                Text,
+                typeof(global::ElevenLabs.GetKnowledgeBaseTextResponseModel),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -199,7 +250,8 @@ namespace ElevenLabs
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseURLResponseModel?>.Default.Equals(Url, other.Url) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseFileResponseModel?>.Default.Equals(File, other.File) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseFileResponseModel?>.Default.Equals(File, other.File) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseTextResponseModel?>.Default.Equals(Text, other.Text) 
                 ;
         }
 

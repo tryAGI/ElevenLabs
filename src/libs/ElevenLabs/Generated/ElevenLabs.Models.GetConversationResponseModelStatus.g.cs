@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        InProgress,
+        /// <summary>
+        /// 
+        /// </summary>
         Processing,
         /// <summary>
         /// 
@@ -34,6 +38,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                GetConversationResponseModelStatus.InProgress => "in-progress",
                 GetConversationResponseModelStatus.Processing => "processing",
                 GetConversationResponseModelStatus.Done => "done",
                 GetConversationResponseModelStatus.Failed => "failed",
@@ -47,6 +52,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "in-progress" => GetConversationResponseModelStatus.InProgress,
                 "processing" => GetConversationResponseModelStatus.Processing,
                 "done" => GetConversationResponseModelStatus.Done,
                 "failed" => GetConversationResponseModelStatus.Failed,

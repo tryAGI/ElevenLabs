@@ -5,27 +5,27 @@ namespace ElevenLabs
 {
     public partial class ConversationalAIClient
     {
-        partial void PrepareCreateConvaiKnowledgeBaseArguments(
+        partial void PrepareCreateConvaiKnowledgeBaseTextArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiKnowledgeBasePost request);
-        partial void PrepareCreateConvaiKnowledgeBaseRequest(
+            global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost request);
+        partial void PrepareCreateConvaiKnowledgeBaseTextRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiKnowledgeBasePost request);
-        partial void ProcessCreateConvaiKnowledgeBaseResponse(
+            global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost request);
+        partial void ProcessCreateConvaiKnowledgeBaseTextResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateConvaiKnowledgeBaseResponseContent(
+        partial void ProcessCreateConvaiKnowledgeBaseTextResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Add To Knowledge Base<br/>
-        /// Uploads a file or reference a webpage to use as part of the shared knowledge base
+        /// Create Text Document<br/>
+        /// Create a knowledge base document containing the provided text.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -33,8 +33,8 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseAsync(
-            global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiKnowledgeBasePost request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseTextAsync(
+            global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -42,13 +42,13 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateConvaiKnowledgeBaseArguments(
+            PrepareCreateConvaiKnowledgeBaseTextArguments(
                 httpClient: HttpClient,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/v1/convai/knowledge-base",
+                path: "/v1/convai/knowledge-base/text",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -80,38 +80,17 @@ namespace ElevenLabs
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
-            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            if (xiApiKey != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-key");
-            } 
-            if (request.Name != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Name}"),
-                    name: "name");
-            } 
-            if (request.Url != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Url}"),
-                    name: "url");
-            } 
-            if (request.File != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
-                    name: "file",
-                    fileName: request.Filename ?? string.Empty);
-            }
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                content: __httpRequestContentBody,
+                encoding: global::System.Text.Encoding.UTF8,
+                mediaType: "application/json");
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateConvaiKnowledgeBaseRequest(
+            PrepareCreateConvaiKnowledgeBaseTextRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 xiApiKey: xiApiKey,
@@ -125,7 +104,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateConvaiKnowledgeBaseResponse(
+            ProcessCreateConvaiKnowledgeBaseTextResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -169,7 +148,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateConvaiKnowledgeBaseResponseContent(
+                ProcessCreateConvaiKnowledgeBaseTextResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -230,43 +209,33 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Add To Knowledge Base<br/>
-        /// Uploads a file or reference a webpage to use as part of the shared knowledge base
+        /// Create Text Document<br/>
+        /// Create a knowledge base document containing the provided text.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="text">
+        /// Text content to be added to the knowledge base.
+        /// </param>
         /// <param name="name">
         /// A custom, human-readable name for the document.
         /// </param>
-        /// <param name="url">
-        /// URL to a page of documentation that the agent will have access to in order to interact with users.
-        /// </param>
-        /// <param name="file">
-        /// Documentation that the agent will have access to in order to interact with users.
-        /// </param>
-        /// <param name="filename">
-        /// Documentation that the agent will have access to in order to interact with users.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseTextAsync(
+            string text,
             string? xiApiKey = default,
             string? name = default,
-            string? url = default,
-            byte[]? file = default,
-            string? filename = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiKnowledgeBasePost
+            var __request = new global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost
             {
+                Text = text,
                 Name = name,
-                Url = url,
-                File = file,
-                Filename = filename,
             };
 
-            return await CreateConvaiKnowledgeBaseAsync(
+            return await CreateConvaiKnowledgeBaseTextAsync(
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
