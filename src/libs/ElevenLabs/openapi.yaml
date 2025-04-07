@@ -7257,43 +7257,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: delete_secret
-  /v1/convai/batch-calling/submit:
-    post:
-      tags:
-        - Conversational AI
-      summary: Submit A Batch Call Request.
-      description: Submit a batch call request to schedule calls for multiple recipients.
-      operationId: Submit_a_batch_call_request__v1_convai_batch_calling_submit_post
-      parameters:
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Submit_a_batch_call_request__v1_convai_batch_calling_submit_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BatchCallResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: conversational_ai
-      x-fern-sdk-method-name: create_batch_call
   /docs:
     get:
       summary: Redirect To Mintlify
