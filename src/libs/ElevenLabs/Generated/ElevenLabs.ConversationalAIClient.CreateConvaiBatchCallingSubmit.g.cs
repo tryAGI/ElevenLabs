@@ -5,27 +5,27 @@ namespace ElevenLabs
 {
     public partial class ConversationalAIClient
     {
-        partial void PrepareCreateConvaiAgentsCreateArguments(
+        partial void PrepareCreateConvaiBatchCallingSubmitArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost request);
-        partial void PrepareCreateConvaiAgentsCreateRequest(
+            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
+        partial void PrepareCreateConvaiBatchCallingSubmitRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost request);
-        partial void ProcessCreateConvaiAgentsCreateResponse(
+            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
+        partial void ProcessCreateConvaiBatchCallingSubmitResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateConvaiAgentsCreateResponseContent(
+        partial void ProcessCreateConvaiBatchCallingSubmitResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Agent<br/>
-        /// Create an agent from a config object
+        /// Submit A Batch Call Request.<br/>
+        /// Submit a batch call request to schedule calls for multiple recipients.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -33,8 +33,8 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentResponseModel> CreateConvaiAgentsCreateAsync(
-            global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> CreateConvaiBatchCallingSubmitAsync(
+            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -42,13 +42,13 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateConvaiAgentsCreateArguments(
+            PrepareCreateConvaiBatchCallingSubmitArguments(
                 httpClient: HttpClient,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/v1/convai/agents/create",
+                path: "/v1/convai/batch-calling/submit",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -90,7 +90,7 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateConvaiAgentsCreateRequest(
+            PrepareCreateConvaiBatchCallingSubmitRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 xiApiKey: xiApiKey,
@@ -104,7 +104,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateConvaiAgentsCreateResponse(
+            ProcessCreateConvaiBatchCallingSubmitResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -148,7 +148,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateConvaiAgentsCreateResponseContent(
+                ProcessCreateConvaiBatchCallingSubmitResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -173,7 +173,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.CreateAgentResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.BatchCallResponse.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -203,41 +203,41 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.CreateAgentResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.BatchCallResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
         /// <summary>
-        /// Create Agent<br/>
-        /// Create an agent from a config object
+        /// Submit A Batch Call Request.<br/>
+        /// Submit a batch call request to schedule calls for multiple recipients.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="conversationConfig"></param>
-        /// <param name="platformSettings"></param>
-        /// <param name="name">
-        /// A name to make the agent easier to find<br/>
-        /// Example: My agent
-        /// </param>
+        /// <param name="callName"></param>
+        /// <param name="agentId"></param>
+        /// <param name="agentPhoneNumberId"></param>
+        /// <param name="recipients"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentResponseModel> CreateConvaiAgentsCreateAsync(
-            global::ElevenLabs.ConversationalConfigAPIModelInput conversationConfig,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> CreateConvaiBatchCallingSubmitAsync(
+            string callName,
+            string agentId,
+            string agentPhoneNumberId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient> recipients,
             string? xiApiKey = default,
-            global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings = default,
-            string? name = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost
+            var __request = new global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost
             {
-                ConversationConfig = conversationConfig,
-                PlatformSettings = platformSettings,
-                Name = name,
+                CallName = callName,
+                AgentId = agentId,
+                AgentPhoneNumberId = agentPhoneNumberId,
+                Recipients = recipients,
             };
 
-            return await CreateConvaiAgentsCreateAsync(
+            return await CreateConvaiBatchCallingSubmitAsync(
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

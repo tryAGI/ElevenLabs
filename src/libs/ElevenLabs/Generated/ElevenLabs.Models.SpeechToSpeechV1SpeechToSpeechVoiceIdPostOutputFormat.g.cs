@@ -60,6 +60,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Alaw8000,
+        /// <summary>
+        /// 
+        /// </summary>
         Opus4800032,
         /// <summary>
         /// 
@@ -103,6 +107,7 @@ namespace ElevenLabs
                 SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Pcm24000 => "pcm_24000",
                 SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Pcm44100 => "pcm_44100",
                 SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Ulaw8000 => "ulaw_8000",
+                SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Alaw8000 => "alaw_8000",
                 SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800032 => "opus_48000_32",
                 SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800064 => "opus_48000_64",
                 SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800096 => "opus_48000_96",
@@ -130,6 +135,7 @@ namespace ElevenLabs
                 "pcm_24000" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Pcm24000,
                 "pcm_44100" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Pcm44100,
                 "ulaw_8000" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Ulaw8000,
+                "alaw_8000" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Alaw8000,
                 "opus_48000_32" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800032,
                 "opus_48000_64" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800064,
                 "opus_48000_96" => SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat.Opus4800096,

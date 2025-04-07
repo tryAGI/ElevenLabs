@@ -60,6 +60,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Alaw8000,
+        /// <summary>
+        /// 
+        /// </summary>
         Opus4800032,
         /// <summary>
         /// 
@@ -103,6 +107,7 @@ namespace ElevenLabs
                 SoundGenerationV1SoundGenerationPostOutputFormat.Pcm24000 => "pcm_24000",
                 SoundGenerationV1SoundGenerationPostOutputFormat.Pcm44100 => "pcm_44100",
                 SoundGenerationV1SoundGenerationPostOutputFormat.Ulaw8000 => "ulaw_8000",
+                SoundGenerationV1SoundGenerationPostOutputFormat.Alaw8000 => "alaw_8000",
                 SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800032 => "opus_48000_32",
                 SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800064 => "opus_48000_64",
                 SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800096 => "opus_48000_96",
@@ -130,6 +135,7 @@ namespace ElevenLabs
                 "pcm_24000" => SoundGenerationV1SoundGenerationPostOutputFormat.Pcm24000,
                 "pcm_44100" => SoundGenerationV1SoundGenerationPostOutputFormat.Pcm44100,
                 "ulaw_8000" => SoundGenerationV1SoundGenerationPostOutputFormat.Ulaw8000,
+                "alaw_8000" => SoundGenerationV1SoundGenerationPostOutputFormat.Alaw8000,
                 "opus_48000_32" => SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800032,
                 "opus_48000_64" => SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800064,
                 "opus_48000_96" => SoundGenerationV1SoundGenerationPostOutputFormat.Opus4800096,

@@ -78,6 +78,18 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationHistoryErrorCommonModel? Error { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("main_language")]
+        public string? MainLanguage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rag_usage")]
+        public global::ElevenLabs.ConversationHistoryRagUsageCommonModel? RagUsage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -97,6 +109,8 @@ namespace ElevenLabs
         /// <param name="phoneCall"></param>
         /// <param name="terminationReason"></param>
         /// <param name="error"></param>
+        /// <param name="mainLanguage"></param>
+        /// <param name="ragUsage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -111,7 +125,9 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationChargingCommonModel? charging,
             global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? phoneCall,
             string? terminationReason,
-            global::ElevenLabs.ConversationHistoryErrorCommonModel? error)
+            global::ElevenLabs.ConversationHistoryErrorCommonModel? error,
+            string? mainLanguage,
+            global::ElevenLabs.ConversationHistoryRagUsageCommonModel? ragUsage)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -124,6 +140,8 @@ namespace ElevenLabs
             this.PhoneCall = phoneCall;
             this.TerminationReason = terminationReason;
             this.Error = error;
+            this.MainLanguage = mainLanguage;
+            this.RagUsage = ragUsage;
         }
 
         /// <summary>
