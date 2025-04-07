@@ -70,6 +70,16 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? AdditionalFormats { get; set; }
 
         /// <summary>
+        /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
+        /// Default Value: other<br/>
+        /// Example: pcm_s16le_16
+        /// </summary>
+        /// <example>pcm_s16le_16</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodySpeechToTextV1SpeechToTextPostFileFormatJsonConverter))]
+        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? FileFormat { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -106,6 +116,11 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="additionalFormats"></param>
+        /// <param name="fileFormat">
+        /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
+        /// Default Value: other<br/>
+        /// Example: pcm_s16le_16
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -118,7 +133,8 @@ namespace ElevenLabs
             int? numSpeakers,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity,
             bool? diarize,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats,
+            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
@@ -129,6 +145,7 @@ namespace ElevenLabs
             this.TimestampsGranularity = timestampsGranularity;
             this.Diarize = diarize;
             this.AdditionalFormats = additionalFormats;
+            this.FileFormat = fileFormat;
         }
 
         /// <summary>

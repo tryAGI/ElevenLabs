@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareEditConvaiAgentsByAgentIdArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref bool? useToolIds,
             ref string? xiApiKey,
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request);
         partial void PrepareEditConvaiAgentsByAgentIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            bool? useToolIds,
             string? xiApiKey,
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request);
         partial void ProcessEditConvaiAgentsByAgentIdResponse(
@@ -35,10 +33,6 @@ namespace ElevenLabs
         /// The id of an agent. This is returned on agent creation.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
-        /// <param name="useToolIds">
-        /// Use tool ids instead of tools specs from request payload.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -48,7 +42,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentResponseModel> EditConvaiAgentsByAgentIdAsync(
             string agentId,
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request,
-            bool? useToolIds = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -59,16 +52,12 @@ namespace ElevenLabs
             PrepareEditConvaiAgentsByAgentIdArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                useToolIds: ref useToolIds,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/convai/agents/{agentId}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("use_tool_ids", useToolIds?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: new global::System.Net.Http.HttpMethod("PATCH"),
@@ -113,7 +102,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
-                useToolIds: useToolIds,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -237,10 +225,6 @@ namespace ElevenLabs
         /// The id of an agent. This is returned on agent creation.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
-        /// <param name="useToolIds">
-        /// Use tool ids instead of tools specs from request payload.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -258,7 +242,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentResponseModel> EditConvaiAgentsByAgentIdAsync(
             string agentId,
-            bool? useToolIds = default,
             string? xiApiKey = default,
             object? conversationConfig = default,
             object? platformSettings = default,
@@ -274,7 +257,6 @@ namespace ElevenLabs
 
             return await EditConvaiAgentsByAgentIdAsync(
                 agentId: agentId,
-                useToolIds: useToolIds,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

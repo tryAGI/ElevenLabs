@@ -146,6 +146,12 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.AdditionalFormats, x => x))}]"),
                     name: "additional_formats");
+            } 
+            if (request.FileFormat != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.FileFormat?.ToValueString()}"),
+                    name: "file_format");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -310,6 +316,11 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="additionalFormats"></param>
+        /// <param name="fileFormat">
+        /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
+        /// Default Value: other<br/>
+        /// Example: pcm_s16le_16
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
@@ -324,6 +335,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity = default,
             bool? diarize = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats = default,
+            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost
@@ -337,6 +349,7 @@ namespace ElevenLabs
                 TimestampsGranularity = timestampsGranularity,
                 Diarize = diarize,
                 AdditionalFormats = additionalFormats,
+                FileFormat = fileFormat,
             };
 
             return await CreateSpeechToTextAsync(

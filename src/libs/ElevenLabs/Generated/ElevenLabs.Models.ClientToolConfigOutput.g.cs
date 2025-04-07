@@ -9,6 +9,12 @@ namespace ElevenLabs
     public sealed partial class ClientToolConfigOutput
     {
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
         /// The type of tool<br/>
         /// Default Value: client
         /// </summary>
@@ -64,6 +70,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientToolConfigOutput" /> class.
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="type">
         /// The type of tool<br/>
         /// Default Value: client
@@ -85,6 +92,7 @@ namespace ElevenLabs
         public ClientToolConfigOutput(
             string name,
             string description,
+            string? id,
             global::ElevenLabs.ClientToolConfigOutputType? type,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? parameters,
             bool? expectsResponse,
@@ -93,6 +101,7 @@ namespace ElevenLabs
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
+            this.Id = id;
             this.Type = type;
             this.Parameters = parameters;
             this.ExpectsResponse = expectsResponse;

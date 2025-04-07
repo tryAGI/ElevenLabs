@@ -2,11 +2,11 @@
 
 namespace ElevenLabs
 {
-    public partial interface IAudioIsolationClient
+    public partial interface IConversationalAIClient
     {
         /// <summary>
-        /// Audio Isolation<br/>
-        /// Removes background noise from audio
+        /// Submit A Batch Call Request.<br/>
+        /// Submit a batch call request to schedule calls for multiple recipients.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -14,35 +14,30 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task CreateAudioIsolationAsync(
-            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost request,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> CreateConvaiBatchCallingSubmitAsync(
+            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Audio Isolation<br/>
-        /// Removes background noise from audio
+        /// Submit A Batch Call Request.<br/>
+        /// Submit a batch call request to schedule calls for multiple recipients.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="audio">
-        /// The audio file from which vocals/speech will be isolated from.
-        /// </param>
-        /// <param name="audioname">
-        /// The audio file from which vocals/speech will be isolated from.
-        /// </param>
-        /// <param name="fileFormat">
-        /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
-        /// Example: pcm_s16le_16
-        /// </param>
+        /// <param name="callName"></param>
+        /// <param name="agentId"></param>
+        /// <param name="agentPhoneNumberId"></param>
+        /// <param name="recipients"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task CreateAudioIsolationAsync(
-            byte[] audio,
-            string audioname,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> CreateConvaiBatchCallingSubmitAsync(
+            string callName,
+            string agentId,
+            string agentPhoneNumberId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient> recipients,
             string? xiApiKey = default,
-            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? fileFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
