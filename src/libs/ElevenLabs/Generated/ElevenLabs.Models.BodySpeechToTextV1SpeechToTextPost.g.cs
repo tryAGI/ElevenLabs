@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class BodySpeechToTextV1SpeechToTextPost
     {
         /// <summary>
-        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
+        /// The ID of the model to use for transcription, currently only 'scribe_v1' and 'scribe_v1_experimental' are available.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -89,7 +89,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodySpeechToTextV1SpeechToTextPost" /> class.
         /// </summary>
         /// <param name="modelId">
-        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
+        /// The ID of the model to use for transcription, currently only 'scribe_v1' and 'scribe_v1_experimental' are available.
         /// </param>
         /// <param name="file">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 1GB.

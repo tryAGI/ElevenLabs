@@ -9,21 +9,21 @@ namespace ElevenLabs
     public sealed partial class BodyCreateForcedAlignmentV1ForcedAlignmentPost
     {
         /// <summary>
-        /// The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
+        /// The file to align. All major audio formats are supported. The file size must be less than 1GB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required byte[] File { get; set; }
 
         /// <summary>
-        /// The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
+        /// The file to align. All major audio formats are supported. The file size must be less than 1GB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Filename { get; set; }
 
         /// <summary>
-        /// The text to align with the audio or video. The input text can be in any format, however diarization is not supported at this time.
+        /// The text to align with the audio. The input text can be in any format, however diarization is not supported at this time.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -39,13 +39,13 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyCreateForcedAlignmentV1ForcedAlignmentPost" /> class.
         /// </summary>
         /// <param name="file">
-        /// The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
+        /// The file to align. All major audio formats are supported. The file size must be less than 1GB.
         /// </param>
         /// <param name="filename">
-        /// The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
+        /// The file to align. All major audio formats are supported. The file size must be less than 1GB.
         /// </param>
         /// <param name="text">
-        /// The text to align with the audio or video. The input text can be in any format, however diarization is not supported at this time.
+        /// The text to align with the audio. The input text can be in any format, however diarization is not supported at this time.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

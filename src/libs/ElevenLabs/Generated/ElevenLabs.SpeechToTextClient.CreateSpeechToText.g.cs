@@ -289,7 +289,7 @@ namespace ElevenLabs
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="modelId">
-        /// The ID of the model to use for transcription, currently only 'scribe_v1' is available.
+        /// The ID of the model to use for transcription, currently only 'scribe_v1' and 'scribe_v1_experimental' are available.
         /// </param>
         /// <param name="file">
         /// The file to transcribe. All major audio and video formats are supported. The file size must be less than 1GB.

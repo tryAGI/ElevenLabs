@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.RemovePronunciationDictionaryRulesResponseModel> CreatePronunciationDictionariesByPronunciationDictionaryIdRemoveRulesAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PronunciationDictionaryRulesResponseModel> CreatePronunciationDictionariesByPronunciationDictionaryIdRemoveRulesAsync(
             string pronunciationDictionaryId,
             global::ElevenLabs.BodyRemoveRulesFromThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdRemoveRulesPost request,
             string? xiApiKey = default,
@@ -182,7 +182,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.RemovePronunciationDictionaryRulesResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.PronunciationDictionaryRulesResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -212,7 +212,7 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.RemovePronunciationDictionaryRulesResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.PronunciationDictionaryRulesResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
@@ -234,7 +234,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.RemovePronunciationDictionaryRulesResponseModel> CreatePronunciationDictionariesByPronunciationDictionaryIdRemoveRulesAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PronunciationDictionaryRulesResponseModel> CreatePronunciationDictionariesByPronunciationDictionaryIdRemoveRulesAsync(
             string pronunciationDictionaryId,
             global::System.Collections.Generic.IList<string> ruleStrings,
             string? xiApiKey = default,

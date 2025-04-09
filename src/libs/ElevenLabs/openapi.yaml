@@ -4890,7 +4890,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AddPronunciationDictionaryRulesResponseModel'
+                $ref: '#/components/schemas/PronunciationDictionaryRulesResponseModel'
         '422':
           description: Validation Error
           content:
@@ -4936,7 +4936,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RemovePronunciationDictionaryRulesResponseModel'
+                $ref: '#/components/schemas/PronunciationDictionaryRulesResponseModel'
         '422':
           description: Validation Error
           content:
@@ -7354,6 +7354,7 @@ components:
         - creation_time_unix
         - version_id
         - version_rules_num
+        - permission_on_resource
       type: object
       properties:
         id:
@@ -7385,6 +7386,15 @@ components:
           type: string
           description: The description of the pronunciation dictionary.
           nullable: true
+        permission_on_resource:
+          title: Permission On Resource
+          enum:
+            - admin
+            - editor
+            - viewer
+          type: string
+          description: The permission on the resource of the pronunciation dictionary.
+          nullable: true
       example:
         created_by: ar6633Es2kUjFXBdR1iVc9ztsXl1
         creation_time_unix: 1714156800
@@ -7392,29 +7402,6 @@ components:
         id: 5xM3yVvZQKV0EfqQpLrJ
         name: My Dictionary
         version_id: 5xM3yVvZQKV0EfqQpLrJ
-    AddPronunciationDictionaryRulesResponseModel:
-      title: AddPronunciationDictionaryRulesResponseModel
-      required:
-        - id
-        - version_id
-        - version_rules_num
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: The ID of the pronunciation dictionary.
-        version_id:
-          title: Version Id
-          type: string
-          description: The version ID of the pronunciation dictionary.
-        version_rules_num:
-          title: Version Rules Num
-          type: integer
-          description: The number of rules in the version of the pronunciation dictionary.
-      example:
-        id: 5xM3yVvZQKV0EfqQpLrJ
-        version_id: 5xM3yVvZQKV0EfqQpLr2
     AddVoiceIVCResponseModel:
       title: AddVoiceIVCResponseModel
       required:
@@ -7987,57 +7974,6 @@ components:
         - safety
         - manual
       type: string
-    BatchCallResponse:
-      title: BatchCallResponse
-      required:
-        - batch_id
-        - phone_number_id
-        - agent_id
-        - status
-        - created_at_unix
-      type: object
-      properties:
-        batch_id:
-          title: Batch Id
-          type: string
-          format: uuid
-        phone_number_id:
-          title: Phone Number Id
-          type: string
-        agent_id:
-          title: Agent Id
-          type: string
-        status:
-          $ref: '#/components/schemas/BatchCallStatusResponseModel'
-        created_at_unix:
-          title: Created At Unix
-          type: integer
-    BatchCallStatisticsResponseModel:
-      title: BatchCallStatisticsResponseModel
-      required:
-        - reported_at_unix
-      type: object
-      properties:
-        reported_at_unix:
-          title: Reported At Unix
-          type: integer
-    BatchCallStatusResponseModel:
-      title: BatchCallStatusResponseModel
-      required:
-        - status
-        - statistics
-      type: object
-      properties:
-        status:
-          title: Status
-          enum:
-            - pending
-            - succeeded
-            - failed
-            - cancelled
-          type: string
-        statistics:
-          $ref: '#/components/schemas/BatchCallStatisticsResponseModel'
     Body_Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post:
       title: Body_Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post
       required:
@@ -8850,12 +8786,12 @@ components:
         file:
           title: File
           type: string
-          description: The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
+          description: The file to align. All major audio formats are supported. The file size must be less than 1GB.
           format: binary
         text:
           title: Text
           type: string
-          description: 'The text to align with the audio or video. The input text can be in any format, however diarization is not supported at this time.'
+          description: 'The text to align with the audio. The input text can be in any format, however diarization is not supported at this time.'
     Body_Create_podcast_v1_projects_podcast_create_post:
       title: Body_Create_podcast_v1_projects_podcast_create_post
       required:
@@ -9691,7 +9627,7 @@ components:
         model_id:
           title: Model Id
           type: string
-          description: 'The ID of the model to use for transcription, currently only ''scribe_v1'' is available.'
+          description: 'The ID of the model to use for transcription, currently only ''scribe_v1'' and ''scribe_v1_experimental'' are available.'
         file:
           title: File
           type: string
@@ -9775,30 +9711,6 @@ components:
           type: boolean
           description: Whether to convert the audio to mpeg format.
           default: false
-    Body_Submit_a_batch_call_request__v1_convai_batch_calling_submit_post:
-      title: Body_Submit_a_batch_call_request__v1_convai_batch_calling_submit_post
-      required:
-        - call_name
-        - agent_id
-        - agent_phone_number_id
-        - recipients
-      type: object
-      properties:
-        call_name:
-          title: Call Name
-          type: string
-        agent_id:
-          title: Agent Id
-          type: string
-        agent_phone_number_id:
-          title: Agent Phone Number Id
-          type: string
-        recipients:
-          title: Recipients
-          maxItems: 10000
-          type: array
-          items:
-            $ref: '#/components/schemas/OutboundCallRecipient'
     Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post:
       title: Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post
       required:
@@ -13252,6 +13164,7 @@ components:
         - latest_version_id
         - latest_version_rules_num
         - name
+        - permission_on_resource
         - created_by
         - creation_time_unix
         - archived_time_unix
@@ -13273,6 +13186,15 @@ components:
           title: Name
           type: string
           description: The name of the pronunciation dictionary.
+        permission_on_resource:
+          title: Permission On Resource
+          enum:
+            - admin
+            - editor
+            - viewer
+          type: string
+          description: The permission on the resource of the pronunciation dictionary.
+          nullable: true
         created_by:
           title: Created By
           type: string
@@ -14327,17 +14249,6 @@ components:
         color_1: '#2792dc'
         color_2: '#9ce6e6'
         type: orb
-    OutboundCallRecipient:
-      title: OutboundCallRecipient
-      required:
-        - phone_number
-      type: object
-      properties:
-        phone_number:
-          title: Phone Number
-          type: string
-        conversation_initiation_client_data:
-          $ref: '#/components/schemas/ConversationInitiationClientDataRequest-Input'
     PatchConvAISettingsRequest:
       title: PatchConvAISettingsRequest
       type: object
@@ -15455,6 +15366,29 @@ components:
         phoneme: /ˈtaɪ.lænd/
         string_to_replace: Thailand
         type: phoneme
+    PronunciationDictionaryRulesResponseModel:
+      title: PronunciationDictionaryRulesResponseModel
+      required:
+        - id
+        - version_id
+        - version_rules_num
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: The ID of the pronunciation dictionary.
+        version_id:
+          title: Version Id
+          type: string
+          description: The version ID of the pronunciation dictionary.
+        version_rules_num:
+          title: Version Rules Num
+          type: integer
+          description: The number of rules in the version of the pronunciation dictionary.
+      example:
+        id: 5xM3yVvZQKV0EfqQpLrJ
+        version_id: 5xM3yVvZQKV0EfqQpLr2
     PronunciationDictionaryVersionLocatorDBModel:
       title: PronunciationDictionaryVersionLocatorDBModel
       required:
@@ -15477,6 +15411,7 @@ components:
         - pronunciation_dictionary_id
         - dictionary_name
         - version_name
+        - permission_on_resource
         - created_by
         - creation_time_unix
       type: object
@@ -15496,6 +15431,14 @@ components:
         version_name:
           title: Version Name
           type: string
+        permission_on_resource:
+          title: Permission On Resource
+          enum:
+            - admin
+            - editor
+            - viewer
+          type: string
+          nullable: true
         created_by:
           title: Created By
           type: string
@@ -15694,29 +15637,6 @@ components:
         size_bytes: 1000000
         transcription: 'Hello, how are you?'
         upload_date_unix: 1714204800
-    RemovePronunciationDictionaryRulesResponseModel:
-      title: RemovePronunciationDictionaryRulesResponseModel
-      required:
-        - id
-        - version_id
-        - version_rules_num
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: The ID of the pronunciation dictionary.
-        version_id:
-          title: Version Id
-          type: string
-          description: The version ID of the pronunciation dictionary.
-        version_rules_num:
-          title: Version Rules Num
-          type: integer
-          description: The number of rules in the version of the pronunciation dictionary.
-      example:
-        id: 5xM3yVvZQKV0EfqQpLrJ
-        version_id: 5xM3yVvZQKV0EfqQpLr2
     ResourceAccessInfo:
       title: ResourceAccessInfo
       required:
