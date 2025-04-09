@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class BatchCallStatusResponseModelStatusJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.BatchCallStatusResponseModelStatus>
+    public sealed class GetPronunciationDictionaryMetadataResponseModelPermissionOnResourceNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.BatchCallStatusResponseModelStatus Read(
+        public override global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.BatchCallStatusResponseModelStatusExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResourceExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.BatchCallStatusResponseModelStatus)numValue;
+                    return (global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,12 +38,19 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.BatchCallStatusResponseModelStatus value,
+            global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.BatchCallStatusResponseModelStatusExtensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResourceExtensions.ToValueString(value.Value));
+            }
         }
     }
 }

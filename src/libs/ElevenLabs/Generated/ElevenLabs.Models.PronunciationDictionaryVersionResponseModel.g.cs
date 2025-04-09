@@ -46,6 +46,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PronunciationDictionaryVersionResponseModelPermissionOnResourceJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource? PermissionOnResource { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string CreatedBy { get; set; }
@@ -77,6 +85,7 @@ namespace ElevenLabs
         /// <param name="pronunciationDictionaryId"></param>
         /// <param name="dictionaryName"></param>
         /// <param name="versionName"></param>
+        /// <param name="permissionOnResource"></param>
         /// <param name="createdBy"></param>
         /// <param name="creationTimeUnix"></param>
         /// <param name="archivedTimeUnix"></param>
@@ -89,6 +98,7 @@ namespace ElevenLabs
             string pronunciationDictionaryId,
             string dictionaryName,
             string versionName,
+            global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource? permissionOnResource,
             string createdBy,
             int creationTimeUnix,
             int? archivedTimeUnix)
@@ -98,6 +108,7 @@ namespace ElevenLabs
             this.PronunciationDictionaryId = pronunciationDictionaryId ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryId));
             this.DictionaryName = dictionaryName ?? throw new global::System.ArgumentNullException(nameof(dictionaryName));
             this.VersionName = versionName ?? throw new global::System.ArgumentNullException(nameof(versionName));
+            this.PermissionOnResource = permissionOnResource;
             this.CreatedBy = createdBy ?? throw new global::System.ArgumentNullException(nameof(createdBy));
             this.CreationTimeUnix = creationTimeUnix;
             this.ArchivedTimeUnix = archivedTimeUnix;

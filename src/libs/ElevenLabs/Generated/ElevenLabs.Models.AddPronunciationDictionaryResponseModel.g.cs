@@ -58,6 +58,14 @@ namespace ElevenLabs
         public string? Description { get; set; }
 
         /// <summary>
+        /// The permission on the resource of the pronunciation dictionary.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AddPronunciationDictionaryResponseModelPermissionOnResourceJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource? PermissionOnResource { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -87,6 +95,9 @@ namespace ElevenLabs
         /// <param name="description">
         /// The description of the pronunciation dictionary.
         /// </param>
+        /// <param name="permissionOnResource">
+        /// The permission on the resource of the pronunciation dictionary.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -97,6 +108,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset creationTimeUnix,
             string versionId,
             int versionRulesNum,
+            global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource? permissionOnResource,
             string? description)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -105,6 +117,7 @@ namespace ElevenLabs
             this.CreationTimeUnix = creationTimeUnix;
             this.VersionId = versionId ?? throw new global::System.ArgumentNullException(nameof(versionId));
             this.VersionRulesNum = versionRulesNum;
+            this.PermissionOnResource = permissionOnResource;
             this.Description = description;
         }
 

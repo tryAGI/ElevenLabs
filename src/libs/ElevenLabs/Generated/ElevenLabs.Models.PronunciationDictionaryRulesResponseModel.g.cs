@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class AddPronunciationDictionaryRulesResponseModel
+    public sealed partial class PronunciationDictionaryRulesResponseModel
     {
         /// <summary>
         /// The ID of the pronunciation dictionary.
@@ -36,7 +36,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddPronunciationDictionaryRulesResponseModel" /> class.
+        /// Initializes a new instance of the <see cref="PronunciationDictionaryRulesResponseModel" /> class.
         /// </summary>
         /// <param name="id">
         /// The ID of the pronunciation dictionary.
@@ -50,7 +50,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public AddPronunciationDictionaryRulesResponseModel(
+        public PronunciationDictionaryRulesResponseModel(
             string id,
             string versionId,
             int versionRulesNum)
@@ -61,9 +61,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddPronunciationDictionaryRulesResponseModel" /> class.
+        /// Initializes a new instance of the <see cref="PronunciationDictionaryRulesResponseModel" /> class.
         /// </summary>
-        public AddPronunciationDictionaryRulesResponseModel()
+        public PronunciationDictionaryRulesResponseModel()
         {
         }
     }
