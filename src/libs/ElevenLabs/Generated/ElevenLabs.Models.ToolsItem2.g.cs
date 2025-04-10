@@ -88,9 +88,9 @@ namespace ElevenLabs
         /// A system tool is a tool that is used to call a system method in the server
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.SystemToolConfig? System { get; init; }
+        public global::ElevenLabs.SystemToolConfigInput? System { get; init; }
 #else
-        public global::ElevenLabs.SystemToolConfig? System { get; }
+        public global::ElevenLabs.SystemToolConfigInput? System { get; }
 #endif
 
         /// <summary>
@@ -104,17 +104,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem2(global::ElevenLabs.SystemToolConfig value) => new ToolsItem2(value);
+        public static implicit operator ToolsItem2(global::ElevenLabs.SystemToolConfigInput value) => new ToolsItem2(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.SystemToolConfig?(ToolsItem2 @this) => @this.System;
+        public static implicit operator global::ElevenLabs.SystemToolConfigInput?(ToolsItem2 @this) => @this.System;
 
         /// <summary>
         /// 
         /// </summary>
-        public ToolsItem2(global::ElevenLabs.SystemToolConfig? value)
+        public ToolsItem2(global::ElevenLabs.SystemToolConfigInput? value)
         {
             System = value;
         }
@@ -126,7 +126,7 @@ namespace ElevenLabs
             global::ElevenLabs.PromptAgentInputToolDiscriminatorType? type,
             global::ElevenLabs.WebhookToolConfigInput? webhook,
             global::ElevenLabs.ClientToolConfigInput? client,
-            global::ElevenLabs.SystemToolConfig? system
+            global::ElevenLabs.SystemToolConfigInput? system
             )
         {
             Type = type;
@@ -168,7 +168,7 @@ namespace ElevenLabs
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.WebhookToolConfigInput?, TResult>? webhook = null,
             global::System.Func<global::ElevenLabs.ClientToolConfigInput?, TResult>? client = null,
-            global::System.Func<global::ElevenLabs.SystemToolConfig?, TResult>? system = null,
+            global::System.Func<global::ElevenLabs.SystemToolConfigInput?, TResult>? system = null,
             bool validate = true)
         {
             if (validate)
@@ -198,7 +198,7 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.WebhookToolConfigInput?>? webhook = null,
             global::System.Action<global::ElevenLabs.ClientToolConfigInput?>? client = null,
-            global::System.Action<global::ElevenLabs.SystemToolConfig?>? system = null,
+            global::System.Action<global::ElevenLabs.SystemToolConfigInput?>? system = null,
             bool validate = true)
         {
             if (validate)
@@ -232,7 +232,7 @@ namespace ElevenLabs
                 Client,
                 typeof(global::ElevenLabs.ClientToolConfigInput),
                 System,
-                typeof(global::ElevenLabs.SystemToolConfig),
+                typeof(global::ElevenLabs.SystemToolConfigInput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -251,7 +251,7 @@ namespace ElevenLabs
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookToolConfigInput?>.Default.Equals(Webhook, other.Webhook) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfigInput?>.Default.Equals(Client, other.Client) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfig?>.Default.Equals(System, other.System) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfigInput?>.Default.Equals(System, other.System) 
                 ;
         }
 

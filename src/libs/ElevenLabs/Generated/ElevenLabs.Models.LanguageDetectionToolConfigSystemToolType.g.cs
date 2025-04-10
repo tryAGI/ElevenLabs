@@ -4,41 +4,40 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The type of tool<br/>
-    /// Default Value: system
+    /// Default Value: language_detection
     /// </summary>
-    public enum SystemToolConfigType
+    public enum LanguageDetectionToolConfigSystemToolType
     {
         /// <summary>
         /// 
         /// </summary>
-        System,
+        LanguageDetection,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class SystemToolConfigTypeExtensions
+    public static class LanguageDetectionToolConfigSystemToolTypeExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this SystemToolConfigType value)
+        public static string ToValueString(this LanguageDetectionToolConfigSystemToolType value)
         {
             return value switch
             {
-                SystemToolConfigType.System => "system",
+                LanguageDetectionToolConfigSystemToolType.LanguageDetection => "language_detection",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static SystemToolConfigType? ToEnum(string value)
+        public static LanguageDetectionToolConfigSystemToolType? ToEnum(string value)
         {
             return value switch
             {
-                "system" => SystemToolConfigType.System,
+                "language_detection" => LanguageDetectionToolConfigSystemToolType.LanguageDetection,
                 _ => null,
             };
         }

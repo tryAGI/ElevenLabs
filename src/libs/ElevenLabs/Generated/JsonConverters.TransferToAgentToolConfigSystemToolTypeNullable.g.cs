@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class SystemToolConfigTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.SystemToolConfigType?>
+    public sealed class TransferToAgentToolConfigSystemToolTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.TransferToAgentToolConfigSystemToolType?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.SystemToolConfigType? Read(
+        public override global::ElevenLabs.TransferToAgentToolConfigSystemToolType? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.SystemToolConfigTypeExtensions.ToEnum(stringValue);
+                        return global::ElevenLabs.TransferToAgentToolConfigSystemToolTypeExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.SystemToolConfigType)numValue;
+                    return (global::ElevenLabs.TransferToAgentToolConfigSystemToolType)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,7 +38,7 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.SystemToolConfigType? value,
+            global::ElevenLabs.TransferToAgentToolConfigSystemToolType? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
@@ -49,7 +49,7 @@ namespace ElevenLabs.JsonConverters
             }
             else
             {
-                writer.WriteStringValue(global::ElevenLabs.SystemToolConfigTypeExtensions.ToValueString(value.Value));
+                writer.WriteStringValue(global::ElevenLabs.TransferToAgentToolConfigSystemToolTypeExtensions.ToValueString(value.Value));
             }
         }
     }
