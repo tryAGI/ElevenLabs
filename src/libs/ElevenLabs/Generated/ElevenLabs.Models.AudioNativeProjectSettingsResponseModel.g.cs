@@ -70,6 +70,14 @@ namespace ElevenLabs
         public string? AudioUrl { get; set; }
 
         /// <summary>
+        /// Current state of the project<br/>
+        /// Default Value: ready
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AudioNativeProjectSettingsResponseModelStatusJsonConverter))]
+        public global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus? Status { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -105,6 +113,10 @@ namespace ElevenLabs
         /// <param name="audioUrl">
         /// The URL of the audio file.
         /// </param>
+        /// <param name="status">
+        /// Current state of the project<br/>
+        /// Default Value: ready
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -117,7 +129,8 @@ namespace ElevenLabs
             string backgroundColor,
             int sessionization,
             string? audioPath,
-            string? audioUrl)
+            string? audioUrl,
+            global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus? status)
         {
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Image = image ?? throw new global::System.ArgumentNullException(nameof(image));
@@ -128,6 +141,7 @@ namespace ElevenLabs
             this.Sessionization = sessionization;
             this.AudioPath = audioPath;
             this.AudioUrl = audioUrl;
+            this.Status = status;
         }
 
         /// <summary>

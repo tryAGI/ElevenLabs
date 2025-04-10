@@ -24,6 +24,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
+        /// Default Value: other<br/>
         /// Example: pcm_s16le_16
         /// </summary>
         /// <example>pcm_s16le_16</example>
@@ -48,6 +49,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="fileFormat">
         /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
+        /// Default Value: other<br/>
         /// Example: pcm_s16le_16
         /// </param>
 #if NET7_0_OR_GREATER

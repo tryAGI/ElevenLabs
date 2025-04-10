@@ -4077,6 +4077,61 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: dub_segments
+  '/v1/dubbing/resource/{dubbing_id}/render/{language}':
+    post:
+      tags:
+        - dubbing
+        - resource
+        - segment
+      summary: Render Audio Or Video For The Given Language
+      description: Regenerate the dubs for either the entire resource or the specified segments/languages. Will automatically transcribe and translate any missing transcriptions and translations.
+      operationId: Render_audio_or_video_for_the_given_language_v1_dubbing_resource__dubbing_id__render__language__post
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: language
+          in: path
+          description: Render this language
+          required: true
+          schema:
+            title: Language
+            type: string
+            description: Render this language
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Render_audio_or_video_for_the_given_language_v1_dubbing_resource__dubbing_id__render__language__post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DubbingRenderResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: render_dub
   /v1/dubbing:
     post:
       tags:
@@ -7870,6 +7925,14 @@ components:
           type: string
           description: The URL of the audio file.
           nullable: true
+        status:
+          title: Status
+          enum:
+            - processing
+            - ready
+          type: string
+          description: Current state of the project
+          default: ready
       example:
         audio_path: audio/my_project.mp3
         audio_url: https://example.com/audio/my_project.mp3
@@ -7878,6 +7941,7 @@ components:
         image: https://example.com/image.jpg
         sessionization: 1
         small: false
+        status: ready
         text_color: '#000000'
         title: My Project
     AudioWithTimestampsResponseModel:
@@ -8403,6 +8467,7 @@ components:
             - other
           type: string
           description: 'The format of input audio. Options are ''pcm_s16le_16'' or ''other'' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.'
+          default: other
           nullable: true
           example: pcm_s16le_16
     Body_Audio_Isolation_v1_audio_isolation_post:
@@ -8423,6 +8488,7 @@ components:
             - other
           type: string
           description: 'The format of input audio. Options are ''pcm_s16le_16'' or ''other'' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.'
+          default: other
           nullable: true
           example: pcm_s16le_16
     Body_Create_Agent_v1_convai_agents_create_post:
@@ -9489,6 +9555,14 @@ components:
             type: string
           description: List of strings to remove from the pronunciation dictionary.
           example: '[''a'', ''b'']'
+    Body_Render_audio_or_video_for_the_given_language_v1_dubbing_resource__dubbing_id__render__language__post:
+      title: Body_Render_audio_or_video_for_the_given_language_v1_dubbing_resource__dubbing_id__render__language__post
+      required:
+        - render_type
+      type: object
+      properties:
+        render_type:
+          $ref: '#/components/schemas/RenderType'
     Body_Send_Conversation_Feedback_v1_convai_conversations__conversation_id__feedback_post:
       title: Body_Send_Conversation_Feedback_v1_convai_conversations__conversation_id__feedback_post
       required:
@@ -9584,6 +9658,16 @@ components:
           description: 'If set, will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.'
           default: false
           example: true
+        file_format:
+          title: File Format
+          enum:
+            - pcm_s16le_16
+            - other
+          type: string
+          description: 'The format of input audio. Options are ''pcm_s16le_16'' or ''other'' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.'
+          default: other
+          nullable: true
+          example: pcm_s16le_16
     Body_Speech_to_Speech_v1_speech_to_speech__voice_id__post:
       title: Body_Speech_to_Speech_v1_speech_to_speech__voice_id__post
       required:
@@ -9617,11 +9701,20 @@ components:
           description: 'If set, will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.'
           default: false
           example: true
+        file_format:
+          title: File Format
+          enum:
+            - pcm_s16le_16
+            - other
+          type: string
+          description: 'The format of input audio. Options are ''pcm_s16le_16'' or ''other'' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.'
+          default: other
+          nullable: true
+          example: pcm_s16le_16
     Body_Speech_to_Text_v1_speech_to_text_post:
       title: Body_Speech_to_Text_v1_speech_to_text_post
       required:
         - model_id
-        - file
       type: object
       properties:
         model_id:
@@ -9631,8 +9724,9 @@ components:
         file:
           title: File
           type: string
-          description: The file to transcribe. All major audio and video formats are supported. The file size must be less than 1GB.
+          description: The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 1GB.
           format: binary
+          nullable: true
         language_code:
           title: Language Code
           type: string
@@ -9675,6 +9769,12 @@ components:
           description: 'The format of input audio. Options are ''pcm_s16le_16'' or ''other'' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.'
           default: other
           example: pcm_s16le_16
+        cloud_storage_url:
+          title: Cloud Storage Url
+          type: string
+          description: The valid AWS S3 or Google Cloud Storage URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be a valid publicly accessible cloud storage URL. The file size must be less than 2GB. URL can be pre-signed.
+          nullable: true
+          example: https://storage.googleapis.com/bucket-name/object-name
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -12037,6 +12137,19 @@ components:
           - es
           - fr
           - de
+    DubbingRenderResponseModel:
+      title: DubbingRenderResponseModel
+      required:
+        - version
+        - render_id
+      type: object
+      properties:
+        version:
+          title: Version
+          type: integer
+        render_id:
+          title: Render Id
+          type: string
     DubbingResource:
       title: DubbingResource
       required:
@@ -12044,10 +12157,12 @@ components:
         - version
         - source_language
         - target_languages
+        - input
         - background
         - foreground
         - speaker_tracks
         - speaker_segments
+        - renders
       type: object
       properties:
         id:
@@ -12064,6 +12179,8 @@ components:
           type: array
           items:
             type: string
+        input:
+          $ref: '#/components/schemas/DubbingMediaReference'
         background:
           $ref: '#/components/schemas/DubbingMediaReference'
         foreground:
@@ -12078,6 +12195,11 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/SpeakerSegment'
+        renders:
+          title: Renders
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Render'
     DynamicVariablesConfig:
       title: DynamicVariablesConfig
       type: object
@@ -12148,6 +12270,16 @@ components:
         - e5_mistral_7b_instruct
         - multilingual_e5_large_instruct
       type: string
+    EndCallToolConfig:
+      title: EndCallToolConfig
+      type: object
+      properties:
+        system_tool_type:
+          title: System Tool Type
+          enum:
+            - end_call
+          type: string
+          default: end_call
     EvaluationSettings:
       title: EvaluationSettings
       type: object
@@ -12652,6 +12784,7 @@ components:
           image: https://example.com/image.jpg
           sessionization: 1
           small: false
+          status: ready
           text_color: '#000000'
           title: My Project
         snapshot_id: JBFqnCBsd6RMkjVDRZzb
@@ -13627,6 +13760,16 @@ components:
         version:
           title: Version
           type: integer
+    LanguageDetectionToolConfig:
+      title: LanguageDetectionToolConfig
+      type: object
+      properties:
+        system_tool_type:
+          title: System Tool Type
+          enum:
+            - language_detection
+          type: string
+          default: language_detection
     LanguagePreset-Input:
       title: LanguagePreset
       required:
@@ -15146,13 +15289,13 @@ components:
             oneOf:
               - $ref: '#/components/schemas/WebhookToolConfig-Input'
               - $ref: '#/components/schemas/ClientToolConfig-Input'
-              - $ref: '#/components/schemas/SystemToolConfig'
+              - $ref: '#/components/schemas/SystemToolConfig-Input'
             description: The type of tool
             discriminator:
               propertyName: type
               mapping:
                 client: '#/components/schemas/ClientToolConfig-Input'
-                system: '#/components/schemas/SystemToolConfig'
+                system: '#/components/schemas/SystemToolConfig-Input'
                 webhook: '#/components/schemas/WebhookToolConfig-Input'
           description: A list of tools that the agent can use over the course of the conversation
         tool_ids:
@@ -15213,13 +15356,13 @@ components:
             oneOf:
               - $ref: '#/components/schemas/WebhookToolConfig-Output'
               - $ref: '#/components/schemas/ClientToolConfig-Output'
-              - $ref: '#/components/schemas/SystemToolConfig'
+              - $ref: '#/components/schemas/SystemToolConfig-Output'
             description: The type of tool
             discriminator:
               propertyName: type
               mapping:
                 client: '#/components/schemas/ClientToolConfig-Output'
-                system: '#/components/schemas/SystemToolConfig'
+                system: '#/components/schemas/SystemToolConfig-Output'
                 webhook: '#/components/schemas/WebhookToolConfig-Output'
           description: A list of tools that the agent can use over the course of the conversation
         tool_ids:
@@ -15637,6 +15780,40 @@ components:
         size_bytes: 1000000
         transcription: 'Hello, how are you?'
         upload_date_unix: 1714204800
+    Render:
+      title: Render
+      required:
+        - id
+        - version
+        - language
+        - type
+        - media_ref
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        version:
+          title: Version
+          type: integer
+        language:
+          title: Language
+          type: string
+        type:
+          $ref: '#/components/schemas/RenderType'
+        media_ref:
+          $ref: '#/components/schemas/DubbingMediaReference'
+    RenderType:
+      title: RenderType
+      enum:
+        - mp4
+        - aac
+        - mp3
+        - wav
+        - aaf
+        - tracks_zip
+        - clips_zip
+      type: string
     ResourceAccessInfo:
       title: ResourceAccessInfo
       required:
@@ -15779,6 +15956,10 @@ components:
           default: false
         is_blocked_non_ivc:
           title: Is Blocked Non Ivc
+          type: boolean
+          default: false
+        ignore_safety_evaluation:
+          title: Ignore Safety Evaluation
           type: boolean
           default: false
     SafetyRule:
@@ -16707,11 +16888,12 @@ components:
         rollover_credits_used: 1000
         subscription_cycle_credits_quota: 1000
         subscription_cycle_credits_used: 1000
-    SystemToolConfig:
+    SystemToolConfig-Input:
       title: SystemToolConfig
       required:
         - name
         - description
+        - params
       type: object
       properties:
         id:
@@ -16734,6 +16916,61 @@ components:
           title: Description
           minLength: 0
           type: string
+        params:
+          title: Params
+          oneOf:
+            - $ref: '#/components/schemas/EndCallToolConfig'
+            - $ref: '#/components/schemas/LanguageDetectionToolConfig'
+            - $ref: '#/components/schemas/TransferToAgentToolConfig'
+          discriminator:
+            propertyName: system_tool_type
+            mapping:
+              end_call: '#/components/schemas/EndCallToolConfig'
+              language_detection: '#/components/schemas/LanguageDetectionToolConfig'
+              transfer_to_agent: '#/components/schemas/TransferToAgentToolConfig'
+      description: A system tool is a tool that is used to call a system method in the server
+      example:
+        type: system
+    SystemToolConfig-Output:
+      title: SystemToolConfig
+      required:
+        - name
+        - description
+        - params
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          default: ''
+        type:
+          title: Type
+          enum:
+            - system
+          type: string
+          description: The type of tool
+          default: system
+        name:
+          title: Name
+          minLength: 0
+          pattern: '^[a-zA-Z0-9_-]{1,64}$'
+          type: string
+        description:
+          title: Description
+          minLength: 0
+          type: string
+        params:
+          title: Params
+          oneOf:
+            - $ref: '#/components/schemas/EndCallToolConfig'
+            - $ref: '#/components/schemas/LanguageDetectionToolConfig'
+            - $ref: '#/components/schemas/TransferToAgentToolConfig'
+          discriminator:
+            propertyName: system_tool_type
+            mapping:
+              end_call: '#/components/schemas/EndCallToolConfig'
+              language_detection: '#/components/schemas/LanguageDetectionToolConfig'
+              transfer_to_agent: '#/components/schemas/TransferToAgentToolConfig'
       description: A system tool is a tool that is used to call a system method in the server
       example:
         type: system
@@ -16841,6 +17078,36 @@ components:
         - twilio
         - sip_trunk
       type: string
+    Transfer:
+      title: Transfer
+      required:
+        - agent_id
+        - condition
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        condition:
+          title: Condition
+          type: string
+    TransferToAgentToolConfig:
+      title: TransferToAgentToolConfig
+      required:
+        - transfers
+      type: object
+      properties:
+        system_tool_type:
+          title: System Tool Type
+          enum:
+            - transfer_to_agent
+          type: string
+          default: transfer_to_agent
+        transfers:
+          title: Transfers
+          type: array
+          items:
+            $ref: '#/components/schemas/Transfer'
     TurnConfig:
       title: TurnConfig
       type: object
