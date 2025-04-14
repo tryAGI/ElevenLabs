@@ -43,6 +43,13 @@ namespace ElevenLabs
         public required bool ToolHasBeenCalled { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_details")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolDetailsJsonConverter))]
+        public global::ElevenLabs.ToolDetails? ToolDetails { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -56,6 +63,7 @@ namespace ElevenLabs
         /// <param name="toolName"></param>
         /// <param name="paramsAsJson"></param>
         /// <param name="toolHasBeenCalled"></param>
+        /// <param name="toolDetails"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -64,13 +72,15 @@ namespace ElevenLabs
             string toolName,
             string paramsAsJson,
             bool toolHasBeenCalled,
-            string? type)
+            string? type,
+            global::ElevenLabs.ToolDetails? toolDetails)
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
             this.ParamsAsJson = paramsAsJson ?? throw new global::System.ArgumentNullException(nameof(paramsAsJson));
             this.ToolHasBeenCalled = toolHasBeenCalled;
             this.Type = type;
+            this.ToolDetails = toolDetails;
         }
 
         /// <summary>

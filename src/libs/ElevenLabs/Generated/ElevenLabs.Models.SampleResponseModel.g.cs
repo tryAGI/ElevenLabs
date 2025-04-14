@@ -74,6 +74,18 @@ namespace ElevenLabs
         public global::ElevenLabs.SpeakerSeparationResponseModel? SpeakerSeparation { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("trim_start")]
+        public int? TrimStart { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("trim_end")]
+        public int? TrimEnd { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -102,6 +114,8 @@ namespace ElevenLabs
         /// <param name="hasIsolatedAudio"></param>
         /// <param name="hasIsolatedAudioPreview"></param>
         /// <param name="speakerSeparation"></param>
+        /// <param name="trimStart"></param>
+        /// <param name="trimEnd"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -115,7 +129,9 @@ namespace ElevenLabs
             bool? removeBackgroundNoise,
             bool? hasIsolatedAudio,
             bool? hasIsolatedAudioPreview,
-            global::ElevenLabs.SpeakerSeparationResponseModel? speakerSeparation)
+            global::ElevenLabs.SpeakerSeparationResponseModel? speakerSeparation,
+            int? trimStart,
+            int? trimEnd)
         {
             this.SampleId = sampleId ?? throw new global::System.ArgumentNullException(nameof(sampleId));
             this.FileName = fileName ?? throw new global::System.ArgumentNullException(nameof(fileName));
@@ -127,6 +143,8 @@ namespace ElevenLabs
             this.HasIsolatedAudio = hasIsolatedAudio;
             this.HasIsolatedAudioPreview = hasIsolatedAudioPreview;
             this.SpeakerSeparation = speakerSeparation;
+            this.TrimStart = trimStart;
+            this.TrimEnd = trimEnd;
         }
 
         /// <summary>
