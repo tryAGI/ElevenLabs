@@ -7312,16 +7312,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: delete_secret
-  /docs:
-    get:
-      summary: Redirect To Mintlify
-      operationId: redirect_to_mintlify_docs_get
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
 components:
   schemas:
     ASRConversationalConfig:
@@ -9442,6 +9432,22 @@ components:
           type: string
           description: Serialized labels dictionary for the voice.
           nullable: true
+    Body_Forced_alignment_v1_forced_alignment_post:
+      title: Body_Forced_alignment_v1_forced_alignment_post
+      required:
+        - file
+        - text
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          description: The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
+          format: binary
+        text:
+          title: Text
+          type: string
+          description: The text to align with the audio or video.
     Body_Generate_a_random_voice_v1_voice_generation_generate_voice_post:
       title: Body_Generate_a_random_voice_v1_voice_generation_generate_voice_post
       required:
