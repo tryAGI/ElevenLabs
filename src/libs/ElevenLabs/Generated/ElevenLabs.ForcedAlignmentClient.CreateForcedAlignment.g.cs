@@ -94,6 +94,12 @@ namespace ElevenLabs
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Text}"),
                 name: "text");
+            if (request.EnabledSpooledFile != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.EnabledSpooledFile}"),
+                    name: "enabled_spooled_file");
+            }
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
@@ -233,6 +239,10 @@ namespace ElevenLabs
         /// <param name="text">
         /// The text to align with the audio. The input text can be in any format, however diarization is not supported at this time.
         /// </param>
+        /// <param name="enabledSpooledFile">
+        /// If true, the file will be streamed to the server and processed in chunks. This is useful for large files that cannot be loaded into memory. The default is false.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ForcedAlignmentResponseModel> CreateForcedAlignmentAsync(
@@ -240,6 +250,7 @@ namespace ElevenLabs
             string filename,
             string text,
             string? xiApiKey = default,
+            bool? enabledSpooledFile = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost
@@ -247,6 +258,7 @@ namespace ElevenLabs
                 File = file,
                 Filename = filename,
                 Text = text,
+                EnabledSpooledFile = enabledSpooledFile,
             };
 
             return await CreateForcedAlignmentAsync(

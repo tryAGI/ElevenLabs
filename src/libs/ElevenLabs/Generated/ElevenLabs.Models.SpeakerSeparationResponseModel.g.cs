@@ -9,21 +9,21 @@ namespace ElevenLabs
     public sealed partial class SpeakerSeparationResponseModel
     {
         /// <summary>
-        /// 
+        /// The ID of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VoiceId { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the sample.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SampleId { get; set; }
 
         /// <summary>
-        /// 
+        /// The status of the speaker separation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeakerSeparationResponseModelStatusJsonConverter))]
@@ -31,13 +31,13 @@ namespace ElevenLabs
         public required global::ElevenLabs.SpeakerSeparationResponseModelStatus Status { get; set; }
 
         /// <summary>
-        /// 
+        /// The speakers of the sample.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speakers")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerResponseModel>? Speakers { get; set; }
 
         /// <summary>
-        /// 
+        /// The IDs of the selected speakers.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("selected_speaker_ids")]
         public global::System.Collections.Generic.IList<string>? SelectedSpeakerIds { get; set; }
@@ -51,11 +51,21 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="SpeakerSeparationResponseModel" /> class.
         /// </summary>
-        /// <param name="voiceId"></param>
-        /// <param name="sampleId"></param>
-        /// <param name="status"></param>
-        /// <param name="speakers"></param>
-        /// <param name="selectedSpeakerIds"></param>
+        /// <param name="voiceId">
+        /// The ID of the voice.
+        /// </param>
+        /// <param name="sampleId">
+        /// The ID of the sample.
+        /// </param>
+        /// <param name="status">
+        /// The status of the speaker separation.
+        /// </param>
+        /// <param name="speakers">
+        /// The speakers of the sample.
+        /// </param>
+        /// <param name="selectedSpeakerIds">
+        /// The IDs of the selected speakers.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The source of the history item. Either TTS (text to speech), STS (speech to text) or STT (speech to text).
+    /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing or PlayAPI.
     /// </summary>
     public enum SpeechHistoryItemResponseModelSource
     {
@@ -19,7 +19,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        STT,
+        Projects,
+        /// <summary>
+        /// 
+        /// </summary>
+        AN,
+        /// <summary>
+        /// 
+        /// </summary>
+        Dubbing,
+        /// <summary>
+        /// 
+        /// </summary>
+        PlayAPI,
     }
 
     /// <summary>
@@ -36,7 +48,10 @@ namespace ElevenLabs
             {
                 SpeechHistoryItemResponseModelSource.TTS => "TTS",
                 SpeechHistoryItemResponseModelSource.STS => "STS",
-                SpeechHistoryItemResponseModelSource.STT => "STT",
+                SpeechHistoryItemResponseModelSource.Projects => "Projects",
+                SpeechHistoryItemResponseModelSource.AN => "AN",
+                SpeechHistoryItemResponseModelSource.Dubbing => "Dubbing",
+                SpeechHistoryItemResponseModelSource.PlayAPI => "PlayAPI",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -49,7 +64,10 @@ namespace ElevenLabs
             {
                 "TTS" => SpeechHistoryItemResponseModelSource.TTS,
                 "STS" => SpeechHistoryItemResponseModelSource.STS,
-                "STT" => SpeechHistoryItemResponseModelSource.STT,
+                "Projects" => SpeechHistoryItemResponseModelSource.Projects,
+                "AN" => SpeechHistoryItemResponseModelSource.AN,
+                "Dubbing" => SpeechHistoryItemResponseModelSource.Dubbing,
+                "PlayAPI" => SpeechHistoryItemResponseModelSource.PlayAPI,
                 _ => null,
             };
         }

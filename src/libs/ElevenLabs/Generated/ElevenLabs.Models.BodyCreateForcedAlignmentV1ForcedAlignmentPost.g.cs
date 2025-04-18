@@ -30,6 +30,13 @@ namespace ElevenLabs
         public required string Text { get; set; }
 
         /// <summary>
+        /// If true, the file will be streamed to the server and processed in chunks. This is useful for large files that cannot be loaded into memory. The default is false.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enabled_spooled_file")]
+        public bool? EnabledSpooledFile { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -47,17 +54,23 @@ namespace ElevenLabs
         /// <param name="text">
         /// The text to align with the audio. The input text can be in any format, however diarization is not supported at this time.
         /// </param>
+        /// <param name="enabledSpooledFile">
+        /// If true, the file will be streamed to the server and processed in chunks. This is useful for large files that cannot be loaded into memory. The default is false.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyCreateForcedAlignmentV1ForcedAlignmentPost(
             byte[] file,
             string filename,
-            string text)
+            string text,
+            bool? enabledSpooledFile)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.EnabledSpooledFile = enabledSpooledFile;
         }
 
         /// <summary>
