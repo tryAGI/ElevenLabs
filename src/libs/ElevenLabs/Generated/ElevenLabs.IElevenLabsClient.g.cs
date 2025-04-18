@@ -152,5 +152,10 @@ namespace ElevenLabs
         /// </summary>
         public ConversationalAIClient ConversationalAI { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public PvcVoicesClient PvcVoices { get; }
+
     }
 }

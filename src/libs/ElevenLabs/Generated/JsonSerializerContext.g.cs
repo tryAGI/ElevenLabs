@@ -125,8 +125,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.AudioNativeProjectSettingsResponseModelStatusNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
-            typeof(global::ElevenLabs.JsonConverters.BatchCallStatusJsonConverter),
-            typeof(global::ElevenLabs.JsonConverters.BatchCallStatusNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccessJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccessNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.PronunciationDictionaryAliasRuleRequestModelTypeJsonConverter),

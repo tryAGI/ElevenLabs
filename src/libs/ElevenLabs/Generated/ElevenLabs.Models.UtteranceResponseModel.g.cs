@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class UtteranceResponseModel
     {
         /// <summary>
-        /// 
+        /// The start time of the utterance in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double Start { get; set; }
 
         /// <summary>
-        /// 
+        /// The end time of the utterance in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="UtteranceResponseModel" /> class.
         /// </summary>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
+        /// <param name="start">
+        /// The start time of the utterance in seconds.
+        /// </param>
+        /// <param name="end">
+        /// The end time of the utterance in seconds.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -3681,275 +3681,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       deprecated: true
-  /v1/dubbing:
-    post:
-      tags:
-        - dubbing
-      summary: Dub A Video Or An Audio File
-      description: Dubs a provided audio or video file into given language.
-      operationId: Dub_a_video_or_an_audio_file_v1_dubbing_post
-      parameters:
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Body_Dub_a_video_or_an_audio_file_v1_dubbing_post'
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DoDubbingResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: dubbing
-      x-fern-sdk-method-name: dub_a_video_or_an_audio_file
-  '/v1/dubbing/{dubbing_id}':
-    get:
-      tags:
-        - dubbing
-      summary: Get Dubbing
-      description: 'Returns metadata about a dubbing project, including whether it''s still in progress or not'
-      operationId: Get_dubbing_v1_dubbing__dubbing_id__get
-      parameters:
-        - name: dubbing_id
-          in: path
-          description: ID of the dubbing project.
-          required: true
-          schema:
-            title: Dubbing Id
-            type: string
-            description: ID of the dubbing project.
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DubbingMetadataResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: dubbing
-      x-fern-sdk-method-name: get_dubbing_project_metadata
-    delete:
-      tags:
-        - dubbing
-      summary: Delete Dubbing
-      description: Deletes a dubbing project.
-      operationId: Delete_dubbing_v1_dubbing__dubbing_id__delete
-      parameters:
-        - name: dubbing_id
-          in: path
-          description: ID of the dubbing project.
-          required: true
-          schema:
-            title: Dubbing Id
-            type: string
-            description: ID of the dubbing project.
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DeleteDubbingResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: dubbing
-      x-fern-sdk-method-name: delete_dubbing_project
-  '/v1/dubbing/{dubbing_id}/audio/{language_code}':
-    get:
-      tags:
-        - dubbing
-      summary: Get Dubbed File
-      description: Returns dubbed file as a streamed file. Videos will be returned in MP4 format and audio only dubs will be returned in MP3.
-      operationId: Get_dubbed_file_v1_dubbing__dubbing_id__audio__language_code__get
-      parameters:
-        - name: dubbing_id
-          in: path
-          description: ID of the dubbing project.
-          required: true
-          schema:
-            title: Dubbing Id
-            type: string
-            description: ID of the dubbing project.
-        - name: language_code
-          in: path
-          description: ID of the language.
-          required: true
-          schema:
-            title: Language Code
-            type: string
-            description: ID of the language.
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: The dubbed audio or video file
-          content:
-            audio/mpeg:
-              schema:
-                type: string
-                format: binary
-            video/mp4:
-              schema:
-                type: string
-                format: binary
-        '403':
-          description: Permission denied
-          content:
-            application/json:
-              example:
-                error: permission_denied
-                message: User does not have required permissions
-        '404':
-          description: Dubbing not found
-          content:
-            application/json:
-              example:
-                error: dubbing_not_found
-                message: 'There is no dubbing for language {language_code}.'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-        '425':
-          description: Dubbing not ready
-          content:
-            application/json:
-              example:
-                error: dubbing_not_dubbed
-                message: Dubbing has not finished yet.
-      x-fern-sdk-group-name: dubbing
-      x-fern-sdk-method-name: get_dubbed_file
-  '/v1/dubbing/{dubbing_id}/transcript/{language_code}':
-    get:
-      tags:
-        - dubbing
-      summary: Get Dubbed Transcript
-      description: Returns transcript for the dub as an SRT or WEBVTT file.
-      operationId: Get_dubbed_transcript_v1_dubbing__dubbing_id__transcript__language_code__get
-      parameters:
-        - name: dubbing_id
-          in: path
-          description: ID of the dubbing project.
-          required: true
-          schema:
-            title: Dubbing Id
-            type: string
-            description: ID of the dubbing project.
-        - name: language_code
-          in: path
-          description: ID of the language.
-          required: true
-          schema:
-            title: Language Code
-            type: string
-            description: ID of the language.
-        - name: format_type
-          in: query
-          description: 'Format to use for the subtitle file, either ''srt'' or ''webvtt'''
-          schema:
-            title: Format Type
-            enum:
-              - srt
-              - webvtt
-            type: string
-            description: 'Format to use for the subtitle file, either ''srt'' or ''webvtt'''
-            default: srt
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                type: string
-              example: "1\n00:00:01,000 --> 00:00:04,000\nHello, this is the first subtitle line\n\n2\n00:00:05,000 --> 00:00:07,000\nAnd here's the second subtitle line"
-            text/plain:
-              schema:
-                type: string
-        '403':
-          description: Anonymous users cannot use this function
-          content:
-            application/json:
-              example:
-                error: anonymous_not_allowed
-                message: Anonymous users cannot use this function
-        '404':
-          description: Dubbing or transcript not found
-          content:
-            application/json:
-              example:
-                error: transcript_not_found
-                message: No transcript was found for the dub.
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-        '425':
-          description: Dubbing not ready
-          content:
-            application/json:
-              example:
-                error: dubbing_not_dubbed
-                message: Dubbing has not finished yet.
-      x-fern-sdk-group-name: dubbing
-      x-fern-sdk-method-name: get_transcript_for_dub
   '/v1/dubbing/resource/{dubbing_id}':
     get:
       tags:
@@ -4401,6 +4132,272 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: render_dub
+  /v1/dubbing:
+    post:
+      tags:
+        - dubbing
+      summary: Dub A Video Or An Audio File
+      description: Dubs a provided audio or video file into given language.
+      operationId: Dub_a_video_or_an_audio_file_v1_dubbing_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Dub_a_video_or_an_audio_file_v1_dubbing_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DoDubbingResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: dub_a_video_or_an_audio_file
+  '/v1/dubbing/{dubbing_id}':
+    get:
+      tags:
+        - dubbing
+      summary: Get Dubbing
+      description: 'Returns metadata about a dubbing project, including whether it''s still in progress or not'
+      operationId: Get_dubbing_v1_dubbing__dubbing_id__get
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DubbingMetadataResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: get_dubbing_project_metadata
+    delete:
+      tags:
+        - dubbing
+      summary: Delete Dubbing
+      description: Deletes a dubbing project.
+      operationId: Delete_dubbing_v1_dubbing__dubbing_id__delete
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteDubbingResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: delete_dubbing_project
+  '/v1/dubbing/{dubbing_id}/audio/{language_code}':
+    get:
+      tags:
+        - dubbing
+      summary: Get Dubbed File
+      description: Returns dubbed file as a streamed file. Videos will be returned in MP4 format and audio only dubs will be returned in MP3.
+      operationId: Get_dubbed_file_v1_dubbing__dubbing_id__audio__language_code__get
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: language_code
+          in: path
+          description: ID of the language.
+          required: true
+          schema:
+            title: Language Code
+            type: string
+            description: ID of the language.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: The dubbed audio or video file
+          content:
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+        '403':
+          description: Permission denied
+          content:
+            application/json:
+              example:
+                error: permission_denied
+                message: User does not have required permissions
+        '404':
+          description: Dubbing not found
+          content:
+            application/json:
+              example:
+                error: dubbing_not_found
+                message: 'There is no dubbing for language {language_code}.'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '425':
+          description: Dubbing not ready
+          content:
+            application/json:
+              example:
+                error: dubbing_not_dubbed
+                message: Dubbing has not finished yet.
+      x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: get_dubbed_file
+  '/v1/dubbing/{dubbing_id}/transcript/{language_code}':
+    get:
+      tags:
+        - dubbing
+      summary: Get Dubbed Transcript
+      description: Returns transcript for the dub as an SRT or WEBVTT file.
+      operationId: Get_dubbed_transcript_v1_dubbing__dubbing_id__transcript__language_code__get
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: language_code
+          in: path
+          description: ID of the language.
+          required: true
+          schema:
+            title: Language Code
+            type: string
+            description: ID of the language.
+        - name: format_type
+          in: query
+          description: 'Format to use for the subtitle file, either ''srt'' or ''webvtt'''
+          schema:
+            title: Format Type
+            enum:
+              - srt
+              - webvtt
+            type: string
+            description: 'Format to use for the subtitle file, either ''srt'' or ''webvtt'''
+            default: srt
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "1\n00:00:01,000 --> 00:00:04,000\nHello, this is the first subtitle line\n\n2\n00:00:05,000 --> 00:00:07,000\nAnd here's the second subtitle line"
+        '403':
+          description: Anonymous users cannot use this function
+          content:
+            application/json:
+              example:
+                error: anonymous_not_allowed
+                message: Anonymous users cannot use this function
+        '404':
+          description: Dubbing or transcript not found
+          content:
+            application/json:
+              example:
+                error: transcript_not_found
+                message: No transcript was found for the dub.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '425':
+          description: Dubbing not ready
+          content:
+            application/json:
+              example:
+                error: dubbing_not_dubbed
+                message: Dubbing has not finished yet.
+      x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: get_transcript_for_dub
   /v1/models:
     get:
       tags:
@@ -7312,6 +7309,727 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: delete_secret
+  /v1/voices/pvc:
+    post:
+      tags:
+        - pvc-voices
+      summary: Create Pvc Voice
+      description: Creates a new PVC voice with metadata but no samples
+      operationId: Create_PVC_voice_v1_voices_pvc_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Create_PVC_voice_v1_voices_pvc_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddVoiceResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+      x-fern-sdk-method-name: create
+  '/v1/voices/pvc/{voice_id}':
+    post:
+      tags:
+        - pvc-voices
+      summary: Edit Pvc Voice
+      description: Edit PVC voice metadata
+      operationId: Edit_PVC_voice_v1_voices_pvc__voice_id__post
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Edit_PVC_voice_v1_voices_pvc__voice_id__post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddVoiceResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+      x-fern-sdk-method-name: update
+  '/v1/voices/pvc/{voice_id}/samples':
+    post:
+      tags:
+        - pvc-voices
+      summary: Add Samples To Pvc Voice
+      description: Add audio samples to a PVC voice
+      operationId: Add_samples_to_PVC_voice_v1_voices_pvc__voice_id__samples_post
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Add_samples_to_PVC_voice_v1_voices_pvc__voice_id__samples_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Add Samples To Pvc Voice V1 Voices Pvc  Voice Id  Samples Post
+                type: array
+                items:
+                  $ref: '#/components/schemas/SampleResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - samples
+      x-fern-sdk-method-name: create
+  '/v1/voices/pvc/{voice_id}/samples/{sample_id}':
+    post:
+      tags:
+        - pvc-voices
+      summary: Update Pvc Voice Sample
+      description: 'Update a PVC voice sample - apply noise removal, or select speaker.'
+      operationId: Update_PVC_voice_sample_v1_voices_pvc__voice_id__samples__sample_id__post
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: sample_id
+          in: path
+          description: Sample ID to be used
+          required: true
+          schema:
+            title: Sample Id
+            type: string
+            description: Sample ID to be used
+            example: VW7YKqPnjY4h39yTbx2L
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Update_PVC_voice_sample_v1_voices_pvc__voice_id__samples__sample_id__post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddVoiceResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - samples
+      x-fern-sdk-method-name: update
+    delete:
+      tags:
+        - pvc-voices
+      summary: Delete Pvc Voice Sample
+      description: Delete a sample from a PVC voice.
+      operationId: Delete_PVC_voice_sample_v1_voices_pvc__voice_id__samples__sample_id__delete
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: sample_id
+          in: path
+          description: Sample ID to be used
+          required: true
+          schema:
+            title: Sample Id
+            type: string
+            description: Sample ID to be used
+            example: VW7YKqPnjY4h39yTbx2L
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteVoiceSampleResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - samples
+      x-fern-sdk-method-name: delete
+  '/v1/voices/pvc/{voice_id}/samples/{sample_id}/audio':
+    get:
+      tags:
+        - pvc-voices
+      summary: Retrieve Voice Sample Audio
+      description: Retrieve the first 30 seconds of voice sample audio with or without noise removal.
+      operationId: Retrieve_voice_sample_audio_v1_voices_pvc__voice_id__samples__sample_id__audio_get
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: sample_id
+          in: path
+          description: Sample ID to be used
+          required: true
+          schema:
+            title: Sample Id
+            type: string
+            description: Sample ID to be used
+            example: VW7YKqPnjY4h39yTbx2L
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Retrieve_voice_sample_audio_v1_voices_pvc__voice_id__samples__sample_id__audio_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoiceSamplePreviewResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - samples
+        - audio
+      x-fern-sdk-method-name: get
+  '/v1/voices/pvc/{voice_id}/samples/{sample_id}/waveform':
+    get:
+      tags:
+        - pvc-voices
+      summary: Retrieve Voice Sample Visual Waveform
+      description: Retrieve the visual waveform of a voice sample.
+      operationId: Retrieve_voice_sample_visual_waveform_v1_voices_pvc__voice_id__samples__sample_id__waveform_get
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: sample_id
+          in: path
+          description: Sample ID to be used
+          required: true
+          schema:
+            title: Sample Id
+            type: string
+            description: Sample ID to be used
+            example: VW7YKqPnjY4h39yTbx2L
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoiceSampleVisualWaveformResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - samples
+        - waveform
+      x-fern-sdk-method-name: get
+  '/v1/voices/pvc/{voice_id}/samples/{sample_id}/speakers':
+    get:
+      tags:
+        - pvc-voices
+      summary: Retrieve Speaker Separation Status
+      description: Retrieve the status of the speaker separation process and the list of detected speakers if complete.
+      operationId: Retrieve_speaker_separation_status_v1_voices_pvc__voice_id__samples__sample_id__speakers_get
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: sample_id
+          in: path
+          description: Sample ID to be used
+          required: true
+          schema:
+            title: Sample Id
+            type: string
+            description: Sample ID to be used
+            example: VW7YKqPnjY4h39yTbx2L
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeakerSeparationResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - samples
+        - speakers
+      x-fern-sdk-method-name: get
+  '/v1/voices/pvc/{voice_id}/samples/{sample_id}/separate-speakers':
+    post:
+      tags:
+        - pvc-voices
+      summary: Start Speaker Separation
+      description: Start speaker separation process for a sample
+      operationId: Start_speaker_separation_v1_voices_pvc__voice_id__samples__sample_id__separate_speakers_post
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: sample_id
+          in: path
+          description: Sample ID to be used
+          required: true
+          schema:
+            title: Sample Id
+            type: string
+            description: Sample ID to be used
+            example: VW7YKqPnjY4h39yTbx2L
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeakerSeparationResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - samples
+        - speakers
+      x-fern-sdk-method-name: separate
+  '/v1/voices/pvc/{voice_id}/samples/{sample_id}/speakers/{speaker_id}/audio':
+    get:
+      tags:
+        - pvc-voices
+      summary: Retrieve Separated Speaker Audio
+      description: Retrieve the separated audio for a specific speaker.
+      operationId: Retrieve_separated_speaker_audio_v1_voices_pvc__voice_id__samples__sample_id__speakers__speaker_id__audio_get
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: sample_id
+          in: path
+          description: Sample ID to be used
+          required: true
+          schema:
+            title: Sample Id
+            type: string
+            description: Sample ID to be used
+            example: VW7YKqPnjY4h39yTbx2L
+        - name: speaker_id
+          in: path
+          description: 'Speaker ID to be used, you can use GET https://api.elevenlabs.io/v1/voices/{voice_id}/samples/{sample_id}/speakers to list all the available speakers for a sample.'
+          required: true
+          schema:
+            title: Speaker Id
+            type: string
+            description: 'Speaker ID to be used, you can use GET https://api.elevenlabs.io/v1/voices/{voice_id}/samples/{sample_id}/speakers to list all the available speakers for a sample.'
+            example: VW7YKqPnjY4h39yTbx2L
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeakerAudioResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - samples
+        - speakers
+        - audio
+      x-fern-sdk-method-name: get
+  '/v1/voices/pvc/{voice_id}/captcha':
+    get:
+      tags:
+        - pvc-voices
+      summary: Get Pvc Voice Captcha
+      description: Get captcha for PVC voice verification.
+      operationId: Get_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_get
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - verification
+        - captcha
+      x-fern-sdk-method-name: get
+    post:
+      tags:
+        - pvc-voices
+      summary: Verify Pvc Voice Captcha
+      description: Submit captcha verification for PVC voice.
+      operationId: Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyPVCVoiceCaptchaResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - verification
+        - captcha
+      x-fern-sdk-method-name: verify
+  '/v1/voices/pvc/{voice_id}/train':
+    post:
+      tags:
+        - pvc-voices
+      summary: Run Pvc Training
+      description: Start PVC training process for a voice.
+      operationId: Run_PVC_training_v1_voices_pvc__voice_id__train_post
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Run_PVC_training_v1_voices_pvc__voice_id__train_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartPVCVoiceTrainingResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+      x-fern-sdk-method-name: train
+  '/v1/voices/pvc/{voice_id}/verification':
+    post:
+      tags:
+        - pvc-voices
+      summary: Request Manual Verification
+      description: Request manual verification for a PVC voice.
+      operationId: Request_manual_verification_v1_voices_pvc__voice_id__verification_post
+      parameters:
+        - name: voice_id
+          in: path
+          description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+            description: 'Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.'
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_Request_manual_verification_v1_voices_pvc__voice_id__verification_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestPVCManualVerificationResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - voices
+        - pvc
+        - verification
+      x-fern-sdk-method-name: request
+  /docs:
+    get:
+      summary: Redirect To Mintlify
+      operationId: redirect_to_mintlify_docs_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
 components:
   schemas:
     ASRConversationalConfig:
@@ -8028,63 +8746,6 @@ components:
         - safety
         - manual
       type: string
-    BatchCallResponse:
-      title: BatchCallResponse
-      required:
-        - batch_id
-        - phone_number_id
-        - name
-        - agent_id
-        - created_at_unix
-        - scheduled_time_unix
-        - total_calls_dispatched
-        - total_calls_scheduled
-        - last_updated_at_unix
-        - status
-        - agent_name
-      type: object
-      properties:
-        batch_id:
-          title: Batch Id
-          type: string
-        phone_number_id:
-          title: Phone Number Id
-          type: string
-        name:
-          title: Name
-          type: string
-        agent_id:
-          title: Agent Id
-          type: string
-        created_at_unix:
-          title: Created At Unix
-          type: integer
-        scheduled_time_unix:
-          title: Scheduled Time Unix
-          type: integer
-        total_calls_dispatched:
-          title: Total Calls Dispatched
-          type: integer
-        total_calls_scheduled:
-          title: Total Calls Scheduled
-          type: integer
-        last_updated_at_unix:
-          title: Last Updated At Unix
-          type: integer
-        status:
-          $ref: '#/components/schemas/BatchCallStatus'
-        agent_name:
-          title: Agent Name
-          type: string
-    BatchCallStatus:
-      title: BatchCallStatus
-      enum:
-        - pending
-        - in_progress
-        - completed
-        - failed
-        - cancelled
-      type: string
     Body_Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post:
       title: Body_Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post
       required:
@@ -8395,6 +9056,25 @@ components:
               - $ref: '#/components/schemas/PronunciationDictionaryPhonemeRuleRequestModel'
           description: "List of pronunciation rules. Rule can be either:\n    an alias rule: {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b', }\n    or a phoneme rule: {'string_to_replace': 'a', 'type': 'phoneme', 'phoneme': 'b', 'alphabet': 'ipa' }"
           example: "\n    [\n        {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b' },\n        {'string_to_replace': 'c', 'type': 'phoneme', 'phoneme': 'd', 'alphabet': 'ipa' }\n    ]"
+    Body_Add_samples_to_PVC_voice_v1_voices_pvc__voice_id__samples_post:
+      title: Body_Add_samples_to_PVC_voice_v1_voices_pvc__voice_id__samples_post
+      required:
+        - files
+      type: object
+      properties:
+        files:
+          title: Files
+          type: array
+          items:
+            type: string
+            format: binary
+          description: Audio files used to create the voice.
+        remove_background_noise:
+          title: Remove Background Noise
+          type: boolean
+          description: 'If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.'
+          default: false
+          example: true
     Body_Add_shared_voice_v1_voices_add__public_user_id___voice_id__post:
       title: Body_Add_shared_voice_v1_voices_add__public_user_id___voice_id__post
       required:
@@ -8554,6 +9234,38 @@ components:
           description: A name to make the agent easier to find
           nullable: true
           example: My agent
+    Body_Create_PVC_voice_v1_voices_pvc_post:
+      title: Body_Create_PVC_voice_v1_voices_pvc_post
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          maxLength: 100
+          type: string
+          description: The name that identifies this voice. This will be displayed in the dropdown of the website.
+          example: John Smith
+        language:
+          title: Language
+          type: string
+          description: Language used in the samples.
+          example: en
+        description:
+          title: Description
+          maxLength: 500
+          type: string
+          description: Description to use for the created voice.
+          nullable: true
+          example: An old American male voice with a slight hoarseness in his throat. Perfect for news.
+        labels:
+          title: Labels
+          type: object
+          additionalProperties:
+            type: string
+          description: Serialized labels dictionary for the voice.
+          nullable: true
     Body_Create_Pronunciation_Dictionaries_v1_studio_projects__project_id__pronunciation_dictionaries_post:
       title: Body_Create_Pronunciation_Dictionaries_v1_studio_projects__project_id__pronunciation_dictionaries_post
       required:
@@ -8905,6 +9617,11 @@ components:
           title: Text
           type: string
           description: 'The text to align with the audio. The input text can be in any format, however diarization is not supported at this time.'
+        enabled_spooled_file:
+          title: Enabled Spooled File
+          type: boolean
+          description: 'If true, the file will be streamed to the server and processed in chunks. This is useful for large files that cannot be loaded into memory. The default is false.'
+          default: false
     Body_Create_podcast_v1_projects_podcast_create_post:
       title: Body_Create_podcast_v1_projects_podcast_create_post
       required:
@@ -9317,6 +10034,35 @@ components:
             type: string
           description: Dub only these languages for each segment.
           nullable: true
+    Body_Edit_PVC_voice_v1_voices_pvc__voice_id__post:
+      title: Body_Edit_PVC_voice_v1_voices_pvc__voice_id__post
+      type: object
+      properties:
+        name:
+          title: Name
+          maxLength: 100
+          type: string
+          description: The name that identifies this voice. This will be displayed in the dropdown of the website.
+          example: John Smith
+        language:
+          title: Language
+          type: string
+          description: Language used in the samples.
+          example: en
+        description:
+          title: Description
+          maxLength: 500
+          type: string
+          description: Description to use for the created voice.
+          nullable: true
+          example: An old American male voice with a slight hoarseness in his throat. Perfect for news.
+        labels:
+          title: Labels
+          type: object
+          additionalProperties:
+            type: string
+          description: Serialized labels dictionary for the voice.
+          nullable: true
     Body_Edit_basic_project_info_v1_projects__project_id__post:
       title: Body_Edit_basic_project_info_v1_projects__project_id__post
       required:
@@ -9432,22 +10178,6 @@ components:
           type: string
           description: Serialized labels dictionary for the voice.
           nullable: true
-    Body_Forced_alignment_v1_forced_alignment_post:
-      title: Body_Forced_alignment_v1_forced_alignment_post
-      required:
-        - file
-        - text
-      type: object
-      properties:
-        file:
-          title: File
-          type: string
-          description: The file to align. All major audio and video formats are supported. The file size must be less than 1GB.
-          format: binary
-        text:
-          title: Text
-          type: string
-          description: The text to align with the audio or video.
     Body_Generate_a_random_voice_v1_voice_generation_generate_voice_post:
       title: Body_Generate_a_random_voice_v1_voice_generation_generate_voice_post
       required:
@@ -9626,6 +10356,44 @@ components:
       properties:
         render_type:
           $ref: '#/components/schemas/RenderType'
+    Body_Request_manual_verification_v1_voices_pvc__voice_id__verification_post:
+      title: Body_Request_manual_verification_v1_voices_pvc__voice_id__verification_post
+      required:
+        - files
+      type: object
+      properties:
+        files:
+          title: Files
+          type: array
+          items:
+            type: string
+            format: binary
+          description: Verification documents
+        extra_text:
+          title: Extra Text
+          type: string
+          description: Extra text to be used in the manual verification process.
+          nullable: true
+    Body_Retrieve_voice_sample_audio_v1_voices_pvc__voice_id__samples__sample_id__audio_get:
+      title: Body_Retrieve_voice_sample_audio_v1_voices_pvc__voice_id__samples__sample_id__audio_get
+      type: object
+      properties:
+        remove_background_noise:
+          title: Remove Background Noise
+          type: boolean
+          description: 'If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.'
+          default: false
+          example: true
+    Body_Run_PVC_training_v1_voices_pvc__voice_id__train_post:
+      title: Body_Run_PVC_training_v1_voices_pvc__voice_id__train_post
+      type: object
+      properties:
+        model_id:
+          title: Model Id
+          type: string
+          description: The model ID to use for the conversion.
+          nullable: true
+          example: eleven_turbo_v2
     Body_Send_Conversation_Feedback_v1_convai_conversations__conversation_id__feedback_post:
       title: Body_Send_Conversation_Feedback_v1_convai_conversations__conversation_id__feedback_post
       required:
@@ -9874,35 +10642,6 @@ components:
           type: boolean
           description: Whether to convert the audio to mpeg format.
           default: false
-    Body_Submit_a_batch_call_request__v1_convai_batch_calling_submit_post:
-      title: Body_Submit_a_batch_call_request__v1_convai_batch_calling_submit_post
-      required:
-        - call_name
-        - agent_id
-        - agent_phone_number_id
-        - scheduled_time_unix
-        - recipients
-      type: object
-      properties:
-        call_name:
-          title: Call Name
-          type: string
-        agent_id:
-          title: Agent Id
-          type: string
-        agent_phone_number_id:
-          title: Agent Phone Number Id
-          type: string
-        scheduled_time_unix:
-          title: Scheduled Time Unix
-          type: integer
-          nullable: true
-        recipients:
-          title: Recipients
-          maxItems: 10000
-          type: array
-          items:
-            $ref: '#/components/schemas/OutboundCallRecipient'
     Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post:
       title: Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post
       required:
@@ -10339,6 +11078,36 @@ components:
           type: string
           description: The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
           nullable: true
+    Body_Update_PVC_voice_sample_v1_voices_pvc__voice_id__samples__sample_id__post:
+      title: Body_Update_PVC_voice_sample_v1_voices_pvc__voice_id__samples__sample_id__post
+      type: object
+      properties:
+        remove_background_noise:
+          title: Remove Background Noise
+          type: boolean
+          description: 'If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.'
+          default: false
+          example: true
+        selected_speaker_ids:
+          title: Selected Speaker Ids
+          type: array
+          items:
+            type: string
+          description: Speaker IDs to be used for PVC training. Make sure you send all the speaker IDs you want to use for PVC training in one request because the last request will override the previous ones.
+          nullable: true
+          example: speaker_0
+        trim_start_time:
+          title: Trim Start Time
+          type: integer
+          description: The start time of the audio to be used for PVC training. Time should be in milliseconds
+          nullable: true
+          example: 0
+        trim_end_time:
+          title: Trim End Time
+          type: integer
+          description: The end time of the audio to be used for PVC training. Time should be in milliseconds
+          nullable: true
+          example: 10
     Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post:
       title: Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post
       required:
@@ -10481,6 +11250,17 @@ components:
           type: string
           description: Role dictating permissions in the workspace.
           nullable: true
+    Body_Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post:
+      title: Body_Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post
+      required:
+        - recording
+      type: object
+      properties:
+        recording:
+          title: Recording
+          type: string
+          description: Audio recording of the user
+          format: binary
     BreakdownTypes:
       title: BreakdownTypes
       enum:
@@ -11946,7 +12726,19 @@ components:
         status:
           title: Status
           type: string
-          description: 'The status of the voice deletion. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+          description: 'The status of the voice deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
+    DeleteVoiceSampleResponseModel:
+      title: DeleteVoiceSampleResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the voice sample deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
     DeleteWorkspaceGroupMemberResponseModel:
@@ -12972,6 +13764,9 @@ components:
         - status
         - transcript
         - metadata
+        - has_audio
+        - has_user_audio
+        - has_response_audio
       type: object
       properties:
         agent_id:
@@ -12999,6 +13794,15 @@ components:
           $ref: '#/components/schemas/ConversationHistoryAnalysisCommonModel'
         conversation_initiation_client_data:
           $ref: '#/components/schemas/ConversationInitiationClientDataRequest-Output'
+        has_audio:
+          title: Has Audio
+          type: boolean
+        has_user_audio:
+          title: Has User Audio
+          type: boolean
+        has_response_audio:
+          title: Has Response Audio
+          type: boolean
     GetConversationsPageResponseModel:
       title: GetConversationsPageResponseModel
       required:
@@ -14549,17 +15353,6 @@ components:
         color_1: '#2792dc'
         color_2: '#9ce6e6'
         type: orb
-    OutboundCallRecipient:
-      title: OutboundCallRecipient
-      required:
-        - phone_number
-      type: object
-      properties:
-        phone_number:
-          title: Phone Number
-          type: string
-        conversation_initiation_client_data:
-          $ref: '#/components/schemas/ConversationInitiationClientDataRequest-Input'
     PatchConvAISettingsRequest:
       title: PatchConvAISettingsRequest
       type: object
@@ -15606,7 +16399,7 @@ components:
           default: prompt
         conversation_goal_prompt:
           title: Conversation Goal Prompt
-          maxLength: 800
+          maxLength: 1000
           type: string
           description: The prompt that the agent should use to evaluate the conversation
         use_knowledge_base:
@@ -15967,6 +16760,7 @@ components:
         language:
           title: Language
           type: string
+          nullable: true
         type:
           $ref: '#/components/schemas/RenderType'
         media_ref:
@@ -15982,6 +16776,18 @@ components:
         - tracks_zip
         - clips_zip
       type: string
+    RequestPVCManualVerificationResponseModel:
+      title: RequestPVCManualVerificationResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the request PVC manual verification request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
     ResourceAccessInfo:
       title: ResourceAccessInfo
       required:
@@ -16348,6 +17154,30 @@ components:
             - key
           type: string
           description: 'The type of the principal: user, group, or workspace api key.'
+    SpeakerAudioResponseModel:
+      title: SpeakerAudioResponseModel
+      required:
+        - audio_base_64
+        - media_type
+        - duration_secs
+      type: object
+      properties:
+        audio_base_64:
+          title: Audio Base 64
+          type: string
+          description: The base64 encoded audio.
+        media_type:
+          title: Media Type
+          type: string
+          description: The media type of the audio.
+        duration_secs:
+          title: Duration Secs
+          type: number
+          description: The duration of the audio in seconds.
+      example:
+        audio_base_64: audio_base_64
+        duration_secs: 5
+        media_type: audio/mpeg
     SpeakerResponseModel:
       title: SpeakerResponseModel
       required:
@@ -16358,15 +17188,21 @@ components:
         speaker_id:
           title: Speaker Id
           type: string
+          description: The ID of the speaker.
         duration_secs:
           title: Duration Secs
           type: number
+          description: The duration of the speaker segment in seconds.
         utterances:
           title: Utterances
           type: array
           items:
             $ref: '#/components/schemas/UtteranceResponseModel'
+          description: The utterances of the speaker.
           nullable: true
+      example:
+        duration_secs: 5
+        speaker_id: DCwhRBWXzGAHq8TQ4Fs18
     SpeakerSegment:
       title: SpeakerSegment
       required:
@@ -16405,9 +17241,11 @@ components:
         voice_id:
           title: Voice Id
           type: string
+          description: The ID of the voice.
         sample_id:
           title: Sample Id
           type: string
+          description: The ID of the sample.
         status:
           title: Status
           enum:
@@ -16416,18 +17254,25 @@ components:
             - completed
             - failed
           type: string
+          description: The status of the speaker separation.
         speakers:
           title: Speakers
           type: object
           additionalProperties:
             $ref: '#/components/schemas/SpeakerResponseModel'
+          description: The speakers of the sample.
           nullable: true
         selected_speaker_ids:
           title: Selected Speaker Ids
           type: array
           items:
             type: string
+          description: The IDs of the selected speakers.
           nullable: true
+      example:
+        sample_id: DCwhRBWXzGAHq8TQ4Fs18
+        status: not_started
+        voice_id: DCwhRBWXzGAHq8TQ4Fs18
     SpeakerTrack:
       title: SpeakerTrack
       required:
@@ -16541,9 +17386,12 @@ components:
           enum:
             - TTS
             - STS
-            - STT
+            - Projects
+            - AN
+            - Dubbing
+            - PlayAPI
           type: string
-          description: 'The source of the history item. Either TTS (text to speech), STS (speech to text) or STT (speech to text).'
+          description: 'The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing or PlayAPI.'
           nullable: true
         alignments:
           $ref: '#/components/schemas/HistoryAlignmentsResponseModel'
@@ -16748,6 +17596,18 @@ components:
           type: integer
           default: 90
           nullable: true
+    StartPVCVoiceTrainingResponseModel:
+      title: StartPVCVoiceTrainingResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the start PVC voice training request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
     StreamingAudioChunkWithTimestampsResponseModel:
       title: StreamingAudioChunkWithTimestampsResponseModel
       required:
@@ -17578,9 +18438,14 @@ components:
         start:
           title: Start
           type: number
+          description: The start time of the utterance in seconds.
         end:
           title: End
           type: number
+          description: The end time of the utterance in seconds.
+      example:
+        end: 1
+        start: 0
     ValidationError:
       title: ValidationError
       required:
@@ -17680,6 +18545,18 @@ components:
         accent: American
         language: en
         model_id: eleven_turbo_v2_5
+    VerifyPVCVoiceCaptchaResponseModel:
+      title: VerifyPVCVoiceCaptchaResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the verify PVC captcha request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
     VoiceGenerationParameterOptionResponseModel:
       title: VoiceGenerationParameterOptionResponseModel
       required:
@@ -18053,6 +18930,67 @@ components:
               text: 'Hello, how are you?'
           verification_attempts_count: 0
           verification_failures: [ ]
+    VoiceSamplePreviewResponseModel:
+      title: VoiceSamplePreviewResponseModel
+      required:
+        - audio_base_64
+        - voice_id
+        - sample_id
+        - media_type
+      type: object
+      properties:
+        audio_base_64:
+          title: Audio Base 64
+          type: string
+          description: The base64 encoded audio.
+        voice_id:
+          title: Voice Id
+          type: string
+          description: The ID of the voice.
+        sample_id:
+          title: Sample Id
+          type: string
+          description: The ID of the sample.
+        media_type:
+          title: Media Type
+          type: string
+          description: The media type of the audio.
+        duration_secs:
+          title: Duration Secs
+          type: number
+          description: The duration of the audio in seconds.
+          nullable: true
+      example:
+        audio_base_64: audio_base_64
+        duration_secs: 5
+        media_type: audio/mpeg
+        sample_id: DCwhRBWXzGAHq8TQ4Fs18
+        voice_id: DCwhRBWXzGAHq8TQ4Fs18
+    VoiceSampleVisualWaveformResponseModel:
+      title: VoiceSampleVisualWaveformResponseModel
+      required:
+        - sample_id
+        - visual_waveform
+      type: object
+      properties:
+        sample_id:
+          title: Sample Id
+          type: string
+          description: The ID of the sample.
+        visual_waveform:
+          title: Visual Waveform
+          type: array
+          items:
+            type: number
+          description: 'The visual waveform of the sample, represented as a list of floats.'
+      example:
+        sample_id: DCwhRBWXzGAHq8TQ4Fs18
+        visual_waveform:
+          - 0.1
+          - 0.2
+          - 0.3
+          - 0.4
+          - 0.5
     VoiceSettingsResponseModel:
       title: VoiceSettingsResponseModel
       type: object
@@ -18950,27 +19888,6 @@ components:
         - during
         - end
       type: string
-    WorkspaceBatchCallsResponse:
-      title: WorkspaceBatchCallsResponse
-      required:
-        - batch_calls
-      type: object
-      properties:
-        batch_calls:
-          title: Batch Calls
-          type: array
-          items:
-            $ref: '#/components/schemas/BatchCallResponse'
-        next_doc:
-          title: Next Doc
-          type: string
-          description: 'The next document, used to paginate through the batch calls'
-          nullable: true
-        has_more:
-          title: Has More
-          type: boolean
-          description: Whether there are more batch calls to paginate through
-          default: false
     WorkspaceGroupByNameResponseModel:
       title: WorkspaceGroupByNameResponseModel
       required:

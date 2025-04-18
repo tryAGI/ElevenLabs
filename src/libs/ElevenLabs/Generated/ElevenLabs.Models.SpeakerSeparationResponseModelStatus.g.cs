@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The status of the speaker separation.
     /// </summary>
     public enum SpeakerSeparationResponseModelStatus
     {

@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Language { get; set; }
+        public required string? Language { get; set; }
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace ElevenLabs
         public Render(
             string id,
             int version,
-            string language,
+            string? language,
             global::ElevenLabs.RenderType type,
             global::ElevenLabs.DubbingMediaReference mediaRef)
         {
