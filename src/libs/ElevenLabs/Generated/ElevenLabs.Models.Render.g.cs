@@ -45,6 +45,14 @@ namespace ElevenLabs
         public required global::ElevenLabs.DubbingMediaReference MediaRef { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RenderStatusJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.RenderStatus Status { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -58,6 +66,7 @@ namespace ElevenLabs
         /// <param name="language"></param>
         /// <param name="type"></param>
         /// <param name="mediaRef"></param>
+        /// <param name="status"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -66,13 +75,15 @@ namespace ElevenLabs
             int version,
             string? language,
             global::ElevenLabs.RenderType type,
-            global::ElevenLabs.DubbingMediaReference mediaRef)
+            global::ElevenLabs.DubbingMediaReference mediaRef,
+            global::ElevenLabs.RenderStatus status)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Version = version;
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.Type = type;
             this.MediaRef = mediaRef ?? throw new global::System.ArgumentNullException(nameof(mediaRef));
+            this.Status = status;
         }
 
         /// <summary>

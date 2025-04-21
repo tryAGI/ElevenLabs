@@ -331,8 +331,8 @@ namespace ElevenLabs
         /// Example: pcm_s16le_16
         /// </param>
         /// <param name="cloudStorageUrl">
-        /// The valid AWS S3 or Google Cloud Storage URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be a valid publicly accessible cloud storage URL. The file size must be less than 2GB. URL can be pre-signed.<br/>
-        /// Example: https://storage.googleapis.com/bucket-name/object-name
+        /// The valid AWS S3, Cloudflare R2 or Google Cloud Storage URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be a valid publicly accessible cloud storage URL. The file size must be less than 2GB. URL can be pre-signed.<br/>
+        /// Example: https://storage.googleapis.com/my-bucket/folder/audio.mp3
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

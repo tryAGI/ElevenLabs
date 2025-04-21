@@ -261,6 +261,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.DependentAvailableAgentIdentifierAccessLevelNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.DependentUnknownAgentIdentifierTypeJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.DependentUnknownAgentIdentifierTypeNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.RenderStatusJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.RenderStatusNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ExtendedSubscriptionResponseModelCurrencyJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ExtendedSubscriptionResponseModelCurrencyNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ExtendedSubscriptionResponseModelStatusJsonConverter),

@@ -27,6 +27,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gpt41,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt41Mini,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt41Nano,
+        /// <summary>
+        /// 
+        /// </summary>
         Gpt35Turbo,
         /// <summary>
         /// 
@@ -90,6 +102,9 @@ namespace ElevenLabs
                 LLM.Gpt4o => "gpt-4o",
                 LLM.Gpt4 => "gpt-4",
                 LLM.Gpt4Turbo => "gpt-4-turbo",
+                LLM.Gpt41 => "gpt-4.1",
+                LLM.Gpt41Mini => "gpt-4.1-mini",
+                LLM.Gpt41Nano => "gpt-4.1-nano",
                 LLM.Gpt35Turbo => "gpt-3.5-turbo",
                 LLM.Gemini15Pro => "gemini-1.5-pro",
                 LLM.Gemini15Flash => "gemini-1.5-flash",
@@ -116,6 +131,9 @@ namespace ElevenLabs
                 "gpt-4o" => LLM.Gpt4o,
                 "gpt-4" => LLM.Gpt4,
                 "gpt-4-turbo" => LLM.Gpt4Turbo,
+                "gpt-4.1" => LLM.Gpt41,
+                "gpt-4.1-mini" => LLM.Gpt41Mini,
+                "gpt-4.1-nano" => LLM.Gpt41Nano,
                 "gpt-3.5-turbo" => LLM.Gpt35Turbo,
                 "gemini-1.5-pro" => LLM.Gemini15Pro,
                 "gemini-1.5-flash" => LLM.Gemini15Flash,

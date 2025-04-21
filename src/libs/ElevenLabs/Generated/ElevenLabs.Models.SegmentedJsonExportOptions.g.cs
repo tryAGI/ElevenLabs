@@ -9,6 +9,18 @@ namespace ElevenLabs
     public sealed partial class SegmentedJsonExportOptions
     {
         /// <summary>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("include_speakers")]
+        public bool? IncludeSpeakers { get; set; }
+
+        /// <summary>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("include_timestamps")]
+        public bool? IncludeTimestamps { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]
@@ -42,6 +54,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="SegmentedJsonExportOptions" /> class.
         /// </summary>
+        /// <param name="includeSpeakers">
+        /// Default Value: true
+        /// </param>
+        /// <param name="includeTimestamps">
+        /// Default Value: true
+        /// </param>
         /// <param name="format"></param>
         /// <param name="segmentOnSilenceLongerThanS"></param>
         /// <param name="maxSegmentDurationS"></param>
@@ -50,11 +68,15 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SegmentedJsonExportOptions(
+            bool? includeSpeakers,
+            bool? includeTimestamps,
             global::ElevenLabs.SegmentedJsonExportOptionsFormat format,
             double? segmentOnSilenceLongerThanS,
             double? maxSegmentDurationS,
             int? maxSegmentChars)
         {
+            this.IncludeSpeakers = includeSpeakers;
+            this.IncludeTimestamps = includeTimestamps;
             this.Format = format;
             this.SegmentOnSilenceLongerThanS = segmentOnSilenceLongerThanS;
             this.MaxSegmentDurationS = maxSegmentDurationS;

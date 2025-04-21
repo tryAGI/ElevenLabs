@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class TurnConfig
     {
         /// <summary>
-        /// Maximum wait time for the user’s reply before re-engaging the user<br/>
+        /// Maximum wait time for the user's reply before re-engaging the user<br/>
         /// Default Value: 7
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("turn_timeout")]
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="TurnConfig" /> class.
         /// </summary>
         /// <param name="turnTimeout">
-        /// Maximum wait time for the user’s reply before re-engaging the user<br/>
+        /// Maximum wait time for the user's reply before re-engaging the user<br/>
         /// Default Value: 7
         /// </param>
         /// <param name="silenceEndCallTimeout">

@@ -5430,6 +5430,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - workspace
+      summary: Delete Member
+      description: Deletes a workspace member. This endpoint may only be called by workspace administrators.
+      operationId: Delete_member_v1_workspace_members_delete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Delete_member_v1_workspace_members_delete'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteWorkspaceMemberResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   '/v1/workspace/resources/{resource_id}':
     get:
       tags:
@@ -7759,7 +7784,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SpeakerSeparationResponseModel'
+                $ref: '#/components/schemas/StartSpeakerSeparationResponseModel'
         '422':
           description: Validation Error
           content:
@@ -9898,6 +9923,16 @@ components:
           title: Email
           type: string
           description: The email of the target workspace member.
+    Body_Delete_member_v1_workspace_members_delete:
+      title: Body_Delete_member_v1_workspace_members_delete
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          title: Email
+          type: string
+          description: Email of the target user.
     Body_Download_history_items_v1_history_download_post:
       title: Body_Download_history_items_v1_history_download_post
       required:
@@ -10603,9 +10638,9 @@ components:
         cloud_storage_url:
           title: Cloud Storage Url
           type: string
-          description: The valid AWS S3 or Google Cloud Storage URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be a valid publicly accessible cloud storage URL. The file size must be less than 2GB. URL can be pre-signed.
+          description: 'The valid AWS S3, Cloudflare R2 or Google Cloud Storage URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be a valid publicly accessible cloud storage URL. The file size must be less than 2GB. URL can be pre-signed.'
           nullable: true
-          example: https://storage.googleapis.com/bucket-name/object-name
+          example: https://storage.googleapis.com/my-bucket/folder/audio.mp3
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -11684,7 +11719,7 @@ components:
         - agent_response
         - agent_response_correction
         - client_tool_call
-        - internal_vad_score
+        - vad_score
         - internal_turn_probability
         - internal_tentative_agent_response
       type: string
@@ -12763,6 +12798,18 @@ components:
           title: Status
           type: string
           description: 'The status of the workspace invite deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
+    DeleteWorkspaceMemberResponseModel:
+      title: DeleteWorkspaceMemberResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the workspace member deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
     DependentAvailableAgentIdentifier:
@@ -14699,6 +14746,9 @@ components:
         - gpt-4o
         - gpt-4
         - gpt-4-turbo
+        - gpt-4.1
+        - gpt-4.1-mini
+        - gpt-4.1-nano
         - gpt-3.5-turbo
         - gemini-1.5-pro
         - gemini-1.5-flash
@@ -16399,7 +16449,7 @@ components:
           default: prompt
         conversation_goal_prompt:
           title: Conversation Goal Prompt
-          maxLength: 1000
+          maxLength: 2000
           type: string
           description: The prompt that the agent should use to evaluate the conversation
         use_knowledge_base:
@@ -16749,6 +16799,7 @@ components:
         - language
         - type
         - media_ref
+        - status
       type: object
       properties:
         id:
@@ -16765,6 +16816,13 @@ components:
           $ref: '#/components/schemas/RenderType'
         media_ref:
           $ref: '#/components/schemas/DubbingMediaReference'
+        status:
+          title: Status
+          enum:
+            - complete
+            - processing
+            - failed
+          type: string
     RenderType:
       title: RenderType
       enum:
@@ -17113,6 +17171,14 @@ components:
         - format
       type: object
       properties:
+        include_speakers:
+          title: Include Speakers
+          type: boolean
+          default: true
+        include_timestamps:
+          title: Include Timestamps
+          type: boolean
+          default: true
         format:
           title: Format
           enum:
@@ -17606,6 +17672,18 @@ components:
           title: Status
           type: string
           description: 'The status of the start PVC voice training request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
+      example:
+        status: ok
+    StartSpeakerSeparationResponseModel:
+      title: StartSpeakerSeparationResponseModel
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          description: 'The status of the start speaker seperation request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
     StreamingAudioChunkWithTimestampsResponseModel:
@@ -18151,7 +18229,7 @@ components:
         turn_timeout:
           title: Turn Timeout
           type: number
-          description: Maximum wait time for the user’s reply before re-engaging the user
+          description: Maximum wait time for the user's reply before re-engaging the user
           default: 7
         silence_end_call_timeout:
           title: Silence End Call Timeout
