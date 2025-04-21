@@ -3,65 +3,49 @@
 
 namespace ElevenLabs
 {
-    public partial class PvcVoicesClient
+    public partial class WorkspaceClient
     {
-        partial void PrepareCreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersArguments(
+        partial void PrepareDeleteWorkspaceMembersArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string voiceId,
-            ref string sampleId,
-            ref string? xiApiKey);
-        partial void PrepareCreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersRequest(
+            global::ElevenLabs.BodyDeleteMemberV1WorkspaceMembersDelete request);
+        partial void PrepareDeleteWorkspaceMembersRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string voiceId,
-            string sampleId,
-            string? xiApiKey);
-        partial void ProcessCreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersResponse(
+            global::ElevenLabs.BodyDeleteMemberV1WorkspaceMembersDelete request);
+        partial void ProcessDeleteWorkspaceMembersResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersResponseContent(
+        partial void ProcessDeleteWorkspaceMembersResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Start Speaker Separation<br/>
-        /// Start speaker separation process for a sample
+        /// Delete Member<br/>
+        /// Deletes a workspace member. This endpoint may only be called by workspace administrators.
         /// </summary>
-        /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
-        /// </param>
-        /// <param name="sampleId">
-        /// Sample ID to be used<br/>
-        /// Example: VW7YKqPnjY4h39yTbx2L
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
+        /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.StartSpeakerSeparationResponseModel> CreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersAsync(
-            string voiceId,
-            string sampleId,
-            string? xiApiKey = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteWorkspaceMemberResponseModel> DeleteWorkspaceMembersAsync(
+            global::ElevenLabs.BodyDeleteMemberV1WorkspaceMembersDelete request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersArguments(
+            PrepareDeleteWorkspaceMembersArguments(
                 httpClient: HttpClient,
-                voiceId: ref voiceId,
-                sampleId: ref sampleId,
-                xiApiKey: ref xiApiKey);
+                request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/v1/voices/pvc/{voiceId}/samples/{sampleId}/separate-speakers",
+                path: "/v1/workspace/members",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Post,
+                method: global::System.Net.Http.HttpMethod.Delete,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -83,22 +67,20 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                content: __httpRequestContentBody,
+                encoding: global::System.Text.Encoding.UTF8,
+                mediaType: "application/json");
+            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersRequest(
+            PrepareDeleteWorkspaceMembersRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                voiceId: voiceId,
-                sampleId: sampleId,
-                xiApiKey: xiApiKey);
+                request: request);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -108,7 +90,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersResponse(
+            ProcessDeleteWorkspaceMembersResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -152,7 +134,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersResponseContent(
+                ProcessDeleteWorkspaceMembersResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -177,7 +159,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.StartSpeakerSeparationResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.DeleteWorkspaceMemberResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -207,9 +189,32 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.StartSpeakerSeparationResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.DeleteWorkspaceMemberResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
+        }
+
+        /// <summary>
+        /// Delete Member<br/>
+        /// Deletes a workspace member. This endpoint may only be called by workspace administrators.
+        /// </summary>
+        /// <param name="email">
+        /// Email of the target user.
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteWorkspaceMemberResponseModel> DeleteWorkspaceMembersAsync(
+            string email,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::ElevenLabs.BodyDeleteMemberV1WorkspaceMembersDelete
+            {
+                Email = email,
+            };
+
+            return await DeleteWorkspaceMembersAsync(
+                request: __request,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

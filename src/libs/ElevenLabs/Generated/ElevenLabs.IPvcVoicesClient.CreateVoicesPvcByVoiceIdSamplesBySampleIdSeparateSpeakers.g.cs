@@ -21,7 +21,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SpeakerSeparationResponseModel> CreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.StartSpeakerSeparationResponseModel> CreateVoicesPvcByVoiceIdSamplesBySampleIdSeparateSpeakersAsync(
             string voiceId,
             string sampleId,
             string? xiApiKey = default,

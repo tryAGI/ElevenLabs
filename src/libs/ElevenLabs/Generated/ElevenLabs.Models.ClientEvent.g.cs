@@ -47,7 +47,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        InternalVadScore,
+        VadScore,
         /// <summary>
         /// 
         /// </summary>
@@ -79,7 +79,7 @@ namespace ElevenLabs
                 ClientEvent.AgentResponse => "agent_response",
                 ClientEvent.AgentResponseCorrection => "agent_response_correction",
                 ClientEvent.ClientToolCall => "client_tool_call",
-                ClientEvent.InternalVadScore => "internal_vad_score",
+                ClientEvent.VadScore => "vad_score",
                 ClientEvent.InternalTurnProbability => "internal_turn_probability",
                 ClientEvent.InternalTentativeAgentResponse => "internal_tentative_agent_response",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -101,7 +101,7 @@ namespace ElevenLabs
                 "agent_response" => ClientEvent.AgentResponse,
                 "agent_response_correction" => ClientEvent.AgentResponseCorrection,
                 "client_tool_call" => ClientEvent.ClientToolCall,
-                "internal_vad_score" => ClientEvent.InternalVadScore,
+                "vad_score" => ClientEvent.VadScore,
                 "internal_turn_probability" => ClientEvent.InternalTurnProbability,
                 "internal_tentative_agent_response" => ClientEvent.InternalTentativeAgentResponse,
                 _ => null,
