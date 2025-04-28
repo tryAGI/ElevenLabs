@@ -59,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gemini25Flash,
+        /// <summary>
+        /// 
+        /// </summary>
         Gemini10Pro,
         /// <summary>
         /// 
@@ -110,6 +114,7 @@ namespace ElevenLabs
                 LLM.Gemini15Flash => "gemini-1.5-flash",
                 LLM.Gemini20Flash001 => "gemini-2.0-flash-001",
                 LLM.Gemini20FlashLite => "gemini-2.0-flash-lite",
+                LLM.Gemini25Flash => "gemini-2.5-flash",
                 LLM.Gemini10Pro => "gemini-1.0-pro",
                 LLM.Claude37Sonnet => "claude-3-7-sonnet",
                 LLM.Claude35Sonnet => "claude-3-5-sonnet",
@@ -139,6 +144,7 @@ namespace ElevenLabs
                 "gemini-1.5-flash" => LLM.Gemini15Flash,
                 "gemini-2.0-flash-001" => LLM.Gemini20Flash001,
                 "gemini-2.0-flash-lite" => LLM.Gemini20FlashLite,
+                "gemini-2.5-flash" => LLM.Gemini25Flash,
                 "gemini-1.0-pro" => LLM.Gemini10Pro,
                 "claude-3-7-sonnet" => LLM.Claude37Sonnet,
                 "claude-3-5-sonnet" => LLM.Claude35Sonnet,

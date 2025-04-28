@@ -50,6 +50,12 @@ namespace ElevenLabs
         public required bool ToolHasBeenCalled { get; set; }
 
         /// <summary>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_latency_secs")]
+        public double? ToolLatencySecs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -64,6 +70,9 @@ namespace ElevenLabs
         /// <param name="resultValue"></param>
         /// <param name="isError"></param>
         /// <param name="toolHasBeenCalled"></param>
+        /// <param name="toolLatencySecs">
+        /// Default Value: 0
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,7 +82,8 @@ namespace ElevenLabs
             string resultValue,
             bool isError,
             bool toolHasBeenCalled,
-            string? type)
+            string? type,
+            double? toolLatencySecs)
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
@@ -81,6 +91,7 @@ namespace ElevenLabs
             this.IsError = isError;
             this.ToolHasBeenCalled = toolHasBeenCalled;
             this.Type = type;
+            this.ToolLatencySecs = toolLatencySecs;
         }
 
         /// <summary>

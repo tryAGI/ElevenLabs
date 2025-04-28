@@ -66,6 +66,12 @@ namespace ElevenLabs
         public global::ElevenLabs.RagRetrievalInfo? RagRetrievalInfo { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("llm_usage")]
+        public global::ElevenLabs.LLMUsage? LlmUsage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -83,6 +89,7 @@ namespace ElevenLabs
         /// <param name="timeInCallSecs"></param>
         /// <param name="conversationTurnMetrics"></param>
         /// <param name="ragRetrievalInfo"></param>
+        /// <param name="llmUsage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -95,7 +102,8 @@ namespace ElevenLabs
             global::ElevenLabs.UserFeedback? feedback,
             string? llmOverride,
             global::ElevenLabs.ConversationTurnMetrics? conversationTurnMetrics,
-            global::ElevenLabs.RagRetrievalInfo? ragRetrievalInfo)
+            global::ElevenLabs.RagRetrievalInfo? ragRetrievalInfo,
+            global::ElevenLabs.LLMUsage? llmUsage)
         {
             this.Role = role;
             this.TimeInCallSecs = timeInCallSecs;
@@ -106,6 +114,7 @@ namespace ElevenLabs
             this.LlmOverride = llmOverride;
             this.ConversationTurnMetrics = conversationTurnMetrics;
             this.RagRetrievalInfo = ragRetrievalInfo;
+            this.LlmUsage = llmUsage;
         }
 
         /// <summary>

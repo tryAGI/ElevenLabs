@@ -20,7 +20,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.Transfer> Transfers { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransfer> Transfers { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -39,7 +39,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TransferToAgentToolConfig(
-            global::System.Collections.Generic.IList<global::ElevenLabs.Transfer> transfers,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransfer> transfers,
             global::ElevenLabs.TransferToAgentToolConfigSystemToolType? systemToolType)
         {
             this.Transfers = transfers ?? throw new global::System.ArgumentNullException(nameof(transfers));

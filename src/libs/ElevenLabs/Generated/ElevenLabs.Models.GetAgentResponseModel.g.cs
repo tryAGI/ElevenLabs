@@ -49,6 +49,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? PhoneNumbers { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
+        public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -69,6 +75,7 @@ namespace ElevenLabs
         /// <param name="phoneNumbers">
         /// The phone numbers of the agent
         /// </param>
+        /// <param name="accessInfo"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -78,7 +85,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationalConfigAPIModelOutput conversationConfig,
             global::ElevenLabs.AgentMetadataResponseModel metadata,
             global::ElevenLabs.AgentPlatformSettingsResponseModel? platformSettings,
-            global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? phoneNumbers)
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? phoneNumbers,
+            global::ElevenLabs.ResourceAccessInfo? accessInfo)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -86,6 +94,7 @@ namespace ElevenLabs
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.PlatformSettings = platformSettings;
             this.PhoneNumbers = phoneNumbers;
+            this.AccessInfo = accessInfo;
         }
 
         /// <summary>

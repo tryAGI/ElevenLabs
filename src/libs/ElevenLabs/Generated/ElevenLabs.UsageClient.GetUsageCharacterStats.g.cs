@@ -11,6 +11,8 @@ namespace ElevenLabs
             ref global::System.DateTimeOffset endUnix,
             ref bool? includeWorkspaceMetrics,
             ref global::ElevenLabs.BreakdownTypes? breakdownType,
+            ref global::ElevenLabs.UsageAggregationInterval? aggregationInterval,
+            ref global::ElevenLabs.MetricType? metric,
             ref string? xiApiKey);
         partial void PrepareGetUsageCharacterStatsRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -19,6 +21,8 @@ namespace ElevenLabs
             global::System.DateTimeOffset endUnix,
             bool? includeWorkspaceMetrics,
             global::ElevenLabs.BreakdownTypes? breakdownType,
+            global::ElevenLabs.UsageAggregationInterval? aggregationInterval,
+            global::ElevenLabs.MetricType? metric,
             string? xiApiKey);
         partial void ProcessGetUsageCharacterStatsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -48,6 +52,10 @@ namespace ElevenLabs
         /// <param name="breakdownType">
         /// How to break down the information. Cannot be "user" or "api_key" if include_workspace_metrics is False.
         /// </param>
+        /// <param name="aggregationInterval">
+        /// The time interval over which to aggregate the usage data.
+        /// </param>
+        /// <param name="metric"></param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -58,6 +66,8 @@ namespace ElevenLabs
             global::System.DateTimeOffset endUnix,
             bool? includeWorkspaceMetrics = default,
             global::ElevenLabs.BreakdownTypes? breakdownType = default,
+            global::ElevenLabs.UsageAggregationInterval? aggregationInterval = default,
+            global::ElevenLabs.MetricType? metric = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -69,6 +79,8 @@ namespace ElevenLabs
                 endUnix: ref endUnix,
                 includeWorkspaceMetrics: ref includeWorkspaceMetrics,
                 breakdownType: ref breakdownType,
+                aggregationInterval: ref aggregationInterval,
+                metric: ref metric,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
@@ -79,6 +91,8 @@ namespace ElevenLabs
                 .AddRequiredParameter("end_unix", endUnix.ToString()) 
                 .AddOptionalParameter("include_workspace_metrics", includeWorkspaceMetrics?.ToString()) 
                 .AddOptionalParameter("breakdown_type", breakdownType?.ToValueString()) 
+                .AddOptionalParameter("aggregation_interval", aggregationInterval?.ToValueString()) 
+                .AddOptionalParameter("metric", metric?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -121,6 +135,8 @@ namespace ElevenLabs
                 endUnix: endUnix,
                 includeWorkspaceMetrics: includeWorkspaceMetrics,
                 breakdownType: breakdownType,
+                aggregationInterval: aggregationInterval,
+                metric: metric,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

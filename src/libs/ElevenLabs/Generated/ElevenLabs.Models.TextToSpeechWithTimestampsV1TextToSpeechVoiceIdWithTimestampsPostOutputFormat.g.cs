@@ -56,6 +56,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Pcm48000,
+        /// <summary>
+        /// 
+        /// </summary>
         Ulaw8000,
         /// <summary>
         /// 
@@ -106,6 +110,7 @@ namespace ElevenLabs
                 TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Pcm22050 => "pcm_22050",
                 TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Pcm24000 => "pcm_24000",
                 TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Pcm44100 => "pcm_44100",
+                TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Pcm48000 => "pcm_48000",
                 TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Ulaw8000 => "ulaw_8000",
                 TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Alaw8000 => "alaw_8000",
                 TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Opus4800032 => "opus_48000_32",
@@ -134,6 +139,7 @@ namespace ElevenLabs
                 "pcm_22050" => TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Pcm22050,
                 "pcm_24000" => TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Pcm24000,
                 "pcm_44100" => TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Pcm44100,
+                "pcm_48000" => TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Pcm48000,
                 "ulaw_8000" => TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Ulaw8000,
                 "alaw_8000" => TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Alaw8000,
                 "opus_48000_32" => TextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostOutputFormat.Opus4800032,

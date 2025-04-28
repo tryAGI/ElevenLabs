@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class Transfer
+    public sealed partial class AgentTransfer
     {
         /// <summary>
         /// 
@@ -29,14 +29,14 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Transfer" /> class.
+        /// Initializes a new instance of the <see cref="AgentTransfer" /> class.
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="condition"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public Transfer(
+        public AgentTransfer(
             string agentId,
             string condition)
         {
@@ -45,9 +45,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Transfer" /> class.
+        /// Initializes a new instance of the <see cref="AgentTransfer" /> class.
         /// </summary>
-        public Transfer()
+        public AgentTransfer()
         {
         }
     }
