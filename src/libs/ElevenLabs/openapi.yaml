@@ -272,6 +272,7 @@ paths:
               - pcm_22050
               - pcm_24000
               - pcm_44100
+              - pcm_48000
               - ulaw_8000
               - alaw_8000
               - opus_48000_32
@@ -536,6 +537,7 @@ paths:
               - pcm_22050
               - pcm_24000
               - pcm_44100
+              - pcm_48000
               - ulaw_8000
               - alaw_8000
               - opus_48000_32
@@ -628,6 +630,7 @@ paths:
               - pcm_22050
               - pcm_24000
               - pcm_44100
+              - pcm_48000
               - ulaw_8000
               - alaw_8000
               - opus_48000_32
@@ -719,6 +722,7 @@ paths:
               - pcm_22050
               - pcm_24000
               - pcm_44100
+              - pcm_48000
               - ulaw_8000
               - alaw_8000
               - opus_48000_32
@@ -812,6 +816,7 @@ paths:
               - pcm_22050
               - pcm_24000
               - pcm_44100
+              - pcm_48000
               - ulaw_8000
               - alaw_8000
               - opus_48000_32
@@ -904,6 +909,7 @@ paths:
               - pcm_22050
               - pcm_24000
               - pcm_44100
+              - pcm_48000
               - ulaw_8000
               - alaw_8000
               - opus_48000_32
@@ -996,6 +1002,7 @@ paths:
               - pcm_22050
               - pcm_24000
               - pcm_44100
+              - pcm_48000
               - ulaw_8000
               - alaw_8000
               - opus_48000_32
@@ -1113,6 +1120,7 @@ paths:
               - pcm_22050
               - pcm_24000
               - pcm_44100
+              - pcm_48000
               - ulaw_8000
               - alaw_8000
               - opus_48000_32
@@ -1382,11 +1390,11 @@ paths:
             example: desc
         - name: voice_type
           in: query
-          description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace''.'
+          description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace'', ''non-default''. ''non-default'' is equal to ''personal'' plus ''community''.'
           schema:
             title: Voice Type
             type: string
-            description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace''.'
+            description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace'', ''non-default''. ''non-default'' is equal to ''personal'' plus ''community''.'
             nullable: true
         - name: category
           in: query
@@ -3685,6 +3693,7 @@ paths:
     get:
       tags:
         - dubbing
+        - dubbing
         - resource
         - segment
       summary: Get The Dubbing Resource For An Id.
@@ -3725,6 +3734,7 @@ paths:
   '/v1/dubbing/resource/{dubbing_id}/language':
     post:
       tags:
+        - dubbing
         - dubbing
         - resource
         - segment
@@ -3772,6 +3782,7 @@ paths:
   '/v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}/segment':
     post:
       tags:
+        - dubbing
         - dubbing
         - resource
         - segment
@@ -3827,6 +3838,7 @@ paths:
   '/v1/dubbing/resource/{dubbing_id}/segment/{segment_id}/{language}':
     patch:
       tags:
+        - dubbing
         - dubbing
         - resource
         - segment
@@ -3891,6 +3903,7 @@ paths:
     delete:
       tags:
         - dubbing
+        - dubbing
         - resource
         - segment
       summary: Deletes A Single Segment
@@ -3940,6 +3953,7 @@ paths:
     post:
       tags:
         - dubbing
+        - dubbing
         - resource
         - segment
       summary: Transcribes Segments
@@ -3986,6 +4000,7 @@ paths:
   '/v1/dubbing/resource/{dubbing_id}/translate':
     post:
       tags:
+        - dubbing
         - dubbing
         - resource
         - segment
@@ -4034,6 +4049,7 @@ paths:
     post:
       tags:
         - dubbing
+        - dubbing
         - resource
         - segment
       summary: Dubs All Or Some Segments And Languages
@@ -4080,6 +4096,7 @@ paths:
   '/v1/dubbing/resource/{dubbing_id}/render/{language}':
     post:
       tags:
+        - dubbing
         - dubbing
         - resource
         - segment
@@ -4136,6 +4153,8 @@ paths:
     post:
       tags:
         - dubbing
+        - dubbing
+        - dubbing
       summary: Dub A Video Or An Audio File
       description: Dubs a provided audio or video file into given language.
       operationId: Dub_a_video_or_an_audio_file_v1_dubbing_post
@@ -4171,6 +4190,8 @@ paths:
   '/v1/dubbing/{dubbing_id}':
     get:
       tags:
+        - dubbing
+        - dubbing
         - dubbing
       summary: Get Dubbing
       description: 'Returns metadata about a dubbing project, including whether it''s still in progress or not'
@@ -4210,6 +4231,8 @@ paths:
     delete:
       tags:
         - dubbing
+        - dubbing
+        - dubbing
       summary: Delete Dubbing
       description: Deletes a dubbing project.
       operationId: Delete_dubbing_v1_dubbing__dubbing_id__delete
@@ -4248,6 +4271,8 @@ paths:
   '/v1/dubbing/{dubbing_id}/audio/{language_code}':
     get:
       tags:
+        - dubbing
+        - dubbing
         - dubbing
       summary: Get Dubbed File
       description: Returns dubbed file as a streamed file. Videos will be returned in MP4 format and audio only dubs will be returned in MP3.
@@ -4321,6 +4346,8 @@ paths:
   '/v1/dubbing/{dubbing_id}/transcript/{language_code}':
     get:
       tags:
+        - dubbing
+        - dubbing
         - dubbing
       summary: Get Dubbed Transcript
       description: Returns transcript for the dub as an SRT or WEBVTT file.
@@ -4808,6 +4835,16 @@ paths:
           description: How to break down the information. Cannot be "user" if include_workspace_metrics is False.
           schema:
             $ref: '#/components/schemas/BreakdownTypes'
+        - name: aggregation_interval
+          in: query
+          description: 'How to aggregate usage data over time. Can be "hour", "day", "week", "month", or "cumulative".'
+          schema:
+            $ref: '#/components/schemas/UsageAggregationInterval'
+        - name: metric
+          in: query
+          description: Which metric to aggregate.
+          schema:
+            $ref: '#/components/schemas/MetricType'
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -6152,6 +6189,14 @@ paths:
           description: The result of the success evaluation
           schema:
             $ref: '#/components/schemas/EvaluationSuccessResult'
+        - name: call_start_before_unix
+          in: query
+          description: Unix timestamp (in seconds) to filter conversations up to this start date.
+          schema:
+            title: Call Start Before Unix
+            type: integer
+            description: Unix timestamp (in seconds) to filter conversations up to this start date.
+            nullable: true
         - name: page_size
           in: query
           description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
@@ -7236,6 +7281,73 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: update_settings
+  /v1/convai/settings/dashboard:
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Convai Dashboard Settings
+      description: Retrieve Convai dashboard settings for the workspace
+      operationId: Get_Convai_dashboard_settings_v1_convai_settings_dashboard_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConvAIDashboardSettingsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_dashboard_settings
+    patch:
+      tags:
+        - Conversational AI
+      summary: Update Convai Dashboard Settings
+      description: Update Convai dashboard settings for the workspace
+      operationId: Update_Convai_dashboard_settings_v1_convai_settings_dashboard_patch
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchConvAIDashboardSettingsRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConvAIDashboardSettingsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: update_dashboard_settings
   /v1/convai/secrets:
     post:
       tags:
@@ -8088,6 +8200,7 @@ components:
         - pcm_22050
         - pcm_24000
         - pcm_44100
+        - pcm_48000
         - ulaw_8000
       type: string
     ASRProvider:
@@ -8482,6 +8595,19 @@ components:
         agent_id: J3Pbu5gP6NNKBscdCdwB
         created_at_unix_secs: 1716153600
         name: My Agent
+    AgentTransfer:
+      title: AgentTransfer
+      required:
+        - agent_id
+        - condition
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        condition:
+          title: Condition
+          type: string
     AgentWorkspaceOverrides-Input:
       title: AgentWorkspaceOverrides
       type: object
@@ -11309,6 +11435,7 @@ components:
         - product_type
         - model
         - resource
+        - request_queue
       type: string
       description: How to break down the information. Cannot be "user" or "api_key" if include_workspace_metrics is False.
     ChapterContentBlockExtendableNodeResponseModel:
@@ -11817,6 +11944,67 @@ components:
       example:
         expects_response: false
         type: client
+    CollectionContentItem:
+      title: CollectionContentItem
+      required:
+        - added_at
+        - added_by
+        - _id
+        - data
+      type: object
+      properties:
+        added_at:
+          title: Added At
+          type: string
+          format: date-time
+        added_by:
+          title: Added By
+          type: string
+        _id:
+          title: Id
+          type: string
+          format: uuid
+        data:
+          title: Data
+          anyOf:
+            - $ref: '#/components/schemas/TaskDescriptionContentItem'
+            - $ref: '#/components/schemas/NestedCollectionContentItem'
+    CollectionModel:
+      title: CollectionModel
+      required:
+        - id
+        - name
+        - description
+        - contents
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          format: uuid
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+          nullable: true
+        contents:
+          title: Contents
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionContentItem'
+    CollectionsList:
+      title: CollectionsList
+      required:
+        - collections
+      type: object
+      properties:
+        collections:
+          title: Collections
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionModel'
     ConvAISecretLocator:
       title: ConvAISecretLocator
       required:
@@ -11910,6 +12098,12 @@ components:
         tier:
           title: Tier
           type: string
+          nullable: true
+        llm_usage:
+          $ref: '#/components/schemas/LLMCategoryUsage'
+        llm_price:
+          title: Llm Price
+          type: number
           nullable: true
     ConversationConfig:
       title: ConversationConfig
@@ -12160,6 +12354,8 @@ components:
           $ref: '#/components/schemas/ConversationTurnMetrics'
         rag_retrieval_info:
           $ref: '#/components/schemas/RagRetrievalInfo'
+        llm_usage:
+          $ref: '#/components/schemas/LLMUsage'
     ConversationHistoryTranscriptToolCallClientDetails:
       title: ConversationHistoryTranscriptToolCallClientDetails
       required:
@@ -12279,6 +12475,10 @@ components:
         tool_has_been_called:
           title: Tool Has Been Called
           type: boolean
+        tool_latency_secs:
+          title: Tool Latency Secs
+          type: number
+          default: 0
     ConversationHistoryTwilioPhoneCallModel:
       title: ConversationHistoryTwilioPhoneCallModel
       required:
@@ -12594,6 +12794,19 @@ components:
           title: Phone Number Id
           type: string
           description: Phone entity ID
+    CreateProjectRequestBody:
+      title: CreateProjectRequestBody
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+          nullable: true
     CreatePronunciationDictionaryResponseModel:
       title: CreatePronunciationDictionaryResponseModel
       required:
@@ -12675,6 +12888,40 @@ components:
           nullable: true
         api_key:
           $ref: '#/components/schemas/ConvAISecretLocator'
+    DashboardCallSuccessChartModel:
+      title: DashboardCallSuccessChartModel
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        type:
+          title: Type
+          enum:
+            - call_success
+          type: string
+          default: call_success
+    DashboardCriteriaChartModel:
+      title: DashboardCriteriaChartModel
+      required:
+        - name
+        - criteria_id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        type:
+          title: Type
+          enum:
+            - criteria
+          type: string
+          default: criteria
+        criteria_id:
+          title: Criteria Id
+          type: string
     DataCollectionResultCommonModel:
       title: DataCollectionResultCommonModel
       required:
@@ -13725,6 +13972,8 @@ components:
           items:
             $ref: '#/components/schemas/GetPhoneNumberResponseModel'
           description: The phone numbers of the agent
+        access_info:
+          $ref: '#/components/schemas/ResourceAccessInfo'
       example:
         agent_id: J3Pbu5gP6NNKBscdCdwB
         name: My Agent
@@ -13795,6 +14044,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ChapterResponseModel'
+    GetConvAIDashboardSettingsResponseModel:
+      title: GetConvAIDashboardSettingsResponseModel
+      type: object
+      properties:
+        charts:
+          title: Charts
+          maxItems: 4
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DashboardCallSuccessChartModel'
+              - $ref: '#/components/schemas/DashboardCriteriaChartModel'
+            discriminator:
+              propertyName: type
+              mapping:
+                call_success: '#/components/schemas/DashboardCallSuccessChartModel'
+                criteria: '#/components/schemas/DashboardCriteriaChartModel'
     GetConvAISettingsResponseModel:
       title: GetConvAISettingsResponseModel
       type: object
@@ -14754,6 +15020,7 @@ components:
         - gemini-1.5-flash
         - gemini-2.0-flash-001
         - gemini-2.0-flash-lite
+        - gemini-2.5-flash
         - gemini-1.0-pro
         - claude-3-7-sonnet
         - claude-3-5-sonnet
@@ -14762,6 +15029,47 @@ components:
         - grok-beta
         - custom-llm
       type: string
+    LLMCategoryUsage:
+      title: LLMCategoryUsage
+      type: object
+      properties:
+        irreversible_generation:
+          $ref: '#/components/schemas/LLMUsage'
+        initiated_generation:
+          $ref: '#/components/schemas/LLMUsage'
+    LLMInputOutputTokensUsage:
+      title: LLMInputOutputTokensUsage
+      type: object
+      properties:
+        input:
+          $ref: '#/components/schemas/LLMTokensCategoryUsage'
+        input_cache_read:
+          $ref: '#/components/schemas/LLMTokensCategoryUsage'
+        input_cache_write:
+          $ref: '#/components/schemas/LLMTokensCategoryUsage'
+        output_total:
+          $ref: '#/components/schemas/LLMTokensCategoryUsage'
+    LLMTokensCategoryUsage:
+      title: LLMTokensCategoryUsage
+      type: object
+      properties:
+        tokens:
+          title: Tokens
+          type: integer
+          default: 0
+        price:
+          title: Price
+          type: number
+          default: 0
+    LLMUsage:
+      title: LLMUsage
+      type: object
+      properties:
+        model_usage:
+          title: Model Usage
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LLMInputOutputTokensUsage'
     LanguageAddedResponse:
       title: LanguageAddedResponse
       required:
@@ -15131,6 +15439,16 @@ components:
         elapsed_time:
           title: Elapsed Time
           type: number
+    MetricType:
+      title: MetricType
+      enum:
+        - credits
+        - minutes_used
+        - request_count
+        - ttfb_avg
+        - ttfb_p95
+        - fiat_units_spent
+      type: string
     ModelRatesResponseModel:
       title: ModelRatesResponseModel
       required:
@@ -15322,6 +15640,22 @@ components:
         never_live_moderate: false
         nogo_voice_similar_voice_upload_count: 0
         on_watchlist: false
+    NestedCollectionContentItem:
+      title: NestedCollectionContentItem
+      required:
+        - kind
+        - ref_id
+      type: object
+      properties:
+        kind:
+          title: Kind
+          enum:
+            - subproject
+          type: string
+        ref_id:
+          title: Ref Id
+          type: string
+          format: uuid
     ObjectJsonSchemaProperty-Input:
       title: ObjectJsonSchemaProperty
       type: object
@@ -15403,6 +15737,23 @@ components:
         color_1: '#2792dc'
         color_2: '#9ce6e6'
         type: orb
+    PatchConvAIDashboardSettingsRequest:
+      title: PatchConvAIDashboardSettingsRequest
+      type: object
+      properties:
+        charts:
+          title: Charts
+          maxItems: 4
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DashboardCallSuccessChartModel'
+              - $ref: '#/components/schemas/DashboardCriteriaChartModel'
+            discriminator:
+              propertyName: type
+              mapping:
+                call_success: '#/components/schemas/DashboardCallSuccessChartModel'
+                criteria: '#/components/schemas/DashboardCriteriaChartModel'
     PatchConvAISettingsRequest:
       title: PatchConvAISettingsRequest
       type: object
@@ -15460,6 +15811,19 @@ components:
       example:
         agent_id: F3Pbu5gP6NNKBscdCdwB
         agent_name: My Agent
+    PhoneNumberTransfer:
+      title: PhoneNumberTransfer
+      required:
+        - phone_number
+        - condition
+      type: object
+      properties:
+        phone_number:
+          title: Phone Number
+          type: string
+        condition:
+          title: Condition
+          type: string
     PodcastBulletinMode:
       title: PodcastBulletinMode
       required:
@@ -15744,6 +16108,7 @@ components:
         - quality_preset
         - chapters
         - pronunciation_dictionary_versions
+        - pronunciation_dictionary_locators
         - apply_text_normalization
         - experimental
       type: object
@@ -15922,6 +16287,12 @@ components:
           items:
             $ref: '#/components/schemas/PronunciationDictionaryVersionResponseModel'
           description: List of pronunciation dictionary versions of the project and their metadata.
+        pronunciation_dictionary_locators:
+          title: Pronunciation Dictionary Locators
+          type: array
+          items:
+            $ref: '#/components/schemas/PronunciationDictionaryLocatorResponseModel'
+          description: List of pronunciation dictionary locators.
         apply_text_normalization:
           title: Apply Text Normalization
           enum:
@@ -16488,6 +16859,20 @@ components:
         alias: tie-land
         string_to_replace: Thailand
         type: alias
+    PronunciationDictionaryLocatorResponseModel:
+      title: PronunciationDictionaryLocatorResponseModel
+      required:
+        - pronunciation_dictionary_id
+        - version_id
+      type: object
+      properties:
+        pronunciation_dictionary_id:
+          title: Pronunciation Dictionary Id
+          type: string
+        version_id:
+          title: Version Id
+          type: string
+          nullable: true
     PronunciationDictionaryPhonemeRuleRequestModel:
       title: PronunciationDictionaryPhonemeRuleRequestModel
       required:
@@ -16791,6 +17176,15 @@ components:
         size_bytes: 1000000
         transcription: 'Hello, how are you?'
         upload_date_unix: 1714204800
+    RenameProjectRequestBody:
+      title: RenameProjectRequestBody
+      required:
+        - new_name
+      type: object
+      properties:
+        new_name:
+          title: New Name
+          type: string
     Render:
       title: Render
       required:
@@ -18036,12 +18430,14 @@ components:
             - $ref: '#/components/schemas/EndCallToolConfig'
             - $ref: '#/components/schemas/LanguageDetectionToolConfig'
             - $ref: '#/components/schemas/TransferToAgentToolConfig'
+            - $ref: '#/components/schemas/TransferToNumberToolConfig'
           discriminator:
             propertyName: system_tool_type
             mapping:
               end_call: '#/components/schemas/EndCallToolConfig'
               language_detection: '#/components/schemas/LanguageDetectionToolConfig'
               transfer_to_agent: '#/components/schemas/TransferToAgentToolConfig'
+              transfer_to_number: '#/components/schemas/TransferToNumberToolConfig'
       description: A system tool is a tool that is used to call a system method in the server
       example:
         type: system
@@ -18079,12 +18475,14 @@ components:
             - $ref: '#/components/schemas/EndCallToolConfig'
             - $ref: '#/components/schemas/LanguageDetectionToolConfig'
             - $ref: '#/components/schemas/TransferToAgentToolConfig'
+            - $ref: '#/components/schemas/TransferToNumberToolConfig'
           discriminator:
             propertyName: system_tool_type
             mapping:
               end_call: '#/components/schemas/EndCallToolConfig'
               language_detection: '#/components/schemas/LanguageDetectionToolConfig'
               transfer_to_agent: '#/components/schemas/TransferToAgentToolConfig'
+              transfer_to_number: '#/components/schemas/TransferToNumberToolConfig'
       description: A system tool is a tool that is used to call a system method in the server
       example:
         type: system
@@ -18184,27 +18582,31 @@ components:
         - pcm_22050
         - pcm_24000
         - pcm_44100
+        - pcm_48000
         - ulaw_8000
       type: string
+    TaskDescriptionContentItem:
+      title: TaskDescriptionContentItem
+      required:
+        - kind
+        - ref_id
+      type: object
+      properties:
+        kind:
+          title: Kind
+          enum:
+            - task_description
+          type: string
+        ref_id:
+          title: Ref Id
+          type: string
+          format: uuid
     TelephonyProvider:
       title: TelephonyProvider
       enum:
         - twilio
         - sip_trunk
       type: string
-    Transfer:
-      title: Transfer
-      required:
-        - agent_id
-        - condition
-      type: object
-      properties:
-        agent_id:
-          title: Agent Id
-          type: string
-        condition:
-          title: Condition
-          type: string
     TransferToAgentToolConfig:
       title: TransferToAgentToolConfig
       required:
@@ -18221,7 +18623,24 @@ components:
           title: Transfers
           type: array
           items:
-            $ref: '#/components/schemas/Transfer'
+            $ref: '#/components/schemas/AgentTransfer'
+    TransferToNumberToolConfig:
+      title: TransferToNumberToolConfig
+      required:
+        - transfers
+      type: object
+      properties:
+        system_tool_type:
+          title: System Tool Type
+          enum:
+            - transfer_to_number
+          type: string
+          default: transfer_to_number
+        transfers:
+          title: Transfers
+          type: array
+          items:
+            $ref: '#/components/schemas/PhoneNumberTransfer'
     TurnConfig:
       title: TurnConfig
       type: object
@@ -18338,6 +18757,16 @@ components:
           description: 'The status of the workspace member update request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
+    UsageAggregationInterval:
+      title: UsageAggregationInterval
+      enum:
+        - hour
+        - day
+        - week
+        - month
+        - cumulative
+      type: string
+      description: The time interval over which to aggregate the usage data.
     UsageCharactersResponseModel:
       title: UsageCharactersResponseModel
       required:
@@ -18357,7 +18786,7 @@ components:
           additionalProperties:
             type: array
             items:
-              type: integer
+              type: number
           description: The usage of each breakdown type along the time axis.
       example:
         time:
@@ -19485,6 +19914,7 @@ components:
           enum:
             - GET
             - POST
+            - PUT
             - PATCH
             - DELETE
           type: string
@@ -19538,6 +19968,7 @@ components:
           enum:
             - GET
             - POST
+            - PUT
             - PATCH
             - DELETE
           type: string

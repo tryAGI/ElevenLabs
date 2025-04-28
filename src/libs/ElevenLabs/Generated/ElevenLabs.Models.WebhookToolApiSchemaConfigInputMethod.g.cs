@@ -20,6 +20,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        PUT,
+        /// <summary>
+        /// 
+        /// </summary>
         PATCH,
         /// <summary>
         /// 
@@ -41,6 +45,7 @@ namespace ElevenLabs
             {
                 WebhookToolApiSchemaConfigInputMethod.GET => "GET",
                 WebhookToolApiSchemaConfigInputMethod.POST => "POST",
+                WebhookToolApiSchemaConfigInputMethod.PUT => "PUT",
                 WebhookToolApiSchemaConfigInputMethod.PATCH => "PATCH",
                 WebhookToolApiSchemaConfigInputMethod.DELETE => "DELETE",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -55,6 +60,7 @@ namespace ElevenLabs
             {
                 "GET" => WebhookToolApiSchemaConfigInputMethod.GET,
                 "POST" => WebhookToolApiSchemaConfigInputMethod.POST,
+                "PUT" => WebhookToolApiSchemaConfigInputMethod.PUT,
                 "PATCH" => WebhookToolApiSchemaConfigInputMethod.PATCH,
                 "DELETE" => WebhookToolApiSchemaConfigInputMethod.DELETE,
                 _ => null,

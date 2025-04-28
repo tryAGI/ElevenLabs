@@ -48,6 +48,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Resource,
+        /// <summary>
+        /// 
+        /// </summary>
+        RequestQueue,
     }
 
     /// <summary>
@@ -72,6 +76,7 @@ namespace ElevenLabs
                 BreakdownTypes.ProductType => "product_type",
                 BreakdownTypes.Model => "model",
                 BreakdownTypes.Resource => "resource",
+                BreakdownTypes.RequestQueue => "request_queue",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -92,6 +97,7 @@ namespace ElevenLabs
                 "product_type" => BreakdownTypes.ProductType,
                 "model" => BreakdownTypes.Model,
                 "resource" => BreakdownTypes.Resource,
+                "request_queue" => BreakdownTypes.RequestQueue,
                 _ => null,
             };
         }

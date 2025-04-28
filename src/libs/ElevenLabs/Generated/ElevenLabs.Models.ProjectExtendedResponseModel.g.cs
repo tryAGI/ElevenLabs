@@ -217,6 +217,13 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> PronunciationDictionaryVersions { get; set; }
 
         /// <summary>
+        /// List of pronunciation dictionary locators.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> PronunciationDictionaryLocators { get; set; }
+
+        /// <summary>
         /// Whether text normalization is applied to the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
@@ -332,6 +339,9 @@ namespace ElevenLabs
         /// <param name="pronunciationDictionaryVersions">
         /// List of pronunciation dictionary versions of the project and their metadata.
         /// </param>
+        /// <param name="pronunciationDictionaryLocators">
+        /// List of pronunciation dictionary locators.
+        /// </param>
         /// <param name="applyTextNormalization">
         /// Whether text normalization is applied to the project.
         /// </param>
@@ -357,6 +367,7 @@ namespace ElevenLabs
             global::ElevenLabs.ProjectExtendedResponseModelQualityPreset qualityPreset,
             global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> chapters,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> pronunciationDictionaryVersions,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> pronunciationDictionaryLocators,
             global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization applyTextNormalization,
             object experimental,
             int? lastConversionDateUnix,
@@ -391,6 +402,7 @@ namespace ElevenLabs
             this.QualityPreset = qualityPreset;
             this.Chapters = chapters ?? throw new global::System.ArgumentNullException(nameof(chapters));
             this.PronunciationDictionaryVersions = pronunciationDictionaryVersions ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryVersions));
+            this.PronunciationDictionaryLocators = pronunciationDictionaryLocators ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryLocators));
             this.ApplyTextNormalization = applyTextNormalization;
             this.Experimental = experimental ?? throw new global::System.ArgumentNullException(nameof(experimental));
             this.LastConversionDateUnix = lastConversionDateUnix;

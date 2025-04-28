@@ -1,0 +1,51 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum GetConvAIDashboardSettingsResponseModelChartDiscriminatorType
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        CallSuccess,
+        /// <summary>
+        /// 
+        /// </summary>
+        Criteria,
+    }
+
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class GetConvAIDashboardSettingsResponseModelChartDiscriminatorTypeExtensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this GetConvAIDashboardSettingsResponseModelChartDiscriminatorType value)
+        {
+            return value switch
+            {
+                GetConvAIDashboardSettingsResponseModelChartDiscriminatorType.CallSuccess => "call_success",
+                GetConvAIDashboardSettingsResponseModelChartDiscriminatorType.Criteria => "criteria",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static GetConvAIDashboardSettingsResponseModelChartDiscriminatorType? ToEnum(string value)
+        {
+            return value switch
+            {
+                "call_success" => GetConvAIDashboardSettingsResponseModelChartDiscriminatorType.CallSuccess,
+                "criteria" => GetConvAIDashboardSettingsResponseModelChartDiscriminatorType.Criteria,
+                _ => null,
+            };
+        }
+    }
+}

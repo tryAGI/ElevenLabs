@@ -122,11 +122,47 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.TransferToNumberToolConfig? TransferToNumber { get; init; }
+#else
+        public global::ElevenLabs.TransferToNumberToolConfig? TransferToNumber { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumber))]
+#endif
+        public bool IsTransferToNumber => TransferToNumber != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.TransferToNumberToolConfig value) => new Params2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.TransferToNumberToolConfig?(Params2 @this) => @this.TransferToNumber;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.TransferToNumberToolConfig? value)
+        {
+            TransferToNumber = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Params2(
             global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType? systemToolType,
             global::ElevenLabs.EndCallToolConfig? endCall,
             global::ElevenLabs.LanguageDetectionToolConfig? languageDetection,
-            global::ElevenLabs.TransferToAgentToolConfig? transferToAgent
+            global::ElevenLabs.TransferToAgentToolConfig? transferToAgent,
+            global::ElevenLabs.TransferToNumberToolConfig? transferToNumber
             )
         {
             SystemToolType = systemToolType;
@@ -134,12 +170,14 @@ namespace ElevenLabs
             EndCall = endCall;
             LanguageDetection = languageDetection;
             TransferToAgent = transferToAgent;
+            TransferToNumber = transferToNumber;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            TransferToNumber as object ??
             TransferToAgent as object ??
             LanguageDetection as object ??
             EndCall as object 
@@ -151,7 +189,8 @@ namespace ElevenLabs
         public override string? ToString() =>
             EndCall?.ToString() ??
             LanguageDetection?.ToString() ??
-            TransferToAgent?.ToString() 
+            TransferToAgent?.ToString() ??
+            TransferToNumber?.ToString() 
             ;
 
         /// <summary>
@@ -159,7 +198,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent || !IsEndCall && IsLanguageDetection && !IsTransferToAgent || !IsEndCall && !IsLanguageDetection && IsTransferToAgent;
+            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber;
         }
 
         /// <summary>
@@ -169,6 +208,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.EndCallToolConfig?, TResult>? endCall = null,
             global::System.Func<global::ElevenLabs.LanguageDetectionToolConfig?, TResult>? languageDetection = null,
             global::System.Func<global::ElevenLabs.TransferToAgentToolConfig?, TResult>? transferToAgent = null,
+            global::System.Func<global::ElevenLabs.TransferToNumberToolConfig?, TResult>? transferToNumber = null,
             bool validate = true)
         {
             if (validate)
@@ -188,6 +228,10 @@ namespace ElevenLabs
             {
                 return transferToAgent(TransferToAgent!);
             }
+            else if (IsTransferToNumber && transferToNumber != null)
+            {
+                return transferToNumber(TransferToNumber!);
+            }
 
             return default(TResult);
         }
@@ -199,6 +243,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.EndCallToolConfig?>? endCall = null,
             global::System.Action<global::ElevenLabs.LanguageDetectionToolConfig?>? languageDetection = null,
             global::System.Action<global::ElevenLabs.TransferToAgentToolConfig?>? transferToAgent = null,
+            global::System.Action<global::ElevenLabs.TransferToNumberToolConfig?>? transferToNumber = null,
             bool validate = true)
         {
             if (validate)
@@ -218,6 +263,10 @@ namespace ElevenLabs
             {
                 transferToAgent?.Invoke(TransferToAgent!);
             }
+            else if (IsTransferToNumber)
+            {
+                transferToNumber?.Invoke(TransferToNumber!);
+            }
         }
 
         /// <summary>
@@ -233,6 +282,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.LanguageDetectionToolConfig),
                 TransferToAgent,
                 typeof(global::ElevenLabs.TransferToAgentToolConfig),
+                TransferToNumber,
+                typeof(global::ElevenLabs.TransferToNumberToolConfig),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -251,7 +302,8 @@ namespace ElevenLabs
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndCallToolConfig?>.Default.Equals(EndCall, other.EndCall) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LanguageDetectionToolConfig?>.Default.Equals(LanguageDetection, other.LanguageDetection) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolConfig?>.Default.Equals(TransferToAgent, other.TransferToAgent) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolConfig?>.Default.Equals(TransferToAgent, other.TransferToAgent) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfig?>.Default.Equals(TransferToNumber, other.TransferToNumber) 
                 ;
         }
 
