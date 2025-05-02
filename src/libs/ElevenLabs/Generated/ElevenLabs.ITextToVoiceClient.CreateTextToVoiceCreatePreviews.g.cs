@@ -70,9 +70,9 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreateTextToVoiceCreatePreviewsAsync(
             string voiceDescription,
-            string? text,
             global::ElevenLabs.GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
+            string? text = default,
             bool? autoGenerateText = default,
             double? loudness = default,
             double? quality = default,

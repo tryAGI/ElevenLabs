@@ -23,8 +23,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         /// Whether to automatically generate a text suitable for the voice description.<br/>
@@ -121,7 +120,7 @@ namespace ElevenLabs
             double? guidanceScale)
         {
             this.VoiceDescription = voiceDescription ?? throw new global::System.ArgumentNullException(nameof(voiceDescription));
-            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.Text = text;
             this.AutoGenerateText = autoGenerateText;
             this.Loudness = loudness;
             this.Quality = quality;
