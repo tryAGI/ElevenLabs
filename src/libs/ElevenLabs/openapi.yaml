@@ -11944,67 +11944,6 @@ components:
       example:
         expects_response: false
         type: client
-    CollectionContentItem:
-      title: CollectionContentItem
-      required:
-        - added_at
-        - added_by
-        - _id
-        - data
-      type: object
-      properties:
-        added_at:
-          title: Added At
-          type: string
-          format: date-time
-        added_by:
-          title: Added By
-          type: string
-        _id:
-          title: Id
-          type: string
-          format: uuid
-        data:
-          title: Data
-          anyOf:
-            - $ref: '#/components/schemas/TaskDescriptionContentItem'
-            - $ref: '#/components/schemas/NestedCollectionContentItem'
-    CollectionModel:
-      title: CollectionModel
-      required:
-        - id
-        - name
-        - description
-        - contents
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          format: uuid
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
-          nullable: true
-        contents:
-          title: Contents
-          type: array
-          items:
-            $ref: '#/components/schemas/CollectionContentItem'
-    CollectionsList:
-      title: CollectionsList
-      required:
-        - collections
-      type: object
-      properties:
-        collections:
-          title: Collections
-          type: array
-          items:
-            $ref: '#/components/schemas/CollectionModel'
     ConvAISecretLocator:
       title: ConvAISecretLocator
       required:
@@ -12794,19 +12733,6 @@ components:
           title: Phone Number Id
           type: string
           description: Phone entity ID
-    CreateProjectRequestBody:
-      title: CreateProjectRequestBody
-      required:
-        - name
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
-          nullable: true
     CreatePronunciationDictionaryResponseModel:
       title: CreatePronunciationDictionaryResponseModel
       required:
@@ -15640,22 +15566,6 @@ components:
         never_live_moderate: false
         nogo_voice_similar_voice_upload_count: 0
         on_watchlist: false
-    NestedCollectionContentItem:
-      title: NestedCollectionContentItem
-      required:
-        - kind
-        - ref_id
-      type: object
-      properties:
-        kind:
-          title: Kind
-          enum:
-            - subproject
-          type: string
-        ref_id:
-          title: Ref Id
-          type: string
-          format: uuid
     ObjectJsonSchemaProperty-Input:
       title: ObjectJsonSchemaProperty
       type: object
@@ -17176,15 +17086,6 @@ components:
         size_bytes: 1000000
         transcription: 'Hello, how are you?'
         upload_date_unix: 1714204800
-    RenameProjectRequestBody:
-      title: RenameProjectRequestBody
-      required:
-        - new_name
-      type: object
-      properties:
-        new_name:
-          title: New Name
-          type: string
     Render:
       title: Render
       required:
@@ -17613,7 +17514,7 @@ components:
             - group
             - key
           type: string
-          description: 'The type of the principal: user, group, or workspace api key.'
+          description: 'The type of the principal: user, group, or service account (under ''key'').'
     SpeakerAudioResponseModel:
       title: SpeakerAudioResponseModel
       required:
@@ -18585,22 +18486,6 @@ components:
         - pcm_48000
         - ulaw_8000
       type: string
-    TaskDescriptionContentItem:
-      title: TaskDescriptionContentItem
-      required:
-        - kind
-        - ref_id
-      type: object
-      properties:
-        kind:
-          title: Kind
-          enum:
-            - task_description
-          type: string
-        ref_id:
-          title: Ref Id
-          type: string
-          format: uuid
     TelephonyProvider:
       title: TelephonyProvider
       enum:
@@ -19141,7 +19026,6 @@ components:
       title: VoicePreviewsRequestModel
       required:
         - voice_description
-        - text
       type: object
       properties:
         voice_description:
