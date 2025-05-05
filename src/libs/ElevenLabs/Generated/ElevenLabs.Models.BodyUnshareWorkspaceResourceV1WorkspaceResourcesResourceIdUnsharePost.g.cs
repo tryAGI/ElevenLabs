@@ -17,7 +17,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.WorkspaceResourceType ResourceType { get; set; }
 
         /// <summary>
-        /// The email of the user
+        /// The email of the user or service account.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_email")]
         public string? UserEmail { get; set; }
@@ -47,7 +47,7 @@ namespace ElevenLabs
         /// Resource types that can be shared in the workspace. The name always need to match the collection names
         /// </param>
         /// <param name="userEmail">
-        /// The email of the user
+        /// The email of the user or service account.
         /// </param>
         /// <param name="groupId">
         /// The ID of the target group. To target the permissions principals have by default on this resource, use the value 'default'.

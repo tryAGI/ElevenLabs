@@ -19,7 +19,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
-        public string? Name { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Name { get; set; }
 
         /// <summary>
         /// The type of evaluation criteria<br/>
@@ -72,14 +73,14 @@ namespace ElevenLabs
 #endif
         public PromptEvaluationCriteria(
             string id,
+            string name,
             string conversationGoalPrompt,
-            string? name,
             global::ElevenLabs.PromptEvaluationCriteriaType? type,
             bool? useKnowledgeBase)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ConversationGoalPrompt = conversationGoalPrompt ?? throw new global::System.ArgumentNullException(nameof(conversationGoalPrompt));
-            this.Name = name;
             this.Type = type;
             this.UseKnowledgeBase = useKnowledgeBase;
         }
