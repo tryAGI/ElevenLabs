@@ -29,6 +29,14 @@ namespace ElevenLabs
         public string? Name { get; set; }
 
         /// <summary>
+        /// Categories to help classify and filter the agent<br/>
+        /// Example: [Customer Support, Technical Help, Eleven]
+        /// </summary>
+        /// <example>[Customer Support, Technical Help, Eleven]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("categories")]
+        public global::System.Collections.Generic.IList<string>? Categories { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -47,17 +55,23 @@ namespace ElevenLabs
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
         /// </param>
+        /// <param name="categories">
+        /// Categories to help classify and filter the agent<br/>
+        /// Example: [Customer Support, Technical Help, Eleven]
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch(
             object? conversationConfig,
             object? platformSettings,
-            string? name)
+            string? name,
+            global::System.Collections.Generic.IList<string>? categories)
         {
             this.ConversationConfig = conversationConfig;
             this.PlatformSettings = platformSettings;
             this.Name = name;
+            this.Categories = categories;
         }
 
         /// <summary>

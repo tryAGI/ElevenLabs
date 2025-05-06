@@ -45,6 +45,10 @@ namespace ElevenLabs
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
         /// </param>
+        /// <param name="categories">
+        /// Categories to help classify and filter the agent<br/>
+        /// Example: [Customer Support, Technical Help, Eleven]
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentResponseModel> EditConvaiAgentsByAgentIdAsync(
@@ -53,6 +57,7 @@ namespace ElevenLabs
             object? conversationConfig = default,
             object? platformSettings = default,
             string? name = default,
+            global::System.Collections.Generic.IList<string>? categories = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -6197,6 +6197,14 @@ paths:
             type: integer
             description: Unix timestamp (in seconds) to filter conversations up to this start date.
             nullable: true
+        - name: call_start_after_unix
+          in: query
+          description: Unix timestamp (in seconds) to filter conversations after to this start date.
+          schema:
+            title: Call Start After Unix
+            type: integer
+            description: Unix timestamp (in seconds) to filter conversations after to this start date.
+            nullable: true
         - name: page_size
           in: query
           description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
@@ -8573,6 +8581,7 @@ components:
       required:
         - agent_id
         - name
+        - categories
         - created_at_unix_secs
         - access_info
       type: object
@@ -8585,6 +8594,12 @@ components:
           title: Name
           type: string
           description: The name of the agent
+        categories:
+          title: Categories
+          type: array
+          items:
+            type: string
+          description: The categories of the agent
         created_at_unix_secs:
           title: Created At Unix Secs
           type: integer
@@ -8593,6 +8608,10 @@ components:
           $ref: '#/components/schemas/ResourceAccessInfo'
       example:
         agent_id: J3Pbu5gP6NNKBscdCdwB
+        categories:
+          - Customer Support
+          - Technical Help
+          - Eleven
         created_at_unix_secs: 1716153600
         name: My Agent
     AgentTransfer:
@@ -9385,6 +9404,17 @@ components:
           description: A name to make the agent easier to find
           nullable: true
           example: My agent
+        categories:
+          title: Categories
+          type: array
+          items:
+            type: string
+          description: Categories to help classify and filter the agent
+          nullable: true
+          example:
+            - Customer Support
+            - Technical Help
+            - Eleven
     Body_Create_PVC_voice_v1_voices_pvc_post:
       title: Body_Create_PVC_voice_v1_voices_pvc_post
       required:
@@ -10485,6 +10515,17 @@ components:
           description: A name to make the agent easier to find
           nullable: true
           example: My agent
+        categories:
+          title: Categories
+          type: array
+          items:
+            type: string
+          description: Categories to help classify and filter the agent
+          nullable: true
+          example:
+            - Customer Support
+            - Technical Help
+            - Eleven
     Body_Post_Agent_avatar_v1_convai_agents__agent_id__avatar_post:
       title: Body_Post_Agent_avatar_v1_convai_agents__agent_id__avatar_post
       required:
@@ -13900,6 +13941,12 @@ components:
           description: The phone numbers of the agent
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
+        categories:
+          title: Categories
+          type: array
+          items:
+            type: string
+          description: The categories of the agent
       example:
         agent_id: J3Pbu5gP6NNKBscdCdwB
         name: My Agent
@@ -14858,6 +14905,11 @@ components:
           title: Amount Due Cents
           type: integer
           description: The amount due in cents.
+        discount_percent_off:
+          title: Discount Percent Off
+          type: number
+          description: 'The discount applied to the invoice. E.g. [20.0f] for 20% off.'
+          nullable: true
         next_payment_attempt_unix:
           title: Next Payment Attempt Unix
           type: integer

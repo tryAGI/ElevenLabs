@@ -16,6 +16,12 @@ namespace ElevenLabs
         public required int AmountDueCents { get; set; }
 
         /// <summary>
+        /// The discount applied to the invoice. E.g. [20.0f] for 20% off.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("discount_percent_off")]
+        public double? DiscountPercentOff { get; set; }
+
+        /// <summary>
         /// The Unix timestamp of the next payment attempt.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_payment_attempt_unix")]
@@ -35,6 +41,9 @@ namespace ElevenLabs
         /// <param name="amountDueCents">
         /// The amount due in cents.
         /// </param>
+        /// <param name="discountPercentOff">
+        /// The discount applied to the invoice. E.g. [20.0f] for 20% off.
+        /// </param>
         /// <param name="nextPaymentAttemptUnix">
         /// The Unix timestamp of the next payment attempt.
         /// </param>
@@ -43,10 +52,12 @@ namespace ElevenLabs
 #endif
         public InvoiceResponseModel(
             int amountDueCents,
-            global::System.DateTimeOffset nextPaymentAttemptUnix)
+            global::System.DateTimeOffset nextPaymentAttemptUnix,
+            double? discountPercentOff)
         {
             this.AmountDueCents = amountDueCents;
             this.NextPaymentAttemptUnix = nextPaymentAttemptUnix;
+            this.DiscountPercentOff = discountPercentOff;
         }
 
         /// <summary>
