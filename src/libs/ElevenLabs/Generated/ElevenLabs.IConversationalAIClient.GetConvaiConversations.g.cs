@@ -19,6 +19,9 @@ namespace ElevenLabs
         /// <param name="callStartBeforeUnix">
         /// Unix timestamp (in seconds) to filter conversations up to this start date.
         /// </param>
+        /// <param name="callStartAfterUnix">
+        /// Unix timestamp (in seconds) to filter conversations after to this start date.
+        /// </param>
         /// <param name="pageSize">
         /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -33,6 +36,7 @@ namespace ElevenLabs
             string? agentId = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             global::System.DateTimeOffset? callStartBeforeUnix = default,
+            global::System.DateTimeOffset? callStartAfterUnix = default,
             int? pageSize = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
