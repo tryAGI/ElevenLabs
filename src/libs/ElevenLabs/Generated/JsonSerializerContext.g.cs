@@ -185,6 +185,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostGenderNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostAgeJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostAgeNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermissionJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermissionNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.RenderTypeJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.RenderTypeNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.UserFeedbackScoreJsonConverter),
