@@ -10495,6 +10495,29 @@ components:
           example:
             - group_id_1
             - group_id_2
+        workspace_permission:
+          title: Workspace Permission
+          enum:
+            - external
+            - admin
+            - workspace_admin
+            - workspace_member
+            - support_l1
+            - support_l2
+            - moderator
+            - sales
+            - voice_mixer
+            - voice_admin
+            - convai_admin
+            - enterprise_viewer
+            - quality_check_admin
+            - workspace_migration_admin
+            - human_reviewer
+            - productions_admin
+          type: string
+          description: The workspace permission of the user
+          nullable: true
+          example: workspace_member
     Body_Patches_an_Agent_settings_v1_convai_agents__agent_id__patch:
       title: Body_Patches_an_Agent_settings_v1_convai_agents__agent_id__patch
       type: object
