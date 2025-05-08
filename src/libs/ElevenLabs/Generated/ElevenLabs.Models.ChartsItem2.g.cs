@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChartsItem2(global::ElevenLabs.DashboardCallSuccessChartModel value) => new ChartsItem2(value);
+        public static implicit operator ChartsItem2(global::ElevenLabs.DashboardCallSuccessChartModel value) => new ChartsItem2((global::ElevenLabs.DashboardCallSuccessChartModel?)value);
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChartsItem2(global::ElevenLabs.DashboardCriteriaChartModel value) => new ChartsItem2(value);
+        public static implicit operator ChartsItem2(global::ElevenLabs.DashboardCriteriaChartModel value) => new ChartsItem2((global::ElevenLabs.DashboardCriteriaChartModel?)value);
 
         /// <summary>
         /// 

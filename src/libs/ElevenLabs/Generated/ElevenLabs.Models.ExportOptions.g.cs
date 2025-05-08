@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExportOptions(global::ElevenLabs.SegmentedJsonExportOptions value) => new ExportOptions(value);
+        public static implicit operator ExportOptions(global::ElevenLabs.SegmentedJsonExportOptions value) => new ExportOptions((global::ElevenLabs.SegmentedJsonExportOptions?)value);
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExportOptions(global::ElevenLabs.DocxExportOptions value) => new ExportOptions(value);
+        public static implicit operator ExportOptions(global::ElevenLabs.DocxExportOptions value) => new ExportOptions((global::ElevenLabs.DocxExportOptions?)value);
 
         /// <summary>
         /// 
@@ -104,7 +104,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExportOptions(global::ElevenLabs.PdfExportOptions value) => new ExportOptions(value);
+        public static implicit operator ExportOptions(global::ElevenLabs.PdfExportOptions value) => new ExportOptions((global::ElevenLabs.PdfExportOptions?)value);
 
         /// <summary>
         /// 
@@ -139,7 +139,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExportOptions(global::ElevenLabs.TxtExportOptions value) => new ExportOptions(value);
+        public static implicit operator ExportOptions(global::ElevenLabs.TxtExportOptions value) => new ExportOptions((global::ElevenLabs.TxtExportOptions?)value);
 
         /// <summary>
         /// 
@@ -174,7 +174,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExportOptions(global::ElevenLabs.HtmlExportOptions value) => new ExportOptions(value);
+        public static implicit operator ExportOptions(global::ElevenLabs.HtmlExportOptions value) => new ExportOptions((global::ElevenLabs.HtmlExportOptions?)value);
 
         /// <summary>
         /// 
@@ -209,7 +209,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExportOptions(global::ElevenLabs.SrtExportOptions value) => new ExportOptions(value);
+        public static implicit operator ExportOptions(global::ElevenLabs.SrtExportOptions value) => new ExportOptions((global::ElevenLabs.SrtExportOptions?)value);
 
         /// <summary>
         /// 

@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolDetails(global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails value) => new ToolDetails(value);
+        public static implicit operator ToolDetails(global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails value) => new ToolDetails((global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?)value);
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolDetails(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails value) => new ToolDetails(value);
+        public static implicit operator ToolDetails(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails value) => new ToolDetails((global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?)value);
 
         /// <summary>
         /// 
