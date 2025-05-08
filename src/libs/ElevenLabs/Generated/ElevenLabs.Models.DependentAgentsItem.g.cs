@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator DependentAgentsItem(global::ElevenLabs.DependentAvailableAgentIdentifier value) => new DependentAgentsItem(value);
+        public static implicit operator DependentAgentsItem(global::ElevenLabs.DependentAvailableAgentIdentifier value) => new DependentAgentsItem((global::ElevenLabs.DependentAvailableAgentIdentifier?)value);
 
         /// <summary>
         /// 
@@ -70,7 +70,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator DependentAgentsItem(global::ElevenLabs.DependentUnknownAgentIdentifier value) => new DependentAgentsItem(value);
+        public static implicit operator DependentAgentsItem(global::ElevenLabs.DependentUnknownAgentIdentifier value) => new DependentAgentsItem((global::ElevenLabs.DependentUnknownAgentIdentifier?)value);
 
         /// <summary>
         /// 

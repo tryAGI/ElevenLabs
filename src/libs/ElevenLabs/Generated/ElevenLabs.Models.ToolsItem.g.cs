@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem(global::ElevenLabs.DependentAvailableToolIdentifier value) => new ToolsItem(value);
+        public static implicit operator ToolsItem(global::ElevenLabs.DependentAvailableToolIdentifier value) => new ToolsItem((global::ElevenLabs.DependentAvailableToolIdentifier?)value);
 
         /// <summary>
         /// 
@@ -70,7 +70,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem(global::ElevenLabs.DependentUnknownToolIdentifier value) => new ToolsItem(value);
+        public static implicit operator ToolsItem(global::ElevenLabs.DependentUnknownToolIdentifier value) => new ToolsItem((global::ElevenLabs.DependentUnknownToolIdentifier?)value);
 
         /// <summary>
         /// 

@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params(global::ElevenLabs.EndCallToolConfig value) => new Params(value);
+        public static implicit operator Params(global::ElevenLabs.EndCallToolConfig value) => new Params((global::ElevenLabs.EndCallToolConfig?)value);
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params(global::ElevenLabs.LanguageDetectionToolConfig value) => new Params(value);
+        public static implicit operator Params(global::ElevenLabs.LanguageDetectionToolConfig value) => new Params((global::ElevenLabs.LanguageDetectionToolConfig?)value);
 
         /// <summary>
         /// 
@@ -104,7 +104,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params(global::ElevenLabs.TransferToAgentToolConfig value) => new Params(value);
+        public static implicit operator Params(global::ElevenLabs.TransferToAgentToolConfig value) => new Params((global::ElevenLabs.TransferToAgentToolConfig?)value);
 
         /// <summary>
         /// 
@@ -139,7 +139,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params(global::ElevenLabs.TransferToNumberToolConfig value) => new Params(value);
+        public static implicit operator Params(global::ElevenLabs.TransferToNumberToolConfig value) => new Params((global::ElevenLabs.TransferToNumberToolConfig?)value);
 
         /// <summary>
         /// 

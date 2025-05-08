@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem3(global::ElevenLabs.WebhookToolConfigOutput value) => new ToolsItem3(value);
+        public static implicit operator ToolsItem3(global::ElevenLabs.WebhookToolConfigOutput value) => new ToolsItem3((global::ElevenLabs.WebhookToolConfigOutput?)value);
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem3(global::ElevenLabs.ClientToolConfigOutput value) => new ToolsItem3(value);
+        public static implicit operator ToolsItem3(global::ElevenLabs.ClientToolConfigOutput value) => new ToolsItem3((global::ElevenLabs.ClientToolConfigOutput?)value);
 
         /// <summary>
         /// 
@@ -104,7 +104,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolsItem3(global::ElevenLabs.SystemToolConfigOutput value) => new ToolsItem3(value);
+        public static implicit operator ToolsItem3(global::ElevenLabs.SystemToolConfigOutput value) => new ToolsItem3((global::ElevenLabs.SystemToolConfigOutput?)value);
 
         /// <summary>
         /// 

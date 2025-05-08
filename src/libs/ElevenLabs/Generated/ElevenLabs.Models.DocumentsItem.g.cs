@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel value) => new DocumentsItem(value);
+        public static implicit operator DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel value) => new DocumentsItem((global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel?)value);
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel value) => new DocumentsItem(value);
+        public static implicit operator DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel value) => new DocumentsItem((global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?)value);
 
         /// <summary>
         /// 
@@ -104,7 +104,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel value) => new DocumentsItem(value);
+        public static implicit operator DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel value) => new DocumentsItem((global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?)value);
 
         /// <summary>
         /// 
