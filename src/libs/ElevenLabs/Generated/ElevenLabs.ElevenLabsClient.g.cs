@@ -202,6 +202,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public EnterpriseClient Enterprise => new EnterpriseClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AudioNativeClient AudioNative => new AudioNativeClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,

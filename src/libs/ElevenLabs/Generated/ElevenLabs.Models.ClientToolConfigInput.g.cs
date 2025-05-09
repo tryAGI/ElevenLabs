@@ -15,14 +15,6 @@ namespace ElevenLabs
         public string? Id { get; set; }
 
         /// <summary>
-        /// The type of tool<br/>
-        /// Default Value: client
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ClientToolConfigInputTypeJsonConverter))]
-        public global::ElevenLabs.ClientToolConfigInputType? Type { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -35,6 +27,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Description { get; set; }
+
+        /// <summary>
+        /// The type of tool<br/>
+        /// Default Value: client
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ClientToolConfigInputTypeJsonConverter))]
+        public global::ElevenLabs.ClientToolConfigInputType? Type { get; set; }
 
         /// <summary>
         /// 
@@ -71,12 +71,12 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ClientToolConfigInput" /> class.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
         /// <param name="type">
         /// The type of tool<br/>
         /// Default Value: client
         /// </param>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
         /// <param name="parameters"></param>
         /// <param name="expectsResponse">
         /// If true, calling this tool should block the conversation until the client responds with some response which is passed to the llm. If false then we will continue the conversation without waiting for the client to respond, this is useful to show content to a user but not block the conversation<br/>

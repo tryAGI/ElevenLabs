@@ -130,6 +130,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public EnterpriseClient Enterprise { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AudioNativeClient AudioNative { get; }
 
         /// <summary>

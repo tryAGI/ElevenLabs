@@ -87,22 +87,60 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.DashboardDataCollectionChartModel? DataCollection { get; init; }
+#else
+        public global::ElevenLabs.DashboardDataCollectionChartModel? DataCollection { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DataCollection))]
+#endif
+        public bool IsDataCollection => DataCollection != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator ChartsItem(global::ElevenLabs.DashboardDataCollectionChartModel value) => new ChartsItem((global::ElevenLabs.DashboardDataCollectionChartModel?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.DashboardDataCollectionChartModel?(ChartsItem @this) => @this.DataCollection;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ChartsItem(global::ElevenLabs.DashboardDataCollectionChartModel? value)
+        {
+            DataCollection = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ChartsItem(
             global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType? type,
             global::ElevenLabs.DashboardCallSuccessChartModel? callSuccess,
-            global::ElevenLabs.DashboardCriteriaChartModel? criteria
+            global::ElevenLabs.DashboardCriteriaChartModel? criteria,
+            global::ElevenLabs.DashboardDataCollectionChartModel? dataCollection
             )
         {
             Type = type;
 
             CallSuccess = callSuccess;
             Criteria = criteria;
+            DataCollection = dataCollection;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            DataCollection as object ??
             Criteria as object ??
             CallSuccess as object 
             ;
@@ -112,7 +150,8 @@ namespace ElevenLabs
         /// </summary>
         public override string? ToString() =>
             CallSuccess?.ToString() ??
-            Criteria?.ToString() 
+            Criteria?.ToString() ??
+            DataCollection?.ToString() 
             ;
 
         /// <summary>
@@ -120,7 +159,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsCallSuccess && !IsCriteria || !IsCallSuccess && IsCriteria;
+            return IsCallSuccess && !IsCriteria && !IsDataCollection || !IsCallSuccess && IsCriteria && !IsDataCollection || !IsCallSuccess && !IsCriteria && IsDataCollection;
         }
 
         /// <summary>
@@ -129,6 +168,7 @@ namespace ElevenLabs
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.DashboardCallSuccessChartModel?, TResult>? callSuccess = null,
             global::System.Func<global::ElevenLabs.DashboardCriteriaChartModel?, TResult>? criteria = null,
+            global::System.Func<global::ElevenLabs.DashboardDataCollectionChartModel?, TResult>? dataCollection = null,
             bool validate = true)
         {
             if (validate)
@@ -144,6 +184,10 @@ namespace ElevenLabs
             {
                 return criteria(Criteria!);
             }
+            else if (IsDataCollection && dataCollection != null)
+            {
+                return dataCollection(DataCollection!);
+            }
 
             return default(TResult);
         }
@@ -154,6 +198,7 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.DashboardCallSuccessChartModel?>? callSuccess = null,
             global::System.Action<global::ElevenLabs.DashboardCriteriaChartModel?>? criteria = null,
+            global::System.Action<global::ElevenLabs.DashboardDataCollectionChartModel?>? dataCollection = null,
             bool validate = true)
         {
             if (validate)
@@ -169,6 +214,10 @@ namespace ElevenLabs
             {
                 criteria?.Invoke(Criteria!);
             }
+            else if (IsDataCollection)
+            {
+                dataCollection?.Invoke(DataCollection!);
+            }
         }
 
         /// <summary>
@@ -182,6 +231,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.DashboardCallSuccessChartModel),
                 Criteria,
                 typeof(global::ElevenLabs.DashboardCriteriaChartModel),
+                DataCollection,
+                typeof(global::ElevenLabs.DashboardDataCollectionChartModel),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -199,7 +250,8 @@ namespace ElevenLabs
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DashboardCallSuccessChartModel?>.Default.Equals(CallSuccess, other.CallSuccess) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DashboardCriteriaChartModel?>.Default.Equals(Criteria, other.Criteria) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DashboardCriteriaChartModel?>.Default.Equals(Criteria, other.Criteria) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DashboardDataCollectionChartModel?>.Default.Equals(DataCollection, other.DataCollection) 
                 ;
         }
 

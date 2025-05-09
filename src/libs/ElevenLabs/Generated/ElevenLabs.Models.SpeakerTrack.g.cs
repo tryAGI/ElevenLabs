@@ -32,6 +32,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voices")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.Dictionary<string, string> Voices { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> Segments { get; set; }
@@ -48,6 +55,7 @@ namespace ElevenLabs
         /// <param name="id"></param>
         /// <param name="mediaRef"></param>
         /// <param name="speakerName"></param>
+        /// <param name="voices"></param>
         /// <param name="segments"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -56,11 +64,13 @@ namespace ElevenLabs
             string id,
             global::ElevenLabs.DubbingMediaReference mediaRef,
             string speakerName,
+            global::System.Collections.Generic.Dictionary<string, string> voices,
             global::System.Collections.Generic.IList<string> segments)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.MediaRef = mediaRef ?? throw new global::System.ArgumentNullException(nameof(mediaRef));
             this.SpeakerName = speakerName ?? throw new global::System.ArgumentNullException(nameof(speakerName));
+            this.Voices = voices ?? throw new global::System.ArgumentNullException(nameof(voices));
             this.Segments = segments ?? throw new global::System.ArgumentNullException(nameof(segments));
         }
 

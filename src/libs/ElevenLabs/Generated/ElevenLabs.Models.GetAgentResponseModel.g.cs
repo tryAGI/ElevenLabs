@@ -55,10 +55,10 @@ namespace ElevenLabs
         public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
 
         /// <summary>
-        /// The categories of the agent
+        /// Agent tags used to categorize the agent
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("categories")]
-        public global::System.Collections.Generic.IList<string>? Categories { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
+        public global::System.Collections.Generic.IList<string>? Tags { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -82,8 +82,8 @@ namespace ElevenLabs
         /// The phone numbers of the agent
         /// </param>
         /// <param name="accessInfo"></param>
-        /// <param name="categories">
-        /// The categories of the agent
+        /// <param name="tags">
+        /// Agent tags used to categorize the agent
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -96,7 +96,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentPlatformSettingsResponseModel? platformSettings,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? phoneNumbers,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
-            global::System.Collections.Generic.IList<string>? categories)
+            global::System.Collections.Generic.IList<string>? tags)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -105,7 +105,7 @@ namespace ElevenLabs
             this.PlatformSettings = platformSettings;
             this.PhoneNumbers = phoneNumbers;
             this.AccessInfo = accessInfo;
-            this.Categories = categories;
+            this.Tags = tags;
         }
 
         /// <summary>

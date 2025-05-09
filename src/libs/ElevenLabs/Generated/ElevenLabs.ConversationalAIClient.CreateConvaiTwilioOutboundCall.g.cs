@@ -48,7 +48,7 @@ namespace ElevenLabs
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/v1/convai/twilio/outbound_call",
+                path: "/v1/convai/twilio/outbound-call",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

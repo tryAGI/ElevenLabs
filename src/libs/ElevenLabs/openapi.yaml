@@ -3696,6 +3696,7 @@ paths:
         - dubbing
         - resource
         - segment
+        - enterprise
       summary: Get The Dubbing Resource For An Id.
       description: 'Given a dubbing ID generated from the ''/v1/dubbing'' endpoint with studio enabled, returns the dubbing resource.'
       operationId: Get_the_dubbing_resource_for_an_ID__v1_dubbing_resource__dubbing_id__get
@@ -3738,6 +3739,7 @@ paths:
         - dubbing
         - resource
         - segment
+        - enterprise
       summary: Add A Language To The Resource
       description: Adds the given ElevenLab Turbo V2/V2.5 language code to the resource. Does not automatically generate transcripts/translations/audio.
       operationId: Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post
@@ -3786,6 +3788,7 @@ paths:
         - dubbing
         - resource
         - segment
+        - enterprise
       summary: Create A Segment For The Speaker
       description: Creates a new segment in dubbing resource with a start and end time for the speaker in every available language. Does not automatically generate transcripts/translations/audio.
       operationId: Create_a_segment_for_the_speaker_v1_dubbing_resource__dubbing_id__speaker__speaker_id__segment_post
@@ -3833,8 +3836,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: dubbing
-      x-fern-sdk-method-name: create_segment_for_speaker
+      x-fern-sdk-group-name:
+        - dubbing
+        - speaker
+        - segment
+      x-fern-sdk-method-name: create
   '/v1/dubbing/resource/{dubbing_id}/segment/{segment_id}/{language}':
     patch:
       tags:
@@ -3842,6 +3848,7 @@ paths:
         - dubbing
         - resource
         - segment
+        - enterprise
       summary: Modify A Single Segment
       description: Modifies a single segment with new text and/or start/end times. Will update the values for only a specific language of a segment. Does not automatically regenerate the dub.
       operationId: Modify_a_single_segment_v1_dubbing_resource__dubbing_id__segment__segment_id___language__patch
@@ -3906,6 +3913,7 @@ paths:
         - dubbing
         - resource
         - segment
+        - enterprise
       summary: Deletes A Single Segment
       description: Deletes a single segment from the dubbing.
       operationId: Deletes_a_single_segment_v1_dubbing_resource__dubbing_id__segment__segment_id__delete
@@ -3956,6 +3964,7 @@ paths:
         - dubbing
         - resource
         - segment
+        - enterprise
       summary: Transcribes Segments
       description: Regenerate the transcriptions for the specified segments. Does not automatically regenerate translations or dubs.
       operationId: Transcribes_segments_v1_dubbing_resource__dubbing_id__transcribe_post
@@ -4004,6 +4013,7 @@ paths:
         - dubbing
         - resource
         - segment
+        - enterprise
       summary: Translates All Or Some Segments And Languages
       description: Regenerate the translations for either the entire resource or the specified segments/languages. Will automatically transcribe missing transcriptions. Will not automatically regenerate the dubs.
       operationId: Translates_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__translate_post
@@ -4052,6 +4062,7 @@ paths:
         - dubbing
         - resource
         - segment
+        - enterprise
       summary: Dubs All Or Some Segments And Languages
       description: Regenerate the dubs for either the entire resource or the specified segments/languages. Will automatically transcribe and translate any missing transcriptions and translations.
       operationId: Dubs_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__dub_post
@@ -4093,6 +4104,117 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: dubbing
       x-fern-sdk-method-name: dub_segments
+  '/v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}':
+    patch:
+      tags:
+        - dubbing
+        - dubbing
+        - resource
+        - segment
+        - enterprise
+      summary: Update Metadata For A Speaker
+      description: 'Amend the metadata associated with a speaker, such as their voice. Both voice cloning and using voices from the ElevenLabs library are supported.'
+      operationId: Update_metadata_for_a_speaker_v1_dubbing_resource__dubbing_id__speaker__speaker_id__patch
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: speaker_id
+          in: path
+          description: ID of the speaker.
+          required: true
+          schema:
+            title: Speaker Id
+            type: string
+            description: ID of the speaker.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Update_metadata_for_a_speaker_v1_dubbing_resource__dubbing_id__speaker__speaker_id__patch'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeakerUpdatedResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - dubbing
+        - speaker
+      x-fern-sdk-method-name: update
+  '/v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}/similar-voices':
+    get:
+      tags:
+        - dubbing
+        - dubbing
+        - resource
+        - segment
+        - enterprise
+      summary: Search The Elevenlabs Library For Voices Similar To A Speaker.
+      description: 'Fetch the top 10 similar voices to a speaker, including the voice IDs, names, descriptions, and, where possible, a sample audio recording.'
+      operationId: Search_the_ElevenLabs_library_for_voices_similar_to_a_speaker__v1_dubbing_resource__dubbing_id__speaker__speaker_id__similar_voices_get
+      parameters:
+        - name: dubbing_id
+          in: path
+          description: ID of the dubbing project.
+          required: true
+          schema:
+            title: Dubbing Id
+            type: string
+            description: ID of the dubbing project.
+        - name: speaker_id
+          in: path
+          description: ID of the speaker.
+          required: true
+          schema:
+            title: Speaker Id
+            type: string
+            description: ID of the speaker.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimilarVoicesForSpeakerResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - dubbing
+        - speaker
+      x-fern-sdk-method-name: similar_voices
   '/v1/dubbing/resource/{dubbing_id}/render/{language}':
     post:
       tags:
@@ -4100,6 +4222,7 @@ paths:
         - dubbing
         - resource
         - segment
+        - enterprise
       summary: Render Audio Or Video For The Given Language
       description: Regenerate the dubs for either the entire resource or the specified segments/languages. Will automatically transcribe and translate any missing transcriptions and translations.
       operationId: Render_audio_or_video_for_the_given_language_v1_dubbing_resource__dubbing_id__render__language__post
@@ -5773,7 +5896,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: get_signed_url
-  /v1/convai/twilio/outbound_call:
+  /v1/convai/twilio/outbound-call:
     post:
       tags:
         - Conversational AI
@@ -5987,11 +6110,11 @@ paths:
             example: 21m00Tcm4TlvDq8ikWAM
         - name: conversation_signature
           in: query
-          description: An expiring token that enables a conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
+          description: An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
           schema:
             title: Conversation Signature
             type: string
-            description: An expiring token that enables a conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
+            description: An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
             nullable: true
         - name: xi-api-key
           in: header
@@ -6892,13 +7015,13 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: create_knowledge_base_text_document
-  '/v1/convai/knowledge-base/{documentation_id}/rag-index':
-    post:
+  '/v1/convai/knowledge-base/{documentation_id}':
+    patch:
       tags:
         - Conversational AI
-      summary: Compute Rag Index.
-      description: 'In case the document is not RAG indexed, it triggers rag indexing task, otherwise it just returns the current status.'
-      operationId: Compute_RAG_index__v1_convai_knowledge_base__documentation_id__rag_index_post
+      summary: Update Document
+      description: Update the name of a document
+      operationId: Update_document_v1_convai_knowledge_base__documentation_id__patch
       parameters:
         - name: documentation_id
           in: path
@@ -6921,7 +7044,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RAGIndexRequestModel'
+              $ref: '#/components/schemas/Body_Update_document_v1_convai_knowledge_base__documentation_id__patch'
         required: true
       responses:
         '200':
@@ -6929,7 +7052,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RAGIndexResponseModel'
+                title: Response Update Document V1 Convai Knowledge Base  Documentation Id  Patch
+                oneOf:
+                  - $ref: '#/components/schemas/GetKnowledgeBaseURLResponseModel'
+                  - $ref: '#/components/schemas/GetKnowledgeBaseFileResponseModel'
+                  - $ref: '#/components/schemas/GetKnowledgeBaseTextResponseModel'
+                discriminator:
+                  propertyName: type
+                  mapping:
+                    url: '#/components/schemas/GetKnowledgeBaseURLResponseModel'
+                    file: '#/components/schemas/GetKnowledgeBaseFileResponseModel'
+                    text: '#/components/schemas/GetKnowledgeBaseTextResponseModel'
         '422':
           description: Validation Error
           content:
@@ -6937,8 +7070,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
-      x-fern-sdk-method-name: rag_index_status
-  '/v1/convai/knowledge-base/{documentation_id}':
+      x-fern-sdk-method-name: update_knowledge_base_document
     get:
       tags:
         - Conversational AI
@@ -7026,6 +7158,55 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: delete_knowledge_base_document
+  '/v1/convai/knowledge-base/{documentation_id}/rag-index':
+    post:
+      tags:
+        - Conversational AI
+      summary: Compute Rag Index.
+      description: 'In case the document is not RAG indexed, it triggers rag indexing task, otherwise it just returns the current status.'
+      operationId: Compute_RAG_index__v1_convai_knowledge_base__documentation_id__rag_index_post
+      parameters:
+        - name: documentation_id
+          in: path
+          description: The id of a document from the knowledge base. This is returned on document addition.
+          required: true
+          schema:
+            title: Documentation Id
+            type: string
+            description: The id of a document from the knowledge base. This is returned on document addition.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RAGIndexRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RAGIndexResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - knowledge_base
+        - document
+      x-fern-sdk-method-name: compute_rag_index
   '/v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}':
     get:
       tags:
@@ -7454,6 +7635,82 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: delete_secret
+  '/v1/convai/batch-calling/{batch_id}':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get A Batch Call By Id.
+      description: Get detailed information about a batch call including all recipients.
+      operationId: Get_a_batch_call_by_ID__v1_convai_batch_calling__batch_id__get
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchCallDetailedResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_batch_call
+  /v1/convai/sip-trunk/outbound-call:
+    post:
+      tags:
+        - Conversational AI
+      summary: Handle An Outbound Call Via Sip Trunk
+      description: Handle an outbound call via SIP trunk
+      operationId: Handle_an_outbound_call_via_SIP_trunk_v1_convai_sip_trunk_outbound_call_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Handle_an_outbound_call_via_SIP_trunk_v1_convai_sip_trunk_outbound_call_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SIPTrunkOutboundCallResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - sip_trunk
+      x-fern-sdk-method-name: outbound_call
   /v1/voices/pvc:
     post:
       tags:
@@ -8581,7 +8838,7 @@ components:
       required:
         - agent_id
         - name
-        - categories
+        - tags
         - created_at_unix_secs
         - access_info
       type: object
@@ -8594,12 +8851,12 @@ components:
           title: Name
           type: string
           description: The name of the agent
-        categories:
-          title: Categories
+        tags:
+          title: Tags
           type: array
           items:
             type: string
-          description: The categories of the agent
+          description: Agent tags used to categorize the agent
         created_at_unix_secs:
           title: Created At Unix Secs
           type: integer
@@ -8608,12 +8865,12 @@ components:
           $ref: '#/components/schemas/ResourceAccessInfo'
       example:
         agent_id: J3Pbu5gP6NNKBscdCdwB
-        categories:
+        created_at_unix_secs: 1716153600
+        name: My Agent
+        tags:
           - Customer Support
           - Technical Help
           - Eleven
-        created_at_unix_secs: 1716153600
-        name: My Agent
     AgentTransfer:
       title: AgentTransfer
       required:
@@ -8665,16 +8922,16 @@ components:
             - array
           type: string
           default: array
+        description:
+          title: Description
+          type: string
+          default: ''
         items:
           title: Items
           oneOf:
             - $ref: '#/components/schemas/LiteralJsonSchemaProperty'
             - $ref: '#/components/schemas/ObjectJsonSchemaProperty-Input'
             - $ref: '#/components/schemas/ArrayJsonSchemaProperty-Input'
-        description:
-          title: Description
-          type: string
-          default: ''
       additionalProperties: false
     ArrayJsonSchemaProperty-Output:
       title: ArrayJsonSchemaProperty
@@ -8688,16 +8945,16 @@ components:
             - array
           type: string
           default: array
+        description:
+          title: Description
+          type: string
+          default: ''
         items:
           title: Items
           oneOf:
             - $ref: '#/components/schemas/LiteralJsonSchemaProperty'
             - $ref: '#/components/schemas/ObjectJsonSchemaProperty-Output'
             - $ref: '#/components/schemas/ArrayJsonSchemaProperty-Output'
-        description:
-          title: Description
-          type: string
-          default: ''
       additionalProperties: false
     AudioNativeCreateProjectResponseModel:
       title: AudioNativeCreateProjectResponseModel
@@ -8909,12 +9166,87 @@ components:
         - authorization_header
         - signed_url
         - shareable_link
+        - livekit_token
+        - livekit_token_website
       type: string
     BanReasonType:
       title: BanReasonType
       enum:
         - safety
         - manual
+      type: string
+    BatchCallDetailedResponse:
+      title: BatchCallDetailedResponse
+      required:
+        - id
+        - phone_number_id
+        - name
+        - agent_id
+        - created_at_unix
+        - scheduled_time_unix
+        - total_calls_dispatched
+        - total_calls_scheduled
+        - last_updated_at_unix
+        - status
+        - agent_name
+        - recipients
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        phone_number_id:
+          title: Phone Number Id
+          type: string
+        name:
+          title: Name
+          type: string
+        agent_id:
+          title: Agent Id
+          type: string
+        created_at_unix:
+          title: Created At Unix
+          type: integer
+        scheduled_time_unix:
+          title: Scheduled Time Unix
+          type: integer
+        total_calls_dispatched:
+          title: Total Calls Dispatched
+          type: integer
+        total_calls_scheduled:
+          title: Total Calls Scheduled
+          type: integer
+        last_updated_at_unix:
+          title: Last Updated At Unix
+          type: integer
+        status:
+          $ref: '#/components/schemas/BatchCallStatus'
+        agent_name:
+          title: Agent Name
+          type: string
+        recipients:
+          title: Recipients
+          type: array
+          items:
+            $ref: '#/components/schemas/OutboundCallRecipientResponseModel'
+      description: Detailed response model for a batch call including all recipients.
+    BatchCallRecipientStatus:
+      title: BatchCallRecipientStatus
+      enum:
+        - pending
+        - in_progress
+        - completed
+        - failed
+        - cancelled
+      type: string
+    BatchCallStatus:
+      title: BatchCallStatus
+      enum:
+        - pending
+        - in_progress
+        - completed
+        - failed
+        - cancelled
       type: string
     Body_Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post:
       title: Body_Add_a_language_to_the_resource_v1_dubbing_resource__dubbing_id__language_post
@@ -9262,6 +9594,7 @@ components:
       properties:
         name:
           title: Name
+          minLength: 1
           type: string
           description: 'A custom, human-readable name for the document.'
           nullable: true
@@ -9280,6 +9613,7 @@ components:
       properties:
         name:
           title: Name
+          minLength: 1
           type: string
           description: 'A custom, human-readable name for the document.'
           nullable: true
@@ -9298,6 +9632,7 @@ components:
       properties:
         name:
           title: Name
+          minLength: 1
           type: string
           description: 'A custom, human-readable name for the document.'
           nullable: true
@@ -9404,12 +9739,12 @@ components:
           description: A name to make the agent easier to find
           nullable: true
           example: My agent
-        categories:
-          title: Categories
+        tags:
+          title: Tags
           type: array
           items:
             type: string
-          description: Categories to help classify and filter the agent
+          description: Tags to help classify and filter the agent
           nullable: true
           example:
             - Customer Support
@@ -9666,6 +10001,7 @@ components:
           description: URL to a page of documentation that the agent will have access to in order to interact with users.
         name:
           title: Name
+          minLength: 1
           type: string
           description: 'A custom, human-readable name for the document.'
           nullable: true
@@ -9779,6 +10115,7 @@ components:
           format: binary
         name:
           title: Name
+          minLength: 1
           type: string
           description: 'A custom, human-readable name for the document.'
           nullable: true
@@ -9987,6 +10324,7 @@ components:
           description: Text content to be added to the knowledge base.
         name:
           title: Name
+          minLength: 1
           type: string
           description: 'A custom, human-readable name for the document.'
           nullable: true
@@ -10051,7 +10389,7 @@ components:
         file:
           title: File
           type: string
-          description: Either txt or HTML input file containing the article content. HTML should be formatted as follows '&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;p&gt;Your content&lt;/p&gt;&lt;h5&gt;More of your content&lt;/h5&gt;&lt;p&gt;Some more of your content&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;'
+          description: Either txt or HTML input file containing the article content. HTML should be formatted as follows '&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;p&gt;Your content&lt;/p&gt;&lt;h3&gt;More of your content&lt;/h3&gt;&lt;p&gt;Some more of your content&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;'
           format: binary
         auto_convert:
           title: Auto Convert
@@ -10432,6 +10770,25 @@ components:
           description: 'Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Values range from 1 to 100.'
           nullable: true
           example: 10
+    Body_Handle_an_outbound_call_via_SIP_trunk_v1_convai_sip_trunk_outbound_call_post:
+      title: Body_Handle_an_outbound_call_via_SIP_trunk_v1_convai_sip_trunk_outbound_call_post
+      required:
+        - agent_id
+        - agent_phone_number_id
+        - to_number
+      type: object
+      properties:
+        agent_id:
+          title: Agent Id
+          type: string
+        agent_phone_number_id:
+          title: Agent Phone Number Id
+          type: string
+        to_number:
+          title: To Number
+          type: string
+        conversation_initiation_client_data:
+          $ref: '#/components/schemas/ConversationInitiationClientDataRequest-Input'
     Body_Handle_an_outbound_call_via_Twilio_v1_convai_twilio_outbound_call_post:
       title: Body_Handle_an_outbound_call_via_Twilio_v1_convai_twilio_outbound_call_post
       required:
@@ -10538,12 +10895,12 @@ components:
           description: A name to make the agent easier to find
           nullable: true
           example: My agent
-        categories:
-          title: Categories
+        tags:
+          title: Tags
           type: array
           items:
             type: string
-          description: Categories to help classify and filter the agent
+          description: Tags to help classify and filter the agent
           nullable: true
           example:
             - Customer Support
@@ -10894,7 +11251,7 @@ components:
           title: Pronunciation Dictionary Locators
           type: array
           items:
-            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
+            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorRequestModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
           nullable: true
           example:
@@ -10990,7 +11347,7 @@ components:
           title: Pronunciation Dictionary Locators
           type: array
           items:
-            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
+            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorRequestModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
           nullable: true
           example:
@@ -11086,7 +11443,7 @@ components:
           title: Pronunciation Dictionary Locators
           type: array
           items:
-            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
+            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorRequestModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
           nullable: true
           example:
@@ -11182,7 +11539,7 @@ components:
           title: Pronunciation Dictionary Locators
           type: array
           items:
-            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
+            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorRequestModel'
           description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
           example:
             - pronunciation_dictionary_id: test
@@ -11452,6 +11809,17 @@ components:
           example: Chapter 1
         content:
           $ref: '#/components/schemas/ChapterContentInputModel'
+    Body_Update_document_v1_convai_knowledge_base__documentation_id__patch:
+      title: Body_Update_document_v1_convai_knowledge_base__documentation_id__patch
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          minLength: 1
+          type: string
+          description: 'A custom, human-readable name for the document.'
     Body_Update_member_v1_workspace_members_post:
       title: Body_Update_member_v1_workspace_members_post
       required:
@@ -11474,6 +11842,22 @@ components:
             - workspace_member
           type: string
           description: Role dictating permissions in the workspace.
+          nullable: true
+    Body_Update_metadata_for_a_speaker_v1_dubbing_resource__dubbing_id__speaker__speaker_id__patch:
+      title: Body_Update_metadata_for_a_speaker_v1_dubbing_resource__dubbing_id__speaker__speaker_id__patch
+      type: object
+      properties:
+        voice_id:
+          title: Voice Id
+          type: string
+          description: 'Either the identifier of a voice from the ElevenLabs voice library, or one of [''track-clone'', ''clip-clone''].'
+          nullable: true
+        languages:
+          title: Languages
+          type: array
+          items:
+            type: string
+          description: 'Languages to apply these changes to. If empty, will apply to all languages.'
           nullable: true
     Body_Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post:
       title: Body_Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post
@@ -11925,13 +12309,6 @@ components:
           title: Id
           type: string
           default: ''
-        type:
-          title: Type
-          enum:
-            - client
-          type: string
-          description: The type of tool
-          default: client
         name:
           title: Name
           minLength: 0
@@ -11941,6 +12318,13 @@ components:
           title: Description
           minLength: 0
           type: string
+        type:
+          title: Type
+          enum:
+            - client
+          type: string
+          description: The type of tool
+          default: client
         parameters:
           $ref: '#/components/schemas/ObjectJsonSchemaProperty-Input'
         expects_response:
@@ -11972,13 +12356,6 @@ components:
           title: Id
           type: string
           default: ''
-        type:
-          title: Type
-          enum:
-            - client
-          type: string
-          description: The type of tool
-          default: client
         name:
           title: Name
           minLength: 0
@@ -11988,6 +12365,13 @@ components:
           title: Description
           minLength: 0
           type: string
+        type:
+          title: Type
+          enum:
+            - client
+          type: string
+          description: The type of tool
+          default: client
         parameters:
           $ref: '#/components/schemas/ObjectJsonSchemaProperty-Output'
         expects_response:
@@ -12210,6 +12594,19 @@ components:
         transcript_summary:
           title: Transcript Summary
           type: string
+    ConversationHistoryBatchCallModel:
+      title: ConversationHistoryBatchCallModel
+      required:
+        - batch_call_id
+        - batch_call_recipient_id
+      type: object
+      properties:
+        batch_call_id:
+          title: Batch Call Id
+          type: string
+        batch_call_recipient_id:
+          title: Batch Call Recipient Id
+          type: string
     ConversationHistoryErrorCommonModel:
       title: ConversationHistoryErrorCommonModel
       required:
@@ -12292,6 +12689,8 @@ components:
             propertyName: type
             mapping:
               twilio: '#/components/schemas/ConversationHistoryTwilioPhoneCallModel'
+        batch_call:
+          $ref: '#/components/schemas/ConversationHistoryBatchCallModel'
         termination_reason:
           title: Termination Reason
           type: string
@@ -12558,6 +12957,25 @@ components:
       example:
         custom_llm_extra_body: true
         enable_conversation_initiation_client_data_from_webhook: true
+    ConversationInitiationClientDataInternal:
+      title: ConversationInitiationClientDataInternal
+      type: object
+      properties:
+        conversation_config_override:
+          $ref: '#/components/schemas/ConversationConfigClientOverride-Output'
+        custom_llm_extra_body:
+          title: Custom Llm Extra Body
+          type: object
+        dynamic_variables:
+          title: Dynamic Variables
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+            nullable: true
     ConversationInitiationClientDataRequest-Input:
       title: ConversationInitiationClientDataRequest
       type: object
@@ -12912,6 +13330,25 @@ components:
         criteria_id:
           title: Criteria Id
           type: string
+    DashboardDataCollectionChartModel:
+      title: DashboardDataCollectionChartModel
+      required:
+        - name
+        - data_collection_id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        type:
+          title: Type
+          enum:
+            - data_collection
+          type: string
+          default: data_collection
+        data_collection_id:
+          title: Data Collection Id
+          type: string
     DataCollectionResultCommonModel:
       title: DataCollectionResultCommonModel
       required:
@@ -13262,6 +13699,7 @@ components:
         - start_time
         - end_time
         - text
+        - audio_stale
         - media_ref
       type: object
       properties:
@@ -13275,6 +13713,9 @@ components:
           title: Text
           type: string
           nullable: true
+        audio_stale:
+          title: Audio Stale
+          type: boolean
         media_ref:
           $ref: '#/components/schemas/DubbingMediaReference'
     DubbingMediaMetadata:
@@ -13964,12 +14405,12 @@ components:
           description: The phone numbers of the agent
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
-        categories:
-          title: Categories
+        tags:
+          title: Tags
           type: array
           items:
             type: string
-          description: The categories of the agent
+          description: Agent tags used to categorize the agent
       example:
         agent_id: J3Pbu5gP6NNKBscdCdwB
         name: My Agent
@@ -14052,11 +14493,13 @@ components:
             oneOf:
               - $ref: '#/components/schemas/DashboardCallSuccessChartModel'
               - $ref: '#/components/schemas/DashboardCriteriaChartModel'
+              - $ref: '#/components/schemas/DashboardDataCollectionChartModel'
             discriminator:
               propertyName: type
               mapping:
                 call_success: '#/components/schemas/DashboardCallSuccessChartModel'
                 criteria: '#/components/schemas/DashboardCriteriaChartModel'
+                data_collection: '#/components/schemas/DashboardDataCollectionChartModel'
     GetConvAISettingsResponseModel:
       title: GetConvAISettingsResponseModel
       type: object
@@ -15364,6 +15807,86 @@ components:
         constant_value: Constant value
         description: My property
         dynamic_variable: Dynamic variable
+    MCPToolConfig-Input:
+      title: MCPToolConfig
+      required:
+        - name
+        - description
+        - mcp_tool_name
+        - mcp_server_id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          default: ''
+        name:
+          title: Name
+          minLength: 0
+          pattern: '^[a-zA-Z0-9_-]{1,64}$'
+          type: string
+        description:
+          title: Description
+          minLength: 0
+          type: string
+        type:
+          title: Type
+          enum:
+            - mcp
+          type: string
+          description: The type of tool
+          default: mcp
+        parameters:
+          $ref: '#/components/schemas/ObjectJsonSchemaProperty-Input'
+        mcp_tool_name:
+          title: Mcp Tool Name
+          type: string
+          description: The name of the MCP tool to call
+        mcp_server_id:
+          title: Mcp Server Id
+          type: string
+          description: The id of the MCP server to call
+      description: A MCP tool is a tool that is used to call a MCP server
+    MCPToolConfig-Output:
+      title: MCPToolConfig
+      required:
+        - name
+        - description
+        - mcp_tool_name
+        - mcp_server_id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          default: ''
+        name:
+          title: Name
+          minLength: 0
+          pattern: '^[a-zA-Z0-9_-]{1,64}$'
+          type: string
+        description:
+          title: Description
+          minLength: 0
+          type: string
+        type:
+          title: Type
+          enum:
+            - mcp
+          type: string
+          description: The type of tool
+          default: mcp
+        parameters:
+          $ref: '#/components/schemas/ObjectJsonSchemaProperty-Output'
+        mcp_tool_name:
+          title: Mcp Tool Name
+          type: string
+          description: The name of the MCP tool to call
+        mcp_server_id:
+          title: Mcp Server Id
+          type: string
+          description: The id of the MCP server to call
+      description: A MCP tool is a tool that is used to call a MCP server
     ManualVerificationFileResponseModel:
       title: ManualVerificationFileResponseModel
       required:
@@ -15651,14 +16174,6 @@ components:
             - object
           type: string
           default: object
-        properties:
-          title: Properties
-          type: object
-          additionalProperties:
-            oneOf:
-              - $ref: '#/components/schemas/LiteralJsonSchemaProperty'
-              - $ref: '#/components/schemas/ObjectJsonSchemaProperty-Input'
-              - $ref: '#/components/schemas/ArrayJsonSchemaProperty-Input'
         required:
           title: Required
           type: array
@@ -15668,6 +16183,14 @@ components:
           title: Description
           type: string
           default: ''
+        properties:
+          title: Properties
+          type: object
+          additionalProperties:
+            oneOf:
+              - $ref: '#/components/schemas/LiteralJsonSchemaProperty'
+              - $ref: '#/components/schemas/ObjectJsonSchemaProperty-Input'
+              - $ref: '#/components/schemas/ArrayJsonSchemaProperty-Input'
       additionalProperties: false
     ObjectJsonSchemaProperty-Output:
       title: ObjectJsonSchemaProperty
@@ -15679,14 +16202,6 @@ components:
             - object
           type: string
           default: object
-        properties:
-          title: Properties
-          type: object
-          additionalProperties:
-            oneOf:
-              - $ref: '#/components/schemas/LiteralJsonSchemaProperty'
-              - $ref: '#/components/schemas/ObjectJsonSchemaProperty-Output'
-              - $ref: '#/components/schemas/ArrayJsonSchemaProperty-Output'
         required:
           title: Required
           type: array
@@ -15696,6 +16211,14 @@ components:
           title: Description
           type: string
           default: ''
+        properties:
+          title: Properties
+          type: object
+          additionalProperties:
+            oneOf:
+              - $ref: '#/components/schemas/LiteralJsonSchemaProperty'
+              - $ref: '#/components/schemas/ObjectJsonSchemaProperty-Output'
+              - $ref: '#/components/schemas/ArrayJsonSchemaProperty-Output'
       additionalProperties: false
     OrbAvatar:
       title: OrbAvatar
@@ -15722,6 +16245,37 @@ components:
         color_1: '#2792dc'
         color_2: '#9ce6e6'
         type: orb
+    OutboundCallRecipientResponseModel:
+      title: OutboundCallRecipientResponseModel
+      required:
+        - id
+        - phone_number
+        - status
+        - created_at_unix
+        - updated_at_unix
+        - conversation_id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        phone_number:
+          title: Phone Number
+          type: string
+        status:
+          $ref: '#/components/schemas/BatchCallRecipientStatus'
+        created_at_unix:
+          title: Created At Unix
+          type: integer
+        updated_at_unix:
+          title: Updated At Unix
+          type: integer
+        conversation_id:
+          title: Conversation Id
+          type: string
+          nullable: true
+        conversation_initiation_client_data:
+          $ref: '#/components/schemas/ConversationInitiationClientDataInternal'
     PatchConvAIDashboardSettingsRequest:
       title: PatchConvAIDashboardSettingsRequest
       type: object
@@ -15734,11 +16288,13 @@ components:
             oneOf:
               - $ref: '#/components/schemas/DashboardCallSuccessChartModel'
               - $ref: '#/components/schemas/DashboardCriteriaChartModel'
+              - $ref: '#/components/schemas/DashboardDataCollectionChartModel'
             discriminator:
               propertyName: type
               mapping:
                 call_success: '#/components/schemas/DashboardCallSuccessChartModel'
                 criteria: '#/components/schemas/DashboardCriteriaChartModel'
+                data_collection: '#/components/schemas/DashboardDataCollectionChartModel'
     PatchConvAISettingsRequest:
       title: PatchConvAISettingsRequest
       type: object
@@ -16657,11 +17213,13 @@ components:
               - $ref: '#/components/schemas/WebhookToolConfig-Input'
               - $ref: '#/components/schemas/ClientToolConfig-Input'
               - $ref: '#/components/schemas/SystemToolConfig-Input'
+              - $ref: '#/components/schemas/MCPToolConfig-Input'
             description: The type of tool
             discriminator:
               propertyName: type
               mapping:
                 client: '#/components/schemas/ClientToolConfig-Input'
+                mcp: '#/components/schemas/MCPToolConfig-Input'
                 system: '#/components/schemas/SystemToolConfig-Input'
                 webhook: '#/components/schemas/WebhookToolConfig-Input'
           description: A list of tools that the agent can use over the course of the conversation
@@ -16671,6 +17229,13 @@ components:
           items:
             type: string
           description: A list of IDs of tools used by the agent
+        mcp_server_ids:
+          title: Mcp Server Ids
+          maxItems: 10
+          type: array
+          items:
+            type: string
+          description: A list of MCP server ids to be used by the agent
         knowledge_base:
           title: Knowledge Base
           type: array
@@ -16724,11 +17289,13 @@ components:
               - $ref: '#/components/schemas/WebhookToolConfig-Output'
               - $ref: '#/components/schemas/ClientToolConfig-Output'
               - $ref: '#/components/schemas/SystemToolConfig-Output'
+              - $ref: '#/components/schemas/MCPToolConfig-Output'
             description: The type of tool
             discriminator:
               propertyName: type
               mapping:
                 client: '#/components/schemas/ClientToolConfig-Output'
+                mcp: '#/components/schemas/MCPToolConfig-Output'
                 system: '#/components/schemas/SystemToolConfig-Output'
                 webhook: '#/components/schemas/WebhookToolConfig-Output'
           description: A list of tools that the agent can use over the course of the conversation
@@ -16738,6 +17305,13 @@ components:
           items:
             type: string
           description: A list of IDs of tools used by the agent
+        mcp_server_ids:
+          title: Mcp Server Ids
+          maxItems: 10
+          type: array
+          items:
+            type: string
+          description: A list of MCP server ids to be used by the agent
         knowledge_base:
           title: Knowledge Base
           type: array
@@ -16928,6 +17502,21 @@ components:
           title: Version Id
           type: string
           nullable: true
+    PronunciationDictionaryVersionLocatorRequestModel:
+      title: PronunciationDictionaryVersionLocatorRequestModel
+      required:
+        - pronunciation_dictionary_id
+      type: object
+      properties:
+        pronunciation_dictionary_id:
+          title: Pronunciation Dictionary Id
+          type: string
+          description: The ID of the pronunciation dictionary.
+        version_id:
+          title: Version Id
+          type: string
+          description: 'The ID of the version of the pronunciation dictionary. If not provided, the latest version will be used.'
+          nullable: true
     PronunciationDictionaryVersionResponseModel:
       title: PronunciationDictionaryVersionResponseModel
       required:
@@ -16999,6 +17588,7 @@ components:
       properties:
         properties:
           title: Properties
+          minProperties: 1
           type: object
           additionalProperties:
             $ref: '#/components/schemas/LiteralJsonSchemaProperty'
@@ -17318,6 +17908,24 @@ components:
           title: Password
           type: string
           description: SIP trunk password
+    SIPTrunkOutboundCallResponse:
+      title: SIPTrunkOutboundCallResponse
+      required:
+        - success
+        - message
+        - sip_call_id
+      type: object
+      properties:
+        success:
+          title: Success
+          type: boolean
+        message:
+          title: Message
+          type: string
+        sip_call_id:
+          title: Sip Call Id
+          type: string
+          nullable: true
     SafetyCommonModel:
       title: SafetyCommonModel
       type: object
@@ -17462,6 +18070,12 @@ components:
           title: Text
           type: string
           nullable: true
+        translations:
+          title: Translations
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
     SegmentCreateResponse:
       title: SegmentCreateResponse
       required:
@@ -17591,6 +18205,48 @@ components:
             - key
           type: string
           description: 'The type of the principal: user, group, or service account (under ''key'').'
+    SimilarVoice:
+      title: SimilarVoice
+      required:
+        - voice_id
+        - name
+        - category
+      type: object
+      properties:
+        voice_id:
+          title: Voice Id
+          type: string
+        name:
+          title: Name
+          type: string
+        category:
+          title: Category
+          enum:
+            - premade
+            - cloned
+            - generated
+            - professional
+            - famous
+          type: string
+        description:
+          title: Description
+          type: string
+          nullable: true
+        preview_url:
+          title: Preview Url
+          type: string
+          nullable: true
+    SimilarVoicesForSpeakerResponse:
+      title: SimilarVoicesForSpeakerResponse
+      required:
+        - voices
+      type: object
+      properties:
+        voices:
+          title: Voices
+          type: array
+          items:
+            $ref: '#/components/schemas/SimilarVoice'
     SpeakerAudioResponseModel:
       title: SpeakerAudioResponseModel
       required:
@@ -17716,6 +18372,7 @@ components:
         - id
         - media_ref
         - speaker_name
+        - voices
         - segments
       type: object
       properties:
@@ -17727,11 +18384,25 @@ components:
         speaker_name:
           title: Speaker Name
           type: string
+        voices:
+          title: Voices
+          type: object
+          additionalProperties:
+            type: string
         segments:
           title: Segments
           type: array
           items:
             type: string
+    SpeakerUpdatedResponse:
+      title: SpeakerUpdatedResponse
+      required:
+        - version
+      type: object
+      properties:
+        version:
+          title: Version
+          type: integer
     SpeechHistoryItemResponseModel:
       title: SpeechHistoryItemResponseModel
       required:
@@ -18385,13 +19056,6 @@ components:
           title: Id
           type: string
           default: ''
-        type:
-          title: Type
-          enum:
-            - system
-          type: string
-          description: The type of tool
-          default: system
         name:
           title: Name
           minLength: 0
@@ -18401,6 +19065,13 @@ components:
           title: Description
           minLength: 0
           type: string
+        type:
+          title: Type
+          enum:
+            - system
+          type: string
+          description: The type of tool
+          default: system
         params:
           title: Params
           oneOf:
@@ -18430,13 +19101,6 @@ components:
           title: Id
           type: string
           default: ''
-        type:
-          title: Type
-          enum:
-            - system
-          type: string
-          description: The type of tool
-          default: system
         name:
           title: Name
           minLength: 0
@@ -18446,6 +19110,13 @@ components:
           title: Description
           minLength: 0
           type: string
+        type:
+          title: Type
+          enum:
+            - system
+          type: string
+          description: The type of tool
+          default: system
         params:
           title: Params
           oneOf:
@@ -19979,13 +20650,6 @@ components:
           title: Id
           type: string
           default: ''
-        type:
-          title: Type
-          enum:
-            - webhook
-          type: string
-          description: The type of tool
-          default: webhook
         name:
           title: Name
           minLength: 0
@@ -19995,6 +20659,13 @@ components:
           title: Description
           minLength: 0
           type: string
+        type:
+          title: Type
+          enum:
+            - webhook
+          type: string
+          description: The type of tool
+          default: webhook
         api_schema:
           $ref: '#/components/schemas/WebhookToolApiSchemaConfig-Input'
         dynamic_variables:
@@ -20014,13 +20685,6 @@ components:
           title: Id
           type: string
           default: ''
-        type:
-          title: Type
-          enum:
-            - webhook
-          type: string
-          description: The type of tool
-          default: webhook
         name:
           title: Name
           minLength: 0
@@ -20030,6 +20694,13 @@ components:
           title: Description
           minLength: 0
           type: string
+        type:
+          title: Type
+          enum:
+            - webhook
+          type: string
+          description: The type of tool
+          default: webhook
         api_schema:
           $ref: '#/components/schemas/WebhookToolApiSchemaConfig-Output'
         dynamic_variables:
@@ -20400,6 +21071,7 @@ components:
         - convai_secrets
         - music_latent
         - convai_phone_numbers
+        - convai_mcps
         - convai_batch_calls
       type: string
       description: Resource types that can be shared in the workspace. The name always need to match the collection names

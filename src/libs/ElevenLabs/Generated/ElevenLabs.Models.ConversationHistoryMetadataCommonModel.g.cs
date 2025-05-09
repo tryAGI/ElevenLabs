@@ -68,6 +68,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("batch_call")]
+        public global::ElevenLabs.ConversationHistoryBatchCallModel? BatchCall { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("termination_reason")]
         public string? TerminationReason { get; set; }
 
@@ -107,6 +113,7 @@ namespace ElevenLabs
         /// <param name="authorizationMethod"></param>
         /// <param name="charging"></param>
         /// <param name="phoneCall"></param>
+        /// <param name="batchCall"></param>
         /// <param name="terminationReason"></param>
         /// <param name="error"></param>
         /// <param name="mainLanguage"></param>
@@ -124,6 +131,7 @@ namespace ElevenLabs
             global::ElevenLabs.AuthorizationMethod? authorizationMethod,
             global::ElevenLabs.ConversationChargingCommonModel? charging,
             global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? phoneCall,
+            global::ElevenLabs.ConversationHistoryBatchCallModel? batchCall,
             string? terminationReason,
             global::ElevenLabs.ConversationHistoryErrorCommonModel? error,
             string? mainLanguage,
@@ -138,6 +146,7 @@ namespace ElevenLabs
             this.AuthorizationMethod = authorizationMethod;
             this.Charging = charging;
             this.PhoneCall = phoneCall;
+            this.BatchCall = batchCall;
             this.TerminationReason = terminationReason;
             this.Error = error;
             this.MainLanguage = mainLanguage;

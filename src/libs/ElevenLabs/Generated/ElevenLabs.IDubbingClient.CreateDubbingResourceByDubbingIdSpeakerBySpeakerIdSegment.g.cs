@@ -43,6 +43,7 @@ namespace ElevenLabs
         /// <param name="startTime"></param>
         /// <param name="endTime"></param>
         /// <param name="text"></param>
+        /// <param name="translations"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentCreateResponse> CreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentAsync(
@@ -52,6 +53,7 @@ namespace ElevenLabs
             double endTime,
             string? xiApiKey = default,
             string? text = default,
+            global::System.Collections.Generic.Dictionary<string, string>? translations = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

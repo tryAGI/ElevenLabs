@@ -32,6 +32,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_stale")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool AudioStale { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_ref")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.DubbingMediaReference MediaRef { get; set; }
@@ -48,6 +55,7 @@ namespace ElevenLabs
         /// <param name="startTime"></param>
         /// <param name="endTime"></param>
         /// <param name="text"></param>
+        /// <param name="audioStale"></param>
         /// <param name="mediaRef"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -56,11 +64,13 @@ namespace ElevenLabs
             double startTime,
             double endTime,
             string? text,
+            bool audioStale,
             global::ElevenLabs.DubbingMediaReference mediaRef)
         {
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.AudioStale = audioStale;
             this.MediaRef = mediaRef ?? throw new global::System.ArgumentNullException(nameof(mediaRef));
         }
 
