@@ -23,11 +23,11 @@ namespace ElevenLabs
         public required string Name { get; set; }
 
         /// <summary>
-        /// The categories of the agent
+        /// Agent tags used to categorize the agent
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("categories")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Categories { get; set; }
+        public required global::System.Collections.Generic.IList<string> Tags { get; set; }
 
         /// <summary>
         /// The creation time of the agent in unix seconds
@@ -58,8 +58,8 @@ namespace ElevenLabs
         /// <param name="name">
         /// The name of the agent
         /// </param>
-        /// <param name="categories">
-        /// The categories of the agent
+        /// <param name="tags">
+        /// Agent tags used to categorize the agent
         /// </param>
         /// <param name="createdAtUnixSecs">
         /// The creation time of the agent in unix seconds
@@ -71,13 +71,13 @@ namespace ElevenLabs
         public AgentSummaryResponseModel(
             string agentId,
             string name,
-            global::System.Collections.Generic.IList<string> categories,
+            global::System.Collections.Generic.IList<string> tags,
             int createdAtUnixSecs,
             global::ElevenLabs.ResourceAccessInfo accessInfo)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Categories = categories ?? throw new global::System.ArgumentNullException(nameof(categories));
+            this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
             this.CreatedAtUnixSecs = createdAtUnixSecs;
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
         }

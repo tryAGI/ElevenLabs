@@ -42,7 +42,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>[]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? PronunciationDictionaryLocators { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? PronunciationDictionaryLocators { get; set; }
 
         /// <summary>
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
@@ -176,7 +176,7 @@ namespace ElevenLabs
             string? modelId,
             string? languageCode,
             global::ElevenLabs.VoiceSettingsResponseModel? voiceSettings,
-            global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? pronunciationDictionaryLocators,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? pronunciationDictionaryLocators,
             int? seed,
             string? previousText,
             string? nextText,

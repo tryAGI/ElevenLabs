@@ -15,14 +15,6 @@ namespace ElevenLabs
         public string? Id { get; set; }
 
         /// <summary>
-        /// The type of tool<br/>
-        /// Default Value: system
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SystemToolConfigInputTypeJsonConverter))]
-        public global::ElevenLabs.SystemToolConfigInputType? Type { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -35,6 +27,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Description { get; set; }
+
+        /// <summary>
+        /// The type of tool<br/>
+        /// Default Value: system
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SystemToolConfigInputTypeJsonConverter))]
+        public global::ElevenLabs.SystemToolConfigInputType? Type { get; set; }
 
         /// <summary>
         /// 
@@ -54,12 +54,12 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="SystemToolConfigInput" /> class.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
         /// <param name="type">
         /// The type of tool<br/>
         /// Default Value: system
         /// </param>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
         /// <param name="params"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -15,14 +15,6 @@ namespace ElevenLabs
         public string? Id { get; set; }
 
         /// <summary>
-        /// The type of tool<br/>
-        /// Default Value: webhook
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WebhookToolConfigOutputTypeJsonConverter))]
-        public global::ElevenLabs.WebhookToolConfigOutputType? Type { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -35,6 +27,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Description { get; set; }
+
+        /// <summary>
+        /// The type of tool<br/>
+        /// Default Value: webhook
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WebhookToolConfigOutputTypeJsonConverter))]
+        public global::ElevenLabs.WebhookToolConfigOutputType? Type { get; set; }
 
         /// <summary>
         /// Configuration for a webhook that will be called by an LLM tool.
@@ -59,12 +59,12 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="WebhookToolConfigOutput" /> class.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
         /// <param name="type">
         /// The type of tool<br/>
         /// Default Value: webhook
         /// </param>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
         /// <param name="apiSchema">
         /// Configuration for a webhook that will be called by an LLM tool.
         /// </param>

@@ -59,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConvaiMcps,
+        /// <summary>
+        /// 
+        /// </summary>
         ConvaiBatchCalls,
     }
 
@@ -86,6 +90,7 @@ namespace ElevenLabs
                 WorkspaceResourceType.ConvaiSecrets => "convai_secrets",
                 WorkspaceResourceType.MusicLatent => "music_latent",
                 WorkspaceResourceType.ConvaiPhoneNumbers => "convai_phone_numbers",
+                WorkspaceResourceType.ConvaiMcps => "convai_mcps",
                 WorkspaceResourceType.ConvaiBatchCalls => "convai_batch_calls",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -109,6 +114,7 @@ namespace ElevenLabs
                 "convai_secrets" => WorkspaceResourceType.ConvaiSecrets,
                 "music_latent" => WorkspaceResourceType.MusicLatent,
                 "convai_phone_numbers" => WorkspaceResourceType.ConvaiPhoneNumbers,
+                "convai_mcps" => WorkspaceResourceType.ConvaiMcps,
                 "convai_batch_calls" => WorkspaceResourceType.ConvaiBatchCalls,
                 _ => null,
             };

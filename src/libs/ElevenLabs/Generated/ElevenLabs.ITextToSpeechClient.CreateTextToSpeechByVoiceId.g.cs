@@ -130,7 +130,7 @@ namespace ElevenLabs
             string? modelId = default,
             string? languageCode = default,
             global::ElevenLabs.VoiceSettingsResponseModel? voiceSettings = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? pronunciationDictionaryLocators = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? pronunciationDictionaryLocators = default,
             int? seed = default,
             string? previousText = default,
             string? nextText = default,

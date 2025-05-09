@@ -120,13 +120,49 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// A MCP tool is a tool that is used to call a MCP server
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.MCPToolConfigOutput? Mcp { get; init; }
+#else
+        public global::ElevenLabs.MCPToolConfigOutput? Mcp { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
+#endif
+        public bool IsMcp => Mcp != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator ToolsItem3(global::ElevenLabs.MCPToolConfigOutput value) => new ToolsItem3((global::ElevenLabs.MCPToolConfigOutput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.MCPToolConfigOutput?(ToolsItem3 @this) => @this.Mcp;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ToolsItem3(global::ElevenLabs.MCPToolConfigOutput? value)
+        {
+            Mcp = value;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public ToolsItem3(
             global::ElevenLabs.PromptAgentOutputToolDiscriminatorType? type,
             global::ElevenLabs.WebhookToolConfigOutput? webhook,
             global::ElevenLabs.ClientToolConfigOutput? client,
-            global::ElevenLabs.SystemToolConfigOutput? system
+            global::ElevenLabs.SystemToolConfigOutput? system,
+            global::ElevenLabs.MCPToolConfigOutput? mcp
             )
         {
             Type = type;
@@ -134,12 +170,14 @@ namespace ElevenLabs
             Webhook = webhook;
             Client = client;
             System = system;
+            Mcp = mcp;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Mcp as object ??
             System as object ??
             Client as object ??
             Webhook as object 
@@ -151,7 +189,8 @@ namespace ElevenLabs
         public override string? ToString() =>
             Webhook?.ToString() ??
             Client?.ToString() ??
-            System?.ToString() 
+            System?.ToString() ??
+            Mcp?.ToString() 
             ;
 
         /// <summary>
@@ -159,7 +198,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsWebhook && !IsClient && !IsSystem || !IsWebhook && IsClient && !IsSystem || !IsWebhook && !IsClient && IsSystem;
+            return IsWebhook && !IsClient && !IsSystem && !IsMcp || !IsWebhook && IsClient && !IsSystem && !IsMcp || !IsWebhook && !IsClient && IsSystem && !IsMcp || !IsWebhook && !IsClient && !IsSystem && IsMcp;
         }
 
         /// <summary>
@@ -169,6 +208,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.WebhookToolConfigOutput?, TResult>? webhook = null,
             global::System.Func<global::ElevenLabs.ClientToolConfigOutput?, TResult>? client = null,
             global::System.Func<global::ElevenLabs.SystemToolConfigOutput?, TResult>? system = null,
+            global::System.Func<global::ElevenLabs.MCPToolConfigOutput?, TResult>? mcp = null,
             bool validate = true)
         {
             if (validate)
@@ -188,6 +228,10 @@ namespace ElevenLabs
             {
                 return system(System!);
             }
+            else if (IsMcp && mcp != null)
+            {
+                return mcp(Mcp!);
+            }
 
             return default(TResult);
         }
@@ -199,6 +243,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.WebhookToolConfigOutput?>? webhook = null,
             global::System.Action<global::ElevenLabs.ClientToolConfigOutput?>? client = null,
             global::System.Action<global::ElevenLabs.SystemToolConfigOutput?>? system = null,
+            global::System.Action<global::ElevenLabs.MCPToolConfigOutput?>? mcp = null,
             bool validate = true)
         {
             if (validate)
@@ -218,6 +263,10 @@ namespace ElevenLabs
             {
                 system?.Invoke(System!);
             }
+            else if (IsMcp)
+            {
+                mcp?.Invoke(Mcp!);
+            }
         }
 
         /// <summary>
@@ -233,6 +282,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.ClientToolConfigOutput),
                 System,
                 typeof(global::ElevenLabs.SystemToolConfigOutput),
+                Mcp,
+                typeof(global::ElevenLabs.MCPToolConfigOutput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -251,7 +302,8 @@ namespace ElevenLabs
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookToolConfigOutput?>.Default.Equals(Webhook, other.Webhook) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfigOutput?>.Default.Equals(Client, other.Client) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfigOutput?>.Default.Equals(System, other.System) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfigOutput?>.Default.Equals(System, other.System) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MCPToolConfigOutput?>.Default.Equals(Mcp, other.Mcp) 
                 ;
         }
 

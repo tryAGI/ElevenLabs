@@ -29,12 +29,12 @@ namespace ElevenLabs
         public string? Name { get; set; }
 
         /// <summary>
-        /// Categories to help classify and filter the agent<br/>
+        /// Tags to help classify and filter the agent<br/>
         /// Example: [Customer Support, Technical Help, Eleven]
         /// </summary>
         /// <example>[Customer Support, Technical Help, Eleven]</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("categories")]
-        public global::System.Collections.Generic.IList<string>? Categories { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
+        public global::System.Collections.Generic.IList<string>? Tags { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -55,8 +55,8 @@ namespace ElevenLabs
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
         /// </param>
-        /// <param name="categories">
-        /// Categories to help classify and filter the agent<br/>
+        /// <param name="tags">
+        /// Tags to help classify and filter the agent<br/>
         /// Example: [Customer Support, Technical Help, Eleven]
         /// </param>
 #if NET7_0_OR_GREATER
@@ -66,12 +66,12 @@ namespace ElevenLabs
             object? conversationConfig,
             object? platformSettings,
             string? name,
-            global::System.Collections.Generic.IList<string>? categories)
+            global::System.Collections.Generic.IList<string>? tags)
         {
             this.ConversationConfig = conversationConfig;
             this.PlatformSettings = platformSettings;
             this.Name = name;
-            this.Categories = categories;
+            this.Tags = tags;
         }
 
         /// <summary>

@@ -32,8 +32,8 @@ namespace ElevenLabs
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
         /// </param>
-        /// <param name="categories">
-        /// Categories to help classify and filter the agent<br/>
+        /// <param name="tags">
+        /// Tags to help classify and filter the agent<br/>
         /// Example: [Customer Support, Technical Help, Eleven]
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -43,7 +43,7 @@ namespace ElevenLabs
             string? xiApiKey = default,
             global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings = default,
             string? name = default,
-            global::System.Collections.Generic.IList<string>? categories = default,
+            global::System.Collections.Generic.IList<string>? tags = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

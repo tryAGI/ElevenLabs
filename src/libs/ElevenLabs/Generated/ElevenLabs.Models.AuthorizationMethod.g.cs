@@ -28,6 +28,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ShareableLink,
+        /// <summary>
+        /// 
+        /// </summary>
+        LivekitToken,
+        /// <summary>
+        /// 
+        /// </summary>
+        LivekitTokenWebsite,
     }
 
     /// <summary>
@@ -47,6 +55,8 @@ namespace ElevenLabs
                 AuthorizationMethod.AuthorizationHeader => "authorization_header",
                 AuthorizationMethod.SignedUrl => "signed_url",
                 AuthorizationMethod.ShareableLink => "shareable_link",
+                AuthorizationMethod.LivekitToken => "livekit_token",
+                AuthorizationMethod.LivekitTokenWebsite => "livekit_token_website",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,6 +72,8 @@ namespace ElevenLabs
                 "authorization_header" => AuthorizationMethod.AuthorizationHeader,
                 "signed_url" => AuthorizationMethod.SignedUrl,
                 "shareable_link" => AuthorizationMethod.ShareableLink,
+                "livekit_token" => AuthorizationMethod.LivekitToken,
+                "livekit_token_website" => AuthorizationMethod.LivekitTokenWebsite,
                 _ => null,
             };
         }

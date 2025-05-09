@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Criteria,
+        /// <summary>
+        /// 
+        /// </summary>
+        DataCollection,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 PatchConvAIDashboardSettingsRequestChartDiscriminatorType.CallSuccess => "call_success",
                 PatchConvAIDashboardSettingsRequestChartDiscriminatorType.Criteria => "criteria",
+                PatchConvAIDashboardSettingsRequestChartDiscriminatorType.DataCollection => "data_collection",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "call_success" => PatchConvAIDashboardSettingsRequestChartDiscriminatorType.CallSuccess,
                 "criteria" => PatchConvAIDashboardSettingsRequestChartDiscriminatorType.Criteria,
+                "data_collection" => PatchConvAIDashboardSettingsRequestChartDiscriminatorType.DataCollection,
                 _ => null,
             };
         }

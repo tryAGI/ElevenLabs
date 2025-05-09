@@ -35,11 +35,19 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DashboardCriteriaChartModel)}");
                 criteria = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.DashboardDataCollectionChartModel? dataCollection = default;
+            if (discriminator?.Type == global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminatorType.DataCollection)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DashboardDataCollectionChartModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DashboardDataCollectionChartModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DashboardDataCollectionChartModel)}");
+                dataCollection = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var result = new global::ElevenLabs.ChartsItem2(
                 discriminator?.Type,
                 callSuccess,
-                criteria
+                criteria,
+                dataCollection
                 );
 
             return result;
@@ -65,6 +73,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DashboardCriteriaChartModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DashboardCriteriaChartModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DashboardCriteriaChartModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Criteria, typeInfo);
+            }
+            else if (value.IsDataCollection)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DashboardDataCollectionChartModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DashboardDataCollectionChartModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DashboardDataCollectionChartModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DataCollection, typeInfo);
             }
         }
     }

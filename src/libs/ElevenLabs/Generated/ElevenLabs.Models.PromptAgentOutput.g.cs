@@ -48,6 +48,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? ToolIds { get; set; }
 
         /// <summary>
+        /// A list of MCP server ids to be used by the agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_ids")]
+        public global::System.Collections.Generic.IList<string>? McpServerIds { get; set; }
+
+        /// <summary>
         /// A list of knowledge bases to be used by the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("knowledge_base")]
@@ -99,6 +105,9 @@ namespace ElevenLabs
         /// <param name="toolIds">
         /// A list of IDs of tools used by the agent
         /// </param>
+        /// <param name="mcpServerIds">
+        /// A list of MCP server ids to be used by the agent
+        /// </param>
         /// <param name="knowledgeBase">
         /// A list of knowledge bases to be used by the agent
         /// </param>
@@ -118,6 +127,7 @@ namespace ElevenLabs
             int? maxTokens,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem3>? tools,
             global::System.Collections.Generic.IList<string>? toolIds,
+            global::System.Collections.Generic.IList<string>? mcpServerIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::ElevenLabs.CustomLLM? customLlm,
             bool? ignoreDefaultPersonality,
@@ -129,6 +139,7 @@ namespace ElevenLabs
             this.MaxTokens = maxTokens;
             this.Tools = tools;
             this.ToolIds = toolIds;
+            this.McpServerIds = mcpServerIds;
             this.KnowledgeBase = knowledgeBase;
             this.CustomLlm = customLlm;
             this.IgnoreDefaultPersonality = ignoreDefaultPersonality;
