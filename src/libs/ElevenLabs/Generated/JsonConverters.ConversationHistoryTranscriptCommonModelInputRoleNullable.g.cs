@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class ConversationHistoryTranscriptCommonModelRoleNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.ConversationHistoryTranscriptCommonModelRole?>
+    public sealed class ConversationHistoryTranscriptCommonModelInputRoleNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.ConversationHistoryTranscriptCommonModelRole? Read(
+        public override global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.ConversationHistoryTranscriptCommonModelRoleExtensions.ToEnum(stringValue);
+                        return global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRoleExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.ConversationHistoryTranscriptCommonModelRole)numValue;
+                    return (global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,7 +38,7 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.ConversationHistoryTranscriptCommonModelRole? value,
+            global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
@@ -49,7 +49,7 @@ namespace ElevenLabs.JsonConverters
             }
             else
             {
-                writer.WriteStringValue(global::ElevenLabs.ConversationHistoryTranscriptCommonModelRoleExtensions.ToValueString(value.Value));
+                writer.WriteStringValue(global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRoleExtensions.ToValueString(value.Value));
             }
         }
     }

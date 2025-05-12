@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="conversationSignature">
-        /// An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
+        /// An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get-signed-url endpoint
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

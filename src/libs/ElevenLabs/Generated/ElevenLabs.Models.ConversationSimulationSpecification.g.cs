@@ -1,0 +1,64 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// A specification that will be used to simulate a conversation between an agent and an AI user.
+    /// </summary>
+    public sealed partial class ConversationSimulationSpecification
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("simulated_user_config")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.AgentConfigDBModel SimulatedUserConfig { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_mock_config")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? ToolMockConfig { get; set; }
+
+        /// <summary>
+        /// A partial conversation history to start the simulation from. If empty, simulation starts fresh.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("partial_conversation_history")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? PartialConversationHistory { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConversationSimulationSpecification" /> class.
+        /// </summary>
+        /// <param name="simulatedUserConfig"></param>
+        /// <param name="toolMockConfig"></param>
+        /// <param name="partialConversationHistory">
+        /// A partial conversation history to start the simulation from. If empty, simulation starts fresh.
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public ConversationSimulationSpecification(
+            global::ElevenLabs.AgentConfigDBModel simulatedUserConfig,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? toolMockConfig,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? partialConversationHistory)
+        {
+            this.SimulatedUserConfig = simulatedUserConfig ?? throw new global::System.ArgumentNullException(nameof(simulatedUserConfig));
+            this.ToolMockConfig = toolMockConfig;
+            this.PartialConversationHistory = partialConversationHistory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConversationSimulationSpecification" /> class.
+        /// </summary>
+        public ConversationSimulationSpecification()
+        {
+        }
+    }
+}

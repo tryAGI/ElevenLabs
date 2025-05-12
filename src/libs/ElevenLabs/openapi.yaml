@@ -4923,9 +4923,9 @@ paths:
     get:
       tags:
         - usage
-      summary: Get Character Usage Metrics
-      description: 'Returns the credit usage metrics for the current user or the entire workspace they are part of. The response will return a time axis with unix timestamps for each day and daily usage along that axis. The usage will be broken down by the specified breakdown type. For example, breakdown type "voice" will return the usage of each voice along the time axis.'
-      operationId: Get_character_usage_metrics_v1_usage_character_stats_get
+      summary: Get Characters Usage Metrics
+      description: 'Returns the usage metrics for the current user or the entire workspace they are part of. The response provides a time axis based on the specified aggregation interval (default: day), with usage values for each interval along that axis. Usage is broken down by the selected breakdown type. For example, breakdown type "voice" will return the usage of each voice for each interval along the time axis.'
+      operationId: Get_characters_usage_metrics_v1_usage_character_stats_get
       parameters:
         - name: start_unix
           in: query
@@ -5856,7 +5856,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: forced_alignment
       x-fern-sdk-method-name: create
-  /v1/convai/conversation/get_signed_url:
+  /v1/convai/conversation/get-signed-url:
     get:
       tags:
         - Conversational AI
@@ -5896,6 +5896,46 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: get_signed_url
+  /v1/convai/conversation/get_signed_url:
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Signed Url
+      description: Get a signed url to start a conversation with an agent with an agent that requires authorization
+      operationId: get_signed_url_deprecated
+      parameters:
+        - name: agent_id
+          in: query
+          description: The id of the agent you're taking the action on.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of the agent you're taking the action on.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationSignedUrlResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+      x-skip-spec: true
   /v1/convai/twilio/outbound-call:
     post:
       tags:
@@ -6110,11 +6150,11 @@ paths:
             example: 21m00Tcm4TlvDq8ikWAM
         - name: conversation_signature
           in: query
-          description: An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
+          description: An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get-signed-url endpoint
           schema:
             title: Conversation Signature
             type: string
-            description: An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint
+            description: An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get-signed-url endpoint
             nullable: true
         - name: xi-api-key
           in: header
@@ -6282,6 +6322,98 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: get_agents
+  '/v1/convai/agents/{agent_id}/simulate-conversation':
+    post:
+      tags:
+        - Conversational AI
+      summary: Simulates A Conversation
+      description: Run a conversation between the agent and a simulated user.
+      operationId: Simulates_a_conversation_v1_convai_agents__agent_id__simulate_conversation_post
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Simulates_a_conversation_v1_convai_agents__agent_id__simulate_conversation_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentSimulatedChatTestResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - agents
+      x-fern-sdk-method-name: simulate_conversation
+  '/v1/convai/agents/{agent_id}/simulate-conversation/stream':
+    post:
+      tags:
+        - Conversational AI
+      summary: Simulates A Conversation (Stream)
+      description: Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.
+      operationId: Simulates_a_conversation__Stream__v1_convai_agents__agent_id__simulate_conversation_stream_post
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Simulates_a_conversation__Stream__v1_convai_agents__agent_id__simulate_conversation_stream_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - agents
+      x-fern-sdk-method-name: simulate_conversation_stream
   /v1/convai/conversations:
     get:
       tags:
@@ -8733,6 +8865,27 @@ components:
       example:
         first_message: 'Hello, how can I help you today?'
         language: en
+    AgentConfigDBModel:
+      title: AgentConfigDBModel
+      type: object
+      properties:
+        first_message:
+          title: First Message
+          type: string
+          description: 'If non-empty, the first message the agent will say. If empty, the agent waits for the user to start the discussion.'
+          default: ''
+        language:
+          title: Language
+          type: string
+          description: Language of the agent - used for ASR and TTS
+          default: en
+        dynamic_variables:
+          $ref: '#/components/schemas/DynamicVariablesConfig'
+        prompt:
+          $ref: '#/components/schemas/PromptAgentDBModel'
+      example:
+        first_message: 'Hello, how can I help you today?'
+        language: en
     AgentConfigOverride:
       title: AgentConfigOverride
       type: object
@@ -8833,6 +8986,20 @@ components:
           $ref: '#/components/schemas/AgentWorkspaceOverrides-Output'
         safety:
           $ref: '#/components/schemas/SafetyResponseModel'
+    AgentSimulatedChatTestResponseModel:
+      title: AgentSimulatedChatTestResponseModel
+      required:
+        - simulated_conversation
+        - analysis
+      type: object
+      properties:
+        simulated_conversation:
+          title: Simulated Conversation
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel-Output'
+        analysis:
+          $ref: '#/components/schemas/ConversationHistoryAnalysisCommonModel'
     AgentSummaryResponseModel:
       title: AgentSummaryResponseModel
       required:
@@ -11016,6 +11183,36 @@ components:
           type: string
           description: The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
           nullable: true
+    Body_Simulates_a_conversation__Stream__v1_convai_agents__agent_id__simulate_conversation_stream_post:
+      title: Body_Simulates_a_conversation__Stream__v1_convai_agents__agent_id__simulate_conversation_stream_post
+      required:
+        - simulation_specification
+      type: object
+      properties:
+        simulation_specification:
+          $ref: '#/components/schemas/ConversationSimulationSpecification'
+        extra_evaluation_criteria:
+          title: Extra Evaluation Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/PromptEvaluationCriteria'
+          description: A list of evaluation criteria to test
+          nullable: true
+    Body_Simulates_a_conversation_v1_convai_agents__agent_id__simulate_conversation_post:
+      title: Body_Simulates_a_conversation_v1_convai_agents__agent_id__simulate_conversation_post
+      required:
+        - simulation_specification
+      type: object
+      properties:
+        simulation_specification:
+          $ref: '#/components/schemas/ConversationSimulationSpecification'
+        extra_evaluation_criteria:
+          title: Extra Evaluation Criteria
+          type: array
+          items:
+            $ref: '#/components/schemas/PromptEvaluationCriteria'
+          description: A list of evaluation criteria to test
+          nullable: true
     Body_Sound_Generation_v1_sound_generation_post:
       title: Body_Sound_Generation_v1_sound_generation_post
       required:
@@ -11239,7 +11436,7 @@ components:
           title: Model Id
           type: string
           description: 'Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.'
-          default: eleven_monolingual_v1
+          default: eleven_multilingual_v2
         language_code:
           title: Language Code
           type: string
@@ -11335,7 +11532,7 @@ components:
           title: Model Id
           type: string
           description: 'Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.'
-          default: eleven_monolingual_v1
+          default: eleven_multilingual_v2
         language_code:
           title: Language Code
           type: string
@@ -11431,7 +11628,7 @@ components:
           title: Model Id
           type: string
           description: 'Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.'
-          default: eleven_monolingual_v1
+          default: eleven_multilingual_v2
         language_code:
           title: Language Code
           type: string
@@ -11527,7 +11724,7 @@ components:
           title: Model Id
           type: string
           description: 'Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.'
-          default: eleven_monolingual_v1
+          default: eleven_multilingual_v2
         language_code:
           title: Language Code
           type: string
@@ -12716,7 +12913,7 @@ components:
         embedding_model:
           title: Embedding Model
           type: string
-    ConversationHistoryTranscriptCommonModel:
+    ConversationHistoryTranscriptCommonModel-Input:
       title: ConversationHistoryTranscriptCommonModel
       required:
         - role
@@ -12757,7 +12954,49 @@ components:
         rag_retrieval_info:
           $ref: '#/components/schemas/RagRetrievalInfo'
         llm_usage:
-          $ref: '#/components/schemas/LLMUsage'
+          $ref: '#/components/schemas/LLMUsage-Input'
+    ConversationHistoryTranscriptCommonModel-Output:
+      title: ConversationHistoryTranscriptCommonModel
+      required:
+        - role
+        - time_in_call_secs
+      type: object
+      properties:
+        role:
+          title: Role
+          enum:
+            - user
+            - agent
+          type: string
+        message:
+          title: Message
+          type: string
+          nullable: true
+        tool_calls:
+          title: Tool Calls
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptToolCallCommonModel'
+        tool_results:
+          title: Tool Results
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptToolResultCommonModel'
+        feedback:
+          $ref: '#/components/schemas/UserFeedback'
+        llm_override:
+          title: Llm Override
+          type: string
+          nullable: true
+        time_in_call_secs:
+          title: Time In Call Secs
+          type: integer
+        conversation_turn_metrics:
+          $ref: '#/components/schemas/ConversationTurnMetrics'
+        rag_retrieval_info:
+          $ref: '#/components/schemas/RagRetrievalInfo'
+        llm_usage:
+          $ref: '#/components/schemas/LLMUsage-Output'
     ConversationHistoryTranscriptToolCallClientDetails:
       title: ConversationHistoryTranscriptToolCallClientDetails
       required:
@@ -13046,6 +13285,26 @@ components:
         signed_url:
           title: Signed Url
           type: string
+    ConversationSimulationSpecification:
+      title: ConversationSimulationSpecification
+      required:
+        - simulated_user_config
+      type: object
+      properties:
+        simulated_user_config:
+          $ref: '#/components/schemas/AgentConfigDBModel'
+        tool_mock_config:
+          title: Tool Mock Config
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ToolMockConfig'
+        partial_conversation_history:
+          title: Partial Conversation History
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel-Input'
+          description: 'A partial conversation history to start the simulation from. If empty, simulation starts fresh.'
+      description: A specification that will be used to simulate a conversation between an agent and an AI user.
     ConversationSummaryResponseModel:
       title: ConversationSummaryResponseModel
       required:
@@ -14539,7 +14798,7 @@ components:
           title: Transcript
           type: array
           items:
-            $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel'
+            $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel-Output'
         metadata:
           $ref: '#/components/schemas/ConversationHistoryMetadataCommonModel'
         analysis:
@@ -15478,9 +15737,9 @@ components:
       type: object
       properties:
         irreversible_generation:
-          $ref: '#/components/schemas/LLMUsage'
+          $ref: '#/components/schemas/LLMUsage-Output'
         initiated_generation:
-          $ref: '#/components/schemas/LLMUsage'
+          $ref: '#/components/schemas/LLMUsage-Output'
     LLMInputOutputTokensUsage:
       title: LLMInputOutputTokensUsage
       type: object
@@ -15505,7 +15764,16 @@ components:
           title: Price
           type: number
           default: 0
-    LLMUsage:
+    LLMUsage-Input:
+      title: LLMUsage
+      type: object
+      properties:
+        model_usage:
+          title: Model Usage
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/LLMInputOutputTokensUsage'
+    LLMUsage-Output:
       title: LLMUsage
       type: object
       properties:
@@ -17328,6 +17596,87 @@ components:
           nullable: true
         rag:
           $ref: '#/components/schemas/RagConfig'
+      example:
+        knowledge_base: [ ]
+        llm: gemini-2.0-flash-001
+        max_tokens: -1
+        prompt: You are a helpful assistant that can answer questions about the topic of the conversation.
+        temperature: 0
+        tool_ids: [ ]
+        tools: [ ]
+    PromptAgentDBModel:
+      title: PromptAgentDBModel
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          type: string
+          description: The prompt for the agent
+          default: ''
+        llm:
+          $ref: '#/components/schemas/LLM'
+        temperature:
+          title: Temperature
+          type: number
+          description: The temperature for the LLM
+          default: 0
+        max_tokens:
+          title: Max Tokens
+          type: integer
+          description: 'If greater than 0, maximum number of tokens the LLM can predict'
+          default: -1
+        tools:
+          title: Tools
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/WebhookToolConfig-Input'
+              - $ref: '#/components/schemas/ClientToolConfig-Input'
+              - $ref: '#/components/schemas/SystemToolConfig-Input'
+              - $ref: '#/components/schemas/MCPToolConfig-Input'
+            description: The type of tool
+            discriminator:
+              propertyName: type
+              mapping:
+                client: '#/components/schemas/ClientToolConfig-Input'
+                mcp: '#/components/schemas/MCPToolConfig-Input'
+                system: '#/components/schemas/SystemToolConfig-Input'
+                webhook: '#/components/schemas/WebhookToolConfig-Input'
+          description: A list of tools that the agent can use over the course of the conversation
+        tool_ids:
+          title: Tool Ids
+          type: array
+          items:
+            type: string
+          description: A list of IDs of tools used by the agent
+        mcp_server_ids:
+          title: Mcp Server Ids
+          maxItems: 10
+          type: array
+          items:
+            type: string
+          description: A list of MCP server ids to be used by the agent
+        knowledge_base:
+          title: Knowledge Base
+          type: array
+          items:
+            $ref: '#/components/schemas/KnowledgeBaseLocator'
+          description: A list of knowledge bases to be used by the agent
+        custom_llm:
+          $ref: '#/components/schemas/CustomLLM'
+        ignore_default_personality:
+          title: Ignore Default Personality
+          type: boolean
+          description: Whether to ignore the default personality
+          default: false
+          nullable: true
+        rag:
+          $ref: '#/components/schemas/RagConfig'
+        knowledge_base_document_ids:
+          title: Knowledge Base Document Ids
+          type: array
+          items:
+            type: string
       example:
         knowledge_base: [ ]
         llm: gemini-2.0-flash-001
@@ -19239,6 +19588,18 @@ components:
         - twilio
         - sip_trunk
       type: string
+    ToolMockConfig:
+      title: ToolMockConfig
+      type: object
+      properties:
+        default_return_value:
+          title: Default Return Value
+          type: string
+          default: Tool Called.
+        default_is_error:
+          title: Default Is Error
+          type: boolean
+          default: false
     TransferToAgentToolConfig:
       title: TransferToAgentToolConfig
       required:
@@ -20156,7 +20517,7 @@ components:
         speed:
           title: Speed
           type: number
-          description: 'Controls the speed of the generated speech. Values range from 0.7 to 1.2, with 1.0 being the default speed. Lower values create slower, more deliberate speech while higher values produce faster-paced speech. Extreme values can impact the quality of the generated speech.'
+          description: 'Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.'
           nullable: true
       example:
         similarity_boost: 1
