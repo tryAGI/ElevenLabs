@@ -6,15 +6,15 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ConversationHistoryTranscriptCommonModel
+    public sealed partial class ConversationHistoryTranscriptCommonModelOutput
     {
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptCommonModelRoleJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptCommonModelOutputRoleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationHistoryTranscriptCommonModelRole Role { get; set; }
+        public required global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputRole Role { get; set; }
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_usage")]
-        public global::ElevenLabs.LLMUsage? LlmUsage { get; set; }
+        public global::ElevenLabs.LLMUsageOutput? LlmUsage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -78,7 +78,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptCommonModel" /> class.
+        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptCommonModelOutput" /> class.
         /// </summary>
         /// <param name="role"></param>
         /// <param name="message"></param>
@@ -93,8 +93,8 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ConversationHistoryTranscriptCommonModel(
-            global::ElevenLabs.ConversationHistoryTranscriptCommonModelRole role,
+        public ConversationHistoryTranscriptCommonModelOutput(
+            global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputRole role,
             int timeInCallSecs,
             string? message,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModel>? toolCalls,
@@ -103,7 +103,7 @@ namespace ElevenLabs
             string? llmOverride,
             global::ElevenLabs.ConversationTurnMetrics? conversationTurnMetrics,
             global::ElevenLabs.RagRetrievalInfo? ragRetrievalInfo,
-            global::ElevenLabs.LLMUsage? llmUsage)
+            global::ElevenLabs.LLMUsageOutput? llmUsage)
         {
             this.Role = role;
             this.TimeInCallSecs = timeInCallSecs;
@@ -118,9 +118,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptCommonModel" /> class.
+        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptCommonModelOutput" /> class.
         /// </summary>
-        public ConversationHistoryTranscriptCommonModel()
+        public ConversationHistoryTranscriptCommonModelOutput()
         {
         }
     }

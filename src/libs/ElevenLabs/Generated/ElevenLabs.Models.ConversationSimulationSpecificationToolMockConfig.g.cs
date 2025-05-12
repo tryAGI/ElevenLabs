@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class LLMUsageModelUsage
+    public sealed partial class ConversationSimulationSpecificationToolMockConfig
     {
 
         /// <summary>

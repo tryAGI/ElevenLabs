@@ -12,13 +12,13 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("irreversible_generation")]
-        public global::ElevenLabs.LLMUsage? IrreversibleGeneration { get; set; }
+        public global::ElevenLabs.LLMUsageOutput? IrreversibleGeneration { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("initiated_generation")]
-        public global::ElevenLabs.LLMUsage? InitiatedGeneration { get; set; }
+        public global::ElevenLabs.LLMUsageOutput? InitiatedGeneration { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -35,8 +35,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LLMCategoryUsage(
-            global::ElevenLabs.LLMUsage? irreversibleGeneration,
-            global::ElevenLabs.LLMUsage? initiatedGeneration)
+            global::ElevenLabs.LLMUsageOutput? irreversibleGeneration,
+            global::ElevenLabs.LLMUsageOutput? initiatedGeneration)
         {
             this.IrreversibleGeneration = irreversibleGeneration;
             this.InitiatedGeneration = initiatedGeneration;

@@ -35,7 +35,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModel> Transcript { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput> Transcript { get; set; }
 
         /// <summary>
         /// 
@@ -103,7 +103,7 @@ namespace ElevenLabs
             string agentId,
             string conversationId,
             global::ElevenLabs.GetConversationResponseModelStatus status,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModel> transcript,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput> transcript,
             global::ElevenLabs.ConversationHistoryMetadataCommonModel metadata,
             bool hasAudio,
             bool hasUserAudio,
