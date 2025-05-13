@@ -21,6 +21,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConvAIWebhooks? Webhooks { get; set; }
 
         /// <summary>
+        /// Default Value: 10
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rag_retention_period_days")]
+        public int? RagRetentionPeriodDays { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -31,15 +37,20 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="conversationInitiationClientDataWebhook"></param>
         /// <param name="webhooks"></param>
+        /// <param name="ragRetentionPeriodDays">
+        /// Default Value: 10
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PatchConvAISettingsRequest(
             global::ElevenLabs.ConversationInitiationClientDataWebhook? conversationInitiationClientDataWebhook,
-            global::ElevenLabs.ConvAIWebhooks? webhooks)
+            global::ElevenLabs.ConvAIWebhooks? webhooks,
+            int? ragRetentionPeriodDays)
         {
             this.ConversationInitiationClientDataWebhook = conversationInitiationClientDataWebhook;
             this.Webhooks = webhooks;
+            this.RagRetentionPeriodDays = ragRetentionPeriodDays;
         }
 
         /// <summary>
