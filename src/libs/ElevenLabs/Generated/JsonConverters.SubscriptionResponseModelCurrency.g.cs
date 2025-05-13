@@ -28,6 +28,10 @@ namespace ElevenLabs.JsonConverters
                     var numValue = reader.GetInt32();
                     return (global::ElevenLabs.SubscriptionResponseModelCurrency)numValue;
                 }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::ElevenLabs.SubscriptionResponseModelCurrency);
+                }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
             }

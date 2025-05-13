@@ -28,6 +28,10 @@ namespace ElevenLabs.JsonConverters
                     var numValue = reader.GetInt32();
                     return (global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminatorType)numValue;
                 }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminatorType?);
+                }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
             }

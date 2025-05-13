@@ -29,6 +29,13 @@ namespace ElevenLabs
         public required string Description { get; set; }
 
         /// <summary>
+        /// The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 30 seconds (inclusive).<br/>
+        /// Default Value: 20
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
+        public int? ResponseTimeoutSecs { get; set; }
+
+        /// <summary>
         /// The type of tool<br/>
         /// Default Value: client
         /// </summary>
@@ -50,12 +57,6 @@ namespace ElevenLabs
         public bool? ExpectsResponse { get; set; }
 
         /// <summary>
-        /// The maximum time in seconds to wait for a response from the client. Should only be set if expects_response is true
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
-        public int? ResponseTimeoutSecs { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
@@ -73,6 +74,10 @@ namespace ElevenLabs
         /// <param name="id"></param>
         /// <param name="name"></param>
         /// <param name="description"></param>
+        /// <param name="responseTimeoutSecs">
+        /// The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 30 seconds (inclusive).<br/>
+        /// Default Value: 20
+        /// </param>
         /// <param name="type">
         /// The type of tool<br/>
         /// Default Value: client
@@ -82,9 +87,6 @@ namespace ElevenLabs
         /// If true, calling this tool should block the conversation until the client responds with some response which is passed to the llm. If false then we will continue the conversation without waiting for the client to respond, this is useful to show content to a user but not block the conversation<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="responseTimeoutSecs">
-        /// The maximum time in seconds to wait for a response from the client. Should only be set if expects_response is true
-        /// </param>
         /// <param name="dynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -93,19 +95,19 @@ namespace ElevenLabs
             string name,
             string description,
             string? id,
+            int? responseTimeoutSecs,
             global::ElevenLabs.ClientToolConfigInputType? type,
             global::ElevenLabs.ObjectJsonSchemaPropertyInput? parameters,
             bool? expectsResponse,
-            int? responseTimeoutSecs,
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Id = id;
+            this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.Type = type;
             this.Parameters = parameters;
             this.ExpectsResponse = expectsResponse;
-            this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.DynamicVariables = dynamicVariables;
         }
 
