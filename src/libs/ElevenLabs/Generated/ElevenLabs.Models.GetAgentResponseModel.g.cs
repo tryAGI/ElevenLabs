@@ -46,7 +46,7 @@ namespace ElevenLabs
         /// The phone numbers of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_numbers")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? PhoneNumbers { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem>? PhoneNumbers { get; set; }
 
         /// <summary>
         /// 
@@ -94,7 +94,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationalConfigAPIModelOutput conversationConfig,
             global::ElevenLabs.AgentMetadataResponseModel metadata,
             global::ElevenLabs.AgentPlatformSettingsResponseModel? platformSettings,
-            global::System.Collections.Generic.IList<global::ElevenLabs.GetPhoneNumberResponseModel>? phoneNumbers,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem>? phoneNumbers,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
             global::System.Collections.Generic.IList<string>? tags)
         {

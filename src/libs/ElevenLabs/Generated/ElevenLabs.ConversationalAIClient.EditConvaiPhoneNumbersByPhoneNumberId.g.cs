@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberResponseModel> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdPatchResponse> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
             string phoneNumberId,
             global::ElevenLabs.UpdatePhoneNumberRequest request,
             string? xiApiKey = default,
@@ -182,7 +182,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.GetPhoneNumberResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.UpdatePhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdPatchResponse.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -212,7 +212,7 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.GetPhoneNumberResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.UpdatePhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdPatchResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
@@ -231,7 +231,7 @@ namespace ElevenLabs
         /// <param name="agentId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberResponseModel> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdPatchResponse> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
             string phoneNumberId,
             string? xiApiKey = default,
             string? agentId = default,

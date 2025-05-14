@@ -63,7 +63,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_call")]
-        public global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? PhoneCall { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PhoneCallJsonConverter))]
+        public global::ElevenLabs.PhoneCall? PhoneCall { get; set; }
 
         /// <summary>
         /// 
@@ -130,7 +131,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryFeedbackCommonModel? feedback,
             global::ElevenLabs.AuthorizationMethod? authorizationMethod,
             global::ElevenLabs.ConversationChargingCommonModel? charging,
-            global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? phoneCall,
+            global::ElevenLabs.PhoneCall? phoneCall,
             global::ElevenLabs.ConversationHistoryBatchCallModel? batchCall,
             string? terminationReason,
             global::ElevenLabs.ConversationHistoryErrorCommonModel? error,

@@ -16,18 +16,18 @@ namespace ElevenLabs
         public required string PhoneNumber { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyProviderJsonConverter))]
-        public global::ElevenLabs.TelephonyProvider? Provider { get; set; }
-
-        /// <summary>
         /// Label for the phone number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Label { get; set; }
+
+        /// <summary>
+        /// Default Value: twilio
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CreateTwilioPhoneNumberRequestProviderJsonConverter))]
+        public global::ElevenLabs.CreateTwilioPhoneNumberRequestProvider? Provider { get; set; }
 
         /// <summary>
         /// Twilio Account SID
@@ -55,9 +55,11 @@ namespace ElevenLabs
         /// <param name="phoneNumber">
         /// Phone number
         /// </param>
-        /// <param name="provider"></param>
         /// <param name="label">
         /// Label for the phone number
+        /// </param>
+        /// <param name="provider">
+        /// Default Value: twilio
         /// </param>
         /// <param name="sid">
         /// Twilio Account SID
@@ -73,7 +75,7 @@ namespace ElevenLabs
             string label,
             string sid,
             string token,
-            global::ElevenLabs.TelephonyProvider? provider)
+            global::ElevenLabs.CreateTwilioPhoneNumberRequestProvider? provider)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
