@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing or PlayAPI.
+    /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI or PD (pronunciation dictionary).
     /// </summary>
     public enum SpeechHistoryItemResponseModelSource
     {
@@ -32,6 +32,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         PlayAPI,
+        /// <summary>
+        /// 
+        /// </summary>
+        PD,
     }
 
     /// <summary>
@@ -52,6 +56,7 @@ namespace ElevenLabs
                 SpeechHistoryItemResponseModelSource.AN => "AN",
                 SpeechHistoryItemResponseModelSource.Dubbing => "Dubbing",
                 SpeechHistoryItemResponseModelSource.PlayAPI => "PlayAPI",
+                SpeechHistoryItemResponseModelSource.PD => "PD",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -68,6 +73,7 @@ namespace ElevenLabs
                 "AN" => SpeechHistoryItemResponseModelSource.AN,
                 "Dubbing" => SpeechHistoryItemResponseModelSource.Dubbing,
                 "PlayAPI" => SpeechHistoryItemResponseModelSource.PlayAPI,
+                "PD" => SpeechHistoryItemResponseModelSource.PD,
                 _ => null,
             };
         }

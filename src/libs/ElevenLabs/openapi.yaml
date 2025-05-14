@@ -5742,38 +5742,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/profile/{handle}':
-    get:
-      tags:
-        - voices
-      summary: Get A Profile Page
-      description: Gets a profile page based on a handle
-      operationId: Get_a_profile_page_profile__handle__get
-      parameters:
-        - name: handle
-          in: path
-          description: Handle for a VA's profile page
-          required: true
-          schema:
-            title: Handle
-            type: string
-            description: Handle for a VA's profile page
-            example: talexgeorge
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProfilePageResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: profile
-      x-fern-sdk-method-name: get
   /v1/speech-to-text:
     post:
       tags:
@@ -6719,7 +6687,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPhoneNumberResponseModel'
+                title: Response Get Phone Number V1 Convai Phone Numbers  Phone Number Id  Get
+                oneOf:
+                  - $ref: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
+                  - $ref: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
+                discriminator:
+                  propertyName: provider
+                  mapping:
+                    twilio: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
+                    sip_trunk: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
         '422':
           description: Validation Error
           content:
@@ -6802,7 +6778,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPhoneNumberResponseModel'
+                title: Response Update Phone Number V1 Convai Phone Numbers  Phone Number Id  Patch
+                oneOf:
+                  - $ref: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
+                  - $ref: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
+                discriminator:
+                  propertyName: provider
+                  mapping:
+                    twilio: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
+                    sip_trunk: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
         '422':
           description: Validation Error
           content:
@@ -6836,7 +6820,14 @@ paths:
                 title: Response List Phone Numbers V1 Convai Phone Numbers  Get
                 type: array
                 items:
-                  $ref: '#/components/schemas/GetPhoneNumberResponseModel'
+                  oneOf:
+                    - $ref: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
+                    - $ref: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
+                  discriminator:
+                    propertyName: provider
+                    mapping:
+                      twilio: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
+                      sip_trunk: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
         '422':
           description: Validation Error
           content:
@@ -12881,10 +12872,12 @@ components:
           type: 'null'
           oneOf:
             - $ref: '#/components/schemas/ConversationHistoryTwilioPhoneCallModel'
+            - $ref: '#/components/schemas/ConversationHistorySIPTrunkingPhoneCallModel'
           nullable: true
           discriminator:
             propertyName: type
             mapping:
+              sip_trunking: '#/components/schemas/ConversationHistorySIPTrunkingPhoneCallModel'
               twilio: '#/components/schemas/ConversationHistoryTwilioPhoneCallModel'
         batch_call:
           $ref: '#/components/schemas/ConversationHistoryBatchCallModel'
@@ -12912,6 +12905,40 @@ components:
           type: integer
         embedding_model:
           title: Embedding Model
+          type: string
+    ConversationHistorySIPTrunkingPhoneCallModel:
+      title: ConversationHistorySIPTrunkingPhoneCallModel
+      required:
+        - direction
+        - phone_number_id
+        - agent_number
+        - external_number
+        - type
+        - call_sid
+      type: object
+      properties:
+        direction:
+          title: Direction
+          enum:
+            - inbound
+            - outbound
+          type: string
+        phone_number_id:
+          title: Phone Number Id
+          type: string
+        agent_number:
+          title: Agent Number
+          type: string
+        external_number:
+          title: External Number
+          type: string
+        type:
+          title: Type
+          enum:
+            - sip_trunking
+          type: string
+        call_sid:
+          title: Call Sid
           type: string
     ConversationHistoryTranscriptCommonModel-Input:
       title: ConversationHistoryTranscriptCommonModel
@@ -13498,16 +13525,35 @@ components:
           title: Phone Number
           type: string
           description: Phone number
-        provider:
-          $ref: '#/components/schemas/TelephonyProvider'
         label:
           title: Label
           type: string
           description: Label for the phone number
+        provider:
+          title: Provider
+          enum:
+            - sip_trunk
+          type: string
+          default: sip_trunk
         termination_uri:
           title: Termination Uri
           type: string
           description: SIP trunk termination URI
+        address:
+          title: Address
+          type: string
+          description: Hostname or IP the SIP INVITE is sent to.
+          nullable: true
+        transport:
+          $ref: '#/components/schemas/SIPTrunkTransportEnum'
+        media_encryption:
+          $ref: '#/components/schemas/SIPMediaEncryptionEnum'
+        headers:
+          title: Headers
+          type: object
+          additionalProperties:
+            type: string
+          description: SIP X-* headers for INVITE request. These headers are sent as-is and may help identify this call.
         credentials:
           $ref: '#/components/schemas/SIPTrunkCredentials'
       description: "SIP trunk phone number request\n\nIncludes termination URI and optional digest authentication credentials.\nIf credentials are provided, both username and password must be included.\nIf credentials are not provided, ACL authentication is assumed. (user needs to add our ips in their settings)"
@@ -13524,12 +13570,16 @@ components:
           title: Phone Number
           type: string
           description: Phone number
-        provider:
-          $ref: '#/components/schemas/TelephonyProvider'
         label:
           title: Label
           type: string
           description: Label for the phone number
+        provider:
+          title: Provider
+          enum:
+            - twilio
+          type: string
+          default: twilio
         sid:
           title: Sid
           type: string
@@ -14660,7 +14710,14 @@ components:
           title: Phone Numbers
           type: array
           items:
-            $ref: '#/components/schemas/GetPhoneNumberResponseModel'
+            oneOf:
+              - $ref: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
+              - $ref: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
+            discriminator:
+              propertyName: provider
+              mapping:
+                sip_trunk: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
+                twilio: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
           description: The phone numbers of the agent
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
@@ -15172,11 +15229,10 @@ components:
           usage_character_count_7d: 12852
           use_case: characters_animation
           voice_id: sB1b5zUrxQVAFl2PhZFp
-    GetPhoneNumberResponseModel:
-      title: GetPhoneNumberResponseModel
+    GetPhoneNumberSIPTrunkResponseModel:
+      title: GetPhoneNumberSIPTrunkResponseModel
       required:
         - phone_number
-        - provider
         - label
         - phone_number_id
       type: object
@@ -15185,8 +15241,6 @@ components:
           title: Phone Number
           type: string
           description: Phone number
-        provider:
-          $ref: '#/components/schemas/TelephonyProvider'
         label:
           title: Label
           type: string
@@ -15197,6 +15251,46 @@ components:
           description: The ID of the phone number
         assigned_agent:
           $ref: '#/components/schemas/PhoneNumberAgentInfo'
+        provider:
+          title: Provider
+          enum:
+            - sip_trunk
+          type: string
+          description: Phone provider
+          default: sip_trunk
+        provider_config:
+          $ref: '#/components/schemas/SIPTrunkConfigResponseModel'
+      example:
+        phone_number_id: X3Pbu5gP6NNKBscdCdwB
+    GetPhoneNumberTwilioResponseModel:
+      title: GetPhoneNumberTwilioResponseModel
+      required:
+        - phone_number
+        - label
+        - phone_number_id
+      type: object
+      properties:
+        phone_number:
+          title: Phone Number
+          type: string
+          description: Phone number
+        label:
+          title: Label
+          type: string
+          description: Label for the phone number
+        phone_number_id:
+          title: Phone Number Id
+          type: string
+          description: The ID of the phone number
+        assigned_agent:
+          $ref: '#/components/schemas/PhoneNumberAgentInfo'
+        provider:
+          title: Provider
+          enum:
+            - twilio
+          type: string
+          description: Phone provider
+          default: twilio
       example:
         phone_number_id: X3Pbu5gP6NNKBscdCdwB
     GetProjectsResponseModel:
@@ -16860,36 +16954,6 @@ components:
         delete_transcript_and_pii: false
         record_voice: true
         retention_days: -1
-    ProfilePageResponseModel:
-      title: ProfilePageResponseModel
-      required:
-        - handle
-        - public_user_id
-        - name
-        - bio
-        - profile_picture
-      type: object
-      properties:
-        handle:
-          title: Handle
-          type: string
-          nullable: true
-        public_user_id:
-          title: Public User Id
-          type: string
-          nullable: true
-        name:
-          title: Name
-          type: string
-          nullable: true
-        bio:
-          title: Bio
-          type: string
-          nullable: true
-        profile_picture:
-          title: Profile Picture
-          type: string
-          nullable: true
     ProjectCreationMetaResponseModel:
       title: ProjectCreationMetaResponseModel
       required:
@@ -18266,6 +18330,51 @@ components:
           - id: x1AfvYKAmiqxCnbvZeNXHqqthJaC
             name: mygroup
             type: group
+    SIPMediaEncryptionEnum:
+      title: SIPMediaEncryptionEnum
+      enum:
+        - disabled
+        - allowed
+        - required
+      type: string
+    SIPTrunkConfigResponseModel:
+      title: SIPTrunkConfigResponseModel
+      required:
+        - address
+        - transport
+        - media_encryption
+        - has_auth_credentials
+      type: object
+      properties:
+        address:
+          title: Address
+          type: string
+          description: Hostname or IP the SIP INVITE is sent to
+        transport:
+          $ref: '#/components/schemas/SIPTrunkTransportEnum'
+        media_encryption:
+          $ref: '#/components/schemas/SIPMediaEncryptionEnum'
+        headers:
+          title: Headers
+          type: object
+          additionalProperties:
+            type: string
+          description: SIP headers for INVITE request
+        has_auth_credentials:
+          title: Has Auth Credentials
+          type: boolean
+          description: Whether authentication credentials are configured
+        username:
+          title: Username
+          type: string
+          description: SIP trunk username (if available)
+          nullable: true
+        has_outbound_trunk:
+          title: Has Outbound Trunk
+          type: boolean
+          description: Whether a LiveKit SIP outbound trunk is configured
+          default: false
+      description: SIP Trunk configuration details for a phone number
     SIPTrunkCredentials:
       title: SIPTrunkCredentials
       required:
@@ -18299,6 +18408,14 @@ components:
           title: Sip Call Id
           type: string
           nullable: true
+    SIPTrunkTransportEnum:
+      title: SIPTrunkTransportEnum
+      enum:
+        - auto
+        - udp
+        - tcp
+        - tls
+      type: string
     SafetyCommonModel:
       title: SafetyCommonModel
       type: object
@@ -18871,8 +18988,9 @@ components:
             - AN
             - Dubbing
             - PlayAPI
+            - PD
           type: string
-          description: 'The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing or PlayAPI.'
+          description: 'The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI or PD (pronunciation dictionary).'
           nullable: true
         alignments:
           $ref: '#/components/schemas/HistoryAlignmentsResponseModel'

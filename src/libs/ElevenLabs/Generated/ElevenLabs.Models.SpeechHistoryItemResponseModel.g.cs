@@ -111,7 +111,7 @@ namespace ElevenLabs
         public string? ShareLinkId { get; set; }
 
         /// <summary>
-        /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing or PlayAPI.
+        /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI or PD (pronunciation dictionary).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeechHistoryItemResponseModelSourceJsonConverter))]
@@ -176,7 +176,7 @@ namespace ElevenLabs
         /// The ID of the share link.
         /// </param>
         /// <param name="source">
-        /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing or PlayAPI.
+        /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI or PD (pronunciation dictionary).
         /// </param>
         /// <param name="alignments"></param>
 #if NET7_0_OR_GREATER

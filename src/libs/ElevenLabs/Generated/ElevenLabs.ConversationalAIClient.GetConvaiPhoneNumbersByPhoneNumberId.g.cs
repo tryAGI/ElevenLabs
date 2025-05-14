@@ -36,7 +36,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberResponseModel> GetConvaiPhoneNumbersByPhoneNumberIdAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdGetResponse> GetConvaiPhoneNumbersByPhoneNumberIdAsync(
             string phoneNumberId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -168,7 +168,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.GetPhoneNumberResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.GetPhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdGetResponse.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -198,7 +198,7 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.GetPhoneNumberResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.GetPhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdGetResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
