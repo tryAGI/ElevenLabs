@@ -19,6 +19,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? descriptives,
             ref bool? featured,
             ref int? minNoticePeriodDays,
+            ref bool? includeCustomRates,
             ref bool? readerAppEnabled,
             ref string? ownerId,
             ref string? sort,
@@ -39,6 +40,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? descriptives,
             bool? featured,
             int? minNoticePeriodDays,
+            bool? includeCustomRates,
             bool? readerAppEnabled,
             string? ownerId,
             string? sort,
@@ -106,6 +108,10 @@ namespace ElevenLabs
         /// Filter voices with a minimum notice period of the given number of days.<br/>
         /// Example: 30
         /// </param>
+        /// <param name="includeCustomRates">
+        /// Include/exclude voices with custom rates<br/>
+        /// Example: true
+        /// </param>
         /// <param name="readerAppEnabled">
         /// Filter voices that are enabled for the reader app<br/>
         /// Default Value: false<br/>
@@ -140,6 +146,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? descriptives = default,
             bool? featured = default,
             int? minNoticePeriodDays = default,
+            bool? includeCustomRates = default,
             bool? readerAppEnabled = default,
             string? ownerId = default,
             string? sort = default,
@@ -163,6 +170,7 @@ namespace ElevenLabs
                 descriptives: descriptives,
                 featured: ref featured,
                 minNoticePeriodDays: ref minNoticePeriodDays,
+                includeCustomRates: ref includeCustomRates,
                 readerAppEnabled: ref readerAppEnabled,
                 ownerId: ref ownerId,
                 sort: ref sort,
@@ -185,6 +193,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("descriptives", descriptives, delimiter: ",", explode: true) 
                 .AddOptionalParameter("featured", featured?.ToString()) 
                 .AddOptionalParameter("min_notice_period_days", minNoticePeriodDays?.ToString()) 
+                .AddOptionalParameter("include_custom_rates", includeCustomRates?.ToString()) 
                 .AddOptionalParameter("reader_app_enabled", readerAppEnabled?.ToString()) 
                 .AddOptionalParameter("owner_id", ownerId) 
                 .AddOptionalParameter("sort", sort) 
@@ -239,6 +248,7 @@ namespace ElevenLabs
                 descriptives: descriptives,
                 featured: featured,
                 minNoticePeriodDays: minNoticePeriodDays,
+                includeCustomRates: includeCustomRates,
                 readerAppEnabled: readerAppEnabled,
                 ownerId: ownerId,
                 sort: sort,

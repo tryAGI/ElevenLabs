@@ -44,6 +44,13 @@ namespace ElevenLabs
         public bool? ApplyToExistingConversations { get; set; }
 
         /// <summary>
+        /// Whether to enable zero retention mode - no PII data is stored<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("zero_retention_mode")]
+        public bool? ZeroRetentionMode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -72,6 +79,10 @@ namespace ElevenLabs
         /// Whether to apply the privacy settings to existing conversations<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="zeroRetentionMode">
+        /// Whether to enable zero retention mode - no PII data is stored<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,13 +91,15 @@ namespace ElevenLabs
             int? retentionDays,
             bool? deleteTranscriptAndPii,
             bool? deleteAudio,
-            bool? applyToExistingConversations)
+            bool? applyToExistingConversations,
+            bool? zeroRetentionMode)
         {
             this.RecordVoice = recordVoice;
             this.RetentionDays = retentionDays;
             this.DeleteTranscriptAndPii = deleteTranscriptAndPii;
             this.DeleteAudio = deleteAudio;
             this.ApplyToExistingConversations = applyToExistingConversations;
+            this.ZeroRetentionMode = zeroRetentionMode;
         }
 
         /// <summary>
