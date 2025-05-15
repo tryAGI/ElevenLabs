@@ -4827,6 +4827,15 @@ paths:
             description: Filter voices with a minimum notice period of the given number of days.
             nullable: true
             example: 30
+        - name: include_custom_rates
+          in: query
+          description: Include/exclude voices with custom rates
+          schema:
+            title: Include Custom Rates
+            type: boolean
+            description: Include/exclude voices with custom rates
+            nullable: true
+            example: true
         - name: reader_app_enabled
           in: query
           description: Filter voices that are enabled for the reader app
@@ -16948,12 +16957,18 @@ components:
           type: boolean
           description: Whether to apply the privacy settings to existing conversations
           default: false
+        zero_retention_mode:
+          title: Zero Retention Mode
+          type: boolean
+          description: Whether to enable zero retention mode - no PII data is stored
+          default: false
       example:
         apply_to_existing_conversations: false
         delete_audio: false
         delete_transcript_and_pii: false
         record_voice: true
         retention_days: -1
+        zero_retention_mode: false
     ProjectCreationMetaResponseModel:
       title: ProjectCreationMetaResponseModel
       required:
@@ -18985,12 +19000,13 @@ components:
             - TTS
             - STS
             - Projects
+            - PD
             - AN
             - Dubbing
             - PlayAPI
-            - PD
+            - ConvAI
           type: string
-          description: 'The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI or PD (pronunciation dictionary).'
+          description: 'The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI, PD (pronunciation dictionary) or ConvAI (conversational AI).'
           nullable: true
         alignments:
           $ref: '#/components/schemas/HistoryAlignmentsResponseModel'
@@ -19097,6 +19113,7 @@ components:
       required:
         - text
         - type
+        - logprob
       type: object
       properties:
         text:
@@ -19126,6 +19143,10 @@ components:
           type: string
           description: Unique identifier for the speaker of this word.
           nullable: true
+        logprob:
+          title: Logprob
+          type: number
+          description: 'The log of the probability with which this word was predicted. Logprobs are in range [-infinity, 0], higher logprobs indicate a higher confidence the model has in its predictions.'
         characters:
           title: Characters
           type: array
@@ -19152,6 +19173,7 @@ components:
             end: 0.5
             start: 0.4
         end: 0.5
+        logprob: -0.124
         speaker_id: speaker_1
         start: 0
         text: Hello
