@@ -28,6 +28,10 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationClientDataWebhook"></param>
         /// <param name="webhooks"></param>
+        /// <param name="canUseMcpServers">
+        /// Whether the workspace can use MCP servers<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="ragRetentionPeriodDays">
         /// Default Value: 10
         /// </param>
@@ -37,6 +41,7 @@ namespace ElevenLabs
             string? xiApiKey = default,
             global::ElevenLabs.ConversationInitiationClientDataWebhook? conversationInitiationClientDataWebhook = default,
             global::ElevenLabs.ConvAIWebhooks? webhooks = default,
+            bool? canUseMcpServers = default,
             int? ragRetentionPeriodDays = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

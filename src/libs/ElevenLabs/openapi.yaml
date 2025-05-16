@@ -4224,7 +4224,7 @@ paths:
         - segment
         - enterprise
       summary: Render Audio Or Video For The Given Language
-      description: Regenerate the dubs for either the entire resource or the specified segments/languages. Will automatically transcribe and translate any missing transcriptions and translations.
+      description: 'Regenerate the output media for a language using the latest Studio state. Please ensure all segments have been dubbed before rendering, otherwise they will be omitted. Renders are generated asynchronously, and to check the status of all renders please use the ''Get Dubbing Resource'' endpoint.'
       operationId: Render_audio_or_video_for_the_given_language_v1_dubbing_resource__dubbing_id__render__language__post
       parameters:
         - name: dubbing_id
@@ -4398,7 +4398,7 @@ paths:
         - dubbing
         - dubbing
       summary: Get Dubbed File
-      description: Returns dubbed file as a streamed file. Videos will be returned in MP4 format and audio only dubs will be returned in MP3.
+      description: Returns dub as a streamed MP3 or MP4 file. If this dub has been edited using Dubbing Studio you need to use the resource render endpoint as this endpoint only returns the original automatic dub result.
       operationId: Get_dubbed_file_v1_dubbing__dubbing_id__audio__language_code__get
       parameters:
         - name: dubbing_id
@@ -9401,6 +9401,7 @@ components:
       title: BatchCallRecipientStatus
       enum:
         - pending
+        - initiated
         - in_progress
         - completed
         - failed
@@ -13375,6 +13376,7 @@ components:
         status:
           title: Status
           enum:
+            - initiated
             - in-progress
             - processing
             - done
@@ -14833,6 +14835,11 @@ components:
           $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
         webhooks:
           $ref: '#/components/schemas/ConvAIWebhooks'
+        can_use_mcp_servers:
+          title: Can Use Mcp Servers
+          type: boolean
+          description: Whether the workspace can use MCP servers
+          default: false
         rag_retention_period_days:
           title: Rag Retention Period Days
           maximum: 30
@@ -14862,6 +14869,7 @@ components:
         status:
           title: Status
           enum:
+            - initiated
             - in-progress
             - processing
             - done
@@ -16070,7 +16078,12 @@ components:
         rate:
           title: Rate
           type: number
-          description: The rate of the voice.
+          description: The rate multiplier of the voice.
+          nullable: true
+        fiat_rate:
+          title: Fiat Rate
+          type: number
+          description: The rate of the voice in USD per 1000 credits. null if default
           nullable: true
         free_users_allowed:
           title: Free Users Allowed
@@ -16691,6 +16704,11 @@ components:
           $ref: '#/components/schemas/ConversationInitiationClientDataWebhook'
         webhooks:
           $ref: '#/components/schemas/ConvAIWebhooks'
+        can_use_mcp_servers:
+          title: Can Use Mcp Servers
+          type: boolean
+          description: Whether the workspace can use MCP servers
+          default: false
         rag_retention_period_days:
           title: Rag Retention Period Days
           maximum: 30
@@ -18410,6 +18428,7 @@ components:
       required:
         - success
         - message
+        - conversation_id
         - sip_call_id
       type: object
       properties:
@@ -18419,6 +18438,10 @@ components:
         message:
           title: Message
           type: string
+        conversation_id:
+          title: Conversation Id
+          type: string
+          nullable: true
         sip_call_id:
           title: Sip Call Id
           type: string
@@ -19839,6 +19862,7 @@ components:
       required:
         - success
         - message
+        - conversation_id
         - callSid
       type: object
       properties:
@@ -19848,6 +19872,10 @@ components:
         message:
           title: Message
           type: string
+        conversation_id:
+          title: Conversation Id
+          type: string
+          nullable: true
         callSid:
           title: Callsid
           type: string
@@ -20846,6 +20874,11 @@ components:
           type: number
           description: The rate of the voice sharing.
           nullable: true
+        fiat_rate:
+          title: Fiat Rate
+          type: number
+          description: The rate of the voice sharing in USD per 1000 credits.
+          nullable: true
         notice_period:
           title: Notice Period
           type: integer
@@ -21382,6 +21415,11 @@ components:
           type: boolean
           description: Whether to disable the banner
           default: false
+        override_link:
+          title: Override Link
+          type: string
+          description: The override link for the widget
+          nullable: true
         mic_muting_enabled:
           title: Mic Muting Enabled
           type: boolean
@@ -21525,6 +21563,11 @@ components:
           type: boolean
           description: Whether to disable the banner
           default: false
+        override_link:
+          title: Override Link
+          type: string
+          description: The override link for the widget
+          nullable: true
         mic_muting_enabled:
           title: Mic Muting Enabled
           type: boolean

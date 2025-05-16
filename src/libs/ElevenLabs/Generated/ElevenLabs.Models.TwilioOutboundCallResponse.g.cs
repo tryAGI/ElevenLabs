@@ -25,6 +25,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string? ConversationId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("callSid")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string? CallSid { get; set; }
@@ -40,6 +47,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="success"></param>
         /// <param name="message"></param>
+        /// <param name="conversationId"></param>
         /// <param name="callSid"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -47,10 +55,12 @@ namespace ElevenLabs
         public TwilioOutboundCallResponse(
             bool success,
             string message,
+            string? conversationId,
             string? callSid)
         {
             this.Success = success;
             this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
+            this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
             this.CallSid = callSid ?? throw new global::System.ArgumentNullException(nameof(callSid));
         }
 

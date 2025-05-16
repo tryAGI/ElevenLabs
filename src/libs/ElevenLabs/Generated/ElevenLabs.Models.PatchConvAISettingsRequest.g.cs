@@ -21,6 +21,13 @@ namespace ElevenLabs
         public global::ElevenLabs.ConvAIWebhooks? Webhooks { get; set; }
 
         /// <summary>
+        /// Whether the workspace can use MCP servers<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("can_use_mcp_servers")]
+        public bool? CanUseMcpServers { get; set; }
+
+        /// <summary>
         /// Default Value: 10
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rag_retention_period_days")]
@@ -37,6 +44,10 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="conversationInitiationClientDataWebhook"></param>
         /// <param name="webhooks"></param>
+        /// <param name="canUseMcpServers">
+        /// Whether the workspace can use MCP servers<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="ragRetentionPeriodDays">
         /// Default Value: 10
         /// </param>
@@ -46,10 +57,12 @@ namespace ElevenLabs
         public PatchConvAISettingsRequest(
             global::ElevenLabs.ConversationInitiationClientDataWebhook? conversationInitiationClientDataWebhook,
             global::ElevenLabs.ConvAIWebhooks? webhooks,
+            bool? canUseMcpServers,
             int? ragRetentionPeriodDays)
         {
             this.ConversationInitiationClientDataWebhook = conversationInitiationClientDataWebhook;
             this.Webhooks = webhooks;
+            this.CanUseMcpServers = canUseMcpServers;
             this.RagRetentionPeriodDays = ragRetentionPeriodDays;
         }
 
