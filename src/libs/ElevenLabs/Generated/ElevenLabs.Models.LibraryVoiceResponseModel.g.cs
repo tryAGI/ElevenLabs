@@ -132,10 +132,16 @@ namespace ElevenLabs
         public required int ClonedByCount { get; set; }
 
         /// <summary>
-        /// The rate of the voice.
+        /// The rate multiplier of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rate")]
         public double? Rate { get; set; }
+
+        /// <summary>
+        /// The rate of the voice in USD per 1000 credits. null if default
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fiat_rate")]
+        public double? FiatRate { get; set; }
 
         /// <summary>
         /// Whether free users are allowed to use the voice.
@@ -270,7 +276,10 @@ namespace ElevenLabs
         /// The number of times the voice has been cloned.
         /// </param>
         /// <param name="rate">
-        /// The rate of the voice.
+        /// The rate multiplier of the voice.
+        /// </param>
+        /// <param name="fiatRate">
+        /// The rate of the voice in USD per 1000 credits. null if default
         /// </param>
         /// <param name="freeUsersAllowed">
         /// Whether free users are allowed to use the voice.
@@ -331,6 +340,7 @@ namespace ElevenLabs
             string? description,
             string? previewUrl,
             double? rate,
+            double? fiatRate,
             global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? verifiedLanguages,
             int? noticePeriod,
             string? instagramUsername,
@@ -362,6 +372,7 @@ namespace ElevenLabs
             this.Description = description;
             this.PreviewUrl = previewUrl;
             this.Rate = rate;
+            this.FiatRate = fiatRate;
             this.VerifiedLanguages = verifiedLanguages;
             this.NoticePeriod = noticePeriod;
             this.InstagramUsername = instagramUsername;

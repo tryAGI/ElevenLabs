@@ -174,6 +174,12 @@ namespace ElevenLabs
         public bool? DisableBanner { get; set; }
 
         /// <summary>
+        /// The override link for the widget
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("override_link")]
+        public string? OverrideLink { get; set; }
+
+        /// <summary>
         /// Whether to enable mic muting<br/>
         /// Default Value: false
         /// </summary>
@@ -280,6 +286,9 @@ namespace ElevenLabs
         /// Whether to disable the banner<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="overrideLink">
+        /// The override link for the widget
+        /// </param>
         /// <param name="micMutingEnabled">
         /// Whether to enable mic muting<br/>
         /// Default Value: false
@@ -320,6 +329,7 @@ namespace ElevenLabs
             string? termsKey,
             bool? showAvatarWhenCollapsed,
             bool? disableBanner,
+            string? overrideLink,
             bool? micMutingEnabled,
             bool? languageSelector,
             string? customAvatarPath)
@@ -349,6 +359,7 @@ namespace ElevenLabs
             this.TermsKey = termsKey;
             this.ShowAvatarWhenCollapsed = showAvatarWhenCollapsed;
             this.DisableBanner = disableBanner;
+            this.OverrideLink = overrideLink;
             this.MicMutingEnabled = micMutingEnabled;
             this.LanguageSelector = languageSelector;
             this.CustomAvatarPath = customAvatarPath;
