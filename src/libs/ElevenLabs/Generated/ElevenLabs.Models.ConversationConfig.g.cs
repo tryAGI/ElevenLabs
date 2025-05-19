@@ -9,6 +9,13 @@ namespace ElevenLabs
     public sealed partial class ConversationConfig
     {
         /// <summary>
+        /// If enabled audio will not be processed and only text will be used, use to avoid audio pricing.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_only")]
+        public bool? TextOnly { get; set; }
+
+        /// <summary>
         /// The maximum duration of a conversation in seconds<br/>
         /// Default Value: 600
         /// </summary>
@@ -30,6 +37,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationConfig" /> class.
         /// </summary>
+        /// <param name="textOnly">
+        /// If enabled audio will not be processed and only text will be used, use to avoid audio pricing.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="maxDurationSeconds">
         /// The maximum duration of a conversation in seconds<br/>
         /// Default Value: 600
@@ -41,9 +52,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationConfig(
+            bool? textOnly,
             int? maxDurationSeconds,
             global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? clientEvents)
         {
+            this.TextOnly = textOnly;
             this.MaxDurationSeconds = maxDurationSeconds;
             this.ClientEvents = clientEvents;
         }
