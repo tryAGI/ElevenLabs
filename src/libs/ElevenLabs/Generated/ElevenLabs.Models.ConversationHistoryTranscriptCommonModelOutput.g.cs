@@ -49,6 +49,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_medium")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptCommonModelOutputSourceMediumJsonConverter))]
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputSourceMedium? SourceMedium { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int TimeInCallSecs { get; set; }
@@ -72,6 +79,18 @@ namespace ElevenLabs
         public global::ElevenLabs.LLMUsageOutput? LlmUsage { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interrupted")]
+        public bool? Interrupted { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("original_message")]
+        public string? OriginalMessage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -86,10 +105,15 @@ namespace ElevenLabs
         /// <param name="toolResults"></param>
         /// <param name="feedback"></param>
         /// <param name="llmOverride"></param>
+        /// <param name="sourceMedium"></param>
         /// <param name="timeInCallSecs"></param>
         /// <param name="conversationTurnMetrics"></param>
         /// <param name="ragRetrievalInfo"></param>
         /// <param name="llmUsage"></param>
+        /// <param name="interrupted">
+        /// Default Value: false
+        /// </param>
+        /// <param name="originalMessage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -101,9 +125,12 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolResultCommonModel>? toolResults,
             global::ElevenLabs.UserFeedback? feedback,
             string? llmOverride,
+            global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputSourceMedium? sourceMedium,
             global::ElevenLabs.ConversationTurnMetrics? conversationTurnMetrics,
             global::ElevenLabs.RagRetrievalInfo? ragRetrievalInfo,
-            global::ElevenLabs.LLMUsageOutput? llmUsage)
+            global::ElevenLabs.LLMUsageOutput? llmUsage,
+            bool? interrupted,
+            string? originalMessage)
         {
             this.Role = role;
             this.TimeInCallSecs = timeInCallSecs;
@@ -112,9 +139,12 @@ namespace ElevenLabs
             this.ToolResults = toolResults;
             this.Feedback = feedback;
             this.LlmOverride = llmOverride;
+            this.SourceMedium = sourceMedium;
             this.ConversationTurnMetrics = conversationTurnMetrics;
             this.RagRetrievalInfo = ragRetrievalInfo;
             this.LlmUsage = llmUsage;
+            this.Interrupted = interrupted;
+            this.OriginalMessage = originalMessage;
         }
 
         /// <summary>

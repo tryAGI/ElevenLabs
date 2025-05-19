@@ -21,6 +21,12 @@ namespace ElevenLabs
         public global::ElevenLabs.TTSConversationalConfigOverrideConfig? Tts { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation")]
+        public global::ElevenLabs.ConversationConfigOverrideConfig? Conversation { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -31,15 +37,18 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="agent"></param>
         /// <param name="tts"></param>
+        /// <param name="conversation"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationConfigClientOverrideConfigInput(
             global::ElevenLabs.AgentConfigOverrideConfig? agent,
-            global::ElevenLabs.TTSConversationalConfigOverrideConfig? tts)
+            global::ElevenLabs.TTSConversationalConfigOverrideConfig? tts,
+            global::ElevenLabs.ConversationConfigOverrideConfig? conversation)
         {
             this.Agent = agent;
             this.Tts = tts;
+            this.Conversation = conversation;
         }
 
         /// <summary>
