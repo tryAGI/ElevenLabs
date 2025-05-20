@@ -25,6 +25,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("phone_provider")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyProviderJsonConverter))]
+        public global::ElevenLabs.TelephonyProvider? PhoneProvider { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
@@ -104,6 +111,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="id"></param>
         /// <param name="phoneNumberId"></param>
+        /// <param name="phoneProvider"></param>
         /// <param name="name"></param>
         /// <param name="agentId"></param>
         /// <param name="createdAtUnix"></param>
@@ -129,7 +137,8 @@ namespace ElevenLabs
             int lastUpdatedAtUnix,
             global::ElevenLabs.BatchCallStatus status,
             string agentName,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel> recipients)
+            global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel> recipients,
+            global::ElevenLabs.TelephonyProvider? phoneProvider)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
@@ -143,6 +152,7 @@ namespace ElevenLabs
             this.Status = status;
             this.AgentName = agentName ?? throw new global::System.ArgumentNullException(nameof(agentName));
             this.Recipients = recipients ?? throw new global::System.ArgumentNullException(nameof(recipients));
+            this.PhoneProvider = phoneProvider;
         }
 
         /// <summary>
