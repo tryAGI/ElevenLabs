@@ -946,863 +946,863 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BatchCallStatus? Type230 { get; set; }
+        public global::ElevenLabs.TelephonyProvider? Type230 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel>? Type231 { get; set; }
+        public global::ElevenLabs.BatchCallStatus? Type231 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.OutboundCallRecipientResponseModel? Type232 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel>? Type232 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BatchCallRecipientStatus? Type233 { get; set; }
+        public global::ElevenLabs.OutboundCallRecipientResponseModel? Type233 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationInitiationClientDataInternal? Type234 { get; set; }
+        public global::ElevenLabs.BatchCallRecipientStatus? Type234 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationConfigClientOverrideOutput? Type235 { get; set; }
+        public global::ElevenLabs.ConversationInitiationClientDataInternal? Type235 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TTSConversationalConfigOverride? Type236 { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideOutput? Type236 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationConfigOverride? Type237 { get; set; }
+        public global::ElevenLabs.TTSConversationalConfigOverride? Type237 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BatchCallResponse? Type238 { get; set; }
+        public global::ElevenLabs.ConversationConfigOverride? Type238 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddALanguageToTheResourceV1DubbingResourceDubbingIdLanguagePost? Type239 { get; set; }
+        public global::ElevenLabs.BatchCallResponse? Type239 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePost? Type240 { get; set; }
+        public global::ElevenLabs.BodyAddALanguageToTheResourceV1DubbingResourceDubbingIdLanguagePost? Type240 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public byte[]? Type241 { get; set; }
+        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePost? Type241 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccess? Type242 { get; set; }
+        public byte[]? Type242 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPost? Type243 { get; set; }
+        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccess? Type243 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>>? Type244 { get; set; }
+        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPost? Type244 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>? Type245 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>>? Type245 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel? Type246 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>? Type246 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModelType? Type247 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel? Type247 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel? Type248 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModelType? Type248 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModelType? Type249 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel? Type249 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess? Type250 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModelType? Type250 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddChapterToAProjectV1ProjectsProjectIdChaptersAddPost? Type251 { get; set; }
+        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess? Type251 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddMemberToUserGroupV1WorkspaceGroupsGroupIdMembersPost? Type252 { get; set; }
+        public global::ElevenLabs.BodyAddChapterToAProjectV1ProjectsProjectIdChaptersAddPost? Type252 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPost? Type253 { get; set; }
+        public global::ElevenLabs.BodyAddMemberToUserGroupV1WorkspaceGroupsGroupIdMembersPost? Type253 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostTargetAudience? Type254 { get; set; }
+        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPost? Type254 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostFiction? Type255 { get; set; }
+        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostTargetAudience? Type255 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostApplyTextNormalization? Type256 { get; set; }
+        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostFiction? Type256 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostSourceType? Type257 { get; set; }
+        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostApplyTextNormalization? Type257 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddRulesToThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdAddRulesPost? Type258 { get; set; }
+        public global::ElevenLabs.BodyAddProjectV1ProjectsAddPostSourceType? Type258 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddSamplesToPVCVoiceV1VoicesPvcVoiceIdSamplesPost? Type259 { get; set; }
+        public global::ElevenLabs.BodyAddRulesToThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdAddRulesPost? Type259 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<byte[]>? Type260 { get; set; }
+        public global::ElevenLabs.BodyAddSamplesToPVCVoiceV1VoicesPvcVoiceIdSamplesPost? Type260 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost? Type261 { get; set; }
+        public global::System.Collections.Generic.IList<byte[]>? Type261 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiAddToKnowledgeBasePost? Type262 { get; set; }
+        public global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost? Type262 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiAgentsAgentIdAddToKnowledgeBasePost? Type263 { get; set; }
+        public global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiAddToKnowledgeBasePost? Type263 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiKnowledgeBasePost? Type264 { get; set; }
+        public global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiAgentsAgentIdAddToKnowledgeBasePost? Type264 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAddVoiceV1VoicesAddPost? Type265 { get; set; }
+        public global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiKnowledgeBasePost? Type265 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPost? Type266 { get; set; }
+        public global::ElevenLabs.BodyAddVoiceV1VoicesAddPost? Type266 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat? Type267 { get; set; }
+        public global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPost? Type267 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost? Type268 { get; set; }
+        public global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat? Type268 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? Type269 { get; set; }
+        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost? Type269 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost? Type270 { get; set; }
+        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? Type270 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationalConfigAPIModelInput? Type271 { get; set; }
+        public global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost? Type271 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TurnConfig? Type272 { get; set; }
+        public global::ElevenLabs.ConversationalConfigAPIModelInput? Type272 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TurnMode? Type273 { get; set; }
+        public global::ElevenLabs.TurnConfig? Type273 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TTSConversationalConfig? Type274 { get; set; }
+        public global::ElevenLabs.TurnMode? Type274 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TTSConversationalModel? Type275 { get; set; }
+        public global::ElevenLabs.TTSConversationalConfig? Type275 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TTSOutputFormat? Type276 { get; set; }
+        public global::ElevenLabs.TTSConversationalModel? Type276 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? Type277 { get; set; }
+        public global::ElevenLabs.TTSOutputFormat? Type277 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator? Type278 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? Type278 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationConfig? Type279 { get; set; }
+        public global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator? Type279 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? Type280 { get; set; }
+        public global::ElevenLabs.ConversationConfig? Type280 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ClientEvent? Type281 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? Type281 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetInput>? Type282 { get; set; }
+        public global::ElevenLabs.ClientEvent? Type282 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.LanguagePresetInput? Type283 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetInput>? Type283 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationConfigClientOverrideInput? Type284 { get; set; }
+        public global::ElevenLabs.LanguagePresetInput? Type284 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.LanguagePresetTranslation? Type285 { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideInput? Type285 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreatePVCVoiceV1VoicesPvcPost? Type286 { get; set; }
+        public global::ElevenLabs.LanguagePresetTranslation? Type286 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreatePronunciationDictionariesV1StudioProjectsProjectIdPronunciationDictionariesPost? Type287 { get; set; }
+        public global::ElevenLabs.BodyCreatePVCVoiceV1VoicesPvcPost? Type287 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? Type288 { get; set; }
+        public global::ElevenLabs.BodyCreatePronunciationDictionariesV1StudioProjectsProjectIdPronunciationDictionariesPost? Type288 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel? Type289 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? Type289 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost? Type290 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel? Type290 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience? Type291 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost? Type291 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction? Type292 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience? Type292 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization? Type293 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction? Type293 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType? Type294 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization? Type294 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost? Type295 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType? Type295 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoiceCreateVoiceFromPreviewPost? Type296 { get; set; }
+        public global::ElevenLabs.BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost? Type296 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateAPreviouslyGeneratedVoiceV1VoiceGenerationCreateVoicePost? Type297 { get; set; }
+        public global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoiceCreateVoiceFromPreviewPost? Type297 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateChapterV1StudioProjectsProjectIdChaptersPost? Type298 { get; set; }
+        public global::ElevenLabs.BodyCreateAPreviouslyGeneratedVoiceV1VoiceGenerationCreateVoicePost? Type298 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost? Type299 { get; set; }
+        public global::ElevenLabs.BodyCreateChapterV1StudioProjectsProjectIdChaptersPost? Type299 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost? Type300 { get; set; }
+        public global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost? Type300 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreatePodcastV1ProjectsPodcastCreatePost? Type301 { get; set; }
+        public global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost? Type301 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode>? Type302 { get; set; }
+        public global::ElevenLabs.BodyCreatePodcastV1ProjectsPodcastCreatePost? Type302 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastConversationMode? Type303 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode>? Type303 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastConversationModeType? Type304 { get; set; }
+        public global::ElevenLabs.PodcastConversationMode? Type304 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastConversationModeData? Type305 { get; set; }
+        public global::ElevenLabs.PodcastConversationModeType? Type305 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastBulletinMode? Type306 { get; set; }
+        public global::ElevenLabs.PodcastConversationModeData? Type306 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastBulletinModeType? Type307 { get; set; }
+        public global::ElevenLabs.PodcastBulletinMode? Type307 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastBulletinModeData? Type308 { get; set; }
+        public global::ElevenLabs.PodcastBulletinModeType? Type308 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>? Type309 { get; set; }
+        public global::ElevenLabs.PodcastBulletinModeData? Type309 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastTextSource? Type310 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>? Type310 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastTextSourceType? Type311 { get; set; }
+        public global::ElevenLabs.PodcastTextSource? Type311 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastURLSource? Type312 { get; set; }
+        public global::ElevenLabs.PodcastTextSourceType? Type312 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PodcastURLSourceType? Type313 { get; set; }
+        public global::ElevenLabs.PodcastURLSource? Type313 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>? Type314 { get; set; }
+        public global::ElevenLabs.PodcastURLSourceType? Type314 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>? Type315 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>? Type315 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreatePodcastV1ProjectsPodcastCreatePostQualityPreset? Type316 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>? Type316 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreatePodcastV1ProjectsPodcastCreatePostDurationScale? Type317 { get; set; }
+        public global::ElevenLabs.BodyCreatePodcastV1ProjectsPodcastCreatePostQualityPreset? Type317 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost? Type318 { get; set; }
+        public global::ElevenLabs.BodyCreatePodcastV1ProjectsPodcastCreatePostDurationScale? Type318 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? Type319 { get; set; }
+        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost? Type319 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? Type320 { get; set; }
+        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? Type320 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost? Type321 { get; set; }
+        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? Type321 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost? Type322 { get; set; }
+        public global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost? Type322 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyDeleteExistingInvitationV1WorkspaceInvitesDelete? Type323 { get; set; }
+        public global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost? Type323 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyDeleteMemberFromUserGroupV1WorkspaceGroupsGroupIdMembersRemovePost? Type324 { get; set; }
+        public global::ElevenLabs.BodyDeleteExistingInvitationV1WorkspaceInvitesDelete? Type324 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyDeleteMemberV1WorkspaceMembersDelete? Type325 { get; set; }
+        public global::ElevenLabs.BodyDeleteMemberFromUserGroupV1WorkspaceGroupsGroupIdMembersRemovePost? Type325 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyDownloadHistoryItemsV1HistoryDownloadPost? Type326 { get; set; }
+        public global::ElevenLabs.BodyDeleteMemberV1WorkspaceMembersDelete? Type326 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost? Type327 { get; set; }
+        public global::ElevenLabs.BodyDownloadHistoryItemsV1HistoryDownloadPost? Type327 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyDubsAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdDubPost? Type328 { get; set; }
+        public global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost? Type328 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost? Type329 { get; set; }
+        public global::ElevenLabs.BodyDubsAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdDubPost? Type329 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyEditBasicProjectInfoV1ProjectsProjectIdPost? Type330 { get; set; }
+        public global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost? Type330 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyEditChapterV1ProjectsProjectIdChaptersChapterIdPatch? Type331 { get; set; }
+        public global::ElevenLabs.BodyEditBasicProjectInfoV1ProjectsProjectIdPost? Type331 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ChapterContentInputModel? Type332 { get; set; }
+        public global::ElevenLabs.BodyEditChapterV1ProjectsProjectIdChaptersChapterIdPatch? Type332 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentBlockInputModel>? Type333 { get; set; }
+        public global::ElevenLabs.ChapterContentInputModel? Type333 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ChapterContentBlockInputModel? Type334 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentBlockInputModel>? Type334 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel>? Type335 { get; set; }
+        public global::ElevenLabs.ChapterContentBlockInputModel? Type335 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel? Type336 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel>? Type336 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ChapterContentParagraphTtsNodeInputModelType? Type337 { get; set; }
+        public global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel? Type337 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyEditProjectContentV1ProjectsProjectIdContentPost? Type338 { get; set; }
+        public global::ElevenLabs.ChapterContentParagraphTtsNodeInputModelType? Type338 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost? Type339 { get; set; }
+        public global::ElevenLabs.BodyEditProjectContentV1ProjectsProjectIdContentPost? Type339 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePost? Type340 { get; set; }
+        public global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost? Type340 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostGender? Type341 { get; set; }
+        public global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePost? Type341 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostAge? Type342 { get; set; }
+        public global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostGender? Type342 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyGetSimilarLibraryVoicesV1SimilarVoicesPost? Type343 { get; set; }
+        public global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostAge? Type343 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyHandleAnOutboundCallViaSIPTrunkV1ConvaiSipTrunkOutboundCallPost? Type344 { get; set; }
+        public global::ElevenLabs.BodyGetSimilarLibraryVoicesV1SimilarVoicesPost? Type344 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationInitiationClientDataRequestInput? Type345 { get; set; }
+        public global::ElevenLabs.BodyHandleAnOutboundCallViaSIPTrunkV1ConvaiSipTrunkOutboundCallPost? Type345 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyHandleAnOutboundCallViaTwilioV1ConvaiTwilioOutboundCallPost? Type346 { get; set; }
+        public global::ElevenLabs.ConversationInitiationClientDataRequestInput? Type346 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost? Type347 { get; set; }
+        public global::ElevenLabs.BodyHandleAnOutboundCallViaTwilioV1ConvaiTwilioOutboundCallPost? Type347 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost? Type348 { get; set; }
+        public global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost? Type348 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission? Type349 { get; set; }
+        public global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost? Type349 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch? Type350 { get; set; }
+        public global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission? Type350 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost? Type351 { get; set; }
+        public global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch? Type351 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyRemoveRulesFromThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdRemoveRulesPost? Type352 { get; set; }
+        public global::ElevenLabs.BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost? Type352 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost? Type353 { get; set; }
+        public global::ElevenLabs.BodyRemoveRulesFromThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdRemoveRulesPost? Type353 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.RenderType? Type354 { get; set; }
+        public global::ElevenLabs.BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost? Type354 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyRequestManualVerificationV1VoicesPvcVoiceIdVerificationPost? Type355 { get; set; }
+        public global::ElevenLabs.RenderType? Type355 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyRetrieveVoiceSampleAudioV1VoicesPvcVoiceIdSamplesSampleIdAudioGet? Type356 { get; set; }
+        public global::ElevenLabs.BodyRequestManualVerificationV1VoicesPvcVoiceIdVerificationPost? Type356 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost? Type357 { get; set; }
+        public global::ElevenLabs.BodyRetrieveVoiceSampleAudioV1VoicesPvcVoiceIdSamplesSampleIdAudioGet? Type357 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySendConversationFeedbackV1ConvaiConversationsConversationIdFeedbackPost? Type358 { get; set; }
+        public global::ElevenLabs.BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost? Type358 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost? Type359 { get; set; }
+        public global::ElevenLabs.BodySendConversationFeedbackV1ConvaiConversationsConversationIdFeedbackPost? Type359 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRole? Type360 { get; set; }
+        public global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost? Type360 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.WorkspaceResourceType? Type361 { get; set; }
+        public global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRole? Type361 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost? Type362 { get; set; }
+        public global::ElevenLabs.WorkspaceResourceType? Type362 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationSimulationSpecification? Type363 { get; set; }
+        public global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost? Type363 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? Type364 { get; set; }
+        public global::ElevenLabs.ConversationSimulationSpecification? Type364 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ToolMockConfig? Type365 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? Type365 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? Type366 { get; set; }
+        public global::ElevenLabs.ToolMockConfig? Type366 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput? Type367 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? Type367 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole? Type368 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput? Type368 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputSourceMedium? Type369 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole? Type369 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.LLMUsageInput? Type370 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputSourceMedium? Type370 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySimulatesAConversationV1ConvaiAgentsAgentIdSimulateConversationPost? Type371 { get; set; }
+        public global::ElevenLabs.LLMUsageInput? Type371 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost? Type372 { get; set; }
+        public global::ElevenLabs.BodySimulatesAConversationV1ConvaiAgentsAgentIdSimulateConversationPost? Type372 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost? Type373 { get; set; }
+        public global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost? Type373 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? Type374 { get; set; }
+        public global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost? Type374 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost? Type375 { get; set; }
+        public global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? Type375 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? Type376 { get; set; }
+        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost? Type376 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost? Type377 { get; set; }
+        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? Type377 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? Type378 { get; set; }
+        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost? Type378 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? Type379 { get; set; }
+        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? Type379 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyStreamStudioProjectAudioV1StudioProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost? Type380 { get; set; }
+        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? Type380 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyStreamChapterAudioV1ProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost? Type381 { get; set; }
+        public global::ElevenLabs.BodyStreamStudioProjectAudioV1StudioProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost? Type381 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost? Type382 { get; set; }
+        public global::ElevenLabs.BodyStreamChapterAudioV1ProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost? Type382 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyStreamProjectAudioV1ProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost? Type383 { get; set; }
+        public global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost? Type383 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost? Type384 { get; set; }
+        public global::ElevenLabs.BodyStreamProjectAudioV1ProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost? Type384 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient>? Type385 { get; set; }
+        public global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost? Type385 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.OutboundCallRecipient? Type386 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient>? Type386 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPost? Type387 { get; set; }
+        public global::ElevenLabs.OutboundCallRecipient? Type387 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.VoiceSettingsResponseModel? Type388 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPost? Type388 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? Type389 { get; set; }
+        public global::ElevenLabs.VoiceSettingsResponseModel? Type389 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel? Type390 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? Type390 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPostApplyTextNormalization? Type391 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel? Type391 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPost? Type392 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPostApplyTextNormalization? Type392 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostApplyTextNormalization? Type393 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPost? Type393 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechV1TextToSpeechVoiceIdPost? Type394 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechStreamingWithTimestampsV1TextToSpeechVoiceIdStreamWithTimestampsPostApplyTextNormalization? Type394 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechV1TextToSpeechVoiceIdPostApplyTextNormalization? Type395 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechV1TextToSpeechVoiceIdPost? Type395 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPost? Type396 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechV1TextToSpeechVoiceIdPostApplyTextNormalization? Type396 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostApplyTextNormalization? Type397 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPost? Type397 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTranscribesSegmentsV1DubbingResourceDubbingIdTranscribePost? Type398 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPostApplyTextNormalization? Type398 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyTranslatesAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdTranslatePost? Type399 { get; set; }
+        public global::ElevenLabs.BodyTranscribesSegmentsV1DubbingResourceDubbingIdTranscribePost? Type399 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePost? Type400 { get; set; }
+        public global::ElevenLabs.BodyTranslatesAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdTranslatePost? Type400 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdatePVCVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost? Type401 { get; set; }
+        public global::ElevenLabs.BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePost? Type401 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdatePronunciationDictionariesV1ProjectsProjectIdUpdatePronunciationDictionariesPost? Type402 { get; set; }
+        public global::ElevenLabs.BodyUpdatePVCVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost? Type402 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdateStudioProjectContentV1StudioProjectsProjectIdContentPost? Type403 { get; set; }
+        public global::ElevenLabs.BodyUpdatePronunciationDictionariesV1ProjectsProjectIdUpdatePronunciationDictionariesPost? Type403 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost? Type404 { get; set; }
+        public global::ElevenLabs.BodyUpdateStudioProjectContentV1StudioProjectsProjectIdContentPost? Type404 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost? Type405 { get; set; }
+        public global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost? Type405 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost? Type406 { get; set; }
+        public global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost? Type406 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch? Type407 { get; set; }
+        public global::ElevenLabs.BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost? Type407 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPost? Type408 { get; set; }
+        public global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch? Type408 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPostWorkspaceRole? Type409 { get; set; }
+        public global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPost? Type409 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch? Type410 { get; set; }
+        public global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPostWorkspaceRole? Type410 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyVerifyPVCVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost? Type411 { get; set; }
+        public global::ElevenLabs.BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch? Type411 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BreakdownTypes? Type412 { get; set; }
+        public global::ElevenLabs.BodyVerifyPVCVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost? Type412 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ChapterResponseModel? Type413 { get; set; }
+        public global::ElevenLabs.BreakdownTypes? Type413 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ChapterResponseModelState? Type414 { get; set; }
+        public global::ElevenLabs.ChapterResponseModel? Type414 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ChapterSnapshotExtendedResponseModel? Type415 { get; set; }
+        public global::ElevenLabs.ChapterResponseModelState? Type415 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.CharacterAlignmentModel>? Type416 { get; set; }
+        public global::ElevenLabs.ChapterSnapshotExtendedResponseModel? Type416 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.CharacterAlignmentModel? Type417 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.CharacterAlignmentModel>? Type417 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ChapterSnapshotResponseModel? Type418 { get; set; }
+        public global::ElevenLabs.CharacterAlignmentModel? Type418 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ChapterSnapshotsResponseModel? Type419 { get; set; }
+        public global::ElevenLabs.ChapterSnapshotResponseModel? Type419 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterSnapshotResponseModel>? Type420 { get; set; }
+        public global::ElevenLabs.ChapterSnapshotsResponseModel? Type420 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependencies? Type421 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterSnapshotResponseModel>? Type421 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? Type422 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependencies? Type422 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ToolsItem? Type423 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? Type423 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentAvailableToolIdentifier? Type424 { get; set; }
+        public global::ElevenLabs.ToolsItem? Type424 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentAvailableToolIdentifierType? Type425 { get; set; }
+        public global::ElevenLabs.DependentAvailableToolIdentifier? Type425 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentAvailableToolIdentifierAccessLevel? Type426 { get; set; }
+        public global::ElevenLabs.DependentAvailableToolIdentifierType? Type426 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentUnknownToolIdentifier? Type427 { get; set; }
+        public global::ElevenLabs.DependentAvailableToolIdentifierAccessLevel? Type427 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentUnknownToolIdentifierType? Type428 { get; set; }
+        public global::ElevenLabs.DependentUnknownToolIdentifier? Type428 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminator? Type429 { get; set; }
+        public global::ElevenLabs.DependentUnknownToolIdentifierType? Type429 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType? Type430 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminator? Type430 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentToolsItem>? Type431 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType? Type431 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.AgentToolsItem? Type432 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentToolsItem>? Type432 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentAvailableAgentToolIdentifier? Type433 { get; set; }
+        public global::ElevenLabs.AgentToolsItem? Type433 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentAvailableAgentToolIdentifierType? Type434 { get; set; }
+        public global::ElevenLabs.DependentAvailableAgentToolIdentifier? Type434 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentAvailableAgentToolIdentifierAccessLevel? Type435 { get; set; }
+        public global::ElevenLabs.DependentAvailableAgentToolIdentifierType? Type435 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentUnknownAgentToolIdentifier? Type436 { get; set; }
+        public global::ElevenLabs.DependentAvailableAgentToolIdentifierAccessLevel? Type436 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentUnknownAgentToolIdentifierType? Type437 { get; set; }
+        public global::ElevenLabs.DependentUnknownAgentToolIdentifier? Type437 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesAgentToolDiscriminator? Type438 { get; set; }
+        public global::ElevenLabs.DependentUnknownAgentToolIdentifierType? Type438 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesAgentToolDiscriminatorType? Type439 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesAgentToolDiscriminator? Type439 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType>? Type440 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesAgentToolDiscriminatorType? Type440 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.SecretDependencyType? Type441 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType>? Type441 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? Type442 { get; set; }
+        public global::ElevenLabs.SecretDependencyType? Type442 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.DependentPhoneNumberIdentifier? Type443 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? Type443 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TelephonyProvider? Type444 { get; set; }
+        public global::ElevenLabs.DependentPhoneNumberIdentifier? Type444 { get; set; }
         /// <summary>
         /// 
         /// </summary>

@@ -9692,6 +9692,8 @@ components:
         phone_number_id:
           title: Phone Number Id
           type: string
+        phone_provider:
+          $ref: '#/components/schemas/TelephonyProvider'
         name:
           title: Name
           type: string
@@ -9756,6 +9758,8 @@ components:
         phone_number_id:
           title: Phone Number Id
           type: string
+        phone_provider:
+          $ref: '#/components/schemas/TelephonyProvider'
         name:
           title: Name
           type: string
