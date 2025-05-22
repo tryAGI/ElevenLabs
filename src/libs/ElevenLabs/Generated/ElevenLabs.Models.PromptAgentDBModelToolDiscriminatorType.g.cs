@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        NativeMcp,
+        /// <summary>
+        /// 
+        /// </summary>
         System,
         /// <summary>
         /// 
@@ -40,6 +44,7 @@ namespace ElevenLabs
             {
                 PromptAgentDBModelToolDiscriminatorType.Client => "client",
                 PromptAgentDBModelToolDiscriminatorType.Mcp => "mcp",
+                PromptAgentDBModelToolDiscriminatorType.NativeMcp => "native_mcp",
                 PromptAgentDBModelToolDiscriminatorType.System => "system",
                 PromptAgentDBModelToolDiscriminatorType.Webhook => "webhook",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -54,6 +59,7 @@ namespace ElevenLabs
             {
                 "client" => PromptAgentDBModelToolDiscriminatorType.Client,
                 "mcp" => PromptAgentDBModelToolDiscriminatorType.Mcp,
+                "native_mcp" => PromptAgentDBModelToolDiscriminatorType.NativeMcp,
                 "system" => PromptAgentDBModelToolDiscriminatorType.System,
                 "webhook" => PromptAgentDBModelToolDiscriminatorType.Webhook,
                 _ => null,

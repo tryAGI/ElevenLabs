@@ -49,13 +49,21 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MCPToolConfigOutput)}");
                 mcp = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.NativeMCPToolConfigOutput? nativeMcp = default;
+            if (discriminator?.Type == global::ElevenLabs.PromptAgentOutputToolDiscriminatorType.NativeMcp)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.NativeMCPToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.NativeMCPToolConfigOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.NativeMCPToolConfigOutput)}");
+                nativeMcp = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var result = new global::ElevenLabs.ToolsItem3(
                 discriminator?.Type,
                 webhook,
                 client,
                 system,
-                mcp
+                mcp,
+                nativeMcp
                 );
 
             return result;
@@ -93,6 +101,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MCPToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MCPToolConfigOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MCPToolConfigOutput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mcp, typeInfo);
+            }
+            else if (value.IsNativeMcp)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.NativeMCPToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.NativeMCPToolConfigOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.NativeMCPToolConfigOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.NativeMcp, typeInfo);
             }
         }
     }

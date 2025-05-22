@@ -11,6 +11,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sub_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ChapterContentBlockInputModelSubTypeJsonConverter))]
+        public global::ElevenLabs.ChapterContentBlockInputModelSubType? SubType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("block_id")]
         public string? BlockId { get; set; }
 
@@ -30,6 +37,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ChapterContentBlockInputModel" /> class.
         /// </summary>
+        /// <param name="subType"></param>
         /// <param name="blockId"></param>
         /// <param name="nodes"></param>
 #if NET7_0_OR_GREATER
@@ -37,9 +45,11 @@ namespace ElevenLabs
 #endif
         public ChapterContentBlockInputModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel> nodes,
+            global::ElevenLabs.ChapterContentBlockInputModelSubType? subType,
             string? blockId)
         {
             this.Nodes = nodes ?? throw new global::System.ArgumentNullException(nameof(nodes));
+            this.SubType = subType;
             this.BlockId = blockId;
         }
 
