@@ -54,6 +54,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? McpServerIds { get; set; }
 
         /// <summary>
+        /// A list of Native MCP server ids to be used by the agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("native_mcp_server_ids")]
+        public global::System.Collections.Generic.IList<string>? NativeMcpServerIds { get; set; }
+
+        /// <summary>
         /// A list of knowledge bases to be used by the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("knowledge_base")]
@@ -114,6 +120,9 @@ namespace ElevenLabs
         /// <param name="mcpServerIds">
         /// A list of MCP server ids to be used by the agent
         /// </param>
+        /// <param name="nativeMcpServerIds">
+        /// A list of Native MCP server ids to be used by the agent
+        /// </param>
         /// <param name="knowledgeBase">
         /// A list of knowledge bases to be used by the agent
         /// </param>
@@ -135,6 +144,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem4>? tools,
             global::System.Collections.Generic.IList<string>? toolIds,
             global::System.Collections.Generic.IList<string>? mcpServerIds,
+            global::System.Collections.Generic.IList<string>? nativeMcpServerIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::ElevenLabs.CustomLLM? customLlm,
             bool? ignoreDefaultPersonality,
@@ -148,6 +158,7 @@ namespace ElevenLabs
             this.Tools = tools;
             this.ToolIds = toolIds;
             this.McpServerIds = mcpServerIds;
+            this.NativeMcpServerIds = nativeMcpServerIds;
             this.KnowledgeBase = knowledgeBase;
             this.CustomLlm = customLlm;
             this.IgnoreDefaultPersonality = ignoreDefaultPersonality;
