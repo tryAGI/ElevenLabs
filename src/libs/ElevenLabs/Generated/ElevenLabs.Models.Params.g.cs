@@ -155,6 +155,48 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// Allows the agent to explicitly skip its turn.<br/>
+        /// This tool should be invoked by the LLM when the user indicates they would like<br/>
+        /// to think or take a short pause before continuing the conversation—e.g. when<br/>
+        /// they say: "Give me a second", "Let me think", or "One moment please".  After<br/>
+        /// calling this tool, the assistant should not speak until the user speaks<br/>
+        /// again, or another normal turn-taking condition is met.  The tool itself has<br/>
+        /// no parameters and performs no side-effects other than informing the backend<br/>
+        /// that the current turn generation is complete.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.SkipTurnToolConfig? SkipTurn { get; init; }
+#else
+        public global::ElevenLabs.SkipTurnToolConfig? SkipTurn { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SkipTurn))]
+#endif
+        public bool IsSkipTurn => SkipTurn != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.SkipTurnToolConfig value) => new Params((global::ElevenLabs.SkipTurnToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.SkipTurnToolConfig?(Params @this) => @this.SkipTurn;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params(global::ElevenLabs.SkipTurnToolConfig? value)
+        {
+            SkipTurn = value;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public Params(
@@ -162,7 +204,8 @@ namespace ElevenLabs
             global::ElevenLabs.EndCallToolConfig? endCall,
             global::ElevenLabs.LanguageDetectionToolConfig? languageDetection,
             global::ElevenLabs.TransferToAgentToolConfig? transferToAgent,
-            global::ElevenLabs.TransferToNumberToolConfig? transferToNumber
+            global::ElevenLabs.TransferToNumberToolConfig? transferToNumber,
+            global::ElevenLabs.SkipTurnToolConfig? skipTurn
             )
         {
             SystemToolType = systemToolType;
@@ -171,12 +214,14 @@ namespace ElevenLabs
             LanguageDetection = languageDetection;
             TransferToAgent = transferToAgent;
             TransferToNumber = transferToNumber;
+            SkipTurn = skipTurn;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            SkipTurn as object ??
             TransferToNumber as object ??
             TransferToAgent as object ??
             LanguageDetection as object ??
@@ -190,7 +235,8 @@ namespace ElevenLabs
             EndCall?.ToString() ??
             LanguageDetection?.ToString() ??
             TransferToAgent?.ToString() ??
-            TransferToNumber?.ToString() 
+            TransferToNumber?.ToString() ??
+            SkipTurn?.ToString() 
             ;
 
         /// <summary>
@@ -198,7 +244,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber;
+            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn;
         }
 
         /// <summary>
@@ -209,6 +255,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.LanguageDetectionToolConfig?, TResult>? languageDetection = null,
             global::System.Func<global::ElevenLabs.TransferToAgentToolConfig?, TResult>? transferToAgent = null,
             global::System.Func<global::ElevenLabs.TransferToNumberToolConfig?, TResult>? transferToNumber = null,
+            global::System.Func<global::ElevenLabs.SkipTurnToolConfig?, TResult>? skipTurn = null,
             bool validate = true)
         {
             if (validate)
@@ -232,6 +279,10 @@ namespace ElevenLabs
             {
                 return transferToNumber(TransferToNumber!);
             }
+            else if (IsSkipTurn && skipTurn != null)
+            {
+                return skipTurn(SkipTurn!);
+            }
 
             return default(TResult);
         }
@@ -244,6 +295,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.LanguageDetectionToolConfig?>? languageDetection = null,
             global::System.Action<global::ElevenLabs.TransferToAgentToolConfig?>? transferToAgent = null,
             global::System.Action<global::ElevenLabs.TransferToNumberToolConfig?>? transferToNumber = null,
+            global::System.Action<global::ElevenLabs.SkipTurnToolConfig?>? skipTurn = null,
             bool validate = true)
         {
             if (validate)
@@ -267,6 +319,10 @@ namespace ElevenLabs
             {
                 transferToNumber?.Invoke(TransferToNumber!);
             }
+            else if (IsSkipTurn)
+            {
+                skipTurn?.Invoke(SkipTurn!);
+            }
         }
 
         /// <summary>
@@ -284,6 +340,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.TransferToAgentToolConfig),
                 TransferToNumber,
                 typeof(global::ElevenLabs.TransferToNumberToolConfig),
+                SkipTurn,
+                typeof(global::ElevenLabs.SkipTurnToolConfig),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -303,7 +361,8 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndCallToolConfig?>.Default.Equals(EndCall, other.EndCall) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LanguageDetectionToolConfig?>.Default.Equals(LanguageDetection, other.LanguageDetection) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolConfig?>.Default.Equals(TransferToAgent, other.TransferToAgent) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfig?>.Default.Equals(TransferToNumber, other.TransferToNumber) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfig?>.Default.Equals(TransferToNumber, other.TransferToNumber) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolConfig?>.Default.Equals(SkipTurn, other.SkipTurn) 
                 ;
         }
 

@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        SkipTurn,
+        /// <summary>
+        /// 
+        /// </summary>
         TransferToAgent,
         /// <summary>
         /// 
@@ -40,6 +44,7 @@ namespace ElevenLabs
             {
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.EndCall => "end_call",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.LanguageDetection => "language_detection",
+                SystemToolConfigInputParamsDiscriminatorSystemToolType.SkipTurn => "skip_turn",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToAgent => "transfer_to_agent",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToNumber => "transfer_to_number",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -54,6 +59,7 @@ namespace ElevenLabs
             {
                 "end_call" => SystemToolConfigInputParamsDiscriminatorSystemToolType.EndCall,
                 "language_detection" => SystemToolConfigInputParamsDiscriminatorSystemToolType.LanguageDetection,
+                "skip_turn" => SystemToolConfigInputParamsDiscriminatorSystemToolType.SkipTurn,
                 "transfer_to_agent" => SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToAgent,
                 "transfer_to_number" => SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToNumber,
                 _ => null,
