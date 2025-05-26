@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("widget")]
-        public global::ElevenLabs.WidgetConfig? Widget { get; set; }
+        public global::ElevenLabs.WidgetConfigOutput? Widget { get; set; }
 
         /// <summary>
         /// Data collection settings
@@ -92,7 +92,7 @@ namespace ElevenLabs
         public AgentPlatformSettingsResponseModel(
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.EvaluationSettings? evaluation,
-            global::ElevenLabs.WidgetConfig? widget,
+            global::ElevenLabs.WidgetConfigOutput? widget,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection,
             global::ElevenLabs.ConversationInitiationClientDataConfigOutput? overrides,
             global::ElevenLabs.AgentCallLimits? callLimits,

@@ -56,6 +56,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         InternalTentativeAgentResponse,
+        /// <summary>
+        /// 
+        /// </summary>
+        InternalNativeMcpToolCall,
     }
 
     /// <summary>
@@ -82,6 +86,7 @@ namespace ElevenLabs
                 ClientEvent.VadScore => "vad_score",
                 ClientEvent.InternalTurnProbability => "internal_turn_probability",
                 ClientEvent.InternalTentativeAgentResponse => "internal_tentative_agent_response",
+                ClientEvent.InternalNativeMcpToolCall => "internal_native_mcp_tool_call",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -104,6 +109,7 @@ namespace ElevenLabs
                 "vad_score" => ClientEvent.VadScore,
                 "internal_turn_probability" => ClientEvent.InternalTurnProbability,
                 "internal_tentative_agent_response" => ClientEvent.InternalTentativeAgentResponse,
+                "internal_native_mcp_tool_call" => ClientEvent.InternalNativeMcpToolCall,
                 _ => null,
             };
         }

@@ -4893,6 +4893,15 @@ paths:
             description: Include/exclude voices with custom rates
             nullable: true
             example: true
+        - name: include_live_moderated
+          in: query
+          description: Include/exclude voices that are live moderated
+          schema:
+            title: Include Live Moderated
+            type: boolean
+            description: Include/exclude voices that are live moderated
+            nullable: true
+            example: true
         - name: reader_app_enabled
           in: query
           description: Filter voices that are enabled for the reader app
@@ -9388,7 +9397,7 @@ components:
         evaluation:
           $ref: '#/components/schemas/EvaluationSettings'
         widget:
-          $ref: '#/components/schemas/WidgetConfig'
+          $ref: '#/components/schemas/WidgetConfig-Input'
         data_collection:
           title: Data Collection
           type: object
@@ -9412,7 +9421,7 @@ components:
         evaluation:
           $ref: '#/components/schemas/EvaluationSettings'
         widget:
-          $ref: '#/components/schemas/WidgetConfig'
+          $ref: '#/components/schemas/WidgetConfig-Output'
         data_collection:
           title: Data Collection
           type: object
@@ -13028,6 +13037,7 @@ components:
         - vad_score
         - internal_turn_probability
         - internal_tentative_agent_response
+        - internal_native_mcp_tool_call
       type: string
     ClientToolConfig-Input:
       title: ClientToolConfig
@@ -14865,6 +14875,7 @@ components:
     EmbedVariant:
       title: EmbedVariant
       enum:
+        - tiny
         - compact
         - full
         - expandable
@@ -17077,6 +17088,7 @@ components:
         - can_do_text_to_speech
         - can_do_voice_conversion
         - can_use_style
+        - can_use_quality
         - can_use_speaker_boost
         - serves_pro_voices
         - token_cost_factor
@@ -17114,6 +17126,10 @@ components:
           title: Can Use Style
           type: boolean
           description: Whether the model can use style.
+        can_use_quality:
+          title: Can Use Quality
+          type: boolean
+          description: Whether the model can use quality.
         can_use_speaker_boost:
           title: Can Use Speaker Boost
           type: boolean
@@ -17165,6 +17181,7 @@ components:
         can_be_finetuned: true
         can_do_text_to_speech: true
         can_do_voice_conversion: true
+        can_use_quality: false
         can_use_speaker_boost: true
         can_use_style: true
         concurrency_group: standard
@@ -18976,6 +18993,15 @@ components:
           description: Maximum total length of document chunks retrieved from RAG.
           default: 50000
           example: '50000'
+        max_retrieved_rag_chunks_count:
+          title: Max Retrieved Rag Chunks Count
+          maximum: 20
+          minimum: 0
+          exclusiveMinimum: true
+          type: integer
+          description: Maximum number of RAG document chunks to initially retrieve from the vector store. These are then further filtered by vector distance and total length.
+          default: 20
+          example: 5
     RagRetrievalInfo:
       title: RagRetrievalInfo
       required:
@@ -21554,6 +21580,11 @@ components:
           type: number
           description: Determines how closely the AI should adhere to the original voice when attempting to replicate it.
           nullable: true
+        quality:
+          title: Quality
+          type: number
+          description: Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
+          nullable: true
         style:
           title: Style
           type: number
@@ -22142,12 +22173,14 @@ components:
       example:
         response_timeout_secs: 20
         type: webhook
-    WidgetConfig:
+    WidgetConfig-Input:
       title: WidgetConfig
       type: object
       properties:
         variant:
           $ref: '#/components/schemas/EmbedVariant'
+        placement:
+          $ref: '#/components/schemas/WidgetPlacement'
         expandable:
           $ref: '#/components/schemas/WidgetExpandable'
         avatar:
@@ -22275,16 +22308,210 @@ components:
           type: boolean
           description: Whether to enable mic muting
           default: false
+        transcript_enabled:
+          title: Transcript Enabled
+          type: boolean
+          description: Whether the widget should show the conversation transcript as it goes on
+          default: false
+        text_input_enabled:
+          title: Text Input Enabled
+          type: boolean
+          description: Whether the user should be able to send text messages
+          default: false
+        text_contents:
+          $ref: '#/components/schemas/WidgetTextContents'
         language_selector:
           title: Language Selector
           type: boolean
           description: Whether to show the language selector
+          default: false
+        supports_text_only:
+          title: Supports Text Only
+          type: boolean
+          description: Whether the widget can switch to text only mode
           default: false
         custom_avatar_path:
           title: Custom Avatar Path
           type: string
           description: The custom avatar path
           nullable: true
+        language_presets:
+          title: Language Presets
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/WidgetLanguagePreset'
+          description: Language presets for the widget
+      example:
+        custom_avatar_path: https://example.com/avatar.png
+        language_selector: false
+    WidgetConfig-Output:
+      title: WidgetConfig
+      type: object
+      properties:
+        variant:
+          $ref: '#/components/schemas/EmbedVariant'
+        placement:
+          $ref: '#/components/schemas/WidgetPlacement'
+        expandable:
+          $ref: '#/components/schemas/WidgetExpandable'
+        avatar:
+          title: Avatar
+          anyOf:
+            - $ref: '#/components/schemas/OrbAvatar'
+            - $ref: '#/components/schemas/URLAvatar'
+            - $ref: '#/components/schemas/ImageAvatar'
+          description: The avatar of the widget
+        feedback_mode:
+          $ref: '#/components/schemas/WidgetFeedbackMode'
+        bg_color:
+          title: Bg Color
+          type: string
+          description: The background color of the widget
+          default: '#ffffff'
+        text_color:
+          title: Text Color
+          type: string
+          description: The text color of the widget
+          default: '#000000'
+        btn_color:
+          title: Btn Color
+          type: string
+          description: The button color of the widget
+          default: '#000000'
+        btn_text_color:
+          title: Btn Text Color
+          type: string
+          description: The button text color of the widget
+          default: '#ffffff'
+        border_color:
+          title: Border Color
+          type: string
+          description: The border color of the widget
+          default: '#e1e1e1'
+        focus_color:
+          title: Focus Color
+          type: string
+          description: The focus color of the widget
+          default: '#000000'
+        border_radius:
+          title: Border Radius
+          type: integer
+          description: The border radius of the widget
+          nullable: true
+        btn_radius:
+          title: Btn Radius
+          type: integer
+          description: The button radius of the widget
+          nullable: true
+        action_text:
+          title: Action Text
+          type: string
+          description: The action text of the widget
+          nullable: true
+        start_call_text:
+          title: Start Call Text
+          type: string
+          description: The start call text of the widget
+          nullable: true
+        end_call_text:
+          title: End Call Text
+          type: string
+          description: The end call text of the widget
+          nullable: true
+        expand_text:
+          title: Expand Text
+          type: string
+          description: The expand text of the widget
+          nullable: true
+        listening_text:
+          title: Listening Text
+          type: string
+          description: The text to display when the agent is listening
+          nullable: true
+        speaking_text:
+          title: Speaking Text
+          type: string
+          description: The text to display when the agent is speaking
+          nullable: true
+        shareable_page_text:
+          title: Shareable Page Text
+          type: string
+          description: The text to display when sharing
+          nullable: true
+        shareable_page_show_terms:
+          title: Shareable Page Show Terms
+          type: boolean
+          description: Whether to show terms and conditions on the shareable page
+          default: true
+        terms_text:
+          title: Terms Text
+          type: string
+          description: The text to display for terms and conditions
+          nullable: true
+        terms_html:
+          title: Terms Html
+          type: string
+          description: The HTML to display for terms and conditions
+          nullable: true
+        terms_key:
+          title: Terms Key
+          type: string
+          description: The key to display for terms and conditions
+          nullable: true
+        show_avatar_when_collapsed:
+          title: Show Avatar When Collapsed
+          type: boolean
+          description: Whether to show the avatar when the widget is collapsed
+          default: false
+          nullable: true
+        disable_banner:
+          title: Disable Banner
+          type: boolean
+          description: Whether to disable the banner
+          default: false
+        override_link:
+          title: Override Link
+          type: string
+          description: The override link for the widget
+          nullable: true
+        mic_muting_enabled:
+          title: Mic Muting Enabled
+          type: boolean
+          description: Whether to enable mic muting
+          default: false
+        transcript_enabled:
+          title: Transcript Enabled
+          type: boolean
+          description: Whether the widget should show the conversation transcript as it goes on
+          default: false
+        text_input_enabled:
+          title: Text Input Enabled
+          type: boolean
+          description: Whether the user should be able to send text messages
+          default: false
+        text_contents:
+          $ref: '#/components/schemas/WidgetTextContents'
+        language_selector:
+          title: Language Selector
+          type: boolean
+          description: Whether to show the language selector
+          default: false
+        supports_text_only:
+          title: Supports Text Only
+          type: boolean
+          description: Whether the widget can switch to text only mode
+          default: false
+        custom_avatar_path:
+          title: Custom Avatar Path
+          type: string
+          description: The custom avatar path
+          nullable: true
+        language_presets:
+          title: Language Presets
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/WidgetLanguagePreset'
+          description: Language presets for the widget
       example:
         custom_avatar_path: https://example.com/avatar.png
         language_selector: false
@@ -22296,6 +22523,8 @@ components:
       properties:
         variant:
           $ref: '#/components/schemas/EmbedVariant'
+        placement:
+          $ref: '#/components/schemas/WidgetPlacement'
         expandable:
           $ref: '#/components/schemas/WidgetExpandable'
         avatar:
@@ -22423,6 +22652,18 @@ components:
           type: boolean
           description: Whether to enable mic muting
           default: false
+        transcript_enabled:
+          title: Transcript Enabled
+          type: boolean
+          description: Whether the widget should show the conversation transcript as it goes on
+          default: false
+        text_input_enabled:
+          title: Text Input Enabled
+          type: boolean
+          description: Whether the user should be able to send text messages
+          default: false
+        text_contents:
+          $ref: '#/components/schemas/WidgetTextContents'
         language:
           title: Language
           type: string
@@ -22431,6 +22672,26 @@ components:
           type: array
           items:
             type: string
+          nullable: true
+        language_presets:
+          title: Language Presets
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/WidgetLanguagePresetResponse'
+          description: Language presets for the widget
+        text_only:
+          title: Text Only
+          type: boolean
+          description: Whether the agent uses text-only mode
+          default: false
+        supports_text_only:
+          title: Supports Text Only
+          type: boolean
+          description: Whether the agent can be switched to text-only mode
+          default: false
+        first_message:
+          title: First Message
+          type: string
           nullable: true
       example:
         action_text: Call
@@ -22472,6 +22733,141 @@ components:
         - during
         - end
       type: string
+    WidgetLanguagePreset:
+      title: WidgetLanguagePreset
+      type: object
+      properties:
+        text_contents:
+          $ref: '#/components/schemas/WidgetTextContents'
+    WidgetLanguagePresetResponse:
+      title: WidgetLanguagePresetResponse
+      type: object
+      properties:
+        first_message:
+          title: First Message
+          type: string
+          nullable: true
+        text_contents:
+          $ref: '#/components/schemas/WidgetTextContents'
+    WidgetPlacement:
+      title: WidgetPlacement
+      enum:
+        - top-left
+        - top
+        - top-right
+        - bottom-left
+        - bottom
+        - bottom-right
+      type: string
+    WidgetTextContents:
+      title: WidgetTextContents
+      type: object
+      properties:
+        main_label:
+          title: Main Label
+          type: string
+          description: Call to action displayed inside the compact and full variants.
+          nullable: true
+        start_call:
+          title: Start Call
+          type: string
+          description: Text and ARIA label for the start call button.
+          nullable: true
+        new_call:
+          title: New Call
+          type: string
+          description: Text and ARIA label for the new call button. Displayed when the caller already finished at least one call in order ot start the next one.
+          nullable: true
+        end_call:
+          title: End Call
+          type: string
+          description: Text and ARIA label for the end call button.
+          nullable: true
+        mute_microphone:
+          title: Mute Microphone
+          type: string
+          description: ARIA label for the mute microphone button.
+          nullable: true
+        change_language:
+          title: Change Language
+          type: string
+          description: ARIA label for the change language dropdown.
+          nullable: true
+        collapse:
+          title: Collapse
+          type: string
+          description: ARIA label for the collapse button.
+          nullable: true
+        expand:
+          title: Expand
+          type: string
+          description: ARIA label for the expand button.
+          nullable: true
+        copied:
+          title: Copied
+          type: string
+          description: Text displayed when the user copies a value using the copy button.
+          nullable: true
+        accept_terms:
+          title: Accept Terms
+          type: string
+          description: Text and ARIA label for the accept terms button.
+          nullable: true
+        dismiss_terms:
+          title: Dismiss Terms
+          type: string
+          description: Text and ARIA label for the cancel terms button.
+          nullable: true
+        listening_status:
+          title: Listening Status
+          type: string
+          description: Status displayed when the agent is listening.
+          nullable: true
+        speaking_status:
+          title: Speaking Status
+          type: string
+          description: Status displayed when the agent is speaking.
+          nullable: true
+        connecting_status:
+          title: Connecting Status
+          type: string
+          description: Status displayed when the agent is connecting.
+          nullable: true
+        input_label:
+          title: Input Label
+          type: string
+          description: ARIA label for the text message input.
+          nullable: true
+        input_placeholder:
+          title: Input Placeholder
+          type: string
+          description: Placeholder text for the text message input.
+          nullable: true
+        user_ended_conversation:
+          title: User Ended Conversation
+          type: string
+          description: Information message displayed when the user ends the conversation.
+          nullable: true
+        agent_ended_conversation:
+          title: Agent Ended Conversation
+          type: string
+          description: Information message displayed when the agent ends the conversation.
+          nullable: true
+        conversation_id:
+          title: Conversation Id
+          type: string
+          description: Text label used next to the conversation ID.
+          nullable: true
+        error_occurred:
+          title: Error Occurred
+          type: string
+          description: Text label used when an error occurs.
+          nullable: true
+        copy_id:
+          title: Copy Id
+          type: string
+          description: Text and ARIA label used for the copy ID button.
+          nullable: true
     WorkspaceBatchCallsResponse:
       title: WorkspaceBatchCallsResponse
       required:

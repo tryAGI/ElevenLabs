@@ -8,7 +8,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class WidgetConfigResponseModel
+    public sealed partial class WidgetConfigOutput
     {
         /// <summary>
         /// 
@@ -214,43 +214,30 @@ namespace ElevenLabs
         public global::ElevenLabs.WidgetTextContents? TextContents { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("language")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Language { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("supported_language_overrides")]
-        public global::System.Collections.Generic.IList<string>? SupportedLanguageOverrides { get; set; }
-
-        /// <summary>
-        /// Language presets for the widget
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("language_presets")]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? LanguagePresets { get; set; }
-
-        /// <summary>
-        /// Whether the agent uses text-only mode<br/>
+        /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("text_only")]
-        public bool? TextOnly { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("language_selector")]
+        public bool? LanguageSelector { get; set; }
 
         /// <summary>
-        /// Whether the agent can be switched to text-only mode<br/>
+        /// Whether the widget can switch to text only mode<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_text_only")]
         public bool? SupportsTextOnly { get; set; }
 
         /// <summary>
-        /// 
+        /// The custom avatar path
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("first_message")]
-        public string? FirstMessage { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_avatar_path")]
+        public string? CustomAvatarPath { get; set; }
+
+        /// <summary>
+        /// Language presets for the widget
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("language_presets")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePreset>? LanguagePresets { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -259,7 +246,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WidgetConfigResponseModel" /> class.
+        /// Initializes a new instance of the <see cref="WidgetConfigOutput" /> class.
         /// </summary>
         /// <param name="variant"></param>
         /// <param name="placement"></param>
@@ -356,25 +343,24 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="textContents"></param>
-        /// <param name="language"></param>
-        /// <param name="supportedLanguageOverrides"></param>
-        /// <param name="languagePresets">
-        /// Language presets for the widget
-        /// </param>
-        /// <param name="textOnly">
-        /// Whether the agent uses text-only mode<br/>
+        /// <param name="languageSelector">
+        /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </param>
         /// <param name="supportsTextOnly">
-        /// Whether the agent can be switched to text-only mode<br/>
+        /// Whether the widget can switch to text only mode<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="firstMessage"></param>
+        /// <param name="customAvatarPath">
+        /// The custom avatar path
+        /// </param>
+        /// <param name="languagePresets">
+        /// Language presets for the widget
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public WidgetConfigResponseModel(
-            string language,
+        public WidgetConfigOutput(
             global::ElevenLabs.EmbedVariant? variant,
             global::ElevenLabs.WidgetPlacement? placement,
             global::ElevenLabs.WidgetExpandable? expandable,
@@ -406,13 +392,11 @@ namespace ElevenLabs
             bool? transcriptEnabled,
             bool? textInputEnabled,
             global::ElevenLabs.WidgetTextContents? textContents,
-            global::System.Collections.Generic.IList<string>? supportedLanguageOverrides,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? languagePresets,
-            bool? textOnly,
+            bool? languageSelector,
             bool? supportsTextOnly,
-            string? firstMessage)
+            string? customAvatarPath,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePreset>? languagePresets)
         {
-            this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.Variant = variant;
             this.Placement = placement;
             this.Expandable = expandable;
@@ -444,17 +428,16 @@ namespace ElevenLabs
             this.TranscriptEnabled = transcriptEnabled;
             this.TextInputEnabled = textInputEnabled;
             this.TextContents = textContents;
-            this.SupportedLanguageOverrides = supportedLanguageOverrides;
-            this.LanguagePresets = languagePresets;
-            this.TextOnly = textOnly;
+            this.LanguageSelector = languageSelector;
             this.SupportsTextOnly = supportsTextOnly;
-            this.FirstMessage = firstMessage;
+            this.CustomAvatarPath = customAvatarPath;
+            this.LanguagePresets = languagePresets;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WidgetConfigResponseModel" /> class.
+        /// Initializes a new instance of the <see cref="WidgetConfigOutput" /> class.
         /// </summary>
-        public WidgetConfigResponseModel()
+        public WidgetConfigOutput()
         {
         }
     }

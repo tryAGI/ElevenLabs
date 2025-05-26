@@ -20,6 +20,7 @@ namespace ElevenLabs
             ref bool? featured,
             ref int? minNoticePeriodDays,
             ref bool? includeCustomRates,
+            ref bool? includeLiveModerated,
             ref bool? readerAppEnabled,
             ref string? ownerId,
             ref string? sort,
@@ -41,6 +42,7 @@ namespace ElevenLabs
             bool? featured,
             int? minNoticePeriodDays,
             bool? includeCustomRates,
+            bool? includeLiveModerated,
             bool? readerAppEnabled,
             string? ownerId,
             string? sort,
@@ -112,6 +114,10 @@ namespace ElevenLabs
         /// Include/exclude voices with custom rates<br/>
         /// Example: true
         /// </param>
+        /// <param name="includeLiveModerated">
+        /// Include/exclude voices that are live moderated<br/>
+        /// Example: true
+        /// </param>
         /// <param name="readerAppEnabled">
         /// Filter voices that are enabled for the reader app<br/>
         /// Default Value: false<br/>
@@ -147,6 +153,7 @@ namespace ElevenLabs
             bool? featured = default,
             int? minNoticePeriodDays = default,
             bool? includeCustomRates = default,
+            bool? includeLiveModerated = default,
             bool? readerAppEnabled = default,
             string? ownerId = default,
             string? sort = default,
@@ -171,6 +178,7 @@ namespace ElevenLabs
                 featured: ref featured,
                 minNoticePeriodDays: ref minNoticePeriodDays,
                 includeCustomRates: ref includeCustomRates,
+                includeLiveModerated: ref includeLiveModerated,
                 readerAppEnabled: ref readerAppEnabled,
                 ownerId: ref ownerId,
                 sort: ref sort,
@@ -194,6 +202,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("featured", featured?.ToString()) 
                 .AddOptionalParameter("min_notice_period_days", minNoticePeriodDays?.ToString()) 
                 .AddOptionalParameter("include_custom_rates", includeCustomRates?.ToString()) 
+                .AddOptionalParameter("include_live_moderated", includeLiveModerated?.ToString()) 
                 .AddOptionalParameter("reader_app_enabled", readerAppEnabled?.ToString()) 
                 .AddOptionalParameter("owner_id", ownerId) 
                 .AddOptionalParameter("sort", sort) 
@@ -249,6 +258,7 @@ namespace ElevenLabs
                 featured: featured,
                 minNoticePeriodDays: minNoticePeriodDays,
                 includeCustomRates: includeCustomRates,
+                includeLiveModerated: includeLiveModerated,
                 readerAppEnabled: readerAppEnabled,
                 ownerId: ownerId,
                 sort: sort,
