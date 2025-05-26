@@ -61,6 +61,10 @@ namespace ElevenLabs
         /// Include/exclude voices with custom rates<br/>
         /// Example: true
         /// </param>
+        /// <param name="includeLiveModerated">
+        /// Include/exclude voices that are live moderated<br/>
+        /// Example: true
+        /// </param>
         /// <param name="readerAppEnabled">
         /// Filter voices that are enabled for the reader app<br/>
         /// Default Value: false<br/>
@@ -96,6 +100,7 @@ namespace ElevenLabs
             bool? featured = default,
             int? minNoticePeriodDays = default,
             bool? includeCustomRates = default,
+            bool? includeLiveModerated = default,
             bool? readerAppEnabled = default,
             string? ownerId = default,
             string? sort = default,

@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Tiny,
+        /// <summary>
+        /// 
+        /// </summary>
         Compact,
         /// <summary>
         /// 
@@ -34,6 +38,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                EmbedVariant.Tiny => "tiny",
                 EmbedVariant.Compact => "compact",
                 EmbedVariant.Full => "full",
                 EmbedVariant.Expandable => "expandable",
@@ -47,6 +52,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "tiny" => EmbedVariant.Tiny,
                 "compact" => EmbedVariant.Compact,
                 "full" => EmbedVariant.Full,
                 "expandable" => EmbedVariant.Expandable,

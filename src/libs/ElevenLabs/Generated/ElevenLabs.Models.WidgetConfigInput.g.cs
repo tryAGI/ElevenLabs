@@ -8,7 +8,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class WidgetConfig
+    public sealed partial class WidgetConfigInput
     {
         /// <summary>
         /// 
@@ -16,6 +16,13 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("variant")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbedVariantJsonConverter))]
         public global::ElevenLabs.EmbedVariant? Variant { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("placement")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetPlacementJsonConverter))]
+        public global::ElevenLabs.WidgetPlacement? Placement { get; set; }
 
         /// <summary>
         /// 
@@ -187,11 +194,38 @@ namespace ElevenLabs
         public bool? MicMutingEnabled { get; set; }
 
         /// <summary>
+        /// Whether the widget should show the conversation transcript as it goes on<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcript_enabled")]
+        public bool? TranscriptEnabled { get; set; }
+
+        /// <summary>
+        /// Whether the user should be able to send text messages<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_input_enabled")]
+        public bool? TextInputEnabled { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_contents")]
+        public global::ElevenLabs.WidgetTextContents? TextContents { get; set; }
+
+        /// <summary>
         /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_selector")]
         public bool? LanguageSelector { get; set; }
+
+        /// <summary>
+        /// Whether the widget can switch to text only mode<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supports_text_only")]
+        public bool? SupportsTextOnly { get; set; }
 
         /// <summary>
         /// The custom avatar path
@@ -200,15 +234,22 @@ namespace ElevenLabs
         public string? CustomAvatarPath { get; set; }
 
         /// <summary>
+        /// Language presets for the widget
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("language_presets")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePreset>? LanguagePresets { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WidgetConfig" /> class.
+        /// Initializes a new instance of the <see cref="WidgetConfigInput" /> class.
         /// </summary>
         /// <param name="variant"></param>
+        /// <param name="placement"></param>
         /// <param name="expandable"></param>
         /// <param name="avatar">
         /// The avatar of the widget
@@ -293,18 +334,35 @@ namespace ElevenLabs
         /// Whether to enable mic muting<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="transcriptEnabled">
+        /// Whether the widget should show the conversation transcript as it goes on<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="textInputEnabled">
+        /// Whether the user should be able to send text messages<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="textContents"></param>
         /// <param name="languageSelector">
         /// Whether to show the language selector<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="supportsTextOnly">
+        /// Whether the widget can switch to text only mode<br/>
         /// Default Value: false
         /// </param>
         /// <param name="customAvatarPath">
         /// The custom avatar path
         /// </param>
+        /// <param name="languagePresets">
+        /// Language presets for the widget
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public WidgetConfig(
+        public WidgetConfigInput(
             global::ElevenLabs.EmbedVariant? variant,
+            global::ElevenLabs.WidgetPlacement? placement,
             global::ElevenLabs.WidgetExpandable? expandable,
             global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? avatar,
             global::ElevenLabs.WidgetFeedbackMode? feedbackMode,
@@ -331,10 +389,16 @@ namespace ElevenLabs
             bool? disableBanner,
             string? overrideLink,
             bool? micMutingEnabled,
+            bool? transcriptEnabled,
+            bool? textInputEnabled,
+            global::ElevenLabs.WidgetTextContents? textContents,
             bool? languageSelector,
-            string? customAvatarPath)
+            bool? supportsTextOnly,
+            string? customAvatarPath,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePreset>? languagePresets)
         {
             this.Variant = variant;
+            this.Placement = placement;
             this.Expandable = expandable;
             this.Avatar = avatar;
             this.FeedbackMode = feedbackMode;
@@ -361,14 +425,19 @@ namespace ElevenLabs
             this.DisableBanner = disableBanner;
             this.OverrideLink = overrideLink;
             this.MicMutingEnabled = micMutingEnabled;
+            this.TranscriptEnabled = transcriptEnabled;
+            this.TextInputEnabled = textInputEnabled;
+            this.TextContents = textContents;
             this.LanguageSelector = languageSelector;
+            this.SupportsTextOnly = supportsTextOnly;
             this.CustomAvatarPath = customAvatarPath;
+            this.LanguagePresets = languagePresets;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WidgetConfig" /> class.
+        /// Initializes a new instance of the <see cref="WidgetConfigInput" /> class.
         /// </summary>
-        public WidgetConfig()
+        public WidgetConfigInput()
         {
         }
     }
