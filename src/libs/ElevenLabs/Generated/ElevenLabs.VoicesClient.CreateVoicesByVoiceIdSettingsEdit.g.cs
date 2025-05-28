@@ -234,9 +234,6 @@ namespace ElevenLabs
         /// <param name="similarityBoost">
         /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.
         /// </param>
-        /// <param name="quality">
-        /// Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
-        /// </param>
         /// <param name="style">
         /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.
         /// </param>
@@ -253,7 +250,6 @@ namespace ElevenLabs
             string? xiApiKey = default,
             double? stability = default,
             double? similarityBoost = default,
-            double? quality = default,
             double? style = default,
             bool? useSpeakerBoost = default,
             double? speed = default,
@@ -263,7 +259,6 @@ namespace ElevenLabs
             {
                 Stability = stability,
                 SimilarityBoost = similarityBoost,
-                Quality = quality,
                 Style = style,
                 UseSpeakerBoost = useSpeakerBoost,
                 Speed = speed,
