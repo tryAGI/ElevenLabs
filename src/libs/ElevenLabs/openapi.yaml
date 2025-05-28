@@ -21580,11 +21580,6 @@ components:
           type: number
           description: Determines how closely the AI should adhere to the original voice when attempting to replicate it.
           nullable: true
-        quality:
-          title: Quality
-          type: number
-          description: Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
-          nullable: true
         style:
           title: Style
           type: number
