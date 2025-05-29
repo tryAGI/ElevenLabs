@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ConversationConfigOverrideConfig
     {
         /// <summary>
-        /// Whether to allow overriding the text only configuration<br/>
+        /// Whether to allow overriding the text_only field.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_only")]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationConfigOverrideConfig" /> class.
         /// </summary>
         /// <param name="textOnly">
-        /// Whether to allow overriding the text only configuration<br/>
+        /// Whether to allow overriding the text_only field.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

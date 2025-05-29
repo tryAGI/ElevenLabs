@@ -25,8 +25,7 @@ namespace ElevenLabs
         /// The ID of the voice used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string? VoiceId { get; set; }
 
         /// <summary>
         /// The ID of the model.
@@ -38,8 +37,7 @@ namespace ElevenLabs
         /// The name of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_name")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceName { get; set; }
+        public string? VoiceName { get; set; }
 
         /// <summary>
         /// The category of the voice. Either 'premade', 'cloned', 'generated' or 'professional'.
@@ -52,8 +50,7 @@ namespace ElevenLabs
         /// The text used to generate the audio item.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         /// Unix timestamp of when the item was created.
@@ -124,6 +121,12 @@ namespace ElevenLabs
         public global::ElevenLabs.HistoryAlignmentsResponseModel? Alignments { get; set; }
 
         /// <summary>
+        /// The dialogue (voice and text pairs) used to generate the audio item. If this is set then the top level `text` and `voice_id` fields will be empty.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dialogue")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? Dialogue { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -179,45 +182,50 @@ namespace ElevenLabs
         /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI, PD (pronunciation dictionary) or ConvAI (conversational AI).
         /// </param>
         /// <param name="alignments"></param>
+        /// <param name="dialogue">
+        /// The dialogue (voice and text pairs) used to generate the audio item. If this is set then the top level `text` and `voice_id` fields will be empty.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SpeechHistoryItemResponseModel(
             string historyItemId,
-            string voiceId,
-            string voiceName,
-            string text,
             global::System.DateTimeOffset dateUnix,
             int characterCountChangeFrom,
             int characterCountChangeTo,
             string contentType,
             global::ElevenLabs.SpeechHistoryItemResponseModelState state,
             string? requestId,
+            string? voiceId,
             string? modelId,
+            string? voiceName,
             global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory? voiceCategory,
+            string? text,
             object? settings,
             global::ElevenLabs.FeedbackResponseModel? feedback,
             string? shareLinkId,
             global::ElevenLabs.SpeechHistoryItemResponseModelSource? source,
-            global::ElevenLabs.HistoryAlignmentsResponseModel? alignments)
+            global::ElevenLabs.HistoryAlignmentsResponseModel? alignments,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? dialogue)
         {
             this.HistoryItemId = historyItemId ?? throw new global::System.ArgumentNullException(nameof(historyItemId));
-            this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
-            this.VoiceName = voiceName ?? throw new global::System.ArgumentNullException(nameof(voiceName));
-            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.DateUnix = dateUnix;
             this.CharacterCountChangeFrom = characterCountChangeFrom;
             this.CharacterCountChangeTo = characterCountChangeTo;
             this.ContentType = contentType ?? throw new global::System.ArgumentNullException(nameof(contentType));
             this.State = state;
             this.RequestId = requestId;
+            this.VoiceId = voiceId;
             this.ModelId = modelId;
+            this.VoiceName = voiceName;
             this.VoiceCategory = voiceCategory;
+            this.Text = text;
             this.Settings = settings;
             this.Feedback = feedback;
             this.ShareLinkId = shareLinkId;
             this.Source = source;
             this.Alignments = alignments;
+            this.Dialogue = dialogue;
         }
 
         /// <summary>

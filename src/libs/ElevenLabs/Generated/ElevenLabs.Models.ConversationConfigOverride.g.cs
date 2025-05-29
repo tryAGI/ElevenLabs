@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ConversationConfigOverride
     {
         /// <summary>
-        /// 
+        /// If enabled audio will not be processed and only text will be used, use to avoid audio pricing.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_only")]
         public bool? TextOnly { get; set; }
@@ -23,7 +23,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationConfigOverride" /> class.
         /// </summary>
-        /// <param name="textOnly"></param>
+        /// <param name="textOnly">
+        /// If enabled audio will not be processed and only text will be used, use to avoid audio pricing.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

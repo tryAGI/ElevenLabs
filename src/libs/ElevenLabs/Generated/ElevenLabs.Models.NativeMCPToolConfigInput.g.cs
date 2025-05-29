@@ -64,6 +64,13 @@ namespace ElevenLabs
         public required string McpServerId { get; set; }
 
         /// <summary>
+        /// Defines the approval model for an MCP tool
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("approval_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MCPApprovalRequiredModelJsonConverter))]
+        public global::ElevenLabs.MCPApprovalRequiredModel? ApprovalMode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -90,6 +97,9 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// The id of the MCP server to call
         /// </param>
+        /// <param name="approvalMode">
+        /// Defines the approval model for an MCP tool
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -101,7 +111,8 @@ namespace ElevenLabs
             string? id,
             int? responseTimeoutSecs,
             global::ElevenLabs.NativeMCPToolConfigInputType? type,
-            global::ElevenLabs.ObjectJsonSchemaPropertyInput? parameters)
+            global::ElevenLabs.ObjectJsonSchemaPropertyInput? parameters,
+            global::ElevenLabs.MCPApprovalRequiredModel? approvalMode)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
@@ -111,6 +122,7 @@ namespace ElevenLabs
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.Type = type;
             this.Parameters = parameters;
+            this.ApprovalMode = approvalMode;
         }
 
         /// <summary>

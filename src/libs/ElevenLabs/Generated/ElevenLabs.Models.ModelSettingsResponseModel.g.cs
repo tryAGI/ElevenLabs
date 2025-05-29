@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class VoiceSettingsResponseModel
+    public sealed partial class ModelSettingsResponseModel
     {
         /// <summary>
         /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.
@@ -27,31 +27,13 @@ namespace ElevenLabs
         public double? Quality { get; set; }
 
         /// <summary>
-        /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("style")]
-        public double? Style { get; set; }
-
-        /// <summary>
-        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("use_speaker_boost")]
-        public bool? UseSpeakerBoost { get; set; }
-
-        /// <summary>
-        /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
-        public double? Speed { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoiceSettingsResponseModel" /> class.
+        /// Initializes a new instance of the <see cref="ModelSettingsResponseModel" /> class.
         /// </summary>
         /// <param name="stability">
         /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.
@@ -62,38 +44,23 @@ namespace ElevenLabs
         /// <param name="quality">
         /// Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
         /// </param>
-        /// <param name="style">
-        /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.
-        /// </param>
-        /// <param name="useSpeakerBoost">
-        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.
-        /// </param>
-        /// <param name="speed">
-        /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public VoiceSettingsResponseModel(
+        public ModelSettingsResponseModel(
             double? stability,
             double? similarityBoost,
-            double? quality,
-            double? style,
-            bool? useSpeakerBoost,
-            double? speed)
+            double? quality)
         {
             this.Stability = stability;
             this.SimilarityBoost = similarityBoost;
             this.Quality = quality;
-            this.Style = style;
-            this.UseSpeakerBoost = useSpeakerBoost;
-            this.Speed = speed;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoiceSettingsResponseModel" /> class.
+        /// Initializes a new instance of the <see cref="ModelSettingsResponseModel" /> class.
         /// </summary>
-        public VoiceSettingsResponseModel()
+        public ModelSettingsResponseModel()
         {
         }
     }
