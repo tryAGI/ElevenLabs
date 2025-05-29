@@ -4504,6 +4504,12 @@ paths:
               example:
                 error: dubbing_not_found
                 message: 'There is no dubbing for language {language_code}.'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -4511,12 +4517,6 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name:
         - dubbing
         - audio
@@ -4588,6 +4588,12 @@ paths:
               example:
                 error: transcript_not_found
                 message: No transcript was found for the dub.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -4595,12 +4601,6 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name:
         - dubbing
         - transcript
@@ -17375,13 +17375,7 @@ components:
           type: number
           description: Determines how closely the AI should adhere to the original voice when attempting to replicate it.
           nullable: true
-        quality:
-          title: Quality
-          type: number
-          description: Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
-          nullable: true
       example:
-        quality: 0.5
         similarity_boost: 1
         stability: 1
     ModerationStatusResponseModel:
@@ -21784,11 +21778,6 @@ components:
           title: Similarity Boost
           type: number
           description: Determines how closely the AI should adhere to the original voice when attempting to replicate it.
-          nullable: true
-        quality:
-          title: Quality
-          type: number
-          description: Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
           nullable: true
         style:
           title: Style

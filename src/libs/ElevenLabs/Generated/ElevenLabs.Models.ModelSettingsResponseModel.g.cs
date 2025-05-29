@@ -21,12 +21,6 @@ namespace ElevenLabs
         public double? SimilarityBoost { get; set; }
 
         /// <summary>
-        /// Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("quality")]
-        public double? Quality { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,20 +35,15 @@ namespace ElevenLabs
         /// <param name="similarityBoost">
         /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.
         /// </param>
-        /// <param name="quality">
-        /// Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ModelSettingsResponseModel(
             double? stability,
-            double? similarityBoost,
-            double? quality)
+            double? similarityBoost)
         {
             this.Stability = stability;
             this.SimilarityBoost = similarityBoost;
-            this.Quality = quality;
         }
 
         /// <summary>
