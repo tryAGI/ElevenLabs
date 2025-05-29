@@ -4504,12 +4504,6 @@ paths:
               example:
                 error: dubbing_not_found
                 message: 'There is no dubbing for language {language_code}.'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -4517,6 +4511,12 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name:
         - dubbing
         - audio
@@ -4588,12 +4588,6 @@ paths:
               example:
                 error: transcript_not_found
                 message: No transcript was found for the dub.
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
         '425':
           description: Dubbing not ready
           content:
@@ -4601,6 +4595,12 @@ paths:
               example:
                 error: dubbing_not_dubbed
                 message: Dubbing has not finished yet.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name:
         - dubbing
         - transcript
@@ -7563,6 +7563,14 @@ paths:
             type: string
             description: The id of a document from the knowledge base. This is returned on document addition.
             example: 21m00Tcm4TlvDq8ikWAM
+        - name: force
+          in: query
+          description: 'If set to true, the document will be deleted regardless of whether it is used by any agents and it will be deleted from the dependent agents.'
+          schema:
+            title: Force
+            type: boolean
+            description: 'If set to true, the document will be deleted regardless of whether it is used by any agents and it will be deleted from the dependent agents.'
+            default: false
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -9284,11 +9292,14 @@ components:
           type: string
           description: 'If non-empty, the first message the agent will say. If empty, the agent waits for the user to start the discussion.'
           default: ''
+          x-convai-client-override: true
+          x-convai-language-override: true
         language:
           title: Language
           type: string
           description: Language of the agent - used for ASR and TTS
           default: en
+          x-convai-client-override: true
         dynamic_variables:
           $ref: '#/components/schemas/DynamicVariablesConfig'
         prompt:
@@ -9305,11 +9316,14 @@ components:
           type: string
           description: 'If non-empty, the first message the agent will say. If empty, the agent waits for the user to start the discussion.'
           default: ''
+          x-convai-client-override: true
+          x-convai-language-override: true
         language:
           title: Language
           type: string
           description: Language of the agent - used for ASR and TTS
           default: en
+          x-convai-client-override: true
         dynamic_variables:
           $ref: '#/components/schemas/DynamicVariablesConfig'
         prompt:
@@ -9326,11 +9340,14 @@ components:
           type: string
           description: 'If non-empty, the first message the agent will say. If empty, the agent waits for the user to start the discussion.'
           default: ''
+          x-convai-client-override: true
+          x-convai-language-override: true
         language:
           title: Language
           type: string
           description: Language of the agent - used for ASR and TTS
           default: en
+          x-convai-client-override: true
         dynamic_variables:
           $ref: '#/components/schemas/DynamicVariablesConfig'
         prompt:
@@ -9342,42 +9359,42 @@ components:
       title: AgentConfigOverride
       type: object
       properties:
-        prompt:
-          $ref: '#/components/schemas/PromptAgentOverride'
         first_message:
           title: First Message
           type: string
-          description: 'If non-empty, the first message the agent will say. If empty, the agent waits for the user to start the discussion'
+          description: 'If non-empty, the first message the agent will say. If empty, the agent waits for the user to start the discussion.'
           nullable: true
+          x-convai-client-override: true
+          x-convai-language-override: true
         language:
           title: Language
           type: string
-          description: 'The language of the agent, used for ASR and TTS'
+          description: Language of the agent - used for ASR and TTS
           nullable: true
+          x-convai-client-override: true
+        prompt:
+          $ref: '#/components/schemas/PromptAgentOverride'
       example:
         first_message: 'Hello, how can I help you today?'
         language: en
+        prompt:
+          prompt: You are a helpful assistant that can answer questions about the topic of the conversation.
     AgentConfigOverrideConfig:
       title: AgentConfigOverrideConfig
       type: object
       properties:
-        prompt:
-          $ref: '#/components/schemas/PromptAgentOverrideConfig'
         first_message:
           title: First Message
           type: boolean
-          description: Whether to allow overriding the first message
+          description: Whether to allow overriding the first_message field.
           default: false
         language:
           title: Language
           type: boolean
-          description: Whether to allow overriding the language
+          description: Whether to allow overriding the language field.
           default: false
-      example:
-        first_message: false
-        language: false
         prompt:
-          prompt: false
+          $ref: '#/components/schemas/PromptAgentOverrideConfig'
     AgentMetadataResponseModel:
       title: AgentMetadataResponseModel
       required:
@@ -11955,6 +11972,86 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OutboundCallRecipient'
+    Body_Text_to_dialogue__multi_voice__streaming_v1_text_to_dialogue_stream_post:
+      title: Body_Text_to_dialogue__multi_voice__streaming_v1_text_to_dialogue_stream_post
+      required:
+        - inputs
+      type: object
+      properties:
+        inputs:
+          title: Inputs
+          type: array
+          items:
+            $ref: '#/components/schemas/DialogueInput'
+          description: 'A list of dialogue inputs, each containing text and a voice ID which will be converted into speech.'
+          example:
+            - text: 'Hello, how are you?'
+              voice_id: bYTqZQo3Jz7LQtmGTgwi
+            - text: 'I''m doing well, thank you!'
+              voice_id: 6lCwbsX1yVjD49QmpkTR
+        model_id:
+          title: Model Id
+          type: string
+          description: 'Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.'
+          default: eleven_v3
+        settings:
+          $ref: '#/components/schemas/ModelSettingsResponseModel'
+        pronunciation_dictionary_locators:
+          title: Pronunciation Dictionary Locators
+          type: array
+          items:
+            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorRequestModel'
+          description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
+          nullable: true
+          example:
+            - pronunciation_dictionary_id: test
+              version_id: id2
+        seed:
+          title: Seed
+          type: integer
+          description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.'
+          nullable: true
+          example: 12345
+    Body_Text_to_dialogue__multi_voice__v1_text_to_dialogue_post:
+      title: Body_Text_to_dialogue__multi_voice__v1_text_to_dialogue_post
+      required:
+        - inputs
+      type: object
+      properties:
+        inputs:
+          title: Inputs
+          type: array
+          items:
+            $ref: '#/components/schemas/DialogueInput'
+          description: 'A list of dialogue inputs, each containing text and a voice ID which will be converted into speech.'
+          example:
+            - text: 'Hello, how are you?'
+              voice_id: bYTqZQo3Jz7LQtmGTgwi
+            - text: 'I''m doing well, thank you!'
+              voice_id: 6lCwbsX1yVjD49QmpkTR
+        model_id:
+          title: Model Id
+          type: string
+          description: 'Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.'
+          default: eleven_v3
+        settings:
+          $ref: '#/components/schemas/ModelSettingsResponseModel'
+        pronunciation_dictionary_locators:
+          title: Pronunciation Dictionary Locators
+          type: array
+          items:
+            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorRequestModel'
+          description: 'A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request'
+          nullable: true
+          example:
+            - pronunciation_dictionary_id: test
+              version_id: id2
+        seed:
+          title: Seed
+          type: integer
+          description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.'
+          nullable: true
+          example: 12345
     Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post:
       title: Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post
       required:
@@ -13252,6 +13349,7 @@ components:
           type: boolean
           description: 'If enabled audio will not be processed and only text will be used, use to avoid audio pricing.'
           default: false
+          x-convai-client-override: true
         max_duration_seconds:
           title: Max Duration Seconds
           type: integer
@@ -13272,42 +13370,58 @@ components:
       title: ConversationConfigClientOverride
       type: object
       properties:
-        agent:
-          $ref: '#/components/schemas/AgentConfigOverride'
         tts:
           $ref: '#/components/schemas/TTSConversationalConfigOverride'
         conversation:
           $ref: '#/components/schemas/ConversationConfigOverride'
+        agent:
+          $ref: '#/components/schemas/AgentConfigOverride'
+      example:
+        agent:
+          first_message: 'Hello, how can I help you today?'
+          language: en
+          prompt:
+            prompt: You are a helpful assistant that can answer questions about the topic of the conversation.
+        tts:
+          voice_id: cjVigY5qzO86Huf0OWal
     ConversationConfigClientOverride-Output:
       title: ConversationConfigClientOverride
       type: object
       properties:
-        agent:
-          $ref: '#/components/schemas/AgentConfigOverride'
         tts:
           $ref: '#/components/schemas/TTSConversationalConfigOverride'
         conversation:
           $ref: '#/components/schemas/ConversationConfigOverride'
+        agent:
+          $ref: '#/components/schemas/AgentConfigOverride'
+      example:
+        agent:
+          first_message: 'Hello, how can I help you today?'
+          language: en
+          prompt:
+            prompt: You are a helpful assistant that can answer questions about the topic of the conversation.
+        tts:
+          voice_id: cjVigY5qzO86Huf0OWal
     ConversationConfigClientOverrideConfig-Input:
       title: ConversationConfigClientOverrideConfig
       type: object
       properties:
-        agent:
-          $ref: '#/components/schemas/AgentConfigOverrideConfig'
         tts:
           $ref: '#/components/schemas/TTSConversationalConfigOverrideConfig'
         conversation:
           $ref: '#/components/schemas/ConversationConfigOverrideConfig'
+        agent:
+          $ref: '#/components/schemas/AgentConfigOverrideConfig'
     ConversationConfigClientOverrideConfig-Output:
       title: ConversationConfigClientOverrideConfig
       type: object
       properties:
-        agent:
-          $ref: '#/components/schemas/AgentConfigOverrideConfig'
         tts:
           $ref: '#/components/schemas/TTSConversationalConfigOverrideConfig'
         conversation:
           $ref: '#/components/schemas/ConversationConfigOverrideConfig'
+        agent:
+          $ref: '#/components/schemas/AgentConfigOverrideConfig'
     ConversationConfigOverride:
       title: ConversationConfigOverride
       type: object
@@ -13315,7 +13429,9 @@ components:
         text_only:
           title: Text Only
           type: boolean
+          description: 'If enabled audio will not be processed and only text will be used, use to avoid audio pricing.'
           nullable: true
+          x-convai-client-override: true
     ConversationConfigOverrideConfig:
       title: ConversationConfigOverrideConfig
       type: object
@@ -13323,10 +13439,8 @@ components:
         text_only:
           title: Text Only
           type: boolean
-          description: Whether to allow overriding the text only configuration
+          description: Whether to allow overriding the text_only field.
           default: false
-      example:
-        text_only: false
     ConversationDeletionSettings:
       title: ConversationDeletionSettings
       type: object
@@ -14579,6 +14693,41 @@ components:
           type: string
           default: unknown
       description: "A model that represents an tool dependent on a knowledge base/tools\nto which the user has no direct access."
+    DialogueInput:
+      title: DialogueInput
+      required:
+        - text
+        - voice_id
+      type: object
+      properties:
+        text:
+          title: Text
+          type: string
+          description: The text to be converted into speech.
+        voice_id:
+          title: Voice Id
+          type: string
+          description: The ID of the voice to be used for the generation.
+    DialogueInputResponseModel:
+      title: DialogueInputResponseModel
+      required:
+        - text
+        - voice_id
+        - voice_name
+      type: object
+      properties:
+        text:
+          title: Text
+          type: string
+          description: The text of the dialogue input line.
+        voice_id:
+          title: Voice Id
+          type: string
+          description: The ID of the voice used for this dialogue input line.
+        voice_name:
+          title: Voice Name
+          type: string
+          description: The name of the voice used for this dialogue input line.
     DoDubbingResponseModel:
       title: DoDubbingResponseModel
       required:
@@ -16474,6 +16623,7 @@ components:
         - gemini-2.0-flash-lite
         - gemini-2.5-flash
         - gemini-1.0-pro
+        - claude-sonnet-4
         - claude-3-7-sonnet
         - claude-3-5-sonnet
         - claude-3-5-sonnet-v1
@@ -16891,6 +17041,14 @@ components:
         constant_value: Constant value
         description: My property
         dynamic_variable: Dynamic variable
+    MCPApprovalRequiredModel:
+      title: MCPApprovalRequiredModel
+      enum:
+        - user_approval_always_given
+        - user_approval_never_given
+        - user_approval_required_per_tool
+      type: string
+      description: Defines the approval model for an MCP tool
     MCPToolConfig-Input:
       title: MCPToolConfig
       required:
@@ -16935,6 +17093,8 @@ components:
           title: Mcp Server Id
           type: string
           description: The id of the MCP server to call
+        approval_mode:
+          $ref: '#/components/schemas/MCPApprovalRequiredModel'
       description: A MCP tool is a tool that is used to call a MCP server
     MCPToolConfig-Output:
       title: MCPToolConfig
@@ -16980,6 +17140,8 @@ components:
           title: Mcp Server Id
           type: string
           description: The id of the MCP server to call
+        approval_mode:
+          $ref: '#/components/schemas/MCPApprovalRequiredModel'
       description: A MCP tool is a tool that is used to call a MCP server
     ManualVerificationFileResponseModel:
       title: ManualVerificationFileResponseModel
@@ -17199,6 +17361,29 @@ components:
         requires_alpha_access: false
         serves_pro_voices: false
         token_cost_factor: 1
+    ModelSettingsResponseModel:
+      title: ModelSettingsResponseModel
+      type: object
+      properties:
+        stability:
+          title: Stability
+          type: number
+          description: Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.
+          nullable: true
+        similarity_boost:
+          title: Similarity Boost
+          type: number
+          description: Determines how closely the AI should adhere to the original voice when attempting to replicate it.
+          nullable: true
+        quality:
+          title: Quality
+          type: number
+          description: Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
+          nullable: true
+      example:
+        quality: 0.5
+        similarity_boost: 1
+        stability: 1
     ModerationStatusResponseModel:
       title: ModerationStatusResponseModel
       required:
@@ -17308,6 +17493,8 @@ components:
           title: Mcp Server Id
           type: string
           description: The id of the MCP server to call
+        approval_mode:
+          $ref: '#/components/schemas/MCPApprovalRequiredModel'
       description: A Native MCP tool is a tool that is used to call a Native MCP server
     NativeMCPToolConfig-Output:
       title: NativeMCPToolConfig
@@ -17353,6 +17540,8 @@ components:
           title: Mcp Server Id
           type: string
           description: The id of the MCP server to call
+        approval_mode:
+          $ref: '#/components/schemas/MCPApprovalRequiredModel'
       description: A Native MCP tool is a tool that is used to call a Native MCP server
     ObjectJsonSchemaProperty-Input:
       title: ObjectJsonSchemaProperty
@@ -18405,6 +18594,7 @@ components:
           type: string
           description: The prompt for the agent
           default: ''
+          x-convai-client-override: true
         llm:
           $ref: '#/components/schemas/LLM'
         temperature:
@@ -18490,6 +18680,7 @@ components:
           type: string
           description: The prompt for the agent
           default: ''
+          x-convai-client-override: true
         llm:
           $ref: '#/components/schemas/LLM'
         temperature:
@@ -18575,6 +18766,7 @@ components:
           type: string
           description: The prompt for the agent
           default: ''
+          x-convai-client-override: true
         llm:
           $ref: '#/components/schemas/LLM'
         temperature:
@@ -18663,10 +18855,11 @@ components:
         prompt:
           title: Prompt
           type: string
-          description: 'The initial system message that defines the agent, e.g. “You are a German language teacher named Laura.”'
-          default: ''
+          description: The prompt for the agent
+          nullable: true
+          x-convai-client-override: true
       example:
-        prompt: You are a German language teacher named Laura.
+        prompt: You are a helpful assistant that can answer questions about the topic of the conversation.
     PromptAgentOverrideConfig:
       title: PromptAgentOverrideConfig
       type: object
@@ -18674,7 +18867,7 @@ components:
         prompt:
           title: Prompt
           type: boolean
-          description: Whether to allow prompt overriding
+          description: Whether to allow overriding the prompt field.
           default: false
     PromptEvaluationCriteria:
       title: PromptEvaluationCriteria
@@ -19805,9 +19998,6 @@ components:
       title: SpeechHistoryItemResponseModel
       required:
         - history_item_id
-        - voice_id
-        - voice_name
-        - text
         - date_unix
         - character_count_change_from
         - character_count_change_to
@@ -19828,6 +20018,7 @@ components:
           title: Voice Id
           type: string
           description: The ID of the voice used.
+          nullable: true
         model_id:
           title: Model Id
           type: string
@@ -19837,6 +20028,7 @@ components:
           title: Voice Name
           type: string
           description: The name of the voice.
+          nullable: true
         voice_category:
           title: Voice Category
           enum:
@@ -19851,6 +20043,7 @@ components:
           title: Text
           type: string
           description: The text used to generate the audio item.
+          nullable: true
         date_unix:
           title: Date Unix
           type: integer
@@ -19903,6 +20096,13 @@ components:
           nullable: true
         alignments:
           $ref: '#/components/schemas/HistoryAlignmentsResponseModel'
+        dialogue:
+          title: Dialogue
+          type: array
+          items:
+            $ref: '#/components/schemas/DialogueInputResponseModel'
+          description: The dialogue (voice and text pairs) used to generate the audio item. If this is set then the top level `text` and `voice_id` fields will be empty.
+          nullable: true
       example:
         character_count_change_from: 17189
         character_count_change_to: 17231
@@ -20566,6 +20766,8 @@ components:
           type: string
           description: The voice ID to use for TTS
           default: cjVigY5qzO86Huf0OWal
+          x-convai-client-override: true
+          x-convai-language-override: true
         agent_output_audio_format:
           $ref: '#/components/schemas/TTSOutputFormat'
         optimize_streaming_latency:
@@ -20613,7 +20815,12 @@ components:
         voice_id:
           title: Voice Id
           type: string
+          description: The voice ID to use for TTS
           nullable: true
+          x-convai-client-override: true
+          x-convai-language-override: true
+      example:
+        voice_id: cjVigY5qzO86Huf0OWal
     TTSConversationalConfigOverrideConfig:
       title: TTSConversationalConfigOverrideConfig
       type: object
@@ -20621,10 +20828,8 @@ components:
         voice_id:
           title: Voice Id
           type: boolean
-          description: Whether to allow overriding the voice ID
+          description: Whether to allow overriding the voice_id field.
           default: false
-      example:
-        voice_id: false
     TTSConversationalModel:
       title: TTSConversationalModel
       enum:
@@ -21579,6 +21784,11 @@ components:
           title: Similarity Boost
           type: number
           description: Determines how closely the AI should adhere to the original voice when attempting to replicate it.
+          nullable: true
+        quality:
+          title: Quality
+          type: number
+          description: Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
           nullable: true
         style:
           title: Style

@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class TTSConversationalConfigOverrideConfig
     {
         /// <summary>
-        /// Whether to allow overriding the voice ID<br/>
+        /// Whether to allow overriding the voice_id field.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="TTSConversationalConfigOverrideConfig" /> class.
         /// </summary>
         /// <param name="voiceId">
-        /// Whether to allow overriding the voice ID<br/>
+        /// Whether to allow overriding the voice_id field.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

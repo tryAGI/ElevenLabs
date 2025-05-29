@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class TTSConversationalConfigOverride
     {
         /// <summary>
-        /// 
+        /// The voice ID to use for TTS
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         public string? VoiceId { get; set; }
@@ -23,7 +23,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="TTSConversationalConfigOverride" /> class.
         /// </summary>
-        /// <param name="voiceId"></param>
+        /// <param name="voiceId">
+        /// The voice ID to use for TTS
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
