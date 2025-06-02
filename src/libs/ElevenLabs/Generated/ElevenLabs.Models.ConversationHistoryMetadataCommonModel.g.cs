@@ -97,6 +97,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationHistoryRagUsageCommonModel? RagUsage { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_only")]
+        public bool? TextOnly { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -119,6 +125,9 @@ namespace ElevenLabs
         /// <param name="error"></param>
         /// <param name="mainLanguage"></param>
         /// <param name="ragUsage"></param>
+        /// <param name="textOnly">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -136,7 +145,8 @@ namespace ElevenLabs
             string? terminationReason,
             global::ElevenLabs.ConversationHistoryErrorCommonModel? error,
             string? mainLanguage,
-            global::ElevenLabs.ConversationHistoryRagUsageCommonModel? ragUsage)
+            global::ElevenLabs.ConversationHistoryRagUsageCommonModel? ragUsage,
+            bool? textOnly)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -152,6 +162,7 @@ namespace ElevenLabs
             this.Error = error;
             this.MainLanguage = mainLanguage;
             this.RagUsage = ragUsage;
+            this.TextOnly = textOnly;
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Speech To Text<br/>
-        /// Transcribe an audio or video file.
+        /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks.
         /// </summary>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
@@ -26,7 +26,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Speech To Text<br/>
-        /// Transcribe an audio or video file.
+        /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks.
         /// </summary>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
@@ -72,6 +72,10 @@ namespace ElevenLabs
         /// The valid AWS S3, Cloudflare R2 or Google Cloud Storage URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be a valid publicly accessible cloud storage URL. The file size must be less than 2GB. URL can be pre-signed.<br/>
         /// Example: https://storage.googleapis.com/my-bucket/folder/audio.mp3
         /// </param>
+        /// <param name="webhook">
+        /// Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
@@ -88,6 +92,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats = default,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat = default,
             string? cloudStorageUrl = default,
+            bool? webhook = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -86,6 +86,13 @@ namespace ElevenLabs
         public string? CloudStorageUrl { get; set; }
 
         /// <summary>
+        /// Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("webhook")]
+        public bool? Webhook { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -131,6 +138,10 @@ namespace ElevenLabs
         /// The valid AWS S3, Cloudflare R2 or Google Cloud Storage URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be a valid publicly accessible cloud storage URL. The file size must be less than 2GB. URL can be pre-signed.<br/>
         /// Example: https://storage.googleapis.com/my-bucket/folder/audio.mp3
         /// </param>
+        /// <param name="webhook">
+        /// Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -145,7 +156,8 @@ namespace ElevenLabs
             bool? diarize,
             global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat,
-            string? cloudStorageUrl)
+            string? cloudStorageUrl,
+            bool? webhook)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file;
@@ -158,6 +170,7 @@ namespace ElevenLabs
             this.AdditionalFormats = additionalFormats;
             this.FileFormat = fileFormat;
             this.CloudStorageUrl = cloudStorageUrl;
+            this.Webhook = webhook;
         }
 
         /// <summary>
