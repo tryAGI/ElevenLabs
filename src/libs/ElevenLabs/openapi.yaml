@@ -5872,7 +5872,7 @@ paths:
       tags:
         - speech-to-text
       summary: Speech To Text
-      description: Transcribe an audio or video file.
+      description: 'Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks.'
       operationId: Speech_to_Text_v1_speech_to_text_post
       parameters:
         - name: enable_logging
@@ -5899,11 +5899,18 @@ paths:
         required: true
       responses:
         '200':
-          description: Successful Response
+          description: Synchronous transcription result
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SpeechToTextChunkResponseModel'
+        '202':
+          description: Asynchronous request accepted
+          content:
+            application/json:
+              example:
+                message: Request accepted. Transcription result will be sent to the webhook.
+                request_id: abc123
         '422':
           description: Validation Error
           content:
@@ -11907,6 +11914,11 @@ components:
           description: 'The valid AWS S3, Cloudflare R2 or Google Cloud Storage URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be a valid publicly accessible cloud storage URL. The file size must be less than 2GB. URL can be pre-signed.'
           nullable: true
           example: https://storage.googleapis.com/my-bucket/folder/audio.mp3
+        webhook:
+          title: Webhook
+          type: boolean
+          description: 'Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.'
+          default: false
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -13602,6 +13614,10 @@ components:
           nullable: true
         rag_usage:
           $ref: '#/components/schemas/ConversationHistoryRagUsageCommonModel'
+        text_only:
+          title: Text Only
+          type: boolean
+          default: false
     ConversationHistoryRagUsageCommonModel:
       title: ConversationHistoryRagUsageCommonModel
       required:
@@ -21778,6 +21794,11 @@ components:
           title: Similarity Boost
           type: number
           description: Determines how closely the AI should adhere to the original voice when attempting to replicate it.
+          nullable: true
+        quality:
+          title: Quality
+          type: number
+          description: Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
           nullable: true
         style:
           title: Style
