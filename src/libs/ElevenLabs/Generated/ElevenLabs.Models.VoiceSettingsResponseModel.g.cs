@@ -15,28 +15,22 @@ namespace ElevenLabs
         public double? Stability { get; set; }
 
         /// <summary>
+        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_speaker_boost")]
+        public bool? UseSpeakerBoost { get; set; }
+
+        /// <summary>
         /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("similarity_boost")]
         public double? SimilarityBoost { get; set; }
 
         /// <summary>
-        /// Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("quality")]
-        public double? Quality { get; set; }
-
-        /// <summary>
         /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("style")]
         public double? Style { get; set; }
-
-        /// <summary>
-        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("use_speaker_boost")]
-        public bool? UseSpeakerBoost { get; set; }
 
         /// <summary>
         /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.
@@ -56,17 +50,14 @@ namespace ElevenLabs
         /// <param name="stability">
         /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.
         /// </param>
+        /// <param name="useSpeakerBoost">
+        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.
+        /// </param>
         /// <param name="similarityBoost">
         /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.
         /// </param>
-        /// <param name="quality">
-        /// Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
-        /// </param>
         /// <param name="style">
         /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.
-        /// </param>
-        /// <param name="useSpeakerBoost">
-        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.
         /// </param>
         /// <param name="speed">
         /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.
@@ -76,17 +67,15 @@ namespace ElevenLabs
 #endif
         public VoiceSettingsResponseModel(
             double? stability,
-            double? similarityBoost,
-            double? quality,
-            double? style,
             bool? useSpeakerBoost,
+            double? similarityBoost,
+            double? style,
             double? speed)
         {
             this.Stability = stability;
-            this.SimilarityBoost = similarityBoost;
-            this.Quality = quality;
-            this.Style = style;
             this.UseSpeakerBoost = useSpeakerBoost;
+            this.SimilarityBoost = similarityBoost;
+            this.Style = style;
             this.Speed = speed;
         }
 

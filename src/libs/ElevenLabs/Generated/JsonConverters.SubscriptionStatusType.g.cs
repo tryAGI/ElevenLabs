@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class SubscriptionResponseModelStatusNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.SubscriptionResponseModelStatus?>
+    public sealed class SubscriptionStatusTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.SubscriptionStatusType>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.SubscriptionResponseModelStatus? Read(
+        public override global::ElevenLabs.SubscriptionStatusType Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.SubscriptionResponseModelStatusExtensions.ToEnum(stringValue);
+                        return global::ElevenLabs.SubscriptionStatusTypeExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.SubscriptionResponseModelStatus)numValue;
+                    return (global::ElevenLabs.SubscriptionStatusType)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.SubscriptionResponseModelStatus?);
+                    return default(global::ElevenLabs.SubscriptionStatusType);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.SubscriptionResponseModelStatus? value,
+            global::ElevenLabs.SubscriptionStatusType value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::ElevenLabs.SubscriptionResponseModelStatusExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::ElevenLabs.SubscriptionStatusTypeExtensions.ToValueString(value));
         }
     }
 }

@@ -95,6 +95,16 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public SoundEffectsExploreClient SoundEffectsExplore { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TextToDialogueClient TextToDialogue { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public VoiceGenerationClient VoiceGeneration { get; }
 
         /// <summary>
