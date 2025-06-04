@@ -202,7 +202,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether the user should be able to send text messages<br/>
-        /// Default Value: true
+        /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_input_enabled")]
         public bool? TextInputEnabled { get; set; }
@@ -222,7 +222,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether the widget can switch to text only mode<br/>
-        /// Default Value: true
+        /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_text_only")]
         public bool? SupportsTextOnly { get; set; }
@@ -340,7 +340,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="textInputEnabled">
         /// Whether the user should be able to send text messages<br/>
-        /// Default Value: true
+        /// Default Value: false
         /// </param>
         /// <param name="textContents"></param>
         /// <param name="languageSelector">
@@ -349,7 +349,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="supportsTextOnly">
         /// Whether the widget can switch to text only mode<br/>
-        /// Default Value: true
+        /// Default Value: false
         /// </param>
         /// <param name="customAvatarPath">
         /// The custom avatar path

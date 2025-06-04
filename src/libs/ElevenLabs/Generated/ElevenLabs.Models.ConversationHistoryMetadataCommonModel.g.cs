@@ -103,12 +103,6 @@ namespace ElevenLabs
         public bool? TextOnly { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("features_usage")]
-        public global::ElevenLabs.FeaturesUsageCommonModel? FeaturesUsage { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -134,7 +128,6 @@ namespace ElevenLabs
         /// <param name="textOnly">
         /// Default Value: false
         /// </param>
-        /// <param name="featuresUsage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -153,8 +146,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryErrorCommonModel? error,
             string? mainLanguage,
             global::ElevenLabs.ConversationHistoryRagUsageCommonModel? ragUsage,
-            bool? textOnly,
-            global::ElevenLabs.FeaturesUsageCommonModel? featuresUsage)
+            bool? textOnly)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -171,7 +163,6 @@ namespace ElevenLabs
             this.MainLanguage = mainLanguage;
             this.RagUsage = ragUsage;
             this.TextOnly = textOnly;
-            this.FeaturesUsage = featuresUsage;
         }
 
         /// <summary>

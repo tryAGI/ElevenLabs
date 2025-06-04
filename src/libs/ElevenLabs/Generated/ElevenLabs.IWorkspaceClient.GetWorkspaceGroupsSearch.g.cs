@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupByNameResponseModel>> GetWorkspaceGroupsSearchAsync(
             string name,
-            string? xiApiKey = default,
+            string xiApiKey,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

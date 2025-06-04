@@ -36,10 +36,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         LivekitTokenWebsite,
-        /// <summary>
-        /// 
-        /// </summary>
-        GenesysApiKey,
     }
 
     /// <summary>
@@ -61,7 +57,6 @@ namespace ElevenLabs
                 AuthorizationMethod.ShareableLink => "shareable_link",
                 AuthorizationMethod.LivekitToken => "livekit_token",
                 AuthorizationMethod.LivekitTokenWebsite => "livekit_token_website",
-                AuthorizationMethod.GenesysApiKey => "genesys_api_key",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -79,7 +74,6 @@ namespace ElevenLabs
                 "shareable_link" => AuthorizationMethod.ShareableLink,
                 "livekit_token" => AuthorizationMethod.LivekitToken,
                 "livekit_token_website" => AuthorizationMethod.LivekitTokenWebsite,
-                "genesys_api_key" => AuthorizationMethod.GenesysApiKey,
                 _ => null,
             };
         }

@@ -32,9 +32,9 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("supported_usages")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt_injectable")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> SupportedUsages { get; set; }
+        public required bool PromptInjectable { get; set; }
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// <param name="id"></param>
         /// <param name="name"></param>
         /// <param name="metadata"></param>
-        /// <param name="supportedUsages"></param>
+        /// <param name="promptInjectable"></param>
         /// <param name="accessInfo"></param>
         /// <param name="dependentAgents"></param>
         /// <param name="type"></param>
@@ -80,7 +80,7 @@ namespace ElevenLabs
             string id,
             string name,
             global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel metadata,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> supportedUsages,
+            bool promptInjectable,
             global::ElevenLabs.ResourceAccessInfo accessInfo,
             global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem> dependentAgents,
             global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModelType type)
@@ -88,7 +88,7 @@ namespace ElevenLabs
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
-            this.SupportedUsages = supportedUsages ?? throw new global::System.ArgumentNullException(nameof(supportedUsages));
+            this.PromptInjectable = promptInjectable;
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
             this.DependentAgents = dependentAgents ?? throw new global::System.ArgumentNullException(nameof(dependentAgents));
             this.Type = type;

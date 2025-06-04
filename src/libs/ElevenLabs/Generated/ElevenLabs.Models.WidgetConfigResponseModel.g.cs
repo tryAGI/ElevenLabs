@@ -202,7 +202,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether the user should be able to send text messages<br/>
-        /// Default Value: true
+        /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_input_enabled")]
         public bool? TextInputEnabled { get; set; }
@@ -353,7 +353,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="textInputEnabled">
         /// Whether the user should be able to send text messages<br/>
-        /// Default Value: true
+        /// Default Value: false
         /// </param>
         /// <param name="textContents"></param>
         /// <param name="language"></param>
