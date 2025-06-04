@@ -8,12 +8,12 @@ namespace ElevenLabs
         partial void PrepareGetWorkspaceGroupsSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string name,
-            ref string? xiApiKey);
+            ref string xiApiKey);
         partial void PrepareGetWorkspaceGroupsSearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string name,
-            string? xiApiKey);
+            string xiApiKey);
         partial void ProcessGetWorkspaceGroupsSearchResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -37,7 +37,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupByNameResponseModel>> GetWorkspaceGroupsSearchAsync(
             string name,
-            string? xiApiKey = default,
+            string xiApiKey,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -78,10 +78,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
+            __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
 
 
             PrepareRequest(

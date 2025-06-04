@@ -127,12 +127,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency? Currency { get; set; }
 
         /// <summary>
-        /// 
+        /// The status of the user's subscription.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SubscriptionStatusTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ExtendedSubscriptionResponseModelStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SubscriptionStatusType Status { get; set; }
+        public required global::ElevenLabs.ExtendedSubscriptionResponseModelStatus Status { get; set; }
 
         /// <summary>
         /// The billing period of the user's subscription.
@@ -221,7 +221,9 @@ namespace ElevenLabs
         /// <param name="currency">
         /// The currency of the user's subscription.
         /// </param>
-        /// <param name="status"></param>
+        /// <param name="status">
+        /// The status of the user's subscription.
+        /// </param>
         /// <param name="billingPeriod">
         /// The billing period of the user's subscription.
         /// </param>
@@ -250,7 +252,7 @@ namespace ElevenLabs
             bool canExtendVoiceLimit,
             bool canUseInstantVoiceCloning,
             bool canUseProfessionalVoiceCloning,
-            global::ElevenLabs.SubscriptionStatusType status,
+            global::ElevenLabs.ExtendedSubscriptionResponseModelStatus status,
             bool hasOpenInvoices,
             global::System.DateTimeOffset? nextCharacterCountResetUnix,
             int? maxVoiceAddEdits,
