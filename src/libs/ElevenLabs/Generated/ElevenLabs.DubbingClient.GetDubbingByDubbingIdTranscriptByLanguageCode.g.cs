@@ -62,7 +62,7 @@ namespace ElevenLabs
                 formatType: ref formatType,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/dubbing/{dubbingId}/transcript/{languageCode}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

@@ -55,7 +55,7 @@ namespace ElevenLabs
                 conversationSignature: ref conversationSignature,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/widget",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

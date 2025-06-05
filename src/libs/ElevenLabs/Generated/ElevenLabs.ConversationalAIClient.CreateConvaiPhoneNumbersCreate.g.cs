@@ -45,7 +45,7 @@ namespace ElevenLabs
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/phone-numbers/create",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

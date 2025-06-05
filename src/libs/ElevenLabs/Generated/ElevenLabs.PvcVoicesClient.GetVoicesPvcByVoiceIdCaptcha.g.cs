@@ -43,7 +43,7 @@ namespace ElevenLabs
                 voiceId: ref voiceId,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/voices/pvc/{voiceId}/captcha",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

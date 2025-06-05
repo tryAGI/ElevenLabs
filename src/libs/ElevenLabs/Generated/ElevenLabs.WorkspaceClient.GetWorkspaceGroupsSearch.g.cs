@@ -47,7 +47,7 @@ namespace ElevenLabs
                 name: ref name,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/workspace/groups/search",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

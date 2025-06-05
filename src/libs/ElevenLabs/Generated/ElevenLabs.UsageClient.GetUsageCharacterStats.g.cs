@@ -83,7 +83,7 @@ namespace ElevenLabs
                 metric: ref metric,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/usage/character-stats",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

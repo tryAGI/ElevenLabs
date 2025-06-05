@@ -89,7 +89,7 @@ namespace ElevenLabs
                 page: ref page,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/shared-sound-generations",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

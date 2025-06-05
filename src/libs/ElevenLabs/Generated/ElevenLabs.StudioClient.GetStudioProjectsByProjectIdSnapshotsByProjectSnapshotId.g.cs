@@ -56,7 +56,7 @@ namespace ElevenLabs
                 projectSnapshotId: ref projectSnapshotId,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/studio/projects/{projectId}/snapshots/{projectSnapshotId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

@@ -54,7 +54,7 @@ namespace ElevenLabs
                 segmentId: ref segmentId,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/dubbing/resource/{dubbingId}/segment/{segmentId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

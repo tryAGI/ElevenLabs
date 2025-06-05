@@ -45,7 +45,7 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agent/{agentId}/knowledge-base/size",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

@@ -50,7 +50,7 @@ namespace ElevenLabs
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/simulate-conversation/stream",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

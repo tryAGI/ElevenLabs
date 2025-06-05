@@ -56,7 +56,7 @@ namespace ElevenLabs
                 ragIndexId: ref ragIndexId,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}/rag-index/{ragIndexId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

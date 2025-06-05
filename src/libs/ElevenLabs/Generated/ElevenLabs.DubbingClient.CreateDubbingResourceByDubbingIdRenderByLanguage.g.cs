@@ -61,7 +61,7 @@ namespace ElevenLabs
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/dubbing/resource/{dubbingId}/render/{language}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
