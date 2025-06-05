@@ -24,7 +24,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tts")]
-        public global::ElevenLabs.TTSConversationalConfig? Tts { get; set; }
+        public global::ElevenLabs.TTSConversationalConfigInput? Tts { get; set; }
 
         /// <summary>
         /// 
@@ -67,7 +67,7 @@ namespace ElevenLabs
         public ConversationalConfigAPIModelInput(
             global::ElevenLabs.ASRConversationalConfig? asr,
             global::ElevenLabs.TurnConfig? turn,
-            global::ElevenLabs.TTSConversationalConfig? tts,
+            global::ElevenLabs.TTSConversationalConfigInput? tts,
             global::ElevenLabs.ConversationConfig? conversation,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetInput>? languagePresets,
             global::ElevenLabs.AgentConfigAPIModelInput? agent)

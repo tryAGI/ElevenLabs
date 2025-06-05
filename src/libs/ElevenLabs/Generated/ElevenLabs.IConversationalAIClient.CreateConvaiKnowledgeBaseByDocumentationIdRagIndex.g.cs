@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.RAGDocumentIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
             global::ElevenLabs.RAGIndexRequestModel request,
             string? xiApiKey = default,
@@ -38,7 +38,7 @@ namespace ElevenLabs
         /// <param name="model"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.RAGDocumentIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
             global::ElevenLabs.EmbeddingModelEnum model,
             string? xiApiKey = default,

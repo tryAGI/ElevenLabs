@@ -49,13 +49,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("source_medium")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptCommonModelOutputSourceMediumJsonConverter))]
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputSourceMedium? SourceMedium { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int TimeInCallSecs { get; set; }
@@ -91,6 +84,13 @@ namespace ElevenLabs
         public string? OriginalMessage { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_medium")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptCommonModelOutputSourceMediumJsonConverter))]
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputSourceMedium? SourceMedium { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -105,7 +105,6 @@ namespace ElevenLabs
         /// <param name="toolResults"></param>
         /// <param name="feedback"></param>
         /// <param name="llmOverride"></param>
-        /// <param name="sourceMedium"></param>
         /// <param name="timeInCallSecs"></param>
         /// <param name="conversationTurnMetrics"></param>
         /// <param name="ragRetrievalInfo"></param>
@@ -114,6 +113,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="originalMessage"></param>
+        /// <param name="sourceMedium"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -125,12 +125,12 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolResultCommonModel>? toolResults,
             global::ElevenLabs.UserFeedback? feedback,
             string? llmOverride,
-            global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputSourceMedium? sourceMedium,
             global::ElevenLabs.ConversationTurnMetrics? conversationTurnMetrics,
             global::ElevenLabs.RagRetrievalInfo? ragRetrievalInfo,
             global::ElevenLabs.LLMUsageOutput? llmUsage,
             bool? interrupted,
-            string? originalMessage)
+            string? originalMessage,
+            global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputSourceMedium? sourceMedium)
         {
             this.Role = role;
             this.TimeInCallSecs = timeInCallSecs;
@@ -139,12 +139,12 @@ namespace ElevenLabs
             this.ToolResults = toolResults;
             this.Feedback = feedback;
             this.LlmOverride = llmOverride;
-            this.SourceMedium = sourceMedium;
             this.ConversationTurnMetrics = conversationTurnMetrics;
             this.RagRetrievalInfo = ragRetrievalInfo;
             this.LlmUsage = llmUsage;
             this.Interrupted = interrupted;
             this.OriginalMessage = originalMessage;
+            this.SourceMedium = sourceMedium;
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class TTSConversationalConfig
+    public sealed partial class TTSConversationalConfigOutput
     {
         /// <summary>
         /// 
@@ -21,6 +21,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         public string? VoiceId { get; set; }
+
+        /// <summary>
+        /// Additional supported voices for the agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supported_voices")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SupportedVoice>? SupportedVoices { get; set; }
 
         /// <summary>
         /// 
@@ -69,12 +75,15 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TTSConversationalConfig" /> class.
+        /// Initializes a new instance of the <see cref="TTSConversationalConfigOutput" /> class.
         /// </summary>
         /// <param name="modelId"></param>
         /// <param name="voiceId">
         /// The voice ID to use for TTS<br/>
         /// Default Value: cjVigY5qzO86Huf0OWal
+        /// </param>
+        /// <param name="supportedVoices">
+        /// Additional supported voices for the agent
         /// </param>
         /// <param name="agentOutputAudioFormat"></param>
         /// <param name="optimizeStreamingLatency"></param>
@@ -96,9 +105,10 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public TTSConversationalConfig(
+        public TTSConversationalConfigOutput(
             global::ElevenLabs.TTSConversationalModel? modelId,
             string? voiceId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.SupportedVoice>? supportedVoices,
             global::ElevenLabs.TTSOutputFormat? agentOutputAudioFormat,
             int? optimizeStreamingLatency,
             double? stability,
@@ -108,6 +118,7 @@ namespace ElevenLabs
         {
             this.ModelId = modelId;
             this.VoiceId = voiceId;
+            this.SupportedVoices = supportedVoices;
             this.AgentOutputAudioFormat = agentOutputAudioFormat;
             this.OptimizeStreamingLatency = optimizeStreamingLatency;
             this.Stability = stability;
@@ -117,9 +128,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TTSConversationalConfig" /> class.
+        /// Initializes a new instance of the <see cref="TTSConversationalConfigOutput" /> class.
         /// </summary>
-        public TTSConversationalConfig()
+        public TTSConversationalConfigOutput()
         {
         }
     }

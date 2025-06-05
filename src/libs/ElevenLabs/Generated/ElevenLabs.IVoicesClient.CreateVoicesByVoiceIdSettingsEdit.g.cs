@@ -38,17 +38,14 @@ namespace ElevenLabs
         /// <param name="stability">
         /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.
         /// </param>
+        /// <param name="useSpeakerBoost">
+        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.
+        /// </param>
         /// <param name="similarityBoost">
         /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.
         /// </param>
-        /// <param name="quality">
-        /// Controls the audio quality of the generated speech. Higher values produce clearer audio but increase generation time.
-        /// </param>
         /// <param name="style">
         /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.
-        /// </param>
-        /// <param name="useSpeakerBoost">
-        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.
         /// </param>
         /// <param name="speed">
         /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.
@@ -59,10 +56,9 @@ namespace ElevenLabs
             string voiceId,
             string? xiApiKey = default,
             double? stability = default,
-            double? similarityBoost = default,
-            double? quality = default,
-            double? style = default,
             bool? useSpeakerBoost = default,
+            double? similarityBoost = default,
+            double? style = default,
             double? speed = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

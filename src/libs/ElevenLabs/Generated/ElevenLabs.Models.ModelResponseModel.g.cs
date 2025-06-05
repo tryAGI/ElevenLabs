@@ -51,13 +51,6 @@ namespace ElevenLabs
         public required bool CanUseStyle { get; set; }
 
         /// <summary>
-        /// Whether the model can use quality.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("can_use_quality")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanUseQuality { get; set; }
-
-        /// <summary>
         /// Whether the model can use speaker boost.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_use_speaker_boost")]
@@ -162,9 +155,6 @@ namespace ElevenLabs
         /// <param name="canUseStyle">
         /// Whether the model can use style.
         /// </param>
-        /// <param name="canUseQuality">
-        /// Whether the model can use quality.
-        /// </param>
         /// <param name="canUseSpeakerBoost">
         /// Whether the model can use speaker boost.
         /// </param>
@@ -206,7 +196,6 @@ namespace ElevenLabs
             bool canDoTextToSpeech,
             bool canDoVoiceConversion,
             bool canUseStyle,
-            bool canUseQuality,
             bool canUseSpeakerBoost,
             bool servesProVoices,
             double tokenCostFactor,
@@ -225,7 +214,6 @@ namespace ElevenLabs
             this.CanDoTextToSpeech = canDoTextToSpeech;
             this.CanDoVoiceConversion = canDoVoiceConversion;
             this.CanUseStyle = canUseStyle;
-            this.CanUseQuality = canUseQuality;
             this.CanUseSpeakerBoost = canUseSpeakerBoost;
             this.ServesProVoices = servesProVoices;
             this.TokenCostFactor = tokenCostFactor;
