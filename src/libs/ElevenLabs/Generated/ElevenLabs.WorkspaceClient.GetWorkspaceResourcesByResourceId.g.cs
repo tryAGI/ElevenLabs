@@ -54,7 +54,7 @@ namespace ElevenLabs
                 resourceType: ref resourceType,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/workspace/resources/{resourceId}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

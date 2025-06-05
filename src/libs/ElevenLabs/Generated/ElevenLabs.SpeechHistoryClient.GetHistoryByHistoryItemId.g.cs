@@ -48,7 +48,7 @@ namespace ElevenLabs
                 historyItemId: ref historyItemId,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/history/{historyItemId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

@@ -49,7 +49,7 @@ namespace ElevenLabs
                 showLegacy: ref showLegacy,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/voices",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

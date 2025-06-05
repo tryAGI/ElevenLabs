@@ -116,7 +116,7 @@ namespace ElevenLabs
                 includeTotalCount: ref includeTotalCount,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v2/voices",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

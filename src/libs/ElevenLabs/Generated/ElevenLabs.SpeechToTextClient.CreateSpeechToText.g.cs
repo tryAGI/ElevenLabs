@@ -55,7 +55,7 @@ namespace ElevenLabs
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/speech-to-text",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

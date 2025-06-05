@@ -42,7 +42,7 @@ namespace ElevenLabs
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/voice-generation/generate-voice",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

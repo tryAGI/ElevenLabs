@@ -56,7 +56,7 @@ namespace ElevenLabs
                 force: ref force,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

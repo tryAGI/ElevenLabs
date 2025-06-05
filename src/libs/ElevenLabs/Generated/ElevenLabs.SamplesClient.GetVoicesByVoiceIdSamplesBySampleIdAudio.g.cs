@@ -51,7 +51,7 @@ namespace ElevenLabs
                 sampleId: ref sampleId,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/voices/{voiceId}/samples/{sampleId}/audio",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

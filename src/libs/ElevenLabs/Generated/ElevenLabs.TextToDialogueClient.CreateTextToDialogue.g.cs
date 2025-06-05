@@ -55,7 +55,7 @@ namespace ElevenLabs
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/text-to-dialogue",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
