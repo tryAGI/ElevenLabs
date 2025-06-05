@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class ExtendedSubscriptionResponseModelStatusNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.ExtendedSubscriptionResponseModelStatus?>
+    public sealed class TextToDialogueMultiVoiceV1TextToDialoguePostOutputFormatJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.TextToDialogueMultiVoiceV1TextToDialoguePostOutputFormat>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.ExtendedSubscriptionResponseModelStatus? Read(
+        public override global::ElevenLabs.TextToDialogueMultiVoiceV1TextToDialoguePostOutputFormat Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.ExtendedSubscriptionResponseModelStatusExtensions.ToEnum(stringValue);
+                        return global::ElevenLabs.TextToDialogueMultiVoiceV1TextToDialoguePostOutputFormatExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.ExtendedSubscriptionResponseModelStatus)numValue;
+                    return (global::ElevenLabs.TextToDialogueMultiVoiceV1TextToDialoguePostOutputFormat)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.ExtendedSubscriptionResponseModelStatus?);
+                    return default(global::ElevenLabs.TextToDialogueMultiVoiceV1TextToDialoguePostOutputFormat);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.ExtendedSubscriptionResponseModelStatus? value,
+            global::ElevenLabs.TextToDialogueMultiVoiceV1TextToDialoguePostOutputFormat value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::ElevenLabs.ExtendedSubscriptionResponseModelStatusExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::ElevenLabs.TextToDialogueMultiVoiceV1TextToDialoguePostOutputFormatExtensions.ToValueString(value));
         }
     }
 }
