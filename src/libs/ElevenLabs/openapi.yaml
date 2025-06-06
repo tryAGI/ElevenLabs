@@ -389,166 +389,6 @@ paths:
       x-fern-sdk-group-name: audio_isolation
       x-fern-sdk-method-name: stream
       x-fern-streaming: true
-  /v1/shared-sound-generations:
-    get:
-      tags:
-        - sound-effects-explore
-      summary: Get Shared Sound Effects
-      description: Returns a list of shared sound effects.
-      operationId: Get_shared_sound_effects_v1_shared_sound_generations_get
-      parameters:
-        - name: page_size
-          in: query
-          description: 'How many sound effects to return at maximum. Can not exceed 100, defaults to 30.'
-          schema:
-            title: Page Size
-            type: integer
-            description: 'How many sound effects to return at maximum. Can not exceed 100, defaults to 30.'
-            default: 30
-        - name: category
-          in: query
-          description: Sound effect category used for filtering.
-          schema:
-            title: Category
-            enum:
-              - restaurant
-              - park
-              - industrial
-              - school
-              - office
-              - urban
-              - ocean
-              - nature
-              - weather
-              - foley
-              - fantasy
-              - human
-              - device
-              - sci-fi
-              - horror
-              - animal
-              - boom
-              - braam
-              - riser
-              - whoosh
-              - drone
-              - impact
-              - weapon
-              - transport
-              - household
-              - percussion
-              - cymbal
-              - synth
-              - bass
-              - guitar
-              - key
-              - string
-              - brass
-              - woodwind
-              - ui element
-              - sport
-              - vehicle
-              - misc
-            type: string
-            description: Sound effect category used for filtering.
-            nullable: true
-            example: Nature
-        - name: search
-          in: query
-          description: Search term used for filtering
-          schema:
-            title: Search
-            type: string
-            description: Search term used for filtering
-            nullable: true
-            example: Cold water
-        - name: sort
-          in: query
-          description: 'Sort criteria. Can be one of: created_date, download_count, like_count, trending_score. Defaults to trending_score.'
-          schema:
-            title: Sort
-            enum:
-              - sharing_date_unix
-              - purchased_count
-              - like_count
-              - trending_score
-            type: string
-            description: 'Sort criteria. Can be one of: created_date, download_count, like_count, trending_score. Defaults to trending_score.'
-            default: trending_score
-            nullable: true
-            example: trending_score
-        - name: featured
-          in: query
-          description: Filter featured sound effects.
-          schema:
-            title: Featured
-            type: boolean
-            description: Filter featured sound effects.
-            default: false
-            example: true
-        - name: page
-          in: query
-          schema:
-            title: Page
-            type: integer
-            default: 0
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetSharedSoundGenerationsResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  '/v1/shared-sound-generations/{sound_effect_generation_id}/purchase':
-    post:
-      tags:
-        - sound-effects-explore
-      summary: Purchases Shared Sound Effect
-      description: Purchases shared sound effect and charges user for the purchase.
-      operationId: Purchases_shared_sound_effect_v1_shared_sound_generations__sound_effect_generation_id__purchase_post
-      parameters:
-        - name: sound_effect_generation_id
-          in: path
-          description: 'sound_effect_generation_id to be used, you can use GET https://api.elevenlabs.io/v1/sound-effects-history to receive a list of history items and their sound_effect_generation_ids.'
-          required: true
-          schema:
-            title: Sound Effect Generation Id
-            type: string
-            description: 'sound_effect_generation_id to be used, you can use GET https://api.elevenlabs.io/v1/sound-effects-history to receive a list of history items and their sound_effect_generation_ids.'
-            example: VW7YKqPnjY4h39yTbx2L
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            audio/mpeg: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   '/v1/voices/{voice_id}/samples/{sample_id}':
     delete:
       tags:
@@ -12405,7 +12245,7 @@ components:
         webhook:
           title: Webhook
           type: boolean
-          description: 'Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook. Webhooks can be created and assigned to a transcription task in webhook settings page in the UI.'
+          description: 'Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.'
           default: false
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
@@ -16772,26 +16612,6 @@ components:
         latest_version_id: 5xM3yVvZQKV0EfqQpLr2
         latest_version_rules_num: 2
         name: My Dictionary
-    GetSharedSoundGenerationsResponseModel:
-      title: GetSharedSoundGenerationsResponseModel
-      required:
-        - shared_sound_generations
-        - last_sort_id
-        - has_more
-      type: object
-      properties:
-        shared_sound_generations:
-          title: Shared Sound Generations
-          type: array
-          items:
-            $ref: '#/components/schemas/SharedSoundGenerationResponseModel'
-        last_sort_id:
-          title: Last Sort Id
-          type: string
-          nullable: true
-        has_more:
-          title: Has More
-          type: boolean
     GetSpeechHistoryResponseModel:
       title: GetSpeechHistoryResponseModel
       required:
@@ -20428,61 +20248,6 @@ components:
             - key
           type: string
           description: 'The type of the principal: user, group, or service account (under ''key'').'
-    SharedSoundGenerationResponseModel:
-      title: SharedSoundGenerationResponseModel
-      required:
-        - public_user_id
-        - history_item_id
-        - generation_id
-        - text
-        - category
-        - labels
-        - purchased_count
-        - like_count
-        - featured
-        - preview_url
-        - purchased
-        - icon_url
-      type: object
-      properties:
-        public_user_id:
-          title: Public User Id
-          type: string
-        history_item_id:
-          title: History Item Id
-          type: string
-        generation_id:
-          title: Generation Id
-          type: string
-        text:
-          title: Text
-          type: string
-        category:
-          title: Category
-          type: string
-        labels:
-          title: Labels
-          type: object
-          additionalProperties:
-            type: string
-        purchased_count:
-          title: Purchased Count
-          type: integer
-        like_count:
-          title: Like Count
-          type: integer
-        featured:
-          title: Featured
-          type: boolean
-        preview_url:
-          title: Preview Url
-          type: string
-        purchased:
-          title: Purchased
-          type: boolean
-        icon_url:
-          title: Icon Url
-          type: string
     SimilarVoice:
       title: SimilarVoice
       required:
@@ -21708,6 +21473,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PhoneNumberTransfer'
+        enable_client_message:
+          title: Enable Client Message
+          type: boolean
+          description: Whether to play a message to the client while they wait for transfer. Defaults to true for backward compatibility.
+          default: true
     TurnConfig:
       title: TurnConfig
       type: object
@@ -23318,6 +23088,8 @@ components:
           default: true
         text_contents:
           $ref: '#/components/schemas/WidgetTextContents'
+        styles:
+          $ref: '#/components/schemas/WidgetStyles'
         language_selector:
           title: Language Selector
           type: boolean
@@ -23489,6 +23261,8 @@ components:
           default: true
         text_contents:
           $ref: '#/components/schemas/WidgetTextContents'
+        styles:
+          $ref: '#/components/schemas/WidgetStyles'
         language_selector:
           title: Language Selector
           type: boolean
@@ -23662,6 +23436,8 @@ components:
           default: true
         text_contents:
           $ref: '#/components/schemas/WidgetTextContents'
+        styles:
+          $ref: '#/components/schemas/WidgetStyles'
         language:
           title: Language
           type: string
@@ -23757,6 +23533,110 @@ components:
         - bottom
         - bottom-right
       type: string
+    WidgetStyles:
+      title: WidgetStyles
+      type: object
+      properties:
+        base:
+          title: Base
+          type: string
+          description: The base background color.
+          nullable: true
+        base_hover:
+          title: Base Hover
+          type: string
+          description: The color of the base background when hovered.
+          nullable: true
+        base_active:
+          title: Base Active
+          type: string
+          description: The color of the base background when active (clicked).
+          nullable: true
+        base_border:
+          title: Base Border
+          type: string
+          description: The color of the border against the base background.
+          nullable: true
+        base_subtle:
+          title: Base Subtle
+          type: string
+          description: The color of subtle text against the base background.
+          nullable: true
+        base_primary:
+          title: Base Primary
+          type: string
+          description: The color of primary text against the base background.
+          nullable: true
+        base_error:
+          title: Base Error
+          type: string
+          description: The color of error text against the base background.
+          nullable: true
+        accent:
+          title: Accent
+          type: string
+          description: The accent background color.
+          nullable: true
+        accent_hover:
+          title: Accent Hover
+          type: string
+          description: The color of the accent background when hovered.
+          nullable: true
+        accent_active:
+          title: Accent Active
+          type: string
+          description: The color of the accent background when active (clicked).
+          nullable: true
+        accent_border:
+          title: Accent Border
+          type: string
+          description: The color of the border against the accent background.
+          nullable: true
+        accent_subtle:
+          title: Accent Subtle
+          type: string
+          description: The color of subtle text against the accent background.
+          nullable: true
+        accent_primary:
+          title: Accent Primary
+          type: string
+          description: The color of primary text against the accent background.
+          nullable: true
+        overlay_padding:
+          title: Overlay Padding
+          type: number
+          description: The padding around the edges of the viewport.
+          nullable: true
+        button_radius:
+          title: Button Radius
+          type: number
+          description: The radius of the buttons.
+          nullable: true
+        input_radius:
+          title: Input Radius
+          type: number
+          description: The radius of the input fields.
+          nullable: true
+        bubble_radius:
+          title: Bubble Radius
+          type: number
+          description: The radius of the chat bubbles.
+          nullable: true
+        sheet_radius:
+          title: Sheet Radius
+          type: number
+          description: The default radius of sheets.
+          nullable: true
+        compact_sheet_radius:
+          title: Compact Sheet Radius
+          type: number
+          description: The radius of the sheet in compact mode.
+          nullable: true
+        dropdown_sheet_radius:
+          title: Dropdown Sheet Radius
+          type: number
+          description: The radius of the dropdown sheet.
+          nullable: true
     WidgetTextContents:
       title: WidgetTextContents
       type: object
