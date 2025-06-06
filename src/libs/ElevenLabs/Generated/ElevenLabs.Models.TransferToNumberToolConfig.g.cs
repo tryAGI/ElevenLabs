@@ -23,6 +23,13 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer> Transfers { get; set; }
 
         /// <summary>
+        /// Whether to play a message to the client while they wait for transfer. Defaults to true for backward compatibility.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_client_message")]
+        public bool? EnableClientMessage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -35,15 +42,21 @@ namespace ElevenLabs
         /// Default Value: transfer_to_number
         /// </param>
         /// <param name="transfers"></param>
+        /// <param name="enableClientMessage">
+        /// Whether to play a message to the client while they wait for transfer. Defaults to true for backward compatibility.<br/>
+        /// Default Value: true
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TransferToNumberToolConfig(
             global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer> transfers,
-            global::ElevenLabs.TransferToNumberToolConfigSystemToolType? systemToolType)
+            global::ElevenLabs.TransferToNumberToolConfigSystemToolType? systemToolType,
+            bool? enableClientMessage)
         {
             this.Transfers = transfers ?? throw new global::System.ArgumentNullException(nameof(transfers));
             this.SystemToolType = systemToolType;
+            this.EnableClientMessage = enableClientMessage;
         }
 
         /// <summary>

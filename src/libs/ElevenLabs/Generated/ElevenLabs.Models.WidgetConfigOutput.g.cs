@@ -214,6 +214,12 @@ namespace ElevenLabs
         public global::ElevenLabs.WidgetTextContents? TextContents { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("styles")]
+        public global::ElevenLabs.WidgetStyles? Styles { get; set; }
+
+        /// <summary>
         /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </summary>
@@ -343,6 +349,7 @@ namespace ElevenLabs
         /// Default Value: true
         /// </param>
         /// <param name="textContents"></param>
+        /// <param name="styles"></param>
         /// <param name="languageSelector">
         /// Whether to show the language selector<br/>
         /// Default Value: false
@@ -392,6 +399,7 @@ namespace ElevenLabs
             bool? transcriptEnabled,
             bool? textInputEnabled,
             global::ElevenLabs.WidgetTextContents? textContents,
+            global::ElevenLabs.WidgetStyles? styles,
             bool? languageSelector,
             bool? supportsTextOnly,
             string? customAvatarPath,
@@ -428,6 +436,7 @@ namespace ElevenLabs
             this.TranscriptEnabled = transcriptEnabled;
             this.TextInputEnabled = textInputEnabled;
             this.TextContents = textContents;
+            this.Styles = styles;
             this.LanguageSelector = languageSelector;
             this.SupportsTextOnly = supportsTextOnly;
             this.CustomAvatarPath = customAvatarPath;

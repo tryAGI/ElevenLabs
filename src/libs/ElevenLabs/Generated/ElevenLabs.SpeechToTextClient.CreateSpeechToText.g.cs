@@ -341,7 +341,7 @@ namespace ElevenLabs
         /// Example: https://storage.googleapis.com/my-bucket/folder/audio.mp3
         /// </param>
         /// <param name="webhook">
-        /// Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook. Webhooks can be created and assigned to a transcription task in webhook settings page in the UI.<br/>
+        /// Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
