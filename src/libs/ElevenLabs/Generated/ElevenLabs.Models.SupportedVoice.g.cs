@@ -42,6 +42,30 @@ namespace ElevenLabs
         public global::ElevenLabs.TTSModelFamily? ModelFamily { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("optimize_streaming_latency")]
+        public int? OptimizeStreamingLatency { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stability")]
+        public double? Stability { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
+        public double? Speed { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("similarity_boost")]
+        public double? SimilarityBoost { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -55,6 +79,10 @@ namespace ElevenLabs
         /// <param name="description"></param>
         /// <param name="language"></param>
         /// <param name="modelFamily"></param>
+        /// <param name="optimizeStreamingLatency"></param>
+        /// <param name="stability"></param>
+        /// <param name="speed"></param>
+        /// <param name="similarityBoost"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -63,13 +91,21 @@ namespace ElevenLabs
             string voiceId,
             string? description,
             string? language,
-            global::ElevenLabs.TTSModelFamily? modelFamily)
+            global::ElevenLabs.TTSModelFamily? modelFamily,
+            int? optimizeStreamingLatency,
+            double? stability,
+            double? speed,
+            double? similarityBoost)
         {
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.Description = description;
             this.Language = language;
             this.ModelFamily = modelFamily;
+            this.OptimizeStreamingLatency = optimizeStreamingLatency;
+            this.Stability = stability;
+            this.Speed = speed;
+            this.SimilarityBoost = similarityBoost;
         }
 
         /// <summary>

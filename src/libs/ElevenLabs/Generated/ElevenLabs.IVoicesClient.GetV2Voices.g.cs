@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// Example: desc
         /// </param>
         /// <param name="voiceType">
-        /// Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default'. 'non-default' is equal to 'personal' plus 'community'.
+        /// Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default'. 'non-default' is equal to all but 'default'.
         /// </param>
         /// <param name="category">
         /// Category of the voice to filter by. One of 'premade', 'cloned', 'generated', 'professional'

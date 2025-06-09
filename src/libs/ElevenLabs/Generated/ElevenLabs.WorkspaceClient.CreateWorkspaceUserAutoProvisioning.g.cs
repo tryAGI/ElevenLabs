@@ -3,137 +3,49 @@
 
 namespace ElevenLabs
 {
-    public partial class VoicesClient
+    public partial class WorkspaceClient
     {
-        partial void PrepareGetV2VoicesArguments(
+        partial void PrepareCreateWorkspaceUserAutoProvisioningArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? nextPageToken,
-            ref int? pageSize,
-            ref string? search,
-            ref string? sort,
-            ref string? sortDirection,
-            ref string? voiceType,
-            ref string? category,
-            ref string? fineTuningState,
-            ref string? collectionId,
-            ref bool? includeTotalCount,
-            ref string? xiApiKey);
-        partial void PrepareGetV2VoicesRequest(
+            global::ElevenLabs.BodyUpdateUserAutoProvisioningV1WorkspaceUserAutoProvisioningPost request);
+        partial void PrepareCreateWorkspaceUserAutoProvisioningRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? nextPageToken,
-            int? pageSize,
-            string? search,
-            string? sort,
-            string? sortDirection,
-            string? voiceType,
-            string? category,
-            string? fineTuningState,
-            string? collectionId,
-            bool? includeTotalCount,
-            string? xiApiKey);
-        partial void ProcessGetV2VoicesResponse(
+            global::ElevenLabs.BodyUpdateUserAutoProvisioningV1WorkspaceUserAutoProvisioningPost request);
+        partial void ProcessCreateWorkspaceUserAutoProvisioningResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetV2VoicesResponseContent(
+        partial void ProcessCreateWorkspaceUserAutoProvisioningResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Voices V2<br/>
-        /// Gets a list of all available voices for a user with search, filtering and pagination.
+        /// Update User Auto Provisioning<br/>
+        /// Update user auto provisioning settings for the workspace.
         /// </summary>
-        /// <param name="nextPageToken">
-        /// The next page token to use for pagination. Returned from the previous request.<br/>
-        /// Example: 0
-        /// </param>
-        /// <param name="pageSize">
-        /// How many voices to return at maximum. Can not exceed 100, defaults to 10. Page 0 may include more voices due to default voices being included.<br/>
-        /// Default Value: 10
-        /// </param>
-        /// <param name="search">
-        /// Search term to filter voices by. Searches in name, description, labels, category.
-        /// </param>
-        /// <param name="sort">
-        /// Which field to sort by, one of 'created_at_unix' or 'name'. 'created_at_unix' may not be available for older voices.<br/>
-        /// Example: created_at_unix
-        /// </param>
-        /// <param name="sortDirection">
-        /// Which direction to sort the voices in. 'asc' or 'desc'.<br/>
-        /// Example: desc
-        /// </param>
-        /// <param name="voiceType">
-        /// Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default'. 'non-default' is equal to all but 'default'.
-        /// </param>
-        /// <param name="category">
-        /// Category of the voice to filter by. One of 'premade', 'cloned', 'generated', 'professional'
-        /// </param>
-        /// <param name="fineTuningState">
-        /// State of the voice's fine tuning to filter by. Applicable only to professional voices clones. One of 'draft', 'not_verified', 'not_started', 'queued', 'fine_tuning', 'fine_tuned', 'failed', 'delayed'
-        /// </param>
-        /// <param name="collectionId">
-        /// Collection ID to filter voices by.
-        /// </param>
-        /// <param name="includeTotalCount">
-        /// Whether to include the total count of voices found in the response. Incurs a performance cost.<br/>
-        /// Default Value: true<br/>
-        /// Example: true
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
+        /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetVoicesV2ResponseModel> GetV2VoicesAsync(
-            string? nextPageToken = default,
-            int? pageSize = default,
-            string? search = default,
-            string? sort = default,
-            string? sortDirection = default,
-            string? voiceType = default,
-            string? category = default,
-            string? fineTuningState = default,
-            string? collectionId = default,
-            bool? includeTotalCount = default,
-            string? xiApiKey = default,
+        public async global::System.Threading.Tasks.Task<string> CreateWorkspaceUserAutoProvisioningAsync(
+            global::ElevenLabs.BodyUpdateUserAutoProvisioningV1WorkspaceUserAutoProvisioningPost request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetV2VoicesArguments(
+            PrepareCreateWorkspaceUserAutoProvisioningArguments(
                 httpClient: HttpClient,
-                nextPageToken: ref nextPageToken,
-                pageSize: ref pageSize,
-                search: ref search,
-                sort: ref sort,
-                sortDirection: ref sortDirection,
-                voiceType: ref voiceType,
-                category: ref category,
-                fineTuningState: ref fineTuningState,
-                collectionId: ref collectionId,
-                includeTotalCount: ref includeTotalCount,
-                xiApiKey: ref xiApiKey);
+                request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v2/voices",
+                path: "/v1/workspace/user-auto-provisioning",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("next_page_token", nextPageToken) 
-                .AddOptionalParameter("page_size", pageSize?.ToString()) 
-                .AddOptionalParameter("search", search) 
-                .AddOptionalParameter("sort", sort) 
-                .AddOptionalParameter("sort_direction", sortDirection) 
-                .AddOptionalParameter("voice_type", voiceType) 
-                .AddOptionalParameter("category", category) 
-                .AddOptionalParameter("fine_tuning_state", fineTuningState) 
-                .AddOptionalParameter("collection_id", collectionId) 
-                .AddOptionalParameter("include_total_count", includeTotalCount?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Get,
+                method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -155,30 +67,20 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                content: __httpRequestContentBody,
+                encoding: global::System.Text.Encoding.UTF8,
+                mediaType: "application/json");
+            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetV2VoicesRequest(
+            PrepareCreateWorkspaceUserAutoProvisioningRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                nextPageToken: nextPageToken,
-                pageSize: pageSize,
-                search: search,
-                sort: sort,
-                sortDirection: sortDirection,
-                voiceType: voiceType,
-                category: category,
-                fineTuningState: fineTuningState,
-                collectionId: collectionId,
-                includeTotalCount: includeTotalCount,
-                xiApiKey: xiApiKey);
+                request: request);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -188,7 +90,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetV2VoicesResponse(
+            ProcessCreateWorkspaceUserAutoProvisioningResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -232,7 +134,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetV2VoicesResponseContent(
+                ProcessCreateWorkspaceUserAutoProvisioningResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -256,9 +158,7 @@ namespace ElevenLabs
                     };
                 }
 
-                return
-                    global::ElevenLabs.GetVoicesV2ResponseModel.FromJson(__content, JsonSerializerContext) ??
-                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                return __content;
             }
             else
             {
@@ -280,16 +180,35 @@ namespace ElevenLabs
                     };
                 }
 
-                using var __content = await __response.Content.ReadAsStreamAsync(
+                var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                return
-                    await global::ElevenLabs.GetVoicesV2ResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                    throw new global::System.InvalidOperationException("Response deserialization failed.");
+                return __content;
             }
+        }
+
+        /// <summary>
+        /// Update User Auto Provisioning<br/>
+        /// Update user auto provisioning settings for the workspace.
+        /// </summary>
+        /// <param name="enabled"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<string> CreateWorkspaceUserAutoProvisioningAsync(
+            bool enabled,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::ElevenLabs.BodyUpdateUserAutoProvisioningV1WorkspaceUserAutoProvisioningPost
+            {
+                Enabled = enabled,
+            };
+
+            return await CreateWorkspaceUserAutoProvisioningAsync(
+                request: __request,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

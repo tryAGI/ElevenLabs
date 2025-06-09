@@ -1529,11 +1529,11 @@ paths:
             example: desc
         - name: voice_type
           in: query
-          description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace'', ''non-default''. ''non-default'' is equal to ''personal'' plus ''community''.'
+          description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace'', ''non-default''. ''non-default'' is equal to all but ''default''.'
           schema:
             title: Voice Type
             type: string
-            description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace'', ''non-default''. ''non-default'' is equal to ''personal'' plus ''community''.'
+            description: 'Type of the voice to filter by. One of ''personal'', ''community'', ''default'', ''workspace'', ''non-default''. ''non-default'' is equal to all but ''default''.'
             nullable: true
         - name: category
           in: query
@@ -5537,6 +5537,32 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: pronunciation_dictionaries
       x-fern-sdk-method-name: list
+  /v1/workspace/user-auto-provisioning:
+    post:
+      tags:
+        - workspace
+        - workspace
+      summary: Update User Auto Provisioning
+      description: Update user auto provisioning settings for the workspace.
+      operationId: update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /v1/workspace/groups/search:
     get:
       tags:
@@ -13038,6 +13064,15 @@ components:
           type: string
           description: Audio recording of the user
           format: binary
+    Body_update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post:
+      title: Body_update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post
+      required:
+        - enabled
+      type: object
+      properties:
+        enabled:
+          title: Enabled
+          type: boolean
     BreakdownTypes:
       title: BreakdownTypes
       enum:
@@ -21140,6 +21175,26 @@ components:
           nullable: true
         model_family:
           $ref: '#/components/schemas/TTSModelFamily'
+        optimize_streaming_latency:
+          $ref: '#/components/schemas/TTSOptimizeStreamingLatency'
+        stability:
+          title: Stability
+          maximum: 1
+          minimum: 0
+          type: number
+          nullable: true
+        speed:
+          title: Speed
+          maximum: 1.2
+          minimum: 0.7
+          type: number
+          nullable: true
+        similarity_boost:
+          title: Similarity Boost
+          maximum: 1
+          minimum: 0
+          type: number
+          nullable: true
     SystemToolConfig-Input:
       title: SystemToolConfig
       required:
