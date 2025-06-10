@@ -167,6 +167,12 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Webhook}"),
                     name: "webhook");
+            } 
+            if (request.Temperature != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.Temperature}"),
+                    name: "temperature");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -344,6 +350,9 @@ namespace ElevenLabs
         /// Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="temperature">
+        /// Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
@@ -361,6 +370,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat = default,
             string? cloudStorageUrl = default,
             bool? webhook = default,
+            double? temperature = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost
@@ -377,6 +387,7 @@ namespace ElevenLabs
                 FileFormat = fileFormat,
                 CloudStorageUrl = cloudStorageUrl,
                 Webhook = webhook,
+                Temperature = temperature,
             };
 
             return await CreateSpeechToTextAsync(

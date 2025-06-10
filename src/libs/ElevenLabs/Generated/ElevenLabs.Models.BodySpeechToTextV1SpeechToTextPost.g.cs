@@ -93,6 +93,12 @@ namespace ElevenLabs
         public bool? Webhook { get; set; }
 
         /// <summary>
+        /// Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
+        public double? Temperature { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -142,6 +148,9 @@ namespace ElevenLabs
         /// Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="temperature">
+        /// Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -157,7 +166,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat,
             string? cloudStorageUrl,
-            bool? webhook)
+            bool? webhook,
+            double? temperature)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file;
@@ -171,6 +181,7 @@ namespace ElevenLabs
             this.FileFormat = fileFormat;
             this.CloudStorageUrl = cloudStorageUrl;
             this.Webhook = webhook;
+            this.Temperature = temperature;
         }
 
         /// <summary>

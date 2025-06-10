@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class MCPApprovalRequiredModelJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.MCPApprovalRequiredModel>
+    public sealed class MCPApprovalPolicyNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.MCPApprovalPolicy?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.MCPApprovalRequiredModel Read(
+        public override global::ElevenLabs.MCPApprovalPolicy? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.MCPApprovalRequiredModelExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.MCPApprovalPolicyExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.MCPApprovalRequiredModel)numValue;
+                    return (global::ElevenLabs.MCPApprovalPolicy)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.MCPApprovalRequiredModel);
+                    return default(global::ElevenLabs.MCPApprovalPolicy?);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,19 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.MCPApprovalRequiredModel value,
+            global::ElevenLabs.MCPApprovalPolicy? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.MCPApprovalRequiredModelExtensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::ElevenLabs.MCPApprovalPolicyExtensions.ToValueString(value.Value));
+            }
         }
     }
 }

@@ -47,6 +47,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        McpToolCall,
+        /// <summary>
+        /// 
+        /// </summary>
         VadScore,
         /// <summary>
         /// 
@@ -56,10 +60,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         InternalTentativeAgentResponse,
-        /// <summary>
-        /// 
-        /// </summary>
-        InternalNativeMcpToolCall,
     }
 
     /// <summary>
@@ -83,10 +83,10 @@ namespace ElevenLabs
                 ClientEvent.AgentResponse => "agent_response",
                 ClientEvent.AgentResponseCorrection => "agent_response_correction",
                 ClientEvent.ClientToolCall => "client_tool_call",
+                ClientEvent.McpToolCall => "mcp_tool_call",
                 ClientEvent.VadScore => "vad_score",
                 ClientEvent.InternalTurnProbability => "internal_turn_probability",
                 ClientEvent.InternalTentativeAgentResponse => "internal_tentative_agent_response",
-                ClientEvent.InternalNativeMcpToolCall => "internal_native_mcp_tool_call",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -106,10 +106,10 @@ namespace ElevenLabs
                 "agent_response" => ClientEvent.AgentResponse,
                 "agent_response_correction" => ClientEvent.AgentResponseCorrection,
                 "client_tool_call" => ClientEvent.ClientToolCall,
+                "mcp_tool_call" => ClientEvent.McpToolCall,
                 "vad_score" => ClientEvent.VadScore,
                 "internal_turn_probability" => ClientEvent.InternalTurnProbability,
                 "internal_tentative_agent_response" => ClientEvent.InternalTentativeAgentResponse,
-                "internal_native_mcp_tool_call" => ClientEvent.InternalNativeMcpToolCall,
                 _ => null,
             };
         }

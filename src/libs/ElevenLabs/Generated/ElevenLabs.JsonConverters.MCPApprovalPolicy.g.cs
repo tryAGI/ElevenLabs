@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class NativeMCPToolConfigOutputTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.NativeMCPToolConfigOutputType?>
+    public sealed class MCPApprovalPolicyJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.MCPApprovalPolicy>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.NativeMCPToolConfigOutputType? Read(
+        public override global::ElevenLabs.MCPApprovalPolicy Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.NativeMCPToolConfigOutputTypeExtensions.ToEnum(stringValue);
+                        return global::ElevenLabs.MCPApprovalPolicyExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.NativeMCPToolConfigOutputType)numValue;
+                    return (global::ElevenLabs.MCPApprovalPolicy)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.NativeMCPToolConfigOutputType?);
+                    return default(global::ElevenLabs.MCPApprovalPolicy);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.NativeMCPToolConfigOutputType? value,
+            global::ElevenLabs.MCPApprovalPolicy value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::ElevenLabs.NativeMCPToolConfigOutputTypeExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::ElevenLabs.MCPApprovalPolicyExtensions.ToValueString(value));
         }
     }
 }

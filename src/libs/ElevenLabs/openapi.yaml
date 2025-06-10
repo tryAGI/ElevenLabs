@@ -926,7 +926,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: text_to_dialogue
       x-fern-sdk-method-name: convert
-      x-fern-streaming: true
   /v1/text-to-dialogue/stream:
     post:
       tags:
@@ -12273,6 +12272,13 @@ components:
           type: boolean
           description: 'Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.'
           default: false
+        temperature:
+          title: Temperature
+          maximum: 2
+          minimum: 0
+          type: number
+          description: 'Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.'
+          nullable: true
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -13089,6 +13095,20 @@ components:
         - request_queue
       type: string
       description: How to break down the information. Cannot be "user" or "api_key" if include_workspace_metrics is False.
+    BuiltInTools:
+      title: BuiltInTools
+      type: object
+      properties:
+        end_call:
+          $ref: '#/components/schemas/SystemToolConfig-Input'
+        language_detection:
+          $ref: '#/components/schemas/SystemToolConfig-Input'
+        transfer_to_agent:
+          $ref: '#/components/schemas/SystemToolConfig-Input'
+        transfer_to_number:
+          $ref: '#/components/schemas/SystemToolConfig-Input'
+        skip_turn:
+          $ref: '#/components/schemas/SystemToolConfig-Input'
     ChapterContentBlockExtendableNodeResponseModel:
       title: ChapterContentBlockExtendableNodeResponseModel
       required:
@@ -13506,10 +13526,10 @@ components:
         - agent_response
         - agent_response_correction
         - client_tool_call
+        - mcp_tool_call
         - vad_score
         - internal_turn_probability
         - internal_tentative_agent_response
-        - internal_native_mcp_tool_call
       type: string
     ClientToolConfig-Input:
       title: ClientToolConfig
@@ -16940,6 +16960,12 @@ components:
           type: string
           description: The URL of the avatar
           default: ''
+    IntegrationType:
+      title: IntegrationType
+      enum:
+        - mcp_server
+        - mcp_integration
+      type: string
     InvoiceResponseModel:
       title: InvoiceResponseModel
       required:
@@ -17488,21 +17514,24 @@ components:
         constant_value: Constant value
         description: My property
         dynamic_variable: Dynamic variable
-    MCPApprovalRequiredModel:
-      title: MCPApprovalRequiredModel
+    MCPApprovalPolicy:
+      title: MCPApprovalPolicy
       enum:
-        - user_approval_always_given
-        - user_approval_never_given
-        - user_approval_required_per_tool
+        - auto_approve_all
+        - require_approval_all
+        - require_approval_per_tool
       type: string
-      description: Defines the approval model for an MCP tool
+      description: Defines the MCP server-level approval policy for tool execution.
     MCPToolConfig-Input:
       title: MCPToolConfig
       required:
         - name
         - description
+        - integration_type
         - mcp_tool_name
+        - mcp_tool_description
         - mcp_server_id
+        - mcp_server_name
       type: object
       properties:
         id:
@@ -17528,28 +17557,45 @@ components:
           enum:
             - mcp
           type: string
-          description: The type of tool
           default: mcp
+        integration_type:
+          $ref: '#/components/schemas/IntegrationType'
         parameters:
           $ref: '#/components/schemas/ObjectJsonSchemaProperty-Input'
+        approval_policy:
+          $ref: '#/components/schemas/MCPApprovalPolicy'
         mcp_tool_name:
           title: Mcp Tool Name
           type: string
           description: The name of the MCP tool to call
+        mcp_tool_description:
+          title: Mcp Tool Description
+          type: string
+          description: The description of the MCP tool to call
         mcp_server_id:
           title: Mcp Server Id
           type: string
           description: The id of the MCP server to call
-        approval_mode:
-          $ref: '#/components/schemas/MCPApprovalRequiredModel'
-      description: A MCP tool is a tool that is used to call a MCP server
+        mcp_server_name:
+          title: Mcp Server Name
+          type: string
+          description: The name of the MCP server to call
+        mcp_input_schema:
+          title: Mcp Input Schema
+          type: object
+          description: Original inputSchema dict for consistent hashing (pure MCP format)
+          nullable: true
+      description: An MCP tool configuration that can be used to call MCP servers
     MCPToolConfig-Output:
       title: MCPToolConfig
       required:
         - name
         - description
+        - integration_type
         - mcp_tool_name
+        - mcp_tool_description
         - mcp_server_id
+        - mcp_server_name
       type: object
       properties:
         id:
@@ -17575,21 +17621,35 @@ components:
           enum:
             - mcp
           type: string
-          description: The type of tool
           default: mcp
+        integration_type:
+          $ref: '#/components/schemas/IntegrationType'
         parameters:
           $ref: '#/components/schemas/ObjectJsonSchemaProperty-Output'
+        approval_policy:
+          $ref: '#/components/schemas/MCPApprovalPolicy'
         mcp_tool_name:
           title: Mcp Tool Name
           type: string
           description: The name of the MCP tool to call
+        mcp_tool_description:
+          title: Mcp Tool Description
+          type: string
+          description: The description of the MCP tool to call
         mcp_server_id:
           title: Mcp Server Id
           type: string
           description: The id of the MCP server to call
-        approval_mode:
-          $ref: '#/components/schemas/MCPApprovalRequiredModel'
-      description: A MCP tool is a tool that is used to call a MCP server
+        mcp_server_name:
+          title: Mcp Server Name
+          type: string
+          description: The name of the MCP server to call
+        mcp_input_schema:
+          title: Mcp Input Schema
+          type: object
+          description: Original inputSchema dict for consistent hashing (pure MCP format)
+          nullable: true
+      description: An MCP tool configuration that can be used to call MCP servers
     ManualVerificationFileResponseModel:
       title: ManualVerificationFileResponseModel
       required:
@@ -17884,100 +17944,6 @@ components:
         never_live_moderate: false
         nogo_voice_similar_voice_upload_count: 0
         on_watchlist: false
-    NativeMCPToolConfig-Input:
-      title: NativeMCPToolConfig
-      required:
-        - name
-        - description
-        - mcp_tool_name
-        - mcp_server_id
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          default: ''
-        name:
-          title: Name
-          minLength: 0
-          pattern: '^[a-zA-Z0-9_-]{1,64}$'
-          type: string
-        description:
-          title: Description
-          minLength: 0
-          type: string
-        response_timeout_secs:
-          title: Response Timeout Secs
-          type: integer
-          description: The maximum time in seconds to wait for the tool call to complete.
-          default: 20
-        type:
-          title: Type
-          enum:
-            - native_mcp
-          type: string
-          description: The type of tool
-          default: native_mcp
-        parameters:
-          $ref: '#/components/schemas/ObjectJsonSchemaProperty-Input'
-        mcp_tool_name:
-          title: Mcp Tool Name
-          type: string
-          description: The name of the MCP tool to call
-        mcp_server_id:
-          title: Mcp Server Id
-          type: string
-          description: The id of the MCP server to call
-        approval_mode:
-          $ref: '#/components/schemas/MCPApprovalRequiredModel'
-      description: A Native MCP tool is a tool that is used to call a Native MCP server
-    NativeMCPToolConfig-Output:
-      title: NativeMCPToolConfig
-      required:
-        - name
-        - description
-        - mcp_tool_name
-        - mcp_server_id
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          default: ''
-        name:
-          title: Name
-          minLength: 0
-          pattern: '^[a-zA-Z0-9_-]{1,64}$'
-          type: string
-        description:
-          title: Description
-          minLength: 0
-          type: string
-        response_timeout_secs:
-          title: Response Timeout Secs
-          type: integer
-          description: The maximum time in seconds to wait for the tool call to complete.
-          default: 20
-        type:
-          title: Type
-          enum:
-            - native_mcp
-          type: string
-          description: The type of tool
-          default: native_mcp
-        parameters:
-          $ref: '#/components/schemas/ObjectJsonSchemaProperty-Output'
-        mcp_tool_name:
-          title: Mcp Tool Name
-          type: string
-          description: The name of the MCP tool to call
-        mcp_server_id:
-          title: Mcp Server Id
-          type: string
-          description: The id of the MCP server to call
-        approval_mode:
-          $ref: '#/components/schemas/MCPApprovalRequiredModel'
-      description: A Native MCP tool is a tool that is used to call a Native MCP server
     ObjectJsonSchemaProperty-Input:
       title: ObjectJsonSchemaProperty
       type: object
@@ -19051,14 +19017,12 @@ components:
               - $ref: '#/components/schemas/ClientToolConfig-Input'
               - $ref: '#/components/schemas/SystemToolConfig-Input'
               - $ref: '#/components/schemas/MCPToolConfig-Input'
-              - $ref: '#/components/schemas/NativeMCPToolConfig-Input'
             description: The type of tool
             discriminator:
               propertyName: type
               mapping:
                 client: '#/components/schemas/ClientToolConfig-Input'
                 mcp: '#/components/schemas/MCPToolConfig-Input'
-                native_mcp: '#/components/schemas/NativeMCPToolConfig-Input'
                 system: '#/components/schemas/SystemToolConfig-Input'
                 webhook: '#/components/schemas/WebhookToolConfig-Input'
           description: A list of tools that the agent can use over the course of the conversation
@@ -19137,14 +19101,12 @@ components:
               - $ref: '#/components/schemas/ClientToolConfig-Output'
               - $ref: '#/components/schemas/SystemToolConfig-Output'
               - $ref: '#/components/schemas/MCPToolConfig-Output'
-              - $ref: '#/components/schemas/NativeMCPToolConfig-Output'
             description: The type of tool
             discriminator:
               propertyName: type
               mapping:
                 client: '#/components/schemas/ClientToolConfig-Output'
                 mcp: '#/components/schemas/MCPToolConfig-Output'
-                native_mcp: '#/components/schemas/NativeMCPToolConfig-Output'
                 system: '#/components/schemas/SystemToolConfig-Output'
                 webhook: '#/components/schemas/WebhookToolConfig-Output'
           description: A list of tools that the agent can use over the course of the conversation
@@ -19223,14 +19185,12 @@ components:
               - $ref: '#/components/schemas/ClientToolConfig-Input'
               - $ref: '#/components/schemas/SystemToolConfig-Input'
               - $ref: '#/components/schemas/MCPToolConfig-Input'
-              - $ref: '#/components/schemas/NativeMCPToolConfig-Input'
             description: The type of tool
             discriminator:
               propertyName: type
               mapping:
                 client: '#/components/schemas/ClientToolConfig-Input'
                 mcp: '#/components/schemas/MCPToolConfig-Input'
-                native_mcp: '#/components/schemas/NativeMCPToolConfig-Input'
                 system: '#/components/schemas/SystemToolConfig-Input'
                 webhook: '#/components/schemas/WebhookToolConfig-Input'
           description: A list of tools that the agent can use over the course of the conversation
@@ -19275,6 +19235,8 @@ components:
           type: array
           items:
             type: string
+        built_in_tools:
+          $ref: '#/components/schemas/BuiltInTools'
       example:
         knowledge_base: [ ]
         llm: gemini-2.0-flash-001
@@ -23865,7 +23827,7 @@ components:
         - convai_secrets
         - music_latent
         - convai_phone_numbers
-        - convai_mcps
+        - convai_mcp_servers
         - convai_batch_calls
       type: string
       description: Resource types that can be shared in the workspace. The name always need to match the collection names

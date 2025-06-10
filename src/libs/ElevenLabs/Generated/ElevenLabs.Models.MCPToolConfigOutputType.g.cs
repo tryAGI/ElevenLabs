@@ -4,7 +4,6 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The type of tool<br/>
     /// Default Value: mcp
     /// </summary>
     public enum MCPToolConfigOutputType
