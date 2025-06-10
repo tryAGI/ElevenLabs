@@ -19,10 +19,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        NativeMcp,
-        /// <summary>
-        /// 
-        /// </summary>
         System,
         /// <summary>
         /// 
@@ -44,7 +40,6 @@ namespace ElevenLabs
             {
                 PromptAgentInputToolDiscriminatorType.Client => "client",
                 PromptAgentInputToolDiscriminatorType.Mcp => "mcp",
-                PromptAgentInputToolDiscriminatorType.NativeMcp => "native_mcp",
                 PromptAgentInputToolDiscriminatorType.System => "system",
                 PromptAgentInputToolDiscriminatorType.Webhook => "webhook",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -59,7 +54,6 @@ namespace ElevenLabs
             {
                 "client" => PromptAgentInputToolDiscriminatorType.Client,
                 "mcp" => PromptAgentInputToolDiscriminatorType.Mcp,
-                "native_mcp" => PromptAgentInputToolDiscriminatorType.NativeMcp,
                 "system" => PromptAgentInputToolDiscriminatorType.System,
                 "webhook" => PromptAgentInputToolDiscriminatorType.Webhook,
                 _ => null,

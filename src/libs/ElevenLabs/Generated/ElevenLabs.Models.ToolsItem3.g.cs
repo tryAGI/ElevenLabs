@@ -120,7 +120,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// A MCP tool is a tool that is used to call a MCP server
+        /// An MCP tool configuration that can be used to call MCP servers
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.MCPToolConfigOutput? Mcp { get; init; }
@@ -155,41 +155,6 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// A Native MCP tool is a tool that is used to call a Native MCP server
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.NativeMCPToolConfigOutput? NativeMcp { get; init; }
-#else
-        public global::ElevenLabs.NativeMCPToolConfigOutput? NativeMcp { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NativeMcp))]
-#endif
-        public bool IsNativeMcp => NativeMcp != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator ToolsItem3(global::ElevenLabs.NativeMCPToolConfigOutput value) => new ToolsItem3((global::ElevenLabs.NativeMCPToolConfigOutput?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.NativeMCPToolConfigOutput?(ToolsItem3 @this) => @this.NativeMcp;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ToolsItem3(global::ElevenLabs.NativeMCPToolConfigOutput? value)
-        {
-            NativeMcp = value;
-        }
-
-        /// <summary>
         /// 
         /// </summary>
         public ToolsItem3(
@@ -197,8 +162,7 @@ namespace ElevenLabs
             global::ElevenLabs.WebhookToolConfigOutput? webhook,
             global::ElevenLabs.ClientToolConfigOutput? client,
             global::ElevenLabs.SystemToolConfigOutput? system,
-            global::ElevenLabs.MCPToolConfigOutput? mcp,
-            global::ElevenLabs.NativeMCPToolConfigOutput? nativeMcp
+            global::ElevenLabs.MCPToolConfigOutput? mcp
             )
         {
             Type = type;
@@ -207,14 +171,12 @@ namespace ElevenLabs
             Client = client;
             System = system;
             Mcp = mcp;
-            NativeMcp = nativeMcp;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            NativeMcp as object ??
             Mcp as object ??
             System as object ??
             Client as object ??
@@ -228,8 +190,7 @@ namespace ElevenLabs
             Webhook?.ToString() ??
             Client?.ToString() ??
             System?.ToString() ??
-            Mcp?.ToString() ??
-            NativeMcp?.ToString() 
+            Mcp?.ToString() 
             ;
 
         /// <summary>
@@ -237,7 +198,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsWebhook && !IsClient && !IsSystem && !IsMcp && !IsNativeMcp || !IsWebhook && IsClient && !IsSystem && !IsMcp && !IsNativeMcp || !IsWebhook && !IsClient && IsSystem && !IsMcp && !IsNativeMcp || !IsWebhook && !IsClient && !IsSystem && IsMcp && !IsNativeMcp || !IsWebhook && !IsClient && !IsSystem && !IsMcp && IsNativeMcp;
+            return IsWebhook && !IsClient && !IsSystem && !IsMcp || !IsWebhook && IsClient && !IsSystem && !IsMcp || !IsWebhook && !IsClient && IsSystem && !IsMcp || !IsWebhook && !IsClient && !IsSystem && IsMcp;
         }
 
         /// <summary>
@@ -248,7 +209,6 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.ClientToolConfigOutput?, TResult>? client = null,
             global::System.Func<global::ElevenLabs.SystemToolConfigOutput?, TResult>? system = null,
             global::System.Func<global::ElevenLabs.MCPToolConfigOutput?, TResult>? mcp = null,
-            global::System.Func<global::ElevenLabs.NativeMCPToolConfigOutput?, TResult>? nativeMcp = null,
             bool validate = true)
         {
             if (validate)
@@ -272,10 +232,6 @@ namespace ElevenLabs
             {
                 return mcp(Mcp!);
             }
-            else if (IsNativeMcp && nativeMcp != null)
-            {
-                return nativeMcp(NativeMcp!);
-            }
 
             return default(TResult);
         }
@@ -288,7 +244,6 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.ClientToolConfigOutput?>? client = null,
             global::System.Action<global::ElevenLabs.SystemToolConfigOutput?>? system = null,
             global::System.Action<global::ElevenLabs.MCPToolConfigOutput?>? mcp = null,
-            global::System.Action<global::ElevenLabs.NativeMCPToolConfigOutput?>? nativeMcp = null,
             bool validate = true)
         {
             if (validate)
@@ -312,10 +267,6 @@ namespace ElevenLabs
             {
                 mcp?.Invoke(Mcp!);
             }
-            else if (IsNativeMcp)
-            {
-                nativeMcp?.Invoke(NativeMcp!);
-            }
         }
 
         /// <summary>
@@ -333,8 +284,6 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.SystemToolConfigOutput),
                 Mcp,
                 typeof(global::ElevenLabs.MCPToolConfigOutput),
-                NativeMcp,
-                typeof(global::ElevenLabs.NativeMCPToolConfigOutput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -354,8 +303,7 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookToolConfigOutput?>.Default.Equals(Webhook, other.Webhook) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfigOutput?>.Default.Equals(Client, other.Client) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfigOutput?>.Default.Equals(System, other.System) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MCPToolConfigOutput?>.Default.Equals(Mcp, other.Mcp) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.NativeMCPToolConfigOutput?>.Default.Equals(NativeMcp, other.NativeMcp) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MCPToolConfigOutput?>.Default.Equals(Mcp, other.Mcp) 
                 ;
         }
 

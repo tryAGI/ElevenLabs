@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A MCP tool is a tool that is used to call a MCP server
+    /// An MCP tool configuration that can be used to call MCP servers
     /// </summary>
     public sealed partial class MCPToolConfigInput
     {
@@ -36,7 +36,6 @@ namespace ElevenLabs
         public int? ResponseTimeoutSecs { get; set; }
 
         /// <summary>
-        /// The type of tool<br/>
         /// Default Value: mcp
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -46,8 +45,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("integration_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.IntegrationTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.IntegrationType IntegrationType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parameters")]
         public global::ElevenLabs.ObjectJsonSchemaPropertyInput? Parameters { get; set; }
+
+        /// <summary>
+        /// Defines the MCP server-level approval policy for tool execution.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("approval_policy")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MCPApprovalPolicyJsonConverter))]
+        public global::ElevenLabs.MCPApprovalPolicy? ApprovalPolicy { get; set; }
 
         /// <summary>
         /// The name of the MCP tool to call
@@ -57,6 +71,13 @@ namespace ElevenLabs
         public required string McpToolName { get; set; }
 
         /// <summary>
+        /// The description of the MCP tool to call
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mcp_tool_description")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string McpToolDescription { get; set; }
+
+        /// <summary>
         /// The id of the MCP server to call
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_id")]
@@ -64,11 +85,17 @@ namespace ElevenLabs
         public required string McpServerId { get; set; }
 
         /// <summary>
-        /// Defines the approval model for an MCP tool
+        /// The name of the MCP server to call
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("approval_mode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MCPApprovalRequiredModelJsonConverter))]
-        public global::ElevenLabs.MCPApprovalRequiredModel? ApprovalMode { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_name")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string McpServerName { get; set; }
+
+        /// <summary>
+        /// Original inputSchema dict for consistent hashing (pure MCP format)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mcp_input_schema")]
+        public object? McpInputSchema { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -87,18 +114,27 @@ namespace ElevenLabs
         /// Default Value: 20
         /// </param>
         /// <param name="type">
-        /// The type of tool<br/>
         /// Default Value: mcp
         /// </param>
+        /// <param name="integrationType"></param>
         /// <param name="parameters"></param>
+        /// <param name="approvalPolicy">
+        /// Defines the MCP server-level approval policy for tool execution.
+        /// </param>
         /// <param name="mcpToolName">
         /// The name of the MCP tool to call
+        /// </param>
+        /// <param name="mcpToolDescription">
+        /// The description of the MCP tool to call
         /// </param>
         /// <param name="mcpServerId">
         /// The id of the MCP server to call
         /// </param>
-        /// <param name="approvalMode">
-        /// Defines the approval model for an MCP tool
+        /// <param name="mcpServerName">
+        /// The name of the MCP server to call
+        /// </param>
+        /// <param name="mcpInputSchema">
+        /// Original inputSchema dict for consistent hashing (pure MCP format)
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -106,23 +142,31 @@ namespace ElevenLabs
         public MCPToolConfigInput(
             string name,
             string description,
+            global::ElevenLabs.IntegrationType integrationType,
             string mcpToolName,
+            string mcpToolDescription,
             string mcpServerId,
+            string mcpServerName,
             string? id,
             int? responseTimeoutSecs,
             global::ElevenLabs.MCPToolConfigInputType? type,
             global::ElevenLabs.ObjectJsonSchemaPropertyInput? parameters,
-            global::ElevenLabs.MCPApprovalRequiredModel? approvalMode)
+            global::ElevenLabs.MCPApprovalPolicy? approvalPolicy,
+            object? mcpInputSchema)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
+            this.IntegrationType = integrationType;
             this.McpToolName = mcpToolName ?? throw new global::System.ArgumentNullException(nameof(mcpToolName));
+            this.McpToolDescription = mcpToolDescription ?? throw new global::System.ArgumentNullException(nameof(mcpToolDescription));
             this.McpServerId = mcpServerId ?? throw new global::System.ArgumentNullException(nameof(mcpServerId));
+            this.McpServerName = mcpServerName ?? throw new global::System.ArgumentNullException(nameof(mcpServerName));
             this.Id = id;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.Type = type;
             this.Parameters = parameters;
-            this.ApprovalMode = approvalMode;
+            this.ApprovalPolicy = approvalPolicy;
+            this.McpInputSchema = mcpInputSchema;
         }
 
         /// <summary>

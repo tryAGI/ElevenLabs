@@ -91,6 +91,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? KnowledgeBaseDocumentIds { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("built_in_tools")]
+        public global::ElevenLabs.BuiltInTools? BuiltInTools { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -133,6 +139,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="rag"></param>
         /// <param name="knowledgeBaseDocumentIds"></param>
+        /// <param name="builtInTools"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -149,7 +156,8 @@ namespace ElevenLabs
             global::ElevenLabs.CustomLLM? customLlm,
             bool? ignoreDefaultPersonality,
             global::ElevenLabs.RagConfig? rag,
-            global::System.Collections.Generic.IList<string>? knowledgeBaseDocumentIds)
+            global::System.Collections.Generic.IList<string>? knowledgeBaseDocumentIds,
+            global::ElevenLabs.BuiltInTools? builtInTools)
         {
             this.Prompt = prompt;
             this.Llm = llm;
@@ -164,6 +172,7 @@ namespace ElevenLabs
             this.IgnoreDefaultPersonality = ignoreDefaultPersonality;
             this.Rag = rag;
             this.KnowledgeBaseDocumentIds = knowledgeBaseDocumentIds;
+            this.BuiltInTools = builtInTools;
         }
 
         /// <summary>
