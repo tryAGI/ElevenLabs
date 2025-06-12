@@ -22,6 +22,12 @@ namespace ElevenLabs
         public double? DiscountPercentOff { get; set; }
 
         /// <summary>
+        /// The discount applied to the invoice. E.g. [20.0f] for 20% off.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("discount_amount_off")]
+        public double? DiscountAmountOff { get; set; }
+
+        /// <summary>
         /// The Unix timestamp of the next payment attempt.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_payment_attempt_unix")]
@@ -44,6 +50,9 @@ namespace ElevenLabs
         /// <param name="discountPercentOff">
         /// The discount applied to the invoice. E.g. [20.0f] for 20% off.
         /// </param>
+        /// <param name="discountAmountOff">
+        /// The discount applied to the invoice. E.g. [20.0f] for 20% off.
+        /// </param>
         /// <param name="nextPaymentAttemptUnix">
         /// The Unix timestamp of the next payment attempt.
         /// </param>
@@ -53,11 +62,13 @@ namespace ElevenLabs
         public InvoiceResponseModel(
             int amountDueCents,
             global::System.DateTimeOffset nextPaymentAttemptUnix,
-            double? discountPercentOff)
+            double? discountPercentOff,
+            double? discountAmountOff)
         {
             this.AmountDueCents = amountDueCents;
             this.NextPaymentAttemptUnix = nextPaymentAttemptUnix;
             this.DiscountPercentOff = discountPercentOff;
+            this.DiscountAmountOff = discountAmountOff;
         }
 
         /// <summary>
