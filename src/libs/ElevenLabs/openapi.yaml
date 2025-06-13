@@ -21710,7 +21710,8 @@ components:
         can_use_delayed_payment_methods:
           title: Can Use Delayed Payment Methods
           type: boolean
-          description: Whether the user can use delayed payment methods.
+          description: This field is deprecated and will be removed in a future major version. Instead use subscription.trust_on_invoice_creation.
+          deprecated: true
         is_onboarding_completed:
           title: Is Onboarding Completed
           type: boolean
@@ -21993,15 +21994,19 @@ components:
         audio_base_64:
           title: Audio Base 64
           type: string
+          description: The base64 encoded audio of the preview.
         generated_voice_id:
           title: Generated Voice Id
           type: string
+          description: The ID of the generated voice. Use it to create a voice from the preview.
         media_type:
           title: Media Type
           type: string
+          description: The media type of the preview.
         duration_secs:
           title: Duration Secs
           type: number
+          description: The duration of the preview in seconds.
     VoicePreviewsRequestModel:
       title: VoicePreviewsRequestModel
       required:
@@ -22072,9 +22077,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VoicePreviewResponseModel'
+          description: The previews of the generated voices.
         text:
           title: Text
           type: string
+          description: The text used to preview the voices.
     VoiceResponseModel:
       title: VoiceResponseModel
       required:
