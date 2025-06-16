@@ -23,19 +23,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        IncompleteExpired,
-        /// <summary>
-        /// 
-        /// </summary>
         PastDue,
-        /// <summary>
-        /// 
-        /// </summary>
-        Canceled,
-        /// <summary>
-        /// 
-        /// </summary>
-        Unpaid,
         /// <summary>
         /// 
         /// </summary>
@@ -61,10 +49,7 @@ namespace ElevenLabs
                 SubscriptionStatusType.Trialing => "trialing",
                 SubscriptionStatusType.Active => "active",
                 SubscriptionStatusType.Incomplete => "incomplete",
-                SubscriptionStatusType.IncompleteExpired => "incomplete_expired",
                 SubscriptionStatusType.PastDue => "past_due",
-                SubscriptionStatusType.Canceled => "canceled",
-                SubscriptionStatusType.Unpaid => "unpaid",
                 SubscriptionStatusType.Free => "free",
                 SubscriptionStatusType.FreeDisabled => "free_disabled",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -80,10 +65,7 @@ namespace ElevenLabs
                 "trialing" => SubscriptionStatusType.Trialing,
                 "active" => SubscriptionStatusType.Active,
                 "incomplete" => SubscriptionStatusType.Incomplete,
-                "incomplete_expired" => SubscriptionStatusType.IncompleteExpired,
                 "past_due" => SubscriptionStatusType.PastDue,
-                "canceled" => SubscriptionStatusType.Canceled,
-                "unpaid" => SubscriptionStatusType.Unpaid,
                 "free" => SubscriptionStatusType.Free,
                 "free_disabled" => SubscriptionStatusType.FreeDisabled,
                 _ => null,

@@ -9639,8 +9639,14 @@ components:
           type: integer
           description: The maximum number of conversations per day
           default: 100000
+        bursting_enabled:
+          title: Bursting Enabled
+          type: boolean
+          description: 'Whether to enable bursting. If true, exceeding workspace concurrency limit will be allowed up to 3 times the limit. Calls will be charged at double rate when exceeding the limit.'
+          default: true
       example:
         agent_concurrency_limit: -1
+        bursting_enabled: true
         daily_limit: 100000
     AgentConfigAPIModel-Input:
       title: AgentConfigAPIModel
@@ -13724,6 +13730,10 @@ components:
       properties:
         dev_discount:
           title: Dev Discount
+          type: boolean
+          default: false
+        is_burst:
+          title: Is Burst
           type: boolean
           default: false
         tier:
@@ -21057,10 +21067,7 @@ components:
         - trialing
         - active
         - incomplete
-        - incomplete_expired
         - past_due
-        - canceled
-        - unpaid
         - free
         - free_disabled
       type: string
@@ -21746,7 +21753,6 @@ components:
           description: The Partnerstack partner default link of the user.
           nullable: true
       example:
-        can_use_delayed_payment_methods: true
         first_name: John
         is_api_key_hashed: false
         is_new_user: false

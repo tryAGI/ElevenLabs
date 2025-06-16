@@ -15,6 +15,12 @@ namespace ElevenLabs
         public bool? DevDiscount { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_burst")]
+        public bool? IsBurst { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tier")]
@@ -44,6 +50,9 @@ namespace ElevenLabs
         /// <param name="devDiscount">
         /// Default Value: false
         /// </param>
+        /// <param name="isBurst">
+        /// Default Value: false
+        /// </param>
         /// <param name="tier"></param>
         /// <param name="llmUsage"></param>
         /// <param name="llmPrice"></param>
@@ -52,11 +61,13 @@ namespace ElevenLabs
 #endif
         public ConversationChargingCommonModel(
             bool? devDiscount,
+            bool? isBurst,
             string? tier,
             global::ElevenLabs.LLMCategoryUsage? llmUsage,
             double? llmPrice)
         {
             this.DevDiscount = devDiscount;
+            this.IsBurst = isBurst;
             this.Tier = tier;
             this.LlmUsage = llmUsage;
             this.LlmPrice = llmPrice;
