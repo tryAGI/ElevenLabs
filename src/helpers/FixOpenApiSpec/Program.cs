@@ -41,6 +41,8 @@ openApiDocument.SecurityRequirements.Add(new OpenApiSecurityRequirement
     },
 });
 
+openApiDocument.Components.Schemas["FineTuningResponseModel"].Properties["next_max_verification_attempts_reset_unix_ms"]!.Format = "int64";
+
 yamlOrJson = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
 _ = new OpenApiStringReader().Read(yamlOrJson, out diagnostics);
 

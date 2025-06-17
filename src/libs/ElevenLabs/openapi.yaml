@@ -16186,6 +16186,7 @@ components:
           title: Next Max Verification Attempts Reset Unix Ms
           type: integer
           description: The next maximum verification attempts reset time in Unix milliseconds.
+          format: int64
           nullable: true
       example:
         is_allowed_to_fine_tune: true
