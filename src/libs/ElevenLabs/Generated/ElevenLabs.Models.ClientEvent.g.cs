@@ -51,6 +51,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        McpConnectionStatus,
+        /// <summary>
+        /// 
+        /// </summary>
         AgentToolResponse,
         /// <summary>
         /// 
@@ -88,6 +92,7 @@ namespace ElevenLabs
                 ClientEvent.AgentResponseCorrection => "agent_response_correction",
                 ClientEvent.ClientToolCall => "client_tool_call",
                 ClientEvent.McpToolCall => "mcp_tool_call",
+                ClientEvent.McpConnectionStatus => "mcp_connection_status",
                 ClientEvent.AgentToolResponse => "agent_tool_response",
                 ClientEvent.VadScore => "vad_score",
                 ClientEvent.InternalTurnProbability => "internal_turn_probability",
@@ -112,6 +117,7 @@ namespace ElevenLabs
                 "agent_response_correction" => ClientEvent.AgentResponseCorrection,
                 "client_tool_call" => ClientEvent.ClientToolCall,
                 "mcp_tool_call" => ClientEvent.McpToolCall,
+                "mcp_connection_status" => ClientEvent.McpConnectionStatus,
                 "agent_tool_response" => ClientEvent.AgentToolResponse,
                 "vad_score" => ClientEvent.VadScore,
                 "internal_turn_probability" => ClientEvent.InternalTurnProbability,

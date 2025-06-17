@@ -6026,6 +6026,46 @@ paths:
         - workspace
         - resources
       x-fern-sdk-method-name: unshare
+  /v1/workspace/webhooks:
+    get:
+      tags:
+        - workspace
+      summary: List Workspace Webhooks
+      description: List all webhooks for a workspace
+      operationId: List_workspace_webhooks_v1_workspace_webhooks_get
+      parameters:
+        - name: include_usages
+          in: query
+          description: 'Whether to include active usages of the webhook, only usable by admins'
+          schema:
+            title: Include Usages
+            type: boolean
+            description: 'Whether to include active usages of the webhook, only usable by admins'
+            default: false
+            example: false
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceWebhookListResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: webhooks
+      x-fern-sdk-method-name: list
   /v1/speech-to-text:
     post:
       tags:
@@ -8666,6 +8706,306 @@ paths:
         - conversational_ai
         - sip_trunk
       x-fern-sdk-method-name: outbound_call
+  /v1/convai/mcp-servers:
+    post:
+      tags:
+        - Conversational AI
+      summary: Create Mcp Server
+      description: Create a new MCP server configuration in the workspace.
+      operationId: Create_MCP_server_v1_convai_mcp_servers_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MCPServerRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPServerResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - mcp_servers
+      x-fern-sdk-method-name: create
+    get:
+      tags:
+        - Conversational AI
+      summary: List Mcp Servers
+      description: Retrieve all MCP server configurations available in the workspace.
+      operationId: List_MCP_servers_v1_convai_mcp_servers_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPServersResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - mcp_servers
+      x-fern-sdk-method-name: list
+  '/v1/convai/mcp-servers/{mcp_server_id}':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Mcp Server
+      description: Retrieve a specific MCP server configuration from the workspace.
+      operationId: Get_MCP_server_v1_convai_mcp_servers__mcp_server_id__get
+      parameters:
+        - name: mcp_server_id
+          in: path
+          description: ID of the MCP Server.
+          required: true
+          schema:
+            title: Mcp Server Id
+            type: string
+            description: ID of the MCP Server.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPServerResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - mcp_servers
+      x-fern-sdk-method-name: get
+  '/v1/convai/mcp-servers/{mcp_server_id}/tools':
+    get:
+      tags:
+        - Conversational AI
+      summary: List Mcp Server Tools
+      description: Retrieve all tools available for a specific MCP server configuration.
+      operationId: List_MCP_server_tools_v1_convai_mcp_servers__mcp_server_id__tools_get
+      parameters:
+        - name: mcp_server_id
+          in: path
+          description: ID of the MCP Server.
+          required: true
+          schema:
+            title: Mcp Server Id
+            type: string
+            description: ID of the MCP Server.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMCPToolsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - mcp_servers
+        - tools
+      x-fern-sdk-method-name: list
+  '/v1/convai/mcp-servers/{mcp_server_id}/approval-policy':
+    patch:
+      tags:
+        - Conversational AI
+      summary: Update Mcp Server Approval Policy
+      description: Update the approval policy configuration for an MCP server.
+      operationId: Update_MCP_server_approval_policy_v1_convai_mcp_servers__mcp_server_id__approval_policy_patch
+      parameters:
+        - name: mcp_server_id
+          in: path
+          description: ID of the MCP Server.
+          required: true
+          schema:
+            title: Mcp Server Id
+            type: string
+            description: ID of the MCP Server.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MCPApprovalPolicyUpdateRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPServerResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - mcp_servers
+        - approval_policy
+      x-fern-sdk-method-name: update
+  '/v1/convai/mcp-servers/{mcp_server_id}/tool-approvals':
+    post:
+      tags:
+        - Conversational AI
+      summary: Create Mcp Server Tool Approval
+      description: Add approval for a specific MCP tool when using per-tool approval mode.
+      operationId: Create_MCP_server_tool_approval_v1_convai_mcp_servers__mcp_server_id__tool_approvals_post
+      parameters:
+        - name: mcp_server_id
+          in: path
+          description: ID of the MCP Server.
+          required: true
+          schema:
+            title: Mcp Server Id
+            type: string
+            description: ID of the MCP Server.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MCPToolAddApprovalRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPServerResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - mcp_servers
+        - tool_approvals
+      x-fern-sdk-method-name: create
+  '/v1/convai/mcp-servers/{mcp_server_id}/tool-approvals/{tool_name}':
+    delete:
+      tags:
+        - Conversational AI
+      summary: Delete Mcp Server Tool Approval
+      description: Remove approval for a specific MCP tool when using per-tool approval mode.
+      operationId: Delete_MCP_server_tool_approval_v1_convai_mcp_servers__mcp_server_id__tool_approvals__tool_name__delete
+      parameters:
+        - name: mcp_server_id
+          in: path
+          description: ID of the MCP Server.
+          required: true
+          schema:
+            title: Mcp Server Id
+            type: string
+            description: ID of the MCP Server.
+        - name: tool_name
+          in: path
+          description: Name of the MCP tool to remove approval for.
+          required: true
+          schema:
+            title: Tool Name
+            type: string
+            description: Name of the MCP tool to remove approval for.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPServerResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - mcp_servers
+        - tool_approvals
+      x-fern-sdk-method-name: delete
   /v1/voices/pvc:
     post:
       tags:
@@ -10398,7 +10738,7 @@ components:
         from_url:
           title: From Url
           type: string
-          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           nullable: true
           example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
     Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post:
@@ -10443,15 +10783,20 @@ components:
         from_url:
           title: From Url
           type: string
-          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           nullable: true
           example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
         from_document:
           title: From Document
           type: string
-          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           format: binary
           nullable: true
+        from_content_json:
+          title: From Content Json
+          type: string
+          description: 'An optional content to initialize the Studio project with. If this is set, ''from_url'' and ''from_document'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
+          example: '[{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]'
         quality_preset:
           title: Quality of the generated audio.
           type: string
@@ -10553,7 +10898,7 @@ components:
         callback_url:
           title: Callback Url
           type: string
-          description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+          description: "\n    A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion\n    Messages:\n    1. When project was converted successfully:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"success\",\n        project_snapshot_id: \"22m00Tcm4TlvDq8ikMAT\",\n        error_details: None,\n      }\n    }\n    2. When project conversion failed:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"error\",\n        project_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n\n    3. When chapter was converted successfully:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"success\",\n        chapter_snapshot_id: \"23m00Tcm4TlvDq8ikMAV\",\n        error_details: None,\n      }\n    }\n    4. When chapter conversion failed:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"error\",\n        chapter_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n    "
           nullable: true
           example:
             - https://www.test.com/my-api/projects-status
@@ -10889,15 +11234,20 @@ components:
         from_url:
           title: From Url
           type: string
-          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           nullable: true
           example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
         from_document:
           title: From Document
           type: string
-          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           format: binary
           nullable: true
+        from_content_json:
+          title: From Content Json
+          type: string
+          description: 'An optional content to initialize the Studio project with. If this is set, ''from_url'' and ''from_document'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
+          example: '[{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]'
         quality_preset:
           title: Quality of the generated audio.
           type: string
@@ -10999,7 +11349,7 @@ components:
         callback_url:
           title: Callback Url
           type: string
-          description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+          description: "\n    A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion\n    Messages:\n    1. When project was converted successfully:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"success\",\n        project_snapshot_id: \"22m00Tcm4TlvDq8ikMAT\",\n        error_details: None,\n      }\n    }\n    2. When project conversion failed:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"error\",\n        project_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n\n    3. When chapter was converted successfully:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"success\",\n        chapter_snapshot_id: \"23m00Tcm4TlvDq8ikMAV\",\n        error_details: None,\n      }\n    }\n    4. When chapter conversion failed:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"error\",\n        chapter_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n    "
           nullable: true
           example:
             - https://www.test.com/my-api/projects-status
@@ -11154,7 +11504,7 @@ components:
         from_url:
           title: From Url
           type: string
-          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           nullable: true
           example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
     Body_Create_file_document_v1_convai_knowledge_base_file_post:
@@ -11277,7 +11627,7 @@ components:
         callback_url:
           title: Callback Url
           type: string
-          description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+          description: "\n    A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion\n    Messages:\n    1. When project was converted successfully:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"success\",\n        project_snapshot_id: \"22m00Tcm4TlvDq8ikMAT\",\n        error_details: None,\n      }\n    }\n    2. When project conversion failed:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"error\",\n        project_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n\n    3. When chapter was converted successfully:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"success\",\n        chapter_snapshot_id: \"23m00Tcm4TlvDq8ikMAV\",\n        error_details: None,\n      }\n    }\n    4. When chapter conversion failed:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"error\",\n        chapter_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n    "
           nullable: true
           example:
             - https://www.test.com/my-api/projects-status
@@ -11363,7 +11713,7 @@ components:
         callback_url:
           title: Callback Url
           type: string
-          description: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
+          description: "\n    A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion\n    Messages:\n    1. When project was converted successfully:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"success\",\n        project_snapshot_id: \"22m00Tcm4TlvDq8ikMAT\",\n        error_details: None,\n      }\n    }\n    2. When project conversion failed:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"error\",\n        project_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n\n    3. When chapter was converted successfully:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"success\",\n        chapter_snapshot_id: \"23m00Tcm4TlvDq8ikMAV\",\n        error_details: None,\n      }\n    }\n    4. When chapter conversion failed:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"error\",\n        chapter_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n    "
           nullable: true
           example:
             - https://www.test.com/my-api/projects-status
@@ -11713,13 +12063,13 @@ components:
         from_url:
           title: From Url
           type: string
-          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           nullable: true
           example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
         from_document:
           title: From Document
           type: string
-          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           format: binary
           nullable: true
         auto_convert:
@@ -12923,13 +13273,13 @@ components:
         from_url:
           title: From Url
           type: string
-          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' must be null. If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           nullable: true
           example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
         from_document:
           title: From Document
           type: string
-          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' must be null.  If neither ''from_url'' or ''from_document'' are provided we will initialize the Studio project as blank.'
+          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           format: binary
           nullable: true
         auto_convert:
@@ -13142,15 +13492,15 @@ components:
             - h3
           type: string
           nullable: true
-        block_id:
-          title: Block Id
-          type: string
-          nullable: true
         nodes:
           title: Nodes
           type: array
           items:
             $ref: '#/components/schemas/ChapterContentParagraphTtsNodeInputModel'
+        block_id:
+          title: Block Id
+          type: string
+          nullable: true
     ChapterContentBlockResponseModel:
       title: ChapterContentBlockResponseModel
       required:
@@ -13533,6 +13883,7 @@ components:
         - agent_response_correction
         - client_tool_call
         - mcp_tool_call
+        - mcp_connection_status
         - agent_tool_response
         - vad_score
         - internal_turn_probability
@@ -13694,6 +14045,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DependentPhoneNumberIdentifier'
+    ConvAIUserSecretDBModel:
+      title: ConvAIUserSecretDBModel
+      required:
+        - id
+        - name
+        - encrypted_value
+        - nonce
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        encrypted_value:
+          title: Encrypted Value
+          type: string
+        nonce:
+          title: Nonce
+          type: string
+      description: User-specific secret model that are not shared with other users in a workspace.
     ConvAIWebhooks:
       title: ConvAIWebhooks
       type: object
@@ -14482,6 +14855,16 @@ components:
           items:
             $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel-Input'
           description: 'A partial conversation history to start the simulation from. If empty, simulation starts fresh.'
+        dynamic_variables:
+          title: Dynamic Variables
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+            nullable: true
       description: A specification that will be used to simulate a conversation between an agent and an AI user.
     ConversationSummaryResponseModel:
       title: ConversationSummaryResponseModel
@@ -17367,7 +17750,6 @@ components:
             - cloned
             - premade
             - professional
-            - famous
             - high_quality
           type: string
           description: The category of the voice.
@@ -17493,6 +17875,48 @@ components:
         usage_character_count_7d: 12852
         use_case: characters_animation
         voice_id: sB1b5zUrxQVAFl2PhZFp
+    ListMCPToolsResponseModel:
+      title: ListMCPToolsResponseModel
+      required:
+        - success
+        - tools
+      type: object
+      properties:
+        success:
+          title: Success
+          type: boolean
+          description: Indicates if the operation was successful.
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/Tool'
+          description: A list of tools available on the MCP server.
+        error_message:
+          title: Error Message
+          type: string
+          description: Error message if the operation was not successful.
+          nullable: true
+      description: Response model for testing tools available on an MCP server.
+      example:
+        success: true
+        tools:
+          - description: Gets tomorrow's forecasted weather conditions for a location.
+            inputSchema:
+              properties:
+                latitude:
+                  description: Latitude
+                  type: string
+                longitude:
+                  description: Longitude
+                  type: string
+              required:
+                - latitude
+                - longitude
+              type: object
+            name: weather_by_zapier_get_tomorrow
+          - description: Description of tool2
+            name: tool2
     LiteralJsonSchemaProperty:
       title: LiteralJsonSchemaProperty
       required:
@@ -17538,6 +17962,224 @@ components:
         - require_approval_per_tool
       type: string
       description: Defines the MCP server-level approval policy for tool execution.
+    MCPApprovalPolicyUpdateRequestModel:
+      title: MCPApprovalPolicyUpdateRequestModel
+      required:
+        - approval_policy
+      type: object
+      properties:
+        approval_policy:
+          $ref: '#/components/schemas/MCPApprovalPolicy'
+      description: Request model for updating MCP Server approval mode.
+    MCPServerConfig-Input:
+      title: MCPServerConfig
+      required:
+        - url
+        - name
+      type: object
+      properties:
+        approval_policy:
+          $ref: '#/components/schemas/MCPApprovalPolicy'
+        tool_approval_hashes:
+          title: Tool Approval Hashes
+          type: array
+          items:
+            $ref: '#/components/schemas/MCPToolApprovalHash'
+          description: List of tool approval hashes for per-tool approval when approval_policy is REQUIRE_APPROVAL_PER_TOOL
+        transport:
+          $ref: '#/components/schemas/MCPServerTransport'
+        url:
+          title: Url
+          anyOf:
+            - type: string
+            - $ref: '#/components/schemas/ConvAISecretLocator'
+          description: 'The URL of the MCP server, if this contains a secret please store as a workspace secret, otherwise store as a plain string. Must use https'
+        secret_token:
+          title: Secret Token
+          anyOf:
+            - $ref: '#/components/schemas/ConvAISecretLocator'
+            - $ref: '#/components/schemas/ConvAIUserSecretDBModel'
+          description: The secret token (Authorization header) stored as a workspace secret or in-place secret
+          nullable: true
+        request_headers:
+          title: Request Headers
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - $ref: '#/components/schemas/ConvAISecretLocator'
+          description: The headers included in the request
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+          default: ''
+    MCPServerConfig-Output:
+      title: MCPServerConfig
+      required:
+        - url
+        - name
+      type: object
+      properties:
+        approval_policy:
+          $ref: '#/components/schemas/MCPApprovalPolicy'
+        tool_approval_hashes:
+          title: Tool Approval Hashes
+          type: array
+          items:
+            $ref: '#/components/schemas/MCPToolApprovalHash'
+          description: List of tool approval hashes for per-tool approval when approval_policy is REQUIRE_APPROVAL_PER_TOOL
+        transport:
+          $ref: '#/components/schemas/MCPServerTransport'
+        url:
+          title: Url
+          anyOf:
+            - type: string
+            - $ref: '#/components/schemas/ConvAISecretLocator'
+          description: 'The URL of the MCP server, if this contains a secret please store as a workspace secret, otherwise store as a plain string. Must use https'
+        secret_token:
+          title: Secret Token
+          anyOf:
+            - $ref: '#/components/schemas/ConvAISecretLocator'
+            - $ref: '#/components/schemas/ConvAIUserSecretDBModel'
+          description: The secret token (Authorization header) stored as a workspace secret or in-place secret
+          nullable: true
+        request_headers:
+          title: Request Headers
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - $ref: '#/components/schemas/ConvAISecretLocator'
+          description: The headers included in the request
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+          default: ''
+    MCPServerMetadataResponseModel:
+      title: MCPServerMetadataResponseModel
+      required:
+        - created_at
+      type: object
+      properties:
+        created_at:
+          title: Created At
+          type: integer
+        owner_user_id:
+          title: Owner User Id
+          type: string
+          nullable: true
+    MCPServerRequestModel:
+      title: MCPServerRequestModel
+      required:
+        - config
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MCPServerConfig-Input'
+      description: Request model for creating/updating an MCP Server configuration.
+    MCPServerResponseModel:
+      title: MCPServerResponseModel
+      required:
+        - id
+        - config
+        - metadata
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        config:
+          $ref: '#/components/schemas/MCPServerConfig-Output'
+        access_info:
+          $ref: '#/components/schemas/ResourceAccessInfo'
+        dependent_agents:
+          title: Dependent Agents
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DependentAvailableAgentIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownAgentIdentifier'
+            discriminator:
+              propertyName: type
+              mapping:
+                available: '#/components/schemas/DependentAvailableAgentIdentifier'
+                unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
+          description: List of agents that depend on this MCP Server.
+        metadata:
+          $ref: '#/components/schemas/MCPServerMetadataResponseModel'
+      description: Response model representing an MCP Server configuration.
+    MCPServerTransport:
+      title: MCPServerTransport
+      enum:
+        - SSE
+        - STREAMABLE_HTTP
+      type: string
+      description: Supported MCP server transport types.
+    MCPServersResponseModel:
+      title: MCPServersResponseModel
+      required:
+        - mcp_servers
+      type: object
+      properties:
+        mcp_servers:
+          title: Mcp Servers
+          type: array
+          items:
+            $ref: '#/components/schemas/MCPServerResponseModel'
+      description: Response model for a list of MCP Server configurations.
+    MCPToolAddApprovalRequestModel:
+      title: MCPToolAddApprovalRequestModel
+      required:
+        - tool_name
+        - tool_description
+      type: object
+      properties:
+        tool_name:
+          title: Tool Name
+          type: string
+          description: The name of the MCP tool
+        tool_description:
+          title: Tool Description
+          type: string
+          description: The description of the MCP tool
+        input_schema:
+          title: Input Schema
+          type: object
+          description: The input schema of the MCP tool (the schema defined on the MCP server before ElevenLabs does any extra processing)
+        approval_policy:
+          $ref: '#/components/schemas/MCPToolApprovalPolicy'
+      description: Request model for adding approval for a single MCP tool.
+    MCPToolApprovalHash:
+      title: MCPToolApprovalHash
+      required:
+        - tool_name
+        - tool_hash
+      type: object
+      properties:
+        tool_name:
+          title: Tool Name
+          type: string
+          description: The name of the MCP tool
+        tool_hash:
+          title: Tool Hash
+          type: string
+          description: SHA256 hash of the tool's parameters and description
+        approval_policy:
+          $ref: '#/components/schemas/MCPToolApprovalPolicy'
+      description: Model for storing tool approval hashes for per-tool approval.
+    MCPToolApprovalPolicy:
+      title: MCPToolApprovalPolicy
+      enum:
+        - auto_approved
+        - requires_approval
+      type: string
+      description: Defines the tool-level approval policy.
     MCPToolConfig-Input:
       title: MCPToolConfig
       required:
@@ -20282,7 +20924,6 @@ components:
             - cloned
             - generated
             - professional
-            - famous
           type: string
         description:
           title: Description
@@ -21067,6 +21708,7 @@ components:
         - trialing
         - active
         - incomplete
+        - incomplete_expired
         - past_due
         - free
         - free_disabled
@@ -21457,6 +22099,51 @@ components:
         - twilio
         - sip_trunk
       type: string
+    Tool:
+      title: Tool
+      required:
+        - name
+        - inputSchema
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+          nullable: true
+        inputSchema:
+          title: Inputschema
+          type: object
+        annotations:
+          $ref: '#/components/schemas/ToolAnnotations'
+      description: Definition for a tool the client can call.
+    ToolAnnotations:
+      title: ToolAnnotations
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          nullable: true
+        readOnlyHint:
+          title: Readonlyhint
+          type: boolean
+          nullable: true
+        destructiveHint:
+          title: Destructivehint
+          type: boolean
+          nullable: true
+        idempotentHint:
+          title: Idempotenthint
+          type: boolean
+          nullable: true
+        openWorldHint:
+          title: Openworldhint
+          type: boolean
+          nullable: true
+      description: "Additional properties describing a Tool to clients.\n\nNOTE: all properties in ToolAnnotations are **hints**.\nThey are not guaranteed to provide a faithful description of\ntool behavior (including descriptive properties like `title`).\n\nClients should never make tool use decisions based on ToolAnnotations\nreceived from untrusted servers."
     ToolMockConfig:
       title: ToolMockConfig
       type: object
@@ -22121,7 +22808,6 @@ components:
             - cloned
             - premade
             - professional
-            - famous
             - high_quality
           type: string
           description: The category of the voice.
@@ -22586,7 +23272,6 @@ components:
             - cloned
             - premade
             - professional
-            - famous
             - high_quality
           type: string
           description: The category of the voice.
@@ -22781,6 +23466,12 @@ components:
             text: 'Hello, how are you?'
         verification_attempts_count: 0
         verification_failures: [ ]
+    WebhookAuthMethodType:
+      title: WebhookAuthMethodType
+      enum:
+        - hmac
+        - oauth2
+      type: string
     WebhookToolApiSchemaConfig-Input:
       title: WebhookToolApiSchemaConfig
       required:
@@ -22977,6 +23668,14 @@ components:
       example:
         response_timeout_secs: 20
         type: webhook
+    WebhookUsageType:
+      title: WebhookUsageType
+      enum:
+        - ConvAI Agent Settings
+        - ConvAI Settings
+        - Voice Library Removal Notices
+        - Speech to Text
+      type: string
     WidgetConfig-Input:
       title: WidgetConfig
       type: object
@@ -23850,6 +24549,94 @@ components:
         - convai_batch_calls
       type: string
       description: Resource types that can be shared in the workspace. The name always need to match the collection names
+    WorkspaceWebhookListResponseModel:
+      title: WorkspaceWebhookListResponseModel
+      required:
+        - webhooks
+      type: object
+      properties:
+        webhooks:
+          title: Webhooks
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspaceWebhookResponseModel'
+          description: List of webhooks currently configured for the workspace
+      example:
+        webhooks:
+          - auth_type: hmac
+            created_at_unix: 123456789
+            is_auto_disabled: false
+            is_disabled: false
+            most_recent_failure_error_code: 404
+            most_recent_failure_timestamp: 123456799
+            name: My Webhook
+            usage:
+              - usage_type: CONVAI_PLATFORM
+            webhook_id: '123'
+            webhook_url: https://elevenlabs.io/example-callback-url
+    WorkspaceWebhookResponseModel:
+      title: WorkspaceWebhookResponseModel
+      required:
+        - name
+        - webhook_id
+        - webhook_url
+        - is_disabled
+        - is_auto_disabled
+        - created_at_unix
+        - auth_type
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: The display name for this webhook.
+        webhook_id:
+          title: Webhook Id
+          type: string
+          description: The unique ID for this webhook.
+        webhook_url:
+          title: Webhook Url
+          type: string
+          description: The HTTPS callback URL that is called when this webhook is triggered in the platform.
+        is_disabled:
+          title: Is Disabled
+          type: boolean
+          description: Whether the webhook has been manually disabled by a user.
+        is_auto_disabled:
+          title: Is Auto Disabled
+          type: boolean
+          description: Whether the webhook has been automatically disabled due to repeated consecutive failures over a long period of time.
+        created_at_unix:
+          title: Created At Unix
+          type: integer
+          description: Original creation time of the webhook.
+        auth_type:
+          $ref: '#/components/schemas/WebhookAuthMethodType'
+        usage:
+          title: Usage
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspaceWebhookUsageResponseModel'
+          description: The list of products that are currently configured to trigger this webhook.
+          nullable: true
+        most_recent_failure_error_code:
+          title: Most Recent Failure Error Code
+          type: integer
+          description: The most recent error code returned from the callback URL.
+          nullable: true
+        most_recent_failure_timestamp:
+          title: Most Recent Failure Timestamp
+          type: integer
+          description: 'The most recent time the webhook failed, failures are any non-200 codes returned by the callback URL.'
+          nullable: true
+    WorkspaceWebhookUsageResponseModel:
+      title: WorkspaceWebhookUsageResponseModel
+      required:
+        - usage_type
+      type: object
+      properties:
+        usage_type:
+          $ref: '#/components/schemas/WebhookUsageType'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

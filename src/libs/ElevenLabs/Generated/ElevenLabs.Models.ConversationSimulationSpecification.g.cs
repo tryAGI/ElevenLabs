@@ -28,6 +28,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? PartialConversationHistory { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
+        public object? DynamicVariables { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,17 +47,20 @@ namespace ElevenLabs
         /// <param name="partialConversationHistory">
         /// A partial conversation history to start the simulation from. If empty, simulation starts fresh.
         /// </param>
+        /// <param name="dynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationSimulationSpecification(
             global::ElevenLabs.AgentConfigDBModel simulatedUserConfig,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? toolMockConfig,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? partialConversationHistory)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? partialConversationHistory,
+            object? dynamicVariables)
         {
             this.SimulatedUserConfig = simulatedUserConfig ?? throw new global::System.ArgumentNullException(nameof(simulatedUserConfig));
             this.ToolMockConfig = toolMockConfig;
             this.PartialConversationHistory = partialConversationHistory;
+            this.DynamicVariables = dynamicVariables;
         }
 
         /// <summary>
