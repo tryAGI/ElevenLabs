@@ -133,44 +133,19 @@ namespace ElevenLabs
 
             if (ReadResponseAsString)
             {
-                var __content = await __response.Content.ReadAsStringAsync(
+                var __content = await __response.Content.ReadAsByteArrayAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                ProcessResponseContent(
-                    client: HttpClient,
-                    response: __response,
-                    content: ref __content);
 
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                }
-                catch (global::System.Net.Http.HttpRequestException __ex)
-                {
-                    throw new global::ElevenLabs.ApiException(
-                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                        innerException: __ex,
-                        statusCode: __response.StatusCode)
-                    {
-                        ResponseBody = __content,
-                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                            __response.Headers,
-                            h => h.Key,
-                            h => h.Value),
-                    };
-                }
 
-            }
-            else
-            {
-                try
-                {
-                    __response.EnsureSuccessStatusCode();
                 }
-                catch (global::System.Net.Http.HttpRequestException __ex)
+                catch (global::System.Exception __ex)
                 {
                     throw new global::ElevenLabs.ApiException(
                         message: __response.ReasonPhrase ?? string.Empty,
@@ -183,13 +158,33 @@ namespace ElevenLabs
                             h => h.Value),
                     };
                 }
+            }
+            else
+            {
+                try
+                {
+                    __response.EnsureSuccessStatusCode();
 
-                using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsByteArrayAsync(
 #if NET5_0_OR_GREATER
-                    cancellationToken
+                        cancellationToken
 #endif
-                ).ConfigureAwait(false);
+                    ).ConfigureAwait(false);
 
+                }
+                catch (global::System.Exception __ex)
+                {
+                    throw new global::ElevenLabs.ApiException(
+                        message: __response.ReasonPhrase ?? string.Empty,
+                        innerException: __ex,
+                        statusCode: __response.StatusCode)
+                    {
+                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                            __response.Headers,
+                            h => h.Key,
+                            h => h.Value),
+                    };
+                }
             }
         }
 
