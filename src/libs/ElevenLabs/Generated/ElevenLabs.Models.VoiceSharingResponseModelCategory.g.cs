@@ -27,10 +27,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Famous,
-        /// <summary>
-        /// 
-        /// </summary>
         HighQuality,
     }
 
@@ -50,7 +46,6 @@ namespace ElevenLabs
                 VoiceSharingResponseModelCategory.Cloned => "cloned",
                 VoiceSharingResponseModelCategory.Premade => "premade",
                 VoiceSharingResponseModelCategory.Professional => "professional",
-                VoiceSharingResponseModelCategory.Famous => "famous",
                 VoiceSharingResponseModelCategory.HighQuality => "high_quality",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -66,7 +61,6 @@ namespace ElevenLabs
                 "cloned" => VoiceSharingResponseModelCategory.Cloned,
                 "premade" => VoiceSharingResponseModelCategory.Premade,
                 "professional" => VoiceSharingResponseModelCategory.Professional,
-                "famous" => VoiceSharingResponseModelCategory.Famous,
                 "high_quality" => VoiceSharingResponseModelCategory.HighQuality,
                 _ => null,
             };

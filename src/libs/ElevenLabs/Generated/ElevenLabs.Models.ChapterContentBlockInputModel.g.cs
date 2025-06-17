@@ -18,15 +18,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("block_id")]
-        public string? BlockId { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("nodes")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel> Nodes { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("nodes")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel> Nodes { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("block_id")]
+        public string? BlockId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,8 +38,8 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ChapterContentBlockInputModel" /> class.
         /// </summary>
         /// <param name="subType"></param>
-        /// <param name="blockId"></param>
         /// <param name="nodes"></param>
+        /// <param name="blockId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

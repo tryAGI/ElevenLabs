@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        IncompleteExpired,
+        /// <summary>
+        /// 
+        /// </summary>
         PastDue,
         /// <summary>
         /// 
@@ -49,6 +53,7 @@ namespace ElevenLabs
                 SubscriptionStatusType.Trialing => "trialing",
                 SubscriptionStatusType.Active => "active",
                 SubscriptionStatusType.Incomplete => "incomplete",
+                SubscriptionStatusType.IncompleteExpired => "incomplete_expired",
                 SubscriptionStatusType.PastDue => "past_due",
                 SubscriptionStatusType.Free => "free",
                 SubscriptionStatusType.FreeDisabled => "free_disabled",
@@ -65,6 +70,7 @@ namespace ElevenLabs
                 "trialing" => SubscriptionStatusType.Trialing,
                 "active" => SubscriptionStatusType.Active,
                 "incomplete" => SubscriptionStatusType.Incomplete,
+                "incomplete_expired" => SubscriptionStatusType.IncompleteExpired,
                 "past_due" => SubscriptionStatusType.PastDue,
                 "free" => SubscriptionStatusType.Free,
                 "free_disabled" => SubscriptionStatusType.FreeDisabled,
