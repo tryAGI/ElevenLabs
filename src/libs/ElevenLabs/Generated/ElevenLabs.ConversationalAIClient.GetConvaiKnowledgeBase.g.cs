@@ -93,6 +93,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("page_size", pageSize?.ToString()) 
                 .AddOptionalParameter("search", search) 
                 .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString()) 
+                .AddOptionalParameter("types", types, selector: static x => x.ToValueString(), delimiter: ",", explode: true) 
                 .AddOptionalParameter("use_typesense", useTypesense?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
