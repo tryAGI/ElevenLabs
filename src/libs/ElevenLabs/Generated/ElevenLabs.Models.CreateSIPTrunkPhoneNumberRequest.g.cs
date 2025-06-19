@@ -60,6 +60,13 @@ namespace ElevenLabs
         public global::ElevenLabs.SIPMediaEncryptionEnum? MediaEncryption { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inbound_media_encryption")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPMediaEncryptionEnumJsonConverter))]
+        public global::ElevenLabs.SIPMediaEncryptionEnum? InboundMediaEncryption { get; set; }
+
+        /// <summary>
         /// SIP X-* headers for INVITE request. These headers are sent as-is and may help identify this call.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("headers")]
@@ -97,6 +104,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="transport"></param>
         /// <param name="mediaEncryption"></param>
+        /// <param name="inboundMediaEncryption"></param>
         /// <param name="headers">
         /// SIP X-* headers for INVITE request. These headers are sent as-is and may help identify this call.
         /// </param>
@@ -112,6 +120,7 @@ namespace ElevenLabs
             string? address,
             global::ElevenLabs.SIPTrunkTransportEnum? transport,
             global::ElevenLabs.SIPMediaEncryptionEnum? mediaEncryption,
+            global::ElevenLabs.SIPMediaEncryptionEnum? inboundMediaEncryption,
             global::System.Collections.Generic.Dictionary<string, string>? headers,
             global::ElevenLabs.SIPTrunkCredentials? credentials)
         {
@@ -122,6 +131,7 @@ namespace ElevenLabs
             this.Address = address;
             this.Transport = transport;
             this.MediaEncryption = mediaEncryption;
+            this.InboundMediaEncryption = inboundMediaEncryption;
             this.Headers = headers;
             this.Credentials = credentials;
         }

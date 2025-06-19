@@ -10779,7 +10779,7 @@ components:
           title: Default Model Id
           type: string
           description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
-          example: 21m00Tcm4TlvDq8ikWAM
+          example: eleven_multilingual_v2
         from_url:
           title: From Url
           type: string
@@ -11230,7 +11230,7 @@ components:
           title: Default Model Id
           type: string
           description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
-          example: 21m00Tcm4TlvDq8ikWAM
+          example: eleven_multilingual_v2
         from_url:
           title: From Url
           type: string
@@ -11557,7 +11557,7 @@ components:
           title: Model Id
           type: string
           description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
-          example: 21m00Tcm4TlvDq8ikWAM
+          example: eleven_multilingual_v2
         mode:
           title: Mode
           anyOf:
@@ -11602,7 +11602,7 @@ components:
             - default
             - long
           type: string
-          description: "Duration of the generated podcast. Must be one of:\nshort - produces podcasts shorter than 3 minutes.\ndefault - produces podcasts roughly between 3-7 minutes.\nlong - prodces podcasts longer than 7 minutes.\n"
+          description: "Duration of the generated podcast. Must be one of:\nshort - produces podcasts shorter than 3 minutes.\ndefault - produces podcasts roughly between 3-7 minutes.\nlong - produces podcasts longer than 7 minutes.\n"
           default: default
           example: short
         language:
@@ -11643,7 +11643,7 @@ components:
           title: Model Id
           type: string
           description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
-          example: 21m00Tcm4TlvDq8ikWAM
+          example: eleven_multilingual_v2
         mode:
           title: Mode
           anyOf:
@@ -11688,7 +11688,7 @@ components:
             - default
             - long
           type: string
-          description: "Duration of the generated podcast. Must be one of:\nshort - produces podcasts shorter than 3 minutes.\ndefault - produces podcasts roughly between 3-7 minutes.\nlong - prodces podcasts longer than 7 minutes.\n"
+          description: "Duration of the generated podcast. Must be one of:\nshort - produces podcasts shorter than 3 minutes.\ndefault - produces podcasts roughly between 3-7 minutes.\nlong - produces podcasts longer than 7 minutes.\n"
           default: default
           example: short
         language:
@@ -15089,6 +15089,8 @@ components:
           $ref: '#/components/schemas/SIPTrunkTransportEnum'
         media_encryption:
           $ref: '#/components/schemas/SIPMediaEncryptionEnum'
+        inbound_media_encryption:
+          $ref: '#/components/schemas/SIPMediaEncryptionEnum'
         headers:
           title: Headers
           type: object
@@ -17751,6 +17753,7 @@ components:
             - cloned
             - premade
             - professional
+            - famous
             - high_quality
           type: string
           description: The category of the voice.
@@ -20925,6 +20928,7 @@ components:
             - cloned
             - generated
             - professional
+            - famous
           type: string
         description:
           title: Description
@@ -21713,6 +21717,7 @@ components:
         - past_due
         - free
         - free_disabled
+        - canceled
       type: string
     SubscriptionUsageResponseModel:
       title: SubscriptionUsageResponseModel
@@ -22809,6 +22814,7 @@ components:
             - cloned
             - premade
             - professional
+            - famous
             - high_quality
           type: string
           description: The category of the voice.
@@ -23273,6 +23279,7 @@ components:
             - cloned
             - premade
             - professional
+            - famous
             - high_quality
           type: string
           description: The category of the voice.

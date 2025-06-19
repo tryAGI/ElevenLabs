@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Famous,
+        /// <summary>
+        /// 
+        /// </summary>
         HighQuality,
     }
 
@@ -46,6 +50,7 @@ namespace ElevenLabs
                 LibraryVoiceResponseModelCategory.Cloned => "cloned",
                 LibraryVoiceResponseModelCategory.Premade => "premade",
                 LibraryVoiceResponseModelCategory.Professional => "professional",
+                LibraryVoiceResponseModelCategory.Famous => "famous",
                 LibraryVoiceResponseModelCategory.HighQuality => "high_quality",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -61,6 +66,7 @@ namespace ElevenLabs
                 "cloned" => LibraryVoiceResponseModelCategory.Cloned,
                 "premade" => LibraryVoiceResponseModelCategory.Premade,
                 "professional" => LibraryVoiceResponseModelCategory.Professional,
+                "famous" => LibraryVoiceResponseModelCategory.Famous,
                 "high_quality" => LibraryVoiceResponseModelCategory.HighQuality,
                 _ => null,
             };

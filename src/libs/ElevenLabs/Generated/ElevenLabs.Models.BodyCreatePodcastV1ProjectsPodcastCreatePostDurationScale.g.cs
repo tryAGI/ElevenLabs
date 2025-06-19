@@ -7,7 +7,7 @@ namespace ElevenLabs
     /// Duration of the generated podcast. Must be one of:<br/>
     /// short - produces podcasts shorter than 3 minutes.<br/>
     /// default - produces podcasts roughly between 3-7 minutes.<br/>
-    /// long - prodces podcasts longer than 7 minutes.<br/>
+    /// long - produces podcasts longer than 7 minutes.<br/>
     /// Default Value: default<br/>
     /// Example: short
     /// </summary>
