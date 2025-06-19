@@ -24,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Professional,
+        /// <summary>
+        /// 
+        /// </summary>
+        Famous,
     }
 
     /// <summary>
@@ -42,6 +46,7 @@ namespace ElevenLabs
                 SimilarVoiceCategory.Cloned => "cloned",
                 SimilarVoiceCategory.Generated => "generated",
                 SimilarVoiceCategory.Professional => "professional",
+                SimilarVoiceCategory.Famous => "famous",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +61,7 @@ namespace ElevenLabs
                 "cloned" => SimilarVoiceCategory.Cloned,
                 "generated" => SimilarVoiceCategory.Generated,
                 "professional" => SimilarVoiceCategory.Professional,
+                "famous" => SimilarVoiceCategory.Famous,
                 _ => null,
             };
         }

@@ -226,7 +226,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="modelId">
         /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// Example: eleven_multilingual_v2
         /// </param>
         /// <param name="mode">
         /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.
@@ -247,7 +247,7 @@ namespace ElevenLabs
         /// Duration of the generated podcast. Must be one of:<br/>
         /// short - produces podcasts shorter than 3 minutes.<br/>
         /// default - produces podcasts roughly between 3-7 minutes.<br/>
-        /// long - prodces podcasts longer than 7 minutes.<br/>
+        /// long - produces podcasts longer than 7 minutes.<br/>
         /// Default Value: default<br/>
         /// Example: short
         /// </param>

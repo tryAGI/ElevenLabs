@@ -391,7 +391,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="defaultModelId">
         /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// Example: eleven_multilingual_v2
         /// </param>
         /// <param name="fromUrl">
         /// An optional URL from which we will extract content to initialize the Studio project. If this is set, 'from_url' and 'from_content' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.<br/>

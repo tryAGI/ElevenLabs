@@ -36,6 +36,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         FreeDisabled,
+        /// <summary>
+        /// 
+        /// </summary>
+        Canceled,
     }
 
     /// <summary>
@@ -57,6 +61,7 @@ namespace ElevenLabs
                 SubscriptionStatusType.PastDue => "past_due",
                 SubscriptionStatusType.Free => "free",
                 SubscriptionStatusType.FreeDisabled => "free_disabled",
+                SubscriptionStatusType.Canceled => "canceled",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -74,6 +79,7 @@ namespace ElevenLabs
                 "past_due" => SubscriptionStatusType.PastDue,
                 "free" => SubscriptionStatusType.Free,
                 "free_disabled" => SubscriptionStatusType.FreeDisabled,
+                "canceled" => SubscriptionStatusType.Canceled,
                 _ => null,
             };
         }
