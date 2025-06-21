@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PromptAgentInputToolDiscriminatorType? Type { get; }
+        public global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminatorType? Type { get; }
 
         /// <summary>
         /// A webhook tool is a tool that calls an external webhook from our server
@@ -158,7 +158,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public ToolsItem2(
-            global::ElevenLabs.PromptAgentInputToolDiscriminatorType? type,
+            global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminatorType? type,
             global::ElevenLabs.WebhookToolConfigInput? webhook,
             global::ElevenLabs.ClientToolConfigInput? client,
             global::ElevenLabs.SystemToolConfigInput? system,

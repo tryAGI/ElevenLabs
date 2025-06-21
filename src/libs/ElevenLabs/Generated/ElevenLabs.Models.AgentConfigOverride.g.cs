@@ -24,7 +24,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        public global::ElevenLabs.PromptAgentOverride? Prompt { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelOverride? Prompt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -48,7 +48,7 @@ namespace ElevenLabs
         public AgentConfigOverride(
             string? firstMessage,
             string? language,
-            global::ElevenLabs.PromptAgentOverride? prompt)
+            global::ElevenLabs.PromptAgentAPIModelOverride? prompt)
         {
             this.FirstMessage = firstMessage;
             this.Language = language;

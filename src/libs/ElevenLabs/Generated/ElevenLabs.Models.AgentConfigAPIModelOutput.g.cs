@@ -31,7 +31,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        public global::ElevenLabs.PromptAgentOutput? Prompt { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelOutput? Prompt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -58,7 +58,7 @@ namespace ElevenLabs
             string? firstMessage,
             string? language,
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables,
-            global::ElevenLabs.PromptAgentOutput? prompt)
+            global::ElevenLabs.PromptAgentAPIModelOutput? prompt)
         {
             this.FirstMessage = firstMessage;
             this.Language = language;

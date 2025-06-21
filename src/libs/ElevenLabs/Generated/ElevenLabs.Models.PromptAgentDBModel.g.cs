@@ -36,16 +36,16 @@ namespace ElevenLabs
         public int? MaxTokens { get; set; }
 
         /// <summary>
-        /// A list of tools that the agent can use over the course of the conversation
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem4>? Tools { get; set; }
-
-        /// <summary>
         /// A list of IDs of tools used by the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_ids")]
         public global::System.Collections.Generic.IList<string>? ToolIds { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("built_in_tools")]
+        public global::ElevenLabs.BuiltInToolsInput? BuiltInTools { get; set; }
 
         /// <summary>
         /// A list of MCP server ids to be used by the agent
@@ -91,12 +91,6 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? KnowledgeBaseDocumentIds { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("built_in_tools")]
-        public global::ElevenLabs.BuiltInTools? BuiltInTools { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -117,12 +111,10 @@ namespace ElevenLabs
         /// If greater than 0, maximum number of tokens the LLM can predict<br/>
         /// Default Value: -1
         /// </param>
-        /// <param name="tools">
-        /// A list of tools that the agent can use over the course of the conversation
-        /// </param>
         /// <param name="toolIds">
         /// A list of IDs of tools used by the agent
         /// </param>
+        /// <param name="builtInTools"></param>
         /// <param name="mcpServerIds">
         /// A list of MCP server ids to be used by the agent
         /// </param>
@@ -139,7 +131,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="rag"></param>
         /// <param name="knowledgeBaseDocumentIds"></param>
-        /// <param name="builtInTools"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -148,23 +139,22 @@ namespace ElevenLabs
             global::ElevenLabs.LLM? llm,
             double? temperature,
             int? maxTokens,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem4>? tools,
             global::System.Collections.Generic.IList<string>? toolIds,
+            global::ElevenLabs.BuiltInToolsInput? builtInTools,
             global::System.Collections.Generic.IList<string>? mcpServerIds,
             global::System.Collections.Generic.IList<string>? nativeMcpServerIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::ElevenLabs.CustomLLM? customLlm,
             bool? ignoreDefaultPersonality,
             global::ElevenLabs.RagConfig? rag,
-            global::System.Collections.Generic.IList<string>? knowledgeBaseDocumentIds,
-            global::ElevenLabs.BuiltInTools? builtInTools)
+            global::System.Collections.Generic.IList<string>? knowledgeBaseDocumentIds)
         {
             this.Prompt = prompt;
             this.Llm = llm;
             this.Temperature = temperature;
             this.MaxTokens = maxTokens;
-            this.Tools = tools;
             this.ToolIds = toolIds;
+            this.BuiltInTools = builtInTools;
             this.McpServerIds = mcpServerIds;
             this.NativeMcpServerIds = nativeMcpServerIds;
             this.KnowledgeBase = knowledgeBase;
@@ -172,7 +162,6 @@ namespace ElevenLabs
             this.IgnoreDefaultPersonality = ignoreDefaultPersonality;
             this.Rag = rag;
             this.KnowledgeBaseDocumentIds = knowledgeBaseDocumentIds;
-            this.BuiltInTools = builtInTools;
         }
 
         /// <summary>

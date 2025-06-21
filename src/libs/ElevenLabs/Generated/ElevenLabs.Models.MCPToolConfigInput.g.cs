@@ -11,12 +11,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        public string? Id { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
@@ -106,7 +100,6 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="MCPToolConfigInput" /> class.
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="responseTimeoutSecs">
@@ -147,7 +140,6 @@ namespace ElevenLabs
             string mcpToolDescription,
             string mcpServerId,
             string mcpServerName,
-            string? id,
             int? responseTimeoutSecs,
             global::ElevenLabs.MCPToolConfigInputType? type,
             global::ElevenLabs.ObjectJsonSchemaPropertyInput? parameters,
@@ -161,7 +153,6 @@ namespace ElevenLabs
             this.McpToolDescription = mcpToolDescription ?? throw new global::System.ArgumentNullException(nameof(mcpToolDescription));
             this.McpServerId = mcpServerId ?? throw new global::System.ArgumentNullException(nameof(mcpServerId));
             this.McpServerName = mcpServerName ?? throw new global::System.ArgumentNullException(nameof(mcpServerName));
-            this.Id = id;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.Type = type;
             this.Parameters = parameters;
