@@ -198,6 +198,12 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Mode}"),
                     name: "mode");
+            } 
+            if (request.CsvFps != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.CsvFps}"),
+                    name: "csv_fps");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -412,6 +418,9 @@ namespace ElevenLabs
         /// automatic or manual. Manual mode is only supported when creating a dubbing studio project<br/>
         /// Default Value: automatic
         /// </param>
+        /// <param name="csvFps">
+        /// Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> CreateDubbingAsync(
@@ -438,6 +447,7 @@ namespace ElevenLabs
             bool? dubbingStudio = default,
             bool? disableVoiceCloning = default,
             string? mode = default,
+            double? csvFps = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost
@@ -464,6 +474,7 @@ namespace ElevenLabs
                 DubbingStudio = dubbingStudio,
                 DisableVoiceCloning = disableVoiceCloning,
                 Mode = mode,
+                CsvFps = csvFps,
             };
 
             return await CreateDubbingAsync(

@@ -11,12 +11,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        public string? Id { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
@@ -65,7 +59,6 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookToolConfigOutput" /> class.
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="responseTimeoutSecs">
@@ -87,7 +80,6 @@ namespace ElevenLabs
             string name,
             string description,
             global::ElevenLabs.WebhookToolApiSchemaConfigOutput apiSchema,
-            string? id,
             int? responseTimeoutSecs,
             global::ElevenLabs.WebhookToolConfigOutputType? type,
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables)
@@ -95,7 +87,6 @@ namespace ElevenLabs
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.ApiSchema = apiSchema ?? throw new global::System.ArgumentNullException(nameof(apiSchema));
-            this.Id = id;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.Type = type;
             this.DynamicVariables = dynamicVariables;

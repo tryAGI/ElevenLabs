@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem> Agents { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem2> Agents { get; set; }
 
         /// <summary>
         /// 
@@ -44,7 +44,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetKnowledgeBaseDependentAgentsResponseModel(
-            global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem> agents,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem2> agents,
             bool hasMore,
             string? nextCursor)
         {

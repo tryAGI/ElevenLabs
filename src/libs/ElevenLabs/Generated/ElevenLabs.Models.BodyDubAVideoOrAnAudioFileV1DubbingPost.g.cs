@@ -149,6 +149,12 @@ namespace ElevenLabs
         public string? Mode { get; set; }
 
         /// <summary>
+        /// Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("csv_fps")]
+        public double? CsvFps { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -231,6 +237,9 @@ namespace ElevenLabs
         /// automatic or manual. Manual mode is only supported when creating a dubbing studio project<br/>
         /// Default Value: automatic
         /// </param>
+        /// <param name="csvFps">
+        /// Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -256,7 +265,8 @@ namespace ElevenLabs
             bool? useProfanityFilter,
             bool? dubbingStudio,
             bool? disableVoiceCloning,
-            string? mode)
+            string? mode,
+            double? csvFps)
         {
             this.File = file;
             this.Filename = filename;
@@ -280,6 +290,7 @@ namespace ElevenLabs
             this.DubbingStudio = dubbingStudio;
             this.DisableVoiceCloning = disableVoiceCloning;
             this.Mode = mode;
+            this.CsvFps = csvFps;
         }
 
         /// <summary>

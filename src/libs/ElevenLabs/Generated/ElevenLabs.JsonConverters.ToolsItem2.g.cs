@@ -17,33 +17,33 @@ namespace ElevenLabs.JsonConverters
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PromptAgentInputToolDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PromptAgentInputToolDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PromptAgentInputToolDiscriminator)}");
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.WebhookToolConfigInput? webhook = default;
-            if (discriminator?.Type == global::ElevenLabs.PromptAgentInputToolDiscriminatorType.Webhook)
+            if (discriminator?.Type == global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminatorType.Webhook)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WebhookToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WebhookToolConfigInput> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WebhookToolConfigInput)}");
                 webhook = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.ClientToolConfigInput? client = default;
-            if (discriminator?.Type == global::ElevenLabs.PromptAgentInputToolDiscriminatorType.Client)
+            if (discriminator?.Type == global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminatorType.Client)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ClientToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ClientToolConfigInput> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ClientToolConfigInput)}");
                 client = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.SystemToolConfigInput? system = default;
-            if (discriminator?.Type == global::ElevenLabs.PromptAgentInputToolDiscriminatorType.System)
+            if (discriminator?.Type == global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminatorType.System)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SystemToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SystemToolConfigInput> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SystemToolConfigInput)}");
                 system = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.MCPToolConfigInput? mcp = default;
-            if (discriminator?.Type == global::ElevenLabs.PromptAgentInputToolDiscriminatorType.Mcp)
+            if (discriminator?.Type == global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminatorType.Mcp)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MCPToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MCPToolConfigInput> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MCPToolConfigInput)}");

@@ -8176,6 +8176,252 @@ paths:
         - documents
         - chunk
       x-fern-sdk-method-name: get
+  /v1/convai/tools:
+    post:
+      tags:
+        - Conversational AI
+      summary: Add Tool
+      description: Add a new tool to the available tools in the workspace.
+      operationId: Add_tool_v1_convai_tools_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ToolRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ToolResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: add_tool
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Tools
+      description: Get all available tools available in the workspace.
+      operationId: Get_tools_v1_convai_tools_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ToolsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_tools
+  '/v1/convai/tools/{tool_id}':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Tool
+      description: Get tool that is available in the workspace.
+      operationId: Get_tool_v1_convai_tools__tool_id__get
+      parameters:
+        - name: tool_id
+          in: path
+          description: ID of the requested tool.
+          required: true
+          schema:
+            title: Tool Id
+            type: string
+            description: ID of the requested tool.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ToolResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: get_tool
+    patch:
+      tags:
+        - Conversational AI
+      summary: Update Tool
+      description: Update tool that is available in the workspace.
+      operationId: Update_tool_v1_convai_tools__tool_id__patch
+      parameters:
+        - name: tool_id
+          in: path
+          description: ID of the requested tool.
+          required: true
+          schema:
+            title: Tool Id
+            type: string
+            description: ID of the requested tool.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ToolRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ToolResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: update_tool
+    delete:
+      tags:
+        - Conversational AI
+      summary: Delete Tool
+      description: Delete tool from the workspace.
+      operationId: Delete_tool_v1_convai_tools__tool_id__delete
+      parameters:
+        - name: tool_id
+          in: path
+          description: ID of the requested tool.
+          required: true
+          schema:
+            title: Tool Id
+            type: string
+            description: ID of the requested tool.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: conversational_ai
+      x-fern-sdk-method-name: remove_tool
+  '/v1/convai/tools/{tool_id}/dependent-agents':
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Dependent Agents List
+      description: Get a list of agents depending on this tool
+      operationId: Get_dependent_agents_list_v1_convai_tools__tool_id__dependent_agents_get
+      parameters:
+        - name: tool_id
+          in: path
+          description: ID of the requested tool.
+          required: true
+          schema:
+            title: Tool Id
+            type: string
+            description: ID of the requested tool.
+        - name: cursor
+          in: query
+          description: Used for fetching next page. Cursor is returned in the response.
+          schema:
+            title: Cursor
+            type: string
+            description: Used for fetching next page. Cursor is returned in the response.
+            nullable: true
+        - name: page_size
+          in: query
+          description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
+          schema:
+            title: Page Size
+            maximum: 100
+            minimum: 1
+            type: integer
+            description: 'How many documents to return at maximum. Can not exceed 100, defaults to 30.'
+            default: 30
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetToolDependentAgentsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tools
+      x-fern-sdk-method-name: get_agents
   /v1/convai/settings:
     get:
       tags:
@@ -9767,6 +10013,7 @@ components:
       title: ASRProvider
       enum:
         - elevenlabs
+        - realtime_scribe_v1
       type: string
     ASRQuality:
       title: ASRQuality
@@ -10008,7 +10255,7 @@ components:
         dynamic_variables:
           $ref: '#/components/schemas/DynamicVariablesConfig'
         prompt:
-          $ref: '#/components/schemas/PromptAgent-Input'
+          $ref: '#/components/schemas/PromptAgentAPIModel-Input'
       example:
         first_message: 'Hello, how can I help you today?'
         language: en
@@ -10032,7 +10279,7 @@ components:
         dynamic_variables:
           $ref: '#/components/schemas/DynamicVariablesConfig'
         prompt:
-          $ref: '#/components/schemas/PromptAgent-Output'
+          $ref: '#/components/schemas/PromptAgentAPIModel-Output'
       example:
         first_message: 'Hello, how can I help you today?'
         language: en
@@ -10078,7 +10325,7 @@ components:
           nullable: true
           x-convai-client-override: true
         prompt:
-          $ref: '#/components/schemas/PromptAgentOverride'
+          $ref: '#/components/schemas/PromptAgentAPIModelOverride'
       example:
         first_message: 'Hello, how can I help you today?'
         language: en
@@ -10099,7 +10346,7 @@ components:
           description: Whether to allow overriding the language field.
           default: false
         prompt:
-          $ref: '#/components/schemas/PromptAgentOverrideConfig'
+          $ref: '#/components/schemas/PromptAgentAPIModelOverrideConfig'
     AgentMetadataResponseModel:
       title: AgentMetadataResponseModel
       required:
@@ -11948,6 +12195,11 @@ components:
           description: automatic or manual. Manual mode is only supported when creating a dubbing studio project
           default: automatic
           nullable: true
+        csv_fps:
+          title: Csv Fps
+          type: number
+          description: 'Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes.'
+          nullable: true
     Body_Dubs_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__dub_post:
       title: Body_Dubs_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__dub_post
       required:
@@ -13451,7 +13703,7 @@ components:
         - request_queue
       type: string
       description: How to break down the information. Cannot be "user" or "api_key" if include_workspace_metrics is False.
-    BuiltInTools:
+    BuiltInTools-Input:
       title: BuiltInTools
       type: object
       properties:
@@ -13465,6 +13717,20 @@ components:
           $ref: '#/components/schemas/SystemToolConfig-Input'
         skip_turn:
           $ref: '#/components/schemas/SystemToolConfig-Input'
+    BuiltInTools-Output:
+      title: BuiltInTools
+      type: object
+      properties:
+        end_call:
+          $ref: '#/components/schemas/SystemToolConfig-Output'
+        language_detection:
+          $ref: '#/components/schemas/SystemToolConfig-Output'
+        transfer_to_agent:
+          $ref: '#/components/schemas/SystemToolConfig-Output'
+        transfer_to_number:
+          $ref: '#/components/schemas/SystemToolConfig-Output'
+        skip_turn:
+          $ref: '#/components/schemas/SystemToolConfig-Output'
     ChapterContentBlockExtendableNodeResponseModel:
       title: ChapterContentBlockExtendableNodeResponseModel
       required:
@@ -13896,10 +14162,6 @@ components:
         - description
       type: object
       properties:
-        id:
-          title: Id
-          type: string
-          default: ''
         name:
           title: Name
           minLength: 0
@@ -13943,10 +14205,6 @@ components:
         - description
       type: object
       properties:
-        id:
-          title: Id
-          type: string
-          default: ''
         name:
           title: Name
           minLength: 0
@@ -14007,7 +14265,7 @@ components:
       title: ConvAIStoredSecretDependencies
       required:
         - tools
-        - agent_tools
+        - agents
         - others
       type: object
       properties:
@@ -14023,18 +14281,18 @@ components:
               mapping:
                 available: '#/components/schemas/DependentAvailableToolIdentifier'
                 unknown: '#/components/schemas/DependentUnknownToolIdentifier'
-        agent_tools:
-          title: Agent Tools
+        agents:
+          title: Agents
           type: array
           items:
             oneOf:
-              - $ref: '#/components/schemas/DependentAvailableAgentToolIdentifier'
-              - $ref: '#/components/schemas/DependentUnknownAgentToolIdentifier'
+              - $ref: '#/components/schemas/DependentAvailableAgentIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownAgentIdentifier'
             discriminator:
               propertyName: type
               mapping:
-                available: '#/components/schemas/DependentAvailableAgentToolIdentifier'
-                unknown: '#/components/schemas/DependentUnknownAgentToolIdentifier'
+                available: '#/components/schemas/DependentAvailableAgentIdentifier'
+                unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
         others:
           title: Others
           type: array
@@ -15378,43 +15636,6 @@ components:
             - editor
             - viewer
           type: string
-    DependentAvailableAgentToolIdentifier:
-      title: DependentAvailableAgentToolIdentifier
-      required:
-        - agent_id
-        - agent_name
-        - used_by
-        - created_at_unix_secs
-        - access_level
-      type: object
-      properties:
-        agent_id:
-          title: Agent Id
-          type: string
-        agent_name:
-          title: Agent Name
-          type: string
-        used_by:
-          title: Used By
-          type: array
-          items:
-            type: string
-        type:
-          title: Type
-          enum:
-            - available
-          type: string
-          default: available
-        created_at_unix_secs:
-          title: Created At Unix Secs
-          type: integer
-        access_level:
-          title: Access Level
-          enum:
-            - admin
-            - editor
-            - viewer
-          type: string
     DependentAvailableToolIdentifier:
       title: DependentAvailableToolIdentifier
       required:
@@ -15477,17 +15698,6 @@ components:
           type: string
           default: unknown
       description: "A model that represents an agent dependent on a knowledge base/tools\nto which the user has no direct access."
-    DependentUnknownAgentToolIdentifier:
-      title: DependentUnknownAgentToolIdentifier
-      type: object
-      properties:
-        type:
-          title: Type
-          enum:
-            - unknown
-          type: string
-          default: unknown
-      description: "A model that represents an tool dependent on a knowledge base/tools\nto which the user has no direct access."
     DependentUnknownToolIdentifier:
       title: DependentUnknownToolIdentifier
       type: object
@@ -17108,6 +17318,32 @@ components:
             voice_id: 21m00Tcm4TlvDq8ikWAM
             voice_name: Rachel
         last_history_item_id: ja9xsmfGhxYcymxGcOGB
+    GetToolDependentAgentsResponseModel:
+      title: GetToolDependentAgentsResponseModel
+      required:
+        - agents
+        - has_more
+      type: object
+      properties:
+        agents:
+          title: Agents
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/DependentAvailableAgentIdentifier'
+              - $ref: '#/components/schemas/DependentUnknownAgentIdentifier'
+            discriminator:
+              propertyName: type
+              mapping:
+                available: '#/components/schemas/DependentAvailableAgentIdentifier'
+                unknown: '#/components/schemas/DependentUnknownAgentIdentifier'
+        next_cursor:
+          title: Next Cursor
+          type: string
+          nullable: true
+        has_more:
+          title: Has More
+          type: boolean
     GetVoicesResponseModel:
       title: GetVoicesResponseModel
       required:
@@ -18196,10 +18432,6 @@ components:
         - mcp_server_name
       type: object
       properties:
-        id:
-          title: Id
-          type: string
-          default: ''
         name:
           title: Name
           minLength: 0
@@ -18260,10 +18492,6 @@ components:
         - mcp_server_name
       type: object
       properties:
-        id:
-          title: Id
-          type: string
-          default: ''
         name:
           title: Name
           minLength: 0
@@ -19648,8 +19876,8 @@ components:
             name: My Project Snapshot
             project_id: aw1NgEzBg83R7vgmiJt6
             project_snapshot_id: aw1NgEzBg83R7vgmiJt6
-    PromptAgent-Input:
-      title: PromptAgent
+    PromptAgentAPIModel-Input:
+      title: PromptAgentAPIModel
       type: object
       properties:
         prompt:
@@ -19670,6 +19898,44 @@ components:
           type: integer
           description: 'If greater than 0, maximum number of tokens the LLM can predict'
           default: -1
+        tool_ids:
+          title: Tool Ids
+          type: array
+          items:
+            type: string
+          description: A list of IDs of tools used by the agent
+        built_in_tools:
+          $ref: '#/components/schemas/BuiltInTools-Input'
+        mcp_server_ids:
+          title: Mcp Server Ids
+          maxItems: 10
+          type: array
+          items:
+            type: string
+          description: A list of MCP server ids to be used by the agent
+        native_mcp_server_ids:
+          title: Native Mcp Server Ids
+          maxItems: 10
+          type: array
+          items:
+            type: string
+          description: A list of Native MCP server ids to be used by the agent
+        knowledge_base:
+          title: Knowledge Base
+          type: array
+          items:
+            $ref: '#/components/schemas/KnowledgeBaseLocator'
+          description: A list of knowledge bases to be used by the agent
+        custom_llm:
+          $ref: '#/components/schemas/CustomLLM'
+        ignore_default_personality:
+          title: Ignore Default Personality
+          type: boolean
+          description: Whether to ignore the default personality
+          default: false
+          nullable: true
+        rag:
+          $ref: '#/components/schemas/RagConfig'
         tools:
           title: Tools
           type: array
@@ -19687,43 +19953,8 @@ components:
                 mcp: '#/components/schemas/MCPToolConfig-Input'
                 system: '#/components/schemas/SystemToolConfig-Input'
                 webhook: '#/components/schemas/WebhookToolConfig-Input'
-          description: A list of tools that the agent can use over the course of the conversation
-        tool_ids:
-          title: Tool Ids
-          type: array
-          items:
-            type: string
-          description: A list of IDs of tools used by the agent
-        mcp_server_ids:
-          title: Mcp Server Ids
-          maxItems: 10
-          type: array
-          items:
-            type: string
-          description: A list of MCP server ids to be used by the agent
-        native_mcp_server_ids:
-          title: Native Mcp Server Ids
-          maxItems: 10
-          type: array
-          items:
-            type: string
-          description: A list of Native MCP server ids to be used by the agent
-        knowledge_base:
-          title: Knowledge Base
-          type: array
-          items:
-            $ref: '#/components/schemas/KnowledgeBaseLocator'
-          description: A list of knowledge bases to be used by the agent
-        custom_llm:
-          $ref: '#/components/schemas/CustomLLM'
-        ignore_default_personality:
-          title: Ignore Default Personality
-          type: boolean
-          description: Whether to ignore the default personality
-          default: false
-          nullable: true
-        rag:
-          $ref: '#/components/schemas/RagConfig'
+          description: 'A list of tools that the agent can use over the course of the conversation, use tool_ids instead'
+          deprecated: true
       example:
         knowledge_base: [ ]
         llm: gemini-2.0-flash-001
@@ -19732,8 +19963,8 @@ components:
         temperature: 0
         tool_ids: [ ]
         tools: [ ]
-    PromptAgent-Output:
-      title: PromptAgent
+    PromptAgentAPIModel-Output:
+      title: PromptAgentAPIModel
       type: object
       properties:
         prompt:
@@ -19754,30 +19985,14 @@ components:
           type: integer
           description: 'If greater than 0, maximum number of tokens the LLM can predict'
           default: -1
-        tools:
-          title: Tools
-          type: array
-          items:
-            oneOf:
-              - $ref: '#/components/schemas/WebhookToolConfig-Output'
-              - $ref: '#/components/schemas/ClientToolConfig-Output'
-              - $ref: '#/components/schemas/SystemToolConfig-Output'
-              - $ref: '#/components/schemas/MCPToolConfig-Output'
-            description: The type of tool
-            discriminator:
-              propertyName: type
-              mapping:
-                client: '#/components/schemas/ClientToolConfig-Output'
-                mcp: '#/components/schemas/MCPToolConfig-Output'
-                system: '#/components/schemas/SystemToolConfig-Output'
-                webhook: '#/components/schemas/WebhookToolConfig-Output'
-          description: A list of tools that the agent can use over the course of the conversation
         tool_ids:
           title: Tool Ids
           type: array
           items:
             type: string
           description: A list of IDs of tools used by the agent
+        built_in_tools:
+          $ref: '#/components/schemas/BuiltInTools-Output'
         mcp_server_ids:
           title: Mcp Server Ids
           maxItems: 10
@@ -19808,6 +20023,25 @@ components:
           nullable: true
         rag:
           $ref: '#/components/schemas/RagConfig'
+        tools:
+          title: Tools
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/WebhookToolConfig-Output'
+              - $ref: '#/components/schemas/ClientToolConfig-Output'
+              - $ref: '#/components/schemas/SystemToolConfig-Output'
+              - $ref: '#/components/schemas/MCPToolConfig-Output'
+            description: The type of tool
+            discriminator:
+              propertyName: type
+              mapping:
+                client: '#/components/schemas/ClientToolConfig-Output'
+                mcp: '#/components/schemas/MCPToolConfig-Output'
+                system: '#/components/schemas/SystemToolConfig-Output'
+                webhook: '#/components/schemas/WebhookToolConfig-Output'
+          description: 'A list of tools that the agent can use over the course of the conversation, use tool_ids instead'
+          deprecated: true
       example:
         knowledge_base: [ ]
         llm: gemini-2.0-flash-001
@@ -19816,6 +20050,27 @@ components:
         temperature: 0
         tool_ids: [ ]
         tools: [ ]
+    PromptAgentAPIModelOverride:
+      title: PromptAgentAPIModelOverride
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          type: string
+          description: The prompt for the agent
+          nullable: true
+          x-convai-client-override: true
+      example:
+        prompt: You are a helpful assistant that can answer questions about the topic of the conversation.
+    PromptAgentAPIModelOverrideConfig:
+      title: PromptAgentAPIModelOverrideConfig
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          type: boolean
+          description: Whether to allow overriding the prompt field.
+          default: false
     PromptAgentDBModel:
       title: PromptAgentDBModel
       type: object
@@ -19838,30 +20093,14 @@ components:
           type: integer
           description: 'If greater than 0, maximum number of tokens the LLM can predict'
           default: -1
-        tools:
-          title: Tools
-          type: array
-          items:
-            oneOf:
-              - $ref: '#/components/schemas/WebhookToolConfig-Input'
-              - $ref: '#/components/schemas/ClientToolConfig-Input'
-              - $ref: '#/components/schemas/SystemToolConfig-Input'
-              - $ref: '#/components/schemas/MCPToolConfig-Input'
-            description: The type of tool
-            discriminator:
-              propertyName: type
-              mapping:
-                client: '#/components/schemas/ClientToolConfig-Input'
-                mcp: '#/components/schemas/MCPToolConfig-Input'
-                system: '#/components/schemas/SystemToolConfig-Input'
-                webhook: '#/components/schemas/WebhookToolConfig-Input'
-          description: A list of tools that the agent can use over the course of the conversation
         tool_ids:
           title: Tool Ids
           type: array
           items:
             type: string
           description: A list of IDs of tools used by the agent
+        built_in_tools:
+          $ref: '#/components/schemas/BuiltInTools-Input'
         mcp_server_ids:
           title: Mcp Server Ids
           maxItems: 10
@@ -19897,8 +20136,6 @@ components:
           type: array
           items:
             type: string
-        built_in_tools:
-          $ref: '#/components/schemas/BuiltInTools'
       example:
         knowledge_base: [ ]
         llm: gemini-2.0-flash-001
@@ -19907,27 +20144,6 @@ components:
         temperature: 0
         tool_ids: [ ]
         tools: [ ]
-    PromptAgentOverride:
-      title: PromptAgentOverride
-      type: object
-      properties:
-        prompt:
-          title: Prompt
-          type: string
-          description: The prompt for the agent
-          nullable: true
-          x-convai-client-override: true
-      example:
-        prompt: You are a helpful assistant that can answer questions about the topic of the conversation.
-    PromptAgentOverrideConfig:
-      title: PromptAgentOverrideConfig
-      type: object
-      properties:
-        prompt:
-          title: Prompt
-          type: boolean
-          description: Whether to allow overriding the prompt field.
-          default: false
     PromptEvaluationCriteria:
       title: PromptEvaluationCriteria
       required:
@@ -21826,10 +22042,6 @@ components:
         - params
       type: object
       properties:
-        id:
-          title: Id
-          type: string
-          default: ''
         name:
           title: Name
           minLength: 0
@@ -21878,10 +22090,6 @@ components:
         - params
       type: object
       properties:
-        id:
-          title: Id
-          type: string
-          default: ''
         name:
           title: Name
           minLength: 0
@@ -22162,6 +22370,66 @@ components:
           title: Default Is Error
           type: boolean
           default: false
+    ToolRequestModel:
+      title: ToolRequestModel
+      required:
+        - tool_config
+      type: object
+      properties:
+        tool_config:
+          title: Tool Config
+          oneOf:
+            - $ref: '#/components/schemas/WebhookToolConfig-Input'
+            - $ref: '#/components/schemas/ClientToolConfig-Input'
+            - $ref: '#/components/schemas/SystemToolConfig-Input'
+            - $ref: '#/components/schemas/MCPToolConfig-Input'
+          description: The type of tool
+          discriminator:
+            propertyName: type
+            mapping:
+              client: '#/components/schemas/ClientToolConfig-Input'
+              mcp: '#/components/schemas/MCPToolConfig-Input'
+              system: '#/components/schemas/SystemToolConfig-Input'
+              webhook: '#/components/schemas/WebhookToolConfig-Input'
+    ToolResponseModel:
+      title: ToolResponseModel
+      required:
+        - id
+        - tool_config
+        - access_info
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        tool_config:
+          title: Tool Config
+          oneOf:
+            - $ref: '#/components/schemas/WebhookToolConfig-Output'
+            - $ref: '#/components/schemas/ClientToolConfig-Output'
+            - $ref: '#/components/schemas/SystemToolConfig-Output'
+            - $ref: '#/components/schemas/MCPToolConfig-Output'
+          description: The type of tool
+          discriminator:
+            propertyName: type
+            mapping:
+              client: '#/components/schemas/ClientToolConfig-Output'
+              mcp: '#/components/schemas/MCPToolConfig-Output'
+              system: '#/components/schemas/SystemToolConfig-Output'
+              webhook: '#/components/schemas/WebhookToolConfig-Output'
+        access_info:
+          $ref: '#/components/schemas/ResourceAccessInfo'
+    ToolsResponseModel:
+      title: ToolsResponseModel
+      required:
+        - tools
+      type: object
+      properties:
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/ToolResponseModel'
     TransferToAgentToolConfig:
       title: TransferToAgentToolConfig
       required:
@@ -23598,10 +23866,6 @@ components:
         - api_schema
       type: object
       properties:
-        id:
-          title: Id
-          type: string
-          default: ''
         name:
           title: Name
           minLength: 0
@@ -23641,10 +23905,6 @@ components:
         - api_schema
       type: object
       properties:
-        id:
-          title: Id
-          type: string
-          default: ''
         name:
           title: Name
           minLength: 0
