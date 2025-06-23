@@ -3,34 +3,35 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class TextToVoiceClient
     {
-        partial void PrepareEditConvaiToolsByToolIdArguments(
+        partial void PrepareCreateTextToVoiceDesignArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
+            ref global::ElevenLabs.DesignAVoiceV1TextToVoiceDesignPostOutputFormat? outputFormat,
             ref string? xiApiKey,
-            global::ElevenLabs.ToolRequestModel request);
-        partial void PrepareEditConvaiToolsByToolIdRequest(
+            global::ElevenLabs.VoiceDesignRequestModel request);
+        partial void PrepareCreateTextToVoiceDesignRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
+            global::ElevenLabs.DesignAVoiceV1TextToVoiceDesignPostOutputFormat? outputFormat,
             string? xiApiKey,
-            global::ElevenLabs.ToolRequestModel request);
-        partial void ProcessEditConvaiToolsByToolIdResponse(
+            global::ElevenLabs.VoiceDesignRequestModel request);
+        partial void ProcessCreateTextToVoiceDesignResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessEditConvaiToolsByToolIdResponseContent(
+        partial void ProcessCreateTextToVoiceDesignResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Design A Voice.<br/>
+        /// Design a voice via a prompt. This method returns a list of voice previews. Each preview has a generated_voice_id and a sample of the voice as base64 encoded mp3 audio. To create a voice use the generated_voice_id of the preferred preview with the /v1/text-to-voice endpoint.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="outputFormat">
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+        /// Default Value: mp3_44100_192
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -38,9 +39,9 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> EditConvaiToolsByToolIdAsync(
-            string toolId,
-            global::ElevenLabs.ToolRequestModel request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreateTextToVoiceDesignAsync(
+            global::ElevenLabs.VoiceDesignRequestModel request,
+            global::ElevenLabs.DesignAVoiceV1TextToVoiceDesignPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -48,18 +49,21 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareEditConvaiToolsByToolIdArguments(
+            PrepareCreateTextToVoiceDesignArguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
+                outputFormat: ref outputFormat,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/tools/{toolId}",
+                path: "/v1/text-to-voice/design",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("output_format", outputFormat?.ToValueString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: new global::System.Net.Http.HttpMethod("PATCH"),
+                method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -97,10 +101,10 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareEditConvaiToolsByToolIdRequest(
+            PrepareCreateTextToVoiceDesignRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                toolId: toolId,
+                outputFormat: outputFormat,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -112,7 +116,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessEditConvaiToolsByToolIdResponse(
+            ProcessCreateTextToVoiceDesignResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -165,7 +169,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessEditConvaiToolsByToolIdResponseContent(
+                ProcessCreateTextToVoiceDesignResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -175,7 +179,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        global::ElevenLabs.VoicePreviewsResponseModel.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -206,7 +210,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::ElevenLabs.VoicePreviewsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -226,33 +230,91 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Design A Voice.<br/>
+        /// Design a voice via a prompt. This method returns a list of voice previews. Each preview has a generated_voice_id and a sample of the voice as base64 encoded mp3 audio. To create a voice use the generated_voice_id of the preferred preview with the /v1/text-to-voice endpoint.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="outputFormat">
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+        /// Default Value: mp3_44100_192
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
+        /// <param name="voiceDescription">
+        /// Description to use for the created voice.<br/>
+        /// Example: A sassy squeaky mouse
+        /// </param>
+        /// <param name="modelId">
+        /// Model to use for the voice generation. Possible values: eleven_multilingual_ttv_v2, eleven_ttv_v3.<br/>
+        /// Default Value: eleven_multilingual_ttv_v2<br/>
+        /// Example: eleven_multilingual_ttv_v2
+        /// </param>
+        /// <param name="text">
+        /// Text to generate, text length has to be between 100 and 1000.<br/>
+        /// Example: Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.
+        /// </param>
+        /// <param name="autoGenerateText">
+        /// Whether to automatically generate a text suitable for the voice description.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="loudness">
+        /// Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.<br/>
+        /// Default Value: 0.5<br/>
+        /// Example: 0.5
+        /// </param>
+        /// <param name="seed">
+        /// Random number that controls the voice generation. Same seed with same inputs produces same voice.<br/>
+        /// Example: 11
+        /// </param>
+        /// <param name="guidanceScale">
+        /// Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.<br/>
+        /// Default Value: 5<br/>
+        /// Example: 5
+        /// </param>
+        /// <param name="quality">
+        /// Higher quality results in better voice output but less variety.<br/>
+        /// Example: 0.9
+        /// </param>
+        /// <param name="referenceAudioBase64">
+        /// Reference audio to use for the voice generation. The audio should be base64 encoded. Only supported when using the  eleven_ttv_v3 model.
+        /// </param>
+        /// <param name="promptStrength">
+        /// Controls the balance of prompt versus reference audio when generating voice samples. 0 means almost no prompt influence, 1 means almost no reference audio influence. Only supported when using the eleven_ttv_v3 model and providing reference audio.<br/>
+        /// Example: 0.25
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> EditConvaiToolsByToolIdAsync(
-            string toolId,
-            global::ElevenLabs.ToolConfig toolConfig,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreateTextToVoiceDesignAsync(
+            string voiceDescription,
+            global::ElevenLabs.DesignAVoiceV1TextToVoiceDesignPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
+            global::ElevenLabs.VoiceDesignRequestModelModelId? modelId = default,
+            string? text = default,
+            bool? autoGenerateText = default,
+            double? loudness = default,
+            int? seed = default,
+            double? guidanceScale = default,
+            double? quality = default,
+            string? referenceAudioBase64 = default,
+            double? promptStrength = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ToolRequestModel
+            var __request = new global::ElevenLabs.VoiceDesignRequestModel
             {
-                ToolConfig = toolConfig,
+                VoiceDescription = voiceDescription,
+                ModelId = modelId,
+                Text = text,
+                AutoGenerateText = autoGenerateText,
+                Loudness = loudness,
+                Seed = seed,
+                GuidanceScale = guidanceScale,
+                Quality = quality,
+                ReferenceAudioBase64 = referenceAudioBase64,
+                PromptStrength = promptStrength,
             };
 
-            return await EditConvaiToolsByToolIdAsync(
-                toolId: toolId,
+            return await CreateTextToVoiceDesignAsync(
+                outputFormat: outputFormat,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

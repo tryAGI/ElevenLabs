@@ -5,32 +5,33 @@ namespace ElevenLabs
 {
     public partial class ConversationalAIClient
     {
-        partial void PrepareEditConvaiToolsByToolIdArguments(
+        partial void PrepareCreateConvaiAgentsByAgentIdDuplicateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
+            ref string agentId,
             ref string? xiApiKey,
-            global::ElevenLabs.ToolRequestModel request);
-        partial void PrepareEditConvaiToolsByToolIdRequest(
+            global::ElevenLabs.BodyDuplicateAgentV1ConvaiAgentsAgentIdDuplicatePost request);
+        partial void PrepareCreateConvaiAgentsByAgentIdDuplicateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
+            string agentId,
             string? xiApiKey,
-            global::ElevenLabs.ToolRequestModel request);
-        partial void ProcessEditConvaiToolsByToolIdResponse(
+            global::ElevenLabs.BodyDuplicateAgentV1ConvaiAgentsAgentIdDuplicatePost request);
+        partial void ProcessCreateConvaiAgentsByAgentIdDuplicateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessEditConvaiToolsByToolIdResponseContent(
+        partial void ProcessCreateConvaiAgentsByAgentIdDuplicateResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Duplicate Agent<br/>
+        /// Create a new agent by duplicating an existing one
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -38,9 +39,9 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> EditConvaiToolsByToolIdAsync(
-            string toolId,
-            global::ElevenLabs.ToolRequestModel request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentResponseModel> CreateConvaiAgentsByAgentIdDuplicateAsync(
+            string agentId,
+            global::ElevenLabs.BodyDuplicateAgentV1ConvaiAgentsAgentIdDuplicatePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -48,18 +49,18 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareEditConvaiToolsByToolIdArguments(
+            PrepareCreateConvaiAgentsByAgentIdDuplicateArguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
+                agentId: ref agentId,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/tools/{toolId}",
+                path: $"/v1/convai/agents/{agentId}/duplicate",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: new global::System.Net.Http.HttpMethod("PATCH"),
+                method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -97,10 +98,10 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareEditConvaiToolsByToolIdRequest(
+            PrepareCreateConvaiAgentsByAgentIdDuplicateRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                toolId: toolId,
+                agentId: agentId,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -112,7 +113,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessEditConvaiToolsByToolIdResponse(
+            ProcessCreateConvaiAgentsByAgentIdDuplicateResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -165,7 +166,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessEditConvaiToolsByToolIdResponseContent(
+                ProcessCreateConvaiAgentsByAgentIdDuplicateResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -175,7 +176,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        global::ElevenLabs.CreateAgentResponseModel.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -206,7 +207,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::ElevenLabs.CreateAgentResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -226,33 +227,35 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Duplicate Agent<br/>
+        /// Create a new agent by duplicating an existing one
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
+        /// <param name="name">
+        /// A name to make the agent easier to find<br/>
+        /// Example: My agent
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> EditConvaiToolsByToolIdAsync(
-            string toolId,
-            global::ElevenLabs.ToolConfig toolConfig,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentResponseModel> CreateConvaiAgentsByAgentIdDuplicateAsync(
+            string agentId,
             string? xiApiKey = default,
+            string? name = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ToolRequestModel
+            var __request = new global::ElevenLabs.BodyDuplicateAgentV1ConvaiAgentsAgentIdDuplicatePost
             {
-                ToolConfig = toolConfig,
+                Name = name,
             };
 
-            return await EditConvaiToolsByToolIdAsync(
-                toolId: toolId,
+            return await CreateConvaiAgentsByAgentIdDuplicateAsync(
+                agentId: agentId,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

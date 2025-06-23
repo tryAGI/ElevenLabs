@@ -1370,6 +1370,108 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: text_to_voice
       x-fern-sdk-method-name: create_voice_from_preview
+  /v1/text-to-voice:
+    post:
+      tags:
+        - text-to-voice
+      summary: Create A New Voice From Voice Preview
+      description: Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/design or POST /v1/text-to-voice/:voice_id/remix.
+      operationId: Create_a_new_voice_from_voice_preview_v1_text_to_voice_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoiceResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: text_to_voice
+      x-fern-sdk-method-name: create
+  /v1/text-to-voice/design:
+    post:
+      tags:
+        - text-to-voice
+      summary: Design A Voice.
+      description: Design a voice via a prompt. This method returns a list of voice previews. Each preview has a generated_voice_id and a sample of the voice as base64 encoded mp3 audio. To create a voice use the generated_voice_id of the preferred preview with the /v1/text-to-voice endpoint.
+      operationId: Design_a_voice__v1_text_to_voice_design_post
+      parameters:
+        - name: output_format
+          in: query
+          description: 'Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.'
+          schema:
+            title: Output format of the generated audio.
+            enum:
+              - mp3_22050_32
+              - mp3_44100_32
+              - mp3_44100_64
+              - mp3_44100_96
+              - mp3_44100_128
+              - mp3_44100_192
+              - pcm_8000
+              - pcm_16000
+              - pcm_22050
+              - pcm_24000
+              - pcm_44100
+              - pcm_48000
+              - ulaw_8000
+              - alaw_8000
+              - opus_48000_32
+              - opus_48000_64
+              - opus_48000_96
+              - opus_48000_128
+              - opus_48000_192
+            type: string
+            description: 'Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.'
+            default: mp3_44100_192
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoiceDesignRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoicePreviewsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: text_to_voice
+      x-fern-sdk-method-name: design
   /v1/user/subscription:
     get:
       tags:
@@ -6026,6 +6128,76 @@ paths:
         - workspace
         - resources
       x-fern-sdk-method-name: unshare
+  /v1/workspace/default-sharing-preferences:
+    get:
+      tags:
+        - workspace
+        - workspace
+      summary: Get Default Sharing Preferences
+      description: Get the user's default sharing preferences.
+      operationId: get_default_sharing_preferences_v1_workspace_default_sharing_preferences_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultSharingPreferencesResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+        - workspace
+        - workspace
+      summary: Update Default Sharing Preferences
+      description: Update the user's default sharing preferences.
+      operationId: update_default_sharing_preferences_v1_workspace_default_sharing_preferences_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_update_default_sharing_preferences_v1_workspace_default_sharing_preferences_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/workspace/share-options:
+    get:
+      tags:
+        - workspace
+        - workspace
+      summary: Get Share Options
+      description: Get the share options for a workspace.
+      operationId: get_share_options_v1_workspace_share_options_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Share Options V1 Workspace Share Options Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/ShareOptionResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /v1/workspace/webhooks:
     get:
       tags:
@@ -6731,6 +6903,53 @@ paths:
         - agents
         - llm_usage
       x-fern-sdk-method-name: calculate
+  '/v1/convai/agents/{agent_id}/duplicate':
+    post:
+      tags:
+        - Conversational AI
+      summary: Duplicate Agent
+      description: Create a new agent by duplicating an existing one
+      operationId: Duplicate_Agent_v1_convai_agents__agent_id__duplicate_post
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Duplicate_Agent_v1_convai_agents__agent_id__duplicate_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAgentResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - agents
+      x-fern-sdk-method-name: duplicate
   '/v1/convai/agents/{agent_id}/simulate-conversation':
     post:
       tags:
@@ -8211,8 +8430,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: conversational_ai
-      x-fern-sdk-method-name: add_tool
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tools
+      x-fern-sdk-method-name: create
     get:
       tags:
         - Conversational AI
@@ -8241,8 +8462,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: conversational_ai
-      x-fern-sdk-method-name: get_tools
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tools
+      x-fern-sdk-method-name: list
   '/v1/convai/tools/{tool_id}':
     get:
       tags:
@@ -8280,8 +8503,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: conversational_ai
-      x-fern-sdk-method-name: get_tool
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tools
+      x-fern-sdk-method-name: get
     patch:
       tags:
         - Conversational AI
@@ -8324,8 +8549,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: conversational_ai
-      x-fern-sdk-method-name: update_tool
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tools
+      x-fern-sdk-method-name: update
     delete:
       tags:
         - Conversational AI
@@ -8361,8 +8588,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: conversational_ai
-      x-fern-sdk-method-name: remove_tool
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tools
+      x-fern-sdk-method-name: delete
   '/v1/convai/tools/{tool_id}/dependent-agents':
     get:
       tags:
@@ -8421,7 +8650,7 @@ paths:
       x-fern-sdk-group-name:
         - conversational_ai
         - tools
-      x-fern-sdk-method-name: get_agents
+      x-fern-sdk-method-name: get_dependent_agents
   /v1/convai/settings:
     get:
       tags:
@@ -11698,6 +11927,47 @@ components:
             type: string
           description: List of voice ids that the user has played but not selected. Used for RLHF.
           nullable: true
+    Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_post:
+      title: Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_post
+      required:
+        - voice_name
+        - voice_description
+        - generated_voice_id
+      type: object
+      properties:
+        voice_name:
+          title: Voice Name
+          type: string
+          description: Name to use for the created voice.
+          example: Sassy squeaky mouse
+        voice_description:
+          title: Voice Description
+          maxLength: 1000
+          minLength: 20
+          type: string
+          description: Description to use for the created voice.
+          example: A sassy squeaky mouse
+        generated_voice_id:
+          title: Generated Voice Id
+          type: string
+          description: 'The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response header if don''t have one yet.'
+          example: 37HceQefKmEi3bGovXjL
+        labels:
+          title: Labels
+          type: object
+          additionalProperties:
+            type: string
+          description: 'Optional, metadata to add to the created voice. Defaults to None.'
+          nullable: true
+          example:
+            language: en
+        played_not_selected_voice_ids:
+          title: Played Not Selected Voice Ids
+          type: array
+          items:
+            type: string
+          description: List of voice ids that the user has played but not selected. Used for RLHF.
+          nullable: true
     Body_Create_a_previously_generated_voice_v1_voice_generation_create_voice_post:
       title: Body_Create_a_previously_generated_voice_v1_voice_generation_create_voice_post
       required:
@@ -12220,6 +12490,16 @@ components:
             type: string
           description: Dub only these languages for each segment.
           nullable: true
+    Body_Duplicate_Agent_v1_convai_agents__agent_id__duplicate_post:
+      title: Body_Duplicate_Agent_v1_convai_agents__agent_id__duplicate_post
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: A name to make the agent easier to find
+          nullable: true
+          example: My agent
     Body_Edit_PVC_voice_v1_voices_pvc__voice_id__post:
       title: Body_Edit_PVC_voice_v1_voices_pvc__voice_id__post
       type: object
@@ -13678,6 +13958,18 @@ components:
           type: string
           description: Audio recording of the user
           format: binary
+    Body_update_default_sharing_preferences_v1_workspace_default_sharing_preferences_post:
+      title: Body_update_default_sharing_preferences_v1_workspace_default_sharing_preferences_post
+      required:
+        - default_sharing_groups
+      type: object
+      properties:
+        default_sharing_groups:
+          title: Default Sharing Groups
+          type: array
+          items:
+            type: string
+          description: List of group IDs to share with by default
     Body_update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post:
       title: Body_update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post
       required:
@@ -14376,6 +14668,14 @@ components:
         llm_price:
           title: Llm Price
           type: number
+          nullable: true
+        llm_charge:
+          title: Llm Charge
+          type: integer
+          nullable: true
+        call_charge:
+          title: Call Charge
+          type: integer
           nullable: true
     ConversationConfig:
       title: ConversationConfig
@@ -15485,6 +15785,18 @@ components:
         rationale:
           title: Rationale
           type: string
+    DefaultSharingPreferencesResponseModel:
+      title: DefaultSharingPreferencesResponseModel
+      required:
+        - default_sharing_groups
+      type: object
+      properties:
+        default_sharing_groups:
+          title: Default Sharing Groups
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspaceGroupResponseModel'
+          description: List of groups that the user shares with by default
     DeleteChapterResponseModel:
       title: DeleteChapterResponseModel
       required:
@@ -22383,7 +22695,7 @@ components:
             - $ref: '#/components/schemas/ClientToolConfig-Input'
             - $ref: '#/components/schemas/SystemToolConfig-Input'
             - $ref: '#/components/schemas/MCPToolConfig-Input'
-          description: The type of tool
+          description: Configuration for the tool
           discriminator:
             propertyName: type
             mapping:
@@ -22897,6 +23209,86 @@ components:
           description: 'The status of the verify PVC captcha request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
+    VoiceDesignRequestModel:
+      title: VoiceDesignRequestModel
+      required:
+        - voice_description
+      type: object
+      properties:
+        voice_description:
+          title: Voice Description
+          maxLength: 1000
+          minLength: 20
+          type: string
+          description: Description to use for the created voice.
+          example: A sassy squeaky mouse
+        model_id:
+          title: Model Id
+          enum:
+            - eleven_multilingual_ttv_v2
+            - eleven_ttv_v3
+          type: string
+          description: 'Model to use for the voice generation. Possible values: eleven_multilingual_ttv_v2, eleven_ttv_v3.'
+          default: eleven_multilingual_ttv_v2
+          example: eleven_multilingual_ttv_v2
+        text:
+          title: Text
+          maxLength: 1000
+          minLength: 100
+          type: string
+          description: 'Text to generate, text length has to be between 100 and 1000.'
+          nullable: true
+          example: 'Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.'
+        auto_generate_text:
+          title: Auto Generate Text
+          type: boolean
+          description: Whether to automatically generate a text suitable for the voice description.
+          default: false
+        loudness:
+          title: Loudness
+          maximum: 1
+          minimum: -1
+          type: number
+          description: 'Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.'
+          default: 0.5
+          example: 0.5
+        seed:
+          title: Seed
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: Random number that controls the voice generation. Same seed with same inputs produces same voice.
+          nullable: true
+          example: 11
+        guidance_scale:
+          title: Guidance Scale
+          maximum: 100
+          minimum: 0
+          type: number
+          description: 'Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.'
+          default: 5
+          example: 5
+        quality:
+          title: Quality
+          maximum: 1
+          minimum: -1
+          type: number
+          description: Higher quality results in better voice output but less variety.
+          nullable: true
+          example: 0.9
+        reference_audio_base64:
+          title: Reference Audio Base64
+          type: string
+          description: Reference audio to use for the voice generation. The audio should be base64 encoded. Only supported when using the  eleven_ttv_v3 model.
+          nullable: true
+        prompt_strength:
+          title: Prompt Strength
+          maximum: 1
+          minimum: 0
+          type: number
+          description: 'Controls the balance of prompt versus reference audio when generating voice samples. 0 means almost no prompt influence, 1 means almost no reference audio influence. Only supported when using the eleven_ttv_v3 model and providing reference audio.'
+          nullable: true
+          example: 0.25
     VoiceGenerationParameterOptionResponseModel:
       title: VoiceGenerationParameterOptionResponseModel
       required:
@@ -24798,6 +25190,52 @@ components:
           - john.doe@example.com
           - jane.smith@example.com
         name: My Workspace Group
+    WorkspaceGroupPermission:
+      title: WorkspaceGroupPermission
+      enum:
+        - text_to_speech
+        - speech_to_speech
+        - voice_lab
+        - sound_effects
+        - projects
+        - voiceover_studio
+        - dubbing
+        - audio_native
+        - conversational_ai
+        - voice_isolator
+        - ai_speech_classifier
+        - add_voice_from_voice_library
+        - create_instant_voice_clone
+        - create_professional_voice_clone
+        - create_user_api_key
+        - publish_studio_project
+      type: string
+    WorkspaceGroupResponseModel:
+      title: WorkspaceGroupResponseModel
+      required:
+        - name
+        - id
+        - members
+        - permissions
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        id:
+          title: Id
+          type: string
+        members:
+          title: Members
+          type: array
+          items:
+            type: string
+        permissions:
+          title: Permissions
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspaceGroupPermission'
+          nullable: true
     WorkspaceResourceType:
       title: WorkspaceResourceType
       enum:
