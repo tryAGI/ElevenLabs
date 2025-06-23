@@ -5,7 +5,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The type of tool
+    /// Configuration for the tool
     /// </summary>
     public readonly partial struct ToolConfig : global::System.IEquatable<ToolConfig>
     {

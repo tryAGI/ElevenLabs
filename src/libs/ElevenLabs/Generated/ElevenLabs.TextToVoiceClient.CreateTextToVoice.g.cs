@@ -3,44 +3,38 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class TextToVoiceClient
     {
-        partial void PrepareEditConvaiToolsByToolIdArguments(
+        partial void PrepareCreateTextToVoiceArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
             ref string? xiApiKey,
-            global::ElevenLabs.ToolRequestModel request);
-        partial void PrepareEditConvaiToolsByToolIdRequest(
+            global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePost request);
+        partial void PrepareCreateTextToVoiceRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
             string? xiApiKey,
-            global::ElevenLabs.ToolRequestModel request);
-        partial void ProcessEditConvaiToolsByToolIdResponse(
+            global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePost request);
+        partial void ProcessCreateTextToVoiceResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessEditConvaiToolsByToolIdResponseContent(
+        partial void ProcessCreateTextToVoiceResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Create A New Voice From Voice Preview<br/>
+        /// Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/design or POST /v1/text-to-voice/:voice_id/remix.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> EditConvaiToolsByToolIdAsync(
-            string toolId,
-            global::ElevenLabs.ToolRequestModel request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceResponseModel> CreateTextToVoiceAsync(
+            global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -48,18 +42,17 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareEditConvaiToolsByToolIdArguments(
+            PrepareCreateTextToVoiceArguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/tools/{toolId}",
+                path: "/v1/text-to-voice",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: new global::System.Net.Http.HttpMethod("PATCH"),
+                method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -97,10 +90,9 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareEditConvaiToolsByToolIdRequest(
+            PrepareCreateTextToVoiceRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                toolId: toolId,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -112,7 +104,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessEditConvaiToolsByToolIdResponse(
+            ProcessCreateTextToVoiceResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -165,7 +157,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessEditConvaiToolsByToolIdResponseContent(
+                ProcessCreateTextToVoiceResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -175,7 +167,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        global::ElevenLabs.VoiceResponseModel.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -206,7 +198,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::ElevenLabs.VoiceResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -226,33 +218,51 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Create A New Voice From Voice Preview<br/>
+        /// Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/design or POST /v1/text-to-voice/:voice_id/remix.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
+        /// <param name="voiceName">
+        /// Name to use for the created voice.<br/>
+        /// Example: Sassy squeaky mouse
+        /// </param>
+        /// <param name="voiceDescription">
+        /// Description to use for the created voice.<br/>
+        /// Example: A sassy squeaky mouse
+        /// </param>
+        /// <param name="generatedVoiceId">
+        /// The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response header if don't have one yet.<br/>
+        /// Example: 37HceQefKmEi3bGovXjL
+        /// </param>
+        /// <param name="labels">
+        /// Optional, metadata to add to the created voice. Defaults to None.
+        /// </param>
+        /// <param name="playedNotSelectedVoiceIds">
+        /// List of voice ids that the user has played but not selected. Used for RLHF.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> EditConvaiToolsByToolIdAsync(
-            string toolId,
-            global::ElevenLabs.ToolConfig toolConfig,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceResponseModel> CreateTextToVoiceAsync(
+            string voiceName,
+            string voiceDescription,
+            string generatedVoiceId,
             string? xiApiKey = default,
+            global::System.Collections.Generic.Dictionary<string, string>? labels = default,
+            global::System.Collections.Generic.IList<string>? playedNotSelectedVoiceIds = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ToolRequestModel
+            var __request = new global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePost
             {
-                ToolConfig = toolConfig,
+                VoiceName = voiceName,
+                VoiceDescription = voiceDescription,
+                GeneratedVoiceId = generatedVoiceId,
+                Labels = labels,
+                PlayedNotSelectedVoiceIds = playedNotSelectedVoiceIds,
             };
 
-            return await EditConvaiToolsByToolIdAsync(
-                toolId: toolId,
+            return await CreateTextToVoiceAsync(
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ToolRequestModel
     {
         /// <summary>
-        /// The type of tool
+        /// Configuration for the tool
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_config")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolConfigJsonConverter))]
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ToolRequestModel" /> class.
         /// </summary>
         /// <param name="toolConfig">
-        /// The type of tool
+        /// Configuration for the tool
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

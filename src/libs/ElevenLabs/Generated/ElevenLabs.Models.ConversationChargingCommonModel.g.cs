@@ -39,6 +39,18 @@ namespace ElevenLabs
         public double? LlmPrice { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("llm_charge")]
+        public int? LlmCharge { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_charge")]
+        public int? CallCharge { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -56,6 +68,8 @@ namespace ElevenLabs
         /// <param name="tier"></param>
         /// <param name="llmUsage"></param>
         /// <param name="llmPrice"></param>
+        /// <param name="llmCharge"></param>
+        /// <param name="callCharge"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -64,13 +78,17 @@ namespace ElevenLabs
             bool? isBurst,
             string? tier,
             global::ElevenLabs.LLMCategoryUsage? llmUsage,
-            double? llmPrice)
+            double? llmPrice,
+            int? llmCharge,
+            int? callCharge)
         {
             this.DevDiscount = devDiscount;
             this.IsBurst = isBurst;
             this.Tier = tier;
             this.LlmUsage = llmUsage;
             this.LlmPrice = llmPrice;
+            this.LlmCharge = llmCharge;
+            this.CallCharge = callCharge;
         }
 
         /// <summary>

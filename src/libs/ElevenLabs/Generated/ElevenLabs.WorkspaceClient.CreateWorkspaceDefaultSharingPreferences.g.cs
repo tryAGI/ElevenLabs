@@ -3,63 +3,49 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class WorkspaceClient
     {
-        partial void PrepareEditConvaiToolsByToolIdArguments(
+        partial void PrepareCreateWorkspaceDefaultSharingPreferencesArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
-            ref string? xiApiKey,
-            global::ElevenLabs.ToolRequestModel request);
-        partial void PrepareEditConvaiToolsByToolIdRequest(
+            global::ElevenLabs.BodyUpdateDefaultSharingPreferencesV1WorkspaceDefaultSharingPreferencesPost request);
+        partial void PrepareCreateWorkspaceDefaultSharingPreferencesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
-            string? xiApiKey,
-            global::ElevenLabs.ToolRequestModel request);
-        partial void ProcessEditConvaiToolsByToolIdResponse(
+            global::ElevenLabs.BodyUpdateDefaultSharingPreferencesV1WorkspaceDefaultSharingPreferencesPost request);
+        partial void ProcessCreateWorkspaceDefaultSharingPreferencesResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessEditConvaiToolsByToolIdResponseContent(
+        partial void ProcessCreateWorkspaceDefaultSharingPreferencesResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Update Default Sharing Preferences<br/>
+        /// Update the user's default sharing preferences.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> EditConvaiToolsByToolIdAsync(
-            string toolId,
-            global::ElevenLabs.ToolRequestModel request,
-            string? xiApiKey = default,
+        public async global::System.Threading.Tasks.Task<string> CreateWorkspaceDefaultSharingPreferencesAsync(
+            global::ElevenLabs.BodyUpdateDefaultSharingPreferencesV1WorkspaceDefaultSharingPreferencesPost request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareEditConvaiToolsByToolIdArguments(
+            PrepareCreateWorkspaceDefaultSharingPreferencesArguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/tools/{toolId}",
+                path: "/v1/workspace/default-sharing-preferences",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: new global::System.Net.Http.HttpMethod("PATCH"),
+                method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -81,12 +67,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -97,11 +77,9 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareEditConvaiToolsByToolIdRequest(
+            PrepareCreateWorkspaceDefaultSharingPreferencesRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                toolId: toolId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -112,7 +90,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessEditConvaiToolsByToolIdResponse(
+            ProcessCreateWorkspaceDefaultSharingPreferencesResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -165,7 +143,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessEditConvaiToolsByToolIdResponseContent(
+                ProcessCreateWorkspaceDefaultSharingPreferencesResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -174,9 +152,7 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerContext) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -199,15 +175,13 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -226,34 +200,24 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Update Default Sharing Preferences<br/>
+        /// Update the user's default sharing preferences.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
+        /// <param name="defaultSharingGroups">
+        /// List of group IDs to share with by default
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> EditConvaiToolsByToolIdAsync(
-            string toolId,
-            global::ElevenLabs.ToolConfig toolConfig,
-            string? xiApiKey = default,
+        public async global::System.Threading.Tasks.Task<string> CreateWorkspaceDefaultSharingPreferencesAsync(
+            global::System.Collections.Generic.IList<string> defaultSharingGroups,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ToolRequestModel
+            var __request = new global::ElevenLabs.BodyUpdateDefaultSharingPreferencesV1WorkspaceDefaultSharingPreferencesPost
             {
-                ToolConfig = toolConfig,
+                DefaultSharingGroups = defaultSharingGroups,
             };
 
-            return await EditConvaiToolsByToolIdAsync(
-                toolId: toolId,
-                xiApiKey: xiApiKey,
+            return await CreateWorkspaceDefaultSharingPreferencesAsync(
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
