@@ -95,6 +95,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public SamplesClient Samples { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public TextToDialogueClient TextToDialogue { get; }
 
         /// <summary>
@@ -141,6 +146,11 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public EnterpriseClient Enterprise { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ModelsClient Models { get; }
 
         /// <summary>
         /// 
