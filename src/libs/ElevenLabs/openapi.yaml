@@ -392,7 +392,7 @@ paths:
   '/v1/voices/{voice_id}/samples/{sample_id}':
     delete:
       tags:
-        - samples
+        - Samples
       summary: Delete Sample
       description: Removes a sample by its ID.
       operationId: Delete_sample_v1_voices__voice_id__samples__sample_id__delete
@@ -441,7 +441,7 @@ paths:
   '/v1/voices/{voice_id}/samples/{sample_id}/audio':
     get:
       tags:
-        - samples
+        - Samples
       summary: Get Audio From Sample
       description: Returns the audio corresponding to a sample attached to a voice.
       operationId: Get_audio_from_sample_v1_voices__voice_id__samples__sample_id__audio_get
@@ -1475,7 +1475,7 @@ paths:
   /v1/user/subscription:
     get:
       tags:
-        - user
+        - User
       summary: Get User Subscription Info
       description: Gets extended information about the users subscription
       operationId: Get_user_subscription_info_v1_user_subscription_get
@@ -1508,7 +1508,7 @@ paths:
   /v1/user:
     get:
       tags:
-        - user
+        - User
       summary: Get User Info
       description: Gets information about the user
       operationId: Get_user_info_v1_user_get
@@ -4843,7 +4843,7 @@ paths:
   /v1/models:
     get:
       tags:
-        - models
+        - Models
       summary: Get Models
       description: Gets a list of available models.
       operationId: Get_Models_v1_models_get
@@ -5232,7 +5232,7 @@ paths:
   /v1/usage/character-stats:
     get:
       tags:
-        - usage
+        - Usage
       summary: Get Characters Usage Metrics
       description: 'Returns the usage metrics for the current user or the entire workspace they are part of. The response provides a time axis based on the specified aggregation interval (default: day), with usage values for each interval along that axis. Usage is broken down by the selected breakdown type. For example, breakdown type "voice" will return the usage of each voice for each interval along the time axis.'
       operationId: Get_characters_usage_metrics_v1_usage_character_stats_get
@@ -5641,8 +5641,7 @@ paths:
   /v1/workspace/user-auto-provisioning:
     post:
       tags:
-        - workspace
-        - workspace
+        - Workspace
       summary: Update User Auto Provisioning
       description: Update user auto provisioning settings for the workspace.
       operationId: update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post
@@ -5667,7 +5666,7 @@ paths:
   /v1/workspace/groups/search:
     get:
       tags:
-        - workspace
+        - Workspace
       summary: Search User Groups
       description: Searches for user groups in the workspace. Multiple or no groups may be returned.
       operationId: Search_user_groups_v1_workspace_groups_search_get
@@ -5711,7 +5710,7 @@ paths:
   '/v1/workspace/groups/{group_id}/members/remove':
     post:
       tags:
-        - workspace
+        - Workspace
       summary: Delete Member From User Group
       description: Removes a member from the specified group. This endpoint may only be called by workspace administrators.
       operationId: Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
@@ -5759,7 +5758,7 @@ paths:
   '/v1/workspace/groups/{group_id}/members':
     post:
       tags:
-        - workspace
+        - Workspace
       summary: Add Member To User Group
       description: Adds a member of your workspace to the specified group. This endpoint may only be called by workspace administrators.
       operationId: Add_member_to_user_group_v1_workspace_groups__group_id__members_post
@@ -5807,7 +5806,7 @@ paths:
   /v1/workspace/invites/add:
     post:
       tags:
-        - workspace
+        - Workspace
       summary: Invite User
       description: Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace administrators. If the user is already in the workspace a 400 error will be returned.
       operationId: Invite_user_v1_workspace_invites_add_post
@@ -5846,7 +5845,7 @@ paths:
   /v1/workspace/invites/add-bulk:
     post:
       tags:
-        - workspace
+        - Workspace
       summary: Invite Multiple Users
       description: Sends email invitations to join your workspace to the provided emails. Requires all email addresses to be part of a verified domain. If the users don't have an account they will be prompted to create one. If the users accept these invites they will be added as users to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace administrators.
       operationId: Invite_multiple_users_v1_workspace_invites_add_bulk_post
@@ -5885,7 +5884,7 @@ paths:
   /v1/workspace/invites:
     delete:
       tags:
-        - workspace
+        - Workspace
       summary: Delete Existing Invitation
       description: 'Invalidates an existing email invitation. The invitation will still show up in the inbox it has been delivered to, but activating it to join the workspace won''t work. This endpoint may only be called by workspace administrators.'
       operationId: Delete_existing_invitation_v1_workspace_invites_delete
@@ -5924,7 +5923,7 @@ paths:
   /v1/workspace/members:
     post:
       tags:
-        - workspace
+        - Workspace
       summary: Update Member
       description: 'Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.'
       operationId: Update_member_v1_workspace_members_post
@@ -5962,7 +5961,7 @@ paths:
       x-fern-sdk-method-name: update
     delete:
       tags:
-        - workspace
+        - Workspace
       summary: Delete Member
       description: Deletes a workspace member. This endpoint may only be called by workspace administrators.
       operationId: Delete_member_v1_workspace_members_delete
@@ -5992,7 +5991,7 @@ paths:
   '/v1/workspace/resources/{resource_id}':
     get:
       tags:
-        - workspace
+        - Workspace
       summary: Get Resource
       description: Gets the metadata of a resource by ID.
       operationId: Get_resource_v1_workspace_resources__resource_id__get
@@ -6039,7 +6038,7 @@ paths:
   '/v1/workspace/resources/{resource_id}/share':
     post:
       tags:
-        - workspace
+        - Workspace
       summary: Share Workspace Resource
       description: 'Grants a role on a workspace resource to a user or a group. It overrides any existing role this user/service account/group/workspace api key has on the resource. To target a user or service account, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. The resource will be shared with the service account associated with the api key. You must have admin access to the resource to share it.'
       operationId: Share_workspace_resource_v1_workspace_resources__resource_id__share_post
@@ -6085,7 +6084,7 @@ paths:
   '/v1/workspace/resources/{resource_id}/unshare':
     post:
       tags:
-        - workspace
+        - Workspace
       summary: Unshare Workspace Resource
       description: 'Removes any existing role on a workspace resource from a user, service account, group or workspace api key. To target a user or service account, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. The resource will be unshared from the service account associated with the api key. You must have admin access to the resource to unshare it. You cannot remove permissions from the user who created the resource.'
       operationId: Unshare_workspace_resource_v1_workspace_resources__resource_id__unshare_post
@@ -6131,8 +6130,7 @@ paths:
   /v1/workspace/default-sharing-preferences:
     get:
       tags:
-        - workspace
-        - workspace
+        - Workspace
       summary: Get Default Sharing Preferences
       description: Get the user's default sharing preferences.
       operationId: get_default_sharing_preferences_v1_workspace_default_sharing_preferences_get
@@ -6151,8 +6149,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     post:
       tags:
-        - workspace
-        - workspace
+        - Workspace
       summary: Update Default Sharing Preferences
       description: Update the user's default sharing preferences.
       operationId: update_default_sharing_preferences_v1_workspace_default_sharing_preferences_post
@@ -6177,8 +6174,7 @@ paths:
   /v1/workspace/share-options:
     get:
       tags:
-        - workspace
-        - workspace
+        - Workspace
       summary: Get Share Options
       description: Get the share options for a workspace.
       operationId: get_share_options_v1_workspace_share_options_get
@@ -6201,7 +6197,7 @@ paths:
   /v1/workspace/webhooks:
     get:
       tags:
-        - workspace
+        - Workspace
       summary: List Workspace Webhooks
       description: List all webhooks for a workspace
       operationId: List_workspace_webhooks_v1_workspace_webhooks_get
