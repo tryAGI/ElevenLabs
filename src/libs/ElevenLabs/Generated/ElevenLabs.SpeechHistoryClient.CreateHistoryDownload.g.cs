@@ -112,15 +112,18 @@ namespace ElevenLabs
             {
                 string? __content_400 = null;
                 global::System.Exception? __exception_400 = null;
+                global::ElevenLabs.DownloadHistoryItemsV1HistoryDownloadPostResponse? __value_400 = null;
                 try
                 {
                     if (ReadResponseAsString)
                     {
                         __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        __value_400 = global::ElevenLabs.DownloadHistoryItemsV1HistoryDownloadPostResponse.FromJson(__content_400, JsonSerializerContext);
                     }
                     else
                     {
                         var __contentStream_400 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                        __value_400 = await global::ElevenLabs.DownloadHistoryItemsV1HistoryDownloadPostResponse.FromJsonStreamAsync(__contentStream_400, JsonSerializerContext).ConfigureAwait(false);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -128,12 +131,13 @@ namespace ElevenLabs
                     __exception_400 = __ex;
                 }
 
-                throw new global::ElevenLabs.ApiException(
+                throw new global::ElevenLabs.ApiException<global::ElevenLabs.DownloadHistoryItemsV1HistoryDownloadPostResponse>(
                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                     innerException: __exception_400,
                     statusCode: __response.StatusCode)
                 {
                     ResponseBody = __content_400,
+                    ResponseObject = __value_400,
                     ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                         __response.Headers,
                         h => h.Key,

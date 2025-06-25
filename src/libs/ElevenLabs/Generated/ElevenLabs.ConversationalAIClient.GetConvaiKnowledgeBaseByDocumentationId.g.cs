@@ -8,11 +8,13 @@ namespace ElevenLabs
         partial void PrepareGetConvaiKnowledgeBaseByDocumentationIdArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
+            ref string? agentId,
             ref string? xiApiKey);
         partial void PrepareGetConvaiKnowledgeBaseByDocumentationIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string documentationId,
+            string? agentId,
             string? xiApiKey);
         partial void ProcessGetConvaiKnowledgeBaseByDocumentationIdResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -31,6 +33,7 @@ namespace ElevenLabs
         /// The id of a document from the knowledge base. This is returned on document addition.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
         /// </param>
+        /// <param name="agentId"></param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -38,6 +41,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetDocumentationFromKnowledgeBaseV1ConvaiKnowledgeBaseDocumentationIdGetResponse> GetConvaiKnowledgeBaseByDocumentationIdAsync(
             string documentationId,
+            string? agentId = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -46,11 +50,15 @@ namespace ElevenLabs
             PrepareGetConvaiKnowledgeBaseByDocumentationIdArguments(
                 httpClient: HttpClient,
                 documentationId: ref documentationId,
+                agentId: ref agentId,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("agent_id", agentId) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -89,6 +97,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 documentationId: documentationId,
+                agentId: agentId,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

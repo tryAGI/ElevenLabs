@@ -64,8 +64,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("archived_time_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset? ArchivedTimeUnix { get; set; }
+        public global::System.DateTimeOffset? ArchivedTimeUnix { get; set; }
 
         /// <summary>
         /// The description of the pronunciation dictionary.

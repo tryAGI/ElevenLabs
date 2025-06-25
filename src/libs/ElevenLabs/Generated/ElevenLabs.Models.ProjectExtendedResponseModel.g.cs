@@ -232,11 +232,10 @@ namespace ElevenLabs
         public required global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization ApplyTextNormalization { get; set; }
 
         /// <summary>
-        /// Experimental features of the project.
+        /// Experimental features for the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required object Experimental { get; set; }
+        public object? Experimental { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -346,7 +345,7 @@ namespace ElevenLabs
         /// Whether text normalization is applied to the project.
         /// </param>
         /// <param name="experimental">
-        /// Experimental features of the project.
+        /// Experimental features for the project.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -369,7 +368,6 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> pronunciationDictionaryVersions,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> pronunciationDictionaryLocators,
             global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization applyTextNormalization,
-            object experimental,
             int? lastConversionDateUnix,
             string? title,
             string? author,
@@ -385,7 +383,8 @@ namespace ElevenLabs
             global::ElevenLabs.ProjectExtendedResponseModelFiction? fiction,
             global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta,
             global::ElevenLabs.ProjectExtendedResponseModelSourceType? sourceType,
-            bool? chaptersEnabled)
+            bool? chaptersEnabled,
+            object? experimental)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -404,7 +403,6 @@ namespace ElevenLabs
             this.PronunciationDictionaryVersions = pronunciationDictionaryVersions ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryVersions));
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryLocators));
             this.ApplyTextNormalization = applyTextNormalization;
-            this.Experimental = experimental ?? throw new global::System.ArgumentNullException(nameof(experimental));
             this.LastConversionDateUnix = lastConversionDateUnix;
             this.Title = title;
             this.Author = author;
@@ -421,6 +419,7 @@ namespace ElevenLabs
             this.CreationMeta = creationMeta;
             this.SourceType = sourceType;
             this.ChaptersEnabled = chaptersEnabled;
+            this.Experimental = experimental;
         }
 
         /// <summary>

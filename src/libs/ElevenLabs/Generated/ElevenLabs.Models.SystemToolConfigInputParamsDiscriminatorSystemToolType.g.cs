@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        PlayKeypadTouchTone,
+        /// <summary>
+        /// 
+        /// </summary>
         SkipTurn,
         /// <summary>
         /// 
@@ -44,6 +48,7 @@ namespace ElevenLabs
             {
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.EndCall => "end_call",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.LanguageDetection => "language_detection",
+                SystemToolConfigInputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone => "play_keypad_touch_tone",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.SkipTurn => "skip_turn",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToAgent => "transfer_to_agent",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToNumber => "transfer_to_number",
@@ -59,6 +64,7 @@ namespace ElevenLabs
             {
                 "end_call" => SystemToolConfigInputParamsDiscriminatorSystemToolType.EndCall,
                 "language_detection" => SystemToolConfigInputParamsDiscriminatorSystemToolType.LanguageDetection,
+                "play_keypad_touch_tone" => SystemToolConfigInputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone,
                 "skip_turn" => SystemToolConfigInputParamsDiscriminatorSystemToolType.SkipTurn,
                 "transfer_to_agent" => SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToAgent,
                 "transfer_to_number" => SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToNumber,
