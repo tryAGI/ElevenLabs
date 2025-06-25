@@ -236,6 +236,13 @@ paths:
           description: Invalid request
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
               example:
                 error: invalid_output_format
                 message: output_format must be wav or none
@@ -392,7 +399,7 @@ paths:
   '/v1/voices/{voice_id}/samples/{sample_id}':
     delete:
       tags:
-        - Samples
+        - samples
       summary: Delete Sample
       description: Removes a sample by its ID.
       operationId: Delete_sample_v1_voices__voice_id__samples__sample_id__delete
@@ -441,7 +448,7 @@ paths:
   '/v1/voices/{voice_id}/samples/{sample_id}/audio':
     get:
       tags:
-        - Samples
+        - samples
       summary: Get Audio From Sample
       description: Returns the audio corresponding to a sample attached to a voice.
       operationId: Get_audio_from_sample_v1_voices__voice_id__samples__sample_id__audio_get
@@ -1475,7 +1482,7 @@ paths:
   /v1/user/subscription:
     get:
       tags:
-        - User
+        - user
       summary: Get User Subscription Info
       description: Gets extended information about the users subscription
       operationId: Get_user_subscription_info_v1_user_subscription_get
@@ -1508,7 +1515,7 @@ paths:
   /v1/user:
     get:
       tags:
-        - User
+        - user
       summary: Get User Info
       description: Gets information about the user
       operationId: Get_user_info_v1_user_get
@@ -4843,7 +4850,7 @@ paths:
   /v1/models:
     get:
       tags:
-        - Models
+        - models
       summary: Get Models
       description: Gets a list of available models.
       operationId: Get_Models_v1_models_get
@@ -5232,7 +5239,7 @@ paths:
   /v1/usage/character-stats:
     get:
       tags:
-        - Usage
+        - usage
       summary: Get Characters Usage Metrics
       description: 'Returns the usage metrics for the current user or the entire workspace they are part of. The response provides a time axis based on the specified aggregation interval (default: day), with usage values for each interval along that axis. Usage is broken down by the selected breakdown type. For example, breakdown type "voice" will return the usage of each voice for each interval along the time axis.'
       operationId: Get_characters_usage_metrics_v1_usage_character_stats_get
@@ -5638,35 +5645,10 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: pronunciation_dictionaries
       x-fern-sdk-method-name: list
-  /v1/workspace/user-auto-provisioning:
-    post:
-      tags:
-        - Workspace
-      summary: Update User Auto Provisioning
-      description: Update user auto provisioning settings for the workspace.
-      operationId: update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /v1/workspace/groups/search:
     get:
       tags:
-        - Workspace
+        - workspace
       summary: Search User Groups
       description: Searches for user groups in the workspace. Multiple or no groups may be returned.
       operationId: Search_user_groups_v1_workspace_groups_search_get
@@ -5710,7 +5692,7 @@ paths:
   '/v1/workspace/groups/{group_id}/members/remove':
     post:
       tags:
-        - Workspace
+        - workspace
       summary: Delete Member From User Group
       description: Removes a member from the specified group. This endpoint may only be called by workspace administrators.
       operationId: Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
@@ -5758,7 +5740,7 @@ paths:
   '/v1/workspace/groups/{group_id}/members':
     post:
       tags:
-        - Workspace
+        - workspace
       summary: Add Member To User Group
       description: Adds a member of your workspace to the specified group. This endpoint may only be called by workspace administrators.
       operationId: Add_member_to_user_group_v1_workspace_groups__group_id__members_post
@@ -5806,7 +5788,7 @@ paths:
   /v1/workspace/invites/add:
     post:
       tags:
-        - Workspace
+        - workspace
       summary: Invite User
       description: Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace administrators. If the user is already in the workspace a 400 error will be returned.
       operationId: Invite_user_v1_workspace_invites_add_post
@@ -5845,7 +5827,7 @@ paths:
   /v1/workspace/invites/add-bulk:
     post:
       tags:
-        - Workspace
+        - workspace
       summary: Invite Multiple Users
       description: Sends email invitations to join your workspace to the provided emails. Requires all email addresses to be part of a verified domain. If the users don't have an account they will be prompted to create one. If the users accept these invites they will be added as users to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace administrators.
       operationId: Invite_multiple_users_v1_workspace_invites_add_bulk_post
@@ -5884,7 +5866,7 @@ paths:
   /v1/workspace/invites:
     delete:
       tags:
-        - Workspace
+        - workspace
       summary: Delete Existing Invitation
       description: 'Invalidates an existing email invitation. The invitation will still show up in the inbox it has been delivered to, but activating it to join the workspace won''t work. This endpoint may only be called by workspace administrators.'
       operationId: Delete_existing_invitation_v1_workspace_invites_delete
@@ -5923,7 +5905,7 @@ paths:
   /v1/workspace/members:
     post:
       tags:
-        - Workspace
+        - workspace
       summary: Update Member
       description: 'Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.'
       operationId: Update_member_v1_workspace_members_post
@@ -5961,7 +5943,7 @@ paths:
       x-fern-sdk-method-name: update
     delete:
       tags:
-        - Workspace
+        - workspace
       summary: Delete Member
       description: Deletes a workspace member. This endpoint may only be called by workspace administrators.
       operationId: Delete_member_v1_workspace_members_delete
@@ -5991,7 +5973,7 @@ paths:
   '/v1/workspace/resources/{resource_id}':
     get:
       tags:
-        - Workspace
+        - workspace
       summary: Get Resource
       description: Gets the metadata of a resource by ID.
       operationId: Get_resource_v1_workspace_resources__resource_id__get
@@ -6038,7 +6020,7 @@ paths:
   '/v1/workspace/resources/{resource_id}/share':
     post:
       tags:
-        - Workspace
+        - workspace
       summary: Share Workspace Resource
       description: 'Grants a role on a workspace resource to a user or a group. It overrides any existing role this user/service account/group/workspace api key has on the resource. To target a user or service account, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. The resource will be shared with the service account associated with the api key. You must have admin access to the resource to share it.'
       operationId: Share_workspace_resource_v1_workspace_resources__resource_id__share_post
@@ -6084,7 +6066,7 @@ paths:
   '/v1/workspace/resources/{resource_id}/unshare':
     post:
       tags:
-        - Workspace
+        - workspace
       summary: Unshare Workspace Resource
       description: 'Removes any existing role on a workspace resource from a user, service account, group or workspace api key. To target a user or service account, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. The resource will be unshared from the service account associated with the api key. You must have admin access to the resource to unshare it. You cannot remove permissions from the user who created the resource.'
       operationId: Unshare_workspace_resource_v1_workspace_resources__resource_id__unshare_post
@@ -6127,77 +6109,10 @@ paths:
         - workspace
         - resources
       x-fern-sdk-method-name: unshare
-  /v1/workspace/default-sharing-preferences:
-    get:
-      tags:
-        - Workspace
-      summary: Get Default Sharing Preferences
-      description: Get the user's default sharing preferences.
-      operationId: get_default_sharing_preferences_v1_workspace_default_sharing_preferences_get
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DefaultSharingPreferencesResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-    post:
-      tags:
-        - Workspace
-      summary: Update Default Sharing Preferences
-      description: Update the user's default sharing preferences.
-      operationId: update_default_sharing_preferences_v1_workspace_default_sharing_preferences_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_update_default_sharing_preferences_v1_workspace_default_sharing_preferences_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /v1/workspace/share-options:
-    get:
-      tags:
-        - Workspace
-      summary: Get Share Options
-      description: Get the share options for a workspace.
-      operationId: get_share_options_v1_workspace_share_options_get
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                title: Response Get Share Options V1 Workspace Share Options Get
-                type: array
-                items:
-                  $ref: '#/components/schemas/ShareOptionResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /v1/workspace/webhooks:
     get:
       tags:
-        - Workspace
+        - workspace
       summary: List Workspace Webhooks
       description: List all webhooks for a workspace
       operationId: List_workspace_webhooks_v1_workspace_webhooks_get
@@ -7552,6 +7467,12 @@ paths:
       description: Uploads a file or reference a webpage to use as part of the shared knowledge base
       operationId: Add_to_knowledge_base_v1_convai_knowledge_base_post
       parameters:
+        - name: agent_id
+          in: query
+          schema:
+            title: Agent Id
+            type: string
+            default: ''
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -7673,6 +7594,12 @@ paths:
       description: Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
       operationId: Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post
       parameters:
+        - name: agent_id
+          in: query
+          schema:
+            title: Agent Id
+            type: string
+            default: ''
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -7709,6 +7636,12 @@ paths:
       description: Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
       operationId: Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post
       parameters:
+        - name: agent_id
+          in: path
+          required: true
+          schema:
+            title: Agent Id
+            type: string
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -7932,6 +7865,12 @@ paths:
             type: string
             description: The id of a document from the knowledge base. This is returned on document addition.
             example: 21m00Tcm4TlvDq8ikWAM
+        - name: agent_id
+          in: query
+          schema:
+            title: Agent Id
+            type: string
+            default: ''
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -8202,6 +8141,12 @@ paths:
             type: string
             description: The id of a document from the knowledge base. This is returned on document addition.
             example: 21m00Tcm4TlvDq8ikWAM
+        - name: agent_id
+          in: path
+          required: true
+          schema:
+            title: Agent Id
+            type: string
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -10330,7 +10275,9 @@ components:
         description: This is a test dictionary
         id: 5xM3yVvZQKV0EfqQpLrJ
         name: My Dictionary
+        permission_on_resource: admin
         version_id: 5xM3yVvZQKV0EfqQpLrJ
+        version_rules_num: 5
     AddVoiceIVCResponseModel:
       title: AddVoiceIVCResponseModel
       required:
@@ -10677,6 +10624,11 @@ components:
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
       example:
+        access_info:
+          creator_email: john@example.com
+          creator_name: John Doe
+          is_creator: true
+          role: admin
         agent_id: J3Pbu5gP6NNKBscdCdwB
         created_at_unix_secs: 1716153600
         name: My Agent
@@ -11267,7 +11219,7 @@ components:
         from_content_json:
           title: From Content Json
           type: string
-          description: 'An optional content to initialize the Studio project with. If this is set, ''from_url'' and ''from_document'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
+          description: "\n    An optional content to initialize the Studio project with. If this is set, 'from_url' and 'from_document' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.\n    \n    Example:\n    [{\"name\": \"Chapter A\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"A\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"B\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h1\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"C\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"D\", \"type\": \"tts_node\"}]}]}, {\"name\": \"Chapter B\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"E\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"F\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h2\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"G\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"H\", \"type\": \"tts_node\"}]}]}]\n    "
           example: '[{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]'
         quality_preset:
           title: Quality of the generated audio.
@@ -11718,7 +11670,7 @@ components:
         from_content_json:
           title: From Content Json
           type: string
-          description: 'An optional content to initialize the Studio project with. If this is set, ''from_url'' and ''from_document'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
+          description: "\n    An optional content to initialize the Studio project with. If this is set, 'from_url' and 'from_document' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.\n    \n    Example:\n    [{\"name\": \"Chapter A\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"A\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"B\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h1\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"C\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"D\", \"type\": \"tts_node\"}]}]}, {\"name\": \"Chapter B\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"E\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"F\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h2\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"G\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"H\", \"type\": \"tts_node\"}]}]}]\n    "
           example: '[{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]'
         quality_preset:
           title: Quality of the generated audio.
@@ -12600,6 +12552,11 @@ components:
           description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           format: binary
           nullable: true
+        from_content_json:
+          title: From Content Json
+          type: string
+          description: "\n    An optional content to initialize the Studio project with. If this is set, 'from_url' and 'from_document' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.\n    \n    Example:\n    [{\"name\": \"Chapter A\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"A\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"B\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h1\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"C\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"D\", \"type\": \"tts_node\"}]}]}, {\"name\": \"Chapter B\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"E\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"F\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h2\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"G\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"H\", \"type\": \"tts_node\"}]}]}]\n    "
+          example: '[{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]'
         auto_convert:
           title: Auto Convert
           type: boolean
@@ -13810,6 +13767,11 @@ components:
           description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
           format: binary
           nullable: true
+        from_content_json:
+          title: From Content Json
+          type: string
+          description: "\n    An optional content to initialize the Studio project with. If this is set, 'from_url' and 'from_document' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.\n    \n    Example:\n    [{\"name\": \"Chapter A\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"A\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"B\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h1\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"C\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"D\", \"type\": \"tts_node\"}]}]}, {\"name\": \"Chapter B\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"E\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"F\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h2\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"G\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"H\", \"type\": \"tts_node\"}]}]}]\n    "
+          example: '[{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]'
         auto_convert:
           title: Auto Convert
           type: boolean
@@ -13954,27 +13916,6 @@ components:
           type: string
           description: Audio recording of the user
           format: binary
-    Body_update_default_sharing_preferences_v1_workspace_default_sharing_preferences_post:
-      title: Body_update_default_sharing_preferences_v1_workspace_default_sharing_preferences_post
-      required:
-        - default_sharing_groups
-      type: object
-      properties:
-        default_sharing_groups:
-          title: Default Sharing Groups
-          type: array
-          items:
-            type: string
-          description: List of group IDs to share with by default
-    Body_update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post:
-      title: Body_update_user_auto_provisioning_v1_workspace_user_auto_provisioning_post
-      required:
-        - enabled
-      type: object
-      properties:
-        enabled:
-          title: Enabled
-          type: boolean
     BreakdownTypes:
       title: BreakdownTypes
       enum:
@@ -13989,6 +13930,8 @@ components:
         - model
         - resource
         - request_queue
+        - region
+        - subresource_id
       type: string
       description: How to break down the information. Cannot be "user" or "api_key" if include_workspace_metrics is False.
     BuiltInTools-Input:
@@ -14005,6 +13948,8 @@ components:
           $ref: '#/components/schemas/SystemToolConfig-Input'
         skip_turn:
           $ref: '#/components/schemas/SystemToolConfig-Input'
+        play_keypad_touch_tone:
+          $ref: '#/components/schemas/SystemToolConfig-Input'
     BuiltInTools-Output:
       title: BuiltInTools
       type: object
@@ -14018,6 +13963,8 @@ components:
         transfer_to_number:
           $ref: '#/components/schemas/SystemToolConfig-Output'
         skip_turn:
+          $ref: '#/components/schemas/SystemToolConfig-Output'
+        play_keypad_touch_tone:
           $ref: '#/components/schemas/SystemToolConfig-Output'
     ChapterContentBlockExtendableNodeResponseModel:
       title: ChapterContentBlockExtendableNodeResponseModel
@@ -14229,6 +14176,7 @@ components:
       example:
         chapter_id: aw1NgEzBg83R7vgmiJt3
         chapter_snapshot_id: aw1NgEzBg83R7vgmiJt1
+        character_alignments: [ ]
         created_at_unix: 1714204800
         name: My Chapter Snapshot
         project_id: aw1NgEzBg83R7vgmiJt2
@@ -14368,16 +14316,17 @@ components:
       example:
         can_be_downloaded: true
         chapter_id: aw1NgEzBg83R7vgmiJt6
+        content:
+          blocks: [ ]
         conversion_progress: 0.5
         last_conversion_date_unix: 1714204800
-        last_conversion_error: Error message
         name: Chapter 1
-        state: converting
+        state: default
         statistics:
-          characters_converted: 500
-          characters_unconverted: 1000
-          paragraphs_converted: 20
-          paragraphs_unconverted: 10
+          characters_converted: 200
+          characters_unconverted: 100
+          paragraphs_converted: 5
+          paragraphs_unconverted: 3
     CharacterAlignmentModel:
       title: CharacterAlignmentModel
       required:
@@ -15781,18 +15730,6 @@ components:
         rationale:
           title: Rationale
           type: string
-    DefaultSharingPreferencesResponseModel:
-      title: DefaultSharingPreferencesResponseModel
-      required:
-        - default_sharing_groups
-      type: object
-      properties:
-        default_sharing_groups:
-          title: Default Sharing Groups
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkspaceGroupResponseModel'
-          description: List of groups that the user shares with by default
     DeleteChapterResponseModel:
       title: DeleteChapterResponseModel
       required:
@@ -16526,10 +16463,29 @@ components:
           type: boolean
           description: Whether the user has open invoices.
       example:
+        allowed_to_extend_character_limit: true
+        billing_period: monthly_period
+        can_extend_character_limit: true
+        can_extend_voice_limit: true
+        can_use_instant_voice_cloning: true
+        can_use_professional_voice_cloning: true
+        character_count: 1000
+        character_limit: 10000
+        character_refresh_period: monthly_period
+        currency: usd
         has_open_invoices: false
+        max_character_limit_extension: 10000
+        next_character_count_reset_unix: 1738356858
         next_invoice:
           amount_due_cents: 1000
           next_payment_attempt_unix: 1738356858
+        professional_voice_limit: 1
+        professional_voice_slots_used: 0
+        status: active
+        tier: starter
+        voice_add_edit_counter: 0
+        voice_limit: 10
+        voice_slots_used: 1
     FeatureStatusCommonModel:
       title: FeatureStatusCommonModel
       type: object
@@ -16890,6 +16846,19 @@ components:
           type: boolean
           description: Whether there are more agents to paginate through
       example:
+        agents:
+          - access_info:
+              creator_email: john@example.com
+              creator_name: John Doe
+              is_creator: true
+              role: admin
+            agent_id: J3Pbu5gP6NNKBscdCdwB
+            created_at_unix_secs: 1716153600
+            name: My Agent
+            tags:
+              - Customer Support
+              - Technical Help
+              - Eleven
         has_more: false
         next_cursor: '123'
     GetAudioNativeProjectSettingsResponseModel:
@@ -17363,27 +17332,33 @@ components:
       example:
         has_more: false
         voices:
-          accent: american
-          age: young
-          category: professional
-          cloned_by_count: 11
-          date_unix: 1714423232
-          description: 'Perfectly calm, neutral and strong voice. Great for a young female protagonist.'
-          descriptive: calm
-          featured: false
-          free_users_allowed: true
-          gender: Female
-          language: en
-          live_moderation_enabled: false
-          name: Alita
-          play_api_usage_character_count_1y: 12852
-          preview_url: https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3
-          public_owner_id: 63e84100a6bf7874ba37a1bab9a31828a379ec94b891b401653b655c5110880f
-          rate: 1
-          usage_character_count_1y: 12852
-          usage_character_count_7d: 12852
-          use_case: characters_animation
-          voice_id: sB1b5zUrxQVAFl2PhZFp
+          - accent: american
+            age: young
+            category: professional
+            cloned_by_count: 11
+            date_unix: 1714423232
+            description: 'Perfectly calm, neutral and strong voice. Great for a young female protagonist.'
+            descriptive: calm
+            featured: false
+            free_users_allowed: true
+            gender: Female
+            language: en
+            live_moderation_enabled: false
+            name: Alita
+            play_api_usage_character_count_1y: 12852
+            preview_url: https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3
+            public_owner_id: 63e84100a6bf7874ba37a1bab9a31828a379ec94b891b401653b655c5110880f
+            rate: 1
+            usage_character_count_1y: 12852
+            usage_character_count_7d: 12852
+            use_case: characters_animation
+            verified_languages:
+              - accent: american
+                language: en
+                locale: en-US
+                model_id: eleven_multilingual_v2
+                preview_url: https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3
+            voice_id: sB1b5zUrxQVAFl2PhZFp
     GetPhoneNumberSIPTrunkResponseModel:
       title: GetPhoneNumberSIPTrunkResponseModel
       required:
@@ -17416,7 +17391,10 @@ components:
         provider_config:
           $ref: '#/components/schemas/SIPTrunkConfigResponseModel'
       example:
-        phone_number_id: X3Pbu5gP6NNKBscdCdwB
+        label: Sales Team
+        phone_number: '+1987654321'
+        phone_number_id: phone_456
+        provider: sip_trunk
     GetPhoneNumberTwilioResponseModel:
       title: GetPhoneNumberTwilioResponseModel
       required:
@@ -17447,7 +17425,10 @@ components:
           description: Phone provider
           default: twilio
       example:
-        phone_number_id: X3Pbu5gP6NNKBscdCdwB
+        label: Customer Support
+        phone_number: '+1234567890'
+        phone_number_id: phone_123
+        provider: twilio
     GetProjectsResponseModel:
       title: GetProjectsResponseModel
       required:
@@ -17490,7 +17471,7 @@ components:
             quality_check_on: false
             quality_check_on_when_bulk_convert: false
             state: default
-            target_audience: Young Adults
+            target_audience: young adult
             title: My Project
             volume_normalization: true
     GetPronunciationDictionariesMetadataResponseModel:
@@ -17518,6 +17499,15 @@ components:
       example:
         has_more: false
         next_cursor: 5xM3yVvZQKV0EfqQpLr2
+        pronunciation_dictionaries:
+          - created_by: ar6633Es2kUjFXBdR1iVc9ztsXl1
+            creation_time_unix: 1714156800
+            description: This is a test dictionary
+            id: 5xM3yVvZQKV0EfqQpLrJ
+            latest_version_id: 5xM3yVvZQKV0EfqQpLr2
+            latest_version_rules_num: 2
+            name: My Dictionary
+            permission_on_resource: admin
     GetPronunciationDictionaryMetadataResponseModel:
       title: GetPronunciationDictionaryMetadataResponseModel
       required:
@@ -17528,7 +17518,6 @@ components:
         - permission_on_resource
         - created_by
         - creation_time_unix
-        - archived_time_unix
       type: object
       properties:
         id:
@@ -17582,6 +17571,7 @@ components:
         latest_version_id: 5xM3yVvZQKV0EfqQpLr2
         latest_version_rules_num: 2
         name: My Dictionary
+        permission_on_resource: admin
     GetSpeechHistoryResponseModel:
       title: GetSpeechHistoryResponseModel
       required:
@@ -17666,114 +17656,116 @@ components:
           description: A list of available voices.
       example:
         voices:
-          available_for_tiers:
-            - creator
-            - enterprise
-          category: professional
-          description: 'A warm, expressive voice with a touch of humor.'
-          fine_tuning:
-            is_allowed_to_fine_tune: true
-            manual_verification_requested: false
-            state:
-              eleven_multilingual_v2: fine_tuned
-            verification_attempts_count: 2
-            verification_failures: [ ]
-          high_quality_base_model_ids:
-            - eleven_v2_flash
-            - eleven_flash_v2
-            - eleven_turbo_v2_5
-            - eleven_multilingual_v2
-            - eleven_v2_5_flash
-            - eleven_flash_v2_5
-            - eleven_turbo_v2
-          is_legacy: false
-          is_mixed: false
-          is_owner: false
-          labels:
-            accent: American
-            age: middle-aged
-            description: expressive
-            gender: female
-            use_case: social media
-          name: Rachel
-          preview_url: https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3
-          settings:
-            similarity_boost: 1
-            speed: 1
-            stability: 1
-            style: 0
-            use_speaker_boost: true
-          sharing:
+          - available_for_tiers:
+              - creator
+              - enterprise
             category: professional
-            cloned_by_count: 50
-            date_unix: 1714204800
-            description: A female voice with a soft and friendly tone.
-            disable_at_unix: 1714204800
-            enabled_in_library: true
-            featured: true
-            financial_rewards_enabled: true
-            free_users_allowed: true
-            history_item_sample_id: DCwhRBWXzGAHq8TQ4Fs18
+            description: 'A warm, expressive voice with a touch of humor.'
+            fine_tuning:
+              is_allowed_to_fine_tune: true
+              manual_verification_requested: false
+              state:
+                eleven_multilingual_v2: fine_tuned
+              verification_attempts_count: 2
+              verification_failures: [ ]
+            high_quality_base_model_ids:
+              - eleven_v2_flash
+              - eleven_flash_v2
+              - eleven_turbo_v2_5
+              - eleven_multilingual_v2
+              - eleven_v2_5_flash
+              - eleven_flash_v2_5
+              - eleven_turbo_v2
+            is_legacy: false
+            is_mixed: false
+            is_owner: false
             labels:
               accent: American
+              age: middle-aged
+              description: expressive
               gender: female
-            liked_by_count: 100
-            live_moderation_enabled: true
-            moderation_check:
-              captcha_checks:
-                - 0.95
-                - 0.98
-              captcha_ids:
-                - captcha1
-                - captcha2
-              date_checked_unix: 1714204800
-              description_check: true
-              description_value: A female voice with a soft and friendly tone.
-              name_check: true
-              name_value: Rachel
-              sample_checks:
-                - 0.95
-                - 0.98
-              sample_ids:
-                - sample1
-                - sample2
+              use_case: social media
             name: Rachel
-            notice_period: 30
-            original_voice_id: DCwhRBWXzGAHq8TQ4Fs18
-            public_owner_id: DCwhRBWXzGAHq8TQ4Fs18
-            rate: 0.05
-            reader_app_enabled: true
-            reader_restricted_on:
-              - resource_id: FCwhRBWXzGAHq8TQ4Fs18
-                resource_type: read
-            review_status: allowed
-            status: enabled
-            voice_mixing_allowed: false
-            whitelisted_emails:
-              - example@example.com
-          verified_languages:
-            accent: American
-            language: en
-            model_id: eleven_turbo_v2_5
-          voice_id: 21m00Tcm4TlvDq8ikWAM
-          voice_verification:
-            is_verified: true
-            language: en
-            requires_verification: false
-            verification_attempts:
-              - accepted: true
-                date_unix: 1714204800
-                levenshtein_distance: 2
-                recording:
-                  mime_type: audio/mpeg
-                  recording_id: CwhRBWXzGAHq8TQ4Fs17
-                  size_bytes: 1000000
-                  transcription: 'Hello, how are you?'
-                  upload_date_unix: 1714204800
-                similarity: 0.95
-                text: 'Hello, how are you?'
-            verification_attempts_count: 0
-            verification_failures: [ ]
+            preview_url: https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3
+            settings:
+              similarity_boost: 1
+              speed: 1
+              stability: 1
+              style: 0
+              use_speaker_boost: true
+            sharing:
+              category: professional
+              cloned_by_count: 50
+              date_unix: 1714204800
+              description: A female voice with a soft and friendly tone.
+              disable_at_unix: 1714204800
+              enabled_in_library: true
+              featured: true
+              financial_rewards_enabled: true
+              free_users_allowed: true
+              history_item_sample_id: DCwhRBWXzGAHq8TQ4Fs18
+              labels:
+                accent: American
+                gender: female
+              liked_by_count: 100
+              live_moderation_enabled: true
+              moderation_check:
+                captcha_checks:
+                  - 0.95
+                  - 0.98
+                captcha_ids:
+                  - captcha1
+                  - captcha2
+                date_checked_unix: 1714204800
+                description_check: true
+                description_value: A female voice with a soft and friendly tone.
+                name_check: true
+                name_value: Rachel
+                sample_checks:
+                  - 0.95
+                  - 0.98
+                sample_ids:
+                  - sample1
+                  - sample2
+              name: Rachel
+              notice_period: 30
+              original_voice_id: DCwhRBWXzGAHq8TQ4Fs18
+              public_owner_id: DCwhRBWXzGAHq8TQ4Fs18
+              rate: 0.05
+              reader_app_enabled: true
+              reader_restricted_on:
+                - resource_id: FCwhRBWXzGAHq8TQ4Fs18
+                  resource_type: read
+              review_status: allowed
+              status: enabled
+              voice_mixing_allowed: false
+              whitelisted_emails:
+                - example@example.com
+            verified_languages:
+              - accent: american
+                language: en
+                locale: en-US
+                model_id: eleven_multilingual_v2
+                preview_url: https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3
+            voice_id: 21m00Tcm4TlvDq8ikWAM
+            voice_verification:
+              is_verified: true
+              language: en
+              requires_verification: false
+              verification_attempts:
+                - accepted: true
+                  date_unix: 1714204800
+                  levenshtein_distance: 2
+                  recording:
+                    mime_type: audio/mpeg
+                    recording_id: CwhRBWXzGAHq8TQ4Fs17
+                    size_bytes: 1000000
+                    transcription: 'Hello, how are you?'
+                    upload_date_unix: 1714204800
+                  similarity: 0.95
+                  text: 'Hello, how are you?'
+              verification_attempts_count: 0
+              verification_failures: [ ]
     GetVoicesV2ResponseModel:
       title: GetVoicesV2ResponseModel
       required:
@@ -18422,6 +18414,12 @@ components:
         usage_character_count_1y: 12852
         usage_character_count_7d: 12852
         use_case: characters_animation
+        verified_languages:
+          - accent: american
+            language: en
+            locale: en-US
+            model_id: eleven_multilingual_v2
+            preview_url: https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3
         voice_id: sB1b5zUrxQVAFl2PhZFp
     ListMCPToolsResponseModel:
       title: ListMCPToolsResponseModel
@@ -18449,7 +18447,7 @@ components:
       example:
         success: true
         tools:
-          - description: Gets tomorrow's forecasted weather conditions for a location.
+          - description: Gets current weather conditions for a location.
             inputSchema:
               properties:
                 latitude:
@@ -18462,8 +18460,11 @@ components:
                 - latitude
                 - longitude
               type: object
-            name: weather_by_zapier_get_tomorrow
+            name: weather_by_zapier_get_current
           - description: Description of tool2
+            inputSchema:
+              properties: { }
+              type: object
             name: tool2
     LiteralJsonSchemaProperty:
       title: LiteralJsonSchemaProperty
@@ -18502,6 +18503,7 @@ components:
         constant_value: Constant value
         description: My property
         dynamic_variable: Dynamic variable
+        type: string
     MCPApprovalPolicy:
       title: MCPApprovalPolicy
       enum:
@@ -18933,6 +18935,7 @@ components:
         - ttfb_avg
         - ttfb_p95
         - fiat_units_spent
+        - concurrency
       type: string
     ModelRatesResponseModel:
       title: ModelRatesResponseModel
@@ -19389,6 +19392,17 @@ components:
         condition:
           title: Condition
           type: string
+    PlayDTMFToolConfig:
+      title: PlayDTMFToolConfig
+      type: object
+      properties:
+        system_tool_type:
+          title: System Tool Type
+          enum:
+            - play_keypad_touch_tone
+          type: string
+          default: play_keypad_touch_tone
+      description: "Allows the agent to play DTMF tones during a phone call.\n\nThis tool can be used to interact with automated phone systems, such as\nnavigating phone menus, entering extensions, or inputting numeric codes."
     PodcastBulletinMode:
       title: PodcastBulletinMode
       required:
@@ -19651,7 +19665,6 @@ components:
         - pronunciation_dictionary_versions
         - pronunciation_dictionary_locators
         - apply_text_normalization
-        - experimental
       type: object
       properties:
         project_id:
@@ -19846,11 +19859,25 @@ components:
         experimental:
           title: Experimental
           type: object
-          description: Experimental features of the project.
+          description: Experimental features for the project.
       example:
         access_level: viewer
+        apply_text_normalization: auto
         author: John Doe
         can_be_downloaded: true
+        chapters:
+          - can_be_downloaded: true
+            chapter_id: aw1NgEzBg83R7vgmiJt6
+            conversion_progress: 0.5
+            last_conversion_date_unix: 1714204800
+            last_conversion_error: Error message
+            name: Chapter 1
+            state: converting
+            statistics:
+              characters_converted: 500
+              characters_unconverted: 1000
+              paragraphs_converted: 20
+              paragraphs_unconverted: 10
         content_type: Novel
         cover_image_url: https://example.com/cover.jpg
         create_date_unix: 1714204800
@@ -19862,6 +19889,7 @@ components:
         default_paragraph_voice_id: JBFqnCBsd6RMkjVDRZzb
         default_title_voice_id: JBFqnCBsd6RMkjVDRZzb
         description: This is a description of my project.
+        experimental: { }
         fiction: fiction
         genres:
           - Novel
@@ -19873,10 +19901,13 @@ components:
         name: My Project
         original_publication_date: '2025-01-01'
         project_id: aw1NgEzBg83R7vgmiJt6
+        pronunciation_dictionary_locators: [ ]
+        pronunciation_dictionary_versions: [ ]
         quality_check_on: false
         quality_check_on_when_bulk_convert: false
+        quality_preset: standard
         state: default
-        target_audience: Young Adults
+        target_audience: young adult
         title: My Project
         volume_normalization: true
     ProjectResponseModel:
@@ -20077,7 +20108,7 @@ components:
         quality_check_on: false
         quality_check_on_when_bulk_convert: false
         state: default
-        target_audience: Young Adults
+        target_audience: young adult
         title: My Project
         volume_normalization: true
     ProjectSnapshotExtendedResponseModel:
@@ -20122,6 +20153,7 @@ components:
           items:
             $ref: '#/components/schemas/CharacterAlignmentModel'
       example:
+        character_alignments: [ ]
         created_at_unix: 1714204800
         name: My Project Snapshot
         project_id: aw1NgEzBg83R7vgmiJt6
@@ -20488,6 +20520,7 @@ components:
       example:
         conversation_goal_prompt: You are a helpful assistant that can answer questions about the topic of the conversation.
         id: '1234567890'
+        name: Customer satisfaction check
         use_knowledge_base: false
     PronunciationDictionaryAliasRuleRequestModel:
       title: PronunciationDictionaryAliasRuleRequestModel
@@ -20584,6 +20617,7 @@ components:
       example:
         id: 5xM3yVvZQKV0EfqQpLrJ
         version_id: 5xM3yVvZQKV0EfqQpLr2
+        version_rules_num: 5
     PronunciationDictionaryVersionLocatorDBModel:
       title: PronunciationDictionaryVersionLocatorDBModel
       required:
@@ -21789,9 +21823,9 @@ components:
           description: The end time of the character in seconds.
           nullable: true
       example:
-        char: H
         end: 0.1
         start: 0
+        text: H
     SpeechToTextChunkResponseModel:
       title: SpeechToTextChunkResponseModel
       required:
@@ -21833,16 +21867,19 @@ components:
         text: Hello world!
         words:
           - end: 0.5
+            logprob: -0.124
             speaker_id: speaker_1
             start: 0
             text: Hello
             type: word
           - end: 0.5
+            logprob: 0
             speaker_id: speaker_1
             start: 0.5
             text: ' '
             type: spacing
           - end: 1.2
+            logprob: -0.089
             speaker_id: speaker_1
             start: 0.5
             text: world!
@@ -21896,21 +21933,21 @@ components:
       description: Word-level detail of the transcription with timing information.
       example:
         characters:
-          - char: H
-            end: 0.1
+          - end: 0.1
             start: 0
-          - char: e
-            end: 0.2
+            text: H
+          - end: 0.2
             start: 0.1
-          - char: l
-            end: 0.3
+            text: e
+          - end: 0.3
             start: 0.2
-          - char: l
-            end: 0.4
+            text: l
+          - end: 0.4
             start: 0.3
-          - char: o
-            end: 0.5
+            text: l
+          - end: 0.5
             start: 0.4
+            text: o
         end: 0.5
         logprob: -0.124
         speaker_id: speaker_1
@@ -22222,6 +22259,7 @@ components:
         character_limit: 100000
         character_refresh_period: monthly_period
         currency: usd
+        max_character_limit_extension: 10000
         max_voice_add_edits: 230
         next_character_count_reset_unix: 1738356858
         professional_voice_limit: 1
@@ -22379,16 +22417,22 @@ components:
             - $ref: '#/components/schemas/TransferToAgentToolConfig'
             - $ref: '#/components/schemas/TransferToNumberToolConfig'
             - $ref: '#/components/schemas/SkipTurnToolConfig'
+            - $ref: '#/components/schemas/PlayDTMFToolConfig'
           discriminator:
             propertyName: system_tool_type
             mapping:
               end_call: '#/components/schemas/EndCallToolConfig'
               language_detection: '#/components/schemas/LanguageDetectionToolConfig'
+              play_keypad_touch_tone: '#/components/schemas/PlayDTMFToolConfig'
               skip_turn: '#/components/schemas/SkipTurnToolConfig'
               transfer_to_agent: '#/components/schemas/TransferToAgentToolConfig'
               transfer_to_number: '#/components/schemas/TransferToNumberToolConfig'
       description: A system tool is a tool that is used to call a system method in the server
       example:
+        description: Ends the current conversation
+        name: end_call
+        params:
+          system_tool_type: end_call
         type: system
     SystemToolConfig-Output:
       title: SystemToolConfig
@@ -22427,16 +22471,22 @@ components:
             - $ref: '#/components/schemas/TransferToAgentToolConfig'
             - $ref: '#/components/schemas/TransferToNumberToolConfig'
             - $ref: '#/components/schemas/SkipTurnToolConfig'
+            - $ref: '#/components/schemas/PlayDTMFToolConfig'
           discriminator:
             propertyName: system_tool_type
             mapping:
               end_call: '#/components/schemas/EndCallToolConfig'
               language_detection: '#/components/schemas/LanguageDetectionToolConfig'
+              play_keypad_touch_tone: '#/components/schemas/PlayDTMFToolConfig'
               skip_turn: '#/components/schemas/SkipTurnToolConfig'
               transfer_to_agent: '#/components/schemas/TransferToAgentToolConfig'
               transfer_to_number: '#/components/schemas/TransferToNumberToolConfig'
       description: A system tool is a tool that is used to call a system method in the server
       example:
+        description: Ends the current conversation
+        name: end_call
+        params:
+          system_tool_type: end_call
         type: system
     TTSConversationalConfig-Input:
       title: TTSConversationalConfig
@@ -23022,6 +23072,7 @@ components:
           description: The Partnerstack partner default link of the user.
           nullable: true
       example:
+        can_use_delayed_payment_methods: false
         first_name: John
         is_api_key_hashed: false
         is_new_user: false
@@ -23038,6 +23089,7 @@ components:
           character_limit: 100000
           character_refresh_period: monthly_period
           currency: usd
+          max_character_limit_extension: 10000
           max_voice_add_edits: 230
           next_character_count_reset_unix: 1738356858
           professional_voice_limit: 1
@@ -23641,9 +23693,11 @@ components:
           whitelisted_emails:
             - example@example.com
         verified_languages:
-          accent: American
-          language: en
-          model_id: eleven_turbo_v2_5
+          - accent: american
+            language: en
+            locale: en-US
+            model_id: eleven_multilingual_v2
+            preview_url: https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3
         voice_id: 21m00Tcm4TlvDq8ikWAM
         voice_verification:
           is_verified: true
@@ -24859,30 +24913,14 @@ components:
           type: string
           nullable: true
       example:
-        action_text: Call
-        bg_color: '#ffffff'
-        border_color: '#e1e1e1'
-        border_radius: 10
-        btn_color: '#000000'
-        btn_radius: 10
-        btn_text_color: '#ffffff'
-        disable_banner: false
-        end_call_text: End Call
-        expand_text: Expand
-        expandable: never
-        feedback_mode: none
-        focus_color: '#000000'
-        listening_text: Listening...
-        mic_muting_enabled: false
-        shareable_page_show_terms: true
-        shareable_page_text: Share
-        speaking_text: Speaking...
-        start_call_text: Start Call
-        terms_html: <p>Terms and Conditions</p>
-        terms_key: terms
-        terms_text: Terms and Conditions
-        text_color: '#000000'
-        variant: full
+        first_message: Hello! How can I help you today?
+        language: en
+        language_presets: { }
+        supported_language_overrides:
+          - es
+          - fr
+        supports_text_only: true
+        text_only: false
     WidgetExpandable:
       title: WidgetExpandable
       enum:
@@ -25186,52 +25224,6 @@ components:
           - john.doe@example.com
           - jane.smith@example.com
         name: My Workspace Group
-    WorkspaceGroupPermission:
-      title: WorkspaceGroupPermission
-      enum:
-        - text_to_speech
-        - speech_to_speech
-        - voice_lab
-        - sound_effects
-        - projects
-        - voiceover_studio
-        - dubbing
-        - audio_native
-        - conversational_ai
-        - voice_isolator
-        - ai_speech_classifier
-        - add_voice_from_voice_library
-        - create_instant_voice_clone
-        - create_professional_voice_clone
-        - create_user_api_key
-        - publish_studio_project
-      type: string
-    WorkspaceGroupResponseModel:
-      title: WorkspaceGroupResponseModel
-      required:
-        - name
-        - id
-        - members
-        - permissions
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        id:
-          title: Id
-          type: string
-        members:
-          title: Members
-          type: array
-          items:
-            type: string
-        permissions:
-          title: Permissions
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkspaceGroupPermission'
-          nullable: true
     WorkspaceResourceType:
       title: WorkspaceResourceType
       enum:
@@ -25245,6 +25237,7 @@ components:
         - convai_tools
         - convai_settings
         - convai_secrets
+        - workspace_auth_connections
         - music_latent
         - convai_phone_numbers
         - convai_mcp_servers
@@ -25273,7 +25266,7 @@ components:
             most_recent_failure_timestamp: 123456799
             name: My Webhook
             usage:
-              - usage_type: CONVAI_PLATFORM
+              - usage_type: ConvAI Settings
             webhook_id: '123'
             webhook_url: https://elevenlabs.io/example-callback-url
     WorkspaceWebhookResponseModel:
@@ -25365,3 +25358,5 @@ tags:
     description: Accesses your speech history. Your speech history is a list of all your created audio including its metadata using our text-to-speech and speech-to-speech models.
   - name: studios
     description: 'Access, create and convert Studio Projects programmatically, only specifically whitelisted accounts can access the Projects API. If you need access please contact our sales team.'
+  - name: workspace
+    description: Access to workspace related endpoints.

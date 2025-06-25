@@ -197,6 +197,43 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// Allows the agent to play DTMF tones during a phone call.<br/>
+        /// This tool can be used to interact with automated phone systems, such as<br/>
+        /// navigating phone menus, entering extensions, or inputting numeric codes.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.PlayDTMFToolConfig? PlayKeypadTouchTone { get; init; }
+#else
+        public global::ElevenLabs.PlayDTMFToolConfig? PlayKeypadTouchTone { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayKeypadTouchTone))]
+#endif
+        public bool IsPlayKeypadTouchTone => PlayKeypadTouchTone != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.PlayDTMFToolConfig value) => new Params2((global::ElevenLabs.PlayDTMFToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.PlayDTMFToolConfig?(Params2 @this) => @this.PlayKeypadTouchTone;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.PlayDTMFToolConfig? value)
+        {
+            PlayKeypadTouchTone = value;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public Params2(
@@ -205,7 +242,8 @@ namespace ElevenLabs
             global::ElevenLabs.LanguageDetectionToolConfig? languageDetection,
             global::ElevenLabs.TransferToAgentToolConfig? transferToAgent,
             global::ElevenLabs.TransferToNumberToolConfig? transferToNumber,
-            global::ElevenLabs.SkipTurnToolConfig? skipTurn
+            global::ElevenLabs.SkipTurnToolConfig? skipTurn,
+            global::ElevenLabs.PlayDTMFToolConfig? playKeypadTouchTone
             )
         {
             SystemToolType = systemToolType;
@@ -215,12 +253,14 @@ namespace ElevenLabs
             TransferToAgent = transferToAgent;
             TransferToNumber = transferToNumber;
             SkipTurn = skipTurn;
+            PlayKeypadTouchTone = playKeypadTouchTone;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            PlayKeypadTouchTone as object ??
             SkipTurn as object ??
             TransferToNumber as object ??
             TransferToAgent as object ??
@@ -236,7 +276,8 @@ namespace ElevenLabs
             LanguageDetection?.ToString() ??
             TransferToAgent?.ToString() ??
             TransferToNumber?.ToString() ??
-            SkipTurn?.ToString() 
+            SkipTurn?.ToString() ??
+            PlayKeypadTouchTone?.ToString() 
             ;
 
         /// <summary>
@@ -244,7 +285,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn;
+            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone;
         }
 
         /// <summary>
@@ -256,6 +297,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.TransferToAgentToolConfig?, TResult>? transferToAgent = null,
             global::System.Func<global::ElevenLabs.TransferToNumberToolConfig?, TResult>? transferToNumber = null,
             global::System.Func<global::ElevenLabs.SkipTurnToolConfig?, TResult>? skipTurn = null,
+            global::System.Func<global::ElevenLabs.PlayDTMFToolConfig?, TResult>? playKeypadTouchTone = null,
             bool validate = true)
         {
             if (validate)
@@ -283,6 +325,10 @@ namespace ElevenLabs
             {
                 return skipTurn(SkipTurn!);
             }
+            else if (IsPlayKeypadTouchTone && playKeypadTouchTone != null)
+            {
+                return playKeypadTouchTone(PlayKeypadTouchTone!);
+            }
 
             return default(TResult);
         }
@@ -296,6 +342,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.TransferToAgentToolConfig?>? transferToAgent = null,
             global::System.Action<global::ElevenLabs.TransferToNumberToolConfig?>? transferToNumber = null,
             global::System.Action<global::ElevenLabs.SkipTurnToolConfig?>? skipTurn = null,
+            global::System.Action<global::ElevenLabs.PlayDTMFToolConfig?>? playKeypadTouchTone = null,
             bool validate = true)
         {
             if (validate)
@@ -323,6 +370,10 @@ namespace ElevenLabs
             {
                 skipTurn?.Invoke(SkipTurn!);
             }
+            else if (IsPlayKeypadTouchTone)
+            {
+                playKeypadTouchTone?.Invoke(PlayKeypadTouchTone!);
+            }
         }
 
         /// <summary>
@@ -342,6 +393,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.TransferToNumberToolConfig),
                 SkipTurn,
                 typeof(global::ElevenLabs.SkipTurnToolConfig),
+                PlayKeypadTouchTone,
+                typeof(global::ElevenLabs.PlayDTMFToolConfig),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -362,7 +415,8 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LanguageDetectionToolConfig?>.Default.Equals(LanguageDetection, other.LanguageDetection) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolConfig?>.Default.Equals(TransferToAgent, other.TransferToAgent) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfig?>.Default.Equals(TransferToNumber, other.TransferToNumber) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolConfig?>.Default.Equals(SkipTurn, other.SkipTurn) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolConfig?>.Default.Equals(SkipTurn, other.SkipTurn) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFToolConfig?>.Default.Equals(PlayKeypadTouchTone, other.PlayKeypadTouchTone) 
                 ;
         }
 

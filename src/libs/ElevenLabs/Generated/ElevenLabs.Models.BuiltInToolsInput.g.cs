@@ -39,6 +39,12 @@ namespace ElevenLabs
         public global::ElevenLabs.SystemToolConfigInput? SkipTurn { get; set; }
 
         /// <summary>
+        /// A system tool is a tool that is used to call a system method in the server
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("play_keypad_touch_tone")]
+        public global::ElevenLabs.SystemToolConfigInput? PlayKeypadTouchTone { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -62,6 +68,9 @@ namespace ElevenLabs
         /// <param name="skipTurn">
         /// A system tool is a tool that is used to call a system method in the server
         /// </param>
+        /// <param name="playKeypadTouchTone">
+        /// A system tool is a tool that is used to call a system method in the server
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -70,13 +79,15 @@ namespace ElevenLabs
             global::ElevenLabs.SystemToolConfigInput? languageDetection,
             global::ElevenLabs.SystemToolConfigInput? transferToAgent,
             global::ElevenLabs.SystemToolConfigInput? transferToNumber,
-            global::ElevenLabs.SystemToolConfigInput? skipTurn)
+            global::ElevenLabs.SystemToolConfigInput? skipTurn,
+            global::ElevenLabs.SystemToolConfigInput? playKeypadTouchTone)
         {
             this.EndCall = endCall;
             this.LanguageDetection = languageDetection;
             this.TransferToAgent = transferToAgent;
             this.TransferToNumber = transferToNumber;
             this.SkipTurn = skipTurn;
+            this.PlayKeypadTouchTone = playKeypadTouchTone;
         }
 
         /// <summary>

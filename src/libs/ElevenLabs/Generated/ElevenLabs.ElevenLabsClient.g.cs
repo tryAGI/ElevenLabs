@@ -119,6 +119,15 @@ namespace ElevenLabs
         };
 
         /// <summary>
+        /// Access to workspace related endpoints.
+        /// </summary>
+        public WorkspaceClient Workspace => new WorkspaceClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
         /// 
         /// </summary>
         public SoundGenerationClient SoundGeneration => new SoundGenerationClient(HttpClient, authorizations: Authorizations)
@@ -131,15 +140,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public AudioIsolationClient AudioIsolation => new AudioIsolationClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SamplesClient Samples => new SamplesClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -238,15 +238,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public ModelsClient Models => new ModelsClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
         public AudioNativeClient AudioNative => new AudioNativeClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -266,15 +257,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public PronunciationDictionaryClient PronunciationDictionary => new PronunciationDictionaryClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public WorkspaceClient Workspace => new WorkspaceClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

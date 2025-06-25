@@ -32,6 +32,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         FiatUnitsSpent,
+        /// <summary>
+        /// 
+        /// </summary>
+        Concurrency,
     }
 
     /// <summary>
@@ -52,6 +56,7 @@ namespace ElevenLabs
                 MetricType.TtfbAvg => "ttfb_avg",
                 MetricType.TtfbP95 => "ttfb_p95",
                 MetricType.FiatUnitsSpent => "fiat_units_spent",
+                MetricType.Concurrency => "concurrency",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -68,6 +73,7 @@ namespace ElevenLabs
                 "ttfb_avg" => MetricType.TtfbAvg,
                 "ttfb_p95" => MetricType.TtfbP95,
                 "fiat_units_spent" => MetricType.FiatUnitsSpent,
+                "concurrency" => MetricType.Concurrency,
                 _ => null,
             };
         }

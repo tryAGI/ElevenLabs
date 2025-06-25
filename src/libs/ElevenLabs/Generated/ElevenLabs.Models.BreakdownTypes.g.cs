@@ -52,6 +52,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         RequestQueue,
+        /// <summary>
+        /// 
+        /// </summary>
+        Region,
+        /// <summary>
+        /// 
+        /// </summary>
+        SubresourceId,
     }
 
     /// <summary>
@@ -77,6 +85,8 @@ namespace ElevenLabs
                 BreakdownTypes.Model => "model",
                 BreakdownTypes.Resource => "resource",
                 BreakdownTypes.RequestQueue => "request_queue",
+                BreakdownTypes.Region => "region",
+                BreakdownTypes.SubresourceId => "subresource_id",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -98,6 +108,8 @@ namespace ElevenLabs
                 "model" => BreakdownTypes.Model,
                 "resource" => BreakdownTypes.Resource,
                 "request_queue" => BreakdownTypes.RequestQueue,
+                "region" => BreakdownTypes.Region,
+                "subresource_id" => BreakdownTypes.SubresourceId,
                 _ => null,
             };
         }

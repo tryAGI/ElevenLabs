@@ -83,6 +83,11 @@ namespace ElevenLabs
         public StudiosClient Studios { get; }
 
         /// <summary>
+        /// Access to workspace related endpoints.
+        /// </summary>
+        public WorkspaceClient Workspace { get; }
+
+        /// <summary>
         /// 
         /// </summary>
         public SoundGenerationClient SoundGeneration { get; }
@@ -91,11 +96,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public AudioIsolationClient AudioIsolation { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SamplesClient Samples { get; }
 
         /// <summary>
         /// 
@@ -150,11 +150,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public ModelsClient Models { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public AudioNativeClient AudioNative { get; }
 
         /// <summary>
@@ -166,11 +161,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public PronunciationDictionaryClient PronunciationDictionary { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public WorkspaceClient Workspace { get; }
 
         /// <summary>
         /// 

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Experimental features of the project.
+    /// Experimental features for the project.
     /// </summary>
     public sealed partial class ProjectExtendedResponseModelExperimental
     {
