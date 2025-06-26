@@ -48,6 +48,12 @@ namespace ElevenLabs
         public object? RequestHeaders { get; set; }
 
         /// <summary>
+        /// Used to reference an auth connection from the workspace's auth connection store.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
+        public global::ElevenLabs.AuthConnectionLocator? AuthConnection { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -71,6 +77,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// Headers that should be included in the request
         /// </param>
+        /// <param name="authConnection">
+        /// Used to reference an auth connection from the workspace's auth connection store.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,7 +89,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? pathParamsSchema,
             global::ElevenLabs.QueryParamsJsonSchema? queryParamsSchema,
             global::ElevenLabs.ObjectJsonSchemaPropertyInput? requestBodySchema,
-            object? requestHeaders)
+            object? requestHeaders,
+            global::ElevenLabs.AuthConnectionLocator? authConnection)
         {
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.Method = method;
@@ -88,6 +98,7 @@ namespace ElevenLabs
             this.QueryParamsSchema = queryParamsSchema;
             this.RequestBodySchema = requestBodySchema;
             this.RequestHeaders = requestHeaders;
+            this.AuthConnection = authConnection;
         }
 
         /// <summary>

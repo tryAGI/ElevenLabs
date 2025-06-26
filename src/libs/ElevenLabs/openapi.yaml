@@ -10898,6 +10898,16 @@ components:
             - l
             - l
             - o
+    AuthConnectionLocator:
+      title: AuthConnectionLocator
+      required:
+        - auth_connection_id
+      type: object
+      properties:
+        auth_connection_id:
+          title: Auth Connection Id
+          type: string
+      description: Used to reference an auth connection from the workspace's auth connection store.
     AuthSettings:
       title: AuthSettings
       type: object
@@ -24230,6 +24240,8 @@ components:
               - $ref: '#/components/schemas/ConvAISecretLocator'
               - $ref: '#/components/schemas/ConvAIDynamicVariable'
           description: Headers that should be included in the request
+        auth_connection:
+          $ref: '#/components/schemas/AuthConnectionLocator'
       description: Configuration for a webhook that will be called by an LLM tool.
       example:
         method: GET
@@ -24285,6 +24297,8 @@ components:
               - $ref: '#/components/schemas/ConvAISecretLocator'
               - $ref: '#/components/schemas/ConvAIDynamicVariable'
           description: Headers that should be included in the request
+        auth_connection:
+          $ref: '#/components/schemas/AuthConnectionLocator'
       description: Configuration for a webhook that will be called by an LLM tool.
       example:
         method: GET
