@@ -41,7 +41,7 @@ namespace ElevenLabs
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/phone-numbers/",
+                path: "/v1/convai/phone-numbers",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
