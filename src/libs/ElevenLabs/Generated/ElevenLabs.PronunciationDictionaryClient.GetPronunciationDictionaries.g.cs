@@ -74,7 +74,7 @@ namespace ElevenLabs
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/pronunciation-dictionaries/",
+                path: "/v1/pronunciation-dictionaries",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
                 .AddOptionalParameter("cursor", cursor) 
