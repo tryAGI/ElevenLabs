@@ -50,6 +50,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.ChapterWithContentResponseModelState State { get; set; }
 
         /// <summary>
+        /// Whether the chapter has a video.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_video")]
+        public bool? HasVideo { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("statistics")]
@@ -95,6 +101,9 @@ namespace ElevenLabs
         /// <param name="state">
         /// The state of the chapter.
         /// </param>
+        /// <param name="hasVideo">
+        /// Whether the chapter has a video.
+        /// </param>
         /// <param name="statistics"></param>
         /// <param name="lastConversionError">
         /// The last conversion error of the chapter.
@@ -111,6 +120,7 @@ namespace ElevenLabs
             global::ElevenLabs.ChapterContentResponseModel content,
             int? lastConversionDateUnix,
             double? conversionProgress,
+            bool? hasVideo,
             global::ElevenLabs.ChapterStatisticsResponseModel? statistics,
             string? lastConversionError)
         {
@@ -121,6 +131,7 @@ namespace ElevenLabs
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.LastConversionDateUnix = lastConversionDateUnix;
             this.ConversionProgress = conversionProgress;
+            this.HasVideo = hasVideo;
             this.Statistics = statistics;
             this.LastConversionError = lastConversionError;
         }

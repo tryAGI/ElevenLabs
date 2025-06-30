@@ -24,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Genfm,
+        /// <summary>
+        /// 
+        /// </summary>
+        Video,
     }
 
     /// <summary>
@@ -42,6 +46,7 @@ namespace ElevenLabs
                 ProjectResponseModelSourceType.Book => "book",
                 ProjectResponseModelSourceType.Article => "article",
                 ProjectResponseModelSourceType.Genfm => "genfm",
+                ProjectResponseModelSourceType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +61,7 @@ namespace ElevenLabs
                 "book" => ProjectResponseModelSourceType.Book,
                 "article" => ProjectResponseModelSourceType.Article,
                 "genfm" => ProjectResponseModelSourceType.Genfm,
+                "video" => ProjectResponseModelSourceType.Video,
                 _ => null,
             };
         }

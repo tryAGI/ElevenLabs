@@ -11377,6 +11377,7 @@ components:
             - book
             - article
             - genfm
+            - video
           type: string
           description: The type of Studio project to create.
           nullable: true
@@ -11828,6 +11829,7 @@ components:
             - book
             - article
             - genfm
+            - video
           type: string
           description: The type of Studio project to create.
           nullable: true
@@ -13095,6 +13097,13 @@ components:
           type: boolean
           description: Whether to annotate which speaker is currently talking in the uploaded file.
           default: false
+        diarization_threshold:
+          title: Diarization Threshold
+          maximum: 0.4
+          minimum: 0.1
+          type: number
+          description: 'Diarization threshold to apply during speaker diarization. A higher value means there will be a lower chance of one speaker being diarized as two different speakers but also a higher chance of two different speakers being diarized as one speaker (less total speakers predicted). A low value means there will be a higher chance of one speaker being diarized as two different speakers but also a lower chance of two different speakers being diarized as one speaker (more total speakers predicted). Can only be set when diarize=True and num_speakers=None. Defaults to None, in which case we will choose a threshold based on the model_id (0.22 usually).'
+          nullable: true
         additional_formats:
           $ref: '#/components/schemas/AdditionalFormats'
         file_format:
@@ -14121,6 +14130,11 @@ components:
             - converting
           type: string
           description: The state of the chapter.
+        has_video:
+          title: Has Video
+          type: boolean
+          description: Whether the chapter has a video.
+          nullable: true
         statistics:
           $ref: '#/components/schemas/ChapterStatisticsResponseModel'
         last_conversion_error:
@@ -14308,6 +14322,11 @@ components:
             - converting
           type: string
           description: The state of the chapter.
+        has_video:
+          title: Has Video
+          type: boolean
+          description: Whether the chapter has a video.
+          nullable: true
         statistics:
           $ref: '#/components/schemas/ChapterStatisticsResponseModel'
         last_conversion_error:
@@ -19814,6 +19833,7 @@ components:
             - book
             - article
             - genfm
+            - video
           type: string
           description: The source type of the project.
           nullable: true
@@ -20074,6 +20094,7 @@ components:
             - book
             - article
             - genfm
+            - video
           type: string
           description: The source type of the project.
           nullable: true

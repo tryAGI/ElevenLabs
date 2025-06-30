@@ -62,6 +62,12 @@ namespace ElevenLabs
         public bool? Diarize { get; set; }
 
         /// <summary>
+        /// Diarization threshold to apply during speaker diarization. A higher value means there will be a lower chance of one speaker being diarized as two different speakers but also a higher chance of two different speakers being diarized as one speaker (less total speakers predicted). A low value means there will be a higher chance of one speaker being diarized as two different speakers but also a lower chance of two different speakers being diarized as one speaker (more total speakers predicted). Can only be set when diarize=True and num_speakers=None. Defaults to None, in which case we will choose a threshold based on the model_id (0.22 usually).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("diarization_threshold")]
+        public double? DiarizationThreshold { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("additional_formats")]
@@ -134,6 +140,9 @@ namespace ElevenLabs
         /// Whether to annotate which speaker is currently talking in the uploaded file.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="diarizationThreshold">
+        /// Diarization threshold to apply during speaker diarization. A higher value means there will be a lower chance of one speaker being diarized as two different speakers but also a higher chance of two different speakers being diarized as one speaker (less total speakers predicted). A low value means there will be a higher chance of one speaker being diarized as two different speakers but also a lower chance of two different speakers being diarized as one speaker (more total speakers predicted). Can only be set when diarize=True and num_speakers=None. Defaults to None, in which case we will choose a threshold based on the model_id (0.22 usually).
+        /// </param>
         /// <param name="additionalFormats"></param>
         /// <param name="fileFormat">
         /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
@@ -163,6 +172,7 @@ namespace ElevenLabs
             int? numSpeakers,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity,
             bool? diarize,
+            double? diarizationThreshold,
             global::System.Collections.Generic.IList<global::ElevenLabs.ExportOptions>? additionalFormats,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat,
             string? cloudStorageUrl,
@@ -177,6 +187,7 @@ namespace ElevenLabs
             this.NumSpeakers = numSpeakers;
             this.TimestampsGranularity = timestampsGranularity;
             this.Diarize = diarize;
+            this.DiarizationThreshold = diarizationThreshold;
             this.AdditionalFormats = additionalFormats;
             this.FileFormat = fileFormat;
             this.CloudStorageUrl = cloudStorageUrl;
