@@ -25,6 +25,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Genfm,
+        /// <summary>
+        /// 
+        /// </summary>
+        Video,
     }
 
     /// <summary>
@@ -43,6 +47,7 @@ namespace ElevenLabs
                 BodyAddProjectV1ProjectsAddPostSourceType.Book => "book",
                 BodyAddProjectV1ProjectsAddPostSourceType.Article => "article",
                 BodyAddProjectV1ProjectsAddPostSourceType.Genfm => "genfm",
+                BodyAddProjectV1ProjectsAddPostSourceType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,6 +62,7 @@ namespace ElevenLabs
                 "book" => BodyAddProjectV1ProjectsAddPostSourceType.Book,
                 "article" => BodyAddProjectV1ProjectsAddPostSourceType.Article,
                 "genfm" => BodyAddProjectV1ProjectsAddPostSourceType.Genfm,
+                "video" => BodyAddProjectV1ProjectsAddPostSourceType.Video,
                 _ => null,
             };
         }
