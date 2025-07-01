@@ -16724,6 +16724,7 @@ components:
       required:
         - characters
         - words
+        - loss
       type: object
       properties:
         characters:
@@ -16738,6 +16739,10 @@ components:
           items:
             $ref: '#/components/schemas/ForcedAlignmentWordResponseModel'
           description: List of words with their timing information.
+        loss:
+          title: Loss
+          type: number
+          description: 'The average alignment loss/confidence score for the entire transcript, calculated from all characters.'
       description: Model representing the response from the aligner service.
     ForcedAlignmentWordResponseModel:
       title: ForcedAlignmentWordResponseModel
@@ -16745,6 +16750,7 @@ components:
         - text
         - start
         - end
+        - loss
       type: object
       properties:
         text:
@@ -16759,9 +16765,14 @@ components:
           title: End
           type: number
           description: The end time of the word in seconds.
+        loss:
+          title: Loss
+          type: number
+          description: 'The average alignment loss/confidence score for this word, calculated from its constituent characters.'
       description: Model representing a single word with its timing information from the aligner.
       example:
         end: 1.02
+        loss: 0.12
         start: 0
         text: Hello
     GetAgentEmbedResponseModel:
