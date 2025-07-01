@@ -23,6 +23,13 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentWordResponseModel> Words { get; set; }
 
         /// <summary>
+        /// The average alignment loss/confidence score for the entire transcript, calculated from all characters.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("loss")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required double Loss { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -37,15 +44,20 @@ namespace ElevenLabs
         /// <param name="words">
         /// List of words with their timing information.
         /// </param>
+        /// <param name="loss">
+        /// The average alignment loss/confidence score for the entire transcript, calculated from all characters.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ForcedAlignmentResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentCharacterResponseModel> characters,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentWordResponseModel> words)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentWordResponseModel> words,
+            double loss)
         {
             this.Characters = characters ?? throw new global::System.ArgumentNullException(nameof(characters));
             this.Words = words ?? throw new global::System.ArgumentNullException(nameof(words));
+            this.Loss = loss;
         }
 
         /// <summary>
