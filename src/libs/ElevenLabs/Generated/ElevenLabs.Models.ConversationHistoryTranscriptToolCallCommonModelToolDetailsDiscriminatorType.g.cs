@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Mcp,
+        /// <summary>
+        /// 
+        /// </summary>
         Webhook,
     }
 
@@ -31,6 +35,7 @@ namespace ElevenLabs
             return value switch
             {
                 ConversationHistoryTranscriptToolCallCommonModelToolDetailsDiscriminatorType.Client => "client",
+                ConversationHistoryTranscriptToolCallCommonModelToolDetailsDiscriminatorType.Mcp => "mcp",
                 ConversationHistoryTranscriptToolCallCommonModelToolDetailsDiscriminatorType.Webhook => "webhook",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -43,6 +48,7 @@ namespace ElevenLabs
             return value switch
             {
                 "client" => ConversationHistoryTranscriptToolCallCommonModelToolDetailsDiscriminatorType.Client,
+                "mcp" => ConversationHistoryTranscriptToolCallCommonModelToolDetailsDiscriminatorType.Mcp,
                 "webhook" => ConversationHistoryTranscriptToolCallCommonModelToolDetailsDiscriminatorType.Webhook,
                 _ => null,
             };

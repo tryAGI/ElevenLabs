@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("simulated_user_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AgentConfigDBModel SimulatedUserConfig { get; set; }
+        public required global::ElevenLabs.AgentConfigAPIModelInput SimulatedUserConfig { get; set; }
 
         /// <summary>
         /// 
@@ -52,7 +52,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationSimulationSpecification(
-            global::ElevenLabs.AgentConfigDBModel simulatedUserConfig,
+            global::ElevenLabs.AgentConfigAPIModelInput simulatedUserConfig,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? toolMockConfig,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? partialConversationHistory,
             object? dynamicVariables)

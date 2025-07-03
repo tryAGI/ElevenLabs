@@ -35,11 +35,19 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails)}");
                 client = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? mcp = default;
+            if (discriminator?.Type == global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelToolDetailsDiscriminatorType.Mcp)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails)}");
+                mcp = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var result = new global::ElevenLabs.ToolDetails(
                 discriminator?.Type,
                 webhook,
-                client
+                client,
+                mcp
                 );
 
             return result;
@@ -65,6 +73,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Client, typeInfo);
+            }
+            else if (value.IsMcp)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mcp, typeInfo);
             }
         }
     }

@@ -87,22 +87,60 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? Mcp { get; init; }
+#else
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? Mcp { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
+#endif
+        public bool IsMcp => Mcp != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator ToolDetails(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails value) => new ToolDetails((global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?(ToolDetails @this) => @this.Mcp;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ToolDetails(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? value)
+        {
+            Mcp = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ToolDetails(
             global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelToolDetailsDiscriminatorType? type,
             global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails? webhook,
-            global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? client
+            global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? client,
+            global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? mcp
             )
         {
             Type = type;
 
             Webhook = webhook;
             Client = client;
+            Mcp = mcp;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Mcp as object ??
             Client as object ??
             Webhook as object 
             ;
@@ -112,7 +150,8 @@ namespace ElevenLabs
         /// </summary>
         public override string? ToString() =>
             Webhook?.ToString() ??
-            Client?.ToString() 
+            Client?.ToString() ??
+            Mcp?.ToString() 
             ;
 
         /// <summary>
@@ -120,7 +159,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsWebhook && !IsClient || !IsWebhook && IsClient;
+            return IsWebhook && !IsClient && !IsMcp || !IsWebhook && IsClient && !IsMcp || !IsWebhook && !IsClient && IsMcp;
         }
 
         /// <summary>
@@ -129,6 +168,7 @@ namespace ElevenLabs
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?, TResult>? webhook = null,
             global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?, TResult>? client = null,
+            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?, TResult>? mcp = null,
             bool validate = true)
         {
             if (validate)
@@ -144,6 +184,10 @@ namespace ElevenLabs
             {
                 return client(Client!);
             }
+            else if (IsMcp && mcp != null)
+            {
+                return mcp(Mcp!);
+            }
 
             return default(TResult);
         }
@@ -154,6 +198,7 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?>? webhook = null,
             global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?>? client = null,
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?>? mcp = null,
             bool validate = true)
         {
             if (validate)
@@ -169,6 +214,10 @@ namespace ElevenLabs
             {
                 client?.Invoke(Client!);
             }
+            else if (IsMcp)
+            {
+                mcp?.Invoke(Mcp!);
+            }
         }
 
         /// <summary>
@@ -182,6 +231,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails),
                 Client,
                 typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails),
+                Mcp,
+                typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -199,7 +250,8 @@ namespace ElevenLabs
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?>.Default.Equals(Webhook, other.Webhook) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?>.Default.Equals(Client, other.Client) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?>.Default.Equals(Client, other.Client) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?>.Default.Equals(Mcp, other.Mcp) 
                 ;
         }
 
