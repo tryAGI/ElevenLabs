@@ -42,11 +42,11 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToAgentToolConfig)}");
                 transferToAgent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.TransferToNumberToolConfig? transferToNumber = default;
+            global::ElevenLabs.TransferToNumberToolConfigOutput? transferToNumber = default;
             if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType.TransferToNumber)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberToolConfig> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberToolConfig)}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberToolConfigOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberToolConfigOutput)}");
                 transferToNumber = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.SkipTurnToolConfig? skipTurn = default;
@@ -106,8 +106,8 @@ namespace ElevenLabs.JsonConverters
             }
             else if (value.IsTransferToNumber)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberToolConfig?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberToolConfig).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberToolConfigOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberToolConfigOutput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumber, typeInfo);
             }
             else if (value.IsSkipTurn)

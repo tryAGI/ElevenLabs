@@ -73,6 +73,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ProductionsAdmin,
+        /// <summary>
+        /// 
+        /// </summary>
+        Support,
+        /// <summary>
+        /// 
+        /// </summary>
+        Internal,
     }
 
     /// <summary>
@@ -103,6 +111,8 @@ namespace ElevenLabs
                 BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.WorkspaceMigrationAdmin => "workspace_migration_admin",
                 BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.HumanReviewer => "human_reviewer",
                 BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.ProductionsAdmin => "productions_admin",
+                BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.Support => "support",
+                BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.Internal => "internal",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -129,6 +139,8 @@ namespace ElevenLabs
                 "workspace_migration_admin" => BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.WorkspaceMigrationAdmin,
                 "human_reviewer" => BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.HumanReviewer,
                 "productions_admin" => BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.ProductionsAdmin,
+                "support" => BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.Support,
+                "internal" => BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission.Internal,
                 _ => null,
             };
         }

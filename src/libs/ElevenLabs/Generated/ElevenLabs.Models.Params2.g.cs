@@ -123,9 +123,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.TransferToNumberToolConfig? TransferToNumber { get; init; }
+        public global::ElevenLabs.TransferToNumberToolConfigOutput? TransferToNumber { get; init; }
 #else
-        public global::ElevenLabs.TransferToNumberToolConfig? TransferToNumber { get; }
+        public global::ElevenLabs.TransferToNumberToolConfigOutput? TransferToNumber { get; }
 #endif
 
         /// <summary>
@@ -139,17 +139,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params2(global::ElevenLabs.TransferToNumberToolConfig value) => new Params2((global::ElevenLabs.TransferToNumberToolConfig?)value);
+        public static implicit operator Params2(global::ElevenLabs.TransferToNumberToolConfigOutput value) => new Params2((global::ElevenLabs.TransferToNumberToolConfigOutput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.TransferToNumberToolConfig?(Params2 @this) => @this.TransferToNumber;
+        public static implicit operator global::ElevenLabs.TransferToNumberToolConfigOutput?(Params2 @this) => @this.TransferToNumber;
 
         /// <summary>
         /// 
         /// </summary>
-        public Params2(global::ElevenLabs.TransferToNumberToolConfig? value)
+        public Params2(global::ElevenLabs.TransferToNumberToolConfigOutput? value)
         {
             TransferToNumber = value;
         }
@@ -241,7 +241,7 @@ namespace ElevenLabs
             global::ElevenLabs.EndCallToolConfig? endCall,
             global::ElevenLabs.LanguageDetectionToolConfig? languageDetection,
             global::ElevenLabs.TransferToAgentToolConfig? transferToAgent,
-            global::ElevenLabs.TransferToNumberToolConfig? transferToNumber,
+            global::ElevenLabs.TransferToNumberToolConfigOutput? transferToNumber,
             global::ElevenLabs.SkipTurnToolConfig? skipTurn,
             global::ElevenLabs.PlayDTMFToolConfig? playKeypadTouchTone
             )
@@ -295,7 +295,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.EndCallToolConfig?, TResult>? endCall = null,
             global::System.Func<global::ElevenLabs.LanguageDetectionToolConfig?, TResult>? languageDetection = null,
             global::System.Func<global::ElevenLabs.TransferToAgentToolConfig?, TResult>? transferToAgent = null,
-            global::System.Func<global::ElevenLabs.TransferToNumberToolConfig?, TResult>? transferToNumber = null,
+            global::System.Func<global::ElevenLabs.TransferToNumberToolConfigOutput?, TResult>? transferToNumber = null,
             global::System.Func<global::ElevenLabs.SkipTurnToolConfig?, TResult>? skipTurn = null,
             global::System.Func<global::ElevenLabs.PlayDTMFToolConfig?, TResult>? playKeypadTouchTone = null,
             bool validate = true)
@@ -340,7 +340,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.EndCallToolConfig?>? endCall = null,
             global::System.Action<global::ElevenLabs.LanguageDetectionToolConfig?>? languageDetection = null,
             global::System.Action<global::ElevenLabs.TransferToAgentToolConfig?>? transferToAgent = null,
-            global::System.Action<global::ElevenLabs.TransferToNumberToolConfig?>? transferToNumber = null,
+            global::System.Action<global::ElevenLabs.TransferToNumberToolConfigOutput?>? transferToNumber = null,
             global::System.Action<global::ElevenLabs.SkipTurnToolConfig?>? skipTurn = null,
             global::System.Action<global::ElevenLabs.PlayDTMFToolConfig?>? playKeypadTouchTone = null,
             bool validate = true)
@@ -390,7 +390,7 @@ namespace ElevenLabs
                 TransferToAgent,
                 typeof(global::ElevenLabs.TransferToAgentToolConfig),
                 TransferToNumber,
-                typeof(global::ElevenLabs.TransferToNumberToolConfig),
+                typeof(global::ElevenLabs.TransferToNumberToolConfigOutput),
                 SkipTurn,
                 typeof(global::ElevenLabs.SkipTurnToolConfig),
                 PlayKeypadTouchTone,
@@ -414,7 +414,7 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndCallToolConfig?>.Default.Equals(EndCall, other.EndCall) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LanguageDetectionToolConfig?>.Default.Equals(LanguageDetection, other.LanguageDetection) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolConfig?>.Default.Equals(TransferToAgent, other.TransferToAgent) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfig?>.Default.Equals(TransferToNumber, other.TransferToNumber) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfigOutput?>.Default.Equals(TransferToNumber, other.TransferToNumber) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolConfig?>.Default.Equals(SkipTurn, other.SkipTurn) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFToolConfig?>.Default.Equals(PlayKeypadTouchTone, other.PlayKeypadTouchTone) 
                 ;
