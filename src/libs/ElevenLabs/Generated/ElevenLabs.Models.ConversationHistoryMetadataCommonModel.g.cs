@@ -109,6 +109,12 @@ namespace ElevenLabs
         public global::ElevenLabs.FeaturesUsageCommonModel? FeaturesUsage { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("eleven_assistant")]
+        public global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? ElevenAssistant { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -135,6 +141,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="featuresUsage"></param>
+        /// <param name="elevenAssistant"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -154,7 +161,8 @@ namespace ElevenLabs
             string? mainLanguage,
             global::ElevenLabs.ConversationHistoryRagUsageCommonModel? ragUsage,
             bool? textOnly,
-            global::ElevenLabs.FeaturesUsageCommonModel? featuresUsage)
+            global::ElevenLabs.FeaturesUsageCommonModel? featuresUsage,
+            global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? elevenAssistant)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -172,6 +180,7 @@ namespace ElevenLabs
             this.RagUsage = ragUsage;
             this.TextOnly = textOnly;
             this.FeaturesUsage = featuresUsage;
+            this.ElevenAssistant = elevenAssistant;
         }
 
         /// <summary>

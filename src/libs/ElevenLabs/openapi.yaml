@@ -14791,6 +14791,14 @@ components:
         batch_call_recipient_id:
           title: Batch Call Recipient Id
           type: string
+    ConversationHistoryElevenAssistantCommonModel:
+      title: ConversationHistoryElevenAssistantCommonModel
+      type: object
+      properties:
+        is_eleven_assistant:
+          title: Is Eleven Assistant
+          type: boolean
+          default: false
     ConversationHistoryErrorCommonModel:
       title: ConversationHistoryErrorCommonModel
       required:
@@ -14895,6 +14903,8 @@ components:
           default: false
         features_usage:
           $ref: '#/components/schemas/FeaturesUsageCommonModel'
+        eleven_assistant:
+          $ref: '#/components/schemas/ConversationHistoryElevenAssistantCommonModel'
     ConversationHistoryRagUsageCommonModel:
       title: ConversationHistoryRagUsageCommonModel
       required:
@@ -25206,6 +25216,11 @@ components:
           type: string
           description: Text and ARIA label for the start call button.
           nullable: true
+        start_chat:
+          title: Start Chat
+          type: string
+          description: Text and ARIA label for the start chat button (text only)
+          nullable: true
         new_call:
           title: New Call
           type: string
@@ -25266,6 +25281,11 @@ components:
           type: string
           description: Status displayed when the agent is connecting.
           nullable: true
+        chatting_status:
+          title: Chatting Status
+          type: string
+          description: Status displayed when the agent is chatting (text only)
+          nullable: true
         input_label:
           title: Input Label
           type: string
@@ -25275,6 +25295,16 @@ components:
           title: Input Placeholder
           type: string
           description: Placeholder text for the text message input.
+          nullable: true
+        input_placeholder_text_only:
+          title: Input Placeholder Text Only
+          type: string
+          description: Placeholder text for the text message input (text only)
+          nullable: true
+        input_placeholder_new_conversation:
+          title: Input Placeholder New Conversation
+          type: string
+          description: Placeholder text for the text message input when starting a new conversation (text only)
           nullable: true
         user_ended_conversation:
           title: User Ended Conversation
