@@ -21,6 +21,12 @@ namespace ElevenLabs
         public string? StartCall { get; set; }
 
         /// <summary>
+        /// Text and ARIA label for the start chat button (text only)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("start_chat")]
+        public string? StartChat { get; set; }
+
+        /// <summary>
         /// Text and ARIA label for the new call button. Displayed when the caller already finished at least one call in order ot start the next one.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("new_call")]
@@ -93,6 +99,12 @@ namespace ElevenLabs
         public string? ConnectingStatus { get; set; }
 
         /// <summary>
+        /// Status displayed when the agent is chatting (text only)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chatting_status")]
+        public string? ChattingStatus { get; set; }
+
+        /// <summary>
         /// ARIA label for the text message input.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_label")]
@@ -103,6 +115,18 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_placeholder")]
         public string? InputPlaceholder { get; set; }
+
+        /// <summary>
+        /// Placeholder text for the text message input (text only)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_placeholder_text_only")]
+        public string? InputPlaceholderTextOnly { get; set; }
+
+        /// <summary>
+        /// Placeholder text for the text message input when starting a new conversation (text only)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_placeholder_new_conversation")]
+        public string? InputPlaceholderNewConversation { get; set; }
 
         /// <summary>
         /// Information message displayed when the user ends the conversation.
@@ -149,6 +173,9 @@ namespace ElevenLabs
         /// <param name="startCall">
         /// Text and ARIA label for the start call button.
         /// </param>
+        /// <param name="startChat">
+        /// Text and ARIA label for the start chat button (text only)
+        /// </param>
         /// <param name="newCall">
         /// Text and ARIA label for the new call button. Displayed when the caller already finished at least one call in order ot start the next one.
         /// </param>
@@ -185,11 +212,20 @@ namespace ElevenLabs
         /// <param name="connectingStatus">
         /// Status displayed when the agent is connecting.
         /// </param>
+        /// <param name="chattingStatus">
+        /// Status displayed when the agent is chatting (text only)
+        /// </param>
         /// <param name="inputLabel">
         /// ARIA label for the text message input.
         /// </param>
         /// <param name="inputPlaceholder">
         /// Placeholder text for the text message input.
+        /// </param>
+        /// <param name="inputPlaceholderTextOnly">
+        /// Placeholder text for the text message input (text only)
+        /// </param>
+        /// <param name="inputPlaceholderNewConversation">
+        /// Placeholder text for the text message input when starting a new conversation (text only)
         /// </param>
         /// <param name="userEndedConversation">
         /// Information message displayed when the user ends the conversation.
@@ -212,6 +248,7 @@ namespace ElevenLabs
         public WidgetTextContents(
             string? mainLabel,
             string? startCall,
+            string? startChat,
             string? newCall,
             string? endCall,
             string? muteMicrophone,
@@ -224,8 +261,11 @@ namespace ElevenLabs
             string? listeningStatus,
             string? speakingStatus,
             string? connectingStatus,
+            string? chattingStatus,
             string? inputLabel,
             string? inputPlaceholder,
+            string? inputPlaceholderTextOnly,
+            string? inputPlaceholderNewConversation,
             string? userEndedConversation,
             string? agentEndedConversation,
             string? conversationId,
@@ -234,6 +274,7 @@ namespace ElevenLabs
         {
             this.MainLabel = mainLabel;
             this.StartCall = startCall;
+            this.StartChat = startChat;
             this.NewCall = newCall;
             this.EndCall = endCall;
             this.MuteMicrophone = muteMicrophone;
@@ -246,8 +287,11 @@ namespace ElevenLabs
             this.ListeningStatus = listeningStatus;
             this.SpeakingStatus = speakingStatus;
             this.ConnectingStatus = connectingStatus;
+            this.ChattingStatus = chattingStatus;
             this.InputLabel = inputLabel;
             this.InputPlaceholder = inputPlaceholder;
+            this.InputPlaceholderTextOnly = inputPlaceholderTextOnly;
+            this.InputPlaceholderNewConversation = inputPlaceholderNewConversation;
             this.UserEndedConversation = userEndedConversation;
             this.AgentEndedConversation = agentEndedConversation;
             this.ConversationId = conversationId;
