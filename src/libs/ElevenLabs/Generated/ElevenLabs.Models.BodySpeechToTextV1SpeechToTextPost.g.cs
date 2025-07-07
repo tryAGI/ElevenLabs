@@ -105,6 +105,14 @@ namespace ElevenLabs
         public double? Temperature { get; set; }
 
         /// <summary>
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.<br/>
+        /// Example: 12345
+        /// </summary>
+        /// <example>12345</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
+        public int? Seed { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -160,6 +168,10 @@ namespace ElevenLabs
         /// <param name="temperature">
         /// Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.
         /// </param>
+        /// <param name="seed">
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.<br/>
+        /// Example: 12345
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -177,7 +189,8 @@ namespace ElevenLabs
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat,
             string? cloudStorageUrl,
             bool? webhook,
-            double? temperature)
+            double? temperature,
+            int? seed)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file;
@@ -193,6 +206,7 @@ namespace ElevenLabs
             this.CloudStorageUrl = cloudStorageUrl;
             this.Webhook = webhook;
             this.Temperature = temperature;
+            this.Seed = seed;
         }
 
         /// <summary>

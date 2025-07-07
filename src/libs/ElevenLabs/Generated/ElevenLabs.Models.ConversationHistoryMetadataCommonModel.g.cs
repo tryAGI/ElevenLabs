@@ -115,6 +115,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? ElevenAssistant { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("initiator_id")]
+        public string? InitiatorId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -142,6 +148,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="featuresUsage"></param>
         /// <param name="elevenAssistant"></param>
+        /// <param name="initiatorId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -162,7 +169,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryRagUsageCommonModel? ragUsage,
             bool? textOnly,
             global::ElevenLabs.FeaturesUsageCommonModel? featuresUsage,
-            global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? elevenAssistant)
+            global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? elevenAssistant,
+            string? initiatorId)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -181,6 +189,7 @@ namespace ElevenLabs
             this.TextOnly = textOnly;
             this.FeaturesUsage = featuresUsage;
             this.ElevenAssistant = elevenAssistant;
+            this.InitiatorId = initiatorId;
         }
 
         /// <summary>

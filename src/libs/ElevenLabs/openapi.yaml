@@ -10628,6 +10628,18 @@ components:
         condition:
           title: Condition
           type: string
+        delay_ms:
+          title: Delay Ms
+          type: integer
+          default: 0
+        transfer_message:
+          title: Transfer Message
+          type: string
+          nullable: true
+        enable_transferred_agent_first_message:
+          title: Enable Transferred Agent First Message
+          type: boolean
+          default: false
     AgentWorkspaceOverrides-Input:
       title: AgentWorkspaceOverrides
       type: object
@@ -13110,6 +13122,14 @@ components:
           type: number
           description: 'Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.'
           nullable: true
+        seed:
+          title: Seed
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.'
+          nullable: true
+          example: 12345
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -13922,6 +13942,7 @@ components:
         - request_queue
         - region
         - subresource_id
+        - reporting_workspace_id
       type: string
       description: How to break down the information. Cannot be "user" or "api_key" if include_workspace_metrics is False.
     BuiltInTools-Input:
@@ -14410,10 +14431,10 @@ components:
           type: string
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30
+          maximum: 120
           minimum: 1
           type: integer
-          description: The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 30 seconds (inclusive).
+          description: The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).
           default: 20
         type:
           title: Type
@@ -14453,10 +14474,10 @@ components:
           type: string
         response_timeout_secs:
           title: Response Timeout Secs
-          maximum: 30
+          maximum: 120
           minimum: 1
           type: integer
-          description: The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 30 seconds (inclusive).
+          description: The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).
           default: 20
         type:
           title: Type
@@ -14905,6 +14926,10 @@ components:
           $ref: '#/components/schemas/FeaturesUsageCommonModel'
         eleven_assistant:
           $ref: '#/components/schemas/ConversationHistoryElevenAssistantCommonModel'
+        initiator_id:
+          title: Initiator Id
+          type: string
+          nullable: true
     ConversationHistoryRagUsageCommonModel:
       title: ConversationHistoryRagUsageCommonModel
       required:
@@ -15320,6 +15345,11 @@ components:
         custom_llm_extra_body:
           title: Custom Llm Extra Body
           type: object
+        user_id:
+          title: User Id
+          type: string
+          description: ID of the end user participating in this conversation (for agent owner's user identification)
+          nullable: true
         dynamic_variables:
           title: Dynamic Variables
           type: object
@@ -15339,6 +15369,11 @@ components:
         custom_llm_extra_body:
           title: Custom Llm Extra Body
           type: object
+        user_id:
+          title: User Id
+          type: string
+          description: ID of the end user participating in this conversation (for agent owner's user identification)
+          nullable: true
         dynamic_variables:
           title: Dynamic Variables
           type: object
@@ -15358,6 +15393,11 @@ components:
         custom_llm_extra_body:
           title: Custom Llm Extra Body
           type: object
+        user_id:
+          title: User Id
+          type: string
+          description: ID of the end user participating in this conversation (for agent owner's user identification)
+          nullable: true
         dynamic_variables:
           title: Dynamic Variables
           type: object
@@ -17021,6 +17061,10 @@ components:
             - done
             - failed
           type: string
+        user_id:
+          title: User Id
+          type: string
+          nullable: true
         transcript:
           title: Transcript
           type: array
