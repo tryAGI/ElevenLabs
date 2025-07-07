@@ -179,6 +179,12 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Temperature}"),
                     name: "temperature");
+            } 
+            if (request.Seed != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.Seed}"),
+                    name: "seed");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -371,6 +377,10 @@ namespace ElevenLabs
         /// <param name="temperature">
         /// Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.
         /// </param>
+        /// <param name="seed">
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.<br/>
+        /// Example: 12345
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechToTextChunkResponseModel> CreateSpeechToTextAsync(
@@ -390,6 +400,7 @@ namespace ElevenLabs
             string? cloudStorageUrl = default,
             bool? webhook = default,
             double? temperature = default,
+            int? seed = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost
@@ -408,6 +419,7 @@ namespace ElevenLabs
                 CloudStorageUrl = cloudStorageUrl,
                 Webhook = webhook,
                 Temperature = temperature,
+                Seed = seed,
             };
 
             return await CreateSpeechToTextAsync(

@@ -33,6 +33,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
+        public string? UserId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput> Transcript { get; set; }
@@ -89,6 +95,7 @@ namespace ElevenLabs
         /// <param name="agentId"></param>
         /// <param name="conversationId"></param>
         /// <param name="status"></param>
+        /// <param name="userId"></param>
         /// <param name="transcript"></param>
         /// <param name="metadata"></param>
         /// <param name="analysis"></param>
@@ -108,6 +115,7 @@ namespace ElevenLabs
             bool hasAudio,
             bool hasUserAudio,
             bool hasResponseAudio,
+            string? userId,
             global::ElevenLabs.ConversationHistoryAnalysisCommonModel? analysis,
             global::ElevenLabs.ConversationInitiationClientDataRequestOutput? conversationInitiationClientData)
         {
@@ -119,6 +127,7 @@ namespace ElevenLabs
             this.HasAudio = hasAudio;
             this.HasUserAudio = hasUserAudio;
             this.HasResponseAudio = hasResponseAudio;
+            this.UserId = userId;
             this.Analysis = analysis;
             this.ConversationInitiationClientData = conversationInitiationClientData;
         }
