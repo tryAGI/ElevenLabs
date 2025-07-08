@@ -69,6 +69,15 @@ namespace ElevenLabs
         public double? GuidanceScale { get; set; }
 
         /// <summary>
+        /// Determines whether the Text to Voice previews should be included in the response. If true, only the generated IDs will be returned which can then be streamed via the /v1/text-to-voice/:generated_voice_id/stream endpoint.<br/>
+        /// Default Value: false<br/>
+        /// Example: true
+        /// </summary>
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stream_previews")]
+        public bool? StreamPreviews { get; set; }
+
+        /// <summary>
         /// Higher quality results in better voice output but less variety.<br/>
         /// Example: 0.9
         /// </summary>
@@ -130,6 +139,11 @@ namespace ElevenLabs
         /// Default Value: 5<br/>
         /// Example: 5
         /// </param>
+        /// <param name="streamPreviews">
+        /// Determines whether the Text to Voice previews should be included in the response. If true, only the generated IDs will be returned which can then be streamed via the /v1/text-to-voice/:generated_voice_id/stream endpoint.<br/>
+        /// Default Value: false<br/>
+        /// Example: true
+        /// </param>
         /// <param name="quality">
         /// Higher quality results in better voice output but less variety.<br/>
         /// Example: 0.9
@@ -152,6 +166,7 @@ namespace ElevenLabs
             double? loudness,
             int? seed,
             double? guidanceScale,
+            bool? streamPreviews,
             double? quality,
             string? referenceAudioBase64,
             double? promptStrength)
@@ -163,6 +178,7 @@ namespace ElevenLabs
             this.Loudness = loudness;
             this.Seed = seed;
             this.GuidanceScale = guidanceScale;
+            this.StreamPreviews = streamPreviews;
             this.Quality = quality;
             this.ReferenceAudioBase64 = referenceAudioBase64;
             this.PromptStrength = promptStrength;

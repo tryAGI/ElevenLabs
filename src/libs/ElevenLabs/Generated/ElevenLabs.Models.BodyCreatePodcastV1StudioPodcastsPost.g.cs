@@ -71,6 +71,30 @@ namespace ElevenLabs
         public string? Language { get; set; }
 
         /// <summary>
+        /// The intro text that will always be added to the beginning of the podcast.<br/>
+        /// Example: Welcome to the podcast.
+        /// </summary>
+        /// <example>Welcome to the podcast.</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("intro")]
+        public string? Intro { get; set; }
+
+        /// <summary>
+        /// The outro text that will always be added to the end of the podcast.<br/>
+        /// Example: Thank you for listening!
+        /// </summary>
+        /// <example>Thank you for listening!</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("outro")]
+        public string? Outro { get; set; }
+
+        /// <summary>
+        /// Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.<br/>
+        /// Example: Ensure the podcast remains factual, accurate and appropriate for all audiences.
+        /// </summary>
+        /// <example>Ensure the podcast remains factual, accurate and appropriate for all audiences.</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("instructions_prompt")]
+        public string? InstructionsPrompt { get; set; }
+
+        /// <summary>
         /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.<br/>
         /// Example: [Emphasize the importance of AI on education]
         /// </summary>
@@ -178,6 +202,18 @@ namespace ElevenLabs
         /// An optional language of the Studio project. Two-letter language code (ISO 639-1).<br/>
         /// Example: en
         /// </param>
+        /// <param name="intro">
+        /// The intro text that will always be added to the beginning of the podcast.<br/>
+        /// Example: Welcome to the podcast.
+        /// </param>
+        /// <param name="outro">
+        /// The outro text that will always be added to the end of the podcast.<br/>
+        /// Example: Thank you for listening!
+        /// </param>
+        /// <param name="instructionsPrompt">
+        /// Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.<br/>
+        /// Example: Ensure the podcast remains factual, accurate and appropriate for all audiences.
+        /// </param>
         /// <param name="highlights">
         /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.<br/>
         /// Example: [Emphasize the importance of AI on education]
@@ -248,6 +284,9 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? qualityPreset,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? durationScale,
             string? language,
+            string? intro,
+            string? outro,
+            string? instructionsPrompt,
             global::System.Collections.Generic.IList<string>? highlights,
             string? callbackUrl)
         {
@@ -257,6 +296,9 @@ namespace ElevenLabs
             this.QualityPreset = qualityPreset;
             this.DurationScale = durationScale;
             this.Language = language;
+            this.Intro = intro;
+            this.Outro = outro;
+            this.InstructionsPrompt = instructionsPrompt;
             this.Highlights = highlights;
             this.CallbackUrl = callbackUrl;
         }

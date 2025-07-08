@@ -57,6 +57,18 @@ namespace ElevenLabs
         /// An optional language of the Studio project. Two-letter language code (ISO 639-1).<br/>
         /// Example: en
         /// </param>
+        /// <param name="intro">
+        /// The intro text that will always be added to the beginning of the podcast.<br/>
+        /// Example: Welcome to the podcast.
+        /// </param>
+        /// <param name="outro">
+        /// The outro text that will always be added to the end of the podcast.<br/>
+        /// Example: Thank you for listening!
+        /// </param>
+        /// <param name="instructionsPrompt">
+        /// Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.<br/>
+        /// Example: Ensure the podcast remains factual, accurate and appropriate for all audiences.
+        /// </param>
         /// <param name="highlights">
         /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.<br/>
         /// Example: [Emphasize the importance of AI on education]
@@ -127,6 +139,9 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? qualityPreset = default,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? durationScale = default,
             string? language = default,
+            string? intro = default,
+            string? outro = default,
+            string? instructionsPrompt = default,
             global::System.Collections.Generic.IList<string>? highlights = default,
             string? callbackUrl = default,
             global::System.Threading.CancellationToken cancellationToken = default);
