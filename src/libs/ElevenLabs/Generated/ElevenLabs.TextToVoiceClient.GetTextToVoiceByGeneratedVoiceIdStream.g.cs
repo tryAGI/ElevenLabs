@@ -3,54 +3,57 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class TextToVoiceClient
     {
-        partial void PrepareCreateConvaiBatchCallingByBatchIdRetryArguments(
+        partial void PrepareGetTextToVoiceByGeneratedVoiceIdStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string batchId,
+            ref string generatedVoiceId,
             ref string? xiApiKey);
-        partial void PrepareCreateConvaiBatchCallingByBatchIdRetryRequest(
+        partial void PrepareGetTextToVoiceByGeneratedVoiceIdStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string batchId,
+            string generatedVoiceId,
             string? xiApiKey);
-        partial void ProcessCreateConvaiBatchCallingByBatchIdRetryResponse(
+        partial void ProcessGetTextToVoiceByGeneratedVoiceIdStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateConvaiBatchCallingByBatchIdRetryResponseContent(
+        partial void ProcessGetTextToVoiceByGeneratedVoiceIdStreamResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
+            ref byte[] content);
 
         /// <summary>
-        /// Retry A Batch Call.<br/>
-        /// Retry a batch call, calling failed and no-response recipients again.
+        /// Text To Voice Preview Streaming<br/>
+        /// Stream a the voice preview for a generated voice as it is being generated.
         /// </summary>
-        /// <param name="batchId"></param>
+        /// <param name="generatedVoiceId">
+        /// The generated_voice_id to stream.<br/>
+        /// Example: 37HceQefKmEi3bGovXjL
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> CreateConvaiBatchCallingByBatchIdRetryAsync(
-            string batchId,
+        public async global::System.Threading.Tasks.Task<byte[]> GetTextToVoiceByGeneratedVoiceIdStreamAsync(
+            string generatedVoiceId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateConvaiBatchCallingByBatchIdRetryArguments(
+            PrepareGetTextToVoiceByGeneratedVoiceIdStreamArguments(
                 httpClient: HttpClient,
-                batchId: ref batchId,
+                generatedVoiceId: ref generatedVoiceId,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/batch-calling/{batchId}/retry",
+                path: $"/v1/text-to-voice/{generatedVoiceId}/stream",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Post,
+                method: global::System.Net.Http.HttpMethod.Get,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -82,10 +85,10 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateConvaiBatchCallingByBatchIdRetryRequest(
+            PrepareGetTextToVoiceByGeneratedVoiceIdStreamRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                batchId: batchId,
+                generatedVoiceId: generatedVoiceId,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
@@ -96,7 +99,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateConvaiBatchCallingByBatchIdRetryResponse(
+            ProcessGetTextToVoiceByGeneratedVoiceIdStreamResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -139,17 +142,13 @@ namespace ElevenLabs
 
             if (ReadResponseAsString)
             {
-                var __content = await __response.Content.ReadAsStringAsync(
+                var __content = await __response.Content.ReadAsByteArrayAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                ProcessResponseContent(
-                    client: HttpClient,
-                    response: __response,
-                    content: ref __content);
-                ProcessCreateConvaiBatchCallingByBatchIdRetryResponseContent(
+                ProcessGetTextToVoiceByGeneratedVoiceIdStreamResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -158,18 +157,15 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::ElevenLabs.BatchCallResponse.FromJson(__content, JsonSerializerContext) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
                     throw new global::ElevenLabs.ApiException(
-                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                        message: __response.ReasonPhrase ?? string.Empty,
                         innerException: __ex,
                         statusCode: __response.StatusCode)
                     {
-                        ResponseBody = __content,
                         ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                             __response.Headers,
                             h => h.Key,
@@ -183,15 +179,13 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsByteArrayAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::ElevenLabs.BatchCallResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {

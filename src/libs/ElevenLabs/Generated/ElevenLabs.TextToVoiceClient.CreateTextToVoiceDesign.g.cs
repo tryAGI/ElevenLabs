@@ -271,6 +271,11 @@ namespace ElevenLabs
         /// Default Value: 5<br/>
         /// Example: 5
         /// </param>
+        /// <param name="streamPreviews">
+        /// Determines whether the Text to Voice previews should be included in the response. If true, only the generated IDs will be returned which can then be streamed via the /v1/text-to-voice/:generated_voice_id/stream endpoint.<br/>
+        /// Default Value: false<br/>
+        /// Example: true
+        /// </param>
         /// <param name="quality">
         /// Higher quality results in better voice output but less variety.<br/>
         /// Example: 0.9
@@ -294,6 +299,7 @@ namespace ElevenLabs
             double? loudness = default,
             int? seed = default,
             double? guidanceScale = default,
+            bool? streamPreviews = default,
             double? quality = default,
             string? referenceAudioBase64 = default,
             double? promptStrength = default,
@@ -308,6 +314,7 @@ namespace ElevenLabs
                 Loudness = loudness,
                 Seed = seed,
                 GuidanceScale = guidanceScale,
+                StreamPreviews = streamPreviews,
                 Quality = quality,
                 ReferenceAudioBase64 = referenceAudioBase64,
                 PromptStrength = promptStrength,

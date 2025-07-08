@@ -1479,6 +1479,50 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: text_to_voice
       x-fern-sdk-method-name: design
+  '/v1/text-to-voice/{generated_voice_id}/stream':
+    get:
+      tags:
+        - text-to-voice
+      summary: Text To Voice Preview Streaming
+      description: Stream a the voice preview for a generated voice as it is being generated.
+      operationId: Text_to_voice_preview_streaming_v1_text_to_voice__generated_voice_id__stream_get
+      parameters:
+        - name: generated_voice_id
+          in: path
+          description: The generated_voice_id to stream.
+          required: true
+          schema:
+            title: Generated Voice Id
+            type: string
+            description: The generated_voice_id to stream.
+            example: 37HceQefKmEi3bGovXjL
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Streaming audio data
+          content:
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - text_to_voice
+        - preview
+      x-fern-sdk-method-name: stream
+      x-fern-streaming: true
   /v1/user/subscription:
     get:
       tags:
@@ -9048,7 +9092,7 @@ paths:
       tags:
         - Conversational AI
       summary: Retry A Batch Call.
-      description: Retry a batch call by setting completed recipients back to pending status.
+      description: 'Retry a batch call, calling failed and no-response recipients again.'
       operationId: Retry_a_batch_call__v1_convai_batch_calling__batch_id__retry_post
       parameters:
         - name: batch_id
@@ -12081,6 +12125,27 @@ components:
           description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
           nullable: true
           example: en
+        intro:
+          title: Intro
+          maxLength: 1500
+          type: string
+          description: The intro text that will always be added to the beginning of the podcast.
+          nullable: true
+          example: Welcome to the podcast.
+        outro:
+          title: Outro
+          maxLength: 1500
+          type: string
+          description: The outro text that will always be added to the end of the podcast.
+          nullable: true
+          example: Thank you for listening!
+        instructions_prompt:
+          title: Instructions Prompt
+          maxLength: 3000
+          type: string
+          description: Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.
+          nullable: true
+          example: 'Ensure the podcast remains factual, accurate and appropriate for all audiences.'
         highlights:
           title: Highlights
           type: array
@@ -12167,6 +12232,27 @@ components:
           description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
           nullable: true
           example: en
+        intro:
+          title: Intro
+          maxLength: 1500
+          type: string
+          description: The intro text that will always be added to the beginning of the podcast.
+          nullable: true
+          example: Welcome to the podcast.
+        outro:
+          title: Outro
+          maxLength: 1500
+          type: string
+          description: The outro text that will always be added to the end of the podcast.
+          nullable: true
+          example: Thank you for listening!
+        instructions_prompt:
+          title: Instructions Prompt
+          maxLength: 3000
+          type: string
+          description: Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.
+          nullable: true
+          example: 'Ensure the podcast remains factual, accurate and appropriate for all audiences.'
         highlights:
           title: Highlights
           type: array
@@ -23492,6 +23578,12 @@ components:
           description: 'Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.'
           default: 5
           example: 5
+        stream_previews:
+          title: Stream Previews
+          type: boolean
+          description: 'Determines whether the Text to Voice previews should be included in the response. If true, only the generated IDs will be returned which can then be streamed via the /v1/text-to-voice/:generated_voice_id/stream endpoint.'
+          default: false
+          example: true
         quality:
           title: Quality
           maximum: 1
