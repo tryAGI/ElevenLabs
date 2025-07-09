@@ -110,7 +110,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// Access, create and convert Studio Projects programmatically, only specifically whitelisted accounts can access the Projects API. If you need access please contact our sales team.
+        /// Access, create and convert Studio Projects programmatically, only specifically whitelisted accounts can access the Studio API. If you need access please contact our sales team.
         /// </summary>
         public StudiosClient Studios => new StudiosClient(HttpClient, authorizations: Authorizations)
         {

@@ -25,7 +25,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Text To Voice Preview Streaming<br/>
-        /// Stream a the voice preview for a generated voice as it is being generated.
+        /// Stream a voice preview that was created via the /v1/text-to-voice/design endpoint.
         /// </summary>
         /// <param name="generatedVoiceId">
         /// The generated_voice_id to stream.<br/>
