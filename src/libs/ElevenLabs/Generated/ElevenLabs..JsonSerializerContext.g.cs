@@ -299,6 +299,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.ConversationHistorySIPTrunkingPhoneCallModelTypeNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ConversationHistoryMetadataCommonModelPhoneCallDiscriminatorTypeJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ConversationHistoryMetadataCommonModelPhoneCallDiscriminatorTypeNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.ConversationInitiationSourceJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.ConversationInitiationSourceNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelStatusJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelStatusNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ConversationTokenPurposeJsonConverter),

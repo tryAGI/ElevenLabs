@@ -15016,6 +15016,8 @@ components:
           title: Initiator Id
           type: string
           nullable: true
+        conversation_initiation_source:
+          $ref: '#/components/schemas/ConversationInitiationSource'
     ConversationHistoryRagUsageCommonModel:
       title: ConversationHistoryRagUsageCommonModel
       required:
@@ -15517,6 +15519,22 @@ components:
         request_headers:
           Content-Type: application/json
         url: https://example.com/webhook
+    ConversationInitiationSource:
+      title: ConversationInitiationSource
+      enum:
+        - unknown
+        - android_sdk
+        - node_js_sdk
+        - react_native_sdk
+        - react_sdk
+        - js_sdk
+        - python_sdk
+        - widget
+        - sip_trunk
+        - twilio
+        - genesys
+      type: string
+      description: Enum representing the possible sources for conversation initiation.
     ConversationSignedUrlResponseModel:
       title: ConversationSignedUrlResponseModel
       required:
