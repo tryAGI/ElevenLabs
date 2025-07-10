@@ -121,6 +121,13 @@ namespace ElevenLabs
         public string? InitiatorId { get; set; }
 
         /// <summary>
+        /// Enum representing the possible sources for conversation initiation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_source")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationInitiationSourceJsonConverter))]
+        public global::ElevenLabs.ConversationInitiationSource? ConversationInitiationSource { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -149,6 +156,9 @@ namespace ElevenLabs
         /// <param name="featuresUsage"></param>
         /// <param name="elevenAssistant"></param>
         /// <param name="initiatorId"></param>
+        /// <param name="conversationInitiationSource">
+        /// Enum representing the possible sources for conversation initiation.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -170,7 +180,8 @@ namespace ElevenLabs
             bool? textOnly,
             global::ElevenLabs.FeaturesUsageCommonModel? featuresUsage,
             global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? elevenAssistant,
-            string? initiatorId)
+            string? initiatorId,
+            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -190,6 +201,7 @@ namespace ElevenLabs
             this.FeaturesUsage = featuresUsage;
             this.ElevenAssistant = elevenAssistant;
             this.InitiatorId = initiatorId;
+            this.ConversationInitiationSource = conversationInitiationSource;
         }
 
         /// <summary>
