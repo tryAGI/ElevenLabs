@@ -15018,6 +15018,10 @@ components:
           nullable: true
         conversation_initiation_source:
           $ref: '#/components/schemas/ConversationInitiationSource'
+        conversation_initiation_source_version:
+          title: Conversation Initiation Source Version
+          type: string
+          nullable: true
     ConversationHistoryRagUsageCommonModel:
       title: ConversationHistoryRagUsageCommonModel
       required:
@@ -15777,6 +15781,16 @@ components:
           title: Label
           type: string
           description: Label for the phone number
+        supports_inbound:
+          title: Supports Inbound
+          type: boolean
+          description: Whether this phone number supports inbound calls
+          default: true
+        supports_outbound:
+          title: Supports Outbound
+          type: boolean
+          description: Whether this phone number supports outbound calls
+          default: true
         provider:
           title: Provider
           enum:
@@ -15804,6 +15818,16 @@ components:
           title: Label
           type: string
           description: Label for the phone number
+        supports_inbound:
+          title: Supports Inbound
+          type: boolean
+          description: Whether this phone number supports inbound calls
+          default: true
+        supports_outbound:
+          title: Supports Outbound
+          type: boolean
+          description: Whether this phone number supports outbound calls
+          default: true
         provider:
           title: Provider
           enum:
@@ -15844,6 +15868,11 @@ components:
               - $ref: '#/components/schemas/ConvAISecretLocator'
               - $ref: '#/components/schemas/ConvAIDynamicVariable'
           description: Headers that should be included in the request
+        api_version:
+          title: Api Version
+          type: string
+          description: The API version to use for the request
+          nullable: true
     DashboardCallSuccessChartModel:
       title: DashboardCallSuccessChartModel
       required:
@@ -17645,6 +17674,16 @@ components:
           title: Label
           type: string
           description: Label for the phone number
+        supports_inbound:
+          title: Supports Inbound
+          type: boolean
+          description: Whether this phone number supports inbound calls
+          default: true
+        supports_outbound:
+          title: Supports Outbound
+          type: boolean
+          description: Whether this phone number supports outbound calls
+          default: true
         phone_number_id:
           title: Phone Number Id
           type: string
@@ -17669,6 +17708,8 @@ components:
         phone_number: '+1987654321'
         phone_number_id: phone_456
         provider: sip_trunk
+        supports_inbound: true
+        supports_outbound: true
     GetPhoneNumberTwilioResponseModel:
       title: GetPhoneNumberTwilioResponseModel
       required:
@@ -17685,6 +17726,16 @@ components:
           title: Label
           type: string
           description: Label for the phone number
+        supports_inbound:
+          title: Supports Inbound
+          type: boolean
+          description: Whether this phone number supports inbound calls
+          default: true
+        supports_outbound:
+          title: Supports Outbound
+          type: boolean
+          description: Whether this phone number supports outbound calls
+          default: true
         phone_number_id:
           title: Phone Number Id
           type: string
@@ -17703,6 +17754,8 @@ components:
         phone_number: '+1234567890'
         phone_number_id: phone_123
         provider: twilio
+        supports_inbound: true
+        supports_outbound: true
     GetProjectsResponseModel:
       title: GetProjectsResponseModel
       required:

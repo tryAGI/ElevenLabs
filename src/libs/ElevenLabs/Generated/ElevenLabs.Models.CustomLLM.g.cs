@@ -34,6 +34,12 @@ namespace ElevenLabs
         public object? RequestHeaders { get; set; }
 
         /// <summary>
+        /// The API version to use for the request
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("api_version")]
+        public string? ApiVersion { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -54,6 +60,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// Headers that should be included in the request
         /// </param>
+        /// <param name="apiVersion">
+        /// The API version to use for the request
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -61,12 +70,14 @@ namespace ElevenLabs
             string url,
             string? modelId,
             global::ElevenLabs.ConvAISecretLocator? apiKey,
-            object? requestHeaders)
+            object? requestHeaders,
+            string? apiVersion)
         {
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.ModelId = modelId;
             this.ApiKey = apiKey;
             this.RequestHeaders = requestHeaders;
+            this.ApiVersion = apiVersion;
         }
 
         /// <summary>
