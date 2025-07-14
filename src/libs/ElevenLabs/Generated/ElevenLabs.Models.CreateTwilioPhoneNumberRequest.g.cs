@@ -23,6 +23,20 @@ namespace ElevenLabs
         public required string Label { get; set; }
 
         /// <summary>
+        /// Whether this phone number supports inbound calls<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supports_inbound")]
+        public bool? SupportsInbound { get; set; }
+
+        /// <summary>
+        /// Whether this phone number supports outbound calls<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supports_outbound")]
+        public bool? SupportsOutbound { get; set; }
+
+        /// <summary>
         /// Default Value: twilio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
@@ -58,6 +72,14 @@ namespace ElevenLabs
         /// <param name="label">
         /// Label for the phone number
         /// </param>
+        /// <param name="supportsInbound">
+        /// Whether this phone number supports inbound calls<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="supportsOutbound">
+        /// Whether this phone number supports outbound calls<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="provider">
         /// Default Value: twilio
         /// </param>
@@ -75,12 +97,16 @@ namespace ElevenLabs
             string label,
             string sid,
             string token,
+            bool? supportsInbound,
+            bool? supportsOutbound,
             global::ElevenLabs.CreateTwilioPhoneNumberRequestProvider? provider)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.Sid = sid ?? throw new global::System.ArgumentNullException(nameof(sid));
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
+            this.SupportsInbound = supportsInbound;
+            this.SupportsOutbound = supportsOutbound;
             this.Provider = provider;
         }
 

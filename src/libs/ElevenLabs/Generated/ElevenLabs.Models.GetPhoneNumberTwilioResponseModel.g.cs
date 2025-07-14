@@ -23,6 +23,20 @@ namespace ElevenLabs
         public required string Label { get; set; }
 
         /// <summary>
+        /// Whether this phone number supports inbound calls<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supports_inbound")]
+        public bool? SupportsInbound { get; set; }
+
+        /// <summary>
+        /// Whether this phone number supports outbound calls<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supports_outbound")]
+        public bool? SupportsOutbound { get; set; }
+
+        /// <summary>
         /// The ID of the phone number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
@@ -58,6 +72,14 @@ namespace ElevenLabs
         /// <param name="label">
         /// Label for the phone number
         /// </param>
+        /// <param name="supportsInbound">
+        /// Whether this phone number supports inbound calls<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="supportsOutbound">
+        /// Whether this phone number supports outbound calls<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="phoneNumberId">
         /// The ID of the phone number
         /// </param>
@@ -73,12 +95,16 @@ namespace ElevenLabs
             string phoneNumber,
             string label,
             string phoneNumberId,
+            bool? supportsInbound,
+            bool? supportsOutbound,
             global::ElevenLabs.PhoneNumberAgentInfo? assignedAgent,
             global::ElevenLabs.GetPhoneNumberTwilioResponseModelProvider? provider)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
+            this.SupportsInbound = supportsInbound;
+            this.SupportsOutbound = supportsOutbound;
             this.AssignedAgent = assignedAgent;
             this.Provider = provider;
         }

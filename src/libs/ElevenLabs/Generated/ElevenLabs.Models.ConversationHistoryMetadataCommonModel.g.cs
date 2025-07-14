@@ -128,6 +128,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationInitiationSource? ConversationInitiationSource { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_source_version")]
+        public string? ConversationInitiationSourceVersion { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -159,6 +165,7 @@ namespace ElevenLabs
         /// <param name="conversationInitiationSource">
         /// Enum representing the possible sources for conversation initiation.
         /// </param>
+        /// <param name="conversationInitiationSourceVersion"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -181,7 +188,8 @@ namespace ElevenLabs
             global::ElevenLabs.FeaturesUsageCommonModel? featuresUsage,
             global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? elevenAssistant,
             string? initiatorId,
-            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource)
+            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            string? conversationInitiationSourceVersion)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -202,6 +210,7 @@ namespace ElevenLabs
             this.ElevenAssistant = elevenAssistant;
             this.InitiatorId = initiatorId;
             this.ConversationInitiationSource = conversationInitiationSource;
+            this.ConversationInitiationSourceVersion = conversationInitiationSourceVersion;
         }
 
         /// <summary>

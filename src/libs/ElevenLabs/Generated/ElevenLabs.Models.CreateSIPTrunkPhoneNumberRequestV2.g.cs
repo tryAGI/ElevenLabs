@@ -23,6 +23,20 @@ namespace ElevenLabs
         public required string Label { get; set; }
 
         /// <summary>
+        /// Whether this phone number supports inbound calls<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supports_inbound")]
+        public bool? SupportsInbound { get; set; }
+
+        /// <summary>
+        /// Whether this phone number supports outbound calls<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supports_outbound")]
+        public bool? SupportsOutbound { get; set; }
+
+        /// <summary>
         /// Default Value: sip_trunk
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
@@ -56,6 +70,14 @@ namespace ElevenLabs
         /// <param name="label">
         /// Label for the phone number
         /// </param>
+        /// <param name="supportsInbound">
+        /// Whether this phone number supports inbound calls<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="supportsOutbound">
+        /// Whether this phone number supports outbound calls<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="provider">
         /// Default Value: sip_trunk
         /// </param>
@@ -67,12 +89,16 @@ namespace ElevenLabs
         public CreateSIPTrunkPhoneNumberRequestV2(
             string phoneNumber,
             string label,
+            bool? supportsInbound,
+            bool? supportsOutbound,
             global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2Provider? provider,
             global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig,
             global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
+            this.SupportsInbound = supportsInbound;
+            this.SupportsOutbound = supportsOutbound;
             this.Provider = provider;
             this.InboundTrunkConfig = inboundTrunkConfig;
             this.OutboundTrunkConfig = outboundTrunkConfig;
