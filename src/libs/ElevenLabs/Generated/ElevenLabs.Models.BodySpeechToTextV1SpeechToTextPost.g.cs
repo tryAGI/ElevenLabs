@@ -99,6 +99,12 @@ namespace ElevenLabs
         public bool? Webhook { get; set; }
 
         /// <summary>
+        /// Optional specific webhook ID to send the transcription result to. Only valid when webhook is set to true. If not provided, transcription will be sent to all configured speech-to-text webhooks.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("webhook_id")]
+        public string? WebhookId { get; set; }
+
+        /// <summary>
         /// Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
@@ -165,6 +171,9 @@ namespace ElevenLabs
         /// Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="webhookId">
+        /// Optional specific webhook ID to send the transcription result to. Only valid when webhook is set to true. If not provided, transcription will be sent to all configured speech-to-text webhooks.
+        /// </param>
         /// <param name="temperature">
         /// Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.
         /// </param>
@@ -189,6 +198,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat,
             string? cloudStorageUrl,
             bool? webhook,
+            string? webhookId,
             double? temperature,
             int? seed)
         {
@@ -205,6 +215,7 @@ namespace ElevenLabs
             this.FileFormat = fileFormat;
             this.CloudStorageUrl = cloudStorageUrl;
             this.Webhook = webhook;
+            this.WebhookId = webhookId;
             this.Temperature = temperature;
             this.Seed = seed;
         }

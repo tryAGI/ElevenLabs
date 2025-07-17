@@ -49,6 +49,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem>? PhoneNumbers { get; set; }
 
         /// <summary>
+        /// The workflow of the agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workflow")]
+        public object? Workflow { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
@@ -81,6 +87,9 @@ namespace ElevenLabs
         /// <param name="phoneNumbers">
         /// The phone numbers of the agent
         /// </param>
+        /// <param name="workflow">
+        /// The workflow of the agent
+        /// </param>
         /// <param name="accessInfo"></param>
         /// <param name="tags">
         /// Agent tags used to categorize the agent
@@ -95,6 +104,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentMetadataResponseModel metadata,
             global::ElevenLabs.AgentPlatformSettingsResponseModel? platformSettings,
             global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem>? phoneNumbers,
+            object? workflow,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
             global::System.Collections.Generic.IList<string>? tags)
         {
@@ -104,6 +114,7 @@ namespace ElevenLabs
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.PlatformSettings = platformSettings;
             this.PhoneNumbers = phoneNumbers;
+            this.Workflow = workflow;
             this.AccessInfo = accessInfo;
             this.Tags = tags;
         }

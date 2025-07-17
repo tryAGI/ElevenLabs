@@ -85,6 +85,12 @@ namespace ElevenLabs
         public global::ElevenLabs.RagConfig? Rag { get; set; }
 
         /// <summary>
+        /// Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC').
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("timezone")]
+        public string? Timezone { get; set; }
+
+        /// <summary>
         /// A list of tools that the agent can use over the course of the conversation, use tool_ids instead
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
@@ -131,6 +137,9 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="rag"></param>
+        /// <param name="timezone">
+        /// Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC').
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -146,7 +155,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::ElevenLabs.CustomLLM? customLlm,
             bool? ignoreDefaultPersonality,
-            global::ElevenLabs.RagConfig? rag)
+            global::ElevenLabs.RagConfig? rag,
+            string? timezone)
         {
             this.Prompt = prompt;
             this.Llm = llm;
@@ -160,6 +170,7 @@ namespace ElevenLabs
             this.CustomLlm = customLlm;
             this.IgnoreDefaultPersonality = ignoreDefaultPersonality;
             this.Rag = rag;
+            this.Timezone = timezone;
         }
 
         /// <summary>

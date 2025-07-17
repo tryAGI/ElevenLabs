@@ -41,6 +41,9 @@ namespace ElevenLabs
         /// <param name="platformSettings">
         /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
         /// </param>
+        /// <param name="workflow">
+        /// Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
+        /// </param>
         /// <param name="name">
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
@@ -56,6 +59,7 @@ namespace ElevenLabs
             string? xiApiKey = default,
             object? conversationConfig = default,
             object? platformSettings = default,
+            object? workflow = default,
             string? name = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::System.Threading.CancellationToken cancellationToken = default);
