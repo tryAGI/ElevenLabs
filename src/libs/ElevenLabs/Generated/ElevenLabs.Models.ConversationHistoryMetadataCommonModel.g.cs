@@ -134,6 +134,12 @@ namespace ElevenLabs
         public string? ConversationInitiationSourceVersion { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("timezone")]
+        public string? Timezone { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -166,6 +172,7 @@ namespace ElevenLabs
         /// Enum representing the possible sources for conversation initiation.
         /// </param>
         /// <param name="conversationInitiationSourceVersion"></param>
+        /// <param name="timezone"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -189,7 +196,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? elevenAssistant,
             string? initiatorId,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
-            string? conversationInitiationSourceVersion)
+            string? conversationInitiationSourceVersion,
+            string? timezone)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -211,6 +219,7 @@ namespace ElevenLabs
             this.InitiatorId = initiatorId;
             this.ConversationInitiationSource = conversationInitiationSource;
             this.ConversationInitiationSourceVersion = conversationInitiationSourceVersion;
+            this.Timezone = timezone;
         }
 
         /// <summary>

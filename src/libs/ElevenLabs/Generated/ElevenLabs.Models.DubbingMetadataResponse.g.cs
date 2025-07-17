@@ -37,6 +37,20 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> TargetLanguages { get; set; }
 
         /// <summary>
+        /// Whether this dubbing project is editable in Dubbing Studio.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("editable")]
+        public bool? Editable { get; set; }
+
+        /// <summary>
+        /// Timestamp this dub was created.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.DateTime CreatedAt { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_metadata")]
@@ -69,6 +83,13 @@ namespace ElevenLabs
         /// <param name="targetLanguages">
         /// The target languages of the dubbing project.
         /// </param>
+        /// <param name="editable">
+        /// Whether this dubbing project is editable in Dubbing Studio.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="createdAt">
+        /// Timestamp this dub was created.
+        /// </param>
         /// <param name="mediaMetadata"></param>
         /// <param name="error">
         /// Optional error message if the dubbing project failed.
@@ -81,6 +102,8 @@ namespace ElevenLabs
             string name,
             string status,
             global::System.Collections.Generic.IList<string> targetLanguages,
+            global::System.DateTime createdAt,
+            bool? editable,
             global::ElevenLabs.DubbingMediaMetadata? mediaMetadata,
             string? error)
         {
@@ -88,6 +111,8 @@ namespace ElevenLabs
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Status = status ?? throw new global::System.ArgumentNullException(nameof(status));
             this.TargetLanguages = targetLanguages ?? throw new global::System.ArgumentNullException(nameof(targetLanguages));
+            this.CreatedAt = createdAt;
+            this.Editable = editable;
             this.MediaMetadata = mediaMetadata;
             this.Error = error;
         }

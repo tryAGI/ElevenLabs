@@ -58,6 +58,12 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentWorkspaceOverridesInput? WorkspaceOverrides { get; set; }
 
         /// <summary>
+        /// Settings for agent testing configuration.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("testing")]
+        public global::ElevenLabs.AgentTestingSettings? Testing { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -79,6 +85,9 @@ namespace ElevenLabs
         /// <param name="callLimits"></param>
         /// <param name="privacy"></param>
         /// <param name="workspaceOverrides"></param>
+        /// <param name="testing">
+        /// Settings for agent testing configuration.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -90,7 +99,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationClientDataConfigInput? overrides,
             global::ElevenLabs.AgentCallLimits? callLimits,
             global::ElevenLabs.PrivacyConfig? privacy,
-            global::ElevenLabs.AgentWorkspaceOverridesInput? workspaceOverrides)
+            global::ElevenLabs.AgentWorkspaceOverridesInput? workspaceOverrides,
+            global::ElevenLabs.AgentTestingSettings? testing)
         {
             this.Auth = auth;
             this.Evaluation = evaluation;
@@ -100,6 +110,7 @@ namespace ElevenLabs
             this.CallLimits = callLimits;
             this.Privacy = privacy;
             this.WorkspaceOverrides = workspaceOverrides;
+            this.Testing = testing;
         }
 
         /// <summary>

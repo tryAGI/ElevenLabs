@@ -174,6 +174,12 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{request.Webhook}"),
                     name: "webhook");
             } 
+            if (request.WebhookId != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.WebhookId}"),
+                    name: "webhook_id");
+            } 
             if (request.Temperature != default)
             {
                 __httpRequestContent.Add(
@@ -374,6 +380,9 @@ namespace ElevenLabs
         /// Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="webhookId">
+        /// Optional specific webhook ID to send the transcription result to. Only valid when webhook is set to true. If not provided, transcription will be sent to all configured speech-to-text webhooks.
+        /// </param>
         /// <param name="temperature">
         /// Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0.
         /// </param>
@@ -399,6 +408,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? fileFormat = default,
             string? cloudStorageUrl = default,
             bool? webhook = default,
+            string? webhookId = default,
             double? temperature = default,
             int? seed = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -418,6 +428,7 @@ namespace ElevenLabs
                 FileFormat = fileFormat,
                 CloudStorageUrl = cloudStorageUrl,
                 Webhook = webhook,
+                WebhookId = webhookId,
                 Temperature = temperature,
                 Seed = seed,
             };

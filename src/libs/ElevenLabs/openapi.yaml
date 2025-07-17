@@ -4612,6 +4612,80 @@ paths:
         - resource
       x-fern-sdk-method-name: render
   /v1/dubbing:
+    get:
+      tags:
+        - dubbing
+        - dubbing
+        - dubbing
+      summary: List Dubs
+      description: List the dubs you have access to.
+      operationId: List_dubs_v1_dubbing_get
+      parameters:
+        - name: cursor
+          in: query
+          description: Used for fetching next page. Cursor is returned in the response.
+          schema:
+            title: Cursor
+            type: string
+            description: Used for fetching next page. Cursor is returned in the response.
+            nullable: true
+        - name: page_size
+          in: query
+          description: 'How many dubs to return at maximum. Can not exceed 200, defaults to 100.'
+          schema:
+            title: Page Size
+            maximum: 200
+            minimum: 1
+            type: integer
+            description: 'How many dubs to return at maximum. Can not exceed 200, defaults to 100.'
+            default: 100
+        - name: dubbing_status
+          in: query
+          description: 'Status of the dubbing, either ''in_progress'', ''completed'' or ''failed''.'
+          schema:
+            title: Dubbing Status
+            enum:
+              - dubbing
+              - dubbed
+              - failed
+            type: string
+            description: 'Status of the dubbing, either ''in_progress'', ''completed'' or ''failed''.'
+        - name: filter_by_creator
+          in: query
+          description: 'Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.'
+          schema:
+            title: Filter By Creator
+            enum:
+              - personal
+              - others
+              - all
+            type: string
+            description: 'Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.'
+            default: all
+            example: all
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DubbingMetadataPageResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: dubbing
+      x-fern-sdk-method-name: list
     post:
       tags:
         - dubbing
@@ -10576,6 +10650,8 @@ components:
           $ref: '#/components/schemas/PrivacyConfig'
         workspace_overrides:
           $ref: '#/components/schemas/AgentWorkspaceOverrides-Input'
+        testing:
+          $ref: '#/components/schemas/AgentTestingSettings'
     AgentPlatformSettingsResponseModel:
       title: AgentPlatformSettingsResponseModel
       type: object
@@ -10600,6 +10676,8 @@ components:
           $ref: '#/components/schemas/PrivacyConfig'
         workspace_overrides:
           $ref: '#/components/schemas/AgentWorkspaceOverrides-Output'
+        testing:
+          $ref: '#/components/schemas/AgentTestingSettings'
         safety:
           $ref: '#/components/schemas/SafetyResponseModel'
     AgentSimulatedChatTestResponseModel:
@@ -10659,6 +10737,23 @@ components:
           - Customer Support
           - Technical Help
           - Eleven
+    AgentTestingSettings:
+      title: AgentTestingSettings
+      type: object
+      properties:
+        test_ids:
+          title: Test Ids
+          maxItems: 20
+          minItems: 0
+          type: array
+          items:
+            type: string
+          description: List of test IDs that should be run for this agent
+      description: Settings for agent testing configuration.
+      example:
+        test_ids:
+          - test_123
+          - test_456
     AgentTransfer:
       title: AgentTransfer
       required:
@@ -11603,6 +11698,9 @@ components:
           $ref: '#/components/schemas/ConversationalConfigAPIModel-Input'
         platform_settings:
           $ref: '#/components/schemas/AgentPlatformSettingsRequestModel'
+        workflow:
+          title: Workflow
+          description: Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
         name:
           title: Name
           type: string
@@ -12870,6 +12968,9 @@ components:
           type: object
           description: Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
           nullable: true
+        workflow:
+          title: Workflow
+          description: Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
         name:
           title: Name
           type: string
@@ -13201,6 +13302,11 @@ components:
           type: boolean
           description: 'Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.'
           default: false
+        webhook_id:
+          title: Webhook Id
+          type: string
+          description: 'Optional specific webhook ID to send the transcription result to. Only valid when webhook is set to true. If not provided, transcription will be sent to all configured speech-to-text webhooks.'
+          nullable: true
         temperature:
           title: Temperature
           maximum: 2
@@ -15020,6 +15126,11 @@ components:
           $ref: '#/components/schemas/ConversationInitiationSource'
         conversation_initiation_source_version:
           title: Conversation Initiation Source Version
+          maxLength: 50
+          type: string
+          nullable: true
+        timezone:
+          title: Timezone
           type: string
           nullable: true
     ConversationHistoryRagUsageCommonModel:
@@ -16330,6 +16441,26 @@ components:
         url:
           title: Url
           type: string
+    DubbingMetadataPageResponseModel:
+      title: DubbingMetadataPageResponseModel
+      required:
+        - dubs
+        - next_cursor
+        - has_more
+      type: object
+      properties:
+        dubs:
+          title: Dubs
+          type: array
+          items:
+            $ref: '#/components/schemas/DubbingMetadataResponse'
+        next_cursor:
+          title: Next Cursor
+          type: string
+          nullable: true
+        has_more:
+          title: Has More
+          type: boolean
     DubbingMetadataResponse:
       title: DubbingMetadataResponse
       required:
@@ -16337,6 +16468,7 @@ components:
         - name
         - status
         - target_languages
+        - created_at
       type: object
       properties:
         dubbing_id:
@@ -16357,6 +16489,16 @@ components:
           items:
             type: string
           description: The target languages of the dubbing project.
+        editable:
+          title: Editable
+          type: boolean
+          description: Whether this dubbing project is editable in Dubbing Studio.
+          default: false
+        created_at:
+          title: Created At
+          type: string
+          description: Timestamp this dub was created.
+          format: date-time
         media_metadata:
           $ref: '#/components/schemas/DubbingMediaMetadata'
         error:
@@ -16365,7 +16507,9 @@ components:
           description: Optional error message if the dubbing project failed.
           nullable: true
       example:
+        created_at: '2025-07-15T14:49:41.1490000+00:00'
         dubbing_id: 21m00Tcm4TlvDq8ikWAM
+        editable: true
         media_metadata:
           content_type: video/mp4
           duration: 127.5
@@ -17036,6 +17180,9 @@ components:
                 sip_trunk: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
                 twilio: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
           description: The phone numbers of the agent
+        workflow:
+          title: Workflow
+          description: The workflow of the agent
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
         tags:
@@ -18365,8 +18512,6 @@ components:
         - claude-3-haiku
         - grok-beta
         - custom-llm
-        - gemini-2.5-flash-preview-05-20
-        - gemini-2.5-flash-preview-04-17
         - gemini-2.0-flash-lite-001
         - gemini-2.0-flash-001
         - gemini-1.5-flash-002
@@ -20679,6 +20824,11 @@ components:
           nullable: true
         rag:
           $ref: '#/components/schemas/RagConfig'
+        timezone:
+          title: Timezone
+          type: string
+          description: 'Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., ''America/New_York'', ''Europe/London'', ''UTC'').'
+          nullable: true
         tools:
           title: Tools
           type: array
@@ -20766,6 +20916,11 @@ components:
           nullable: true
         rag:
           $ref: '#/components/schemas/RagConfig'
+        timezone:
+          title: Timezone
+          type: string
+          description: 'Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., ''America/New_York'', ''Europe/London'', ''UTC'').'
+          nullable: true
         tools:
           title: Tools
           type: array

@@ -91,14 +91,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Gemini25FlashPreview0520,
-        /// <summary>
-        /// 
-        /// </summary>
-        Gemini25FlashPreview0417,
-        /// <summary>
-        /// 
-        /// </summary>
         Gemini20FlashLite001,
         /// <summary>
         /// 
@@ -222,8 +214,6 @@ namespace ElevenLabs
                 LLM.Claude3Haiku => "claude-3-haiku",
                 LLM.GrokBeta => "grok-beta",
                 LLM.CustomLlm => "custom-llm",
-                LLM.Gemini25FlashPreview0520 => "gemini-2.5-flash-preview-05-20",
-                LLM.Gemini25FlashPreview0417 => "gemini-2.5-flash-preview-04-17",
                 LLM.Gemini20FlashLite001 => "gemini-2.0-flash-lite-001",
                 LLM.Gemini20Flash001 => "gemini-2.0-flash-001",
                 LLM.Gemini15Flash002 => "gemini-1.5-flash-002",
@@ -277,8 +267,6 @@ namespace ElevenLabs
                 "claude-3-haiku" => LLM.Claude3Haiku,
                 "grok-beta" => LLM.GrokBeta,
                 "custom-llm" => LLM.CustomLlm,
-                "gemini-2.5-flash-preview-05-20" => LLM.Gemini25FlashPreview0520,
-                "gemini-2.5-flash-preview-04-17" => LLM.Gemini25FlashPreview0417,
                 "gemini-2.0-flash-lite-001" => LLM.Gemini20FlashLite001,
                 "gemini-2.0-flash-001" => LLM.Gemini20Flash001,
                 "gemini-1.5-flash-002" => LLM.Gemini15Flash002,
