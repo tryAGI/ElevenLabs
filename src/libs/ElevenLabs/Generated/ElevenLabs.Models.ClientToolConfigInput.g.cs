@@ -30,6 +30,12 @@ namespace ElevenLabs
         public int? ResponseTimeoutSecs { get; set; }
 
         /// <summary>
+        /// Configuration for extracting values from tool responses and assigning them to dynamic variables
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("assignments")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
+
+        /// <summary>
         /// The type of tool<br/>
         /// Default Value: client
         /// </summary>
@@ -71,6 +77,9 @@ namespace ElevenLabs
         /// The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).<br/>
         /// Default Value: 20
         /// </param>
+        /// <param name="assignments">
+        /// Configuration for extracting values from tool responses and assigning them to dynamic variables
+        /// </param>
         /// <param name="type">
         /// The type of tool<br/>
         /// Default Value: client
@@ -88,6 +97,7 @@ namespace ElevenLabs
             string name,
             string description,
             int? responseTimeoutSecs,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
             global::ElevenLabs.ClientToolConfigInputType? type,
             global::ElevenLabs.ObjectJsonSchemaPropertyInput? parameters,
             bool? expectsResponse,
@@ -96,6 +106,7 @@ namespace ElevenLabs
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.ResponseTimeoutSecs = responseTimeoutSecs;
+            this.Assignments = assignments;
             this.Type = type;
             this.Parameters = parameters;
             this.ExpectsResponse = expectsResponse;

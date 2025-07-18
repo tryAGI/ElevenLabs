@@ -30,6 +30,12 @@ namespace ElevenLabs
         public int? ResponseTimeoutSecs { get; set; }
 
         /// <summary>
+        /// Configuration for extracting values from tool responses and assigning them to dynamic variables
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("assignments")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
+
+        /// <summary>
         /// Default Value: mcp
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -106,6 +112,9 @@ namespace ElevenLabs
         /// The maximum time in seconds to wait for the tool call to complete.<br/>
         /// Default Value: 20
         /// </param>
+        /// <param name="assignments">
+        /// Configuration for extracting values from tool responses and assigning them to dynamic variables
+        /// </param>
         /// <param name="type">
         /// Default Value: mcp
         /// </param>
@@ -141,6 +150,7 @@ namespace ElevenLabs
             string mcpServerId,
             string mcpServerName,
             int? responseTimeoutSecs,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
             global::ElevenLabs.MCPToolConfigInputType? type,
             global::ElevenLabs.ObjectJsonSchemaPropertyInput? parameters,
             global::ElevenLabs.MCPApprovalPolicy? approvalPolicy,
@@ -154,6 +164,7 @@ namespace ElevenLabs
             this.McpServerId = mcpServerId ?? throw new global::System.ArgumentNullException(nameof(mcpServerId));
             this.McpServerName = mcpServerName ?? throw new global::System.ArgumentNullException(nameof(mcpServerName));
             this.ResponseTimeoutSecs = responseTimeoutSecs;
+            this.Assignments = assignments;
             this.Type = type;
             this.Parameters = parameters;
             this.ApprovalPolicy = approvalPolicy;

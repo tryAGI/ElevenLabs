@@ -59,6 +59,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.BanReasonTypeNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.LLMJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.LLMNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.DynamicVariableAssignmentSourceJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.DynamicVariableAssignmentSourceNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.SystemToolConfigInputTypeJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.SystemToolConfigInputTypeNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.EndCallToolConfigSystemToolTypeJsonConverter),
