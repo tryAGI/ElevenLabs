@@ -59,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gemini25FlashLite,
+        /// <summary>
+        /// 
+        /// </summary>
         Gemini25Flash,
         /// <summary>
         /// 
@@ -88,6 +92,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         CustomLlm,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gemini25FlashLitePreview0617,
         /// <summary>
         /// 
         /// </summary>
@@ -206,6 +214,7 @@ namespace ElevenLabs
                 LLM.Gemini15Flash => "gemini-1.5-flash",
                 LLM.Gemini20Flash => "gemini-2.0-flash",
                 LLM.Gemini20FlashLite => "gemini-2.0-flash-lite",
+                LLM.Gemini25FlashLite => "gemini-2.5-flash-lite",
                 LLM.Gemini25Flash => "gemini-2.5-flash",
                 LLM.ClaudeSonnet4 => "claude-sonnet-4",
                 LLM.Claude37Sonnet => "claude-3-7-sonnet",
@@ -214,6 +223,7 @@ namespace ElevenLabs
                 LLM.Claude3Haiku => "claude-3-haiku",
                 LLM.GrokBeta => "grok-beta",
                 LLM.CustomLlm => "custom-llm",
+                LLM.Gemini25FlashLitePreview0617 => "gemini-2.5-flash-lite-preview-06-17",
                 LLM.Gemini20FlashLite001 => "gemini-2.0-flash-lite-001",
                 LLM.Gemini20Flash001 => "gemini-2.0-flash-001",
                 LLM.Gemini15Flash002 => "gemini-1.5-flash-002",
@@ -259,6 +269,7 @@ namespace ElevenLabs
                 "gemini-1.5-flash" => LLM.Gemini15Flash,
                 "gemini-2.0-flash" => LLM.Gemini20Flash,
                 "gemini-2.0-flash-lite" => LLM.Gemini20FlashLite,
+                "gemini-2.5-flash-lite" => LLM.Gemini25FlashLite,
                 "gemini-2.5-flash" => LLM.Gemini25Flash,
                 "claude-sonnet-4" => LLM.ClaudeSonnet4,
                 "claude-3-7-sonnet" => LLM.Claude37Sonnet,
@@ -267,6 +278,7 @@ namespace ElevenLabs
                 "claude-3-haiku" => LLM.Claude3Haiku,
                 "grok-beta" => LLM.GrokBeta,
                 "custom-llm" => LLM.CustomLlm,
+                "gemini-2.5-flash-lite-preview-06-17" => LLM.Gemini25FlashLitePreview0617,
                 "gemini-2.0-flash-lite-001" => LLM.Gemini20FlashLite001,
                 "gemini-2.0-flash-001" => LLM.Gemini20Flash001,
                 "gemini-1.5-flash-002" => LLM.Gemini15Flash002,

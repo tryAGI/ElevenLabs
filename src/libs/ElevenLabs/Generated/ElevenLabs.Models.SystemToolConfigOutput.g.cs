@@ -30,6 +30,12 @@ namespace ElevenLabs
         public int? ResponseTimeoutSecs { get; set; }
 
         /// <summary>
+        /// Configuration for extracting values from tool responses and assigning them to dynamic variables
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("assignments")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
+
+        /// <summary>
         /// The type of tool<br/>
         /// Default Value: system
         /// </summary>
@@ -60,6 +66,9 @@ namespace ElevenLabs
         /// The maximum time in seconds to wait for the tool call to complete.<br/>
         /// Default Value: 20
         /// </param>
+        /// <param name="assignments">
+        /// Configuration for extracting values from tool responses and assigning them to dynamic variables
+        /// </param>
         /// <param name="type">
         /// The type of tool<br/>
         /// Default Value: system
@@ -73,12 +82,14 @@ namespace ElevenLabs
             string description,
             global::ElevenLabs.Params2 @params,
             int? responseTimeoutSecs,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
             global::ElevenLabs.SystemToolConfigOutputType? type)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Params = @params;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
+            this.Assignments = assignments;
             this.Type = type;
         }
 

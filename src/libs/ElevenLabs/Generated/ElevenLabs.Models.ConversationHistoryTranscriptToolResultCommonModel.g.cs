@@ -56,6 +56,12 @@ namespace ElevenLabs
         public double? ToolLatencySecs { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable_updates")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableUpdateCommonModel>? DynamicVariableUpdates { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -73,6 +79,7 @@ namespace ElevenLabs
         /// <param name="toolLatencySecs">
         /// Default Value: 0
         /// </param>
+        /// <param name="dynamicVariableUpdates"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -83,7 +90,8 @@ namespace ElevenLabs
             bool isError,
             bool toolHasBeenCalled,
             string? type,
-            double? toolLatencySecs)
+            double? toolLatencySecs,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableUpdateCommonModel>? dynamicVariableUpdates)
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
@@ -92,6 +100,7 @@ namespace ElevenLabs
             this.ToolHasBeenCalled = toolHasBeenCalled;
             this.Type = type;
             this.ToolLatencySecs = toolLatencySecs;
+            this.DynamicVariableUpdates = dynamicVariableUpdates;
         }
 
         /// <summary>

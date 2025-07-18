@@ -139,6 +139,12 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{request.TargetLang}"),
                     name: "target_lang");
             } 
+            if (request.TargetAccent != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.TargetAccent}"),
+                    name: "target_accent");
+            } 
             if (request.NumSpeakers != default)
             {
                 __httpRequestContent.Add(
@@ -381,6 +387,9 @@ namespace ElevenLabs
         /// <param name="targetLang">
         /// The Target language to dub the content into.
         /// </param>
+        /// <param name="targetAccent">
+        /// [Experimental] An accent to apply when selecting voices from the library and to use to inform translation of the dialect to prefer.
+        /// </param>
         /// <param name="numSpeakers">
         /// Number of speakers to use for the dubbing. Set to 0 to automatically detect the number of speakers<br/>
         /// Default Value: 0
@@ -437,6 +446,7 @@ namespace ElevenLabs
             string? sourceUrl = default,
             string? sourceLang = default,
             string? targetLang = default,
+            string? targetAccent = default,
             int? numSpeakers = default,
             bool? watermark = default,
             int? startTime = default,
@@ -464,6 +474,7 @@ namespace ElevenLabs
                 SourceUrl = sourceUrl,
                 SourceLang = sourceLang,
                 TargetLang = targetLang,
+                TargetAccent = targetAccent,
                 NumSpeakers = numSpeakers,
                 Watermark = watermark,
                 StartTime = startTime,

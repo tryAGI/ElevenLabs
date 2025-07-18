@@ -30,6 +30,12 @@ namespace ElevenLabs
         public int? ResponseTimeoutSecs { get; set; }
 
         /// <summary>
+        /// Configuration for extracting values from tool responses and assigning them to dynamic variables
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("assignments")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
+
+        /// <summary>
         /// The type of tool<br/>
         /// Default Value: webhook
         /// </summary>
@@ -65,6 +71,9 @@ namespace ElevenLabs
         /// The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
         /// Default Value: 20
         /// </param>
+        /// <param name="assignments">
+        /// Configuration for extracting values from tool responses and assigning them to dynamic variables
+        /// </param>
         /// <param name="type">
         /// The type of tool<br/>
         /// Default Value: webhook
@@ -81,6 +90,7 @@ namespace ElevenLabs
             string description,
             global::ElevenLabs.WebhookToolApiSchemaConfigOutput apiSchema,
             int? responseTimeoutSecs,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
             global::ElevenLabs.WebhookToolConfigOutputType? type,
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables)
         {
@@ -88,6 +98,7 @@ namespace ElevenLabs
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.ApiSchema = apiSchema ?? throw new global::System.ArgumentNullException(nameof(apiSchema));
             this.ResponseTimeoutSecs = responseTimeoutSecs;
+            this.Assignments = assignments;
             this.Type = type;
             this.DynamicVariables = dynamicVariables;
         }

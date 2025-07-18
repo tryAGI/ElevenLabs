@@ -12549,6 +12549,11 @@ components:
           type: string
           description: The Target language to dub the content into.
           nullable: true
+        target_accent:
+          title: Target Accent
+          type: string
+          description: '[Experimental] An accent to apply when selecting voices from the library and to use to inform translation of the dialect to prefer.'
+          nullable: true
         num_speakers:
           title: Num Speakers
           type: integer
@@ -14628,6 +14633,12 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).
           default: 20
+        assignments:
+          title: Assignments
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableAssignment'
+          description: Configuration for extracting values from tool responses and assigning them to dynamic variables
         type:
           title: Type
           enum:
@@ -14671,6 +14682,12 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).
           default: 20
+        assignments:
+          title: Assignments
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableAssignment'
+          description: Configuration for extracting values from tool responses and assigning them to dynamic variables
         type:
           title: Type
           enum:
@@ -15463,6 +15480,11 @@ components:
           title: Tool Latency Secs
           type: number
           default: 0
+        dynamic_variable_updates:
+          title: Dynamic Variable Updates
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableUpdateCommonModel'
     ConversationHistoryTwilioPhoneCallModel:
       title: ConversationHistoryTwilioPhoneCallModel
       required:
@@ -16582,6 +16604,64 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/Render'
+    DynamicVariableAssignment:
+      title: DynamicVariableAssignment
+      required:
+        - dynamic_variable
+        - value_path
+      type: object
+      properties:
+        source:
+          title: Source
+          enum:
+            - response
+          type: string
+          description: The source to extract the value from. Currently only 'response' is supported.
+          default: response
+        dynamic_variable:
+          title: Dynamic Variable
+          type: string
+          description: The name of the dynamic variable to assign the extracted value to
+        value_path:
+          title: Value Path
+          type: string
+          description: 'Dot notation path to extract the value from the source (e.g., ''user.name'' or ''data.0.id'')'
+      description: Configuration for extracting values from tool responses and assigning them to dynamic variables.
+      example:
+        dynamic_variable: user_name
+        source: response
+        value_path: user.name
+    DynamicVariableUpdateCommonModel:
+      title: DynamicVariableUpdateCommonModel
+      required:
+        - variable_name
+        - old_value
+        - new_value
+        - updated_at
+        - tool_name
+        - tool_request_id
+      type: object
+      properties:
+        variable_name:
+          title: Variable Name
+          type: string
+        old_value:
+          title: Old Value
+          type: string
+          nullable: true
+        new_value:
+          title: New Value
+          type: string
+        updated_at:
+          title: Updated At
+          type: number
+        tool_name:
+          title: Tool Name
+          type: string
+        tool_request_id:
+          title: Tool Request Id
+          type: string
+      description: Tracks a dynamic variable update that occurred during tool execution.
     DynamicVariablesConfig:
       title: DynamicVariablesConfig
       type: object
@@ -18504,6 +18584,7 @@ components:
         - gemini-1.5-flash
         - gemini-2.0-flash
         - gemini-2.0-flash-lite
+        - gemini-2.5-flash-lite
         - gemini-2.5-flash
         - claude-sonnet-4
         - claude-3-7-sonnet
@@ -18512,6 +18593,7 @@ components:
         - claude-3-haiku
         - grok-beta
         - custom-llm
+        - gemini-2.5-flash-lite-preview-06-17
         - gemini-2.0-flash-lite-001
         - gemini-2.0-flash-001
         - gemini-1.5-flash-002
@@ -19250,6 +19332,12 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete.
           default: 20
+        assignments:
+          title: Assignments
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableAssignment'
+          description: Configuration for extracting values from tool responses and assigning them to dynamic variables
         type:
           title: Type
           enum:
@@ -19310,6 +19398,12 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete.
           default: 20
+        assignments:
+          title: Assignments
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableAssignment'
+          description: Configuration for extracting values from tool responses and assigning them to dynamic variables
         type:
           title: Type
           enum:
@@ -22862,6 +22956,12 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete.
           default: 20
+        assignments:
+          title: Assignments
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableAssignment'
+          description: Configuration for extracting values from tool responses and assigning them to dynamic variables
         type:
           title: Type
           enum:
@@ -22916,6 +23016,12 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete.
           default: 20
+        assignments:
+          title: Assignments
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableAssignment'
+          description: Configuration for extracting values from tool responses and assigning them to dynamic variables
         type:
           title: Type
           enum:
@@ -23141,6 +23247,10 @@ components:
         name:
           title: Name
           type: string
+        title:
+          title: Title
+          type: string
+          nullable: true
         description:
           title: Description
           type: string
@@ -23148,8 +23258,16 @@ components:
         inputSchema:
           title: Inputschema
           type: object
+        outputSchema:
+          title: Outputschema
+          type: object
+          nullable: true
         annotations:
           $ref: '#/components/schemas/ToolAnnotations'
+        _meta:
+          title: Meta
+          type: object
+          nullable: true
       description: Definition for a tool the client can call.
     ToolAnnotations:
       title: ToolAnnotations
@@ -24067,7 +24185,6 @@ components:
             - NONE
             - BAN
             - CAPTCHA
-            - CAPTCHA_AND_MODERATION
             - ENTERPRISE_BAN
             - ENTERPRISE_CAPTCHA
           type: string
@@ -24822,6 +24939,12 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).
           default: 20
+        assignments:
+          title: Assignments
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableAssignment'
+          description: Configuration for extracting values from tool responses and assigning them to dynamic variables
         type:
           title: Type
           enum:
@@ -24861,6 +24984,12 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).
           default: 20
+        assignments:
+          title: Assignments
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableAssignment'
+          description: Configuration for extracting values from tool responses and assigning them to dynamic variables
         type:
           title: Type
           enum:
