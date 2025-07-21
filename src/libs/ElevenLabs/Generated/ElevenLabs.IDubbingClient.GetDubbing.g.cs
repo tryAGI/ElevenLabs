@@ -16,7 +16,7 @@ namespace ElevenLabs
         /// Default Value: 100
         /// </param>
         /// <param name="dubbingStatus">
-        /// Status of the dubbing, either 'in_progress', 'completed' or 'failed'.
+        /// What state the dub is currently in.
         /// </param>
         /// <param name="filterByCreator">
         /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>

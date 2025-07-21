@@ -41,6 +41,10 @@ namespace ElevenLabs
         /// <param name="extraEvaluationCriteria">
         /// A list of evaluation criteria to test
         /// </param>
+        /// <param name="newTurnsLimit">
+        /// Maximum number of new turns to generate in the conversation simulation<br/>
+        /// Default Value: 10000
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task CreateConvaiAgentsByAgentIdSimulateConversationStreamAsync(
@@ -48,6 +52,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationSimulationSpecification simulationSpecification,
             string? xiApiKey = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? extraEvaluationCriteria = default,
+            int? newTurnsLimit = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

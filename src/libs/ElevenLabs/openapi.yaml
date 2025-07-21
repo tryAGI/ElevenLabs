@@ -1523,6 +1523,36 @@ paths:
         - preview
       x-fern-sdk-method-name: stream
       x-fern-streaming: true
+  '/v1/text-to-voice/remixing-sessions/{remixing_session_id}':
+    delete:
+      tags:
+        - text-to-voice
+      summary: Delete Voice Remixing Session
+      description: Delete voice remixing session
+      operationId: Delete_voice_remixing_session_v1_text_to_voice_remixing_sessions__remixing_session_id__delete
+      parameters:
+        - name: remixing_session_id
+          in: path
+          description: The remixing session id.
+          required: true
+          schema:
+            title: Remixing Session Id
+            type: string
+            description: The remixing session id.
+            example: '123'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteVoiceRemixingSessionResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /v1/user/subscription:
     get:
       tags:
@@ -4641,7 +4671,7 @@ paths:
             default: 100
         - name: dubbing_status
           in: query
-          description: 'Status of the dubbing, either ''in_progress'', ''completed'' or ''failed''.'
+          description: What state the dub is currently in.
           schema:
             title: Dubbing Status
             enum:
@@ -4649,7 +4679,7 @@ paths:
               - dubbed
               - failed
             type: string
-            description: 'Status of the dubbing, either ''in_progress'', ''completed'' or ''failed''.'
+            description: What state the dub is currently in.
         - name: filter_by_creator
           in: query
           description: 'Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.'
@@ -6438,6 +6468,71 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       deprecated: true
       x-skip-spec: true
+  /v1/convai/conversation/token:
+    get:
+      tags:
+        - Conversational AI
+      summary: Get Webrtc Token
+      description: Get a WebRTC session token for real-time communication.
+      operationId: Get_WebRTC_Token_v1_convai_conversation_token_get
+      parameters:
+        - name: agent_id
+          in: query
+          description: The id of the agent you're taking the action on.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of the agent you're taking the action on.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: participant_name
+          in: query
+          description: 'Optional custom participant name. If not provided, user ID will be used'
+          schema:
+            title: Participant Name
+            type: string
+            description: 'Optional custom participant name. If not provided, user ID will be used'
+            nullable: true
+        - name: source
+          in: query
+          description: The source of the conversation initiation.
+          schema:
+            $ref: '#/components/schemas/ConversationInitiationSource'
+        - name: version
+          in: query
+          description: The SDK version number for tracking purposes.
+          schema:
+            title: Version
+            maxLength: 50
+            pattern: '^[0-9]+(\.[0-9]+)*$'
+            type: string
+            description: The SDK version number for tracking purposes.
+            nullable: true
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - conversations
+      x-fern-sdk-method-name: get_webrtc_token
   /v1/convai/twilio/outbound-call:
     post:
       tags:
@@ -13108,6 +13203,11 @@ components:
             $ref: '#/components/schemas/PromptEvaluationCriteria'
           description: A list of evaluation criteria to test
           nullable: true
+        new_turns_limit:
+          title: New Turns Limit
+          type: integer
+          description: Maximum number of new turns to generate in the conversation simulation
+          default: 10000
     Body_Simulates_a_conversation_v1_convai_agents__agent_id__simulate_conversation_post:
       title: Body_Simulates_a_conversation_v1_convai_agents__agent_id__simulate_conversation_post
       required:
@@ -13123,6 +13223,11 @@ components:
             $ref: '#/components/schemas/PromptEvaluationCriteria'
           description: A list of evaluation criteria to test
           nullable: true
+        new_turns_limit:
+          title: New Turns Limit
+          type: integer
+          description: Maximum number of new turns to generate in the conversation simulation
+          default: 10000
     Body_Sound_Generation_v1_sound_generation_post:
       title: Body_Sound_Generation_v1_sound_generation_post
       required:
@@ -16136,6 +16241,15 @@ components:
           description: 'The status of the sample deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
+    DeleteVoiceRemixingSessionResponseModel:
+      title: DeleteVoiceRemixingSessionResponseModel
+      required:
+        - voice_remixing_session_id
+      type: object
+      properties:
+        voice_remixing_session_id:
+          title: Voice Remixing Session Id
+          type: string
     DeleteVoiceResponseModel:
       title: DeleteVoiceResponseModel
       required:
@@ -23237,6 +23351,15 @@ components:
         - twilio
         - sip_trunk
       type: string
+    TokenResponseModel:
+      title: TokenResponseModel
+      required:
+        - token
+      type: object
+      properties:
+        token:
+          title: Token
+          type: string
     Tool:
       title: Tool
       required:
@@ -23928,6 +24051,18 @@ components:
           description: 'Determines whether the Text to Voice previews should be included in the response. If true, only the generated IDs will be returned which can then be streamed via the /v1/text-to-voice/:generated_voice_id/stream endpoint.'
           default: false
           example: true
+        remixing_session_id:
+          title: Remixing Session Id
+          type: string
+          description: The remixing session id.
+          nullable: true
+          example: '123'
+        remixing_session_iteration_id:
+          title: Remixing Session Iteration Id
+          type: string
+          description: 'The id of the remixing session iteration where these generations should be attached to. If not provided, a new iteration will be created.'
+          nullable: true
+          example: '123'
         quality:
           title: Quality
           maximum: 1
@@ -25890,6 +26025,7 @@ components:
         - convai_mcp_servers
         - convai_batch_calls
         - convai_agent_response_tests
+        - convai_test_suite_invocations
       type: string
       description: Resource types that can be shared in the workspace. The name always need to match the collection names
     WorkspaceWebhookListResponseModel:

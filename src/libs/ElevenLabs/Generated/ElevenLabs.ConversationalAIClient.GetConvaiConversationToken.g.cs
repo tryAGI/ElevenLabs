@@ -5,57 +5,82 @@ namespace ElevenLabs
 {
     public partial class ConversationalAIClient
     {
-        partial void PrepareCreateConvaiAgentsByAgentIdSimulateConversationStreamArguments(
+        partial void PrepareGetConvaiConversationTokenArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string? xiApiKey,
-            global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request);
-        partial void PrepareCreateConvaiAgentsByAgentIdSimulateConversationStreamRequest(
+            ref string? participantName,
+            ref global::ElevenLabs.ConversationInitiationSource? source,
+            ref string? version,
+            ref string? xiApiKey);
+        partial void PrepareGetConvaiConversationTokenRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string? xiApiKey,
-            global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request);
-        partial void ProcessCreateConvaiAgentsByAgentIdSimulateConversationStreamResponse(
+            string? participantName,
+            global::ElevenLabs.ConversationInitiationSource? source,
+            string? version,
+            string? xiApiKey);
+        partial void ProcessGetConvaiConversationTokenResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessGetConvaiConversationTokenResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Simulates A Conversation (Stream)<br/>
-        /// Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.
+        /// Get Webrtc Token<br/>
+        /// Get a WebRTC session token for real-time communication.
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.<br/>
+        /// The id of the agent you're taking the action on.<br/>
         /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// </param>
+        /// <param name="participantName">
+        /// Optional custom participant name. If not provided, user ID will be used
+        /// </param>
+        /// <param name="source">
+        /// Enum representing the possible sources for conversation initiation.
+        /// </param>
+        /// <param name="version">
+        /// The SDK version number for tracking purposes.
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task CreateConvaiAgentsByAgentIdSimulateConversationStreamAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.TokenResponseModel> GetConvaiConversationTokenAsync(
             string agentId,
-            global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request,
+            string? participantName = default,
+            global::ElevenLabs.ConversationInitiationSource? source = default,
+            string? version = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateConvaiAgentsByAgentIdSimulateConversationStreamArguments(
+            PrepareGetConvaiConversationTokenArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                xiApiKey: ref xiApiKey,
-                request: request);
+                participantName: ref participantName,
+                source: ref source,
+                version: ref version,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/agents/{agentId}/simulate-conversation/stream",
+                path: "/v1/convai/conversation/token",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddRequiredParameter("agent_id", agentId) 
+                .AddOptionalParameter("participant_name", participantName) 
+                .AddOptionalParameter("source", source?.ToValueString()) 
+                .AddOptionalParameter("version", version) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Post,
+                method: global::System.Net.Http.HttpMethod.Get,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -83,22 +108,18 @@ namespace ElevenLabs
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: __httpRequestContentBody,
-                encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
-            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateConvaiAgentsByAgentIdSimulateConversationStreamRequest(
+            PrepareGetConvaiConversationTokenRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
-                xiApiKey: xiApiKey,
-                request: request);
+                participantName: participantName,
+                source: source,
+                version: version,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -108,7 +129,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateConvaiAgentsByAgentIdSimulateConversationStreamResponse(
+            ProcessGetConvaiConversationTokenResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -161,11 +182,18 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
+                ProcessGetConvaiConversationTokenResponseContent(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response,
+                    content: ref __content);
 
                 try
                 {
                     __response.EnsureSuccessStatusCode();
 
+                    return
+                        global::ElevenLabs.TokenResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -194,6 +222,9 @@ namespace ElevenLabs
 #endif
                     ).ConfigureAwait(false);
 
+                    return
+                        await global::ElevenLabs.TokenResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -209,51 +240,6 @@ namespace ElevenLabs
                     };
                 }
             }
-        }
-
-        /// <summary>
-        /// Simulates A Conversation (Stream)<br/>
-        /// Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.
-        /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
-        /// <param name="simulationSpecification">
-        /// A specification that will be used to simulate a conversation between an agent and an AI user.
-        /// </param>
-        /// <param name="extraEvaluationCriteria">
-        /// A list of evaluation criteria to test
-        /// </param>
-        /// <param name="newTurnsLimit">
-        /// Maximum number of new turns to generate in the conversation simulation<br/>
-        /// Default Value: 10000
-        /// </param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task CreateConvaiAgentsByAgentIdSimulateConversationStreamAsync(
-            string agentId,
-            global::ElevenLabs.ConversationSimulationSpecification simulationSpecification,
-            string? xiApiKey = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? extraEvaluationCriteria = default,
-            int? newTurnsLimit = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost
-            {
-                SimulationSpecification = simulationSpecification,
-                ExtraEvaluationCriteria = extraEvaluationCriteria,
-                NewTurnsLimit = newTurnsLimit,
-            };
-
-            await CreateConvaiAgentsByAgentIdSimulateConversationStreamAsync(
-                agentId: agentId,
-                xiApiKey: xiApiKey,
-                request: __request,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

@@ -71,6 +71,14 @@ namespace ElevenLabs
         /// Default Value: false<br/>
         /// Example: true
         /// </param>
+        /// <param name="remixingSessionId">
+        /// The remixing session id.<br/>
+        /// Example: 123
+        /// </param>
+        /// <param name="remixingSessionIterationId">
+        /// The id of the remixing session iteration where these generations should be attached to. If not provided, a new iteration will be created.<br/>
+        /// Example: 123
+        /// </param>
         /// <param name="quality">
         /// Higher quality results in better voice output but less variety.<br/>
         /// Example: 0.9
@@ -95,6 +103,8 @@ namespace ElevenLabs
             int? seed = default,
             double? guidanceScale = default,
             bool? streamPreviews = default,
+            string? remixingSessionId = default,
+            string? remixingSessionIterationId = default,
             double? quality = default,
             string? referenceAudioBase64 = default,
             double? promptStrength = default,

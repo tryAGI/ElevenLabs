@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Status of the dubbing, either 'in_progress', 'completed' or 'failed'.
+    /// What state the dub is currently in.
     /// </summary>
     public enum ListDubsV1DubbingGetDubbingStatus
     {
