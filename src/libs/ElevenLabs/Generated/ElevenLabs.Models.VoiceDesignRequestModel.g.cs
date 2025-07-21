@@ -78,6 +78,22 @@ namespace ElevenLabs
         public bool? StreamPreviews { get; set; }
 
         /// <summary>
+        /// The remixing session id.<br/>
+        /// Example: 123
+        /// </summary>
+        /// <example>123</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("remixing_session_id")]
+        public string? RemixingSessionId { get; set; }
+
+        /// <summary>
+        /// The id of the remixing session iteration where these generations should be attached to. If not provided, a new iteration will be created.<br/>
+        /// Example: 123
+        /// </summary>
+        /// <example>123</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("remixing_session_iteration_id")]
+        public string? RemixingSessionIterationId { get; set; }
+
+        /// <summary>
         /// Higher quality results in better voice output but less variety.<br/>
         /// Example: 0.9
         /// </summary>
@@ -144,6 +160,14 @@ namespace ElevenLabs
         /// Default Value: false<br/>
         /// Example: true
         /// </param>
+        /// <param name="remixingSessionId">
+        /// The remixing session id.<br/>
+        /// Example: 123
+        /// </param>
+        /// <param name="remixingSessionIterationId">
+        /// The id of the remixing session iteration where these generations should be attached to. If not provided, a new iteration will be created.<br/>
+        /// Example: 123
+        /// </param>
         /// <param name="quality">
         /// Higher quality results in better voice output but less variety.<br/>
         /// Example: 0.9
@@ -167,6 +191,8 @@ namespace ElevenLabs
             int? seed,
             double? guidanceScale,
             bool? streamPreviews,
+            string? remixingSessionId,
+            string? remixingSessionIterationId,
             double? quality,
             string? referenceAudioBase64,
             double? promptStrength)
@@ -179,6 +205,8 @@ namespace ElevenLabs
             this.Seed = seed;
             this.GuidanceScale = guidanceScale;
             this.StreamPreviews = streamPreviews;
+            this.RemixingSessionId = remixingSessionId;
+            this.RemixingSessionIterationId = remixingSessionIterationId;
             this.Quality = quality;
             this.ReferenceAudioBase64 = referenceAudioBase64;
             this.PromptStrength = promptStrength;

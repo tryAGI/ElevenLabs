@@ -72,6 +72,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ConvaiAgentResponseTests,
+        /// <summary>
+        /// 
+        /// </summary>
+        ConvaiTestSuiteInvocations,
     }
 
     /// <summary>
@@ -102,6 +106,7 @@ namespace ElevenLabs
                 WorkspaceResourceType.ConvaiMcpServers => "convai_mcp_servers",
                 WorkspaceResourceType.ConvaiBatchCalls => "convai_batch_calls",
                 WorkspaceResourceType.ConvaiAgentResponseTests => "convai_agent_response_tests",
+                WorkspaceResourceType.ConvaiTestSuiteInvocations => "convai_test_suite_invocations",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -128,6 +133,7 @@ namespace ElevenLabs
                 "convai_mcp_servers" => WorkspaceResourceType.ConvaiMcpServers,
                 "convai_batch_calls" => WorkspaceResourceType.ConvaiBatchCalls,
                 "convai_agent_response_tests" => WorkspaceResourceType.ConvaiAgentResponseTests,
+                "convai_test_suite_invocations" => WorkspaceResourceType.ConvaiTestSuiteInvocations,
                 _ => null,
             };
         }
