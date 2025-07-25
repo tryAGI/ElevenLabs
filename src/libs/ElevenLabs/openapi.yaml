@@ -1340,43 +1340,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: voice_generation
       x-fern-sdk-method-name: create_a_previously_generated_voice
-  /v1/text-to-voice/create-voice-from-preview:
-    post:
-      tags:
-        - text-to-voice
-      summary: Create A New Voice From Voice Preview
-      description: Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/create-previews.
-      operationId: Create_a_new_voice_from_voice_preview_v1_text_to_voice_create_voice_from_preview_post
-      parameters:
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_create_voice_from_preview_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VoiceResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: text_to_voice
-      x-fern-sdk-method-name: create_voice_from_preview
   /v1/text-to-voice:
     post:
       tags:
@@ -1523,36 +1486,6 @@ paths:
         - preview
       x-fern-sdk-method-name: stream
       x-fern-streaming: true
-  '/v1/text-to-voice/remixing-sessions/{remixing_session_id}':
-    delete:
-      tags:
-        - text-to-voice
-      summary: Delete Voice Remixing Session
-      description: Delete voice remixing session
-      operationId: Delete_voice_remixing_session_v1_text_to_voice_remixing_sessions__remixing_session_id__delete
-      parameters:
-        - name: remixing_session_id
-          in: path
-          description: The remixing session id.
-          required: true
-          schema:
-            title: Remixing Session Id
-            type: string
-            description: The remixing session id.
-            example: '123'
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DeleteVoiceRemixingSessionResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /v1/user/subscription:
     get:
       tags:
@@ -2146,41 +2079,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: studio
       x-fern-sdk-method-name: create_podcast
-  /v1/projects/podcast/create:
-    post:
-      tags:
-        - projects
-      summary: Create Podcast
-      description: 'Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.'
-      operationId: Create_podcast_v1_projects_podcast_create_post
-      parameters:
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Create_podcast_v1_projects_podcast_create_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PodcastProjectResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   /v1/studio/projects:
     get:
       tags:
@@ -2252,72 +2150,6 @@ paths:
         - studio
         - projects
       x-fern-sdk-method-name: create
-  /v1/projects:
-    get:
-      tags:
-        - projects
-      summary: Get Projects
-      description: Returns a list of your projects together and its metadata.
-      operationId: Get_projects_v1_projects_get
-      parameters:
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetProjectsResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
-  /v1/projects/add:
-    post:
-      tags:
-        - projects
-      summary: Add Project
-      description: 'Creates a new project, it can be either initialized as blank, from a document or from a URL.'
-      operationId: Add_project_v1_projects_add_post
-      parameters:
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Body_Add_project_v1_projects_add_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AddProjectResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}':
     post:
       tags:
@@ -2448,126 +2280,6 @@ paths:
         - studio
         - projects
       x-fern-sdk-method-name: delete
-  '/v1/projects/{project_id}':
-    post:
-      tags:
-        - projects
-      summary: Edit Basic Project Info
-      description: Edits basic project info.
-      operationId: Edit_basic_project_info_v1_projects__project_id__post
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Edit_basic_project_info_v1_projects__project_id__post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EditProjectResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
-    get:
-      tags:
-        - projects
-      summary: Get Project By Id
-      description: Returns information about a specific project. This endpoint returns more detailed information about a project than `GET /v1/projects`.
-      operationId: Get_project_by_ID_v1_projects__project_id__get
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProjectExtendedResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
-    delete:
-      tags:
-        - projects
-      summary: Delete Project
-      description: Deletes a project.
-      operationId: Delete_project_v1_projects__project_id__delete
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/content':
     post:
       tags:
@@ -2616,50 +2328,6 @@ paths:
         - projects
         - content
       x-fern-sdk-method-name: update
-  '/v1/projects/{project_id}/content':
-    post:
-      tags:
-        - projects
-      summary: Edit Project Content
-      description: Edits project content.
-      operationId: Edit_project_content_v1_projects__project_id__content_post
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Body_Edit_project_content_v1_projects__project_id__content_post'
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EditProjectResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/convert':
     post:
       tags:
@@ -2702,44 +2370,6 @@ paths:
         - studio
         - projects
       x-fern-sdk-method-name: convert
-  '/v1/projects/{project_id}/convert':
-    post:
-      tags:
-        - projects
-      summary: Convert Project
-      description: Starts conversion of a project and all of its chapters.
-      operationId: Convert_project_v1_projects__project_id__convert_post
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/snapshots':
     get:
       tags:
@@ -2783,45 +2413,6 @@ paths:
         - projects
         - snapshots
       x-fern-sdk-method-name: list
-  '/v1/projects/{project_id}/snapshots':
-    get:
-      tags:
-        - projects
-      summary: Get Project Snapshots
-      description: Gets the snapshots of a project.
-      operationId: Get_project_snapshots_v1_projects__project_id__snapshots_get
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProjectSnapshotsResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}':
     get:
       tags:
@@ -2928,55 +2519,6 @@ paths:
         - snapshots
       x-fern-sdk-method-name: stream
       x-fern-streaming: true
-  '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/stream':
-    post:
-      tags:
-        - projects
-      summary: Stream Project Audio
-      description: Stream the audio from a project snapshot.
-      operationId: Stream_project_audio_v1_projects__project_id__snapshots__project_snapshot_id__stream_post
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: project_snapshot_id
-          in: path
-          description: The ID of the Studio project snapshot.
-          required: true
-          schema:
-            title: Project Snapshot Id
-            type: string
-            description: The ID of the Studio project snapshot.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Stream_project_audio_v1_projects__project_id__snapshots__project_snapshot_id__stream_post'
-      responses:
-        '200':
-          description: Successful Response
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/archive':
     post:
       tags:
@@ -3030,50 +2572,6 @@ paths:
         - projects
         - snapshots
       x-fern-sdk-method-name: stream_archive
-  '/v1/projects/{project_id}/snapshots/{project_snapshot_id}/archive':
-    post:
-      tags:
-        - projects
-      summary: Streams Archive With Project Audio
-      description: Streams archive with project audio.
-      operationId: Streams_archive_with_project_audio_v1_projects__project_id__snapshots__project_snapshot_id__archive_post
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: project_snapshot_id
-          in: path
-          description: The ID of the Studio project snapshot.
-          required: true
-          schema:
-            title: Project Snapshot Id
-            type: string
-            description: The ID of the Studio project snapshot.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/chapters':
     get:
       tags:
@@ -3165,45 +2663,6 @@ paths:
         - projects
         - chapters
       x-fern-sdk-method-name: create
-  '/v1/projects/{project_id}/chapters':
-    get:
-      tags:
-        - projects
-      summary: Get Chapters
-      description: Returns a list of your chapters for a project together and its metadata.
-      operationId: Get_chapters_v1_projects__project_id__chapters_get
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetChaptersResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/chapters/{chapter_id}':
     get:
       tags:
@@ -3363,197 +2822,6 @@ paths:
         - projects
         - chapters
       x-fern-sdk-method-name: delete
-  '/v1/projects/{project_id}/chapters/{chapter_id}':
-    get:
-      tags:
-        - projects
-      summary: Get Chapter By Id
-      description: Returns information about a specific chapter.
-      operationId: Get_chapter_by_ID_v1_projects__project_id__chapters__chapter_id__get
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: chapter_id
-          in: path
-          description: The ID of the chapter.
-          required: true
-          schema:
-            title: Chapter Id
-            type: string
-            description: The ID of the chapter.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ChapterWithContentResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
-    patch:
-      tags:
-        - projects
-      summary: Edit Chapter
-      description: Edits a chapter.
-      operationId: Edit_chapter_v1_projects__project_id__chapters__chapter_id__patch
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: chapter_id
-          in: path
-          description: The ID of the chapter.
-          required: true
-          schema:
-            title: Chapter Id
-            type: string
-            description: The ID of the chapter.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Edit_chapter_v1_projects__project_id__chapters__chapter_id__patch'
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EditChapterResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
-    delete:
-      tags:
-        - projects
-      summary: Delete Chapter
-      description: Deletes a chapter.
-      operationId: Delete_chapter_v1_projects__project_id__chapters__chapter_id__delete
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: chapter_id
-          in: path
-          description: The ID of the chapter.
-          required: true
-          schema:
-            title: Chapter Id
-            type: string
-            description: The ID of the chapter.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
-  '/v1/projects/{project_id}/chapters/add':
-    post:
-      tags:
-        - projects
-      summary: Add Chapter To A Project
-      description: Creates a new chapter either as blank or from a URL.
-      operationId: Add_chapter_to_a_project_v1_projects__project_id__chapters_add_post
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Add_chapter_to_a_project_v1_projects__project_id__chapters_add_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AddChapterResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/chapters/{chapter_id}/convert':
     post:
       tags:
@@ -3606,53 +2874,6 @@ paths:
         - projects
         - chapters
       x-fern-sdk-method-name: convert
-  '/v1/projects/{project_id}/chapters/{chapter_id}/convert':
-    post:
-      tags:
-        - projects
-      summary: Convert Chapter
-      description: Starts conversion of a specific chapter.
-      operationId: Convert_chapter_v1_projects__project_id__chapters__chapter_id__convert_post
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: chapter_id
-          in: path
-          description: The ID of the chapter.
-          required: true
-          schema:
-            title: Chapter Id
-            type: string
-            description: The ID of the chapter.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots':
     get:
       tags:
@@ -3706,54 +2927,6 @@ paths:
         - chapters
         - snapshots
       x-fern-sdk-method-name: list
-  '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots':
-    get:
-      tags:
-        - projects
-      summary: List Chapter Snapshots
-      description: Gets information about all the snapshots of a chapter. Each snapshot can be downloaded as audio. Whenever a chapter is converted a snapshot will automatically be created.
-      operationId: List_chapter_snapshots_v1_projects__project_id__chapters__chapter_id__snapshots_get
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: chapter_id
-          in: path
-          description: The ID of the chapter.
-          required: true
-          schema:
-            title: Chapter Id
-            type: string
-            description: The ID of the chapter.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ChapterSnapshotsResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}':
     get:
       tags:
@@ -3885,64 +3058,6 @@ paths:
         - snapshots
       x-fern-sdk-method-name: stream
       x-fern-streaming: true
-  '/v1/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}/stream':
-    post:
-      tags:
-        - projects
-      summary: Stream Chapter Audio
-      description: 'Stream the audio from a chapter snapshot. Use `GET /v1/projects/{project_id}/chapters/{chapter_id}/snapshots` to return the chapter snapshots of a chapter.'
-      operationId: Stream_chapter_audio_v1_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: chapter_id
-          in: path
-          description: The ID of the chapter.
-          required: true
-          schema:
-            title: Chapter Id
-            type: string
-            description: The ID of the chapter.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: chapter_snapshot_id
-          in: path
-          description: The ID of the chapter snapshot.
-          required: true
-          schema:
-            title: Chapter Snapshot Id
-            type: string
-            description: The ID of the chapter snapshot.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Stream_chapter_audio_v1_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post'
-      responses:
-        '200':
-          description: Successful Response
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/studio/projects/{project_id}/pronunciation-dictionaries':
     post:
       tags:
@@ -3992,50 +3107,6 @@ paths:
         - projects
         - pronunciation_dictionaries
       x-fern-sdk-method-name: create
-  '/v1/projects/{project_id}/update-pronunciation-dictionaries':
-    post:
-      tags:
-        - projects
-      summary: Update Pronunciation Dictionaries
-      description: Updates the set of pronunciation dictionaries acting on a project. This will automatically mark text within this project as requiring reconverting where the new dictionary would apply or the old one no longer does.
-      operationId: Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post
-      parameters:
-        - name: project_id
-          in: path
-          description: The ID of the Studio project.
-          required: true
-          schema:
-            title: Project Id
-            type: string
-            description: The ID of the Studio project.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
   '/v1/dubbing/resource/{dubbing_id}':
     get:
       tags:
@@ -5793,6 +4864,215 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: pronunciation_dictionaries
       x-fern-sdk-method-name: list
+  '/v1/service-accounts/{service_account_user_id}/api-keys':
+    get:
+      tags:
+        - workspace
+      summary: Get Service Account Api Keys Route
+      description: Get all API keys for a service account
+      operationId: get_service_account_api_keys_route_v1_service_accounts__service_account_user_id__api_keys_get
+      parameters:
+        - name: service_account_user_id
+          in: path
+          required: true
+          schema:
+            title: Service Account User Id
+            type: string
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceApiKeyListResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - service_accounts
+        - api_keys
+      x-fern-sdk-method-name: list
+    post:
+      tags:
+        - workspace
+      summary: Create Service Account Api Key
+      description: Create a new API key for a service account
+      operationId: create_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys_post
+      parameters:
+        - name: service_account_user_id
+          in: path
+          required: true
+          schema:
+            title: Service Account User Id
+            type: string
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_create_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceCreateApiKeyResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - service_accounts
+        - api_keys
+      x-fern-sdk-method-name: create
+  '/v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}':
+    patch:
+      tags:
+        - workspace
+      summary: Edit Service Account Api Key
+      description: Update an existing API key for a service account
+      operationId: edit_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__patch
+      parameters:
+        - name: service_account_user_id
+          in: path
+          required: true
+          schema:
+            title: Service Account User Id
+            type: string
+        - name: api_key_id
+          in: path
+          required: true
+          schema:
+            title: Api Key Id
+            type: string
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_edit_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__patch'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - service_accounts
+        - api_keys
+      x-fern-sdk-method-name: update
+    delete:
+      tags:
+        - workspace
+        - workspace
+      summary: Delete Service Account Api Key
+      description: Delete an existing API key for a service account
+      operationId: delete_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__delete
+      parameters:
+        - name: service_account_user_id
+          in: path
+          required: true
+          schema:
+            title: Service Account User Id
+            type: string
+        - name: api_key_id
+          in: path
+          required: true
+          schema:
+            title: Api Key Id
+            type: string
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - service_accounts
+        - api_keys
+      x-fern-sdk-method-name: delete
+  /v1/service-accounts:
+    get:
+      tags:
+        - workspace
+      summary: Get Workspace Service Accounts
+      description: List all service accounts in the workspace
+      operationId: get_workspace_service_accounts_v1_service_accounts_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceServiceAccountListResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - service_accounts
+      x-fern-sdk-method-name: list
   /v1/workspace/groups/search:
     get:
       tags:
@@ -6302,7 +5582,7 @@ paths:
       tags:
         - speech-to-text
       summary: Speech To Text
-      description: 'Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks.'
+      description: 'Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a ''transcripts'' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript.'
       operationId: Speech_to_Text_v1_speech_to_text_post
       parameters:
         - name: enable_logging
@@ -6333,7 +5613,54 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SpeechToTextChunkResponseModel'
+                title: Response Speech To Text V1 Speech To Text Post
+                anyOf:
+                  - $ref: '#/components/schemas/SpeechToTextChunkResponseModel'
+                  - $ref: '#/components/schemas/MultichannelSpeechToTextResponseModel'
+                oneOf:
+                  - $ref: '#/components/schemas/SpeechToTextChunkResponseModel'
+                  - $ref: '#/components/schemas/MultichannelSpeechToTextResponseModel'
+                nullable: true
+              examples:
+                single_channel:
+                  summary: Single channel response
+                  value:
+                    language_code: en
+                    language_probability: 0.98
+                    text: Hello world!
+                    words:
+                      - text: Hello
+                        start: 0
+                        end: 0.5
+                        type: word
+                        speaker_id: speaker_1
+                        logprob: -0.124
+                multichannel:
+                  summary: Multichannel response
+                  value:
+                    transcripts:
+                      - language_code: en
+                        language_probability: 0.98
+                        text: Hello from channel one.
+                        words:
+                          - text: Hello
+                            start: 0
+                            end: 0.5
+                            type: word
+                            speaker_id: speaker_0
+                            channel_index: 0
+                            logprob: -0.124
+                      - language_code: en
+                        language_probability: 0.97
+                        text: Greetings from channel two.
+                        words:
+                          - text: Greetings
+                            start: 0.1
+                            end: 0.7
+                            type: word
+                            speaker_id: speaker_1
+                            channel_index: 1
+                            logprob: -0.156
         '202':
           description: Asynchronous request accepted
           content:
@@ -6500,13 +5827,13 @@ paths:
             $ref: '#/components/schemas/ConversationInitiationSource'
         - name: version
           in: query
-          description: The SDK version number for tracking purposes.
+          description: The SDK version number
           schema:
             title: Version
             maxLength: 50
-            pattern: '^[0-9]+(\.[0-9]+)*$'
+            pattern: '^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.-]+)?$'
             type: string
-            description: The SDK version number for tracking purposes.
+            description: The SDK version number
             nullable: true
         - name: xi-api-key
           in: header
@@ -6529,6 +5856,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - conversations
+      x-fern-sdk-method-name: get_webrtc_token
   /v1/convai/twilio/outbound-call:
     post:
       tags:
@@ -7208,6 +6539,14 @@ paths:
             type: integer
             description: Unix timestamp (in seconds) to filter conversations after to this start date.
             nullable: true
+        - name: user_id
+          in: query
+          description: Filter conversations by the user ID who initiated them.
+          schema:
+            title: User Id
+            type: string
+            description: Filter conversations by the user ID who initiated them.
+            nullable: true
         - name: page_size
           in: query
           description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
@@ -7794,90 +7133,6 @@ paths:
         - conversational_ai
         - knowledge_base
       x-fern-sdk-method-name: list
-  /v1/convai/add-to-knowledge-base:
-    post:
-      tags:
-        - Conversational AI
-      summary: Add To Knowledge Base
-      description: Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
-      operationId: Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post
-      parameters:
-        - name: agent_id
-          in: query
-          schema:
-            title: Agent Id
-            type: string
-            default: ''
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Body_Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post'
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AddKnowledgeBaseResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
-      x-fern-sdk-group-name: conversational_ai
-  '/v1/convai/agents/{agent_id}/add-to-knowledge-base':
-    post:
-      tags:
-        - Conversational AI
-      summary: Add To Knowledge Base
-      description: Uploads a file or reference a webpage for the agent to use as part of it's knowledge base
-      operationId: Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post
-      parameters:
-        - name: agent_id
-          in: path
-          required: true
-          schema:
-            title: Agent Id
-            type: string
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Body_Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post'
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AddKnowledgeBaseResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
-      x-fern-sdk-group-name: conversational_ai
   /v1/convai/knowledge-base/url:
     post:
       tags:
@@ -8332,62 +7587,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: conversational_ai
       x-fern-sdk-method-name: rag_index_overview
-  '/v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}':
-    get:
-      tags:
-        - Conversational AI
-      summary: Get Documentation From Knowledge Base
-      description: Get details about a specific documentation making up the agent's knowledge base
-      operationId: Get_documentation_from_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get
-      parameters:
-        - name: documentation_id
-          in: path
-          description: The id of a document from the knowledge base. This is returned on document addition.
-          required: true
-          schema:
-            title: Documentation Id
-            type: string
-            description: The id of a document from the knowledge base. This is returned on document addition.
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: agent_id
-          in: path
-          required: true
-          schema:
-            title: Agent Id
-            type: string
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                title: Response Get Documentation From Knowledge Base V1 Convai Agents  Agent Id  Knowledge Base  Documentation Id  Get
-                oneOf:
-                  - $ref: '#/components/schemas/GetKnowledgeBaseURLResponseModel'
-                  - $ref: '#/components/schemas/GetKnowledgeBaseFileResponseModel'
-                  - $ref: '#/components/schemas/GetKnowledgeBaseTextResponseModel'
-                discriminator:
-                  propertyName: type
-                  mapping:
-                    url: '#/components/schemas/GetKnowledgeBaseURLResponseModel'
-                    file: '#/components/schemas/GetKnowledgeBaseFileResponseModel'
-                    text: '#/components/schemas/GetKnowledgeBaseTextResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      deprecated: true
-      x-fern-sdk-group-name: conversational_ai
   '/v1/convai/knowledge-base/{documentation_id}/dependent-agents':
     get:
       tags:
@@ -8984,6 +8183,8 @@ paths:
         - secrets
       x-fern-sdk-method-name: create
     get:
+      tags:
+        - Conversational AI
       summary: Get Convai Workspace Secrets
       description: Get all workspace secrets for the user
       operationId: Get_ConvAI_workspace_secrets_v1_convai_secrets_get
@@ -10348,7 +9549,7 @@ paths:
   /docs:
     get:
       summary: Redirect To Mintlify
-      operationId: redirect_to_mintlify_docs_get
+      operationId: redirect_to_mintlify
       responses:
         '200':
           description: Successful Response
@@ -11238,6 +10439,7 @@ components:
         - completed
         - failed
         - cancelled
+        - voicemail
       type: string
     BatchCallResponse:
       title: BatchCallResponse
@@ -11379,23 +10581,6 @@ components:
           description: 'Should be one of ''admin'', ''editor'' or ''viewer''. If not provided, defaults to no access.'
           nullable: true
           example: viewer
-    Body_Add_chapter_to_a_project_v1_projects__project_id__chapters_add_post:
-      title: Body_Add_chapter_to_a_project_v1_projects__project_id__chapters_add_post
-      required:
-        - name
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-          description: 'The name of the chapter, used for identification only.'
-          example: Chapter 1
-        from_url:
-          title: From Url
-          type: string
-          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
-          nullable: true
-          example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
     Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post:
       title: Body_Add_member_to_user_group_v1_workspace_groups__group_id__members_post
       required:
@@ -11406,199 +10591,6 @@ components:
           title: Email
           type: string
           description: The email of the target workspace member.
-    Body_Add_project_v1_projects_add_post:
-      title: Body_Add_project_v1_projects_add_post
-      required:
-        - name
-        - default_title_voice_id
-        - default_paragraph_voice_id
-        - default_model_id
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-          description: 'The name of the Studio project, used for identification only.'
-          example: Project 1
-        default_title_voice_id:
-          title: Default Title Voice Id
-          type: string
-          description: The voice_id that corresponds to the default voice used for new titles.
-          example: 21m00Tcm4TlvDq8ikWAM
-        default_paragraph_voice_id:
-          title: Default Paragraph Voice Id
-          type: string
-          description: The voice_id that corresponds to the default voice used for new paragraphs.
-          example: 21m00Tcm4TlvDq8ikWAM
-        default_model_id:
-          title: Default Model Id
-          type: string
-          description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
-          example: eleven_multilingual_v2
-        from_url:
-          title: From Url
-          type: string
-          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
-          nullable: true
-          example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
-        from_document:
-          title: From Document
-          type: string
-          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
-          format: binary
-          nullable: true
-        from_content_json:
-          title: From Content Json
-          type: string
-          description: "\n    An optional content to initialize the Studio project with. If this is set, 'from_url' and 'from_document' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.\n    \n    Example:\n    [{\"name\": \"Chapter A\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"A\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"B\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h1\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"C\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"D\", \"type\": \"tts_node\"}]}]}, {\"name\": \"Chapter B\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"E\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"F\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h2\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"G\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"H\", \"type\": \"tts_node\"}]}]}]\n    "
-          example: '[{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]'
-        quality_preset:
-          title: Quality of the generated audio.
-          type: string
-          description: "Output quality of the generated audio. Must be one of:\nstandard - standard output format, 128kbps with 44.1kHz sample rate.\nhigh - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.\nultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.\nultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.\n"
-          default: standard
-          example: standard
-        title:
-          title: Title
-          type: string
-          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
-          nullable: true
-          example: Romeo and Juliet
-        author:
-          title: Author
-          type: string
-          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
-          nullable: true
-          example: William Shakespeare
-        description:
-          title: Description
-          type: string
-          description: An optional description of the Studio project.
-          nullable: true
-          example: A tragic love story between two young lovers.
-        genres:
-          title: Genres
-          type: array
-          items:
-            type: string
-          description: An optional list of genres associated with the Studio project.
-          example:
-            - Romance
-            - Drama
-        target_audience:
-          title: Target Audience
-          enum:
-            - children
-            - young adult
-            - adult
-            - all ages
-          type: string
-          description: An optional target audience of the Studio project.
-          nullable: true
-          example: adult
-        language:
-          title: Language
-          maxLength: 2
-          minLength: 2
-          type: string
-          description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
-          nullable: true
-          example: en
-        content_type:
-          title: Content Type
-          type: string
-          description: An optional content type of the Studio project.
-          nullable: true
-          example: Book
-        original_publication_date:
-          title: Original Publication Date
-          pattern: '^\d{4}-\d{2}-\d{2}$|^\d{4}$'
-          type: string
-          description: 'An optional original publication date of the Studio project, in the format YYYY-MM-DD or YYYY.'
-          nullable: true
-          example: '1597-01-01'
-        mature_content:
-          title: Mature Content
-          type: boolean
-          description: An optional specification of whether this Studio project contains mature content.
-          default: false
-          nullable: true
-          example: false
-        isbn_number:
-          title: Isbn Number
-          type: string
-          description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
-          nullable: true
-          example: 0-306-40615-2
-        acx_volume_normalization:
-          title: Acx Volume Normalization
-          type: boolean
-          description: '[Deprecated] When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
-          default: false
-          example: false
-        volume_normalization:
-          title: Volume Normalization
-          type: boolean
-          description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
-          default: false
-          example: false
-        pronunciation_dictionary_locators:
-          title: Pronunciation Dictionary Locators
-          type: array
-          items:
-            type: string
-          description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
-          example:
-            - '{"pronunciation_dictionary_id": "test", "version_id": "id2"}'
-        callback_url:
-          title: Callback Url
-          type: string
-          description: "\n    A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion\n    Messages:\n    1. When project was converted successfully:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"success\",\n        project_snapshot_id: \"22m00Tcm4TlvDq8ikMAT\",\n        error_details: None,\n      }\n    }\n    2. When project conversion failed:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"error\",\n        project_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n\n    3. When chapter was converted successfully:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"success\",\n        chapter_snapshot_id: \"23m00Tcm4TlvDq8ikMAV\",\n        error_details: None,\n      }\n    }\n    4. When chapter conversion failed:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"error\",\n        chapter_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n    "
-          nullable: true
-          example:
-            - https://www.test.com/my-api/projects-status
-        fiction:
-          title: Fiction
-          enum:
-            - fiction
-            - non-fiction
-          type: string
-          description: An optional specification of whether the content of this Studio project is fiction.
-          nullable: true
-          example: fiction
-        apply_text_normalization:
-          title: Apply Text Normalization
-          enum:
-            - auto
-            - on
-            - off
-            - apply_english
-          type: string
-          description: "\n    This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.\n    When set to 'auto', the system will automatically decide whether to apply text normalization\n    (e.g., spelling out numbers). With 'on', text normalization will always be applied, while\n    with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.\n    "
-          nullable: true
-        auto_convert:
-          title: Auto Convert
-          type: boolean
-          description: Whether to auto convert the Studio project to audio or not.
-          default: false
-        auto_assign_voices:
-          title: Auto Assign Voices
-          type: boolean
-          description: '[Alpha Feature] Whether automatically assign voices to phrases in the create Project.'
-          default: false
-          nullable: true
-        source_type:
-          title: Source Type
-          enum:
-            - blank
-            - book
-            - article
-            - genfm
-            - video
-          type: string
-          description: The type of Studio project to create.
-          nullable: true
-          example: book
     Body_Add_rules_to_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__add_rules_post:
       title: Body_Add_rules_to_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__add_rules_post
       required:
@@ -11644,44 +10636,6 @@ components:
           type: string
           description: The name that identifies this voice. This will be displayed in the dropdown of the website.
           example: John Smith
-    Body_Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post:
-      title: Body_Add_to_knowledge_base_v1_convai_add_to_knowledge_base_post
-      type: object
-      properties:
-        name:
-          title: Name
-          minLength: 1
-          type: string
-          description: 'A custom, human-readable name for the document.'
-          nullable: true
-        url:
-          title: Url
-          type: string
-          description: URL to a page of documentation that the agent will have access to in order to interact with users.
-        file:
-          title: File
-          type: string
-          description: Documentation that the agent will have access to in order to interact with users.
-          format: binary
-    Body_Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post:
-      title: Body_Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post
-      type: object
-      properties:
-        name:
-          title: Name
-          minLength: 1
-          type: string
-          description: 'A custom, human-readable name for the document.'
-          nullable: true
-        url:
-          title: Url
-          type: string
-          description: URL to a page of documentation that the agent will have access to in order to interact with users.
-        file:
-          title: File
-          type: string
-          description: Documentation that the agent will have access to in order to interact with users.
-          format: binary
     Body_Add_to_knowledge_base_v1_convai_knowledge_base_post:
       title: Body_Add_to_knowledge_base_v1_convai_knowledge_base_post
       type: object
@@ -12070,47 +11024,6 @@ components:
           type: string
           description: 'A custom, human-readable name for the document.'
           nullable: true
-    Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_create_voice_from_preview_post:
-      title: Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_create_voice_from_preview_post
-      required:
-        - voice_name
-        - voice_description
-        - generated_voice_id
-      type: object
-      properties:
-        voice_name:
-          title: Voice Name
-          type: string
-          description: Name to use for the created voice.
-          example: Sassy squeaky mouse
-        voice_description:
-          title: Voice Description
-          maxLength: 1000
-          minLength: 20
-          type: string
-          description: Description to use for the created voice.
-          example: A sassy squeaky mouse
-        generated_voice_id:
-          title: Generated Voice Id
-          type: string
-          description: 'The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response header if don''t have one yet.'
-          example: 37HceQefKmEi3bGovXjL
-        labels:
-          title: Labels
-          type: object
-          additionalProperties:
-            type: string
-          description: 'Optional, metadata to add to the created voice. Defaults to None.'
-          nullable: true
-          example:
-            language: en
-        played_not_selected_voice_ids:
-          title: Played Not Selected Voice Ids
-          type: array
-          items:
-            type: string
-          description: List of voice ids that the user has played but not selected. Used for RLHF.
-          nullable: true
     Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_post:
       title: Body_Create_a_new_voice_from_voice_preview_v1_text_to_voice_post
       required:
@@ -12246,113 +11159,6 @@ components:
           type: boolean
           description: 'If true, the file will be streamed to the server and processed in chunks. This is useful for large files that cannot be loaded into memory. The default is false.'
           default: false
-    Body_Create_podcast_v1_projects_podcast_create_post:
-      title: Body_Create_podcast_v1_projects_podcast_create_post
-      required:
-        - model_id
-        - mode
-        - source
-      type: object
-      properties:
-        model_id:
-          title: Model Id
-          type: string
-          description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
-          example: eleven_multilingual_v2
-        mode:
-          title: Mode
-          anyOf:
-            - $ref: '#/components/schemas/PodcastConversationMode'
-            - $ref: '#/components/schemas/PodcastBulletinMode'
-          description: 'The type of podcast to generate. Can be ''conversation'', an interaction between two voices, or ''bulletin'', a monologue.'
-          example:
-            conversation:
-              guest_voice_id: bYTqZQo3Jz7LQtmGTgwi
-              host_voice_id: 6lCwbsX1yVjD49QmpkTR
-            type: conversation
-        source:
-          title: Source
-          anyOf:
-            - $ref: '#/components/schemas/PodcastTextSource'
-            - $ref: '#/components/schemas/PodcastURLSource'
-            - type: array
-              items:
-                anyOf:
-                  - $ref: '#/components/schemas/PodcastTextSource'
-                  - $ref: '#/components/schemas/PodcastURLSource'
-          description: The source content for the Podcast.
-          example:
-            type: url
-            url: https://en.wikipedia.org/wiki/Cognitive_science
-        quality_preset:
-          title: Quality of the generated audio.
-          enum:
-            - standard
-            - high
-            - highest
-            - ultra
-            - ultra_lossless
-          type: string
-          description: "Output quality of the generated audio. Must be one of:\nstandard - standard output format, 128kbps with 44.1kHz sample rate.\nhigh - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.\nultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.\nultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.\n"
-          default: standard
-          example: standard
-        duration_scale:
-          title: 'The duration of the generated podcast. This varies depending on the format, voice and language.'
-          enum:
-            - short
-            - default
-            - long
-          type: string
-          description: "Duration of the generated podcast. Must be one of:\nshort - produces podcasts shorter than 3 minutes.\ndefault - produces podcasts roughly between 3-7 minutes.\nlong - produces podcasts longer than 7 minutes.\n"
-          default: default
-          example: short
-        language:
-          title: Language
-          maxLength: 2
-          minLength: 2
-          type: string
-          description: An optional language of the Studio project. Two-letter language code (ISO 639-1).
-          nullable: true
-          example: en
-        intro:
-          title: Intro
-          maxLength: 1500
-          type: string
-          description: The intro text that will always be added to the beginning of the podcast.
-          nullable: true
-          example: Welcome to the podcast.
-        outro:
-          title: Outro
-          maxLength: 1500
-          type: string
-          description: The outro text that will always be added to the end of the podcast.
-          nullable: true
-          example: Thank you for listening!
-        instructions_prompt:
-          title: Instructions Prompt
-          maxLength: 3000
-          type: string
-          description: Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.
-          nullable: true
-          example: 'Ensure the podcast remains factual, accurate and appropriate for all audiences.'
-        highlights:
-          title: Highlights
-          type: array
-          items:
-            maxLength: 70
-            minLength: 10
-            type: string
-          description: 'A brief summary or highlights of the Studio project''s content, providing key points or themes. This should be between 10 and 70 characters.'
-          nullable: true
-          example:
-            - Emphasize the importance of AI on education
-        callback_url:
-          title: Callback Url
-          type: string
-          description: "\n    A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion\n    Messages:\n    1. When project was converted successfully:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"success\",\n        project_snapshot_id: \"22m00Tcm4TlvDq8ikMAT\",\n        error_details: None,\n      }\n    }\n    2. When project conversion failed:\n    {\n      type: \"project_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        conversion_status: \"error\",\n        project_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n\n    3. When chapter was converted successfully:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"success\",\n        chapter_snapshot_id: \"23m00Tcm4TlvDq8ikMAV\",\n        error_details: None,\n      }\n    }\n    4. When chapter conversion failed:\n    {\n      type: \"chapter_conversion_status\",\n      event_timestamp: 1234567890,\n      data: {\n        request_id: \"1234567890\",\n        project_id: \"21m00Tcm4TlvDq8ikWAM\",\n        chapter_id: \"22m00Tcm4TlvDq8ikMAT\",\n        conversion_status: \"error\",\n        chapter_snapshot_id: None,\n        error_details: \"Error details if conversion failed\"\n      }\n    }\n    "
-          nullable: true
-          example:
-            - https://www.test.com/my-api/projects-status
     Body_Create_podcast_v1_studio_podcasts_post:
       title: Body_Create_podcast_v1_studio_podcasts_post
       required:
@@ -12760,91 +11566,6 @@ components:
             type: string
           description: Serialized labels dictionary for the voice.
           nullable: true
-    Body_Edit_basic_project_info_v1_projects__project_id__post:
-      title: Body_Edit_basic_project_info_v1_projects__project_id__post
-      required:
-        - name
-        - default_title_voice_id
-        - default_paragraph_voice_id
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-          description: 'The name of the Studio project, used for identification only.'
-          example: Project 1
-        default_title_voice_id:
-          title: Default Title Voice Id
-          type: string
-          description: The voice_id that corresponds to the default voice used for new titles.
-          example: 21m00Tcm4TlvDq8ikWAM
-        default_paragraph_voice_id:
-          title: Default Paragraph Voice Id
-          type: string
-          description: The voice_id that corresponds to the default voice used for new paragraphs.
-          example: 21m00Tcm4TlvDq8ikWAM
-        title:
-          title: Title
-          type: string
-          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
-          nullable: true
-          example: Romeo and Juliet
-        author:
-          title: Author
-          type: string
-          description: 'An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.'
-          nullable: true
-          example: William Shakespeare
-        isbn_number:
-          title: Isbn Number
-          type: string
-          description: 'An optional ISBN number of the Studio project you want to create, this will be added as metadata to the mp3 file on Studio project or chapter download.'
-          nullable: true
-          example: 0-306-40615-2
-        volume_normalization:
-          title: Volume Normalization
-          type: boolean
-          description: 'When the Studio project is downloaded, should the returned audio have postprocessing in order to make it compliant with audiobook normalized volume requirements'
-          default: false
-          example: false
-    Body_Edit_chapter_v1_projects__project_id__chapters__chapter_id__patch:
-      title: Body_Edit_chapter_v1_projects__project_id__chapters__chapter_id__patch
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-          description: 'The name of the chapter, used for identification only.'
-          nullable: true
-          example: Chapter 1
-        content:
-          $ref: '#/components/schemas/ChapterContentInputModel'
-    Body_Edit_project_content_v1_projects__project_id__content_post:
-      title: Body_Edit_project_content_v1_projects__project_id__content_post
-      type: object
-      properties:
-        from_url:
-          title: From Url
-          type: string
-          description: 'An optional URL from which we will extract content to initialize the Studio project. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
-          nullable: true
-          example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
-        from_document:
-          title: From Document
-          type: string
-          description: 'An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, ''from_url'' and ''from_content'' must be null. If neither ''from_url'', ''from_document'', ''from_content'' are provided we will initialize the Studio project as blank.'
-          format: binary
-          nullable: true
-        from_content_json:
-          title: From Content Json
-          type: string
-          description: "\n    An optional content to initialize the Studio project with. If this is set, 'from_url' and 'from_document' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.\n    \n    Example:\n    [{\"name\": \"Chapter A\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"A\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"B\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h1\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"C\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"D\", \"type\": \"tts_node\"}]}]}, {\"name\": \"Chapter B\", \"blocks\": [{\"sub_type\": \"p\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"E\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"F\", \"type\": \"tts_node\"}]}, {\"sub_type\": \"h2\", \"nodes\": [{\"voice_id\": \"6lCwbsX1yVjD49QmpkT0\", \"text\": \"G\", \"type\": \"tts_node\"}, {\"voice_id\": \"6lCwbsX1yVjD49QmpkT1\", \"text\": \"H\", \"type\": \"tts_node\"}]}]}]\n    "
-          example: '[{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]'
-        auto_convert:
-          title: Auto Convert
-          type: boolean
-          description: Whether to auto convert the Studio project to audio or not.
-          default: false
     Body_Edit_voice_v1_voices__voice_id__edit_post:
       title: Body_Edit_voice_v1_voices__voice_id__edit_post
       required:
@@ -13428,6 +12149,11 @@ components:
           description: 'If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.'
           nullable: true
           example: 12345
+        use_multi_channel:
+          title: Use Multi Channel
+          type: boolean
+          description: 'Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a ''channel_index'' field indicating which channel it was spoken on. A maximum of 5 channels is supported.'
+          default: false
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
@@ -13437,26 +12163,8 @@ components:
           type: boolean
           description: Whether to convert the audio to mpeg format.
           default: false
-    Body_Stream_chapter_audio_v1_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post:
-      title: Body_Stream_chapter_audio_v1_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post
-      type: object
-      properties:
-        convert_to_mpeg:
-          title: Convert To Mpeg
-          type: boolean
-          description: Whether to convert the audio to mpeg format.
-          default: false
     Body_Stream_chapter_audio_v1_studio_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post:
       title: Body_Stream_chapter_audio_v1_studio_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post
-      type: object
-      properties:
-        convert_to_mpeg:
-          title: Convert To Mpeg
-          type: boolean
-          description: Whether to convert the audio to mpeg format.
-          default: false
-    Body_Stream_project_audio_v1_projects__project_id__snapshots__project_snapshot_id__stream_post:
-      title: Body_Stream_project_audio_v1_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
       properties:
         convert_to_mpeg:
@@ -14039,26 +12747,6 @@ components:
           description: The end time of the audio to be used for PVC training. Time should be in milliseconds
           nullable: true
           example: 10
-    Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post:
-      title: Body_Update_Pronunciation_Dictionaries_v1_projects__project_id__update_pronunciation_dictionaries_post
-      required:
-        - pronunciation_dictionary_locators
-      type: object
-      properties:
-        pronunciation_dictionary_locators:
-          title: Pronunciation Dictionary Locators
-          type: array
-          items:
-            $ref: '#/components/schemas/PronunciationDictionaryVersionLocatorDBModel'
-          description: 'A list of pronunciation dictionary locators (pronunciation_dictionary_id, version_id) encoded as a list of JSON strings for pronunciation dictionaries to be applied to the text. A list of json encoded strings is required as adding projects may occur through formData as opposed to jsonBody. To specify multiple dictionaries use multiple --form lines in your curl, such as --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"Vmd4Zor6fplcA7WrINey\",\"version_id\":\"hRPaxjlTdR7wFMhV4w0b\"}"'' --form ''pronunciation_dictionary_locators="{\"pronunciation_dictionary_id\":\"JzWtcGQMJ6bnlWwyMo7e\",\"version_id\":\"lbmwxiLu4q6txYxgdZqn\"}"''. Note that multiple dictionaries are not currently supported by our UI which will only show the first.'
-          example:
-            - '{"pronunciation_dictionary_id": "test", "version_id": "id2"}'
-        invalidate_affected_text:
-          title: Invalidate Affected Text
-          type: boolean
-          description: This will automatically mark text in this project for reconversion when the new dictionary applies or the old one no longer does.
-          default: true
-          example: false
     Body_Update_Studio_project_content_v1_studio_projects__project_id__content_post:
       title: Body_Update_Studio_project_content_v1_studio_projects__project_id__content_post
       type: object
@@ -14224,6 +12912,115 @@ components:
           type: string
           description: Audio recording of the user
           format: binary
+    Body_create_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys_post:
+      title: Body_create_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys_post
+      required:
+        - name
+        - permissions
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        permissions:
+          title: Permissions
+          anyOf:
+            - type: array
+              items:
+                enum:
+                  - text_to_speech
+                  - speech_to_speech
+                  - speech_to_text
+                  - models_read
+                  - models_write
+                  - voices_read
+                  - voices_write
+                  - speech_history_read
+                  - speech_history_write
+                  - sound_generation
+                  - audio_isolation
+                  - voice_generation
+                  - dubbing_read
+                  - dubbing_write
+                  - pronunciation_dictionaries_read
+                  - pronunciation_dictionaries_write
+                  - user_read
+                  - user_write
+                  - projects_read
+                  - projects_write
+                  - audio_native_read
+                  - audio_native_write
+                  - workspace_read
+                  - workspace_write
+                  - forced_alignment
+                type: string
+            - enum:
+                - all
+              type: string
+          description: The permissions of the XI API.
+        character_limit:
+          title: Character Limit
+          type: integer
+          description: The character limit of the XI API key. If provided this will limit the usage of this api key to n characters per month where n is the chosen value. Requests that incur charges will fail after reaching this monthly limit.
+          nullable: true
+    Body_edit_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__patch:
+      title: Body_edit_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__patch
+      required:
+        - is_enabled
+        - name
+        - permissions
+      type: object
+      properties:
+        is_enabled:
+          title: Is Enabled
+          type: boolean
+          description: Whether to enable or disable the API key.
+        name:
+          title: Name
+          type: string
+          description: The name of the XI API key to use (used for identification purposes only).
+          example: Sneaky Fox
+        permissions:
+          title: Permissions
+          anyOf:
+            - type: array
+              items:
+                enum:
+                  - text_to_speech
+                  - speech_to_speech
+                  - speech_to_text
+                  - models_read
+                  - models_write
+                  - voices_read
+                  - voices_write
+                  - speech_history_read
+                  - speech_history_write
+                  - sound_generation
+                  - audio_isolation
+                  - voice_generation
+                  - dubbing_read
+                  - dubbing_write
+                  - pronunciation_dictionaries_read
+                  - pronunciation_dictionaries_write
+                  - user_read
+                  - user_write
+                  - projects_read
+                  - projects_write
+                  - audio_native_read
+                  - audio_native_write
+                  - workspace_read
+                  - workspace_write
+                  - forced_alignment
+                type: string
+            - enum:
+                - all
+              type: string
+          description: The permissions of the XI API.
+        character_limit:
+          title: Character Limit
+          type: integer
+          description: The character limit of the XI API key. If provided this will limit the usage of this api key to n characters per month where n is the chosen value. Requests that incur charges will fail after reaching this monthly limit.
+          nullable: true
     BreakdownTypes:
       title: BreakdownTypes
       enum:
@@ -14259,6 +13056,8 @@ components:
           $ref: '#/components/schemas/SystemToolConfig-Input'
         play_keypad_touch_tone:
           $ref: '#/components/schemas/SystemToolConfig-Input'
+        voicemail_detection:
+          $ref: '#/components/schemas/SystemToolConfig-Input'
     BuiltInTools-Output:
       title: BuiltInTools
       type: object
@@ -14275,6 +13074,94 @@ components:
           $ref: '#/components/schemas/SystemToolConfig-Output'
         play_keypad_touch_tone:
           $ref: '#/components/schemas/SystemToolConfig-Output'
+        voicemail_detection:
+          $ref: '#/components/schemas/SystemToolConfig-Output'
+    CaptionStyleHorizontalPlacementModel:
+      title: CaptionStyleHorizontalPlacementModel
+      required:
+        - align
+        - translate_pct
+      type: object
+      properties:
+        align:
+          title: Align
+          enum:
+            - left
+            - center
+            - right
+          type: string
+        translate_pct:
+          title: Translate Pct
+          type: number
+    CaptionStyleModel:
+      title: CaptionStyleModel
+      type: object
+      properties:
+        horizontal_placement:
+          $ref: '#/components/schemas/CaptionStyleHorizontalPlacementModel'
+        vertical_placement:
+          $ref: '#/components/schemas/CaptionStyleVerticalPlacementModel'
+        width_pct:
+          title: Width Pct
+          type: number
+          nullable: true
+        text_scale:
+          title: Text Scale
+          type: number
+          nullable: true
+        text_color:
+          title: Text Color
+          type: string
+          nullable: true
+        text_align:
+          title: Text Align
+          enum:
+            - start
+            - center
+            - end
+          type: string
+          nullable: true
+        background_enabled:
+          title: Background Enabled
+          type: boolean
+          nullable: true
+        background_color:
+          title: Background Color
+          type: string
+          nullable: true
+        background_opacity:
+          title: Background Opacity
+          type: number
+          nullable: true
+        word_highlights_enabled:
+          title: Word Highlights Enabled
+          type: boolean
+          nullable: true
+        word_highlights_background_color:
+          title: Word Highlights Background Color
+          type: string
+          nullable: true
+        word_highlights_opacity:
+          title: Word Highlights Opacity
+          type: number
+          nullable: true
+    CaptionStyleVerticalPlacementModel:
+      title: CaptionStyleVerticalPlacementModel
+      required:
+        - align
+        - translate_pct
+      type: object
+      properties:
+        align:
+          title: Align
+          enum:
+            - top
+            - center
+            - bottom
+          type: string
+        translate_pct:
+          title: Translate Pct
+          type: number
     ChapterContentBlockExtendableNodeResponseModel:
       title: ChapterContentBlockExtendableNodeResponseModel
       required:
@@ -15245,6 +14132,7 @@ components:
         conversation_initiation_source_version:
           title: Conversation Initiation Source Version
           maxLength: 50
+          pattern: '^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.-]+)?$'
           type: string
           nullable: true
         timezone:
@@ -15324,7 +14212,9 @@ components:
           title: Tool Results
           type: array
           items:
-            $ref: '#/components/schemas/ConversationHistoryTranscriptToolResultCommonModel'
+            oneOf:
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptOtherToolsResultCommonModel'
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel'
         feedback:
           $ref: '#/components/schemas/UserFeedback'
         llm_override:
@@ -15381,7 +14271,9 @@ components:
           title: Tool Results
           type: array
           items:
-            $ref: '#/components/schemas/ConversationHistoryTranscriptToolResultCommonModel'
+            oneOf:
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptOtherToolsResultCommonModel'
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel'
         feedback:
           $ref: '#/components/schemas/UserFeedback'
         llm_override:
@@ -15412,6 +14304,116 @@ components:
             - text
           type: string
           nullable: true
+    ConversationHistoryTranscriptOtherToolsResultCommonModel:
+      title: ConversationHistoryTranscriptOtherToolsResultCommonModel
+      required:
+        - request_id
+        - tool_name
+        - result_value
+        - is_error
+        - tool_has_been_called
+        - type
+      type: object
+      properties:
+        request_id:
+          title: Request Id
+          type: string
+        tool_name:
+          title: Tool Name
+          type: string
+        result_value:
+          title: Result Value
+          type: string
+        is_error:
+          title: Is Error
+          type: boolean
+        tool_has_been_called:
+          title: Tool Has Been Called
+          type: boolean
+        tool_latency_secs:
+          title: Tool Latency Secs
+          type: number
+          default: 0
+        dynamic_variable_updates:
+          title: Dynamic Variable Updates
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableUpdateCommonModel'
+        type:
+          title: Type
+          enum:
+            - client
+            - webhook
+            - mcp
+          type: string
+    ConversationHistoryTranscriptSystemToolResultCommonModel:
+      title: ConversationHistoryTranscriptSystemToolResultCommonModel
+      required:
+        - request_id
+        - tool_name
+        - result_value
+        - is_error
+        - tool_has_been_called
+        - type
+      type: object
+      properties:
+        request_id:
+          title: Request Id
+          type: string
+        tool_name:
+          title: Tool Name
+          type: string
+        result_value:
+          title: Result Value
+          type: string
+        is_error:
+          title: Is Error
+          type: boolean
+        tool_has_been_called:
+          title: Tool Has Been Called
+          type: boolean
+        tool_latency_secs:
+          title: Tool Latency Secs
+          type: number
+          default: 0
+        dynamic_variable_updates:
+          title: Dynamic Variable Updates
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableUpdateCommonModel'
+        type:
+          title: Type
+          enum:
+            - system
+          type: string
+        result:
+          title: Result
+          type: 'null'
+          oneOf:
+            - $ref: '#/components/schemas/EndCallToolResultModel'
+            - $ref: '#/components/schemas/LanguageDetectionToolResultModel'
+            - $ref: '#/components/schemas/TransferToAgentToolResultSuccessModel'
+            - $ref: '#/components/schemas/TransferToAgentToolResultErrorModel'
+            - $ref: '#/components/schemas/TransferToNumberResultTwilioSuccessModel'
+            - $ref: '#/components/schemas/TransferToNumberResultSipSuccessModel'
+            - $ref: '#/components/schemas/TransferToNumberResultErrorModel'
+            - $ref: '#/components/schemas/SkipTurnToolResponseModel'
+            - $ref: '#/components/schemas/PlayDTMFResultSuccessModel'
+            - $ref: '#/components/schemas/PlayDTMFResultErrorModel'
+          nullable: true
+          discriminator:
+            propertyName: result_type
+            mapping:
+              end_call_success: '#/components/schemas/EndCallToolResultModel'
+              language_detection_success: '#/components/schemas/LanguageDetectionToolResultModel'
+              play_dtmf_error: '#/components/schemas/PlayDTMFResultErrorModel'
+              play_dtmf_success: '#/components/schemas/PlayDTMFResultSuccessModel'
+              skip_turn_success: '#/components/schemas/SkipTurnToolResponseModel'
+              transfer_to_agent_error: '#/components/schemas/TransferToAgentToolResultErrorModel'
+              transfer_to_agent_success: '#/components/schemas/TransferToAgentToolResultSuccessModel'
+              transfer_to_number_error: '#/components/schemas/TransferToNumberResultErrorModel'
+              transfer_to_number_sip_success: '#/components/schemas/TransferToNumberResultSipSuccessModel'
+              transfer_to_number_twilio_success: '#/components/schemas/TransferToNumberResultTwilioSuccessModel'
     ConversationHistoryTranscriptToolCallClientDetails:
       title: ConversationHistoryTranscriptToolCallClientDetails
       required:
@@ -15437,9 +14439,7 @@ components:
       type: object
       properties:
         type:
-          title: Type
-          type: string
-          nullable: true
+          $ref: '#/components/schemas/ToolType'
         request_id:
           title: Request Id
           type: string
@@ -15548,44 +14548,6 @@ components:
           title: Body
           type: string
           nullable: true
-    ConversationHistoryTranscriptToolResultCommonModel:
-      title: ConversationHistoryTranscriptToolResultCommonModel
-      required:
-        - request_id
-        - tool_name
-        - result_value
-        - is_error
-        - tool_has_been_called
-      type: object
-      properties:
-        type:
-          title: Type
-          type: string
-          nullable: true
-        request_id:
-          title: Request Id
-          type: string
-        tool_name:
-          title: Tool Name
-          type: string
-        result_value:
-          title: Result Value
-          type: string
-        is_error:
-          title: Is Error
-          type: boolean
-        tool_has_been_called:
-          title: Tool Has Been Called
-          type: boolean
-        tool_latency_secs:
-          title: Tool Latency Secs
-          type: number
-          default: 0
-        dynamic_variable_updates:
-          title: Dynamic Variable Updates
-          type: array
-          items:
-            $ref: '#/components/schemas/DynamicVariableUpdateCommonModel'
     ConversationHistoryTwilioPhoneCallModel:
       title: ConversationHistoryTwilioPhoneCallModel
       required:
@@ -15676,6 +14638,8 @@ components:
           type: string
           description: ID of the end user participating in this conversation (for agent owner's user identification)
           nullable: true
+        source_info:
+          $ref: '#/components/schemas/ConversationInitiationSourceInfo'
         dynamic_variables:
           title: Dynamic Variables
           type: object
@@ -15700,6 +14664,8 @@ components:
           type: string
           description: ID of the end user participating in this conversation (for agent owner's user identification)
           nullable: true
+        source_info:
+          $ref: '#/components/schemas/ConversationInitiationSourceInfo'
         dynamic_variables:
           title: Dynamic Variables
           type: object
@@ -15724,6 +14690,8 @@ components:
           type: string
           description: ID of the end user participating in this conversation (for agent owner's user identification)
           nullable: true
+        source_info:
+          $ref: '#/components/schemas/ConversationInitiationSourceInfo'
         dynamic_variables:
           title: Dynamic Variables
           type: object
@@ -15771,8 +14739,23 @@ components:
         - sip_trunk
         - twilio
         - genesys
+        - swift_sdk
       type: string
       description: Enum representing the possible sources for conversation initiation.
+    ConversationInitiationSourceInfo:
+      title: ConversationInitiationSourceInfo
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/ConversationInitiationSource'
+        version:
+          title: Version
+          maxLength: 50
+          pattern: '^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.-]+)?$'
+          type: string
+          description: The SDK version number
+          nullable: true
+      description: Information about the source of conversation initiation
     ConversationSignedUrlResponseModel:
       title: ConversationSignedUrlResponseModel
       required:
@@ -16237,15 +15220,6 @@ components:
           description: 'The status of the sample deletion request. If the request was successful, the status will be ''ok''. Otherwise an error message with status 500 will be returned.'
       example:
         status: ok
-    DeleteVoiceRemixingSessionResponseModel:
-      title: DeleteVoiceRemixingSessionResponseModel
-      required:
-        - voice_remixing_session_id
-      type: object
-      properties:
-        voice_remixing_session_id:
-          title: Voice Remixing Session Id
-          type: string
     DeleteVoiceResponseModel:
       title: DeleteVoiceResponseModel
       required:
@@ -16853,6 +15827,30 @@ components:
             - end_call
           type: string
           default: end_call
+    EndCallToolResultModel:
+      title: EndCallToolResultModel
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - end_call_success
+          type: string
+          default: end_call_success
+        status:
+          title: Status
+          enum:
+            - success
+          type: string
+          default: success
+        reason:
+          title: Reason
+          type: string
+          nullable: true
+        message:
+          title: Message
+          type: string
+          nullable: true
     EvaluationSettings:
       title: EvaluationSettings
       type: object
@@ -18859,6 +17857,30 @@ components:
             - language_detection
           type: string
           default: language_detection
+    LanguageDetectionToolResultModel:
+      title: LanguageDetectionToolResultModel
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - language_detection_success
+          type: string
+          default: language_detection_success
+        status:
+          title: Status
+          enum:
+            - success
+          type: string
+          default: success
+        reason:
+          title: Reason
+          type: string
+          nullable: true
+        language:
+          title: Language
+          type: string
+          nullable: true
     LanguagePreset-Input:
       title: LanguagePreset
       required:
@@ -19843,6 +18865,65 @@ components:
         never_live_moderate: false
         nogo_voice_similar_voice_upload_count: 0
         on_watchlist: false
+    MultichannelSpeechToTextResponseModel:
+      title: MultichannelSpeechToTextResponseModel
+      required:
+        - transcripts
+      type: object
+      properties:
+        transcripts:
+          title: Transcripts
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechToTextChunkResponseModel'
+          description: 'List of transcripts, one for each audio channel. Each transcript contains the text and word-level details for its respective channel.'
+      description: Response model for multichannel speech-to-text transcription.
+      example:
+        transcripts:
+          - language_code: en
+            language_probability: 0.98
+            text: Hello from channel one.
+            words:
+              - end: 0.5
+                logprob: -0.124
+                speaker_id: speaker_0
+                start: 0
+                text: Hello
+                type: word
+              - end: 0.5
+                logprob: 0
+                speaker_id: speaker_0
+                start: 0.5
+                text: ' '
+                type: spacing
+              - end: 0.8
+                logprob: -0.089
+                speaker_id: speaker_0
+                start: 0.5
+                text: from
+                type: word
+          - language_code: en
+            language_probability: 0.97
+            text: Greetings from channel two.
+            words:
+              - end: 0.7
+                logprob: -0.156
+                speaker_id: speaker_1
+                start: 0.1
+                text: Greetings
+                type: word
+              - end: 0.7
+                logprob: 0
+                speaker_id: speaker_1
+                start: 0.7
+                text: ' '
+                type: spacing
+              - end: 1
+                logprob: -0.078
+                speaker_id: speaker_1
+                start: 0.7
+                text: from
+                type: word
     ObjectJsonSchemaProperty-Input:
       title: ObjectJsonSchemaProperty
       type: object
@@ -20142,6 +19223,56 @@ components:
         phone_number:
           title: Phone Number
           type: string
+    PlayDTMFResultErrorModel:
+      title: PlayDTMFResultErrorModel
+      required:
+        - error
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - play_dtmf_error
+          type: string
+          default: play_dtmf_error
+        status:
+          title: Status
+          enum:
+            - error
+          type: string
+          default: error
+        error:
+          title: Error
+          type: string
+        details:
+          title: Details
+          type: string
+          nullable: true
+    PlayDTMFResultSuccessModel:
+      title: PlayDTMFResultSuccessModel
+      required:
+        - dtmf_tones
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - play_dtmf_success
+          type: string
+          default: play_dtmf_success
+        status:
+          title: Status
+          enum:
+            - success
+          type: string
+          default: success
+        dtmf_tones:
+          title: Dtmf Tones
+          type: string
+        reason:
+          title: Reason
+          type: string
+          nullable: true
     PlayDTMFToolConfig:
       title: PlayDTMFToolConfig
       type: object
@@ -20570,6 +19701,14 @@ components:
           description: Whether chapters are enabled for the project.
           default: true
           nullable: true
+        captions_enabled:
+          title: Captions Enabled
+          type: boolean
+          description: Whether captions are enabled for the project.
+          default: true
+          nullable: true
+        caption_style:
+          $ref: '#/components/schemas/CaptionStyleModel'
         quality_preset:
           title: Quality Preset
           enum:
@@ -20831,6 +19970,14 @@ components:
           description: Whether chapters are enabled for the project.
           default: true
           nullable: true
+        captions_enabled:
+          title: Captions Enabled
+          type: boolean
+          description: Whether captions are enabled for the project.
+          default: true
+          nullable: true
+        caption_style:
+          $ref: '#/components/schemas/CaptionStyleModel'
       example:
         access_level: viewer
         author: John Doe
@@ -22184,6 +21331,26 @@ components:
           type: string
           default: skip_turn
       description: "Allows the agent to explicitly skip its turn.\n\nThis tool should be invoked by the LLM when the user indicates they would like\nto think or take a short pause before continuing the conversation—e.g. when\nthey say: \"Give me a second\", \"Let me think\", or \"One moment please\".  After\ncalling this tool, the assistant should not speak until the user speaks\nagain, or another normal turn-taking condition is met.  The tool itself has\nno parameters and performs no side-effects other than informing the backend\nthat the current turn generation is complete."
+    SkipTurnToolResponseModel:
+      title: SkipTurnToolResponseModel
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - skip_turn_success
+          type: string
+          default: skip_turn_success
+        status:
+          title: Status
+          enum:
+            - success
+          type: string
+          default: success
+        reason:
+          title: Reason
+          type: string
+          nullable: true
     SpeakerAudioResponseModel:
       title: SpeakerAudioResponseModel
       required:
@@ -22519,6 +21686,11 @@ components:
           items:
             $ref: '#/components/schemas/SpeechToTextWordResponseModel'
           description: List of words with their timing information.
+        channel_index:
+          title: Channel Index
+          type: integer
+          description: The channel index this transcript belongs to (for multichannel audio).
+          nullable: true
         additional_formats:
           title: Additional Formats
           type: array
@@ -23088,6 +22260,7 @@ components:
             - $ref: '#/components/schemas/TransferToNumberToolConfig-Input'
             - $ref: '#/components/schemas/SkipTurnToolConfig'
             - $ref: '#/components/schemas/PlayDTMFToolConfig'
+            - $ref: '#/components/schemas/VoicemailDetectionToolConfig'
           discriminator:
             propertyName: system_tool_type
             mapping:
@@ -23097,6 +22270,7 @@ components:
               skip_turn: '#/components/schemas/SkipTurnToolConfig'
               transfer_to_agent: '#/components/schemas/TransferToAgentToolConfig'
               transfer_to_number: '#/components/schemas/TransferToNumberToolConfig-Input'
+              voicemail_detection: '#/components/schemas/VoicemailDetectionToolConfig'
       description: A system tool is a tool that is used to call a system method in the server
       example:
         description: Ends the current conversation
@@ -23148,6 +22322,7 @@ components:
             - $ref: '#/components/schemas/TransferToNumberToolConfig-Output'
             - $ref: '#/components/schemas/SkipTurnToolConfig'
             - $ref: '#/components/schemas/PlayDTMFToolConfig'
+            - $ref: '#/components/schemas/VoicemailDetectionToolConfig'
           discriminator:
             propertyName: system_tool_type
             mapping:
@@ -23157,6 +22332,7 @@ components:
               skip_turn: '#/components/schemas/SkipTurnToolConfig'
               transfer_to_agent: '#/components/schemas/TransferToAgentToolConfig'
               transfer_to_number: '#/components/schemas/TransferToNumberToolConfig-Output'
+              voicemail_detection: '#/components/schemas/VoicemailDetectionToolConfig'
       description: A system tool is a tool that is used to call a system method in the server
       example:
         description: Ends the current conversation
@@ -23474,6 +22650,14 @@ components:
               webhook: '#/components/schemas/WebhookToolConfig-Output'
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
+    ToolType:
+      title: ToolType
+      enum:
+        - system
+        - webhook
+        - client
+        - mcp
+      type: string
     ToolsResponseModel:
       title: ToolsResponseModel
       required:
@@ -23502,6 +22686,167 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AgentTransfer'
+    TransferToAgentToolResultErrorModel:
+      title: TransferToAgentToolResultErrorModel
+      required:
+        - from_agent
+        - error
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - transfer_to_agent_error
+          type: string
+          default: transfer_to_agent_error
+        status:
+          title: Status
+          enum:
+            - error
+          type: string
+          default: error
+        from_agent:
+          title: From Agent
+          type: string
+        error:
+          title: Error
+          type: string
+    TransferToAgentToolResultSuccessModel:
+      title: TransferToAgentToolResultSuccessModel
+      required:
+        - from_agent
+        - to_agent
+        - condition
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - transfer_to_agent_success
+          type: string
+          default: transfer_to_agent_success
+        status:
+          title: Status
+          enum:
+            - success
+          type: string
+          default: success
+        from_agent:
+          title: From Agent
+          type: string
+        to_agent:
+          title: To Agent
+          type: string
+        condition:
+          title: Condition
+          type: string
+        delay_ms:
+          title: Delay Ms
+          type: integer
+          default: 0
+        transfer_message:
+          title: Transfer Message
+          type: string
+          nullable: true
+        enable_transferred_agent_first_message:
+          title: Enable Transferred Agent First Message
+          type: boolean
+          default: false
+    TransferToNumberResultErrorModel:
+      title: TransferToNumberResultErrorModel
+      required:
+        - error
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - transfer_to_number_error
+          type: string
+          default: transfer_to_number_error
+        status:
+          title: Status
+          enum:
+            - error
+          type: string
+          default: error
+        error:
+          title: Error
+          type: string
+        details:
+          title: Details
+          type: string
+          nullable: true
+    TransferToNumberResultSipSuccessModel:
+      title: TransferToNumberResultSipSuccessModel
+      required:
+        - transfer_number
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - transfer_to_number_sip_success
+          type: string
+          default: transfer_to_number_sip_success
+        status:
+          title: Status
+          enum:
+            - success
+          type: string
+          default: success
+        transfer_number:
+          title: Transfer Number
+          type: string
+        reason:
+          title: Reason
+          type: string
+          nullable: true
+        note:
+          title: Note
+          type: string
+          nullable: true
+    TransferToNumberResultTwilioSuccessModel:
+      title: TransferToNumberResultTwilioSuccessModel
+      required:
+        - transfer_number
+        - agent_message
+        - conference_name
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - transfer_to_number_twilio_success
+          type: string
+          default: transfer_to_number_twilio_success
+        status:
+          title: Status
+          enum:
+            - success
+          type: string
+          default: success
+        transfer_number:
+          title: Transfer Number
+          type: string
+        reason:
+          title: Reason
+          type: string
+          nullable: true
+        client_message:
+          title: Client Message
+          type: string
+          nullable: true
+        agent_message:
+          title: Agent Message
+          type: string
+        conference_name:
+          title: Conference Name
+          type: string
+        note:
+          title: Note
+          type: string
+          nullable: true
     TransferToNumberToolConfig-Input:
       title: TransferToNumberToolConfig
       required:
@@ -24926,6 +24271,22 @@ components:
             text: 'Hello, how are you?'
         verification_attempts_count: 0
         verification_failures: [ ]
+    VoicemailDetectionToolConfig:
+      title: VoicemailDetectionToolConfig
+      type: object
+      properties:
+        system_tool_type:
+          title: System Tool Type
+          enum:
+            - voicemail_detection
+          type: string
+          default: voicemail_detection
+        voicemail_message:
+          title: Voicemail Message
+          type: string
+          description: 'Optional message to leave on voicemail when detected. If not provided, the call will end immediately when voicemail is detected.'
+          nullable: true
+      description: "Allows the agent to detect when a voicemail system is encountered.\n\nThis tool should be invoked by the LLM when it detects that the call has been\nanswered by a voicemail system rather than a human. If a voicemail message\nis configured, it will be played; otherwise the call will end immediately."
     WebhookAuthMethodType:
       title: WebhookAuthMethodType
       enum:
@@ -25953,6 +25314,86 @@ components:
           type: string
           description: Text and ARIA label used for the copy ID button.
           nullable: true
+    WorkspaceApiKeyListResponseModel:
+      title: WorkspaceApiKeyListResponseModel
+      required:
+        - api-keys
+      type: object
+      properties:
+        api-keys:
+          title: Api-Keys
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspaceApiKeyResponseModel'
+    WorkspaceApiKeyResponseModel:
+      title: WorkspaceApiKeyResponseModel
+      required:
+        - name
+        - hint
+        - key_id
+        - service_account_user_id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        hint:
+          title: Hint
+          type: string
+        key_id:
+          title: Key Id
+          type: string
+        service_account_user_id:
+          title: Service Account User Id
+          type: string
+        created_at_unix:
+          title: Created At Unix
+          type: integer
+          nullable: true
+        is_disabled:
+          title: Is Disabled
+          type: boolean
+          default: false
+        permissions:
+          title: Permissions
+          type: array
+          items:
+            enum:
+              - text_to_speech
+              - speech_to_speech
+              - speech_to_text
+              - models_read
+              - models_write
+              - voices_read
+              - voices_write
+              - speech_history_read
+              - speech_history_write
+              - sound_generation
+              - audio_isolation
+              - voice_generation
+              - dubbing_read
+              - dubbing_write
+              - pronunciation_dictionaries_read
+              - pronunciation_dictionaries_write
+              - user_read
+              - user_write
+              - projects_read
+              - projects_write
+              - audio_native_read
+              - audio_native_write
+              - workspace_read
+              - workspace_write
+              - forced_alignment
+            type: string
+          nullable: true
+        character_limit:
+          title: Character Limit
+          type: integer
+          nullable: true
+        character_count:
+          title: Character Count
+          type: integer
+          nullable: true
     WorkspaceBatchCallsResponse:
       title: WorkspaceBatchCallsResponse
       required:
@@ -25974,6 +25415,15 @@ components:
           type: boolean
           description: Whether there are more batch calls to paginate through
           default: false
+    WorkspaceCreateApiKeyResponseModel:
+      title: WorkspaceCreateApiKeyResponseModel
+      required:
+        - xi-api-key
+      type: object
+      properties:
+        xi-api-key:
+          title: Xi-Api-Key
+          type: string
     WorkspaceGroupByNameResponseModel:
       title: WorkspaceGroupByNameResponseModel
       required:
@@ -26024,6 +25474,40 @@ components:
         - convai_test_suite_invocations
       type: string
       description: Resource types that can be shared in the workspace. The name always need to match the collection names
+    WorkspaceServiceAccountListResponseModel:
+      title: WorkspaceServiceAccountListResponseModel
+      required:
+        - service-accounts
+      type: object
+      properties:
+        service-accounts:
+          title: Service-Accounts
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspaceServiceAccountResponseModel'
+    WorkspaceServiceAccountResponseModel:
+      title: WorkspaceServiceAccountResponseModel
+      required:
+        - service_account_user_id
+        - name
+        - api-keys
+      type: object
+      properties:
+        service_account_user_id:
+          title: Service Account User Id
+          type: string
+        name:
+          title: Name
+          type: string
+        created_at_unix:
+          title: Created At Unix
+          type: integer
+          nullable: true
+        api-keys:
+          title: Api-Keys
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspaceApiKeyResponseModel'
     WorkspaceWebhookListResponseModel:
       title: WorkspaceWebhookListResponseModel
       required:

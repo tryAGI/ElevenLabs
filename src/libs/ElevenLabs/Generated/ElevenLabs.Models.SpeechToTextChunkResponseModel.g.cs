@@ -37,6 +37,12 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextWordResponseModel> Words { get; set; }
 
         /// <summary>
+        /// The channel index this transcript belongs to (for multichannel audio).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("channel_index")]
+        public int? ChannelIndex { get; set; }
+
+        /// <summary>
         /// Requested additional formats of the transcript.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("additional_formats")]
@@ -63,6 +69,9 @@ namespace ElevenLabs
         /// <param name="words">
         /// List of words with their timing information.
         /// </param>
+        /// <param name="channelIndex">
+        /// The channel index this transcript belongs to (for multichannel audio).
+        /// </param>
         /// <param name="additionalFormats">
         /// Requested additional formats of the transcript.
         /// </param>
@@ -74,12 +83,14 @@ namespace ElevenLabs
             double languageProbability,
             string text,
             global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextWordResponseModel> words,
+            int? channelIndex,
             global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel>? additionalFormats)
         {
             this.LanguageCode = languageCode ?? throw new global::System.ArgumentNullException(nameof(languageCode));
             this.LanguageProbability = languageProbability;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Words = words ?? throw new global::System.ArgumentNullException(nameof(words));
+            this.ChannelIndex = channelIndex;
             this.AdditionalFormats = additionalFormats;
         }
 

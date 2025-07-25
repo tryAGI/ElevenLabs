@@ -52,6 +52,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Genesys,
+        /// <summary>
+        /// 
+        /// </summary>
+        SwiftSdk,
     }
 
     /// <summary>
@@ -77,6 +81,7 @@ namespace ElevenLabs
                 ConversationInitiationSource.SipTrunk => "sip_trunk",
                 ConversationInitiationSource.Twilio => "twilio",
                 ConversationInitiationSource.Genesys => "genesys",
+                ConversationInitiationSource.SwiftSdk => "swift_sdk",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -98,6 +103,7 @@ namespace ElevenLabs
                 "sip_trunk" => ConversationInitiationSource.SipTrunk,
                 "twilio" => ConversationInitiationSource.Twilio,
                 "genesys" => ConversationInitiationSource.Genesys,
+                "swift_sdk" => ConversationInitiationSource.SwiftSdk,
                 _ => null,
             };
         }

@@ -12,7 +12,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolTypeJsonConverter))]
+        public global::ElevenLabs.ToolType? Type { get; set; }
 
         /// <summary>
         /// 
@@ -72,7 +73,7 @@ namespace ElevenLabs
             string toolName,
             string paramsAsJson,
             bool toolHasBeenCalled,
-            string? type,
+            global::ElevenLabs.ToolType? type,
             global::ElevenLabs.ToolDetails? toolDetails)
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));

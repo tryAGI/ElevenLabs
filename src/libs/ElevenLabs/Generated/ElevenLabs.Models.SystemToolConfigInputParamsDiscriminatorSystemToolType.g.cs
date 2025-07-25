@@ -32,6 +32,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         TransferToNumber,
+        /// <summary>
+        /// 
+        /// </summary>
+        VoicemailDetection,
     }
 
     /// <summary>
@@ -52,6 +56,7 @@ namespace ElevenLabs
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.SkipTurn => "skip_turn",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToAgent => "transfer_to_agent",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToNumber => "transfer_to_number",
+                SystemToolConfigInputParamsDiscriminatorSystemToolType.VoicemailDetection => "voicemail_detection",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -68,6 +73,7 @@ namespace ElevenLabs
                 "skip_turn" => SystemToolConfigInputParamsDiscriminatorSystemToolType.SkipTurn,
                 "transfer_to_agent" => SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToAgent,
                 "transfer_to_number" => SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToNumber,
+                "voicemail_detection" => SystemToolConfigInputParamsDiscriminatorSystemToolType.VoicemailDetection,
                 _ => null,
             };
         }

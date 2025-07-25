@@ -1,0 +1,60 @@
+#nullable enable
+
+namespace ElevenLabs.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class TransferToNumberResultErrorModelStatusNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.TransferToNumberResultErrorModelStatus?>
+    {
+        /// <inheritdoc />
+        public override global::ElevenLabs.TransferToNumberResultErrorModelStatus? Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::ElevenLabs.TransferToNumberResultErrorModelStatusExtensions.ToEnum(stringValue);
+                    }
+                    
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::ElevenLabs.TransferToNumberResultErrorModelStatus)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::ElevenLabs.TransferToNumberResultErrorModelStatus?);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::ElevenLabs.TransferToNumberResultErrorModelStatus? value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::ElevenLabs.TransferToNumberResultErrorModelStatusExtensions.ToValueString(value.Value));
+            }
+        }
+    }
+}
