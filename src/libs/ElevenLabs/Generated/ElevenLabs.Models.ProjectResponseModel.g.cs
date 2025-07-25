@@ -195,6 +195,19 @@ namespace ElevenLabs
         public bool? ChaptersEnabled { get; set; }
 
         /// <summary>
+        /// Whether captions are enabled for the project.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("captions_enabled")]
+        public bool? CaptionsEnabled { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("caption_style")]
+        public global::ElevenLabs.CaptionStyleModel? CaptionStyle { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -286,6 +299,11 @@ namespace ElevenLabs
         /// Whether chapters are enabled for the project.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="captionsEnabled">
+        /// Whether captions are enabled for the project.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="captionStyle"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -317,7 +335,9 @@ namespace ElevenLabs
             global::ElevenLabs.ProjectResponseModelFiction? fiction,
             global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta,
             global::ElevenLabs.ProjectResponseModelSourceType? sourceType,
-            bool? chaptersEnabled)
+            bool? chaptersEnabled,
+            bool? captionsEnabled,
+            global::ElevenLabs.CaptionStyleModel? captionStyle)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -347,6 +367,8 @@ namespace ElevenLabs
             this.CreationMeta = creationMeta;
             this.SourceType = sourceType;
             this.ChaptersEnabled = chaptersEnabled;
+            this.CaptionsEnabled = captionsEnabled;
+            this.CaptionStyle = captionStyle;
         }
 
         /// <summary>

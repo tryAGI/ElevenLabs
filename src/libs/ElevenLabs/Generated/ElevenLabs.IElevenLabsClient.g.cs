@@ -125,11 +125,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public ProjectsClient Projects { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public DubbingClient Dubbing { get; }
 
         /// <summary>

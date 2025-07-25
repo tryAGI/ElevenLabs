@@ -12,6 +12,7 @@ namespace ElevenLabs
             ref global::ElevenLabs.EvaluationSuccessResult? callSuccessful,
             ref global::System.DateTimeOffset? callStartBeforeUnix,
             ref global::System.DateTimeOffset? callStartAfterUnix,
+            ref string? userId,
             ref int? pageSize,
             ref string? xiApiKey);
         partial void PrepareGetConvaiConversationsRequest(
@@ -22,6 +23,7 @@ namespace ElevenLabs
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful,
             global::System.DateTimeOffset? callStartBeforeUnix,
             global::System.DateTimeOffset? callStartAfterUnix,
+            string? userId,
             int? pageSize,
             string? xiApiKey);
         partial void ProcessGetConvaiConversationsResponse(
@@ -51,6 +53,9 @@ namespace ElevenLabs
         /// <param name="callStartAfterUnix">
         /// Unix timestamp (in seconds) to filter conversations after to this start date.
         /// </param>
+        /// <param name="userId">
+        /// Filter conversations by the user ID who initiated them.
+        /// </param>
         /// <param name="pageSize">
         /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -66,6 +71,7 @@ namespace ElevenLabs
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             global::System.DateTimeOffset? callStartBeforeUnix = default,
             global::System.DateTimeOffset? callStartAfterUnix = default,
+            string? userId = default,
             int? pageSize = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -79,6 +85,7 @@ namespace ElevenLabs
                 callSuccessful: ref callSuccessful,
                 callStartBeforeUnix: ref callStartBeforeUnix,
                 callStartAfterUnix: ref callStartAfterUnix,
+                userId: ref userId,
                 pageSize: ref pageSize,
                 xiApiKey: ref xiApiKey);
 
@@ -91,6 +98,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("call_successful", callSuccessful?.ToValueString()) 
                 .AddOptionalParameter("call_start_before_unix", callStartBeforeUnix?.ToString()) 
                 .AddOptionalParameter("call_start_after_unix", callStartAfterUnix?.ToString()) 
+                .AddOptionalParameter("user_id", userId) 
                 .AddOptionalParameter("page_size", pageSize?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -135,6 +143,7 @@ namespace ElevenLabs
                 callSuccessful: callSuccessful,
                 callStartBeforeUnix: callStartBeforeUnix,
                 callStartAfterUnix: callStartAfterUnix,
+                userId: userId,
                 pageSize: pageSize,
                 xiApiKey: xiApiKey);
 

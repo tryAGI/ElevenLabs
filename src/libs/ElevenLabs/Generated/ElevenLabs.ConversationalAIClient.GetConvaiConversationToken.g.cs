@@ -44,7 +44,7 @@ namespace ElevenLabs
         /// Enum representing the possible sources for conversation initiation.
         /// </param>
         /// <param name="version">
-        /// The SDK version number for tracking purposes.
+        /// The SDK version number
         /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

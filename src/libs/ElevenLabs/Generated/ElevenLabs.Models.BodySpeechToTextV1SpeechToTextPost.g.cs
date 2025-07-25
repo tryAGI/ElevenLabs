@@ -119,6 +119,13 @@ namespace ElevenLabs
         public int? Seed { get; set; }
 
         /// <summary>
+        /// Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_multi_channel")]
+        public bool? UseMultiChannel { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -181,6 +188,10 @@ namespace ElevenLabs
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.<br/>
         /// Example: 12345
         /// </param>
+        /// <param name="useMultiChannel">
+        /// Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -200,7 +211,8 @@ namespace ElevenLabs
             bool? webhook,
             string? webhookId,
             double? temperature,
-            int? seed)
+            int? seed,
+            bool? useMultiChannel)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file;
@@ -218,6 +230,7 @@ namespace ElevenLabs
             this.WebhookId = webhookId;
             this.Temperature = temperature;
             this.Seed = seed;
+            this.UseMultiChannel = useMultiChannel;
         }
 
         /// <summary>

@@ -45,6 +45,12 @@ namespace ElevenLabs
         public global::ElevenLabs.SystemToolConfigOutput? PlayKeypadTouchTone { get; set; }
 
         /// <summary>
+        /// A system tool is a tool that is used to call a system method in the server
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voicemail_detection")]
+        public global::ElevenLabs.SystemToolConfigOutput? VoicemailDetection { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -71,6 +77,9 @@ namespace ElevenLabs
         /// <param name="playKeypadTouchTone">
         /// A system tool is a tool that is used to call a system method in the server
         /// </param>
+        /// <param name="voicemailDetection">
+        /// A system tool is a tool that is used to call a system method in the server
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,7 +89,8 @@ namespace ElevenLabs
             global::ElevenLabs.SystemToolConfigOutput? transferToAgent,
             global::ElevenLabs.SystemToolConfigOutput? transferToNumber,
             global::ElevenLabs.SystemToolConfigOutput? skipTurn,
-            global::ElevenLabs.SystemToolConfigOutput? playKeypadTouchTone)
+            global::ElevenLabs.SystemToolConfigOutput? playKeypadTouchTone,
+            global::ElevenLabs.SystemToolConfigOutput? voicemailDetection)
         {
             this.EndCall = endCall;
             this.LanguageDetection = languageDetection;
@@ -88,6 +98,7 @@ namespace ElevenLabs
             this.TransferToNumber = transferToNumber;
             this.SkipTurn = skipTurn;
             this.PlayKeypadTouchTone = playKeypadTouchTone;
+            this.VoicemailDetection = voicemailDetection;
         }
 
         /// <summary>

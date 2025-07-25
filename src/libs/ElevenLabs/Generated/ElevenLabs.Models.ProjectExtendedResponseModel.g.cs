@@ -195,6 +195,19 @@ namespace ElevenLabs
         public bool? ChaptersEnabled { get; set; }
 
         /// <summary>
+        /// Whether captions are enabled for the project.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("captions_enabled")]
+        public bool? CaptionsEnabled { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("caption_style")]
+        public global::ElevenLabs.CaptionStyleModel? CaptionStyle { get; set; }
+
+        /// <summary>
         /// The quality preset level of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
@@ -329,6 +342,11 @@ namespace ElevenLabs
         /// Whether chapters are enabled for the project.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="captionsEnabled">
+        /// Whether captions are enabled for the project.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="captionStyle"></param>
         /// <param name="qualityPreset">
         /// The quality preset level of the project.
         /// </param>
@@ -384,6 +402,8 @@ namespace ElevenLabs
             global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta,
             global::ElevenLabs.ProjectExtendedResponseModelSourceType? sourceType,
             bool? chaptersEnabled,
+            bool? captionsEnabled,
+            global::ElevenLabs.CaptionStyleModel? captionStyle,
             object? experimental)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
@@ -419,6 +439,8 @@ namespace ElevenLabs
             this.CreationMeta = creationMeta;
             this.SourceType = sourceType;
             this.ChaptersEnabled = chaptersEnabled;
+            this.CaptionsEnabled = captionsEnabled;
+            this.CaptionStyle = captionStyle;
             this.Experimental = experimental;
         }
 

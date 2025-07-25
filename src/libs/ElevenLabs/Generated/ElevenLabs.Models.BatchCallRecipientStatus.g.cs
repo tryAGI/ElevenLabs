@@ -32,6 +32,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Cancelled,
+        /// <summary>
+        /// 
+        /// </summary>
+        Voicemail,
     }
 
     /// <summary>
@@ -52,6 +56,7 @@ namespace ElevenLabs
                 BatchCallRecipientStatus.Completed => "completed",
                 BatchCallRecipientStatus.Failed => "failed",
                 BatchCallRecipientStatus.Cancelled => "cancelled",
+                BatchCallRecipientStatus.Voicemail => "voicemail",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -68,6 +73,7 @@ namespace ElevenLabs
                 "completed" => BatchCallRecipientStatus.Completed,
                 "failed" => BatchCallRecipientStatus.Failed,
                 "cancelled" => BatchCallRecipientStatus.Cancelled,
+                "voicemail" => BatchCallRecipientStatus.Voicemail,
                 _ => null,
             };
         }
