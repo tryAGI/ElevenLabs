@@ -9596,7 +9596,6 @@ components:
       title: ASRProvider
       enum:
         - elevenlabs
-        - realtime_scribe_v1
       type: string
     ASRQuality:
       title: ASRQuality
