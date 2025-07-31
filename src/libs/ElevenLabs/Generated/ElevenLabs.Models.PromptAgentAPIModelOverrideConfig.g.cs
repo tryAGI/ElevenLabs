@@ -16,6 +16,13 @@ namespace ElevenLabs
         public bool? Prompt { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the native_mcp_server_ids field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("native_mcp_server_ids")]
+        public bool? NativeMcpServerIds { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -28,13 +35,19 @@ namespace ElevenLabs
         /// Whether to allow overriding the prompt field.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="nativeMcpServerIds">
+        /// Whether to allow overriding the native_mcp_server_ids field.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PromptAgentAPIModelOverrideConfig(
-            bool? prompt)
+            bool? prompt,
+            bool? nativeMcpServerIds)
         {
             this.Prompt = prompt;
+            this.NativeMcpServerIds = nativeMcpServerIds;
         }
 
         /// <summary>

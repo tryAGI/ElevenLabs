@@ -208,6 +208,20 @@ namespace ElevenLabs
         public bool? TextInputEnabled { get; set; }
 
         /// <summary>
+        /// Whether the widget should be expanded by default<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_expanded")]
+        public bool? DefaultExpanded { get; set; }
+
+        /// <summary>
+        /// Whether the widget should always be expanded<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("always_expanded")]
+        public bool? AlwaysExpanded { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_contents")]
@@ -348,6 +362,14 @@ namespace ElevenLabs
         /// Whether the user should be able to send text messages<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="defaultExpanded">
+        /// Whether the widget should be expanded by default<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="alwaysExpanded">
+        /// Whether the widget should always be expanded<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="textContents"></param>
         /// <param name="styles"></param>
         /// <param name="languageSelector">
@@ -398,6 +420,8 @@ namespace ElevenLabs
             bool? micMutingEnabled,
             bool? transcriptEnabled,
             bool? textInputEnabled,
+            bool? defaultExpanded,
+            bool? alwaysExpanded,
             global::ElevenLabs.WidgetTextContents? textContents,
             global::ElevenLabs.WidgetStyles? styles,
             bool? languageSelector,
@@ -435,6 +459,8 @@ namespace ElevenLabs
             this.MicMutingEnabled = micMutingEnabled;
             this.TranscriptEnabled = transcriptEnabled;
             this.TextInputEnabled = textInputEnabled;
+            this.DefaultExpanded = defaultExpanded;
+            this.AlwaysExpanded = alwaysExpanded;
             this.TextContents = textContents;
             this.Styles = styles;
             this.LanguageSelector = languageSelector;

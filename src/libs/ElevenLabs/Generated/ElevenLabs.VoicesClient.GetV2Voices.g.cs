@@ -17,6 +17,7 @@ namespace ElevenLabs
             ref string? fineTuningState,
             ref string? collectionId,
             ref bool? includeTotalCount,
+            global::System.Collections.Generic.IList<string>? voiceIds,
             ref string? xiApiKey);
         partial void PrepareGetV2VoicesRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -31,6 +32,7 @@ namespace ElevenLabs
             string? fineTuningState,
             string? collectionId,
             bool? includeTotalCount,
+            global::System.Collections.Generic.IList<string>? voiceIds,
             string? xiApiKey);
         partial void ProcessGetV2VoicesResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -81,6 +83,9 @@ namespace ElevenLabs
         /// Default Value: true<br/>
         /// Example: true
         /// </param>
+        /// <param name="voiceIds">
+        /// Voice IDs to lookup by. Maximum 100 voice IDs.
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -97,6 +102,7 @@ namespace ElevenLabs
             string? fineTuningState = default,
             string? collectionId = default,
             bool? includeTotalCount = default,
+            global::System.Collections.Generic.IList<string>? voiceIds = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -114,6 +120,7 @@ namespace ElevenLabs
                 fineTuningState: ref fineTuningState,
                 collectionId: ref collectionId,
                 includeTotalCount: ref includeTotalCount,
+                voiceIds: voiceIds,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -130,6 +137,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("fine_tuning_state", fineTuningState) 
                 .AddOptionalParameter("collection_id", collectionId) 
                 .AddOptionalParameter("include_total_count", includeTotalCount?.ToString()) 
+                .AddOptionalParameter("voice_ids", voiceIds, delimiter: ",", explode: true) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -178,6 +186,7 @@ namespace ElevenLabs
                 fineTuningState: fineTuningState,
                 collectionId: collectionId,
                 includeTotalCount: includeTotalCount,
+                voiceIds: voiceIds,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

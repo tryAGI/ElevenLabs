@@ -66,6 +66,18 @@ namespace ElevenLabs
         public required global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcript_summary")]
+        public string? TranscriptSummary { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_summary_title")]
+        public string? CallSummaryTitle { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -82,6 +94,8 @@ namespace ElevenLabs
         /// <param name="messageCount"></param>
         /// <param name="status"></param>
         /// <param name="callSuccessful"></param>
+        /// <param name="transcriptSummary"></param>
+        /// <param name="callSummaryTitle"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -93,7 +107,9 @@ namespace ElevenLabs
             int messageCount,
             global::ElevenLabs.ConversationSummaryResponseModelStatus status,
             global::ElevenLabs.EvaluationSuccessResult callSuccessful,
-            string? agentName)
+            string? agentName,
+            string? transcriptSummary,
+            string? callSummaryTitle)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
@@ -103,6 +119,8 @@ namespace ElevenLabs
             this.Status = status;
             this.CallSuccessful = callSuccessful;
             this.AgentName = agentName;
+            this.TranscriptSummary = transcriptSummary;
+            this.CallSummaryTitle = callSummaryTitle;
         }
 
         /// <summary>

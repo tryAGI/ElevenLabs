@@ -36,6 +36,12 @@ namespace ElevenLabs
         public required string TranscriptSummary { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_summary_title")]
+        public string? CallSummaryTitle { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -48,6 +54,7 @@ namespace ElevenLabs
         /// <param name="dataCollectionResults"></param>
         /// <param name="callSuccessful"></param>
         /// <param name="transcriptSummary"></param>
+        /// <param name="callSummaryTitle"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -55,12 +62,14 @@ namespace ElevenLabs
             global::ElevenLabs.EvaluationSuccessResult callSuccessful,
             string transcriptSummary,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? evaluationCriteriaResults,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResults)
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResults,
+            string? callSummaryTitle)
         {
             this.CallSuccessful = callSuccessful;
             this.TranscriptSummary = transcriptSummary ?? throw new global::System.ArgumentNullException(nameof(transcriptSummary));
             this.EvaluationCriteriaResults = evaluationCriteriaResults;
             this.DataCollectionResults = dataCollectionResults;
+            this.CallSummaryTitle = callSummaryTitle;
         }
 
         /// <summary>
