@@ -545,6 +545,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.GetVoicesV1SharedVoicesGetCategoryNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.GetPronunciationDictionariesV1PronunciationDictionariesGetSortJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.GetPronunciationDictionariesV1PronunciationDictionariesGetSortNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.GetConversationsV1ConvaiConversationsGetSummaryModeJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.GetConversationsV1ConvaiConversationsGetSummaryModeNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ListPhoneNumbersV1ConvaiPhoneNumbersGetResponseItemDiscriminatorProviderJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ListPhoneNumbersV1ConvaiPhoneNumbersGetResponseItemDiscriminatorProviderNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.GetPhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdGetResponseDiscriminatorProviderJsonConverter),

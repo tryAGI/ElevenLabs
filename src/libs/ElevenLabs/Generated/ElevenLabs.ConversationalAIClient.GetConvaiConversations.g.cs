@@ -14,6 +14,7 @@ namespace ElevenLabs
             ref global::System.DateTimeOffset? callStartAfterUnix,
             ref string? userId,
             ref int? pageSize,
+            ref global::ElevenLabs.GetConversationsV1ConvaiConversationsGetSummaryMode? summaryMode,
             ref string? xiApiKey);
         partial void PrepareGetConvaiConversationsRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -25,6 +26,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset? callStartAfterUnix,
             string? userId,
             int? pageSize,
+            global::ElevenLabs.GetConversationsV1ConvaiConversationsGetSummaryMode? summaryMode,
             string? xiApiKey);
         partial void ProcessGetConvaiConversationsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -60,6 +62,10 @@ namespace ElevenLabs
         /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
+        /// <param name="summaryMode">
+        /// Whether to include transcript summaries in the response.<br/>
+        /// Default Value: exclude
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -73,6 +79,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset? callStartAfterUnix = default,
             string? userId = default,
             int? pageSize = default,
+            global::ElevenLabs.GetConversationsV1ConvaiConversationsGetSummaryMode? summaryMode = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -87,6 +94,7 @@ namespace ElevenLabs
                 callStartAfterUnix: ref callStartAfterUnix,
                 userId: ref userId,
                 pageSize: ref pageSize,
+                summaryMode: ref summaryMode,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -100,6 +108,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("call_start_after_unix", callStartAfterUnix?.ToString()) 
                 .AddOptionalParameter("user_id", userId) 
                 .AddOptionalParameter("page_size", pageSize?.ToString()) 
+                .AddOptionalParameter("summary_mode", summaryMode?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -145,6 +154,7 @@ namespace ElevenLabs
                 callStartAfterUnix: callStartAfterUnix,
                 userId: userId,
                 pageSize: pageSize,
+                summaryMode: summaryMode,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

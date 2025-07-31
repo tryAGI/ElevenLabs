@@ -29,6 +29,10 @@ namespace ElevenLabs
         /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
+        /// <param name="summaryMode">
+        /// Whether to include transcript summaries in the response.<br/>
+        /// Default Value: exclude
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -42,6 +46,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset? callStartAfterUnix = default,
             string? userId = default,
             int? pageSize = default,
+            global::ElevenLabs.GetConversationsV1ConvaiConversationsGetSummaryMode? summaryMode = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

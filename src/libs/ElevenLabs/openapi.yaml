@@ -1683,6 +1683,16 @@ paths:
             description: Whether to include the total count of voices found in the response. Incurs a performance cost.
             default: true
             example: true
+        - name: voice_ids
+          in: query
+          description: Voice IDs to lookup by. Maximum 100 voice IDs.
+          schema:
+            title: Voice Ids
+            type: array
+            items:
+              type: string
+            description: Voice IDs to lookup by. Maximum 100 voice IDs.
+            nullable: true
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -6557,6 +6567,17 @@ paths:
             type: integer
             description: 'How many conversations to return at maximum. Can not exceed 100, defaults to 30.'
             default: 30
+        - name: summary_mode
+          in: query
+          description: Whether to include transcript summaries in the response.
+          schema:
+            title: Summary Mode
+            enum:
+              - exclude
+              - include
+            type: string
+            description: Whether to include transcript summaries in the response.
+            default: exclude
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -13620,6 +13641,16 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).
           default: 20
+        disable_interruptions:
+          title: Disable Interruptions
+          type: boolean
+          description: 'If true, the user will not be able to interrupt the agent while this tool is running.'
+          default: false
+        force_pre_tool_speech:
+          title: Force Pre Tool Speech
+          type: boolean
+          description: 'If true, the agent will speak before the tool call.'
+          default: false
         assignments:
           title: Assignments
           type: array
@@ -13669,6 +13700,16 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).
           default: 20
+        disable_interruptions:
+          title: Disable Interruptions
+          type: boolean
+          description: 'If true, the user will not be able to interrupt the agent while this tool is running.'
+          default: false
+        force_pre_tool_speech:
+          title: Force Pre Tool Speech
+          type: boolean
+          description: 'If true, the agent will speak before the tool call.'
+          default: false
         assignments:
           title: Assignments
           type: array
@@ -13995,6 +14036,10 @@ components:
         transcript_summary:
           title: Transcript Summary
           type: string
+        call_summary_title:
+          title: Call Summary Title
+          type: string
+          nullable: true
     ConversationHistoryBatchCallModel:
       title: ConversationHistoryBatchCallModel
       required:
@@ -14836,6 +14881,14 @@ components:
           type: string
         call_successful:
           $ref: '#/components/schemas/EvaluationSuccessResult'
+        transcript_summary:
+          title: Transcript Summary
+          type: string
+          nullable: true
+        call_summary_title:
+          title: Call Summary Title
+          type: string
+          nullable: true
     ConversationTokenDBModel:
       title: ConversationTokenDBModel
       required:
@@ -17700,6 +17753,8 @@ components:
         - claude-3-haiku
         - grok-beta
         - custom-llm
+        - gemini-2.5-flash-preview-05-20
+        - gemini-2.5-flash-preview-04-17
         - gemini-2.5-flash-lite-preview-06-17
         - gemini-2.0-flash-lite-001
         - gemini-2.0-flash-001
@@ -18463,6 +18518,16 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete.
           default: 20
+        disable_interruptions:
+          title: Disable Interruptions
+          type: boolean
+          description: 'If true, the user will not be able to interrupt the agent while this tool is running.'
+          default: false
+        force_pre_tool_speech:
+          title: Force Pre Tool Speech
+          type: boolean
+          description: 'If true, the agent will speak before the tool call.'
+          default: false
         assignments:
           title: Assignments
           type: array
@@ -18529,6 +18594,16 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete.
           default: 20
+        disable_interruptions:
+          title: Disable Interruptions
+          type: boolean
+          description: 'If true, the user will not be able to interrupt the agent while this tool is running.'
+          default: false
+        force_pre_tool_speech:
+          title: Force Pre Tool Speech
+          type: boolean
+          description: 'If true, the agent will speak before the tool call.'
+          default: false
         assignments:
           title: Assignments
           type: array
@@ -20158,6 +20233,7 @@ components:
           items:
             type: string
           description: A list of Native MCP server ids to be used by the agent
+          x-convai-client-override: true
         knowledge_base:
           title: Knowledge Base
           type: array
@@ -20250,6 +20326,7 @@ components:
           items:
             type: string
           description: A list of Native MCP server ids to be used by the agent
+          x-convai-client-override: true
         knowledge_base:
           title: Knowledge Base
           type: array
@@ -20308,6 +20385,14 @@ components:
           description: The prompt for the agent
           nullable: true
           x-convai-client-override: true
+        native_mcp_server_ids:
+          title: Native Mcp Server Ids
+          type: array
+          items:
+            type: string
+          description: A list of Native MCP server ids to be used by the agent
+          nullable: true
+          x-convai-client-override: true
       example:
         prompt: You are a helpful assistant that can answer questions about the topic of the conversation.
     PromptAgentAPIModelOverrideConfig:
@@ -20318,6 +20403,11 @@ components:
           title: Prompt
           type: boolean
           description: Whether to allow overriding the prompt field.
+          default: false
+        native_mcp_server_ids:
+          title: Native Mcp Server Ids
+          type: boolean
+          description: Whether to allow overriding the native_mcp_server_ids field.
           default: false
     PromptEvaluationCriteria:
       title: PromptEvaluationCriteria
@@ -22237,6 +22327,16 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete.
           default: 20
+        disable_interruptions:
+          title: Disable Interruptions
+          type: boolean
+          description: 'If true, the user will not be able to interrupt the agent while this tool is running.'
+          default: false
+        force_pre_tool_speech:
+          title: Force Pre Tool Speech
+          type: boolean
+          description: 'If true, the agent will speak before the tool call.'
+          default: false
         assignments:
           title: Assignments
           type: array
@@ -22299,6 +22399,16 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete.
           default: 20
+        disable_interruptions:
+          title: Disable Interruptions
+          type: boolean
+          description: 'If true, the user will not be able to interrupt the agent while this tool is running.'
+          default: false
+        force_pre_tool_speech:
+          title: Force Pre Tool Speech
+          type: boolean
+          description: 'If true, the agent will speak before the tool call.'
+          default: false
         assignments:
           title: Assignments
           type: array
@@ -22627,6 +22737,7 @@ components:
         - id
         - tool_config
         - access_info
+        - usage_stats
       type: object
       properties:
         id:
@@ -22649,6 +22760,8 @@ components:
               webhook: '#/components/schemas/WebhookToolConfig-Output'
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
+        usage_stats:
+          $ref: '#/components/schemas/ToolUsageStatsResponseModel'
     ToolType:
       title: ToolType
       enum:
@@ -22657,6 +22770,20 @@ components:
         - client
         - mcp
       type: string
+    ToolUsageStatsResponseModel:
+      title: ToolUsageStatsResponseModel
+      required:
+        - avg_latency_secs
+      type: object
+      properties:
+        total_calls:
+          title: Total Calls
+          type: integer
+          description: The total number of calls to the tool
+          default: 0
+        avg_latency_secs:
+          title: Avg Latency Secs
+          type: number
     ToolsResponseModel:
       title: ToolsResponseModel
       required:
@@ -24430,6 +24557,16 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).
           default: 20
+        disable_interruptions:
+          title: Disable Interruptions
+          type: boolean
+          description: 'If true, the user will not be able to interrupt the agent while this tool is running.'
+          default: false
+        force_pre_tool_speech:
+          title: Force Pre Tool Speech
+          type: boolean
+          description: 'If true, the agent will speak before the tool call.'
+          default: false
         assignments:
           title: Assignments
           type: array
@@ -24475,6 +24612,16 @@ components:
           type: integer
           description: The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).
           default: 20
+        disable_interruptions:
+          title: Disable Interruptions
+          type: boolean
+          description: 'If true, the user will not be able to interrupt the agent while this tool is running.'
+          default: false
+        force_pre_tool_speech:
+          title: Force Pre Tool Speech
+          type: boolean
+          description: 'If true, the agent will speak before the tool call.'
+          default: false
         assignments:
           title: Assignments
           type: array
@@ -24649,6 +24796,16 @@ components:
           type: boolean
           description: Whether the user should be able to send text messages
           default: true
+        default_expanded:
+          title: Default Expanded
+          type: boolean
+          description: Whether the widget should be expanded by default
+          default: false
+        always_expanded:
+          title: Always Expanded
+          type: boolean
+          description: Whether the widget should always be expanded
+          default: false
         text_contents:
           $ref: '#/components/schemas/WidgetTextContents'
         styles:
@@ -24822,6 +24979,16 @@ components:
           type: boolean
           description: Whether the user should be able to send text messages
           default: true
+        default_expanded:
+          title: Default Expanded
+          type: boolean
+          description: Whether the widget should be expanded by default
+          default: false
+        always_expanded:
+          title: Always Expanded
+          type: boolean
+          description: Whether the widget should always be expanded
+          default: false
         text_contents:
           $ref: '#/components/schemas/WidgetTextContents'
         styles:
@@ -24997,6 +25164,16 @@ components:
           type: boolean
           description: Whether the user should be able to send text messages
           default: true
+        default_expanded:
+          title: Default Expanded
+          type: boolean
+          description: Whether the widget should be expanded by default
+          default: false
+        always_expanded:
+          title: Always Expanded
+          type: boolean
+          description: Whether the widget should always be expanded
+          default: false
         text_contents:
           $ref: '#/components/schemas/WidgetTextContents'
         styles:

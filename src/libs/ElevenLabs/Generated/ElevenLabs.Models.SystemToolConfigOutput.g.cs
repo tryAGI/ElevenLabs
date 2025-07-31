@@ -30,6 +30,20 @@ namespace ElevenLabs
         public int? ResponseTimeoutSecs { get; set; }
 
         /// <summary>
+        /// If true, the user will not be able to interrupt the agent while this tool is running.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("disable_interruptions")]
+        public bool? DisableInterruptions { get; set; }
+
+        /// <summary>
+        /// If true, the agent will speak before the tool call.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("force_pre_tool_speech")]
+        public bool? ForcePreToolSpeech { get; set; }
+
+        /// <summary>
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assignments")]
@@ -66,6 +80,14 @@ namespace ElevenLabs
         /// The maximum time in seconds to wait for the tool call to complete.<br/>
         /// Default Value: 20
         /// </param>
+        /// <param name="disableInterruptions">
+        /// If true, the user will not be able to interrupt the agent while this tool is running.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="forcePreToolSpeech">
+        /// If true, the agent will speak before the tool call.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="assignments">
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
         /// </param>
@@ -82,6 +104,8 @@ namespace ElevenLabs
             string description,
             global::ElevenLabs.Params2 @params,
             int? responseTimeoutSecs,
+            bool? disableInterruptions,
+            bool? forcePreToolSpeech,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
             global::ElevenLabs.SystemToolConfigOutputType? type)
         {
@@ -89,6 +113,8 @@ namespace ElevenLabs
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Params = @params;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
+            this.DisableInterruptions = disableInterruptions;
+            this.ForcePreToolSpeech = forcePreToolSpeech;
             this.Assignments = assignments;
             this.Type = type;
         }
