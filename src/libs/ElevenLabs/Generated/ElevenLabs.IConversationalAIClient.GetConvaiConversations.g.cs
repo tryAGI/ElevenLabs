@@ -46,7 +46,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset? callStartAfterUnix = default,
             string? userId = default,
             int? pageSize = default,
-            global::ElevenLabs.GetConversationsV1ConvaiConversationsGetSummaryMode? summaryMode = default,
+            global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

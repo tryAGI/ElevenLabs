@@ -14,7 +14,7 @@ namespace ElevenLabs
             ref global::System.DateTimeOffset? callStartAfterUnix,
             ref string? userId,
             ref int? pageSize,
-            ref global::ElevenLabs.GetConversationsV1ConvaiConversationsGetSummaryMode? summaryMode,
+            ref global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode,
             ref string? xiApiKey);
         partial void PrepareGetConvaiConversationsRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -26,7 +26,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset? callStartAfterUnix,
             string? userId,
             int? pageSize,
-            global::ElevenLabs.GetConversationsV1ConvaiConversationsGetSummaryMode? summaryMode,
+            global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode,
             string? xiApiKey);
         partial void ProcessGetConvaiConversationsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -79,7 +79,7 @@ namespace ElevenLabs
             global::System.DateTimeOffset? callStartAfterUnix = default,
             string? userId = default,
             int? pageSize = default,
-            global::ElevenLabs.GetConversationsV1ConvaiConversationsGetSummaryMode? summaryMode = default,
+            global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

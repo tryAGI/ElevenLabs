@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdPatchResponse> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
             string phoneNumberId,
             global::ElevenLabs.UpdatePhoneNumberRequest request,
             string? xiApiKey = default,
@@ -38,7 +38,7 @@ namespace ElevenLabs
         /// <param name="agentId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdPatchResponse> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> EditConvaiPhoneNumbersByPhoneNumberIdAsync(
             string phoneNumberId,
             string? xiApiKey = default,
             string? agentId = default,

@@ -6,44 +6,44 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public enum ASRProvider
+    public enum GetPhoneNumberRouteResponseDiscriminatorProvider
     {
         /// <summary>
         /// 
         /// </summary>
-        Elevenlabs,
+        Twilio,
         /// <summary>
         /// 
         /// </summary>
-        RealtimeScribeV1,
+        SipTrunk,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class ASRProviderExtensions
+    public static class GetPhoneNumberRouteResponseDiscriminatorProviderExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this ASRProvider value)
+        public static string ToValueString(this GetPhoneNumberRouteResponseDiscriminatorProvider value)
         {
             return value switch
             {
-                ASRProvider.Elevenlabs => "elevenlabs",
-                ASRProvider.RealtimeScribeV1 => "realtime_scribe_v1",
+                GetPhoneNumberRouteResponseDiscriminatorProvider.Twilio => "twilio",
+                GetPhoneNumberRouteResponseDiscriminatorProvider.SipTrunk => "sip_trunk",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static ASRProvider? ToEnum(string value)
+        public static GetPhoneNumberRouteResponseDiscriminatorProvider? ToEnum(string value)
         {
             return value switch
             {
-                "elevenlabs" => ASRProvider.Elevenlabs,
-                "realtime_scribe_v1" => ASRProvider.RealtimeScribeV1,
+                "twilio" => GetPhoneNumberRouteResponseDiscriminatorProvider.Twilio,
+                "sip_trunk" => GetPhoneNumberRouteResponseDiscriminatorProvider.SipTrunk,
                 _ => null,
             };
         }
