@@ -4,46 +4,47 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Whether to include transcript summaries in the response.<br/>
+    /// Default Value: exclude
     /// </summary>
-    public enum ASRProvider
+    public enum GetConversationHistoriesRouteSummaryMode
     {
         /// <summary>
         /// 
         /// </summary>
-        Elevenlabs,
+        Exclude,
         /// <summary>
         /// 
         /// </summary>
-        RealtimeScribeV1,
+        Include,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class ASRProviderExtensions
+    public static class GetConversationHistoriesRouteSummaryModeExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this ASRProvider value)
+        public static string ToValueString(this GetConversationHistoriesRouteSummaryMode value)
         {
             return value switch
             {
-                ASRProvider.Elevenlabs => "elevenlabs",
-                ASRProvider.RealtimeScribeV1 => "realtime_scribe_v1",
+                GetConversationHistoriesRouteSummaryMode.Exclude => "exclude",
+                GetConversationHistoriesRouteSummaryMode.Include => "include",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static ASRProvider? ToEnum(string value)
+        public static GetConversationHistoriesRouteSummaryMode? ToEnum(string value)
         {
             return value switch
             {
-                "elevenlabs" => ASRProvider.Elevenlabs,
-                "realtime_scribe_v1" => ASRProvider.RealtimeScribeV1,
+                "exclude" => GetConversationHistoriesRouteSummaryMode.Exclude,
+                "include" => GetConversationHistoriesRouteSummaryMode.Include,
                 _ => null,
             };
         }

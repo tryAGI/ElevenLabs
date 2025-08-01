@@ -17,7 +17,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberV1ConvaiPhoneNumbersPhoneNumberIdGetResponse> GetConvaiPhoneNumbersByPhoneNumberIdAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberRouteResponse> GetConvaiPhoneNumbersByPhoneNumberIdAsync(
             string phoneNumberId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

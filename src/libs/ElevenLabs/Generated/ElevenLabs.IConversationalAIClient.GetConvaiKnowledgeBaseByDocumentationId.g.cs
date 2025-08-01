@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.GetDocumentationFromKnowledgeBaseV1ConvaiKnowledgeBaseDocumentationIdGetResponse> GetConvaiKnowledgeBaseByDocumentationIdAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse> GetConvaiKnowledgeBaseByDocumentationIdAsync(
             string documentationId,
             string? agentId = default,
             string? xiApiKey = default,

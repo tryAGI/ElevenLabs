@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatchResponse> EditConvaiKnowledgeBaseByDocumentationIdAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> EditConvaiKnowledgeBaseByDocumentationIdAsync(
             string documentationId,
             global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request,
             string? xiApiKey = default,
@@ -40,7 +40,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatchResponse> EditConvaiKnowledgeBaseByDocumentationIdAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> EditConvaiKnowledgeBaseByDocumentationIdAsync(
             string documentationId,
             string name,
             string? xiApiKey = default,
