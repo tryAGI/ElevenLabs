@@ -44,6 +44,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
 
         /// <summary>
+        /// The time of the most recent call in unix seconds, null if no calls have been made
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("last_call_time_unix_secs")]
+        public int? LastCallTimeUnixSecs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -65,6 +71,9 @@ namespace ElevenLabs
         /// The creation time of the agent in unix seconds
         /// </param>
         /// <param name="accessInfo"></param>
+        /// <param name="lastCallTimeUnixSecs">
+        /// The time of the most recent call in unix seconds, null if no calls have been made
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,13 +82,15 @@ namespace ElevenLabs
             string name,
             global::System.Collections.Generic.IList<string> tags,
             int createdAtUnixSecs,
-            global::ElevenLabs.ResourceAccessInfo accessInfo)
+            global::ElevenLabs.ResourceAccessInfo accessInfo,
+            int? lastCallTimeUnixSecs)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
             this.CreatedAtUnixSecs = createdAtUnixSecs;
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
+            this.LastCallTimeUnixSecs = lastCallTimeUnixSecs;
         }
 
         /// <summary>

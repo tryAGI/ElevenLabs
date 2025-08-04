@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class UnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePostResponse
+    public sealed partial class ShareResourceEndpointResponse
     {
 
         /// <summary>

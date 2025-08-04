@@ -90,15 +90,24 @@ namespace ElevenLabs
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Name}"),
                 name: "name");
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"{request.DefaultTitleVoiceId}"),
-                name: "default_title_voice_id");
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"{request.DefaultParagraphVoiceId}"),
-                name: "default_paragraph_voice_id");
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"{request.DefaultModelId}"),
-                name: "default_model_id");
+            if (request.DefaultTitleVoiceId != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.DefaultTitleVoiceId}"),
+                    name: "default_title_voice_id");
+            } 
+            if (request.DefaultParagraphVoiceId != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.DefaultParagraphVoiceId}"),
+                    name: "default_paragraph_voice_id");
+            } 
+            if (request.DefaultModelId != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.DefaultModelId}"),
+                    name: "default_model_id");
+            } 
             if (request.FromUrl != default)
             {
                 __httpRequestContent.Add(
@@ -558,10 +567,10 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddProjectResponseModel> CreateStudioProjectsAsync(
             string name,
-            string defaultTitleVoiceId,
-            string defaultParagraphVoiceId,
-            string defaultModelId,
             string? xiApiKey = default,
+            string? defaultTitleVoiceId = default,
+            string? defaultParagraphVoiceId = default,
+            string? defaultModelId = default,
             string? fromUrl = default,
             byte[]? fromDocument = default,
             string? fromDocumentname = default,

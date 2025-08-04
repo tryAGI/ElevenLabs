@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class DeleteServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdDeleteResponse
+    public sealed partial class UnshareResourceEndpointResponse
     {
 
         /// <summary>

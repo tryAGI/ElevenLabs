@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public sealed partial class ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse
+    public sealed partial class ShareResourceEndpointResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse? FromJson(
+        public static global::ElevenLabs.ShareResourceEndpointResponse? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse),
-                jsonSerializerContext) as global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse;
+                typeof(global::ElevenLabs.ShareResourceEndpointResponse),
+                jsonSerializerContext) as global::ElevenLabs.ShareResourceEndpointResponse;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse? FromJson(
+        public static global::ElevenLabs.ShareResourceEndpointResponse? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ShareResourceEndpointResponse>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.ShareResourceEndpointResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse;
+                typeof(global::ElevenLabs.ShareResourceEndpointResponse),
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.ShareResourceEndpointResponse;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.ShareResourceEndpointResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.ShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostResponse?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.ShareResourceEndpointResponse?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

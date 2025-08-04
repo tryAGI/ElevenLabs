@@ -33,6 +33,18 @@ namespace ElevenLabs
         public global::ElevenLabs.FeatureStatusCommonModel? Multivoice { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dtmf_tones")]
+        public global::ElevenLabs.FeatureStatusCommonModel? DtmfTones { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_mcp_servers")]
+        public global::ElevenLabs.FeatureStatusCommonModel? ExternalMcpServers { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pii_zrm_workspace")]
@@ -43,6 +55,18 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pii_zrm_agent")]
         public bool? PiiZrmAgent { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_dynamic_variable_updates")]
+        public global::ElevenLabs.FeatureStatusCommonModel? ToolDynamicVariableUpdates { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_livekit")]
+        public bool? IsLivekit { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,10 +81,16 @@ namespace ElevenLabs
         /// <param name="transferToAgent"></param>
         /// <param name="transferToNumber"></param>
         /// <param name="multivoice"></param>
+        /// <param name="dtmfTones"></param>
+        /// <param name="externalMcpServers"></param>
         /// <param name="piiZrmWorkspace">
         /// Default Value: false
         /// </param>
         /// <param name="piiZrmAgent">
+        /// Default Value: false
+        /// </param>
+        /// <param name="toolDynamicVariableUpdates"></param>
+        /// <param name="isLivekit">
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
@@ -71,15 +101,23 @@ namespace ElevenLabs
             global::ElevenLabs.FeatureStatusCommonModel? transferToAgent,
             global::ElevenLabs.FeatureStatusCommonModel? transferToNumber,
             global::ElevenLabs.FeatureStatusCommonModel? multivoice,
+            global::ElevenLabs.FeatureStatusCommonModel? dtmfTones,
+            global::ElevenLabs.FeatureStatusCommonModel? externalMcpServers,
             bool? piiZrmWorkspace,
-            bool? piiZrmAgent)
+            bool? piiZrmAgent,
+            global::ElevenLabs.FeatureStatusCommonModel? toolDynamicVariableUpdates,
+            bool? isLivekit)
         {
             this.LanguageDetection = languageDetection;
             this.TransferToAgent = transferToAgent;
             this.TransferToNumber = transferToNumber;
             this.Multivoice = multivoice;
+            this.DtmfTones = dtmfTones;
+            this.ExternalMcpServers = externalMcpServers;
             this.PiiZrmWorkspace = piiZrmWorkspace;
             this.PiiZrmAgent = piiZrmAgent;
+            this.ToolDynamicVariableUpdates = toolDynamicVariableUpdates;
+            this.IsLivekit = isLivekit;
         }
 
         /// <summary>

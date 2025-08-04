@@ -4880,7 +4880,7 @@ paths:
         - workspace
       summary: Get Service Account Api Keys Route
       description: Get all API keys for a service account
-      operationId: get_service_account_api_keys_route_v1_service_accounts__service_account_user_id__api_keys_get
+      operationId: get_service_account_api_keys_route
       parameters:
         - name: service_account_user_id
           in: path
@@ -4918,7 +4918,7 @@ paths:
         - workspace
       summary: Create Service Account Api Key
       description: Create a new API key for a service account
-      operationId: create_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys_post
+      operationId: create_service_account_api_key
       parameters:
         - name: service_account_user_id
           in: path
@@ -4963,7 +4963,7 @@ paths:
         - workspace
       summary: Edit Service Account Api Key
       description: Update an existing API key for a service account
-      operationId: edit_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__patch
+      operationId: edit_service_account_api_key
       parameters:
         - name: service_account_user_id
           in: path
@@ -5010,10 +5010,9 @@ paths:
     delete:
       tags:
         - workspace
-        - workspace
       summary: Delete Service Account Api Key
       description: Delete an existing API key for a service account
-      operationId: delete_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__delete
+      operationId: delete_service_account_api_key
       parameters:
         - name: service_account_user_id
           in: path
@@ -5057,7 +5056,7 @@ paths:
         - workspace
       summary: Get Workspace Service Accounts
       description: List all service accounts in the workspace
-      operationId: get_workspace_service_accounts_v1_service_accounts_get
+      operationId: get_workspace_service_accounts
       parameters:
         - name: xi-api-key
           in: header
@@ -5089,7 +5088,7 @@ paths:
         - workspace
       summary: Search User Groups
       description: Searches for user groups in the workspace. Multiple or no groups may be returned.
-      operationId: Search_user_groups_v1_workspace_groups_search_get
+      operationId: search_groups
       parameters:
         - name: name
           in: query
@@ -5133,7 +5132,7 @@ paths:
         - workspace
       summary: Delete Member From User Group
       description: Removes a member from the specified group. This endpoint may only be called by workspace administrators.
-      operationId: Delete_member_from_user_group_v1_workspace_groups__group_id__members_remove_post
+      operationId: remove_member
       parameters:
         - name: group_id
           in: path
@@ -5181,7 +5180,7 @@ paths:
         - workspace
       summary: Add Member To User Group
       description: Adds a member of your workspace to the specified group. This endpoint may only be called by workspace administrators.
-      operationId: Add_member_to_user_group_v1_workspace_groups__group_id__members_post
+      operationId: add_member
       parameters:
         - name: group_id
           in: path
@@ -5229,7 +5228,7 @@ paths:
         - workspace
       summary: Invite User
       description: Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace administrators. If the user is already in the workspace a 400 error will be returned.
-      operationId: Invite_user_v1_workspace_invites_add_post
+      operationId: invite_user
       parameters:
         - name: xi-api-key
           in: header
@@ -5268,7 +5267,7 @@ paths:
         - workspace
       summary: Invite Multiple Users
       description: Sends email invitations to join your workspace to the provided emails. Requires all email addresses to be part of a verified domain. If the users don't have an account they will be prompted to create one. If the users accept these invites they will be added as users to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace administrators.
-      operationId: Invite_multiple_users_v1_workspace_invites_add_bulk_post
+      operationId: invite_users_bulk
       parameters:
         - name: xi-api-key
           in: header
@@ -5307,7 +5306,7 @@ paths:
         - workspace
       summary: Delete Existing Invitation
       description: 'Invalidates an existing email invitation. The invitation will still show up in the inbox it has been delivered to, but activating it to join the workspace won''t work. This endpoint may only be called by workspace administrators.'
-      operationId: Delete_existing_invitation_v1_workspace_invites_delete
+      operationId: delete_invite
       parameters:
         - name: xi-api-key
           in: header
@@ -5346,7 +5345,7 @@ paths:
         - workspace
       summary: Update Member
       description: 'Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.'
-      operationId: Update_member_v1_workspace_members_post
+      operationId: update_workspace_member
       parameters:
         - name: xi-api-key
           in: header
@@ -5384,7 +5383,7 @@ paths:
         - workspace
       summary: Delete Member
       description: Deletes a workspace member. This endpoint may only be called by workspace administrators.
-      operationId: Delete_member_v1_workspace_members_delete
+      operationId: delete_workspace_member
       requestBody:
         content:
           application/json:
@@ -5414,7 +5413,7 @@ paths:
         - workspace
       summary: Get Resource
       description: Gets the metadata of a resource by ID.
-      operationId: Get_resource_v1_workspace_resources__resource_id__get
+      operationId: get_resource_metadata
       parameters:
         - name: resource_id
           in: path
@@ -5461,7 +5460,7 @@ paths:
         - workspace
       summary: Share Workspace Resource
       description: 'Grants a role on a workspace resource to a user or a group. It overrides any existing role this user/service account/group/workspace api key has on the resource. To target a user or service account, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. The resource will be shared with the service account associated with the api key. You must have admin access to the resource to share it.'
-      operationId: Share_workspace_resource_v1_workspace_resources__resource_id__share_post
+      operationId: share_resource_endpoint
       parameters:
         - name: resource_id
           in: path
@@ -5507,7 +5506,7 @@ paths:
         - workspace
       summary: Unshare Workspace Resource
       description: 'Removes any existing role on a workspace resource from a user, service account, group or workspace api key. To target a user or service account, pass only the user email. The user must be in your workspace. To target a group, pass only the group id. To target a workspace api key, pass the api key id. The resource will be unshared from the service account associated with the api key. You must have admin access to the resource to unshare it. You cannot remove permissions from the user who created the resource.'
-      operationId: Unshare_workspace_resource_v1_workspace_resources__resource_id__unshare_post
+      operationId: unshare_resource_endpoint
       parameters:
         - name: resource_id
           in: path
@@ -5553,7 +5552,7 @@ paths:
         - workspace
       summary: List Workspace Webhooks
       description: List all webhooks for a workspace
-      operationId: List_workspace_webhooks_v1_workspace_webhooks_get
+      operationId: get_workspace_webhooks_route
       parameters:
         - name: include_usages
           in: query
@@ -10037,6 +10036,11 @@ components:
           description: The creation time of the agent in unix seconds
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
+        last_call_time_unix_secs:
+          title: Last Call Time Unix Secs
+          type: integer
+          description: 'The time of the most recent call in unix seconds, null if no calls have been made'
+          nullable: true
       example:
         access_info:
           creator_email: john@example.com
@@ -10045,6 +10049,7 @@ components:
           role: admin
         agent_id: J3Pbu5gP6NNKBscdCdwB
         created_at_unix_secs: 1716153600
+        last_call_time_unix_secs: 1716240000
         name: My Agent
         tags:
           - Customer Support
@@ -10840,9 +10845,6 @@ components:
       title: Body_Create_Studio_project_v1_studio_projects_post
       required:
         - name
-        - default_title_voice_id
-        - default_paragraph_voice_id
-        - default_model_id
       type: object
       properties:
         name:
@@ -10854,16 +10856,19 @@ components:
           title: Default Title Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new titles.
+          nullable: true
           example: 21m00Tcm4TlvDq8ikWAM
         default_paragraph_voice_id:
           title: Default Paragraph Voice Id
           type: string
           description: The voice_id that corresponds to the default voice used for new paragraphs.
+          nullable: true
           example: 21m00Tcm4TlvDq8ikWAM
         default_model_id:
           title: Default Model Id
           type: string
           description: 'The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.'
+          nullable: true
           example: eleven_multilingual_v2
         from_url:
           title: From Url
@@ -13097,6 +13102,25 @@ components:
           $ref: '#/components/schemas/SystemToolConfig-Output'
         voicemail_detection:
           $ref: '#/components/schemas/SystemToolConfig-Output'
+    CaptionStyleCharacterAnimationModel:
+      title: CaptionStyleCharacterAnimationModel
+      required:
+        - enter_type
+        - exit_type
+      type: object
+      properties:
+        enter_type:
+          title: Enter Type
+          enum:
+            - none
+            - fade
+          type: string
+        exit_type:
+          title: Exit Type
+          enum:
+            - none
+            - fade
+          type: string
     CaptionStyleHorizontalPlacementModel:
       title: CaptionStyleHorizontalPlacementModel
       required:
@@ -13118,13 +13142,11 @@ components:
       title: CaptionStyleModel
       type: object
       properties:
-        horizontal_placement:
-          $ref: '#/components/schemas/CaptionStyleHorizontalPlacementModel'
-        vertical_placement:
-          $ref: '#/components/schemas/CaptionStyleVerticalPlacementModel'
-        width_pct:
-          title: Width Pct
-          type: number
+        template:
+          $ref: '#/components/schemas/CaptionStyleTemplateModel'
+        text_font:
+          title: Text Font
+          type: string
           nullable: true
         text_scale:
           title: Text Scale
@@ -13140,6 +13162,20 @@ components:
             - start
             - center
             - end
+          type: string
+          nullable: true
+        text_style:
+          title: Text Style
+          enum:
+            - normal
+            - italic
+          type: string
+          nullable: true
+        text_weight:
+          title: Text Weight
+          enum:
+            - normal
+            - bold
           type: string
           nullable: true
         background_enabled:
@@ -13158,6 +13194,10 @@ components:
           title: Word Highlights Enabled
           type: boolean
           nullable: true
+        word_highlights_color:
+          title: Word Highlights Color
+          type: string
+          nullable: true
         word_highlights_background_color:
           title: Word Highlights Background Color
           type: string
@@ -13166,6 +13206,66 @@ components:
           title: Word Highlights Opacity
           type: number
           nullable: true
+        section_animation:
+          $ref: '#/components/schemas/CaptionStyleSectionAnimationModel'
+        word_animation:
+          $ref: '#/components/schemas/CaptionStyleWordAnimationModel'
+        character_animation:
+          $ref: '#/components/schemas/CaptionStyleCharacterAnimationModel'
+        width_pct:
+          title: Width Pct
+          type: number
+          nullable: true
+        horizontal_placement:
+          $ref: '#/components/schemas/CaptionStyleHorizontalPlacementModel'
+        vertical_placement:
+          $ref: '#/components/schemas/CaptionStyleVerticalPlacementModel'
+        auto_break_enabled:
+          title: Auto Break Enabled
+          type: boolean
+          nullable: true
+        max_lines_per_section:
+          title: Max Lines Per Section
+          type: integer
+          nullable: true
+        max_words_per_line:
+          title: Max Words Per Line
+          type: integer
+          nullable: true
+    CaptionStyleSectionAnimationModel:
+      title: CaptionStyleSectionAnimationModel
+      required:
+        - enter_type
+        - exit_type
+      type: object
+      properties:
+        enter_type:
+          title: Enter Type
+          enum:
+            - none
+            - fade
+            - scale
+          type: string
+        exit_type:
+          title: Exit Type
+          enum:
+            - none
+            - fade
+            - scale
+          type: string
+    CaptionStyleTemplateModel:
+      title: CaptionStyleTemplateModel
+      required:
+        - key
+        - label
+      type: object
+      properties:
+        key:
+          title: Key
+          type: string
+        label:
+          title: Label
+          type: string
     CaptionStyleVerticalPlacementModel:
       title: CaptionStyleVerticalPlacementModel
       required:
@@ -13183,6 +13283,27 @@ components:
         translate_pct:
           title: Translate Pct
           type: number
+    CaptionStyleWordAnimationModel:
+      title: CaptionStyleWordAnimationModel
+      required:
+        - enter_type
+        - exit_type
+      type: object
+      properties:
+        enter_type:
+          title: Enter Type
+          enum:
+            - none
+            - fade
+            - scale
+          type: string
+        exit_type:
+          title: Exit Type
+          enum:
+            - none
+            - fade
+            - scale
+          type: string
     ChapterContentBlockExtendableNodeResponseModel:
       title: ChapterContentBlockExtendableNodeResponseModel
       required:
@@ -15533,6 +15654,7 @@ components:
         - start_time
         - end_time
         - text
+        - subtitles
         - audio_stale
         - media_ref
       type: object
@@ -15547,6 +15669,11 @@ components:
           title: Text
           type: string
           nullable: true
+        subtitles:
+          title: Subtitles
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentSubtitleFrame'
         audio_stale:
           title: Audio Stale
           type: boolean
@@ -16108,12 +16235,22 @@ components:
           $ref: '#/components/schemas/FeatureStatusCommonModel'
         multivoice:
           $ref: '#/components/schemas/FeatureStatusCommonModel'
+        dtmf_tones:
+          $ref: '#/components/schemas/FeatureStatusCommonModel'
+        external_mcp_servers:
+          $ref: '#/components/schemas/FeatureStatusCommonModel'
         pii_zrm_workspace:
           title: Pii Zrm Workspace
           type: boolean
           default: false
         pii_zrm_agent:
           title: Pii Zrm Agent
+          type: boolean
+          default: false
+        tool_dynamic_variable_updates:
+          $ref: '#/components/schemas/FeatureStatusCommonModel'
+        is_livekit:
+          title: Is Livekit
           type: boolean
           default: false
     FeedbackResponseModel:
@@ -21272,6 +21409,25 @@ components:
         version:
           title: Version
           type: integer
+    SegmentSubtitleFrame:
+      title: SegmentSubtitleFrame
+      required:
+        - start_time
+        - end_time
+        - lines
+      type: object
+      properties:
+        start_time:
+          title: Start Time
+          type: number
+        end_time:
+          title: End Time
+          type: number
+        lines:
+          title: Lines
+          type: array
+          items:
+            type: string
     SegmentTranscriptionResponse:
       title: SegmentTranscriptionResponse
       required:
@@ -21499,6 +21655,7 @@ components:
         - start_time
         - end_time
         - text
+        - subtitles
         - dubs
       type: object
       properties:
@@ -21514,6 +21671,11 @@ components:
         text:
           title: Text
           type: string
+        subtitles:
+          title: Subtitles
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentSubtitleFrame'
         dubs:
           title: Dubs
           type: object
