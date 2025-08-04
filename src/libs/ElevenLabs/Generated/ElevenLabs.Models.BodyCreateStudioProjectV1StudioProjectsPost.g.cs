@@ -23,8 +23,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>21m00Tcm4TlvDq8ikWAM</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_title_voice_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultTitleVoiceId { get; set; }
+        public string? DefaultTitleVoiceId { get; set; }
 
         /// <summary>
         /// The voice_id that corresponds to the default voice used for new paragraphs.<br/>
@@ -32,8 +31,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>21m00Tcm4TlvDq8ikWAM</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_paragraph_voice_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultParagraphVoiceId { get; set; }
+        public string? DefaultParagraphVoiceId { get; set; }
 
         /// <summary>
         /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.<br/>
@@ -41,8 +39,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>eleven_multilingual_v2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_model_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultModelId { get; set; }
+        public string? DefaultModelId { get; set; }
 
         /// <summary>
         /// An optional URL from which we will extract content to initialize the Studio project. If this is set, 'from_url' and 'from_content' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.<br/>
@@ -491,9 +488,9 @@ namespace ElevenLabs
 #endif
         public BodyCreateStudioProjectV1StudioProjectsPost(
             string name,
-            string defaultTitleVoiceId,
-            string defaultParagraphVoiceId,
-            string defaultModelId,
+            string? defaultTitleVoiceId,
+            string? defaultParagraphVoiceId,
+            string? defaultModelId,
             string? fromUrl,
             byte[]? fromDocument,
             string? fromDocumentname,
@@ -520,9 +517,9 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType? sourceType)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.DefaultTitleVoiceId = defaultTitleVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultTitleVoiceId));
-            this.DefaultParagraphVoiceId = defaultParagraphVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultParagraphVoiceId));
-            this.DefaultModelId = defaultModelId ?? throw new global::System.ArgumentNullException(nameof(defaultModelId));
+            this.DefaultTitleVoiceId = defaultTitleVoiceId;
+            this.DefaultParagraphVoiceId = defaultParagraphVoiceId;
+            this.DefaultModelId = defaultModelId;
             this.FromUrl = fromUrl;
             this.FromDocument = fromDocument;
             this.FromDocumentname = fromDocumentname;

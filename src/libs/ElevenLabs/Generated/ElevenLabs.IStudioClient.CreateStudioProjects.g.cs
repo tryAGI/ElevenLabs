@@ -207,10 +207,10 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddProjectResponseModel> CreateStudioProjectsAsync(
             string name,
-            string defaultTitleVoiceId,
-            string defaultParagraphVoiceId,
-            string defaultModelId,
             string? xiApiKey = default,
+            string? defaultTitleVoiceId = default,
+            string? defaultParagraphVoiceId = default,
+            string? defaultModelId = default,
             string? fromUrl = default,
             byte[]? fromDocument = default,
             string? fromDocumentname = default,
