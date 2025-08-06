@@ -15,12 +15,6 @@ namespace ElevenLabs
         /// <param name="participantName">
         /// Optional custom participant name. If not provided, user ID will be used
         /// </param>
-        /// <param name="source">
-        /// Enum representing the possible sources for conversation initiation.
-        /// </param>
-        /// <param name="version">
-        /// The SDK version number
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -29,8 +23,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.TokenResponseModel> GetConvaiConversationTokenAsync(
             string agentId,
             string? participantName = default,
-            global::ElevenLabs.ConversationInitiationSource? source = default,
-            string? version = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
