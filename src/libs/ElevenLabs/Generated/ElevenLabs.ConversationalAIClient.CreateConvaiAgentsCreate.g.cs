@@ -226,6 +226,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationConfig"></param>
         /// <param name="platformSettings"></param>
+        /// <param name="workflow">
+        /// Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
+        /// </param>
         /// <param name="name">
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
@@ -240,6 +243,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationalConfigAPIModelInput conversationConfig,
             string? xiApiKey = default,
             global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings = default,
+            object? workflow = default,
             string? name = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -248,6 +252,7 @@ namespace ElevenLabs
             {
                 ConversationConfig = conversationConfig,
                 PlatformSettings = platformSettings,
+                Workflow = workflow,
                 Name = name,
                 Tags = tags,
             };

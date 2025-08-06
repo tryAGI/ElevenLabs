@@ -21,6 +21,12 @@ namespace ElevenLabs
         public object? PlatformSettings { get; set; }
 
         /// <summary>
+        /// Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workflow")]
+        public object? Workflow { get; set; }
+
+        /// <summary>
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
         /// </summary>
@@ -51,6 +57,9 @@ namespace ElevenLabs
         /// <param name="platformSettings">
         /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
         /// </param>
+        /// <param name="workflow">
+        /// Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
+        /// </param>
         /// <param name="name">
         /// A name to make the agent easier to find<br/>
         /// Example: My agent
@@ -65,11 +74,13 @@ namespace ElevenLabs
         public BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch(
             object? conversationConfig,
             object? platformSettings,
+            object? workflow,
             string? name,
             global::System.Collections.Generic.IList<string>? tags)
         {
             this.ConversationConfig = conversationConfig;
             this.PlatformSettings = platformSettings;
+            this.Workflow = workflow;
             this.Name = name;
             this.Tags = tags;
         }

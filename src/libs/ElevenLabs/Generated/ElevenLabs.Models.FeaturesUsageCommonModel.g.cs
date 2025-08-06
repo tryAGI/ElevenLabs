@@ -69,6 +69,12 @@ namespace ElevenLabs
         public bool? IsLivekit { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voicemail_detection")]
+        public global::ElevenLabs.FeatureStatusCommonModel? VoicemailDetection { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -93,6 +99,7 @@ namespace ElevenLabs
         /// <param name="isLivekit">
         /// Default Value: false
         /// </param>
+        /// <param name="voicemailDetection"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -106,7 +113,8 @@ namespace ElevenLabs
             bool? piiZrmWorkspace,
             bool? piiZrmAgent,
             global::ElevenLabs.FeatureStatusCommonModel? toolDynamicVariableUpdates,
-            bool? isLivekit)
+            bool? isLivekit,
+            global::ElevenLabs.FeatureStatusCommonModel? voicemailDetection)
         {
             this.LanguageDetection = languageDetection;
             this.TransferToAgent = transferToAgent;
@@ -118,6 +126,7 @@ namespace ElevenLabs
             this.PiiZrmAgent = piiZrmAgent;
             this.ToolDynamicVariableUpdates = toolDynamicVariableUpdates;
             this.IsLivekit = isLivekit;
+            this.VoicemailDetection = voicemailDetection;
         }
 
         /// <summary>

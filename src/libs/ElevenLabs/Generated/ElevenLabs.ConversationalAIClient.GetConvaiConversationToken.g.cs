@@ -9,16 +9,12 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref string? participantName,
-            ref global::ElevenLabs.ConversationInitiationSource? source,
-            ref string? version,
             ref string? xiApiKey);
         partial void PrepareGetConvaiConversationTokenRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string? participantName,
-            global::ElevenLabs.ConversationInitiationSource? source,
-            string? version,
             string? xiApiKey);
         partial void ProcessGetConvaiConversationTokenResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -40,12 +36,6 @@ namespace ElevenLabs
         /// <param name="participantName">
         /// Optional custom participant name. If not provided, user ID will be used
         /// </param>
-        /// <param name="source">
-        /// Enum representing the possible sources for conversation initiation.
-        /// </param>
-        /// <param name="version">
-        /// The SDK version number
-        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -54,8 +44,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.TokenResponseModel> GetConvaiConversationTokenAsync(
             string agentId,
             string? participantName = default,
-            global::ElevenLabs.ConversationInitiationSource? source = default,
-            string? version = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -65,8 +53,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 participantName: ref participantName,
-                source: ref source,
-                version: ref version,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -75,8 +61,6 @@ namespace ElevenLabs
             __pathBuilder 
                 .AddRequiredParameter("agent_id", agentId) 
                 .AddOptionalParameter("participant_name", participantName) 
-                .AddOptionalParameter("source", source?.ToValueString()) 
-                .AddOptionalParameter("version", version) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -117,8 +101,6 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
                 participantName: participantName,
-                source: source,
-                version: version,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

@@ -5829,21 +5829,6 @@ paths:
             type: string
             description: 'Optional custom participant name. If not provided, user ID will be used'
             nullable: true
-        - name: source
-          in: query
-          description: The source of the conversation initiation.
-          schema:
-            $ref: '#/components/schemas/ConversationInitiationSource'
-        - name: version
-          in: query
-          description: The SDK version number
-          schema:
-            title: Version
-            maxLength: 50
-            pattern: '^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.-]+)?$'
-            type: string
-            description: The SDK version number
-            nullable: true
         - name: xi-api-key
           in: header
           description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -9817,6 +9802,7 @@ components:
           nullable: true
         reason_type:
           $ref: '#/components/schemas/BanReasonType'
+      x-fern-ignore: 'True'
     AgentCallLimits:
       title: AgentCallLimits
       type: object
@@ -10769,6 +10755,10 @@ components:
           $ref: '#/components/schemas/ConversationalConfigAPIModel-Input'
         platform_settings:
           $ref: '#/components/schemas/AgentPlatformSettingsRequestModel'
+        workflow:
+          title: Workflow
+          description: Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
+          x-fern-ignore: 'True'
         name:
           title: Name
           type: string
@@ -11808,6 +11798,10 @@ components:
           type: object
           description: Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
           nullable: true
+        workflow:
+          title: Workflow
+          description: Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
+          x-fern-ignore: 'True'
         name:
           title: Name
           type: string
@@ -12388,7 +12382,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. For ''eleven_turbo_v2_5'' and ''eleven_flash_v2_5'' models, text normalization can only be enabled with Enterprise plans.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
           default: auto
           example: 'true'
         apply_language_text_normalization:
@@ -12484,7 +12478,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. For ''eleven_turbo_v2_5'' and ''eleven_flash_v2_5'' models, text normalization can only be enabled with Enterprise plans.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
           default: auto
           example: 'true'
         apply_language_text_normalization:
@@ -12580,7 +12574,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. For ''eleven_turbo_v2_5'' and ''eleven_flash_v2_5'' models, text normalization can only be enabled with Enterprise plans.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
           default: auto
           example: 'true'
         apply_language_text_normalization:
@@ -12673,7 +12667,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. For ''eleven_turbo_v2_5'' and ''eleven_flash_v2_5'' models, text normalization can only be enabled with Enterprise plans.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
           default: auto
           example: 'true'
         apply_language_text_normalization:
@@ -16247,6 +16241,8 @@ components:
           title: Is Livekit
           type: boolean
           default: false
+        voicemail_detection:
+          $ref: '#/components/schemas/FeatureStatusCommonModel'
     FeedbackResponseModel:
       title: FeedbackResponseModel
       required:
@@ -16552,6 +16548,9 @@ components:
                 sip_trunk: '#/components/schemas/GetPhoneNumberSIPTrunkResponseModel'
                 twilio: '#/components/schemas/GetPhoneNumberTwilioResponseModel'
           description: The phone numbers of the agent
+        workflow:
+          title: Workflow
+          description: The workflow of the agent
         access_info:
           $ref: '#/components/schemas/ResourceAccessInfo'
         tags:
@@ -18699,6 +18698,7 @@ components:
           description: Original inputSchema dict for consistent hashing (pure MCP format)
           nullable: true
       description: An MCP tool configuration that can be used to call MCP servers
+      x-fern-ignore: true
     MCPToolConfig-Output:
       title: MCPToolConfig
       required:
@@ -18775,6 +18775,7 @@ components:
           description: Original inputSchema dict for consistent hashing (pure MCP format)
           nullable: true
       description: An MCP tool configuration that can be used to call MCP servers
+      x-fern-ignore: true
     ManualVerificationFileResponseModel:
       title: ManualVerificationFileResponseModel
       required:
