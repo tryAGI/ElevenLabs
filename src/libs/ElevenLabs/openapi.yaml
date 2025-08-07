@@ -5626,10 +5626,10 @@ paths:
                 anyOf:
                   - $ref: '#/components/schemas/SpeechToTextChunkResponseModel'
                   - $ref: '#/components/schemas/MultichannelSpeechToTextResponseModel'
+                  - $ref: '#/components/schemas/SpeechToTextWebhookResponseModel'
                 oneOf:
                   - $ref: '#/components/schemas/SpeechToTextChunkResponseModel'
                   - $ref: '#/components/schemas/MultichannelSpeechToTextResponseModel'
-                nullable: true
               examples:
                 single_channel:
                   summary: Single channel response
@@ -17882,7 +17882,9 @@ components:
         - grok-beta
         - custom-llm
         - qwen3-4b
+        - qwen3-30b-a3b
         - watt-tool-8b
+        - watt-tool-70b
         - gemini-2.5-flash-preview-05-20
         - gemini-2.5-flash-preview-04-17
         - gemini-2.5-flash-lite-preview-06-17
@@ -21968,6 +21970,24 @@ components:
             start: 0.5
             text: world!
             type: word
+    SpeechToTextWebhookResponseModel:
+      title: SpeechToTextWebhookResponseModel
+      required:
+        - message
+        - request_id
+      type: object
+      properties:
+        message:
+          title: Message
+          type: string
+          description: The message of the webhook response.
+        request_id:
+          title: Request Id
+          type: string
+          description: The request ID of the webhook response.
+      example:
+        message: Request accepted. Transcription result will be sent to the webhook endpoint.
+        request_id: '1234567890'
     SpeechToTextWordResponseModel:
       title: SpeechToTextWordResponseModel
       required:
