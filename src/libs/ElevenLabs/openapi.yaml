@@ -2059,7 +2059,7 @@ paths:
         - studio
       summary: Create Podcast
       description: 'Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.'
-      operationId: Create_podcast_v1_studio_podcasts_post
+      operationId: create_podcast
       parameters:
         - name: xi-api-key
           in: header
@@ -2095,7 +2095,7 @@ paths:
         - studio
       summary: List Studio Projects
       description: Returns a list of your Studio projects with metadata.
-      operationId: List_Studio_projects_v1_studio_projects_get
+      operationId: get_projects
       parameters:
         - name: xi-api-key
           in: header
@@ -2127,7 +2127,7 @@ paths:
         - studio
       summary: Create Studio Project
       description: 'Creates a new Studio project, it can be either initialized as blank, from a document or from a URL.'
-      operationId: Create_Studio_project_v1_studio_projects_post
+      operationId: add_project
       parameters:
         - name: xi-api-key
           in: header
@@ -2166,7 +2166,7 @@ paths:
         - studio
       summary: Update Studio Project
       description: Updates the specified Studio project by setting the values of the parameters passed.
-      operationId: Update_Studio_project_v1_studio_projects__project_id__post
+      operationId: edit_project
       parameters:
         - name: project_id
           in: path
@@ -2213,7 +2213,7 @@ paths:
         - studio
       summary: Get Studio Project
       description: Returns information about a specific Studio project. This endpoint returns more detailed information about a project than `GET /v1/studio`.
-      operationId: Get_Studio_project_v1_studio_projects__project_id__get
+      operationId: get_project_by_id
       parameters:
         - name: project_id
           in: path
@@ -2254,7 +2254,7 @@ paths:
         - studio
       summary: Delete Studio Project
       description: Deletes a Studio project.
-      operationId: Delete_Studio_project_v1_studio_projects__project_id__delete
+      operationId: delete_project
       parameters:
         - name: project_id
           in: path
@@ -2296,7 +2296,7 @@ paths:
         - studio
       summary: Update Studio Project Content
       description: Updates Studio project content.
-      operationId: Update_Studio_project_content_v1_studio_projects__project_id__content_post
+      operationId: edit_project_content
       parameters:
         - name: project_id
           in: path
@@ -2344,7 +2344,7 @@ paths:
         - studio
       summary: Convert Studio Project
       description: Starts conversion of a Studio project and all of its chapters.
-      operationId: Convert_Studio_project_v1_studio_projects__project_id__convert_post
+      operationId: convert_project_endpoint
       parameters:
         - name: project_id
           in: path
@@ -2386,7 +2386,7 @@ paths:
         - studio
       summary: List Studio Project Snapshots
       description: Retrieves a list of snapshots for a Studio project.
-      operationId: List_Studio_project_snapshots_v1_studio_projects__project_id__snapshots_get
+      operationId: get_project_snapshots
       parameters:
         - name: project_id
           in: path
@@ -2429,7 +2429,7 @@ paths:
         - studio
       summary: Get Project Snapshot
       description: Returns the project snapshot.
-      operationId: Get_project_snapshot_v1_studio_projects__project_id__snapshots__project_snapshot_id__get
+      operationId: get_project_snapshot_endpoint
       parameters:
         - name: project_id
           in: path
@@ -2481,7 +2481,7 @@ paths:
         - studio
       summary: Stream Studio Project Audio
       description: Stream the audio from a Studio project snapshot.
-      operationId: Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
+      operationId: stream_project_snapshot_audio_endpoint
       parameters:
         - name: project_id
           in: path
@@ -2535,7 +2535,7 @@ paths:
         - studio
       summary: Stream Archive With Studio Project Audio
       description: Returns a compressed archive of the Studio project's audio.
-      operationId: Stream_archive_with_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__archive_post
+      operationId: stream_project_snapshot_archive_endpoint
       parameters:
         - name: project_id
           in: path
@@ -2588,7 +2588,7 @@ paths:
         - studio
       summary: List Chapters
       description: Returns a list of a Studio project's chapters.
-      operationId: List_chapters_v1_studio_projects__project_id__chapters_get
+      operationId: get_chapters
       parameters:
         - name: project_id
           in: path
@@ -2630,7 +2630,7 @@ paths:
         - studio
       summary: Create Chapter
       description: Creates a new chapter either as blank or from a URL.
-      operationId: Create_chapter_v1_studio_projects__project_id__chapters_post
+      operationId: add_chapter
       parameters:
         - name: project_id
           in: path
@@ -2679,7 +2679,7 @@ paths:
         - studio
       summary: Get Chapter
       description: Returns information about a specific chapter.
-      operationId: Get_chapter_v1_studio_projects__project_id__chapters__chapter_id__get
+      operationId: get_chapter_by_id_endpoint
       parameters:
         - name: project_id
           in: path
@@ -2730,7 +2730,7 @@ paths:
         - studio
       summary: Update Chapter
       description: Updates a chapter.
-      operationId: Update_chapter_v1_studio_projects__project_id__chapters__chapter_id__post
+      operationId: edit_chapter
       parameters:
         - name: project_id
           in: path
@@ -2786,7 +2786,7 @@ paths:
         - studio
       summary: Delete Chapter
       description: Deletes a chapter.
-      operationId: Delete_chapter_v1_studio_projects__project_id__chapters__chapter_id__delete
+      operationId: delete_chapter_endpoint
       parameters:
         - name: project_id
           in: path
@@ -2838,7 +2838,7 @@ paths:
         - studio
       summary: Convert Chapter
       description: Starts conversion of a specific chapter.
-      operationId: Convert_chapter_v1_studio_projects__project_id__chapters__chapter_id__convert_post
+      operationId: convert_chapter_endpoint
       parameters:
         - name: project_id
           in: path
@@ -2890,7 +2890,7 @@ paths:
         - studio
       summary: List Chapter Snapshots
       description: Gets information about all the snapshots of a chapter. Each snapshot can be downloaded as audio. Whenever a chapter is converted a snapshot will automatically be created.
-      operationId: List_chapter_snapshots_v1_studio_projects__project_id__chapters__chapter_id__snapshots_get
+      operationId: get_chapter_snapshots
       parameters:
         - name: project_id
           in: path
@@ -2943,7 +2943,7 @@ paths:
         - studio
       summary: Get Chapter Snapshot
       description: Returns the chapter snapshot.
-      operationId: Get_chapter_snapshot_v1_studio_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__get
+      operationId: get_chapter_snapshot_endpoint
       parameters:
         - name: project_id
           in: path
@@ -3005,7 +3005,7 @@ paths:
         - studio
       summary: Stream Chapter Audio
       description: 'Stream the audio from a chapter snapshot. Use `GET /v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots` to return the snapshots of a chapter.'
-      operationId: Stream_chapter_audio_v1_studio_projects__project_id__chapters__chapter_id__snapshots__chapter_snapshot_id__stream_post
+      operationId: stream_chapter_snapshot_audio
       parameters:
         - name: project_id
           in: path
@@ -3074,7 +3074,7 @@ paths:
         - studio
       summary: Create Pronunciation Dictionaries
       description: Create a set of pronunciation dictionaries acting on a project. This will automatically mark text within this project as requiring reconverting where the new dictionary would apply or the old one no longer does.
-      operationId: Create_Pronunciation_Dictionaries_v1_studio_projects__project_id__pronunciation_dictionaries_post
+      operationId: update_pronunciation_dictionaries
       parameters:
         - name: project_id
           in: path
@@ -4116,7 +4116,7 @@ paths:
         - audio-native
       summary: Creates Audio Native Enabled Project.
       description: 'Creates Audio Native enabled project, optionally starts conversion and returns project ID and embeddable HTML snippet.'
-      operationId: Creates_Audio_Native_enabled_project__v1_audio_native_post
+      operationId: create_audio_native_project
       parameters:
         - name: xi-api-key
           in: header
@@ -4153,7 +4153,7 @@ paths:
         - audio-native
       summary: Get Audio Native Project Settings
       description: Get player settings for the specific project.
-      operationId: Get_Audio_Native_project_settings_v1_audio_native__project_id__settings_get
+      operationId: get_audio_native_project_settings_endpoint
       parameters:
         - name: project_id
           in: path
@@ -4193,7 +4193,7 @@ paths:
         - audio-native
       summary: Update Audio-Native Project Content
       description: Updates content for the specific AudioNative Project.
-      operationId: Update_audio_native_Project_content_v1_audio_native__project_id__content_post
+      operationId: audio_native_project_update_content_endpoint
       parameters:
         - name: project_id
           in: path
