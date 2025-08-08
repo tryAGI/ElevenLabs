@@ -373,6 +373,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.ConversationHistoryMetadataCommonModelPhoneCallDiscriminatorTypeNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelStatusJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelStatusNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelDirectionJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelDirectionNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ConversationTokenPurposeJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ConversationTokenPurposeNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.CreateSIPTrunkPhoneNumberRequestV2ProviderJsonConverter),

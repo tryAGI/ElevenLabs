@@ -78,6 +78,13 @@ namespace ElevenLabs
         public string? CallSummaryTitle { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelDirectionJsonConverter))]
+        public global::ElevenLabs.ConversationSummaryResponseModelDirection? Direction { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -96,6 +103,7 @@ namespace ElevenLabs
         /// <param name="callSuccessful"></param>
         /// <param name="transcriptSummary"></param>
         /// <param name="callSummaryTitle"></param>
+        /// <param name="direction"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -109,7 +117,8 @@ namespace ElevenLabs
             global::ElevenLabs.EvaluationSuccessResult callSuccessful,
             string? agentName,
             string? transcriptSummary,
-            string? callSummaryTitle)
+            string? callSummaryTitle,
+            global::ElevenLabs.ConversationSummaryResponseModelDirection? direction)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
@@ -121,6 +130,7 @@ namespace ElevenLabs
             this.AgentName = agentName;
             this.TranscriptSummary = transcriptSummary;
             this.CallSummaryTitle = callSummaryTitle;
+            this.Direction = direction;
         }
 
         /// <summary>

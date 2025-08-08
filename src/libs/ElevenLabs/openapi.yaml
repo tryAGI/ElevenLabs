@@ -14999,6 +14999,13 @@ components:
           title: Call Summary Title
           type: string
           nullable: true
+        direction:
+          title: Direction
+          enum:
+            - inbound
+            - outbound
+          type: string
+          nullable: true
     ConversationTokenDBModel:
       title: ConversationTokenDBModel
       required:
@@ -17867,6 +17874,9 @@ components:
         - gpt-4.1
         - gpt-4.1-mini
         - gpt-4.1-nano
+        - gpt-5
+        - gpt-5-mini
+        - gpt-5-nano
         - gpt-3.5-turbo
         - gemini-1.5-pro
         - gemini-1.5-flash
@@ -17899,6 +17909,9 @@ components:
         - claude-3-5-sonnet@20240620
         - claude-3-5-sonnet-v2@20241022
         - claude-3-haiku@20240307
+        - gpt-5-2025-08-07
+        - gpt-5-mini-2025-08-07
+        - gpt-5-nano-2025-08-07
         - gpt-4.1-2025-04-14
         - gpt-4.1-mini-2025-04-14
         - gpt-4.1-nano-2025-04-14

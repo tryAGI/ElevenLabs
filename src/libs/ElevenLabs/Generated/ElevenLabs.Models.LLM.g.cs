@@ -39,6 +39,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gpt5,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt5Mini,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt5Nano,
+        /// <summary>
+        /// 
+        /// </summary>
         Gpt35Turbo,
         /// <summary>
         /// 
@@ -167,6 +179,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gpt520250807,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt5Mini20250807,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt5Nano20250807,
+        /// <summary>
+        /// 
+        /// </summary>
         Gpt4120250414,
         /// <summary>
         /// 
@@ -233,6 +257,9 @@ namespace ElevenLabs
                 LLM.Gpt41 => "gpt-4.1",
                 LLM.Gpt41Mini => "gpt-4.1-mini",
                 LLM.Gpt41Nano => "gpt-4.1-nano",
+                LLM.Gpt5 => "gpt-5",
+                LLM.Gpt5Mini => "gpt-5-mini",
+                LLM.Gpt5Nano => "gpt-5-nano",
                 LLM.Gpt35Turbo => "gpt-3.5-turbo",
                 LLM.Gemini15Pro => "gemini-1.5-pro",
                 LLM.Gemini15Flash => "gemini-1.5-flash",
@@ -265,6 +292,9 @@ namespace ElevenLabs
                 LLM.Claude35Sonnet_20240620 => "claude-3-5-sonnet@20240620",
                 LLM.Claude35SonnetV2_20241022 => "claude-3-5-sonnet-v2@20241022",
                 LLM.Claude3Haiku_20240307 => "claude-3-haiku@20240307",
+                LLM.Gpt520250807 => "gpt-5-2025-08-07",
+                LLM.Gpt5Mini20250807 => "gpt-5-mini-2025-08-07",
+                LLM.Gpt5Nano20250807 => "gpt-5-nano-2025-08-07",
                 LLM.Gpt4120250414 => "gpt-4.1-2025-04-14",
                 LLM.Gpt41Mini20250414 => "gpt-4.1-mini-2025-04-14",
                 LLM.Gpt41Nano20250414 => "gpt-4.1-nano-2025-04-14",
@@ -294,6 +324,9 @@ namespace ElevenLabs
                 "gpt-4.1" => LLM.Gpt41,
                 "gpt-4.1-mini" => LLM.Gpt41Mini,
                 "gpt-4.1-nano" => LLM.Gpt41Nano,
+                "gpt-5" => LLM.Gpt5,
+                "gpt-5-mini" => LLM.Gpt5Mini,
+                "gpt-5-nano" => LLM.Gpt5Nano,
                 "gpt-3.5-turbo" => LLM.Gpt35Turbo,
                 "gemini-1.5-pro" => LLM.Gemini15Pro,
                 "gemini-1.5-flash" => LLM.Gemini15Flash,
@@ -326,6 +359,9 @@ namespace ElevenLabs
                 "claude-3-5-sonnet@20240620" => LLM.Claude35Sonnet_20240620,
                 "claude-3-5-sonnet-v2@20241022" => LLM.Claude35SonnetV2_20241022,
                 "claude-3-haiku@20240307" => LLM.Claude3Haiku_20240307,
+                "gpt-5-2025-08-07" => LLM.Gpt520250807,
+                "gpt-5-mini-2025-08-07" => LLM.Gpt5Mini20250807,
+                "gpt-5-nano-2025-08-07" => LLM.Gpt5Nano20250807,
                 "gpt-4.1-2025-04-14" => LLM.Gpt4120250414,
                 "gpt-4.1-mini-2025-04-14" => LLM.Gpt41Mini20250414,
                 "gpt-4.1-nano-2025-04-14" => LLM.Gpt41Nano20250414,
