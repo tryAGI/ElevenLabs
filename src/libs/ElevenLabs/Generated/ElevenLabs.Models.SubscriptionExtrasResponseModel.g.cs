@@ -23,13 +23,13 @@ namespace ElevenLabs
         public required int ConvaiConcurrency { get; set; }
 
         /// <summary>
-        /// The Convai characters per minute of the user.
+        /// The Convai characters per minute of the user. This field is deprecated and will always return None.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("convai_chars_per_minute")]
         public int? ConvaiCharsPerMinute { get; set; }
 
         /// <summary>
-        /// The Convai ASR characters per minute of the user.
+        /// The Convai ASR characters per minute of the user. This field is deprecated and will always return None.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("convai_asr_chars_per_minute")]
         public int? ConvaiAsrCharsPerMinute { get; set; }
@@ -96,10 +96,10 @@ namespace ElevenLabs
         /// The Convai concurrency of the user.
         /// </param>
         /// <param name="convaiCharsPerMinute">
-        /// The Convai characters per minute of the user.
+        /// The Convai characters per minute of the user. This field is deprecated and will always return None.
         /// </param>
         /// <param name="convaiAsrCharsPerMinute">
-        /// The Convai ASR characters per minute of the user.
+        /// The Convai ASR characters per minute of the user. This field is deprecated and will always return None.
         /// </param>
         /// <param name="forceLoggingDisabled">
         /// Whether the user's logging is disabled.
