@@ -22192,12 +22192,12 @@ components:
         convai_chars_per_minute:
           title: Convai Chars Per Minute
           type: integer
-          description: The Convai characters per minute of the user.
+          description: The Convai characters per minute of the user. This field is deprecated and will always return None.
           nullable: true
         convai_asr_chars_per_minute:
           title: Convai Asr Chars Per Minute
           type: integer
-          description: The Convai ASR characters per minute of the user.
+          description: The Convai ASR characters per minute of the user. This field is deprecated and will always return None.
           nullable: true
         force_logging_disabled:
           title: Force Logging Disabled
@@ -22229,8 +22229,6 @@ components:
         can_bypass_voice_captcha: true
         can_request_manual_pro_voice_verification: true
         concurrency: 10
-        convai_asr_chars_per_minute: 1000
-        convai_chars_per_minute: 1000
         convai_concurrency: 10
         force_logging_disabled: false
         moderation:
@@ -23489,8 +23487,6 @@ components:
           can_bypass_voice_captcha: true
           can_request_manual_pro_voice_verification: true
           concurrency: 10
-          convai_asr_chars_per_minute: 1000
-          convai_chars_per_minute: 1000
           convai_concurrency: 10
           force_logging_disabled: false
           moderation:
