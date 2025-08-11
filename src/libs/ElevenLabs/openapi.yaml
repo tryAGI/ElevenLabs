@@ -10758,7 +10758,7 @@ components:
         workflow:
           title: Workflow
           description: Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
-          x-fern-ignore: 'True'
+          x-fern-ignore: true
         name:
           title: Name
           type: string
@@ -11801,7 +11801,7 @@ components:
         workflow:
           title: Workflow
           description: Workflow for the agent. This is used to define the flow of the conversation and how the agent interacts with tools.
-          x-fern-ignore: 'True'
+          x-fern-ignore: true
         name:
           title: Name
           type: string
