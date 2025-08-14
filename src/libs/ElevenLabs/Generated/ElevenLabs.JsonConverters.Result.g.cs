@@ -91,6 +91,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PlayDTMFResultErrorModel)}");
                 playDtmfError = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.VoiceMailDetectionResultSuccessModel? voicemailDetectionSuccess = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.VoicemailDetectionSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.VoiceMailDetectionResultSuccessModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel)}");
+                voicemailDetectionSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var result = new global::ElevenLabs.Result(
                 discriminator?.ResultType,
@@ -103,7 +110,8 @@ namespace ElevenLabs.JsonConverters
                 transferToNumberError,
                 skipTurnSuccess,
                 playDtmfSuccess,
-                playDtmfError
+                playDtmfError,
+                voicemailDetectionSuccess
                 );
 
             return result;
@@ -177,6 +185,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PlayDTMFResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PlayDTMFResultErrorModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PlayDTMFResultErrorModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PlayDtmfError, typeInfo);
+            }
+            else if (value.IsVoicemailDetectionSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.VoiceMailDetectionResultSuccessModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VoicemailDetectionSuccess, typeInfo);
             }
         }
     }

@@ -48,6 +48,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         TransferToNumberTwilioSuccess,
+        /// <summary>
+        /// 
+        /// </summary>
+        VoicemailDetectionSuccess,
     }
 
     /// <summary>
@@ -72,6 +76,7 @@ namespace ElevenLabs
                 ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToNumberError => "transfer_to_number_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToNumberSipSuccess => "transfer_to_number_sip_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToNumberTwilioSuccess => "transfer_to_number_twilio_success",
+                ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.VoicemailDetectionSuccess => "voicemail_detection_success",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -92,6 +97,7 @@ namespace ElevenLabs
                 "transfer_to_number_error" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToNumberError,
                 "transfer_to_number_sip_success" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToNumberSipSuccess,
                 "transfer_to_number_twilio_success" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToNumberTwilioSuccess,
+                "voicemail_detection_success" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.VoicemailDetectionSuccess,
                 _ => null,
             };
         }

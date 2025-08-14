@@ -64,6 +64,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ReportingWorkspaceId,
+        /// <summary>
+        /// 
+        /// </summary>
+        HasApiKey,
     }
 
     /// <summary>
@@ -92,6 +96,7 @@ namespace ElevenLabs
                 BreakdownTypes.Region => "region",
                 BreakdownTypes.SubresourceId => "subresource_id",
                 BreakdownTypes.ReportingWorkspaceId => "reporting_workspace_id",
+                BreakdownTypes.HasApiKey => "has_api_key",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -116,6 +121,7 @@ namespace ElevenLabs
                 "region" => BreakdownTypes.Region,
                 "subresource_id" => BreakdownTypes.SubresourceId,
                 "reporting_workspace_id" => BreakdownTypes.ReportingWorkspaceId,
+                "has_api_key" => BreakdownTypes.HasApiKey,
                 _ => null,
             };
         }

@@ -367,6 +367,41 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel? VoicemailDetectionSuccess { get; init; }
+#else
+        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel? VoicemailDetectionSuccess { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VoicemailDetectionSuccess))]
+#endif
+        public bool IsVoicemailDetectionSuccess => VoicemailDetectionSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Result(global::ElevenLabs.VoiceMailDetectionResultSuccessModel value) => new Result((global::ElevenLabs.VoiceMailDetectionResultSuccessModel?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.VoiceMailDetectionResultSuccessModel?(Result @this) => @this.VoicemailDetectionSuccess;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Result(global::ElevenLabs.VoiceMailDetectionResultSuccessModel? value)
+        {
+            VoicemailDetectionSuccess = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Result(
             global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType? resultType,
             global::ElevenLabs.EndCallToolResultModel? endCallSuccess,
@@ -378,7 +413,8 @@ namespace ElevenLabs
             global::ElevenLabs.TransferToNumberResultErrorModel? transferToNumberError,
             global::ElevenLabs.SkipTurnToolResponseModel? skipTurnSuccess,
             global::ElevenLabs.PlayDTMFResultSuccessModel? playDtmfSuccess,
-            global::ElevenLabs.PlayDTMFResultErrorModel? playDtmfError
+            global::ElevenLabs.PlayDTMFResultErrorModel? playDtmfError,
+            global::ElevenLabs.VoiceMailDetectionResultSuccessModel? voicemailDetectionSuccess
             )
         {
             ResultType = resultType;
@@ -393,12 +429,14 @@ namespace ElevenLabs
             SkipTurnSuccess = skipTurnSuccess;
             PlayDtmfSuccess = playDtmfSuccess;
             PlayDtmfError = playDtmfError;
+            VoicemailDetectionSuccess = voicemailDetectionSuccess;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            VoicemailDetectionSuccess as object ??
             PlayDtmfError as object ??
             PlayDtmfSuccess as object ??
             SkipTurnSuccess as object ??
@@ -424,7 +462,8 @@ namespace ElevenLabs
             TransferToNumberError?.ToString() ??
             SkipTurnSuccess?.ToString() ??
             PlayDtmfSuccess?.ToString() ??
-            PlayDtmfError?.ToString() 
+            PlayDtmfError?.ToString() ??
+            VoicemailDetectionSuccess?.ToString() 
             ;
 
         /// <summary>
@@ -432,7 +471,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError || !IsEndCallSuccess && IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && IsPlayDtmfSuccess && !IsPlayDtmfError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && IsPlayDtmfError;
+            return IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && IsPlayDtmfError && !IsVoicemailDetectionSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && IsVoicemailDetectionSuccess;
         }
 
         /// <summary>
@@ -449,6 +488,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.SkipTurnToolResponseModel?, TResult>? skipTurnSuccess = null,
             global::System.Func<global::ElevenLabs.PlayDTMFResultSuccessModel?, TResult>? playDtmfSuccess = null,
             global::System.Func<global::ElevenLabs.PlayDTMFResultErrorModel?, TResult>? playDtmfError = null,
+            global::System.Func<global::ElevenLabs.VoiceMailDetectionResultSuccessModel?, TResult>? voicemailDetectionSuccess = null,
             bool validate = true)
         {
             if (validate)
@@ -496,6 +536,10 @@ namespace ElevenLabs
             {
                 return playDtmfError(PlayDtmfError!);
             }
+            else if (IsVoicemailDetectionSuccess && voicemailDetectionSuccess != null)
+            {
+                return voicemailDetectionSuccess(VoicemailDetectionSuccess!);
+            }
 
             return default(TResult);
         }
@@ -514,6 +558,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.SkipTurnToolResponseModel?>? skipTurnSuccess = null,
             global::System.Action<global::ElevenLabs.PlayDTMFResultSuccessModel?>? playDtmfSuccess = null,
             global::System.Action<global::ElevenLabs.PlayDTMFResultErrorModel?>? playDtmfError = null,
+            global::System.Action<global::ElevenLabs.VoiceMailDetectionResultSuccessModel?>? voicemailDetectionSuccess = null,
             bool validate = true)
         {
             if (validate)
@@ -561,6 +606,10 @@ namespace ElevenLabs
             {
                 playDtmfError?.Invoke(PlayDtmfError!);
             }
+            else if (IsVoicemailDetectionSuccess)
+            {
+                voicemailDetectionSuccess?.Invoke(VoicemailDetectionSuccess!);
+            }
         }
 
         /// <summary>
@@ -590,6 +639,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.PlayDTMFResultSuccessModel),
                 PlayDtmfError,
                 typeof(global::ElevenLabs.PlayDTMFResultErrorModel),
+                VoicemailDetectionSuccess,
+                typeof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -615,7 +666,8 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberResultErrorModel?>.Default.Equals(TransferToNumberError, other.TransferToNumberError) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolResponseModel?>.Default.Equals(SkipTurnSuccess, other.SkipTurnSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFResultSuccessModel?>.Default.Equals(PlayDtmfSuccess, other.PlayDtmfSuccess) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFResultErrorModel?>.Default.Equals(PlayDtmfError, other.PlayDtmfError) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFResultErrorModel?>.Default.Equals(PlayDtmfError, other.PlayDtmfError) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoiceMailDetectionResultSuccessModel?>.Default.Equals(VoicemailDetectionSuccess, other.VoicemailDetectionSuccess) 
                 ;
         }
 

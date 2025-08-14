@@ -4509,6 +4509,14 @@ paths:
           description: 'How to aggregate usage data over time. Can be "hour", "day", "week", "month", or "cumulative".'
           schema:
             $ref: '#/components/schemas/UsageAggregationInterval'
+        - name: aggregation_bucket_size
+          in: query
+          description: Aggregation bucket size in seconds. Overrides the aggregation interval.
+          schema:
+            title: Aggregation Bucket Size
+            type: integer
+            description: Aggregation bucket size in seconds. Overrides the aggregation interval.
+            nullable: true
         - name: metric
           in: query
           description: Which metric to aggregate.
@@ -12080,7 +12088,7 @@ components:
         file:
           title: File
           type: string
-          description: The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3GB.
+          description: The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
           format: binary
           nullable: true
         language_code:
@@ -12382,7 +12390,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. For ''eleven_turbo_v2_5'' and ''eleven_flash_v2_5'' models, text normalization can only be enabled with Enterprise plans.'
           default: auto
           example: 'true'
         apply_language_text_normalization:
@@ -12478,7 +12486,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. For ''eleven_turbo_v2_5'' and ''eleven_flash_v2_5'' models, text normalization can only be enabled with Enterprise plans.'
           default: auto
           example: 'true'
         apply_language_text_normalization:
@@ -12574,7 +12582,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. For ''eleven_turbo_v2_5'' and ''eleven_flash_v2_5'' models, text normalization can only be enabled with Enterprise plans.'
           default: auto
           example: 'true'
         apply_language_text_normalization:
@@ -12667,7 +12675,7 @@ components:
             - on
             - off
           type: string
-          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. Cannot be turned on for ''eleven_turbo_v2_5'' or ''eleven_flash_v2_5'' models.'
+          description: 'This parameter controls text normalization with three modes: ''auto'', ''on'', and ''off''. When set to ''auto'', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With ''on'', text normalization will always be applied, while with ''off'', it will be skipped. For ''eleven_turbo_v2_5'' and ''eleven_flash_v2_5'' models, text normalization can only be enabled with Enterprise plans.'
           default: auto
           example: 'true'
         apply_language_text_normalization:
@@ -13052,6 +13060,7 @@ components:
         - region
         - subresource_id
         - reporting_workspace_id
+        - has_api_key
       type: string
       description: How to break down the information. Cannot be "user" or "api_key" if include_workspace_metrics is False.
     BuiltInTools-Input:
@@ -14554,6 +14563,7 @@ components:
             - $ref: '#/components/schemas/SkipTurnToolResponseModel'
             - $ref: '#/components/schemas/PlayDTMFResultSuccessModel'
             - $ref: '#/components/schemas/PlayDTMFResultErrorModel'
+            - $ref: '#/components/schemas/VoiceMailDetectionResultSuccessModel'
           nullable: true
           discriminator:
             propertyName: result_type
@@ -14568,6 +14578,7 @@ components:
               transfer_to_number_error: '#/components/schemas/TransferToNumberResultErrorModel'
               transfer_to_number_sip_success: '#/components/schemas/TransferToNumberResultSipSuccessModel'
               transfer_to_number_twilio_success: '#/components/schemas/TransferToNumberResultTwilioSuccessModel'
+              voicemail_detection_success: '#/components/schemas/VoiceMailDetectionResultSuccessModel'
     ConversationHistoryTranscriptToolCallClientDetails:
       title: ConversationHistoryTranscriptToolCallClientDetails
       required:
@@ -18877,6 +18888,7 @@ components:
         - ttfb_p95
         - fiat_units_spent
         - concurrency
+        - concurrency_average
       type: string
     ModelRatesResponseModel:
       title: ModelRatesResponseModel
@@ -23789,6 +23801,30 @@ components:
         maximum_accent_strength:
           title: Maximum Accent Strength
           type: number
+    VoiceMailDetectionResultSuccessModel:
+      title: VoiceMailDetectionResultSuccessModel
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - voicemail_detection_success
+          type: string
+          default: voicemail_detection_success
+        status:
+          title: Status
+          enum:
+            - success
+          type: string
+          default: success
+        voicemail_message:
+          title: Voicemail Message
+          type: string
+          nullable: true
+        reason:
+          title: Reason
+          type: string
+          nullable: true
     VoicePreviewResponseModel:
       title: VoicePreviewResponseModel
       required:
