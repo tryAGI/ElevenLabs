@@ -12,6 +12,7 @@ namespace ElevenLabs
             ref bool? includeWorkspaceMetrics,
             ref global::ElevenLabs.BreakdownTypes? breakdownType,
             ref global::ElevenLabs.UsageAggregationInterval? aggregationInterval,
+            ref int? aggregationBucketSize,
             ref global::ElevenLabs.MetricType? metric,
             ref string? xiApiKey);
         partial void PrepareGetUsageCharacterStatsRequest(
@@ -22,6 +23,7 @@ namespace ElevenLabs
             bool? includeWorkspaceMetrics,
             global::ElevenLabs.BreakdownTypes? breakdownType,
             global::ElevenLabs.UsageAggregationInterval? aggregationInterval,
+            int? aggregationBucketSize,
             global::ElevenLabs.MetricType? metric,
             string? xiApiKey);
         partial void ProcessGetUsageCharacterStatsResponse(
@@ -55,6 +57,9 @@ namespace ElevenLabs
         /// <param name="aggregationInterval">
         /// The time interval over which to aggregate the usage data.
         /// </param>
+        /// <param name="aggregationBucketSize">
+        /// Aggregation bucket size in seconds. Overrides the aggregation interval.
+        /// </param>
         /// <param name="metric"></param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -67,6 +72,7 @@ namespace ElevenLabs
             bool? includeWorkspaceMetrics = default,
             global::ElevenLabs.BreakdownTypes? breakdownType = default,
             global::ElevenLabs.UsageAggregationInterval? aggregationInterval = default,
+            int? aggregationBucketSize = default,
             global::ElevenLabs.MetricType? metric = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -80,6 +86,7 @@ namespace ElevenLabs
                 includeWorkspaceMetrics: ref includeWorkspaceMetrics,
                 breakdownType: ref breakdownType,
                 aggregationInterval: ref aggregationInterval,
+                aggregationBucketSize: ref aggregationBucketSize,
                 metric: ref metric,
                 xiApiKey: ref xiApiKey);
 
@@ -92,6 +99,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("include_workspace_metrics", includeWorkspaceMetrics?.ToString()) 
                 .AddOptionalParameter("breakdown_type", breakdownType?.ToValueString()) 
                 .AddOptionalParameter("aggregation_interval", aggregationInterval?.ToValueString()) 
+                .AddOptionalParameter("aggregation_bucket_size", aggregationBucketSize?.ToString()) 
                 .AddOptionalParameter("metric", metric?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -136,6 +144,7 @@ namespace ElevenLabs
                 includeWorkspaceMetrics: includeWorkspaceMetrics,
                 breakdownType: breakdownType,
                 aggregationInterval: aggregationInterval,
+                aggregationBucketSize: aggregationBucketSize,
                 metric: metric,
                 xiApiKey: xiApiKey);
 

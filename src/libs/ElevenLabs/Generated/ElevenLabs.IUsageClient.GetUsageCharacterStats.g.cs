@@ -26,6 +26,9 @@ namespace ElevenLabs
         /// <param name="aggregationInterval">
         /// The time interval over which to aggregate the usage data.
         /// </param>
+        /// <param name="aggregationBucketSize">
+        /// Aggregation bucket size in seconds. Overrides the aggregation interval.
+        /// </param>
         /// <param name="metric"></param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -38,6 +41,7 @@ namespace ElevenLabs
             bool? includeWorkspaceMetrics = default,
             global::ElevenLabs.BreakdownTypes? breakdownType = default,
             global::ElevenLabs.UsageAggregationInterval? aggregationInterval = default,
+            int? aggregationBucketSize = default,
             global::ElevenLabs.MetricType? metric = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
