@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -126,6 +128,15 @@ namespace ElevenLabs
         public bool? UseMultiChannel { get; set; }
 
         /// <summary>
+        /// Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.<br/>
+        /// Example: {"user_id": "123", "session_id": "abc-def-ghi"}
+        /// </summary>
+        /// <example>{"user_id": "123", "session_id": "abc-def-ghi"}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("webhook_metadata")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, object>))]
+        public global::ElevenLabs.AnyOf<string, object>? WebhookMetadata { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -192,6 +203,10 @@ namespace ElevenLabs
         /// Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="webhookMetadata">
+        /// Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.<br/>
+        /// Example: {"user_id": "123", "session_id": "abc-def-ghi"}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -212,7 +227,8 @@ namespace ElevenLabs
             string? webhookId,
             double? temperature,
             int? seed,
-            bool? useMultiChannel)
+            bool? useMultiChannel,
+            global::ElevenLabs.AnyOf<string, object>? webhookMetadata)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file;
@@ -231,6 +247,7 @@ namespace ElevenLabs
             this.Temperature = temperature;
             this.Seed = seed;
             this.UseMultiChannel = useMultiChannel;
+            this.WebhookMetadata = webhookMetadata;
         }
 
         /// <summary>
