@@ -5599,7 +5599,7 @@ paths:
       tags:
         - speech-to-text
       summary: Speech To Text
-      description: 'Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a ''transcripts'' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript.'
+      description: 'Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a ''transcripts'' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.'
       operationId: Speech_to_Text_v1_speech_to_text_post
       parameters:
         - name: enable_logging
@@ -12176,6 +12176,14 @@ components:
           type: boolean
           description: 'Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a ''channel_index'' field indicating which channel it was spoken on. A maximum of 5 channels is supported.'
           default: false
+        webhook_metadata:
+          title: Webhook Metadata
+          anyOf:
+            - type: string
+            - type: object
+          description: 'Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.'
+          nullable: true
+          example: '{"user_id": "123", "session_id": "abc-def-ghi"}'
     Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post:
       title: Body_Stream_Studio_project_audio_v1_studio_projects__project_id__snapshots__project_snapshot_id__stream_post
       type: object
