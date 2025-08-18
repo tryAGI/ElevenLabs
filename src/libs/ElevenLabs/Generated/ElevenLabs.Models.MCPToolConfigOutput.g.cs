@@ -9,6 +9,13 @@ namespace ElevenLabs
     public sealed partial class MCPToolConfigOutput
     {
         /// <summary>
+        /// Default Value: mcp
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOutputTypeJsonConverter))]
+        public global::ElevenLabs.MCPToolConfigOutputType? Type { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -48,13 +55,6 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assignments")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
-
-        /// <summary>
-        /// Default Value: mcp
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOutputTypeJsonConverter))]
-        public global::ElevenLabs.MCPToolConfigOutputType? Type { get; set; }
 
         /// <summary>
         /// 
@@ -120,6 +120,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="MCPToolConfigOutput" /> class.
         /// </summary>
+        /// <param name="type">
+        /// Default Value: mcp
+        /// </param>
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="responseTimeoutSecs">
@@ -136,9 +139,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="assignments">
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
-        /// </param>
-        /// <param name="type">
-        /// Default Value: mcp
         /// </param>
         /// <param name="integrationType"></param>
         /// <param name="parameters"></param>
@@ -171,11 +171,11 @@ namespace ElevenLabs
             string mcpToolDescription,
             string mcpServerId,
             string mcpServerName,
+            global::ElevenLabs.MCPToolConfigOutputType? type,
             int? responseTimeoutSecs,
             bool? disableInterruptions,
             bool? forcePreToolSpeech,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
-            global::ElevenLabs.MCPToolConfigOutputType? type,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? parameters,
             global::ElevenLabs.MCPApprovalPolicy? approvalPolicy,
             object? mcpInputSchema)
@@ -187,11 +187,11 @@ namespace ElevenLabs
             this.McpToolDescription = mcpToolDescription ?? throw new global::System.ArgumentNullException(nameof(mcpToolDescription));
             this.McpServerId = mcpServerId ?? throw new global::System.ArgumentNullException(nameof(mcpServerId));
             this.McpServerName = mcpServerName ?? throw new global::System.ArgumentNullException(nameof(mcpServerName));
+            this.Type = type;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.DisableInterruptions = disableInterruptions;
             this.ForcePreToolSpeech = forcePreToolSpeech;
             this.Assignments = assignments;
-            this.Type = type;
             this.Parameters = parameters;
             this.ApprovalPolicy = approvalPolicy;
             this.McpInputSchema = mcpInputSchema;

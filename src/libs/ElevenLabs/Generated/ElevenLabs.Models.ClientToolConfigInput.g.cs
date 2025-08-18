@@ -9,6 +9,14 @@ namespace ElevenLabs
     public sealed partial class ClientToolConfigInput
     {
         /// <summary>
+        /// The type of tool<br/>
+        /// Default Value: client
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ClientToolConfigInputTypeJsonConverter))]
+        public global::ElevenLabs.ClientToolConfigInputType? Type { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -50,14 +58,6 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
 
         /// <summary>
-        /// The type of tool<br/>
-        /// Default Value: client
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ClientToolConfigInputTypeJsonConverter))]
-        public global::ElevenLabs.ClientToolConfigInputType? Type { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parameters")]
@@ -85,6 +85,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientToolConfigInput" /> class.
         /// </summary>
+        /// <param name="type">
+        /// The type of tool<br/>
+        /// Default Value: client
+        /// </param>
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="responseTimeoutSecs">
@@ -102,10 +106,6 @@ namespace ElevenLabs
         /// <param name="assignments">
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
         /// </param>
-        /// <param name="type">
-        /// The type of tool<br/>
-        /// Default Value: client
-        /// </param>
         /// <param name="parameters"></param>
         /// <param name="expectsResponse">
         /// If true, calling this tool should block the conversation until the client responds with some response which is passed to the llm. If false then we will continue the conversation without waiting for the client to respond, this is useful to show content to a user but not block the conversation<br/>
@@ -118,22 +118,22 @@ namespace ElevenLabs
         public ClientToolConfigInput(
             string name,
             string description,
+            global::ElevenLabs.ClientToolConfigInputType? type,
             int? responseTimeoutSecs,
             bool? disableInterruptions,
             bool? forcePreToolSpeech,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
-            global::ElevenLabs.ClientToolConfigInputType? type,
             global::ElevenLabs.ObjectJsonSchemaPropertyInput? parameters,
             bool? expectsResponse,
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
+            this.Type = type;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.DisableInterruptions = disableInterruptions;
             this.ForcePreToolSpeech = forcePreToolSpeech;
             this.Assignments = assignments;
-            this.Type = type;
             this.Parameters = parameters;
             this.ExpectsResponse = expectsResponse;
             this.DynamicVariables = dynamicVariables;

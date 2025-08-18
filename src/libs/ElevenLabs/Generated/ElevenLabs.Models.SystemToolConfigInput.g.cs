@@ -9,6 +9,14 @@ namespace ElevenLabs
     public sealed partial class SystemToolConfigInput
     {
         /// <summary>
+        /// The type of tool<br/>
+        /// Default Value: system
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SystemToolConfigInputTypeJsonConverter))]
+        public global::ElevenLabs.SystemToolConfigInputType? Type { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -50,14 +58,6 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
 
         /// <summary>
-        /// The type of tool<br/>
-        /// Default Value: system
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SystemToolConfigInputTypeJsonConverter))]
-        public global::ElevenLabs.SystemToolConfigInputType? Type { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("params")]
@@ -74,6 +74,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemToolConfigInput" /> class.
         /// </summary>
+        /// <param name="type">
+        /// The type of tool<br/>
+        /// Default Value: system
+        /// </param>
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="responseTimeoutSecs">
@@ -91,10 +95,6 @@ namespace ElevenLabs
         /// <param name="assignments">
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
         /// </param>
-        /// <param name="type">
-        /// The type of tool<br/>
-        /// Default Value: system
-        /// </param>
         /// <param name="params"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -103,20 +103,20 @@ namespace ElevenLabs
             string name,
             string description,
             global::ElevenLabs.Params @params,
+            global::ElevenLabs.SystemToolConfigInputType? type,
             int? responseTimeoutSecs,
             bool? disableInterruptions,
             bool? forcePreToolSpeech,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
-            global::ElevenLabs.SystemToolConfigInputType? type)
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Params = @params;
+            this.Type = type;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.DisableInterruptions = disableInterruptions;
             this.ForcePreToolSpeech = forcePreToolSpeech;
             this.Assignments = assignments;
-            this.Type = type;
         }
 
         /// <summary>

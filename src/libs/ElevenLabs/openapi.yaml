@@ -8844,6 +8844,244 @@ paths:
         - mcp_servers
         - tool_approvals
       x-fern-sdk-method-name: delete
+  /v1/music/plan:
+    post:
+      tags:
+        - music-generation
+      summary: Generate Composition Plan
+      description: Generate a composition plan from a prompt.
+      operationId: Generate_composition_plan_v1_music_plan_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Generate_composition_plan_v1_music_plan_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MusicPrompt'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - music
+        - composition_plan
+      x-fern-sdk-method-name: create
+  /v1/music:
+    post:
+      tags:
+        - music-generation
+      summary: Compose Music
+      description: Compose a song from a prompt or a composition plan.
+      operationId: Compose_music_v1_music_post
+      parameters:
+        - name: output_format
+          in: query
+          description: 'Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.'
+          schema:
+            title: Output format of the generated audio.
+            enum:
+              - mp3_22050_32
+              - mp3_44100_32
+              - mp3_44100_64
+              - mp3_44100_96
+              - mp3_44100_128
+              - mp3_44100_192
+              - pcm_8000
+              - pcm_16000
+              - pcm_22050
+              - pcm_24000
+              - pcm_44100
+              - pcm_48000
+              - ulaw_8000
+              - alaw_8000
+              - opus_48000_32
+              - opus_48000_64
+              - opus_48000_96
+              - opus_48000_128
+              - opus_48000_192
+            type: string
+            description: 'Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.'
+            default: mp3_44100_128
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Compose_music_v1_music_post'
+      responses:
+        '200':
+          description: The generated audio file in the format specified
+          content:
+            audio/*:
+              schema:
+                type: string
+                format: binary
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: music
+      x-fern-sdk-method-name: compose
+  /v1/music/detailed:
+    post:
+      tags:
+        - music-generation
+      summary: Compose Music With A Detailed Response
+      description: Compose a song from a prompt or a composition plan.
+      operationId: Compose_Music_with_a_detailed_response_v1_music_detailed_post
+      parameters:
+        - name: output_format
+          in: query
+          description: 'Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.'
+          schema:
+            title: Output format of the generated audio.
+            enum:
+              - mp3_22050_32
+              - mp3_44100_32
+              - mp3_44100_64
+              - mp3_44100_96
+              - mp3_44100_128
+              - mp3_44100_192
+              - pcm_8000
+              - pcm_16000
+              - pcm_22050
+              - pcm_24000
+              - pcm_44100
+              - pcm_48000
+              - ulaw_8000
+              - alaw_8000
+              - opus_48000_32
+              - opus_48000_64
+              - opus_48000_96
+              - opus_48000_128
+              - opus_48000_192
+            type: string
+            description: 'Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.'
+            default: mp3_44100_128
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Compose_Music_with_a_detailed_response_v1_music_detailed_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+            multipart/mixed:
+              schema:
+                type: string
+                description: 'Raw multipart/mixed response data that clients must parse. Contains two parts separated by boundary: 1) application/json part with composition_plan and song_metadata 2) audio/* part with binary audio data and Content-Disposition header'
+                format: binary
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: music
+      x-fern-sdk-method-name: compose_detailed
+  /v1/music/stream:
+    post:
+      tags:
+        - music-generation
+      summary: Stream Composed Music
+      description: Stream a composed song from a prompt or a composition plan.
+      operationId: Stream_composed_music_v1_music_stream_post
+      parameters:
+        - name: output_format
+          in: query
+          description: 'Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.'
+          schema:
+            title: Output format of the generated audio.
+            enum:
+              - mp3_22050_32
+              - mp3_44100_32
+              - mp3_44100_64
+              - mp3_44100_96
+              - mp3_44100_128
+              - mp3_44100_192
+              - pcm_8000
+              - pcm_16000
+              - pcm_22050
+              - pcm_24000
+              - pcm_44100
+              - pcm_48000
+              - ulaw_8000
+              - alaw_8000
+              - opus_48000_32
+              - opus_48000_64
+              - opus_48000_96
+              - opus_48000_128
+              - opus_48000_192
+            type: string
+            description: 'Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.'
+            default: mp3_44100_128
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Stream_composed_music_v1_music_stream_post'
+      responses:
+        '200':
+          description: Streaming audio data in the format specified
+          content:
+            audio/*:
+              schema:
+                type: string
+                format: binary
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: music
+      x-fern-sdk-method-name: stream
+      x-fern-streaming: true
   /v1/voices/pvc:
     post:
       tags:
@@ -10753,6 +10991,62 @@ components:
           default: other
           nullable: true
           example: pcm_s16le_16
+    Body_Compose_Music_with_a_detailed_response_v1_music_detailed_post:
+      title: Body_Compose_Music_with_a_detailed_response_v1_music_detailed_post
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          maxLength: 2000
+          type: string
+          description: A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
+          nullable: true
+        music_prompt:
+          $ref: '#/components/schemas/MusicPrompt'
+        composition_plan:
+          $ref: '#/components/schemas/MusicPrompt'
+        music_length_ms:
+          title: Music Length Ms
+          maximum: 300000
+          minimum: 10000
+          type: integer
+          description: 'The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 10000ms and 300000ms. Optional - if not provided, the model will choose a length based on the prompt.'
+          nullable: true
+        model_id:
+          title: Model Id
+          enum:
+            - music_v1
+          type: string
+          description: The model to use for the generation.
+          default: music_v1
+    Body_Compose_music_v1_music_post:
+      title: Body_Compose_music_v1_music_post
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          maxLength: 2000
+          type: string
+          description: A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
+          nullable: true
+        music_prompt:
+          $ref: '#/components/schemas/MusicPrompt'
+        composition_plan:
+          $ref: '#/components/schemas/MusicPrompt'
+        music_length_ms:
+          title: Music Length Ms
+          maximum: 300000
+          minimum: 10000
+          type: integer
+          description: 'The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 10000ms and 300000ms. Optional - if not provided, the model will choose a length based on the prompt.'
+          nullable: true
+        model_id:
+          title: Model Id
+          enum:
+            - music_v1
+          type: string
+          description: The model to use for the generation.
+          default: music_v1
     Body_Create_Agent_v1_convai_agents_create_post:
       title: Body_Create_Agent_v1_convai_agents_create_post
       required:
@@ -11665,6 +11959,33 @@ components:
           type: string
           description: 'Text to generate, text length has to be between 100 and 1000.'
           example: 'Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.'
+    Body_Generate_composition_plan_v1_music_plan_post:
+      title: Body_Generate_composition_plan_v1_music_plan_post
+      required:
+        - prompt
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          maxLength: 2000
+          type: string
+          description: A simple text prompt to compose a plan from.
+        music_length_ms:
+          title: Music Length Ms
+          maximum: 300000
+          minimum: 10000
+          type: integer
+          description: 'The length of the composition plan to generate in milliseconds. Must be between 10000ms and 300000ms. Optional - if not provided, the model will choose a length based on the prompt.'
+          nullable: true
+        source_composition_plan:
+          $ref: '#/components/schemas/MusicPrompt'
+        model_id:
+          title: Model Id
+          enum:
+            - music_v1
+          type: string
+          description: The model to use for the generation.
+          default: music_v1
     Body_Get_similar_library_voices_v1_similar_voices_post:
       title: Body_Get_similar_library_voices_v1_similar_voices_post
       type: object
@@ -12202,6 +12523,34 @@ components:
           type: boolean
           description: Whether to convert the audio to mpeg format.
           default: false
+    Body_Stream_composed_music_v1_music_stream_post:
+      title: Body_Stream_composed_music_v1_music_stream_post
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          maxLength: 2000
+          type: string
+          description: A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
+          nullable: true
+        music_prompt:
+          $ref: '#/components/schemas/MusicPrompt'
+        composition_plan:
+          $ref: '#/components/schemas/MusicPrompt'
+        music_length_ms:
+          title: Music Length Ms
+          maximum: 300000
+          minimum: 10000
+          type: integer
+          description: 'The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 10000ms and 300000ms. Optional - if not provided, the model will choose a length based on the prompt.'
+          nullable: true
+        model_id:
+          title: Model Id
+          enum:
+            - music_v1
+          type: string
+          description: The model to use for the generation.
+          default: music_v1
     Body_Submit_a_batch_call_request__v1_convai_batch_calling_submit_post:
       title: Body_Submit_a_batch_call_request__v1_convai_batch_calling_submit_post
       required:
@@ -13752,6 +14101,13 @@ components:
         - description
       type: object
       properties:
+        type:
+          title: Type
+          enum:
+            - client
+          type: string
+          description: The type of tool
+          default: client
         name:
           title: Name
           minLength: 0
@@ -13784,13 +14140,6 @@ components:
           items:
             $ref: '#/components/schemas/DynamicVariableAssignment'
           description: Configuration for extracting values from tool responses and assigning them to dynamic variables
-        type:
-          title: Type
-          enum:
-            - client
-          type: string
-          description: The type of tool
-          default: client
         parameters:
           $ref: '#/components/schemas/ObjectJsonSchemaProperty-Input'
         expects_response:
@@ -13811,6 +14160,13 @@ components:
         - description
       type: object
       properties:
+        type:
+          title: Type
+          enum:
+            - client
+          type: string
+          description: The type of tool
+          default: client
         name:
           title: Name
           minLength: 0
@@ -13843,13 +14199,6 @@ components:
           items:
             $ref: '#/components/schemas/DynamicVariableAssignment'
           description: Configuration for extracting values from tool responses and assigning them to dynamic variables
-        type:
-          title: Type
-          enum:
-            - client
-          type: string
-          description: The type of tool
-          default: client
         parameters:
           $ref: '#/components/schemas/ObjectJsonSchemaProperty-Output'
         expects_response:
@@ -14386,6 +14735,7 @@ components:
             oneOf:
               - $ref: '#/components/schemas/ConversationHistoryTranscriptOtherToolsResultCommonModel'
               - $ref: '#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel'
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Input'
         feedback:
           $ref: '#/components/schemas/UserFeedback'
         llm_override:
@@ -14445,6 +14795,7 @@ components:
             oneOf:
               - $ref: '#/components/schemas/ConversationHistoryTranscriptOtherToolsResultCommonModel'
               - $ref: '#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel'
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Output'
         feedback:
           $ref: '#/components/schemas/UserFeedback'
         llm_override:
@@ -14721,6 +15072,90 @@ components:
           title: Body
           type: string
           nullable: true
+    ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Input:
+      title: ConversationHistoryTranscriptWorkflowToolsResultCommonModel
+      required:
+        - request_id
+        - tool_name
+        - result_value
+        - is_error
+        - tool_has_been_called
+        - type
+      type: object
+      properties:
+        request_id:
+          title: Request Id
+          type: string
+        tool_name:
+          title: Tool Name
+          type: string
+        result_value:
+          title: Result Value
+          type: string
+        is_error:
+          title: Is Error
+          type: boolean
+        tool_has_been_called:
+          title: Tool Has Been Called
+          type: boolean
+        tool_latency_secs:
+          title: Tool Latency Secs
+          type: number
+          default: 0
+        dynamic_variable_updates:
+          title: Dynamic Variable Updates
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableUpdateCommonModel'
+        type:
+          title: Type
+          enum:
+            - workflow
+          type: string
+        result:
+          $ref: '#/components/schemas/WorkflowToolResponseModel-Input'
+    ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Output:
+      title: ConversationHistoryTranscriptWorkflowToolsResultCommonModel
+      required:
+        - request_id
+        - tool_name
+        - result_value
+        - is_error
+        - tool_has_been_called
+        - type
+      type: object
+      properties:
+        request_id:
+          title: Request Id
+          type: string
+        tool_name:
+          title: Tool Name
+          type: string
+        result_value:
+          title: Result Value
+          type: string
+        is_error:
+          title: Is Error
+          type: boolean
+        tool_has_been_called:
+          title: Tool Has Been Called
+          type: boolean
+        tool_latency_secs:
+          title: Tool Latency Secs
+          type: number
+          default: 0
+        dynamic_variable_updates:
+          title: Dynamic Variable Updates
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicVariableUpdateCommonModel'
+        type:
+          title: Type
+          enum:
+            - workflow
+          type: string
+        result:
+          $ref: '#/components/schemas/WorkflowToolResponseModel-Output'
     ConversationHistoryTwilioPhoneCallModel:
       title: ConversationHistoryTwilioPhoneCallModel
       required:
@@ -18668,6 +19103,12 @@ components:
         - mcp_server_name
       type: object
       properties:
+        type:
+          title: Type
+          enum:
+            - mcp
+          type: string
+          default: mcp
         name:
           title: Name
           minLength: 0
@@ -18698,12 +19139,6 @@ components:
           items:
             $ref: '#/components/schemas/DynamicVariableAssignment'
           description: Configuration for extracting values from tool responses and assigning them to dynamic variables
-        type:
-          title: Type
-          enum:
-            - mcp
-          type: string
-          default: mcp
         integration_type:
           $ref: '#/components/schemas/IntegrationType'
         parameters:
@@ -18745,6 +19180,12 @@ components:
         - mcp_server_name
       type: object
       properties:
+        type:
+          title: Type
+          enum:
+            - mcp
+          type: string
+          default: mcp
         name:
           title: Name
           minLength: 0
@@ -18775,12 +19216,6 @@ components:
           items:
             $ref: '#/components/schemas/DynamicVariableAssignment'
           description: Configuration for extracting values from tool responses and assigning them to dynamic variables
-        type:
-          title: Type
-          enum:
-            - mcp
-          type: string
-          default: mcp
         integration_type:
           $ref: '#/components/schemas/IntegrationType'
         parameters:
@@ -19165,6 +19600,57 @@ components:
                 start: 0.7
                 text: from
                 type: word
+    MusicPrompt:
+      title: MusicPrompt
+      required:
+        - positive_global_styles
+        - negative_global_styles
+        - sections
+      type: object
+      properties:
+        positive_global_styles:
+          title: Positive Global Styles
+          maxItems: 50
+          type: array
+          items:
+            type: string
+          description: The styles that should be present in the entire song.
+        negative_global_styles:
+          title: Negative Global Styles
+          maxItems: 50
+          type: array
+          items:
+            type: string
+          description: The styles that should not be present in the entire song.
+        sections:
+          title: Sections
+          maxItems: 30
+          type: array
+          items:
+            $ref: '#/components/schemas/SongSection'
+          description: The sections of the song.
+      example:
+        negative_global_styles:
+          - metal
+          - hip-hop
+          - country
+        positive_global_styles:
+          - pop
+          - rock
+          - jazz
+        sections:
+          - duration_ms: 10000
+            lines:
+              - Verse 1 lyrics
+            negative_local_styles:
+              - metal
+              - hip-hop
+              - country
+            positive_local_styles:
+              - pop
+              - rock
+              - jazz
+            section_name: Verse 1
     ObjectJsonSchemaProperty-Input:
       title: ObjectJsonSchemaProperty
       type: object
@@ -21626,6 +22112,49 @@ components:
           title: Reason
           type: string
           nullable: true
+    SongSection:
+      title: SongSection
+      required:
+        - section_name
+        - positive_local_styles
+        - negative_local_styles
+        - duration_ms
+        - lines
+      type: object
+      properties:
+        section_name:
+          title: Section Name
+          maxLength: 100
+          minLength: 1
+          type: string
+          description: The name of the section. Must be between 1 and 100 characters.
+        positive_local_styles:
+          title: Positive Local Styles
+          maxItems: 50
+          type: array
+          items:
+            type: string
+          description: The styles that should be present in this section.
+        negative_local_styles:
+          title: Negative Local Styles
+          maxItems: 50
+          type: array
+          items:
+            type: string
+          description: The styles that should not be present in this section.
+        duration_ms:
+          title: Duration Ms
+          maximum: 120000
+          minimum: 3000
+          type: integer
+          description: The duration of the section in milliseconds. Must be between 3000ms and 120000ms.
+        lines:
+          title: Lines
+          maxItems: 30
+          type: array
+          items:
+            type: string
+          description: The lyrics of the section.
     SpeakerAudioResponseModel:
       title: SpeakerAudioResponseModel
       required:
@@ -22521,6 +23050,13 @@ components:
         - params
       type: object
       properties:
+        type:
+          title: Type
+          enum:
+            - system
+          type: string
+          description: The type of tool
+          default: system
         name:
           title: Name
           minLength: 0
@@ -22551,13 +23087,6 @@ components:
           items:
             $ref: '#/components/schemas/DynamicVariableAssignment'
           description: Configuration for extracting values from tool responses and assigning them to dynamic variables
-        type:
-          title: Type
-          enum:
-            - system
-          type: string
-          description: The type of tool
-          default: system
         params:
           title: Params
           oneOf:
@@ -22593,6 +23122,13 @@ components:
         - params
       type: object
       properties:
+        type:
+          title: Type
+          enum:
+            - system
+          type: string
+          description: The type of tool
+          default: system
         name:
           title: Name
           minLength: 0
@@ -22623,13 +23159,6 @@ components:
           items:
             $ref: '#/components/schemas/DynamicVariableAssignment'
           description: Configuration for extracting values from tool responses and assigning them to dynamic variables
-        type:
-          title: Type
-          enum:
-            - system
-          type: string
-          description: The type of tool
-          default: system
         params:
           title: Params
           oneOf:
@@ -22977,6 +23506,7 @@ components:
         - webhook
         - client
         - mcp
+        - workflow
       type: string
     ToolUsageStatsResponseModel:
       title: ToolUsageStatsResponseModel
@@ -24771,6 +25301,13 @@ components:
         - api_schema
       type: object
       properties:
+        type:
+          title: Type
+          enum:
+            - webhook
+          type: string
+          description: The type of tool
+          default: webhook
         name:
           title: Name
           minLength: 0
@@ -24803,13 +25340,6 @@ components:
           items:
             $ref: '#/components/schemas/DynamicVariableAssignment'
           description: Configuration for extracting values from tool responses and assigning them to dynamic variables
-        type:
-          title: Type
-          enum:
-            - webhook
-          type: string
-          description: The type of tool
-          default: webhook
         api_schema:
           $ref: '#/components/schemas/WebhookToolApiSchemaConfig-Input'
         dynamic_variables:
@@ -24826,6 +25356,13 @@ components:
         - api_schema
       type: object
       properties:
+        type:
+          title: Type
+          enum:
+            - webhook
+          type: string
+          description: The type of tool
+          default: webhook
         name:
           title: Name
           minLength: 0
@@ -24858,13 +25395,6 @@ components:
           items:
             $ref: '#/components/schemas/DynamicVariableAssignment'
           description: Configuration for extracting values from tool responses and assigning them to dynamic variables
-        type:
-          title: Type
-          enum:
-            - webhook
-          type: string
-          description: The type of tool
-          default: webhook
         api_schema:
           $ref: '#/components/schemas/WebhookToolApiSchemaConfig-Output'
         dynamic_variables:
@@ -25437,6 +25967,11 @@ components:
           title: First Message
           type: string
           nullable: true
+        use_rtc:
+          title: Use Rtc
+          type: boolean
+          description: Whether to use WebRTC for conversation connections
+          nullable: true
       example:
         first_message: Hello! How can I help you today?
         language: en
@@ -25446,6 +25981,7 @@ components:
           - fr
         supports_text_only: true
         text_only: false
+        use_rtc: false
     WidgetExpandable:
       title: WidgetExpandable
       enum:
@@ -25720,6 +26256,166 @@ components:
           type: string
           description: Text and ARIA label used for the copy ID button.
           nullable: true
+    WorkflowToolEdgeStepModel:
+      title: WorkflowToolEdgeStepModel
+      required:
+        - step_latency_secs
+        - edge_id
+        - target_node_id
+      type: object
+      properties:
+        step_latency_secs:
+          title: Step Latency Secs
+          type: number
+        type:
+          title: Type
+          enum:
+            - edge
+          type: string
+          default: edge
+        edge_id:
+          title: Edge Id
+          type: string
+        target_node_id:
+          title: Target Node Id
+          type: string
+    WorkflowToolMaxIterationsExceededStepModel:
+      title: WorkflowToolMaxIterationsExceededStepModel
+      required:
+        - step_latency_secs
+        - max_iterations
+      type: object
+      properties:
+        step_latency_secs:
+          title: Step Latency Secs
+          type: number
+        type:
+          title: Type
+          enum:
+            - max_iterations_exceeded
+          type: string
+          default: max_iterations_exceeded
+        max_iterations:
+          title: Max Iterations
+          type: integer
+    WorkflowToolNestedToolsStepModel-Input:
+      title: WorkflowToolNestedToolsStepModel
+      required:
+        - step_latency_secs
+        - node_id
+        - requests
+        - results
+        - is_successful
+      type: object
+      properties:
+        step_latency_secs:
+          title: Step Latency Secs
+          type: number
+        type:
+          title: Type
+          enum:
+            - nested_tools
+          type: string
+          default: nested_tools
+        node_id:
+          title: Node Id
+          type: string
+        requests:
+          title: Requests
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptToolCallCommonModel'
+        results:
+          title: Results
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptOtherToolsResultCommonModel'
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel'
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Input'
+        is_successful:
+          title: Is Successful
+          type: boolean
+    WorkflowToolNestedToolsStepModel-Output:
+      title: WorkflowToolNestedToolsStepModel
+      required:
+        - step_latency_secs
+        - node_id
+        - requests
+        - results
+        - is_successful
+      type: object
+      properties:
+        step_latency_secs:
+          title: Step Latency Secs
+          type: number
+        type:
+          title: Type
+          enum:
+            - nested_tools
+          type: string
+          default: nested_tools
+        node_id:
+          title: Node Id
+          type: string
+        requests:
+          title: Requests
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptToolCallCommonModel'
+        results:
+          title: Results
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptOtherToolsResultCommonModel'
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel'
+              - $ref: '#/components/schemas/ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Output'
+        is_successful:
+          title: Is Successful
+          type: boolean
+    WorkflowToolResponseModel-Input:
+      title: WorkflowToolResponseModel
+      type: object
+      properties:
+        final_transfer:
+          $ref: '#/components/schemas/TransferToAgentToolResultSuccessModel'
+        steps:
+          title: Steps
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/WorkflowToolEdgeStepModel'
+              - $ref: '#/components/schemas/WorkflowToolNestedToolsStepModel-Input'
+              - $ref: '#/components/schemas/WorkflowToolMaxIterationsExceededStepModel'
+            discriminator:
+              propertyName: type
+              mapping:
+                edge: '#/components/schemas/WorkflowToolEdgeStepModel'
+                max_iterations_exceeded: '#/components/schemas/WorkflowToolMaxIterationsExceededStepModel'
+                nested_tools: '#/components/schemas/WorkflowToolNestedToolsStepModel-Input'
+      description: A common model for workflow tool responses.
+    WorkflowToolResponseModel-Output:
+      title: WorkflowToolResponseModel
+      type: object
+      properties:
+        final_transfer:
+          $ref: '#/components/schemas/TransferToAgentToolResultSuccessModel'
+        steps:
+          title: Steps
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/WorkflowToolEdgeStepModel'
+              - $ref: '#/components/schemas/WorkflowToolNestedToolsStepModel-Output'
+              - $ref: '#/components/schemas/WorkflowToolMaxIterationsExceededStepModel'
+            discriminator:
+              propertyName: type
+              mapping:
+                edge: '#/components/schemas/WorkflowToolEdgeStepModel'
+                max_iterations_exceeded: '#/components/schemas/WorkflowToolMaxIterationsExceededStepModel'
+                nested_tools: '#/components/schemas/WorkflowToolNestedToolsStepModel-Output'
+      description: A common model for workflow tool responses.
     WorkspaceApiKeyListResponseModel:
       title: WorkspaceApiKeyListResponseModel
       required:

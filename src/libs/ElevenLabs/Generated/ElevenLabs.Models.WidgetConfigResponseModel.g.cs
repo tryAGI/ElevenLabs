@@ -273,6 +273,12 @@ namespace ElevenLabs
         public string? FirstMessage { get; set; }
 
         /// <summary>
+        /// Whether to use WebRTC for conversation connections
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_rtc")]
+        public bool? UseRtc { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -399,6 +405,9 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="firstMessage"></param>
+        /// <param name="useRtc">
+        /// Whether to use WebRTC for conversation connections
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -442,7 +451,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? languagePresets,
             bool? textOnly,
             bool? supportsTextOnly,
-            string? firstMessage)
+            string? firstMessage,
+            bool? useRtc)
         {
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.Variant = variant;
@@ -484,6 +494,7 @@ namespace ElevenLabs
             this.TextOnly = textOnly;
             this.SupportsTextOnly = supportsTextOnly;
             this.FirstMessage = firstMessage;
+            this.UseRtc = useRtc;
         }
 
         /// <summary>
