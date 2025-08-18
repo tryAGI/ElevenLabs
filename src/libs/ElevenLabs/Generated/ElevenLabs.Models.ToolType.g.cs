@@ -24,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Mcp,
+        /// <summary>
+        /// 
+        /// </summary>
+        Workflow,
     }
 
     /// <summary>
@@ -42,6 +46,7 @@ namespace ElevenLabs
                 ToolType.Webhook => "webhook",
                 ToolType.Client => "client",
                 ToolType.Mcp => "mcp",
+                ToolType.Workflow => "workflow",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +61,7 @@ namespace ElevenLabs
                 "webhook" => ToolType.Webhook,
                 "client" => ToolType.Client,
                 "mcp" => ToolType.Mcp,
+                "workflow" => ToolType.Workflow,
                 _ => null,
             };
         }

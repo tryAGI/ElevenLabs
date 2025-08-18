@@ -9,6 +9,14 @@ namespace ElevenLabs
     public sealed partial class WebhookToolConfigOutput
     {
         /// <summary>
+        /// The type of tool<br/>
+        /// Default Value: webhook
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WebhookToolConfigOutputTypeJsonConverter))]
+        public global::ElevenLabs.WebhookToolConfigOutputType? Type { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -50,14 +58,6 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
 
         /// <summary>
-        /// The type of tool<br/>
-        /// Default Value: webhook
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WebhookToolConfigOutputTypeJsonConverter))]
-        public global::ElevenLabs.WebhookToolConfigOutputType? Type { get; set; }
-
-        /// <summary>
         /// Configuration for a webhook that will be called by an LLM tool.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_schema")]
@@ -79,6 +79,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookToolConfigOutput" /> class.
         /// </summary>
+        /// <param name="type">
+        /// The type of tool<br/>
+        /// Default Value: webhook
+        /// </param>
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="responseTimeoutSecs">
@@ -96,10 +100,6 @@ namespace ElevenLabs
         /// <param name="assignments">
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
         /// </param>
-        /// <param name="type">
-        /// The type of tool<br/>
-        /// Default Value: webhook
-        /// </param>
         /// <param name="apiSchema">
         /// Configuration for a webhook that will be called by an LLM tool.
         /// </param>
@@ -111,21 +111,21 @@ namespace ElevenLabs
             string name,
             string description,
             global::ElevenLabs.WebhookToolApiSchemaConfigOutput apiSchema,
+            global::ElevenLabs.WebhookToolConfigOutputType? type,
             int? responseTimeoutSecs,
             bool? disableInterruptions,
             bool? forcePreToolSpeech,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
-            global::ElevenLabs.WebhookToolConfigOutputType? type,
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.ApiSchema = apiSchema ?? throw new global::System.ArgumentNullException(nameof(apiSchema));
+            this.Type = type;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.DisableInterruptions = disableInterruptions;
             this.ForcePreToolSpeech = forcePreToolSpeech;
             this.Assignments = assignments;
-            this.Type = type;
             this.DynamicVariables = dynamicVariables;
         }
 

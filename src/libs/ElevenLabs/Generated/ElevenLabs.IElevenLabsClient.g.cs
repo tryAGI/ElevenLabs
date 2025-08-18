@@ -165,6 +165,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public MusicGenerationClient MusicGeneration { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public PvcVoicesClient PvcVoices { get; }
 
     }

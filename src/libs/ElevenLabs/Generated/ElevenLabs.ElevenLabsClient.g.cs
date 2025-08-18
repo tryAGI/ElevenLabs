@@ -265,6 +265,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public MusicGenerationClient MusicGeneration => new MusicGenerationClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public PvcVoicesClient PvcVoices => new PvcVoicesClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
