@@ -23948,6 +23948,7 @@ components:
         - can_use_delayed_payment_methods
         - is_onboarding_completed
         - is_onboarding_checklist_completed
+        - created_at
       type: object
       properties:
         user_id:
@@ -23961,7 +23962,8 @@ components:
         is_new_user:
           title: Is New User
           type: boolean
-          description: Whether the user is new.
+          description: Whether the user is new. This field is deprecated and will be removed in the future. Use 'created_at' instead.
+          deprecated: true
         xi_api_key:
           title: Xi Api Key
           type: string
@@ -24005,8 +24007,13 @@ components:
           type: string
           description: The Partnerstack partner default link of the user.
           nullable: true
+        created_at:
+          title: Created At
+          type: integer
+          description: The unix timestamp of the user's creation. 0 if the user was created before the unix timestamp was added.
       example:
         can_use_delayed_payment_methods: false
+        created_at: 1753999199
         first_name: John
         is_api_key_hashed: false
         is_new_user: false
