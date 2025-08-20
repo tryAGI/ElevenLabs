@@ -8935,6 +8935,11 @@ paths:
       responses:
         '200':
           description: The generated audio file in the format specified
+          headers:
+            song-id:
+              description: Unique identifier for the generated song
+              schema:
+                type: string
           content:
             audio/*:
               schema:
@@ -8999,10 +9004,13 @@ paths:
               $ref: '#/components/schemas/Body_Compose_Music_with_a_detailed_response_v1_music_detailed_post'
       responses:
         '200':
-          description: Successful Response
+          description: Multipart/mixed response with JSON metadata and binary audio file
+          headers:
+            song-id:
+              description: Unique identifier for the generated song
+              schema:
+                type: string
           content:
-            application/json:
-              schema: { }
             multipart/mixed:
               schema:
                 type: string
@@ -9068,6 +9076,11 @@ paths:
       responses:
         '200':
           description: Streaming audio data in the format specified
+          headers:
+            song-id:
+              description: Unique identifier for the generated song
+              schema:
+                type: string
           content:
             audio/*:
               schema:
@@ -9797,16 +9810,6 @@ paths:
         - pvc
         - verification
       x-fern-sdk-method-name: request
-  /docs:
-    get:
-      summary: Redirect To Mintlify
-      operationId: redirect_to_mintlify
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
 components:
   schemas:
     ASRConversationalConfig:
@@ -16007,6 +16010,52 @@ components:
           type: string
           default: unknown
       description: "A model that represents an tool dependent on a knowledge base/tools\nto which the user has no direct access."
+    DetailedMusicResponse:
+      title: DetailedMusicResponse
+      required:
+        - composition_plan
+        - song_metadata
+      type: object
+      properties:
+        composition_plan:
+          $ref: '#/components/schemas/MusicPrompt'
+        song_metadata:
+          $ref: '#/components/schemas/SongMetadata'
+      description: Response model for structured music generation endpoint
+      example:
+        composition_plan:
+          negative_global_styles:
+            - metal
+            - hip-hop
+            - country
+          positive_global_styles:
+            - pop
+            - rock
+            - jazz
+          sections:
+            - duration_ms: 10000
+              lines:
+                - Verse 1 lyrics
+              negative_local_styles:
+                - metal
+                - hip-hop
+                - country
+              positive_local_styles:
+                - pop
+                - rock
+                - jazz
+              section_name: Verse 1
+        song_metadata:
+          description: My Song Description
+          genres:
+            - pop
+            - rock
+            - jazz
+          is_explicit: false
+          languages:
+            - en
+            - fr
+          title: My Song
     DialogueInput:
       title: DialogueInput
       required:
@@ -19600,6 +19649,214 @@ components:
                 start: 0.7
                 text: from
                 type: word
+    MultipartMusicResponse:
+      title: MultipartMusicResponse
+      required:
+        - metadata
+        - audio
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/DetailedMusicResponse'
+        audio:
+          title: Audio
+          type: string
+          description: Binary audio data in the requested format
+          format: binary
+      description: Multipart response structure with JSON metadata and binary audio
+      example:
+        audio: '[binary audio data]'
+        metadata:
+          $defs:
+            MusicPrompt:
+              example:
+                negative_global_styles:
+                  - metal
+                  - hip-hop
+                  - country
+                positive_global_styles:
+                  - pop
+                  - rock
+                  - jazz
+                sections:
+                  - duration_ms: 10000
+                    lines:
+                      - Verse 1 lyrics
+                    negative_local_styles:
+                      - metal
+                      - hip-hop
+                      - country
+                    positive_local_styles:
+                      - pop
+                      - rock
+                      - jazz
+                    section_name: Verse 1
+              properties:
+                positive_global_styles:
+                  description: The styles that should be present in the entire song.
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 50
+                  title: Positive Global Styles
+                negative_global_styles:
+                  description: The styles that should not be present in the entire song.
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 50
+                  title: Negative Global Styles
+                sections:
+                  description: The sections of the song.
+                  type: array
+                  items:
+                    $ref: '#/$defs/SongSection'
+                  maxItems: 30
+                  title: Sections
+              required:
+                - positive_global_styles
+                - negative_global_styles
+                - sections
+              title: MusicPrompt
+              type: object
+            SongMetadata:
+              example:
+                description: My Song Description
+                genres:
+                  - pop
+                  - rock
+                  - jazz
+                is_explicit: false
+                languages:
+                  - en
+                  - fr
+                title: My Song
+              properties:
+                title:
+                  description: The title of the song
+                  title: Title
+                  type: string
+                  nullable: true
+                description:
+                  description: The description of the song
+                  title: Description
+                  type: string
+                  nullable: true
+                genres:
+                  description: The genres of the song
+                  type: array
+                  items:
+                    type: string
+                  title: Genres
+                languages:
+                  description: The languages of the song
+                  type: array
+                  items:
+                    type: string
+                  title: Languages
+                is_explicit:
+                  description: Whether the song is explicit
+                  title: Is Explicit
+                  type: boolean
+                  nullable: true
+              required:
+                - title
+                - description
+                - genres
+                - languages
+                - is_explicit
+              title: SongMetadata
+              type: object
+            SongSection:
+              properties:
+                section_name:
+                  description: The name of the section. Must be between 1 and 100 characters.
+                  type: string
+                  maxLength: 100
+                  minLength: 1
+                  title: Section Name
+                positive_local_styles:
+                  description: The styles that should be present in this section.
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 50
+                  title: Positive Local Styles
+                negative_local_styles:
+                  description: The styles that should not be present in this section.
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 50
+                  title: Negative Local Styles
+                duration_ms:
+                  description: The duration of the section in milliseconds. Must be between 3000ms and 120000ms.
+                  type: integer
+                  maximum: 120000
+                  minimum: 3000
+                  title: Duration Ms
+                lines:
+                  description: The lyrics of the section.
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 30
+                  title: Lines
+              required:
+                - section_name
+                - positive_local_styles
+                - negative_local_styles
+                - duration_ms
+                - lines
+              title: SongSection
+              type: object
+          description: Response model for structured music generation endpoint
+          example:
+            composition_plan:
+              negative_global_styles:
+                - metal
+                - hip-hop
+                - country
+              positive_global_styles:
+                - pop
+                - rock
+                - jazz
+              sections:
+                - duration_ms: 10000
+                  lines:
+                    - Verse 1 lyrics
+                  negative_local_styles:
+                    - metal
+                    - hip-hop
+                    - country
+                  positive_local_styles:
+                    - pop
+                    - rock
+                    - jazz
+                  section_name: Verse 1
+            song_metadata:
+              description: My Song Description
+              genres:
+                - pop
+                - rock
+                - jazz
+              is_explicit: false
+              languages:
+                - en
+                - fr
+              title: My Song
+          properties:
+            composition_plan:
+              description: The composition plan used to generate the song
+              $ref: '#/$defs/MusicPrompt'
+            song_metadata:
+              description: The metadata of the generated song
+              $ref: '#/$defs/SongMetadata'
+          required:
+            - composition_plan
+            - song_metadata
+          title: DetailedMusicResponse
+          type: object
     MusicPrompt:
       title: MusicPrompt
       required:
@@ -22112,6 +22369,54 @@ components:
           title: Reason
           type: string
           nullable: true
+    SongMetadata:
+      title: SongMetadata
+      required:
+        - title
+        - description
+        - genres
+        - languages
+        - is_explicit
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          description: The title of the song
+          nullable: true
+        description:
+          title: Description
+          type: string
+          description: The description of the song
+          nullable: true
+        genres:
+          title: Genres
+          type: array
+          items:
+            type: string
+          description: The genres of the song
+        languages:
+          title: Languages
+          type: array
+          items:
+            type: string
+          description: The languages of the song
+        is_explicit:
+          title: Is Explicit
+          type: boolean
+          description: Whether the song is explicit
+          nullable: true
+      example:
+        description: My Song Description
+        genres:
+          - pop
+          - rock
+          - jazz
+        is_explicit: false
+        languages:
+          - en
+          - fr
+        title: My Song
     SongSection:
       title: SongSection
       required:
@@ -23948,7 +24253,6 @@ components:
         - can_use_delayed_payment_methods
         - is_onboarding_completed
         - is_onboarding_checklist_completed
-        - created_at
       type: object
       properties:
         user_id:
@@ -23962,8 +24266,7 @@ components:
         is_new_user:
           title: Is New User
           type: boolean
-          description: Whether the user is new. This field is deprecated and will be removed in the future. Use 'created_at' instead.
-          deprecated: true
+          description: Whether the user is new.
         xi_api_key:
           title: Xi Api Key
           type: string
@@ -24007,13 +24310,8 @@ components:
           type: string
           description: The Partnerstack partner default link of the user.
           nullable: true
-        created_at:
-          title: Created At
-          type: integer
-          description: The unix timestamp of the user's creation. 0 if the user was created before the unix timestamp was added.
       example:
         can_use_delayed_payment_methods: false
-        created_at: 1753999199
         first_name: John
         is_api_key_hashed: false
         is_new_user: false

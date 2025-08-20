@@ -29,7 +29,7 @@ namespace ElevenLabs
         public global::ElevenLabs.SubscriptionExtrasResponseModel? SubscriptionExtras { get; set; }
 
         /// <summary>
-        /// Whether the user is new. This field is deprecated and will be removed in the future. Use 'created_at' instead.
+        /// Whether the user is new.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_new_user")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -94,14 +94,6 @@ namespace ElevenLabs
         public string? PartnerstackPartnerDefaultLink { get; set; }
 
         /// <summary>
-        /// The unix timestamp of the user's creation. 0 if the user was created before the unix timestamp was added.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset CreatedAt { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -116,7 +108,7 @@ namespace ElevenLabs
         /// <param name="subscription"></param>
         /// <param name="subscriptionExtras"></param>
         /// <param name="isNewUser">
-        /// Whether the user is new. This field is deprecated and will be removed in the future. Use 'created_at' instead.
+        /// Whether the user is new.
         /// </param>
         /// <param name="xiApiKey">
         /// The API key of the user.
@@ -146,9 +138,6 @@ namespace ElevenLabs
         /// <param name="partnerstackPartnerDefaultLink">
         /// The Partnerstack partner default link of the user.
         /// </param>
-        /// <param name="createdAt">
-        /// The unix timestamp of the user's creation. 0 if the user was created before the unix timestamp was added.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -159,7 +148,6 @@ namespace ElevenLabs
             bool canUseDelayedPaymentMethods,
             bool isOnboardingCompleted,
             bool isOnboardingChecklistCompleted,
-            global::System.DateTimeOffset createdAt,
             global::ElevenLabs.SubscriptionExtrasResponseModel? subscriptionExtras,
             string? xiApiKey,
             string? firstName,
@@ -174,7 +162,6 @@ namespace ElevenLabs
             this.CanUseDelayedPaymentMethods = canUseDelayedPaymentMethods;
             this.IsOnboardingCompleted = isOnboardingCompleted;
             this.IsOnboardingChecklistCompleted = isOnboardingChecklistCompleted;
-            this.CreatedAt = createdAt;
             this.SubscriptionExtras = subscriptionExtras;
             this.XiApiKey = xiApiKey;
             this.FirstName = firstName;
