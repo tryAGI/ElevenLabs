@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateMusicDetailedAsync(
+        global::System.Threading.Tasks.Task<byte[]> CreateMusicDetailedAsync(
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost request,
             global::ElevenLabs.ComposeMusicWithADetailedResponseV1MusicDetailedPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
@@ -49,7 +49,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> CreateMusicDetailedAsync(
+        global::System.Threading.Tasks.Task<byte[]> CreateMusicDetailedAsync(
             global::ElevenLabs.ComposeMusicWithADetailedResponseV1MusicDetailedPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             string? prompt = default,
