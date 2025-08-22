@@ -5,35 +5,51 @@ namespace ElevenLabs
 {
     public partial class ElevenLabsClient
     {
-        partial void PrepareGetDocsArguments(
-            global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareGetDocsRequest(
+        partial void PrepareGetConvaiAgentTestingByTestIdArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessGetDocsResponse(
+            ref string testId,
+            ref string? xiApiKey);
+        partial void PrepareGetConvaiAgentTestingByTestIdRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string testId,
+            string? xiApiKey);
+        partial void ProcessGetConvaiAgentTestingByTestIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetDocsResponseContent(
+        partial void ProcessGetConvaiAgentTestingByTestIdResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Redirect To Mintlify
+        /// Get Agent Response Test By Id<br/>
+        /// Gets an agent response test by ID.
         /// </summary>
+        /// <param name="testId">
+        /// The id of a chat response test. This is returned on test creation.<br/>
+        /// Example: TeaqRRdTcIfIu2i7BYfT
+        /// </param>
+        /// <param name="xiApiKey">
+        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> GetDocsAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetUnitTestResponseModel> GetConvaiAgentTestingByTestIdAsync(
+            string testId,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetDocsArguments(
-                httpClient: HttpClient);
+            PrepareGetConvaiAgentTestingByTestIdArguments(
+                httpClient: HttpClient,
+                testId: ref testId,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/docs",
+                path: $"/v1/convai/agent-testing/{testId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -60,12 +76,20 @@ namespace ElevenLabs
                 }
             }
 
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetDocsRequest(
+            PrepareGetConvaiAgentTestingByTestIdRequest(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest);
+                httpRequestMessage: __httpRequest,
+                testId: testId,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -75,9 +99,46 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetDocsResponse(
+            ProcessGetConvaiAgentTestingByTestIdResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
+            // Validation Error
+            if ((int)__response.StatusCode == 422)
+            {
+                string? __content_422 = null;
+                global::System.Exception? __exception_422 = null;
+                global::ElevenLabs.HTTPValidationError? __value_422 = null;
+                try
+                {
+                    if (ReadResponseAsString)
+                    {
+                        __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                    }
+                    else
+                    {
+                        var __contentStream_422 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                        __value_422 = await global::ElevenLabs.HTTPValidationError.FromJsonStreamAsync(__contentStream_422, JsonSerializerContext).ConfigureAwait(false);
+                    }
+                }
+                catch (global::System.Exception __ex)
+                {
+                    __exception_422 = __ex;
+                }
+
+                throw new global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>(
+                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                    innerException: __exception_422,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_422,
+                    ResponseObject = __value_422,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
 
             if (ReadResponseAsString)
             {
@@ -91,7 +152,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetDocsResponseContent(
+                ProcessGetConvaiAgentTestingByTestIdResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -100,7 +161,9 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return
+                        global::ElevenLabs.GetUnitTestResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -123,13 +186,15 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    var __content = await __response.Content.ReadAsStringAsync(
+                    using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return
+                        await global::ElevenLabs.GetUnitTestResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
                 {

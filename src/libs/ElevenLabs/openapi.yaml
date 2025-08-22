@@ -6539,6 +6539,353 @@ paths:
         - conversational_ai
         - agents
       x-fern-sdk-method-name: simulate_conversation_stream
+  /v1/convai/agent-testing/create:
+    post:
+      summary: Create Agent Response Test
+      description: Creates a new agent response test.
+      operationId: create_agent_response_test_route
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUnitTestRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUnitTestResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/agent-testing/{test_id}':
+    get:
+      summary: Get Agent Response Test By Id
+      description: Gets an agent response test by ID.
+      operationId: get_agent_response_test_route
+      parameters:
+        - name: test_id
+          in: path
+          description: The id of a chat response test. This is returned on test creation.
+          required: true
+          schema:
+            title: Test Id
+            type: string
+            description: The id of a chat response test. This is returned on test creation.
+            example: TeaqRRdTcIfIu2i7BYfT
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUnitTestResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      summary: Update Agent Response Test
+      description: Updates an agent response test by ID.
+      operationId: update_agent_response_test_route
+      parameters:
+        - name: test_id
+          in: path
+          description: The id of a chat response test. This is returned on test creation.
+          required: true
+          schema:
+            title: Test Id
+            type: string
+            description: The id of a chat response test. This is returned on test creation.
+            example: TeaqRRdTcIfIu2i7BYfT
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUnitTestRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUnitTestResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Delete Agent Response Test
+      description: Deletes an agent response test by ID.
+      operationId: delete_chat_response_test_route
+      parameters:
+        - name: test_id
+          in: path
+          description: The id of a chat response test. This is returned on test creation.
+          required: true
+          schema:
+            title: Test Id
+            type: string
+            description: The id of a chat response test. This is returned on test creation.
+            example: TeaqRRdTcIfIu2i7BYfT
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/convai/agent-testing/summaries:
+    post:
+      summary: Get Agent Response Test Summaries By Ids
+      description: Gets multiple agent response tests by their IDs. Returns a dictionary mapping test IDs to test summaries.
+      operationId: get_agent_response_tests_summaries_route
+      parameters:
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListTestsByIdsRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTestsSummariesByIdsResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/convai/agent-testing:
+    get:
+      summary: List Agent Response Tests
+      description: Lists all agent response tests with pagination support and optional search filtering.
+      operationId: list_chat_response_tests_route
+      parameters:
+        - name: cursor
+          in: query
+          description: Used for fetching next page. Cursor is returned in the response.
+          schema:
+            title: Cursor
+            type: string
+            description: Used for fetching next page. Cursor is returned in the response.
+            nullable: true
+        - name: page_size
+          in: query
+          description: 'How many Tests to return at maximum. Can not exceed 100, defaults to 30.'
+          schema:
+            title: Page Size
+            maximum: 100
+            minimum: 1
+            type: integer
+            description: 'How many Tests to return at maximum. Can not exceed 100, defaults to 30.'
+            default: 30
+        - name: search
+          in: query
+          description: Search query to filter tests by name.
+          schema:
+            title: Search
+            type: string
+            description: Search query to filter tests by name.
+            nullable: true
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTestsPageResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/agents/{agent_id}/run-tests':
+    post:
+      summary: Run Tests On The Agent
+      description: 'Run selected tests on the agent with provided configuration. If the agent configuration is provided, it will be used to override default agent configuration.'
+      operationId: run_agent_test_suite_route
+      parameters:
+        - name: agent_id
+          in: path
+          description: The id of an agent. This is returned on agent creation.
+          required: true
+          schema:
+            title: Agent Id
+            type: string
+            description: The id of an agent. This is returned on agent creation.
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunAgentTestsRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTestSuiteInvocationResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/test-invocations/{test_invocation_id}':
+    get:
+      summary: Get Test Invocation
+      description: Gets a test invocation by ID.
+      operationId: get_test_invocation_route
+      parameters:
+        - name: test_invocation_id
+          in: path
+          description: The id of a test invocation. This is returned when tests are run.
+          required: true
+          schema:
+            title: Test Invocation Id
+            type: string
+            description: The id of a test invocation. This is returned when tests are run.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTestSuiteInvocationResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/v1/convai/test-invocations/{test_invocation_id}/resubmit':
+    post:
+      summary: Resubmit Tests
+      description: Resubmits specific test runs from a test invocation.
+      operationId: resubmit_tests_route
+      parameters:
+        - name: test_invocation_id
+          in: path
+          description: The id of a test invocation. This is returned when tests are run.
+          required: true
+          schema:
+            title: Test Invocation Id
+            type: string
+            description: The id of a test invocation. This is returned when tests are run.
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResubmitTestsRequestModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /v1/convai/conversations:
     get:
       tags:
@@ -9854,16 +10201,6 @@ paths:
         - pvc
         - verification
       x-fern-sdk-method-name: request
-  /docs:
-    get:
-      summary: Redirect To Mintlify
-      operationId: redirect_to_mintlify
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
 components:
   schemas:
     ASRConversationalConfig:
@@ -10089,6 +10426,17 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/ExportOptions'
+    AdhocAgentConfigOverrideForTestRequestModel:
+      title: AdhocAgentConfigOverrideForTestRequestModel
+      required:
+        - conversation_config
+        - platform_settings
+      type: object
+      properties:
+        conversation_config:
+          $ref: '#/components/schemas/ConversationalConfigAPIModel-Input'
+        platform_settings:
+          $ref: '#/components/schemas/AgentPlatformSettingsRequestModel'
     AgentBan:
       title: AgentBan
       required:
@@ -10217,6 +10565,21 @@ components:
           default: false
         prompt:
           $ref: '#/components/schemas/PromptAgentAPIModelOverrideConfig'
+    AgentFailureResponseExample:
+      title: AgentFailureResponseExample
+      required:
+        - response
+        - type
+      type: object
+      properties:
+        response:
+          title: Response
+          type: string
+        type:
+          title: Type
+          enum:
+            - failure
+          type: string
     AgentMetadataResponseModel:
       title: AgentMetadataResponseModel
       required:
@@ -10295,6 +10658,21 @@ components:
             $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel-Output'
         analysis:
           $ref: '#/components/schemas/ConversationHistoryAnalysisCommonModel'
+    AgentSuccessfulResponseExample:
+      title: AgentSuccessfulResponseExample
+      required:
+        - response
+        - type
+      type: object
+      properties:
+        response:
+          title: Response
+          type: string
+        type:
+          title: Type
+          enum:
+            - success
+          type: string
     AgentSummaryResponseModel:
       title: AgentSummaryResponseModel
       required:
@@ -15773,6 +16151,68 @@ components:
           title: Token
           type: string
           description: Twilio Auth Token
+    CreateUnitTestRequest:
+      title: CreateUnitTestRequest
+      required:
+        - chat_history
+        - success_condition
+        - success_examples
+        - failure_examples
+        - name
+      type: object
+      properties:
+        chat_history:
+          title: Chat History
+          maxItems: 50
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel-Input'
+        success_condition:
+          title: Success Condition
+          type: string
+          description: A prompt that evaluates whether the agent's response is successful. Should return True or False.
+        success_examples:
+          title: Success Examples
+          maxItems: 5
+          minItems: 0
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentSuccessfulResponseExample'
+          description: Non-empty list of example responses that should be considered successful
+        failure_examples:
+          title: Failure Examples
+          maxItems: 5
+          minItems: 0
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentFailureResponseExample'
+          description: Non-empty list of example responses that should be considered failures
+        tool_call_parameters:
+          $ref: '#/components/schemas/UnitTestToolCallEvaluationModel-Input'
+        dynamic_variables:
+          title: Dynamic Variables
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+            nullable: true
+          description: Dynamic variables to replace in the agent config during testing
+        name:
+          title: Name
+          type: string
+    CreateUnitTestResponseModel:
+      title: CreateUnitTestResponseModel
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
     CustomLLM:
       title: CustomLLM
       required:
@@ -16635,6 +17075,22 @@ components:
         - failure
         - unknown
       type: string
+    ExactParameterEvaluationStrategy:
+      title: ExactParameterEvaluationStrategy
+      required:
+        - type
+        - expected_value
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - exact
+          type: string
+        expected_value:
+          title: Expected Value
+          type: string
+          description: The exact string value that the parameter must match.
     ExportOptions:
       title: ExportOptions
       oneOf:
@@ -18065,6 +18521,55 @@ components:
             voice_id: 21m00Tcm4TlvDq8ikWAM
             voice_name: Rachel
         last_history_item_id: ja9xsmfGhxYcymxGcOGB
+    GetTestSuiteInvocationResponseModel:
+      title: GetTestSuiteInvocationResponseModel
+      required:
+        - id
+        - test_runs
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        created_at:
+          title: Created At
+          type: integer
+        test_runs:
+          title: Test Runs
+          type: array
+          items:
+            $ref: '#/components/schemas/UnitTestRunResponseModel'
+    GetTestsPageResponseModel:
+      title: GetTestsPageResponseModel
+      required:
+        - tests
+        - has_more
+      type: object
+      properties:
+        tests:
+          title: Tests
+          type: array
+          items:
+            $ref: '#/components/schemas/UnitTestSummaryResponseModel'
+        next_cursor:
+          title: Next Cursor
+          type: string
+          nullable: true
+        has_more:
+          title: Has More
+          type: boolean
+    GetTestsSummariesByIdsResponseModel:
+      title: GetTestsSummariesByIdsResponseModel
+      required:
+        - tests
+      type: object
+      properties:
+        tests:
+          title: Tests
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/UnitTestSummaryResponseModel'
+          description: Dictionary mapping test IDs to their summary information
     GetToolDependentAgentsResponseModel:
       title: GetToolDependentAgentsResponseModel
       required:
@@ -18091,6 +18596,63 @@ components:
         has_more:
           title: Has More
           type: boolean
+    GetUnitTestResponseModel:
+      title: GetUnitTestResponseModel
+      required:
+        - chat_history
+        - success_condition
+        - success_examples
+        - failure_examples
+        - id
+        - name
+      type: object
+      properties:
+        chat_history:
+          title: Chat History
+          maxItems: 50
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel-Output'
+        success_condition:
+          title: Success Condition
+          type: string
+          description: A prompt that evaluates whether the agent's response is successful. Should return True or False.
+        success_examples:
+          title: Success Examples
+          maxItems: 5
+          minItems: 0
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentSuccessfulResponseExample'
+          description: Non-empty list of example responses that should be considered successful
+        failure_examples:
+          title: Failure Examples
+          maxItems: 5
+          minItems: 0
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentFailureResponseExample'
+          description: Non-empty list of example responses that should be considered failures
+        tool_call_parameters:
+          $ref: '#/components/schemas/UnitTestToolCallEvaluationModel-Output'
+        dynamic_variables:
+          title: Dynamic Variables
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+            nullable: true
+          description: Dynamic variables to replace in the agent config during testing
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
     GetVoicesResponseModel:
       title: GetVoicesResponseModel
       required:
@@ -18545,6 +19107,22 @@ components:
           $ref: '#/components/schemas/LLMTokensCategoryUsage'
         output_total:
           $ref: '#/components/schemas/LLMTokensCategoryUsage'
+    LLMParameterEvaluationStrategy:
+      title: LLMParameterEvaluationStrategy
+      required:
+        - type
+        - description
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - llm
+          type: string
+        description:
+          title: Description
+          type: string
+          description: A description of the evaluation strategy to use for the test.
     LLMTokensCategoryUsage:
       title: LLMTokensCategoryUsage
       type: object
@@ -18973,6 +19551,21 @@ components:
               properties: { }
               type: object
             name: tool2
+    ListTestsByIdsRequestModel:
+      title: ListTestsByIdsRequestModel
+      required:
+        - test_ids
+      type: object
+      properties:
+        test_ids:
+          title: Test Ids
+          type: array
+          items:
+            type: string
+          description: List of test IDs to fetch. No duplicates allowed.
+          example:
+            - test_id_1
+            - test_id_2
     LiteralJsonSchemaProperty:
       title: LiteralJsonSchemaProperty
       required:
@@ -21767,6 +22360,36 @@ components:
         size_bytes: 1000000
         transcription: 'Hello, how are you?'
         upload_date_unix: 1714204800
+    ReferencedToolCommonModel:
+      title: ReferencedToolCommonModel
+      required:
+        - id
+        - type
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: The ID of the tool
+        type:
+          $ref: '#/components/schemas/ToolType'
+      description: Reference to a tool for unit test evaluation.
+    RegexParameterEvaluationStrategy:
+      title: RegexParameterEvaluationStrategy
+      required:
+        - type
+        - pattern
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - regex
+          type: string
+        pattern:
+          title: Pattern
+          type: string
+          description: A regex pattern to match the agent's response against.
     Render:
       title: Render
       required:
@@ -21908,6 +22531,43 @@ components:
           - id: x1AfvYKAmiqxCnbvZeNXHqqthJaC
             name: mygroup
             type: group
+    ResubmitTestsRequestModel:
+      title: ResubmitTestsRequestModel
+      required:
+        - test_run_ids
+        - agent_id
+      type: object
+      properties:
+        test_run_ids:
+          title: Test Run Ids
+          maxItems: 100
+          minItems: 1
+          type: array
+          items:
+            type: string
+          description: List of test run IDs to resubmit
+        agent_config_override:
+          $ref: '#/components/schemas/AdhocAgentConfigOverrideForTestRequestModel'
+        agent_id:
+          title: Agent Id
+          type: string
+          description: Agent ID to resubmit tests for
+    RunAgentTestsRequestModel:
+      title: RunAgentTestsRequestModel
+      required:
+        - tests
+      type: object
+      properties:
+        tests:
+          title: Tests
+          maxItems: 100
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/SingleTestRunRequestModel'
+          description: List of tests to run on the agent
+        agent_config_override:
+          $ref: '#/components/schemas/AdhocAgentConfigOverrideForTestRequestModel'
     SIPMediaEncryptionEnum:
       title: SIPMediaEncryptionEnum
       enum:
@@ -22316,6 +22976,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SimilarVoice'
+    SingleTestRunRequestModel:
+      title: SingleTestRunRequestModel
+      required:
+        - test_id
+      type: object
+      properties:
+        test_id:
+          title: Test Id
+          type: string
+          description: ID of the test to run
     SkipTurnToolConfig:
       title: SkipTurnToolConfig
       type: object
@@ -23652,6 +24322,39 @@ components:
         - twilio
         - sip_trunk
       type: string
+    TestConditionRationaleCommonModel:
+      title: TestConditionRationaleCommonModel
+      type: object
+      properties:
+        messages:
+          title: Messages
+          type: array
+          items:
+            type: string
+          description: List of individual parameter evaluation messages or reasons
+        summary:
+          title: Summary
+          type: string
+          description: High-level summary of the evaluation result
+          default: ''
+      description: Structured rationale for test condition results containing individual failure/success reasons.
+    TestConditionResultCommonModel:
+      title: TestConditionResultCommonModel
+      required:
+        - result
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/EvaluationSuccessResult'
+        rationale:
+          $ref: '#/components/schemas/TestConditionRationaleCommonModel'
+    TestRunStatus:
+      title: TestRunStatus
+      enum:
+        - pending
+        - passed
+        - failed
+      type: string
     TestToolResultModel:
       title: TestToolResultModel
       type: object
@@ -24165,6 +24868,115 @@ components:
           type: string
           description: The custom URL of the avatar
           default: ''
+    UnitTestRunResponseModel:
+      title: UnitTestRunResponseModel
+      required:
+        - test_run_id
+        - test_invocation_id
+        - agent_id
+        - status
+        - test_id
+      type: object
+      properties:
+        test_run_id:
+          title: Test Run Id
+          type: string
+        test_invocation_id:
+          title: Test Invocation Id
+          type: string
+        agent_id:
+          title: Agent Id
+          type: string
+        status:
+          $ref: '#/components/schemas/TestRunStatus'
+        agent_responses:
+          title: Agent Responses
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel-Output'
+          nullable: true
+        test_id:
+          title: Test Id
+          type: string
+        condition_result:
+          $ref: '#/components/schemas/TestConditionResultCommonModel'
+    UnitTestSummaryResponseModel:
+      title: UnitTestSummaryResponseModel
+      required:
+        - id
+        - name
+        - created_at_unix_secs
+        - last_updated_at_unix_secs
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: The ID of the test
+        name:
+          title: Name
+          type: string
+          description: Name of the test
+        access_info:
+          $ref: '#/components/schemas/ResourceAccessInfo'
+        created_at_unix_secs:
+          title: Created At Unix Secs
+          type: integer
+          description: Creation time of the test in unix seconds
+        last_updated_at_unix_secs:
+          title: Last Updated At Unix Secs
+          type: integer
+          description: Last update time of the test in unix seconds
+    UnitTestToolCallEvaluationModel-Input:
+      title: UnitTestToolCallEvaluationModel
+      required:
+        - referenced_tool
+      type: object
+      properties:
+        parameters:
+          title: Parameters
+          type: array
+          items:
+            $ref: '#/components/schemas/UnitTestToolCallParameter'
+          description: 'Parameters to evaluate for the agent''s tool call. If empty, the tool call parameters are not evaluated.'
+        referenced_tool:
+          $ref: '#/components/schemas/ReferencedToolCommonModel'
+    UnitTestToolCallEvaluationModel-Output:
+      title: UnitTestToolCallEvaluationModel
+      required:
+        - referenced_tool
+      type: object
+      properties:
+        parameters:
+          title: Parameters
+          type: array
+          items:
+            $ref: '#/components/schemas/UnitTestToolCallParameter'
+          description: 'Parameters to evaluate for the agent''s tool call. If empty, the tool call parameters are not evaluated.'
+        referenced_tool:
+          $ref: '#/components/schemas/ReferencedToolCommonModel'
+    UnitTestToolCallParameter:
+      title: UnitTestToolCallParameter
+      required:
+        - eval
+        - path
+      type: object
+      properties:
+        eval:
+          title: Eval
+          oneOf:
+            - $ref: '#/components/schemas/LLMParameterEvaluationStrategy'
+            - $ref: '#/components/schemas/RegexParameterEvaluationStrategy'
+            - $ref: '#/components/schemas/ExactParameterEvaluationStrategy'
+          discriminator:
+            propertyName: type
+            mapping:
+              exact: '#/components/schemas/ExactParameterEvaluationStrategy'
+              llm: '#/components/schemas/LLMParameterEvaluationStrategy'
+              regex: '#/components/schemas/RegexParameterEvaluationStrategy'
+        path:
+          title: Path
+          type: string
     UpdatePhoneNumberRequest:
       title: UpdatePhoneNumberRequest
       type: object
@@ -24173,6 +24985,59 @@ components:
           title: Agent Id
           type: string
           nullable: true
+    UpdateUnitTestRequest:
+      title: UpdateUnitTestRequest
+      required:
+        - chat_history
+        - success_condition
+        - success_examples
+        - failure_examples
+        - name
+      type: object
+      properties:
+        chat_history:
+          title: Chat History
+          maxItems: 50
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationHistoryTranscriptCommonModel-Input'
+        success_condition:
+          title: Success Condition
+          type: string
+          description: A prompt that evaluates whether the agent's response is successful. Should return True or False.
+        success_examples:
+          title: Success Examples
+          maxItems: 5
+          minItems: 0
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentSuccessfulResponseExample'
+          description: Non-empty list of example responses that should be considered successful
+        failure_examples:
+          title: Failure Examples
+          maxItems: 5
+          minItems: 0
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentFailureResponseExample'
+          description: Non-empty list of example responses that should be considered failures
+        tool_call_parameters:
+          $ref: '#/components/schemas/UnitTestToolCallEvaluationModel-Input'
+        dynamic_variables:
+          title: Dynamic Variables
+          type: object
+          additionalProperties:
+            anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+            nullable: true
+          description: Dynamic variables to replace in the agent config during testing
+        name:
+          title: Name
+          type: string
     UpdateWorkspaceMemberResponseModel:
       title: UpdateWorkspaceMemberResponseModel
       required:

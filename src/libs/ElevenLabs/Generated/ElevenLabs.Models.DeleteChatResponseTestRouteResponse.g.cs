@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class RedirectToMintlifyResponse
+    public sealed partial class DeleteChatResponseTestRouteResponse
     {
 
         /// <summary>
