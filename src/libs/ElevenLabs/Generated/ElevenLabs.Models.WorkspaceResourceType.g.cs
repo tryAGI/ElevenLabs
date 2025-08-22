@@ -55,10 +55,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        MusicLatent,
-        /// <summary>
-        /// 
-        /// </summary>
         ConvaiPhoneNumbers,
         /// <summary>
         /// 
@@ -101,7 +97,6 @@ namespace ElevenLabs
                 WorkspaceResourceType.ConvaiSettings => "convai_settings",
                 WorkspaceResourceType.ConvaiSecrets => "convai_secrets",
                 WorkspaceResourceType.WorkspaceAuthConnections => "workspace_auth_connections",
-                WorkspaceResourceType.MusicLatent => "music_latent",
                 WorkspaceResourceType.ConvaiPhoneNumbers => "convai_phone_numbers",
                 WorkspaceResourceType.ConvaiMcpServers => "convai_mcp_servers",
                 WorkspaceResourceType.ConvaiBatchCalls => "convai_batch_calls",
@@ -128,7 +123,6 @@ namespace ElevenLabs
                 "convai_settings" => WorkspaceResourceType.ConvaiSettings,
                 "convai_secrets" => WorkspaceResourceType.ConvaiSecrets,
                 "workspace_auth_connections" => WorkspaceResourceType.WorkspaceAuthConnections,
-                "music_latent" => WorkspaceResourceType.MusicLatent,
                 "convai_phone_numbers" => WorkspaceResourceType.ConvaiPhoneNumbers,
                 "convai_mcp_servers" => WorkspaceResourceType.ConvaiMcpServers,
                 "convai_batch_calls" => WorkspaceResourceType.ConvaiBatchCalls,

@@ -3,45 +3,37 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ElevenLabsClient
     {
-        partial void PrepareGetConvaiToolsArguments(
+        partial void PrepareGetDocsArguments(
+            global::System.Net.Http.HttpClient httpClient);
+        partial void PrepareGetDocsRequest(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey);
-        partial void PrepareGetConvaiToolsRequest(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey);
-        partial void ProcessGetConvaiToolsResponse(
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+        partial void ProcessGetDocsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetConvaiToolsResponseContent(
+        partial void ProcessGetDocsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Tools<br/>
-        /// Get all available tools in the workspace.
+        /// Redirect To Mintlify
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolsResponseModel> GetConvaiToolsAsync(
-            string? xiApiKey = default,
+        public async global::System.Threading.Tasks.Task<string> GetDocsAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetConvaiToolsArguments(
-                httpClient: HttpClient,
-                xiApiKey: ref xiApiKey);
+            PrepareGetDocsArguments(
+                httpClient: HttpClient);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/tools",
+                path: "/docs",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -68,19 +60,12 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetConvaiToolsRequest(
+            PrepareGetDocsRequest(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey);
+                httpRequestMessage: __httpRequest);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -90,46 +75,9 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetConvaiToolsResponse(
+            ProcessGetDocsResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            // Validation Error
-            if ((int)__response.StatusCode == 422)
-            {
-                string? __content_422 = null;
-                global::System.Exception? __exception_422 = null;
-                global::ElevenLabs.HTTPValidationError? __value_422 = null;
-                try
-                {
-                    if (ReadResponseAsString)
-                    {
-                        __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
-                    }
-                    else
-                    {
-                        var __contentStream_422 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                        __value_422 = await global::ElevenLabs.HTTPValidationError.FromJsonStreamAsync(__contentStream_422, JsonSerializerContext).ConfigureAwait(false);
-                    }
-                }
-                catch (global::System.Exception __ex)
-                {
-                    __exception_422 = __ex;
-                }
-
-                throw new global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>(
-                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
-                    innerException: __exception_422,
-                    statusCode: __response.StatusCode)
-                {
-                    ResponseBody = __content_422,
-                    ResponseObject = __value_422,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
 
             if (ReadResponseAsString)
             {
@@ -143,7 +91,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetConvaiToolsResponseContent(
+                ProcessGetDocsResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -152,9 +100,7 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::ElevenLabs.ToolsResponseModel.FromJson(__content, JsonSerializerContext) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -177,15 +123,13 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::ElevenLabs.ToolsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {

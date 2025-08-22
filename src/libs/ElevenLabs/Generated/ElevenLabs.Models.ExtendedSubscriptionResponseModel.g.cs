@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -162,6 +164,13 @@ namespace ElevenLabs
         public required bool HasOpenInvoices { get; set; }
 
         /// <summary>
+        /// The pending change for the user.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pending_change")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel>? PendingChange { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -232,6 +241,9 @@ namespace ElevenLabs
         /// <param name="hasOpenInvoices">
         /// Whether the user has open invoices.
         /// </param>
+        /// <param name="pendingChange">
+        /// The pending change for the user.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -257,7 +269,8 @@ namespace ElevenLabs
             global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency? currency,
             global::ElevenLabs.ExtendedSubscriptionResponseModelBillingPeriod? billingPeriod,
             global::ElevenLabs.ExtendedSubscriptionResponseModelCharacterRefreshPeriod? characterRefreshPeriod,
-            global::ElevenLabs.InvoiceResponseModel? nextInvoice)
+            global::ElevenLabs.InvoiceResponseModel? nextInvoice,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel>? pendingChange)
         {
             this.Tier = tier ?? throw new global::System.ArgumentNullException(nameof(tier));
             this.CharacterCount = characterCount;
@@ -281,6 +294,7 @@ namespace ElevenLabs
             this.BillingPeriod = billingPeriod;
             this.CharacterRefreshPeriod = characterRefreshPeriod;
             this.NextInvoice = nextInvoice;
+            this.PendingChange = pendingChange;
         }
 
         /// <summary>

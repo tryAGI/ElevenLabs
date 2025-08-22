@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Get Tools<br/>
-        /// Get all available tools available in the workspace.
+        /// Get all available tools in the workspace.
         /// </summary>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.

@@ -31,6 +31,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        TestingToolResult,
+        /// <summary>
+        /// 
+        /// </summary>
         TransferToAgentError,
         /// <summary>
         /// 
@@ -71,6 +75,7 @@ namespace ElevenLabs
                 ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.PlayDtmfError => "play_dtmf_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.PlayDtmfSuccess => "play_dtmf_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.SkipTurnSuccess => "skip_turn_success",
+                ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TestingToolResult => "testing_tool_result",
                 ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToAgentError => "transfer_to_agent_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToAgentSuccess => "transfer_to_agent_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToNumberError => "transfer_to_number_error",
@@ -92,6 +97,7 @@ namespace ElevenLabs
                 "play_dtmf_error" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.PlayDtmfError,
                 "play_dtmf_success" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.PlayDtmfSuccess,
                 "skip_turn_success" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.SkipTurnSuccess,
+                "testing_tool_result" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TestingToolResult,
                 "transfer_to_agent_error" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToAgentError,
                 "transfer_to_agent_success" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToAgentSuccess,
                 "transfer_to_number_error" => ConversationHistoryTranscriptSystemToolResultCommonModelResultDiscriminatorResultType.TransferToNumberError,

@@ -75,6 +75,12 @@ namespace ElevenLabs
         public global::ElevenLabs.FeatureStatusCommonModel? VoicemailDetection { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workflow")]
+        public global::ElevenLabs.WorkflowFeaturesUsageCommonModel? Workflow { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -100,6 +106,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="voicemailDetection"></param>
+        /// <param name="workflow"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -114,7 +121,8 @@ namespace ElevenLabs
             bool? piiZrmAgent,
             global::ElevenLabs.FeatureStatusCommonModel? toolDynamicVariableUpdates,
             bool? isLivekit,
-            global::ElevenLabs.FeatureStatusCommonModel? voicemailDetection)
+            global::ElevenLabs.FeatureStatusCommonModel? voicemailDetection,
+            global::ElevenLabs.WorkflowFeaturesUsageCommonModel? workflow)
         {
             this.LanguageDetection = languageDetection;
             this.TransferToAgent = transferToAgent;
@@ -127,6 +135,7 @@ namespace ElevenLabs
             this.ToolDynamicVariableUpdates = toolDynamicVariableUpdates;
             this.IsLivekit = isLivekit;
             this.VoicemailDetection = voicemailDetection;
+            this.Workflow = workflow;
         }
 
         /// <summary>
