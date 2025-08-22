@@ -4619,6 +4619,90 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: pronunciation_dictionaries
       x-fern-sdk-method-name: create_from_rules
+  '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}':
+    patch:
+      tags:
+        - Pronunciation Dictionary
+      summary: Update Pronunciation Dictionary
+      description: Partially update the pronunciation dictionary without changing the version
+      operationId: Update_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__patch
+      parameters:
+        - name: pronunciation_dictionary_id
+          in: path
+          description: The id of the pronunciation dictionary
+          required: true
+          schema:
+            title: Pronunciation Dictionary Id
+            type: string
+            description: The id of the pronunciation dictionary
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_Update_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__patch'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPronunciationDictionaryMetadataResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: pronunciation_dictionaries
+      x-fern-sdk-method-name: update
+    get:
+      tags:
+        - Pronunciation Dictionary
+      summary: Get Metadata For A Pronunciation Dictionary
+      description: Get metadata for a pronunciation dictionary
+      operationId: Get_metadata_for_a_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__get
+      parameters:
+        - name: pronunciation_dictionary_id
+          in: path
+          description: The id of the pronunciation dictionary
+          required: true
+          schema:
+            title: Pronunciation Dictionary Id
+            type: string
+            description: The id of the pronunciation dictionary
+            example: 21m00Tcm4TlvDq8ikWAM
+        - name: xi-api-key
+          in: header
+          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+          schema:
+            title: Xi-Api-Key
+            type: string
+            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPronunciationDictionaryMetadataResponseModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name: pronunciation_dictionaries
+      x-fern-sdk-method-name: get
   '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/add-rules':
     post:
       tags:
@@ -4770,46 +4854,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       x-fern-sdk-group-name: pronunciation_dictionaries
       x-fern-sdk-method-name: download
-  '/v1/pronunciation-dictionaries/{pronunciation_dictionary_id}':
-    get:
-      tags:
-        - Pronunciation Dictionary
-      summary: Get Metadata For A Pronunciation Dictionary
-      description: Get metadata for a pronunciation dictionary
-      operationId: Get_metadata_for_a_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__get
-      parameters:
-        - name: pronunciation_dictionary_id
-          in: path
-          description: The id of the pronunciation dictionary
-          required: true
-          schema:
-            title: Pronunciation Dictionary Id
-            type: string
-            description: The id of the pronunciation dictionary
-            example: 21m00Tcm4TlvDq8ikWAM
-        - name: xi-api-key
-          in: header
-          description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-          schema:
-            title: Xi-Api-Key
-            type: string
-            description: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-            nullable: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetPronunciationDictionaryMetadataResponseModel'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      x-fern-sdk-group-name: pronunciation_dictionaries
-      x-fern-sdk-method-name: get
   /v1/pronunciation-dictionaries:
     get:
       tags:
@@ -7799,7 +7843,7 @@ paths:
       tags:
         - Conversational AI
       summary: Get Tools
-      description: Get all available tools available in the workspace.
+      description: Get all available tools in the workspace.
       operationId: get_tools_route
       parameters:
         - name: xi-api-key
@@ -9810,6 +9854,16 @@ paths:
         - pvc
         - verification
       x-fern-sdk-method-name: request
+  /docs:
+    get:
+      summary: Redirect To Mintlify
+      operationId: redirect_to_mintlify
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
 components:
   schemas:
     ASRConversationalConfig:
@@ -10294,17 +10348,20 @@ components:
       title: AgentTestingSettings
       type: object
       properties:
-        test_ids:
-          title: Test Ids
-          maxItems: 20
+        attached_tests:
+          title: Attached Tests
+          maxItems: 100
           minItems: 0
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/AttachedTestModel'
           description: List of test IDs that should be run for this agent
       description: Settings for agent testing configuration.
       example:
-        test_ids:
+        attached_tests:
+          - test_id: test_123
+          - test_id: test_456
+        referenced_tests_ids:
           - test_123
           - test_456
     AgentTransfer:
@@ -10404,6 +10461,15 @@ components:
             - $ref: '#/components/schemas/ObjectJsonSchemaProperty-Output'
             - $ref: '#/components/schemas/ArrayJsonSchemaProperty-Output'
       additionalProperties: false
+    AttachedTestModel:
+      title: AttachedTestModel
+      required:
+        - test_id
+      type: object
+      properties:
+        test_id:
+          title: Test Id
+          type: string
     AudioNativeCreateProjectResponseModel:
       title: AudioNativeCreateProjectResponseModel
       required:
@@ -12305,7 +12371,7 @@ components:
         duration_seconds:
           title: Duration Seconds
           type: number
-          description: The duration of the sound which will be generated in seconds. Must be at least 0.5 and at most 22. If set to None we will guess the optimal duration using the prompt. Defaults to None.
+          description: The duration of the sound which will be generated in seconds. Must be at least 0.5 and at most 30. If set to None we will guess the optimal duration using the prompt. Defaults to None.
           nullable: true
         prompt_influence:
           title: Prompt Influence
@@ -12467,7 +12533,7 @@ components:
         cloud_storage_url:
           title: Cloud Storage Url
           type: string
-          description: 'The valid AWS S3, Cloudflare R2 or Google Cloud Storage URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be a valid publicly accessible cloud storage URL. The file size must be less than 2GB. URL can be pre-signed.'
+          description: 'The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.'
           nullable: true
           example: https://storage.googleapis.com/my-bucket/folder/audio.mp3
         webhook:
@@ -13283,6 +13349,20 @@ components:
             type: string
           description: 'Languages to apply these changes to. If empty, will apply to all languages.'
           nullable: true
+    Body_Update_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__patch:
+      title: Body_Update_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__patch
+      type: object
+      properties:
+        archived:
+          title: Archived
+          type: boolean
+          description: 'The name of the pronunciation dictionary, used for identification only.'
+          example: My Dictionary
+        name:
+          title: Name
+          type: string
+          description: 'The name of the pronunciation dictionary, used for identification only.'
+          example: My Dictionary
     Body_Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post:
       title: Body_Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post
       required:
@@ -13335,6 +13415,9 @@ components:
                   - workspace_read
                   - workspace_write
                   - forced_alignment
+                  - convai_read
+                  - convai_write
+                  - music_generation
                 type: string
             - enum:
                 - all
@@ -13393,6 +13476,9 @@ components:
                   - workspace_read
                   - workspace_write
                   - forced_alignment
+                  - convai_read
+                  - convai_write
+                  - music_generation
                 type: string
             - enum:
                 - all
@@ -14926,6 +15012,7 @@ components:
             - $ref: '#/components/schemas/PlayDTMFResultSuccessModel'
             - $ref: '#/components/schemas/PlayDTMFResultErrorModel'
             - $ref: '#/components/schemas/VoiceMailDetectionResultSuccessModel'
+            - $ref: '#/components/schemas/TestToolResultModel'
           nullable: true
           discriminator:
             propertyName: result_type
@@ -14935,6 +15022,7 @@ components:
               play_dtmf_error: '#/components/schemas/PlayDTMFResultErrorModel'
               play_dtmf_success: '#/components/schemas/PlayDTMFResultSuccessModel'
               skip_turn_success: '#/components/schemas/SkipTurnToolResponseModel'
+              testing_tool_result: '#/components/schemas/TestToolResultModel'
               transfer_to_agent_error: '#/components/schemas/TransferToAgentToolResultErrorModel'
               transfer_to_agent_success: '#/components/schemas/TransferToAgentToolResultSuccessModel'
               transfer_to_number_error: '#/components/schemas/TransferToNumberResultErrorModel'
@@ -16685,6 +16773,13 @@ components:
           title: Has Open Invoices
           type: boolean
           description: Whether the user has open invoices.
+        pending_change:
+          title: Pending Change
+          anyOf:
+            - $ref: '#/components/schemas/PendingSubscriptionSwitchResponseModel'
+            - $ref: '#/components/schemas/PendingCancellationResponseModel'
+          description: The pending change for the user.
+          nullable: true
       example:
         allowed_to_extend_character_limit: true
         billing_period: monthly_period
@@ -16753,6 +16848,8 @@ components:
           default: false
         voicemail_detection:
           $ref: '#/components/schemas/FeatureStatusCommonModel'
+        workflow:
+          $ref: '#/components/schemas/WorkflowFeaturesUsageCommonModel'
     FeedbackResponseModel:
       title: FeedbackResponseModel
       required:
@@ -18396,8 +18493,8 @@ components:
         - custom-llm
         - qwen3-4b
         - qwen3-30b-a3b
-        - watt-tool-8b
-        - watt-tool-70b
+        - gpt-oss-20b
+        - gpt-oss-120b
         - gemini-2.5-flash-preview-05-20
         - gemini-2.5-flash-preview-04-17
         - gemini-2.5-flash-lite-preview-06-17
@@ -19667,196 +19764,29 @@ components:
       example:
         audio: '[binary audio data]'
         metadata:
-          $defs:
-            MusicPrompt:
-              example:
-                negative_global_styles:
-                  - metal
-                  - hip-hop
-                  - country
-                positive_global_styles:
-                  - pop
-                  - rock
-                  - jazz
-                sections:
-                  - duration_ms: 10000
-                    lines:
-                      - Verse 1 lyrics
-                    negative_local_styles:
-                      - metal
-                      - hip-hop
-                      - country
-                    positive_local_styles:
-                      - pop
-                      - rock
-                      - jazz
-                    section_name: Verse 1
-              properties:
-                positive_global_styles:
-                  description: The styles that should be present in the entire song.
-                  type: array
-                  items:
-                    type: string
-                  maxItems: 50
-                  title: Positive Global Styles
-                negative_global_styles:
-                  description: The styles that should not be present in the entire song.
-                  type: array
-                  items:
-                    type: string
-                  maxItems: 50
-                  title: Negative Global Styles
-                sections:
-                  description: The sections of the song.
-                  type: array
-                  items:
-                    $ref: '#/$defs/SongSection'
-                  maxItems: 30
-                  title: Sections
-              required:
-                - positive_global_styles
-                - negative_global_styles
-                - sections
-              title: MusicPrompt
-              type: object
-            SongMetadata:
-              example:
-                description: My Song Description
-                genres:
-                  - pop
-                  - rock
-                  - jazz
-                is_explicit: false
-                languages:
-                  - en
-                  - fr
-                title: My Song
-              properties:
-                title:
-                  description: The title of the song
-                  title: Title
-                  type: string
-                  nullable: true
-                description:
-                  description: The description of the song
-                  title: Description
-                  type: string
-                  nullable: true
-                genres:
-                  description: The genres of the song
-                  type: array
-                  items:
-                    type: string
-                  title: Genres
-                languages:
-                  description: The languages of the song
-                  type: array
-                  items:
-                    type: string
-                  title: Languages
-                is_explicit:
-                  description: Whether the song is explicit
-                  title: Is Explicit
-                  type: boolean
-                  nullable: true
-              required:
-                - title
-                - description
-                - genres
-                - languages
-                - is_explicit
-              title: SongMetadata
-              type: object
-            SongSection:
-              properties:
-                section_name:
-                  description: The name of the section. Must be between 1 and 100 characters.
-                  type: string
-                  maxLength: 100
-                  minLength: 1
-                  title: Section Name
-                positive_local_styles:
-                  description: The styles that should be present in this section.
-                  type: array
-                  items:
-                    type: string
-                  maxItems: 50
-                  title: Positive Local Styles
+          composition_plan:
+            negative_global_styles:
+              - calm
+              - acoustic
+            positive_global_styles:
+              - electronic
+              - intense
+            sections:
+              - duration_ms: 10000
+                lines: [ ]
                 negative_local_styles:
-                  description: The styles that should not be present in this section.
-                  type: array
-                  items:
-                    type: string
-                  maxItems: 50
-                  title: Negative Local Styles
-                duration_ms:
-                  description: The duration of the section in milliseconds. Must be between 3000ms and 120000ms.
-                  type: integer
-                  maximum: 120000
-                  minimum: 3000
-                  title: Duration Ms
-                lines:
-                  description: The lyrics of the section.
-                  type: array
-                  items:
-                    type: string
-                  maxItems: 30
-                  title: Lines
-              required:
-                - section_name
-                - positive_local_styles
-                - negative_local_styles
-                - duration_ms
-                - lines
-              title: SongSection
-              type: object
-          description: Response model for structured music generation endpoint
-          example:
-            composition_plan:
-              negative_global_styles:
-                - metal
-                - hip-hop
-                - country
-              positive_global_styles:
-                - pop
-                - rock
-                - jazz
-              sections:
-                - duration_ms: 10000
-                  lines:
-                    - Verse 1 lyrics
-                  negative_local_styles:
-                    - metal
-                    - hip-hop
-                    - country
-                  positive_local_styles:
-                    - pop
-                    - rock
-                    - jazz
-                  section_name: Verse 1
-            song_metadata:
-              description: My Song Description
-              genres:
-                - pop
-                - rock
-                - jazz
-              is_explicit: false
-              languages:
-                - en
-                - fr
-              title: My Song
-          properties:
-            composition_plan:
-              description: The composition plan used to generate the song
-              $ref: '#/$defs/MusicPrompt'
-            song_metadata:
-              description: The metadata of the generated song
-              $ref: '#/$defs/SongMetadata'
-          required:
-            - composition_plan
-            - song_metadata
-          title: DetailedMusicResponse
-          type: object
+                  - full drums
+                positive_local_styles:
+                  - filtered synth
+                section_name: Intro
+          song_metadata:
+            description: AI-generated music
+            genres:
+              - electronic
+            is_explicit: false
+            languages:
+              - Instrumental
+            title: Generated Song
     MusicPrompt:
       title: MusicPrompt
       required:
@@ -20146,6 +20076,54 @@ components:
           title: Max Segment Chars
           type: integer
           nullable: true
+    PendingCancellationResponseModel:
+      title: PendingCancellationResponseModel
+      required:
+        - timestamp_seconds
+      type: object
+      properties:
+        kind:
+          title: Kind
+          enum:
+            - cancellation
+          type: string
+          default: cancellation
+        timestamp_seconds:
+          title: Timestamp Seconds
+          type: integer
+          description: The timestamp of the cancellation.
+    PendingSubscriptionSwitchResponseModel:
+      title: PendingSubscriptionSwitchResponseModel
+      required:
+        - next_tier
+        - timestamp_seconds
+      type: object
+      properties:
+        kind:
+          title: Kind
+          enum:
+            - change
+          type: string
+          default: change
+        next_tier:
+          title: Next Tier
+          enum:
+            - free
+            - starter
+            - creator
+            - pro
+            - growing_business
+            - scale_2024_08_10
+            - grant_tier_1_2025_07_23
+            - grant_tier_2_2025_07_23
+            - trial
+            - enterprise
+          type: string
+          description: The tier to change to.
+        timestamp_seconds:
+          title: Timestamp Seconds
+          type: integer
+          description: The timestamp of the change.
     PhoneNumberAgentInfo:
       title: PhoneNumberAgentInfo
       required:
@@ -22934,7 +22912,7 @@ components:
         max_characters_per_line:
           title: Max Characters Per Line
           type: integer
-          default: 50
+          default: 42
           nullable: true
         include_speakers:
           title: Include Speakers
@@ -22952,17 +22930,17 @@ components:
         segment_on_silence_longer_than_s:
           title: Segment On Silence Longer Than S
           type: number
-          default: 0.6
+          default: 0.8
           nullable: true
         max_segment_duration_s:
           title: Max Segment Duration S
           type: number
-          default: 5
+          default: 4
           nullable: true
         max_segment_chars:
           title: Max Segment Chars
           type: integer
-          default: 90
+          default: 84
           nullable: true
     StartPVCVoiceTrainingResponseModel:
       title: StartPVCVoiceTrainingResponseModel
@@ -23674,6 +23652,26 @@ components:
         - twilio
         - sip_trunk
       type: string
+    TestToolResultModel:
+      title: TestToolResultModel
+      type: object
+      properties:
+        result_type:
+          title: Result Type
+          enum:
+            - testing_tool_result
+          type: string
+          default: testing_tool_result
+        status:
+          title: Status
+          enum:
+            - success
+          type: string
+          default: success
+        reason:
+          title: Reason
+          type: string
+          default: Skipping tool call in test mode
     TokenResponseModel:
       title: TokenResponseModel
       required:
@@ -24253,6 +24251,7 @@ components:
         - can_use_delayed_payment_methods
         - is_onboarding_completed
         - is_onboarding_checklist_completed
+        - created_at
       type: object
       properties:
         user_id:
@@ -24266,7 +24265,8 @@ components:
         is_new_user:
           title: Is New User
           type: boolean
-          description: Whether the user is new.
+          description: Whether the user is new. This field is deprecated and will be removed in the future. Use 'created_at' instead.
+          deprecated: true
         xi_api_key:
           title: Xi Api Key
           type: string
@@ -24310,8 +24310,13 @@ components:
           type: string
           description: The Partnerstack partner default link of the user.
           nullable: true
+        created_at:
+          title: Created At
+          type: integer
+          description: The unix timestamp of the user's creation. 0 if the user was created before the unix timestamp was added.
       example:
         can_use_delayed_payment_methods: false
+        created_at: 1753999199
         first_name: John
         is_api_key_hashed: false
         is_new_user: false
@@ -25483,6 +25488,7 @@ components:
       enum:
         - hmac
         - oauth2
+        - mtls
       type: string
     WebhookToolApiSchemaConfig-Input:
       title: WebhookToolApiSchemaConfig
@@ -26561,6 +26567,16 @@ components:
           type: string
           description: Text and ARIA label used for the copy ID button.
           nullable: true
+    WorkflowFeaturesUsageCommonModel:
+      title: WorkflowFeaturesUsageCommonModel
+      type: object
+      properties:
+        enabled:
+          title: Enabled
+          type: boolean
+          default: false
+        tool_node:
+          $ref: '#/components/schemas/FeatureStatusCommonModel'
     WorkflowToolEdgeStepModel:
       title: WorkflowToolEdgeStepModel
       required:
@@ -26791,6 +26807,9 @@ components:
               - workspace_read
               - workspace_write
               - forced_alignment
+              - convai_read
+              - convai_write
+              - music_generation
             type: string
           nullable: true
         character_limit:
@@ -26873,7 +26892,6 @@ components:
         - convai_settings
         - convai_secrets
         - workspace_auth_connections
-        - music_latent
         - convai_phone_numbers
         - convai_mcp_servers
         - convai_batch_calls

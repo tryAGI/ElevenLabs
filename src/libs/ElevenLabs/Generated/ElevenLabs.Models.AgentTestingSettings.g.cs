@@ -11,8 +11,8 @@ namespace ElevenLabs
         /// <summary>
         /// List of test IDs that should be run for this agent
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("test_ids")]
-        public global::System.Collections.Generic.IList<string>? TestIds { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("attached_tests")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AttachedTestModel>? AttachedTests { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -23,16 +23,16 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentTestingSettings" /> class.
         /// </summary>
-        /// <param name="testIds">
+        /// <param name="attachedTests">
         /// List of test IDs that should be run for this agent
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentTestingSettings(
-            global::System.Collections.Generic.IList<string>? testIds)
+            global::System.Collections.Generic.IList<global::ElevenLabs.AttachedTestModel>? attachedTests)
         {
-            this.TestIds = testIds;
+            this.AttachedTests = attachedTests;
         }
 
         /// <summary>

@@ -3,49 +3,64 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class PronunciationDictionaryClient
     {
-        partial void PrepareGetConvaiToolsArguments(
+        partial void PrepareEditPronunciationDictionariesByPronunciationDictionaryIdArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey);
-        partial void PrepareGetConvaiToolsRequest(
+            ref string pronunciationDictionaryId,
+            ref string? xiApiKey,
+            global::ElevenLabs.BodyUpdatePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdPatch request);
+        partial void PrepareEditPronunciationDictionariesByPronunciationDictionaryIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey);
-        partial void ProcessGetConvaiToolsResponse(
+            string pronunciationDictionaryId,
+            string? xiApiKey,
+            global::ElevenLabs.BodyUpdatePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdPatch request);
+        partial void ProcessEditPronunciationDictionariesByPronunciationDictionaryIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetConvaiToolsResponseContent(
+        partial void ProcessEditPronunciationDictionariesByPronunciationDictionaryIdResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Tools<br/>
-        /// Get all available tools in the workspace.
+        /// Update Pronunciation Dictionary<br/>
+        /// Partially update the pronunciation dictionary without changing the version
         /// </summary>
+        /// <param name="pronunciationDictionaryId">
+        /// The id of the pronunciation dictionary<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
+        /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolsResponseModel> GetConvaiToolsAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> EditPronunciationDictionariesByPronunciationDictionaryIdAsync(
+            string pronunciationDictionaryId,
+            global::ElevenLabs.BodyUpdatePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdPatch request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetConvaiToolsArguments(
+            PrepareEditPronunciationDictionariesByPronunciationDictionaryIdArguments(
                 httpClient: HttpClient,
-                xiApiKey: ref xiApiKey);
+                pronunciationDictionaryId: ref pronunciationDictionaryId,
+                xiApiKey: ref xiApiKey,
+                request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/tools",
+                path: $"/v1/pronunciation-dictionaries/{pronunciationDictionaryId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Get,
+                method: new global::System.Net.Http.HttpMethod("PATCH"),
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -73,14 +88,22 @@ namespace ElevenLabs
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                content: __httpRequestContentBody,
+                encoding: global::System.Text.Encoding.UTF8,
+                mediaType: "application/json");
+            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetConvaiToolsRequest(
+            PrepareEditPronunciationDictionariesByPronunciationDictionaryIdRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey);
+                pronunciationDictionaryId: pronunciationDictionaryId,
+                xiApiKey: xiApiKey,
+                request: request);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -90,7 +113,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetConvaiToolsResponse(
+            ProcessEditPronunciationDictionariesByPronunciationDictionaryIdResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -143,7 +166,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetConvaiToolsResponseContent(
+                ProcessEditPronunciationDictionariesByPronunciationDictionaryIdResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -153,7 +176,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.ToolsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -184,7 +207,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.ToolsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -201,6 +224,47 @@ namespace ElevenLabs
                     };
                 }
             }
+        }
+
+        /// <summary>
+        /// Update Pronunciation Dictionary<br/>
+        /// Partially update the pronunciation dictionary without changing the version
+        /// </summary>
+        /// <param name="pronunciationDictionaryId">
+        /// The id of the pronunciation dictionary<br/>
+        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// </param>
+        /// <param name="xiApiKey">
+        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
+        /// <param name="archived">
+        /// The name of the pronunciation dictionary, used for identification only.<br/>
+        /// Example: My Dictionary
+        /// </param>
+        /// <param name="name">
+        /// The name of the pronunciation dictionary, used for identification only.<br/>
+        /// Example: My Dictionary
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> EditPronunciationDictionariesByPronunciationDictionaryIdAsync(
+            string pronunciationDictionaryId,
+            string? xiApiKey = default,
+            bool? archived = default,
+            string? name = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::ElevenLabs.BodyUpdatePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdPatch
+            {
+                Archived = archived,
+                Name = name,
+            };
+
+            return await EditPronunciationDictionariesByPronunciationDictionaryIdAsync(
+                pronunciationDictionaryId: pronunciationDictionaryId,
+                xiApiKey: xiApiKey,
+                request: __request,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

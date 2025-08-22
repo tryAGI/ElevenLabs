@@ -108,6 +108,18 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ForcedAlignment,
+        /// <summary>
+        /// 
+        /// </summary>
+        ConvaiRead,
+        /// <summary>
+        /// 
+        /// </summary>
+        ConvaiWrite,
+        /// <summary>
+        /// 
+        /// </summary>
+        MusicGeneration,
     }
 
     /// <summary>
@@ -147,6 +159,9 @@ namespace ElevenLabs
                 WorkspaceApiKeyResponseModelPermission.WorkspaceRead => "workspace_read",
                 WorkspaceApiKeyResponseModelPermission.WorkspaceWrite => "workspace_write",
                 WorkspaceApiKeyResponseModelPermission.ForcedAlignment => "forced_alignment",
+                WorkspaceApiKeyResponseModelPermission.ConvaiRead => "convai_read",
+                WorkspaceApiKeyResponseModelPermission.ConvaiWrite => "convai_write",
+                WorkspaceApiKeyResponseModelPermission.MusicGeneration => "music_generation",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -182,6 +197,9 @@ namespace ElevenLabs
                 "workspace_read" => WorkspaceApiKeyResponseModelPermission.WorkspaceRead,
                 "workspace_write" => WorkspaceApiKeyResponseModelPermission.WorkspaceWrite,
                 "forced_alignment" => WorkspaceApiKeyResponseModelPermission.ForcedAlignment,
+                "convai_read" => WorkspaceApiKeyResponseModelPermission.ConvaiRead,
+                "convai_write" => WorkspaceApiKeyResponseModelPermission.ConvaiWrite,
+                "music_generation" => WorkspaceApiKeyResponseModelPermission.MusicGeneration,
                 _ => null,
             };
         }

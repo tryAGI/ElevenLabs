@@ -108,6 +108,18 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ForcedAlignment,
+        /// <summary>
+        /// 
+        /// </summary>
+        ConvaiRead,
+        /// <summary>
+        /// 
+        /// </summary>
+        ConvaiWrite,
+        /// <summary>
+        /// 
+        /// </summary>
+        MusicGeneration,
     }
 
     /// <summary>
@@ -147,6 +159,9 @@ namespace ElevenLabs
                 BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.WorkspaceRead => "workspace_read",
                 BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.WorkspaceWrite => "workspace_write",
                 BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.ForcedAlignment => "forced_alignment",
+                BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.ConvaiRead => "convai_read",
+                BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.ConvaiWrite => "convai_write",
+                BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.MusicGeneration => "music_generation",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -182,6 +197,9 @@ namespace ElevenLabs
                 "workspace_read" => BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.WorkspaceRead,
                 "workspace_write" => BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.WorkspaceWrite,
                 "forced_alignment" => BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.ForcedAlignment,
+                "convai_read" => BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.ConvaiRead,
+                "convai_write" => BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.ConvaiWrite,
+                "music_generation" => BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPostPermission.MusicGeneration,
                 _ => null,
             };
         }

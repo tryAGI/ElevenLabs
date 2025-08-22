@@ -115,11 +115,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        WattTool8b,
+        GptOss20b,
         /// <summary>
         /// 
         /// </summary>
-        WattTool70b,
+        GptOss120b,
         /// <summary>
         /// 
         /// </summary>
@@ -276,8 +276,8 @@ namespace ElevenLabs
                 LLM.CustomLlm => "custom-llm",
                 LLM.Qwen34b => "qwen3-4b",
                 LLM.Qwen330bA3b => "qwen3-30b-a3b",
-                LLM.WattTool8b => "watt-tool-8b",
-                LLM.WattTool70b => "watt-tool-70b",
+                LLM.GptOss20b => "gpt-oss-20b",
+                LLM.GptOss120b => "gpt-oss-120b",
                 LLM.Gemini25FlashPreview0520 => "gemini-2.5-flash-preview-05-20",
                 LLM.Gemini25FlashPreview0417 => "gemini-2.5-flash-preview-04-17",
                 LLM.Gemini25FlashLitePreview0617 => "gemini-2.5-flash-lite-preview-06-17",
@@ -343,8 +343,8 @@ namespace ElevenLabs
                 "custom-llm" => LLM.CustomLlm,
                 "qwen3-4b" => LLM.Qwen34b,
                 "qwen3-30b-a3b" => LLM.Qwen330bA3b,
-                "watt-tool-8b" => LLM.WattTool8b,
-                "watt-tool-70b" => LLM.WattTool70b,
+                "gpt-oss-20b" => LLM.GptOss20b,
+                "gpt-oss-120b" => LLM.GptOss120b,
                 "gemini-2.5-flash-preview-05-20" => LLM.Gemini25FlashPreview0520,
                 "gemini-2.5-flash-preview-04-17" => LLM.Gemini25FlashPreview0417,
                 "gemini-2.5-flash-lite-preview-06-17" => LLM.Gemini25FlashLitePreview0617,
