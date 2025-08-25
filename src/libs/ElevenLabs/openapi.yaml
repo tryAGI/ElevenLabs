@@ -6572,6 +6572,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tests
+      x-fern-sdk-method-name: create
   '/v1/convai/agent-testing/{test_id}':
     get:
       summary: Get Agent Response Test By Id
@@ -6608,6 +6612,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tests
+      x-fern-sdk-method-name: get
     put:
       summary: Update Agent Response Test
       description: Updates an agent response test by ID.
@@ -6649,6 +6657,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tests
+      x-fern-sdk-method-name: update
     delete:
       summary: Delete Agent Response Test
       description: Deletes an agent response test by ID.
@@ -6683,6 +6695,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tests
+      x-fern-sdk-method-name: delete
   /v1/convai/agent-testing/summaries:
     post:
       summary: Get Agent Response Test Summaries By Ids
@@ -6716,6 +6732,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tests
+      x-fern-sdk-method-name: summaries
   /v1/convai/agent-testing:
     get:
       summary: List Agent Response Tests
@@ -6769,6 +6789,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tests
+      x-fern-sdk-method-name: list
   '/v1/convai/agents/{agent_id}/run-tests':
     post:
       summary: Run Tests On The Agent
@@ -6811,6 +6835,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - agents
+      x-fern-sdk-method-name: run_tests
   '/v1/convai/test-invocations/{test_invocation_id}':
     get:
       summary: Get Test Invocation
@@ -6846,6 +6874,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tests
+        - invocations
+      x-fern-sdk-method-name: get
   '/v1/convai/test-invocations/{test_invocation_id}/resubmit':
     post:
       summary: Resubmit Tests
@@ -6886,6 +6919,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+      x-fern-sdk-group-name:
+        - conversational_ai
+        - tests
+        - invocations
+      x-fern-sdk-method-name: resubmit
   /v1/convai/conversations:
     get:
       tags:
@@ -10201,6 +10239,16 @@ paths:
         - pvc
         - verification
       x-fern-sdk-method-name: request
+  /docs:
+    get:
+      summary: Redirect To Mintlify
+      operationId: redirect_to_mintlify
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
 components:
   schemas:
     ASRConversationalConfig:
@@ -14551,6 +14599,7 @@ components:
         - audio
         - interruption
         - user_transcript
+        - tentative_user_transcript
         - agent_response
         - agent_response_correction
         - client_tool_call
@@ -17306,6 +17355,8 @@ components:
           $ref: '#/components/schemas/FeatureStatusCommonModel'
         workflow:
           $ref: '#/components/schemas/WorkflowFeaturesUsageCommonModel'
+        agent_testing:
+          $ref: '#/components/schemas/TestsFeatureUsageCommonModel'
     FeedbackResponseModel:
       title: FeedbackResponseModel
       required:
@@ -24375,6 +24426,22 @@ components:
           title: Reason
           type: string
           default: Skipping tool call in test mode
+    TestsFeatureUsageCommonModel:
+      title: TestsFeatureUsageCommonModel
+      type: object
+      properties:
+        enabled:
+          title: Enabled
+          type: boolean
+          default: false
+        tests_ran_after_last_modification:
+          title: Tests Ran After Last Modification
+          type: boolean
+          default: false
+        tests_ran_in_last_7_days:
+          title: Tests Ran In Last 7 Days
+          type: boolean
+          default: false
     TokenResponseModel:
       title: TokenResponseModel
       required:
@@ -24900,6 +24967,9 @@ components:
           type: string
         condition_result:
           $ref: '#/components/schemas/TestConditionResultCommonModel'
+        last_updated_at_unix:
+          title: Last Updated At Unix
+          type: integer
     UnitTestSummaryResponseModel:
       title: UnitTestSummaryResponseModel
       required:

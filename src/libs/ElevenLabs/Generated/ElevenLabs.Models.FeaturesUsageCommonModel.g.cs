@@ -81,6 +81,12 @@ namespace ElevenLabs
         public global::ElevenLabs.WorkflowFeaturesUsageCommonModel? Workflow { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_testing")]
+        public global::ElevenLabs.TestsFeatureUsageCommonModel? AgentTesting { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -107,6 +113,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="voicemailDetection"></param>
         /// <param name="workflow"></param>
+        /// <param name="agentTesting"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -122,7 +129,8 @@ namespace ElevenLabs
             global::ElevenLabs.FeatureStatusCommonModel? toolDynamicVariableUpdates,
             bool? isLivekit,
             global::ElevenLabs.FeatureStatusCommonModel? voicemailDetection,
-            global::ElevenLabs.WorkflowFeaturesUsageCommonModel? workflow)
+            global::ElevenLabs.WorkflowFeaturesUsageCommonModel? workflow,
+            global::ElevenLabs.TestsFeatureUsageCommonModel? agentTesting)
         {
             this.LanguageDetection = languageDetection;
             this.TransferToAgent = transferToAgent;
@@ -136,6 +144,7 @@ namespace ElevenLabs
             this.IsLivekit = isLivekit;
             this.VoicemailDetection = voicemailDetection;
             this.Workflow = workflow;
+            this.AgentTesting = agentTesting;
         }
 
         /// <summary>
