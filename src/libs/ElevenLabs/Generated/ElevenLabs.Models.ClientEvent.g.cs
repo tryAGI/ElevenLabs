@@ -35,6 +35,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        TentativeUserTranscript,
+        /// <summary>
+        /// 
+        /// </summary>
         AgentResponse,
         /// <summary>
         /// 
@@ -88,6 +92,7 @@ namespace ElevenLabs
                 ClientEvent.Audio => "audio",
                 ClientEvent.Interruption => "interruption",
                 ClientEvent.UserTranscript => "user_transcript",
+                ClientEvent.TentativeUserTranscript => "tentative_user_transcript",
                 ClientEvent.AgentResponse => "agent_response",
                 ClientEvent.AgentResponseCorrection => "agent_response_correction",
                 ClientEvent.ClientToolCall => "client_tool_call",
@@ -113,6 +118,7 @@ namespace ElevenLabs
                 "audio" => ClientEvent.Audio,
                 "interruption" => ClientEvent.Interruption,
                 "user_transcript" => ClientEvent.UserTranscript,
+                "tentative_user_transcript" => ClientEvent.TentativeUserTranscript,
                 "agent_response" => ClientEvent.AgentResponse,
                 "agent_response_correction" => ClientEvent.AgentResponseCorrection,
                 "client_tool_call" => ClientEvent.ClientToolCall,

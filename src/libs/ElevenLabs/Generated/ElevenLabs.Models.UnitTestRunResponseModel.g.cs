@@ -57,6 +57,12 @@ namespace ElevenLabs
         public global::ElevenLabs.TestConditionResultCommonModel? ConditionResult { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("last_updated_at_unix")]
+        public int? LastUpdatedAtUnix { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -72,6 +78,7 @@ namespace ElevenLabs
         /// <param name="agentResponses"></param>
         /// <param name="testId"></param>
         /// <param name="conditionResult"></param>
+        /// <param name="lastUpdatedAtUnix"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -82,7 +89,8 @@ namespace ElevenLabs
             global::ElevenLabs.TestRunStatus status,
             string testId,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? agentResponses,
-            global::ElevenLabs.TestConditionResultCommonModel? conditionResult)
+            global::ElevenLabs.TestConditionResultCommonModel? conditionResult,
+            int? lastUpdatedAtUnix)
         {
             this.TestRunId = testRunId ?? throw new global::System.ArgumentNullException(nameof(testRunId));
             this.TestInvocationId = testInvocationId ?? throw new global::System.ArgumentNullException(nameof(testInvocationId));
@@ -91,6 +99,7 @@ namespace ElevenLabs
             this.TestId = testId ?? throw new global::System.ArgumentNullException(nameof(testId));
             this.AgentResponses = agentResponses;
             this.ConditionResult = conditionResult;
+            this.LastUpdatedAtUnix = lastUpdatedAtUnix;
         }
 
         /// <summary>
