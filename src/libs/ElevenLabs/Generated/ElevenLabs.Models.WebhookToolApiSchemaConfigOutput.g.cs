@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Configuration for a webhook that will be called by an LLM tool.
+    /// Configuration for a webhook that will be called by an LLM tool.<br/>
+    /// Example: {"method":"GET","path_params_schema":{"agent_id":{"type":"string"}},"query_params_schema":{"param1":{"type":"string"}},"request_body_schema":{"param1":{"type":"string"}},"request_headers":{"Authorization":"Bearer {api_key}"},"url":"https://example.com/agents/{agent_id}"}
     /// </summary>
     public sealed partial class WebhookToolApiSchemaConfigOutput
     {
@@ -13,7 +14,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        public string Url { get; set; } = default!;
 
         /// <summary>
         /// The HTTP method to use for the webhook<br/>

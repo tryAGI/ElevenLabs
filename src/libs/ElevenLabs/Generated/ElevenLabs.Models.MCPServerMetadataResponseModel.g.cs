@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAt { get; set; }
+        public int CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// 

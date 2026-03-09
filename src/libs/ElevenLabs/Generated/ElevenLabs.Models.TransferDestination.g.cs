@@ -34,6 +34,22 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.SIPUriTransferDestination? SipUri { get; init; }
+#else
+        public global::ElevenLabs.SIPUriTransferDestination? SipUri { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipUri))]
+#endif
+        public bool IsSipUri => SipUri != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator TransferDestination(global::ElevenLabs.PhoneNumberTransferDestination value) => new TransferDestination((global::ElevenLabs.PhoneNumberTransferDestination?)value);
 
         /// <summary>
@@ -48,23 +64,6 @@ namespace ElevenLabs
         {
             Phone = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.SIPUriTransferDestination? SipUri { get; init; }
-#else
-        public global::ElevenLabs.SIPUriTransferDestination? SipUri { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipUri))]
-#endif
-        public bool IsSipUri => SipUri != null;
 
         /// <summary>
         /// 

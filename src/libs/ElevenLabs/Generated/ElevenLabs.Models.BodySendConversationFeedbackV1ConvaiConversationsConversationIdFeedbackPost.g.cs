@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UserFeedbackScoreJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.UserFeedbackScore Feedback { get; set; }
+        public global::ElevenLabs.UserFeedbackScore Feedback { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

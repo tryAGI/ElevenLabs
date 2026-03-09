@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"available_for_tiers":["creator","enterprise"],"category":"professional","description":"A warm, expressive voice with a touch of humor.","fine_tuning":{"is_allowed_to_fine_tune":true,"manual_verification_requested":false,"state":{"eleven_multilingual_v2":"fine_tuned"},"verification_attempts_count":2,"verification_failures":[]},"high_quality_base_model_ids":["eleven_v2_flash","eleven_flash_v2","eleven_turbo_v2_5","eleven_multilingual_v2","eleven_v2_5_flash","eleven_flash_v2_5","eleven_turbo_v2"],"is_legacy":false,"is_mixed":false,"is_owner":false,"labels":{"accent":"American","age":"middle-aged","description":"expressive","gender":"female","use_case":"social media"},"name":"Rachel","preview_url":"https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3","settings":{"similarity_boost":1,"speed":1,"stability":1,"style":0,"use_speaker_boost":true},"sharing":{"category":"professional","cloned_by_count":50,"date_unix":1714204800,"description":"A female voice with a soft and friendly tone.","disable_at_unix":1714204800,"enabled_in_library":true,"featured":true,"financial_rewards_enabled":true,"free_users_allowed":true,"history_item_sample_id":"DCwhRBWXzGAHq8TQ4Fs18","labels":{"accent":"American","gender":"female"},"liked_by_count":100,"live_moderation_enabled":true,"moderation_check":{"captcha_checks":[0.95,0.98],"captcha_ids":["captcha1","captcha2"],"date_checked_unix":1714204800,"description_check":true,"description_value":"A female voice with a soft and friendly tone.","name_check":true,"name_value":"Rachel","sample_checks":[0.95,0.98],"sample_ids":["sample1","sample2"]},"name":"Rachel","notice_period":30,"original_voice_id":"DCwhRBWXzGAHq8TQ4Fs18","public_owner_id":"DCwhRBWXzGAHq8TQ4Fs18","rate":0.05,"reader_app_enabled":true,"reader_restricted_on":[{"resource_id":"FCwhRBWXzGAHq8TQ4Fs18","resource_type":"read"}],"review_status":"allowed","status":"enabled","voice_mixing_allowed":false,"whitelisted_emails":["example@example.com"]},"verified_languages":[{"accent":"american","language":"en","locale":"en-US","model_id":"eleven_multilingual_v2","preview_url":"https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3"}],"voice_id":"21m00Tcm4TlvDq8ikWAM","voice_verification":{"is_verified":true,"language":"en","requires_verification":false,"verification_attempts":[{"accepted":true,"date_unix":1714204800,"levenshtein_distance":2,"recording":{"mime_type":"audio/mpeg","recording_id":"CwhRBWXzGAHq8TQ4Fs17","size_bytes":1000000,"transcription":"Hello, how are you?","upload_date_unix":1714204800},"similarity":0.95,"text":"Hello, how are you?"}],"verification_attempts_count":0,"verification_failures":[]}}
     /// </summary>
     public sealed partial class VoiceResponseModel
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string VoiceId { get; set; } = default!;
 
         /// <summary>
         /// The name of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// List of samples associated with the voice.
@@ -34,11 +34,12 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("category")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelCategoryJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.VoiceResponseModelCategory Category { get; set; }
+        public global::ElevenLabs.VoiceResponseModelCategory Category { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"is_allowed_to_fine_tune":true,"manual_verification_requested":false,"state":{"eleven_multilingual_v2":"fine_tuned"},"verification_attempts_count":2,"verification_failures":[]}
         /// </summary>
+        /// <example>{"is_allowed_to_fine_tune":true,"manual_verification_requested":false,"state":{"eleven_multilingual_v2":"fine_tuned"},"verification_attempts_count":2,"verification_failures":[]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("fine_tuning")]
         public global::ElevenLabs.FineTuningResponseModel? FineTuning { get; set; }
 
@@ -47,7 +48,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, string> Labels { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, string> Labels { get; set; } = default!;
 
         /// <summary>
         /// The description of the voice.
@@ -66,17 +67,19 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("available_for_tiers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> AvailableForTiers { get; set; }
+        public global::System.Collections.Generic.IList<string> AvailableForTiers { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"similarity_boost":1,"speed":1,"stability":1,"style":0,"use_speaker_boost":true}
         /// </summary>
+        /// <example>{"similarity_boost":1,"speed":1,"stability":1,"style":0,"use_speaker_boost":true}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         public global::ElevenLabs.VoiceSettingsResponseModel? Settings { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"category":"professional","cloned_by_count":50,"date_unix":1714204800,"description":"A female voice with a soft and friendly tone.","disable_at_unix":1714204800,"enabled_in_library":true,"featured":true,"financial_rewards_enabled":true,"free_users_allowed":true,"history_item_sample_id":"DCwhRBWXzGAHq8TQ4Fs18","labels":{"accent":"American","gender":"female"},"liked_by_count":100,"live_moderation_enabled":true,"moderation_check":{"captcha_checks":[0.95,0.98],"captcha_ids":["captcha1","captcha2"],"date_checked_unix":1714204800,"description_check":true,"description_value":"A female voice with a soft and friendly tone.","name_check":true,"name_value":"Rachel","sample_checks":[0.95,0.98],"sample_ids":["sample1","sample2"]},"name":"Rachel","notice_period":30,"original_voice_id":"DCwhRBWXzGAHq8TQ4Fs18","public_owner_id":"DCwhRBWXzGAHq8TQ4Fs18","rate":0.05,"reader_app_enabled":true,"reader_restricted_on":[{"resource_id":"FCwhRBWXzGAHq8TQ4Fs18","resource_type":"read"}],"review_status":"allowed","status":"enabled","voice_mixing_allowed":false,"whitelisted_emails":["example@example.com"]}
         /// </summary>
+        /// <example>{"category":"professional","cloned_by_count":50,"date_unix":1714204800,"description":"A female voice with a soft and friendly tone.","disable_at_unix":1714204800,"enabled_in_library":true,"featured":true,"financial_rewards_enabled":true,"free_users_allowed":true,"history_item_sample_id":"DCwhRBWXzGAHq8TQ4Fs18","labels":{"accent":"American","gender":"female"},"liked_by_count":100,"live_moderation_enabled":true,"moderation_check":{"captcha_checks":[0.95,0.98],"captcha_ids":["captcha1","captcha2"],"date_checked_unix":1714204800,"description_check":true,"description_value":"A female voice with a soft and friendly tone.","name_check":true,"name_value":"Rachel","sample_checks":[0.95,0.98],"sample_ids":["sample1","sample2"]},"name":"Rachel","notice_period":30,"original_voice_id":"DCwhRBWXzGAHq8TQ4Fs18","public_owner_id":"DCwhRBWXzGAHq8TQ4Fs18","rate":0.05,"reader_app_enabled":true,"reader_restricted_on":[{"resource_id":"FCwhRBWXzGAHq8TQ4Fs18","resource_type":"read"}],"review_status":"allowed","status":"enabled","voice_mixing_allowed":false,"whitelisted_emails":["example@example.com"]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("sharing")]
         public global::ElevenLabs.VoiceSharingResponseModel? Sharing { get; set; }
 
@@ -85,7 +88,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("high_quality_base_model_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> HighQualityBaseModelIds { get; set; }
+        public global::System.Collections.Generic.IList<string> HighQualityBaseModelIds { get; set; } = default!;
 
         /// <summary>
         /// The verified languages of the voice.
@@ -101,8 +104,9 @@ namespace ElevenLabs
         public global::ElevenLabs.VoiceResponseModelSafetyControl? SafetyControl { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"is_verified":true,"language":"en","requires_verification":false,"verification_attempts":[{"accepted":true,"date_unix":1714204800,"levenshtein_distance":2,"recording":{"mime_type":"audio/mpeg","recording_id":"CwhRBWXzGAHq8TQ4Fs17","size_bytes":1000000,"transcription":"Hello, how are you?","upload_date_unix":1714204800},"similarity":0.95,"text":"Hello, how are you?"}],"verification_attempts_count":0,"verification_failures":[]}
         /// </summary>
+        /// <example>{"is_verified":true,"language":"en","requires_verification":false,"verification_attempts":[{"accepted":true,"date_unix":1714204800,"levenshtein_distance":2,"recording":{"mime_type":"audio/mpeg","recording_id":"CwhRBWXzGAHq8TQ4Fs17","size_bytes":1000000,"transcription":"Hello, how are you?","upload_date_unix":1714204800},"similarity":0.95,"text":"Hello, how are you?"}],"verification_attempts_count":0,"verification_failures":[]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_verification")]
         public global::ElevenLabs.VoiceVerificationResponseModel? VoiceVerification { get; set; }
 
@@ -159,7 +163,9 @@ namespace ElevenLabs
         /// <param name="category">
         /// The category of the voice.
         /// </param>
-        /// <param name="fineTuning"></param>
+        /// <param name="fineTuning">
+        /// Example: {"is_allowed_to_fine_tune":true,"manual_verification_requested":false,"state":{"eleven_multilingual_v2":"fine_tuned"},"verification_attempts_count":2,"verification_failures":[]}
+        /// </param>
         /// <param name="labels">
         /// Labels associated with the voice.
         /// </param>
@@ -172,8 +178,12 @@ namespace ElevenLabs
         /// <param name="availableForTiers">
         /// The tiers the voice is available for.
         /// </param>
-        /// <param name="settings"></param>
-        /// <param name="sharing"></param>
+        /// <param name="settings">
+        /// Example: {"similarity_boost":1,"speed":1,"stability":1,"style":0,"use_speaker_boost":true}
+        /// </param>
+        /// <param name="sharing">
+        /// Example: {"category":"professional","cloned_by_count":50,"date_unix":1714204800,"description":"A female voice with a soft and friendly tone.","disable_at_unix":1714204800,"enabled_in_library":true,"featured":true,"financial_rewards_enabled":true,"free_users_allowed":true,"history_item_sample_id":"DCwhRBWXzGAHq8TQ4Fs18","labels":{"accent":"American","gender":"female"},"liked_by_count":100,"live_moderation_enabled":true,"moderation_check":{"captcha_checks":[0.95,0.98],"captcha_ids":["captcha1","captcha2"],"date_checked_unix":1714204800,"description_check":true,"description_value":"A female voice with a soft and friendly tone.","name_check":true,"name_value":"Rachel","sample_checks":[0.95,0.98],"sample_ids":["sample1","sample2"]},"name":"Rachel","notice_period":30,"original_voice_id":"DCwhRBWXzGAHq8TQ4Fs18","public_owner_id":"DCwhRBWXzGAHq8TQ4Fs18","rate":0.05,"reader_app_enabled":true,"reader_restricted_on":[{"resource_id":"FCwhRBWXzGAHq8TQ4Fs18","resource_type":"read"}],"review_status":"allowed","status":"enabled","voice_mixing_allowed":false,"whitelisted_emails":["example@example.com"]}
+        /// </param>
         /// <param name="highQualityBaseModelIds">
         /// The base model IDs for high-quality voices.
         /// </param>
@@ -183,7 +193,9 @@ namespace ElevenLabs
         /// <param name="safetyControl">
         /// The safety controls of the voice.
         /// </param>
-        /// <param name="voiceVerification"></param>
+        /// <param name="voiceVerification">
+        /// Example: {"is_verified":true,"language":"en","requires_verification":false,"verification_attempts":[{"accepted":true,"date_unix":1714204800,"levenshtein_distance":2,"recording":{"mime_type":"audio/mpeg","recording_id":"CwhRBWXzGAHq8TQ4Fs17","size_bytes":1000000,"transcription":"Hello, how are you?","upload_date_unix":1714204800},"similarity":0.95,"text":"Hello, how are you?"}],"verification_attempts_count":0,"verification_failures":[]}
+        /// </param>
         /// <param name="permissionOnResource">
         /// The permission on the resource of the voice.
         /// </param>

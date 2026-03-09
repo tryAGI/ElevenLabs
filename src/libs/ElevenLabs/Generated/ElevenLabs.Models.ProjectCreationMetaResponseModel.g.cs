@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"creation_progress":0.5,"status":"pending","type":"blank"}
     /// </summary>
     public sealed partial class ProjectCreationMetaResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_progress")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double CreationProgress { get; set; }
+        public double CreationProgress { get; set; } = default!;
 
         /// <summary>
         /// The status of the project creation action.
@@ -21,7 +21,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectCreationMetaResponseModelStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ProjectCreationMetaResponseModelStatus Status { get; set; }
+        public global::ElevenLabs.ProjectCreationMetaResponseModelStatus Status { get; set; } = default!;
 
         /// <summary>
         /// The type of the project creation action.
@@ -29,7 +29,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectCreationMetaResponseModelTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ProjectCreationMetaResponseModelType Type { get; set; }
+        public global::ElevenLabs.ProjectCreationMetaResponseModelType Type { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

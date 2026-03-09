@@ -15,7 +15,8 @@ namespace ElevenLabs
         public global::ElevenLabs.ToolRequestModelToolConfigDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// A webhook tool is a tool that calls an external webhook from our server
+        /// A webhook tool is a tool that calls an external webhook from our server<br/>
+        /// Example: {"response_timeout_secs":20,"type":"webhook"}
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WebhookToolConfigInput? Webhook { get; init; }
@@ -31,6 +32,58 @@ namespace ElevenLabs
 #endif
         public bool IsWebhook => Webhook != null;
 
+        /// <summary>
+        /// A client tool is one that sends an event to the user's client to trigger something client side<br/>
+        /// Example: {"expects_response":false,"type":"client"}
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ClientToolConfigInput? Client { get; init; }
+#else
+        public global::ElevenLabs.ClientToolConfigInput? Client { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Client))]
+#endif
+        public bool IsClient => Client != null;
+
+        /// <summary>
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.SystemToolConfigInput? System { get; init; }
+#else
+        public global::ElevenLabs.SystemToolConfigInput? System { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
+#endif
+        public bool IsSystem => System != null;
+
+        /// <summary>
+        /// An MCP tool configuration that can be used to call MCP servers
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.MCPToolConfigInput? Mcp { get; init; }
+#else
+        public global::ElevenLabs.MCPToolConfigInput? Mcp { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
+#endif
+        public bool IsMcp => Mcp != null;
         /// <summary>
         /// 
         /// </summary>
@@ -48,23 +101,6 @@ namespace ElevenLabs
         {
             Webhook = value;
         }
-
-        /// <summary>
-        /// A client tool is one that sends an event to the user's client to trigger something client side
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.ClientToolConfigInput? Client { get; init; }
-#else
-        public global::ElevenLabs.ClientToolConfigInput? Client { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Client))]
-#endif
-        public bool IsClient => Client != null;
 
         /// <summary>
         /// 
@@ -85,23 +121,6 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.SystemToolConfigInput? System { get; init; }
-#else
-        public global::ElevenLabs.SystemToolConfigInput? System { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
-#endif
-        public bool IsSystem => System != null;
-
-        /// <summary>
         /// 
         /// </summary>
         public static implicit operator ToolConfig(global::ElevenLabs.SystemToolConfigInput value) => new ToolConfig((global::ElevenLabs.SystemToolConfigInput?)value);
@@ -118,23 +137,6 @@ namespace ElevenLabs
         {
             System = value;
         }
-
-        /// <summary>
-        /// An MCP tool configuration that can be used to call MCP servers
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.MCPToolConfigInput? Mcp { get; init; }
-#else
-        public global::ElevenLabs.MCPToolConfigInput? Mcp { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
-#endif
-        public bool IsMcp => Mcp != null;
 
         /// <summary>
         /// 

@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareCreateConvaiAgentByAgentIdLlmUsageCalculateArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -38,6 +38,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.LLMUsageCalculatorResponseModel> CreateConvaiAgentByAgentIdLlmUsageCalculateAsync(
             string agentId,
+
             global::ElevenLabs.LLMUsageCalculatorRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

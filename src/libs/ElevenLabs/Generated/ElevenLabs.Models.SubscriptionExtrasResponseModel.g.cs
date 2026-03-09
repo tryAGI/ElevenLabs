@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"can_bypass_voice_captcha":true,"can_request_manual_pro_voice_verification":true,"concurrency":10,"convai_concurrency":10,"force_logging_disabled":false,"moderation":{"enterprise_background_moderation_enabled":false,"enterprise_check_block_nogo_voice":false,"enterprise_check_nogo_voice":false,"is_in_probation":false,"never_live_moderate":false,"nogo_voice_similar_voice_upload_count":0,"on_watchlist":false},"overused_characters_rolled_over_from_previous_period":1000,"unused_characters_rolled_over_from_previous_period":1000,"usage":{"actual_reported_credits":1000,"manually_gifted_credits_quota":1000,"manually_gifted_credits_used":1000,"paid_usage_based_credits_used":1000,"rollover_credits_quota":1000,"rollover_credits_used":1000,"subscription_cycle_credits_quota":1000,"subscription_cycle_credits_used":1000}}
     /// </summary>
     public sealed partial class SubscriptionExtrasResponseModel
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("concurrency")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Concurrency { get; set; }
+        public int Concurrency { get; set; } = default!;
 
         /// <summary>
         /// The Convai concurrency of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("convai_concurrency")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ConvaiConcurrency { get; set; }
+        public int ConvaiConcurrency { get; set; } = default!;
 
         /// <summary>
         /// The Convai characters per minute of the user. This field is deprecated and will always return None.
@@ -39,28 +39,29 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("force_logging_disabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool ForceLoggingDisabled { get; set; }
+        public bool ForceLoggingDisabled { get; set; } = default!;
 
         /// <summary>
         /// Whether the user can request manual pro voice verification.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_request_manual_pro_voice_verification")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanRequestManualProVoiceVerification { get; set; }
+        public bool CanRequestManualProVoiceVerification { get; set; } = default!;
 
         /// <summary>
         /// Whether the user can bypass the voice captcha.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_bypass_voice_captcha")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanBypassVoiceCaptcha { get; set; }
+        public bool CanBypassVoiceCaptcha { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"enterprise_background_moderation_enabled":false,"enterprise_check_block_nogo_voice":false,"enterprise_check_nogo_voice":false,"is_in_probation":false,"never_live_moderate":false,"nogo_voice_similar_voice_upload_count":0,"on_watchlist":false}
         /// </summary>
+        /// <example>{"enterprise_background_moderation_enabled":false,"enterprise_check_block_nogo_voice":false,"enterprise_check_nogo_voice":false,"is_in_probation":false,"never_live_moderate":false,"nogo_voice_similar_voice_upload_count":0,"on_watchlist":false}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("moderation")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ModerationStatusResponseModel Moderation { get; set; }
+        public global::ElevenLabs.ModerationStatusResponseModel Moderation { get; set; } = default!;
 
         /// <summary>
         /// The unused characters rolled over from the previous period.
@@ -75,8 +76,9 @@ namespace ElevenLabs
         public int? OverusedCharactersRolledOverFromPreviousPeriod { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"actual_reported_credits":1000,"manually_gifted_credits_quota":1000,"manually_gifted_credits_used":1000,"paid_usage_based_credits_used":1000,"rollover_credits_quota":1000,"rollover_credits_used":1000,"subscription_cycle_credits_quota":1000,"subscription_cycle_credits_used":1000}
         /// </summary>
+        /// <example>{"actual_reported_credits":1000,"manually_gifted_credits_quota":1000,"manually_gifted_credits_used":1000,"paid_usage_based_credits_used":1000,"rollover_credits_quota":1000,"rollover_credits_used":1000,"subscription_cycle_credits_quota":1000,"subscription_cycle_credits_used":1000}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         public global::ElevenLabs.SubscriptionUsageResponseModel? Usage { get; set; }
 
@@ -110,14 +112,18 @@ namespace ElevenLabs
         /// <param name="canBypassVoiceCaptcha">
         /// Whether the user can bypass the voice captcha.
         /// </param>
-        /// <param name="moderation"></param>
+        /// <param name="moderation">
+        /// Example: {"enterprise_background_moderation_enabled":false,"enterprise_check_block_nogo_voice":false,"enterprise_check_nogo_voice":false,"is_in_probation":false,"never_live_moderate":false,"nogo_voice_similar_voice_upload_count":0,"on_watchlist":false}
+        /// </param>
         /// <param name="unusedCharactersRolledOverFromPreviousPeriod">
         /// The unused characters rolled over from the previous period.
         /// </param>
         /// <param name="overusedCharactersRolledOverFromPreviousPeriod">
         /// The overused characters rolled over from the previous period.
         /// </param>
-        /// <param name="usage"></param>
+        /// <param name="usage">
+        /// Example: {"actual_reported_credits":1000,"manually_gifted_credits_quota":1000,"manually_gifted_credits_used":1000,"paid_usage_based_credits_used":1000,"rollover_credits_quota":1000,"rollover_credits_used":1000,"subscription_cycle_credits_quota":1000,"subscription_cycle_credits_used":1000}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

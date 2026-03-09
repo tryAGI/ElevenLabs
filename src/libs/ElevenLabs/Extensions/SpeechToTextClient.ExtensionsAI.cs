@@ -42,12 +42,40 @@ public sealed partial class SpeechToTextClient : Microsoft.Extensions.AI.ISpeech
 
         var result = await CreateSpeechToTextAsync(post, cancellationToken: cancellationToken).ConfigureAwait(false);
 
-        return new(result.Text)
+        string text;
+        IList<SpeechToTextWordResponseModel>? words;
+
+        if (result.IsValue1)
         {
-            EndTime = result.Words?.Count > 0 && result.Words.Max(w => w.End) is double endTime ? TimeSpan.FromSeconds(endTime) : null,
+            text = result.Value1.Text;
+            words = result.Value1.Words;
+        }
+        else if (result.IsValue2)
+        {
+            text = string.Join(
+                Environment.NewLine,
+                result.Value2.Transcripts.Select(t => t.Text));
+            words = result.Value2.Transcripts
+                .SelectMany(t => t.Words)
+                .ToList();
+        }
+        else if (result.IsValue3)
+        {
+            text = result.Value3.Message;
+            words = null;
+        }
+        else
+        {
+            text = string.Empty;
+            words = null;
+        }
+
+        return new(text)
+        {
+            EndTime = words?.Count > 0 && words.Max(w => w.End) is double endTime ? TimeSpan.FromSeconds(endTime) : null,
             ModelId = post.ModelId,
             RawRepresentation = result,
-            StartTime = result.Words?.Count > 0 && result.Words.Min(w => w.Start) is double startTime ? TimeSpan.FromSeconds(startTime) : null,
+            StartTime = words?.Count > 0 && words.Min(w => w.Start) is double startTime ? TimeSpan.FromSeconds(startTime) : null,
         };
     }
 

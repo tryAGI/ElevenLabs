@@ -160,7 +160,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public ConversationalAIClient ConversationalAI { get; }
+        public ConversationalAiClient ConversationalAi { get; }
 
         /// <summary>
         /// 

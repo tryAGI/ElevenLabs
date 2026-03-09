@@ -40,6 +40,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> CreateWorkspaceResourcesByResourceIdShareAsync(
             string resourceId,
+
             global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

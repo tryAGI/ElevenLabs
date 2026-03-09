@@ -15,7 +15,7 @@ namespace ElevenLabs
         /// <example>John Smith</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("new_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string NewName { get; set; }
+        public string NewName { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

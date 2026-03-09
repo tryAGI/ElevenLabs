@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -26,28 +26,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ConversationId { get; set; }
+        public string ConversationId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StartTimeUnixSecs { get; set; }
+        public int StartTimeUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CallDurationSecs { get; set; }
+        public int CallDurationSecs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MessageCount { get; set; }
+        public int MessageCount { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -55,7 +55,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationSummaryResponseModelStatus Status { get; set; }
+        public global::ElevenLabs.ConversationSummaryResponseModelStatus Status { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -63,7 +63,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("call_successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; }
+        public global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; } = default!;
 
         /// <summary>
         /// 

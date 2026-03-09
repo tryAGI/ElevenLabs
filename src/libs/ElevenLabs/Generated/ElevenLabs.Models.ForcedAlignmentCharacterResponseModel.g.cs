@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Model representing a single character with its timing information from the aligner.
+    /// Model representing a single character with its timing information from the aligner.<br/>
+    /// Example: {"end":0.02,"start":0,"text":"H"}
     /// </summary>
     public sealed partial class ForcedAlignmentCharacterResponseModel
     {
@@ -13,21 +14,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// The start time of the character in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Start { get; set; }
+        public double Start { get; set; } = default!;
 
         /// <summary>
         /// The end time of the character in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double End { get; set; }
+        public double End { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

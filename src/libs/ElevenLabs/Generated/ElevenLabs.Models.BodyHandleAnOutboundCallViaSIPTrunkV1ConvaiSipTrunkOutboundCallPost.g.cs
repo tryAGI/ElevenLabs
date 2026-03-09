@@ -6,28 +6,28 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyHandleAnOutboundCallViaSIPTrunkV1ConvaiSipTrunkOutboundCallPost
+    public sealed partial class BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost
     {
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentPhoneNumberId { get; set; }
+        public string AgentPhoneNumberId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ToNumber { get; set; }
+        public string ToNumber { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -42,7 +42,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyHandleAnOutboundCallViaSIPTrunkV1ConvaiSipTrunkOutboundCallPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost" /> class.
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="agentPhoneNumberId"></param>
@@ -51,7 +51,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyHandleAnOutboundCallViaSIPTrunkV1ConvaiSipTrunkOutboundCallPost(
+        public BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost(
             string agentId,
             string agentPhoneNumberId,
             string toNumber,
@@ -64,9 +64,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyHandleAnOutboundCallViaSIPTrunkV1ConvaiSipTrunkOutboundCallPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost" /> class.
         /// </summary>
-        public BodyHandleAnOutboundCallViaSIPTrunkV1ConvaiSipTrunkOutboundCallPost()
+        public BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost()
         {
         }
     }

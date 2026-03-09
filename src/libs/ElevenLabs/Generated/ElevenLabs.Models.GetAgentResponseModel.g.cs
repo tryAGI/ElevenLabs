@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"agent_id":"J3Pbu5gP6NNKBscdCdwB","name":"My Agent"}
     /// </summary>
     public sealed partial class GetAgentResponseModel
     {
@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// The name of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationalConfigAPIModelOutput ConversationConfig { get; set; }
+        public global::ElevenLabs.ConversationalConfigAPIModelOutput ConversationConfig { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AgentMetadataResponseModel Metadata { get; set; }
+        public global::ElevenLabs.AgentMetadataResponseModel Metadata { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -55,8 +55,9 @@ namespace ElevenLabs
         public object? Workflow { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </summary>
+        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
 
@@ -90,7 +91,9 @@ namespace ElevenLabs
         /// <param name="workflow">
         /// The workflow of the agent
         /// </param>
-        /// <param name="accessInfo"></param>
+        /// <param name="accessInfo">
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// </param>
         /// <param name="tags">
         /// Agent tags used to categorize the agent
         /// </param>

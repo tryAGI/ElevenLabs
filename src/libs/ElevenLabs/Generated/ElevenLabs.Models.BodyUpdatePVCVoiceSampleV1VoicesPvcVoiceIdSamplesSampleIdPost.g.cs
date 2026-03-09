@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyUpdatePVCVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost
+    public sealed partial class BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost
     {
         /// <summary>
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
@@ -48,7 +48,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyUpdatePVCVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost" /> class.
         /// </summary>
         /// <param name="removeBackgroundNoise">
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
@@ -70,7 +70,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyUpdatePVCVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost(
+        public BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost(
             bool? removeBackgroundNoise,
             global::System.Collections.Generic.IList<string>? selectedSpeakerIds,
             int? trimStartTime,
@@ -83,9 +83,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyUpdatePVCVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost" /> class.
         /// </summary>
-        public BodyUpdatePVCVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost()
+        public BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost()
         {
         }
     }

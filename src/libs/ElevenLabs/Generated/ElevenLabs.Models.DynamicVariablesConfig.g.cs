@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"dynamic_variable_placeholders":{"user_name":"John Doe"}}
     /// </summary>
     public sealed partial class DynamicVariablesConfig
     {

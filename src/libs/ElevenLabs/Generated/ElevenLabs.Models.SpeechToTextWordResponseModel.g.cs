@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Word-level detail of the transcription with timing information.
+    /// Word-level detail of the transcription with timing information.<br/>
+    /// Example: {"characters":[{"end":0.1,"start":0,"text":"H"},{"end":0.2,"start":0.1,"text":"e"},{"end":0.3,"start":0.2,"text":"l"},{"end":0.4,"start":0.3,"text":"l"},{"end":0.5,"start":0.4,"text":"o"}],"end":0.5,"logprob":-0.124,"speaker_id":"speaker_1","start":0,"text":"Hello","type":"word"}
     /// </summary>
     public sealed partial class SpeechToTextWordResponseModel
     {
@@ -13,7 +14,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// The start time of the word or sound in seconds.
@@ -33,7 +34,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeechToTextWordResponseModelTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SpeechToTextWordResponseModelType Type { get; set; }
+        public global::ElevenLabs.SpeechToTextWordResponseModelType Type { get; set; } = default!;
 
         /// <summary>
         /// Unique identifier for the speaker of this word.
@@ -46,7 +47,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logprob")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Logprob { get; set; }
+        public double Logprob { get; set; } = default!;
 
         /// <summary>
         /// The characters that make up the word and their timing information.

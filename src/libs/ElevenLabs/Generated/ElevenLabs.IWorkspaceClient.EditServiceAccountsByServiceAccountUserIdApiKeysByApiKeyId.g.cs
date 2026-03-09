@@ -19,6 +19,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<string> EditServiceAccountsByServiceAccountUserIdApiKeysByApiKeyIdAsync(
             string serviceAccountUserId,
             string apiKeyId,
+
             global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

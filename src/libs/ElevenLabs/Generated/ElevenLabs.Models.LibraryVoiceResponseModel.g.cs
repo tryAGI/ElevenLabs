@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"accent":"american","age":"young","category":"professional","cloned_by_count":11,"date_unix":1714423232,"description":"Perfectly calm, neutral and strong voice. Great for a young female protagonist.","descriptive":"calm","featured":false,"free_users_allowed":true,"gender":"Female","language":"en","live_moderation_enabled":false,"name":"Alita","play_api_usage_character_count_1y":12852,"preview_url":"https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3","public_owner_id":"63e84100a6bf7874ba37a1bab9a31828a379ec94b891b401653b655c5110880f","rate":1,"usage_character_count_1y":12852,"usage_character_count_7d":12852,"use_case":"characters_animation","verified_languages":[{"accent":"american","language":"en","locale":"en-US","model_id":"eleven_multilingual_v2","preview_url":"https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3"}],"voice_id":"sB1b5zUrxQVAFl2PhZFp"}
     /// </summary>
     public sealed partial class LibraryVoiceResponseModel
     {
@@ -13,63 +13,63 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("public_owner_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PublicOwnerId { get; set; }
+        public string PublicOwnerId { get; set; } = default!;
 
         /// <summary>
         /// The id of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string VoiceId { get; set; } = default!;
 
         /// <summary>
         /// The date the voice was added to the library in Unix time.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DateUnix { get; set; }
+        public int DateUnix { get; set; } = default!;
 
         /// <summary>
         /// The name of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The accent of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("accent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Accent { get; set; }
+        public string Accent { get; set; } = default!;
 
         /// <summary>
         /// The gender of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gender")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Gender { get; set; }
+        public string Gender { get; set; } = default!;
 
         /// <summary>
         /// The age of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("age")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Age { get; set; }
+        public string Age { get; set; } = default!;
 
         /// <summary>
         /// The descriptive of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("descriptive")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Descriptive { get; set; }
+        public string Descriptive { get; set; } = default!;
 
         /// <summary>
         /// The use case of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_case")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string UseCase { get; set; }
+        public string UseCase { get; set; } = default!;
 
         /// <summary>
         /// The category of the voice.
@@ -77,7 +77,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("category")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LibraryVoiceResponseModelCategoryJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.LibraryVoiceResponseModelCategory Category { get; set; }
+        public global::ElevenLabs.LibraryVoiceResponseModelCategory Category { get; set; } = default!;
 
         /// <summary>
         /// The language of the voice.
@@ -108,28 +108,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_character_count_1y")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int UsageCharacterCount1y { get; set; }
+        public int UsageCharacterCount1y { get; set; } = default!;
 
         /// <summary>
         /// The usage character count of the voice in the last 7 days.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_character_count_7d")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int UsageCharacterCount7d { get; set; }
+        public int UsageCharacterCount7d { get; set; } = default!;
 
         /// <summary>
         /// The play API usage character count of the voice in the last year.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("play_api_usage_character_count_1y")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int PlayApiUsageCharacterCount1y { get; set; }
+        public int PlayApiUsageCharacterCount1y { get; set; } = default!;
 
         /// <summary>
         /// The number of times the voice has been cloned.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cloned_by_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ClonedByCount { get; set; }
+        public int ClonedByCount { get; set; } = default!;
 
         /// <summary>
         /// The rate multiplier of the voice.
@@ -148,21 +148,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("free_users_allowed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool FreeUsersAllowed { get; set; }
+        public bool FreeUsersAllowed { get; set; } = default!;
 
         /// <summary>
         /// Whether live moderation is enabled for the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("live_moderation_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool LiveModerationEnabled { get; set; }
+        public bool LiveModerationEnabled { get; set; } = default!;
 
         /// <summary>
         /// Whether the voice is featured.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("featured")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Featured { get; set; }
+        public bool Featured { get; set; } = default!;
 
         /// <summary>
         /// The verified languages of the voice.

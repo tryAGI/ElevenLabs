@@ -50,7 +50,7 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/workspace/groups/search",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddRequiredParameter("name", name) 
                 ; 
             var __path = __pathBuilder.ToString();

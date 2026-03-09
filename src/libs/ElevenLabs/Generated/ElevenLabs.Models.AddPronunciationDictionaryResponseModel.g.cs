@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"created_by":"ar6633Es2kUjFXBdR1iVc9ztsXl1","creation_time_unix":1714156800,"description":"This is a test dictionary","id":"5xM3yVvZQKV0EfqQpLrJ","name":"My Dictionary","permission_on_resource":"admin","version_id":"5xM3yVvZQKV0EfqQpLrJ","version_rules_num":5}
     /// </summary>
     public sealed partial class AddPronunciationDictionaryResponseModel
     {
@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The name of the created pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The user ID of the creator of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CreatedBy { get; set; }
+        public string CreatedBy { get; set; } = default!;
 
         /// <summary>
         /// The creation time of the pronunciation dictionary in Unix timestamp.
@@ -35,21 +35,21 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_time_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset CreationTimeUnix { get; set; }
+        public global::System.DateTimeOffset CreationTimeUnix { get; set; } = default!;
 
         /// <summary>
         /// The ID of the created pronunciation dictionary version.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VersionId { get; set; }
+        public string VersionId { get; set; } = default!;
 
         /// <summary>
         /// The number of rules in the version of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_rules_num")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int VersionRulesNum { get; set; }
+        public int VersionRulesNum { get; set; } = default!;
 
         /// <summary>
         /// The description of the pronunciation dictionary.
@@ -63,7 +63,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AddPronunciationDictionaryResponseModelPermissionOnResourceJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource? PermissionOnResource { get; set; }
+        public global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource? PermissionOnResource { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

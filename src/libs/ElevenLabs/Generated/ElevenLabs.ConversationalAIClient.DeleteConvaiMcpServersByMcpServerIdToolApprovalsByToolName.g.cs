@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareDeleteConvaiMcpServersByMcpServerIdToolApprovalsByToolNameArguments(
             global::System.Net.Http.HttpClient httpClient,

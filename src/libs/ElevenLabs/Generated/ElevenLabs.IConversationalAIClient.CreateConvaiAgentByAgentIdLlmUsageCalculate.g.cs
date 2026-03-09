@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public partial interface IConversationalAIClient
+    public partial interface IConversationalAiClient
     {
         /// <summary>
         /// Calculate Expected Llm Usage For An Agent<br/>
@@ -17,6 +17,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.LLMUsageCalculatorResponseModel> CreateConvaiAgentByAgentIdLlmUsageCalculateAsync(
             string agentId,
+
             global::ElevenLabs.LLMUsageCalculatorRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

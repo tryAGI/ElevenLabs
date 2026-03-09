@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"allowed_to_extend_character_limit":false,"billing_period":"monthly_period","can_extend_character_limit":false,"can_extend_voice_limit":false,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":17231,"character_limit":100000,"character_refresh_period":"monthly_period","currency":"usd","max_character_limit_extension":10000,"max_voice_add_edits":230,"next_character_count_reset_unix":1738356858,"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"free","tier":"trial","voice_add_edit_counter":212,"voice_limit":120,"voice_slots_used":1}
     /// </summary>
     public sealed partial class SubscriptionResponseModel
     {
@@ -13,42 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tier")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Tier { get; set; }
+        public string Tier { get; set; } = default!;
 
         /// <summary>
         /// The number of characters used by the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CharacterCount { get; set; }
+        public int CharacterCount { get; set; } = default!;
 
         /// <summary>
         /// The maximum number of characters allowed in the current billing period.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CharacterLimit { get; set; }
+        public int CharacterLimit { get; set; } = default!;
 
         /// <summary>
         /// Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_character_limit_extension")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int? MaxCharacterLimitExtension { get; set; }
+        public int? MaxCharacterLimitExtension { get; set; } = default!;
 
         /// <summary>
         /// Whether the user can extend their character limit.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_extend_character_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanExtendCharacterLimit { get; set; }
+        public bool CanExtendCharacterLimit { get; set; } = default!;
 
         /// <summary>
         /// Whether the user is allowed to extend their character limit.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_to_extend_character_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool AllowedToExtendCharacterLimit { get; set; }
+        public bool AllowedToExtendCharacterLimit { get; set; } = default!;
 
         /// <summary>
         /// The Unix timestamp of the next character count reset.
@@ -62,21 +62,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_slots_used")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int VoiceSlotsUsed { get; set; }
+        public int VoiceSlotsUsed { get; set; } = default!;
 
         /// <summary>
         /// The number of professional voice slots used by the workspace/user if single seat.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("professional_voice_slots_used")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ProfessionalVoiceSlotsUsed { get; set; }
+        public int ProfessionalVoiceSlotsUsed { get; set; } = default!;
 
         /// <summary>
         /// The maximum number of voice slots allowed for the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int VoiceLimit { get; set; }
+        public int VoiceLimit { get; set; } = default!;
 
         /// <summary>
         /// The maximum number of voice add/edits allowed for the user.
@@ -89,35 +89,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_add_edit_counter")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int VoiceAddEditCounter { get; set; }
+        public int VoiceAddEditCounter { get; set; } = default!;
 
         /// <summary>
         /// The maximum number of professional voices allowed for the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("professional_voice_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ProfessionalVoiceLimit { get; set; }
+        public int ProfessionalVoiceLimit { get; set; } = default!;
 
         /// <summary>
         /// Whether the user can extend their voice limit.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_extend_voice_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanExtendVoiceLimit { get; set; }
+        public bool CanExtendVoiceLimit { get; set; } = default!;
 
         /// <summary>
         /// Whether the user can use instant voice cloning.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_use_instant_voice_cloning")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanUseInstantVoiceCloning { get; set; }
+        public bool CanUseInstantVoiceCloning { get; set; } = default!;
 
         /// <summary>
         /// Whether the user can use professional voice cloning.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_use_professional_voice_cloning")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanUseProfessionalVoiceCloning { get; set; }
+        public bool CanUseProfessionalVoiceCloning { get; set; } = default!;
 
         /// <summary>
         /// The currency of the user's subscription.
@@ -132,7 +132,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SubscriptionStatusTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SubscriptionStatusType Status { get; set; }
+        public global::ElevenLabs.SubscriptionStatusType Status { get; set; } = default!;
 
         /// <summary>
         /// The billing period of the user's subscription.

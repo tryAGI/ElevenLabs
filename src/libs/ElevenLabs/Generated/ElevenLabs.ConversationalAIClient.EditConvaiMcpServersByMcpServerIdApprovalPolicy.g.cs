@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareEditConvaiMcpServersByMcpServerIdApprovalPolicyArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -40,6 +40,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> EditConvaiMcpServersByMcpServerIdApprovalPolicyAsync(
             string mcpServerId,
+
             global::ElevenLabs.MCPApprovalPolicyUpdateRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

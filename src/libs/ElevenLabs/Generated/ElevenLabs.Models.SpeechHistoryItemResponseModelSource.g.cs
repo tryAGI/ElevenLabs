@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        TTS,
+        Tts,
         /// <summary>
         /// 
         /// </summary>
-        STS,
+        Sts,
         /// <summary>
         /// 
         /// </summary>
@@ -23,11 +23,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        PD,
+        Pd,
         /// <summary>
         /// 
         /// </summary>
-        AN,
+        An,
         /// <summary>
         /// 
         /// </summary>
@@ -54,11 +54,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                SpeechHistoryItemResponseModelSource.TTS => "TTS",
-                SpeechHistoryItemResponseModelSource.STS => "STS",
+                SpeechHistoryItemResponseModelSource.Tts => "TTS",
+                SpeechHistoryItemResponseModelSource.Sts => "STS",
                 SpeechHistoryItemResponseModelSource.Projects => "Projects",
-                SpeechHistoryItemResponseModelSource.PD => "PD",
-                SpeechHistoryItemResponseModelSource.AN => "AN",
+                SpeechHistoryItemResponseModelSource.Pd => "PD",
+                SpeechHistoryItemResponseModelSource.An => "AN",
                 SpeechHistoryItemResponseModelSource.Dubbing => "Dubbing",
                 SpeechHistoryItemResponseModelSource.PlayAPI => "PlayAPI",
                 SpeechHistoryItemResponseModelSource.ConvAI => "ConvAI",
@@ -72,11 +72,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "TTS" => SpeechHistoryItemResponseModelSource.TTS,
-                "STS" => SpeechHistoryItemResponseModelSource.STS,
+                "TTS" => SpeechHistoryItemResponseModelSource.Tts,
+                "STS" => SpeechHistoryItemResponseModelSource.Sts,
                 "Projects" => SpeechHistoryItemResponseModelSource.Projects,
-                "PD" => SpeechHistoryItemResponseModelSource.PD,
-                "AN" => SpeechHistoryItemResponseModelSource.AN,
+                "PD" => SpeechHistoryItemResponseModelSource.Pd,
+                "AN" => SpeechHistoryItemResponseModelSource.An,
                 "Dubbing" => SpeechHistoryItemResponseModelSource.Dubbing,
                 "PlayAPI" => SpeechHistoryItemResponseModelSource.PlayAPI,
                 "ConvAI" => SpeechHistoryItemResponseModelSource.ConvAI,

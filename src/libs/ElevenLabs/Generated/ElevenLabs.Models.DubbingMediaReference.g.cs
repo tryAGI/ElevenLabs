@@ -13,49 +13,49 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("src")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Src { get; set; }
+        public string Src { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ContentType { get; set; }
+        public string ContentType { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bucket_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string BucketName { get; set; }
+        public string BucketName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("random_path_slug")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string RandomPathSlug { get; set; }
+        public string RandomPathSlug { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double DurationSecs { get; set; }
+        public double DurationSecs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsAudio { get; set; }
+        public bool IsAudio { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        public string Url { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -32,24 +32,6 @@ namespace ElevenLabs
         public bool IsAvailable => Available != null;
 
         /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator DependentAgentsItem(global::ElevenLabs.DependentAvailableAgentIdentifier value) => new DependentAgentsItem((global::ElevenLabs.DependentAvailableAgentIdentifier?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.DependentAvailableAgentIdentifier?(DependentAgentsItem @this) => @this.Available;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public DependentAgentsItem(global::ElevenLabs.DependentAvailableAgentIdentifier? value)
-        {
-            Available = value;
-        }
-
-        /// <summary>
         /// A model that represents an agent dependent on a knowledge base/tools<br/>
         /// to which the user has no direct access.
         /// </summary>
@@ -66,6 +48,23 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Unknown))]
 #endif
         public bool IsUnknown => Unknown != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator DependentAgentsItem(global::ElevenLabs.DependentAvailableAgentIdentifier value) => new DependentAgentsItem((global::ElevenLabs.DependentAvailableAgentIdentifier?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.DependentAvailableAgentIdentifier?(DependentAgentsItem @this) => @this.Available;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DependentAgentsItem(global::ElevenLabs.DependentAvailableAgentIdentifier? value)
+        {
+            Available = value;
+        }
 
         /// <summary>
         /// 

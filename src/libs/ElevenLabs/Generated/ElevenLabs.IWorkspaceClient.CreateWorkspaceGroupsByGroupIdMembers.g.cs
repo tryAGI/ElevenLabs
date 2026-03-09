@@ -19,6 +19,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceGroupMemberResponseModel> CreateWorkspaceGroupsByGroupIdMembersAsync(
             string groupId,
+
             global::ElevenLabs.BodyAddMemberToUserGroupV1WorkspaceGroupsGroupIdMembersPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

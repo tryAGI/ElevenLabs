@@ -19,6 +19,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<byte[]> CreateTextToDialogueAsync(
+
             global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePost request,
             global::ElevenLabs.TextToDialogueMultiVoiceV1TextToDialoguePostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
@@ -37,16 +38,18 @@ namespace ElevenLabs
         /// </param>
         /// <param name="inputs">
         /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech.<br/>
-        /// Example: [, ]
+        /// Example: [{"text":"Hello, how are you?","voice_id":"bYTqZQo3Jz7LQtmGTgwi"}, {"text":"I\u0027m doing well, thank you!","voice_id":"6lCwbsX1yVjD49QmpkTR"}]
         /// </param>
         /// <param name="modelId">
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.<br/>
         /// Default Value: eleven_v3
         /// </param>
-        /// <param name="settings"></param>
+        /// <param name="settings">
+        /// Example: {"similarity_boost":1,"stability":1}
+        /// </param>
         /// <param name="pronunciationDictionaryLocators">
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
-        /// Example: []
+        /// Example: [{"pronunciation_dictionary_id":"test","version_id":"id2"}]
         /// </param>
         /// <param name="seed">
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>

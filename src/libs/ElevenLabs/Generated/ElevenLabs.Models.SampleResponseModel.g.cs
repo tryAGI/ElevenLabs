@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"file_name":"sample.mp3","hash":"1234567890","mime_type":"audio/mpeg","sample_id":"DCwhRBWXzGAHq8TQ4Fs18","size_bytes":1000000}
     /// </summary>
     public sealed partial class SampleResponseModel
     {
@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SampleId { get; set; }
+        public string SampleId { get; set; } = default!;
 
         /// <summary>
         /// The name of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FileName { get; set; }
+        public string FileName { get; set; } = default!;
 
         /// <summary>
         /// The MIME type of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string MimeType { get; set; }
+        public string MimeType { get; set; } = default!;
 
         /// <summary>
         /// The size of the sample file in bytes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeBytes { get; set; }
+        public int SizeBytes { get; set; } = default!;
 
         /// <summary>
         /// The hash of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hash")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Hash { get; set; }
+        public string Hash { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -68,8 +68,9 @@ namespace ElevenLabs
         public bool? HasIsolatedAudioPreview { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"sample_id":"DCwhRBWXzGAHq8TQ4Fs18","status":"not_started","voice_id":"DCwhRBWXzGAHq8TQ4Fs18"}
         /// </summary>
+        /// <example>{"sample_id":"DCwhRBWXzGAHq8TQ4Fs18","status":"not_started","voice_id":"DCwhRBWXzGAHq8TQ4Fs18"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_separation")]
         public global::ElevenLabs.SpeakerSeparationResponseModel? SpeakerSeparation { get; set; }
 
@@ -113,7 +114,9 @@ namespace ElevenLabs
         /// <param name="removeBackgroundNoise"></param>
         /// <param name="hasIsolatedAudio"></param>
         /// <param name="hasIsolatedAudioPreview"></param>
-        /// <param name="speakerSeparation"></param>
+        /// <param name="speakerSeparation">
+        /// Example: {"sample_id":"DCwhRBWXzGAHq8TQ4Fs18","status":"not_started","voice_id":"DCwhRBWXzGAHq8TQ4Fs18"}
+        /// </param>
         /// <param name="trimStart"></param>
         /// <param name="trimEnd"></param>
 #if NET7_0_OR_GREATER

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"agent_id":"J3Pbu5gP6NNKBscdCdwB"}
     /// </summary>
     public sealed partial class CreateAgentResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

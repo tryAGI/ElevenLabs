@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("document_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DocumentId { get; set; }
+        public string DocumentId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunk_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ChunkId { get; set; }
+        public string ChunkId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("vector_distance")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double VectorDistance { get; set; }
+        public double VectorDistance { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

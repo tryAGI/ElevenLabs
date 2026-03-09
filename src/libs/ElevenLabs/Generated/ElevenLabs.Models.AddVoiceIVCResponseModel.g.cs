@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"requires_verification":false,"voice_id":"c38kUX8pkfYO2kHyqfFy"}
     /// </summary>
     public sealed partial class AddVoiceIVCResponseModel
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string VoiceId { get; set; } = default!;
 
         /// <summary>
         /// Whether the voice requires verification
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requires_verification")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool RequiresVerification { get; set; }
+        public bool RequiresVerification { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

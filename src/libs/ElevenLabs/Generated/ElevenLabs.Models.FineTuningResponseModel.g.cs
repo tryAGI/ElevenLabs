@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"is_allowed_to_fine_tune":true,"manual_verification_requested":false,"state":{"eleven_multilingual_v2":"fine_tuned"},"verification_attempts_count":2,"verification_failures":[]}
     /// </summary>
     public sealed partial class FineTuningResponseModel
     {
@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_allowed_to_fine_tune")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsAllowedToFineTune { get; set; }
+        public bool IsAllowedToFineTune { get; set; } = default!;
 
         /// <summary>
         /// The state of the fine-tuning process for each model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2> State { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2> State { get; set; } = default!;
 
         /// <summary>
         /// List of verification failures in the fine-tuning process.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_failures")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> VerificationFailures { get; set; }
+        public global::System.Collections.Generic.IList<string> VerificationFailures { get; set; } = default!;
 
         /// <summary>
         /// The number of verification attempts in the fine-tuning process.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_attempts_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int VerificationAttemptsCount { get; set; }
+        public int VerificationAttemptsCount { get; set; } = default!;
 
         /// <summary>
         /// Whether a manual verification was requested for the fine-tuning process.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("manual_verification_requested")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool ManualVerificationRequested { get; set; }
+        public bool ManualVerificationRequested { get; set; } = default!;
 
         /// <summary>
         /// The language of the fine-tuning process.
@@ -80,8 +80,9 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? SliceIds { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"extra_text":"Please verify the voice is that of a female.","files":[{"file_id":"CwhRBWXzGAHq8TQ4Fs18","file_name":"file.mp3","mime_type":"audio/mpeg","size_bytes":1000000,"upload_date_unix":1714204800}],"request_time_unix":1714204800}
         /// </summary>
+        /// <example>{"extra_text":"Please verify the voice is that of a female.","files":[{"file_id":"CwhRBWXzGAHq8TQ4Fs18","file_name":"file.mp3","mime_type":"audio/mpeg","size_bytes":1000000,"upload_date_unix":1714204800}],"request_time_unix":1714204800}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("manual_verification")]
         public global::ElevenLabs.ManualVerificationResponseModel? ManualVerification { get; set; }
 
@@ -139,7 +140,9 @@ namespace ElevenLabs
         /// <param name="sliceIds">
         /// List of slice IDs.
         /// </param>
-        /// <param name="manualVerification"></param>
+        /// <param name="manualVerification">
+        /// Example: {"extra_text":"Please verify the voice is that of a female.","files":[{"file_id":"CwhRBWXzGAHq8TQ4Fs18","file_name":"file.mp3","mime_type":"audio/mpeg","size_bytes":1000000,"upload_date_unix":1714204800}],"request_time_unix":1714204800}
+        /// </param>
         /// <param name="maxVerificationAttempts">
         /// The maximum number of verification attempts.
         /// </param>

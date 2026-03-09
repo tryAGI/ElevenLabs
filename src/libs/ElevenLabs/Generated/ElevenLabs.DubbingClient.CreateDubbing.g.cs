@@ -34,6 +34,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> CreateDubbingAsync(
+
             global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -83,133 +84,174 @@ namespace ElevenLabs
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             if (xiApiKey != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-key");
+                    name: "\"xi-api-key\"");
             } 
             if (request.File != default)
             {
+
+                var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
-                    name: "file",
-                    fileName: request.Filename ?? string.Empty);
+                    content: __contentFile,
+                    name: "\"file\"",
+                    fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
+                if (__contentFile.Headers.ContentDisposition != null)
+                {
+                    __contentFile.Headers.ContentDisposition.FileNameStar = null;
+                }
             } 
             if (request.CsvFile != default)
             {
+
+                var __contentCsvFile = new global::System.Net.Http.ByteArrayContent(request.CsvFile ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.ByteArrayContent(request.CsvFile ?? global::System.Array.Empty<byte>()),
-                    name: "csv_file",
-                    fileName: request.CsvFilename ?? string.Empty);
+                    content: __contentCsvFile,
+                    name: "\"csv_file\"",
+                    fileName: request.CsvFilename != null ? $"\"{request.CsvFilename}\"" : string.Empty);
+                if (__contentCsvFile.Headers.ContentDisposition != null)
+                {
+                    __contentCsvFile.Headers.ContentDisposition.FileNameStar = null;
+                }
             } 
             if (request.ForegroundAudioFile != default)
             {
+
+                var __contentForegroundAudioFile = new global::System.Net.Http.ByteArrayContent(request.ForegroundAudioFile ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.ByteArrayContent(request.ForegroundAudioFile ?? global::System.Array.Empty<byte>()),
-                    name: "foreground_audio_file",
-                    fileName: request.ForegroundAudioFilename ?? string.Empty);
+                    content: __contentForegroundAudioFile,
+                    name: "\"foreground_audio_file\"",
+                    fileName: request.ForegroundAudioFilename != null ? $"\"{request.ForegroundAudioFilename}\"" : string.Empty);
+                if (__contentForegroundAudioFile.Headers.ContentDisposition != null)
+                {
+                    __contentForegroundAudioFile.Headers.ContentDisposition.FileNameStar = null;
+                }
             } 
             if (request.BackgroundAudioFile != default)
             {
+
+                var __contentBackgroundAudioFile = new global::System.Net.Http.ByteArrayContent(request.BackgroundAudioFile ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.ByteArrayContent(request.BackgroundAudioFile ?? global::System.Array.Empty<byte>()),
-                    name: "background_audio_file",
-                    fileName: request.BackgroundAudioFilename ?? string.Empty);
+                    content: __contentBackgroundAudioFile,
+                    name: "\"background_audio_file\"",
+                    fileName: request.BackgroundAudioFilename != null ? $"\"{request.BackgroundAudioFilename}\"" : string.Empty);
+                if (__contentBackgroundAudioFile.Headers.ContentDisposition != null)
+                {
+                    __contentBackgroundAudioFile.Headers.ContentDisposition.FileNameStar = null;
+                }
             } 
             if (request.Name != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Name}"),
-                    name: "name");
+                    name: "\"name\"");
             } 
             if (request.SourceUrl != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.SourceUrl}"),
-                    name: "source_url");
+                    name: "\"source_url\"");
             } 
             if (request.SourceLang != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.SourceLang}"),
-                    name: "source_lang");
+                    name: "\"source_lang\"");
             } 
             if (request.TargetLang != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.TargetLang}"),
-                    name: "target_lang");
+                    name: "\"target_lang\"");
             } 
             if (request.TargetAccent != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.TargetAccent}"),
-                    name: "target_accent");
+                    name: "\"target_accent\"");
             } 
             if (request.NumSpeakers != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.NumSpeakers}"),
-                    name: "num_speakers");
+                    name: "\"num_speakers\"");
             } 
             if (request.Watermark != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Watermark}"),
-                    name: "watermark");
+                    name: "\"watermark\"");
             } 
             if (request.StartTime != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.StartTime}"),
-                    name: "start_time");
+                    name: "\"start_time\"");
             } 
             if (request.EndTime != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.EndTime}"),
-                    name: "end_time");
+                    name: "\"end_time\"");
             } 
             if (request.HighestResolution != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.HighestResolution}"),
-                    name: "highest_resolution");
+                    name: "\"highest_resolution\"");
             } 
             if (request.DropBackgroundAudio != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.DropBackgroundAudio}"),
-                    name: "drop_background_audio");
+                    name: "\"drop_background_audio\"");
             } 
             if (request.UseProfanityFilter != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.UseProfanityFilter}"),
-                    name: "use_profanity_filter");
+                    name: "\"use_profanity_filter\"");
             } 
             if (request.DubbingStudio != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.DubbingStudio}"),
-                    name: "dubbing_studio");
+                    name: "\"dubbing_studio\"");
             } 
             if (request.DisableVoiceCloning != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.DisableVoiceCloning}"),
-                    name: "disable_voice_cloning");
+                    name: "\"disable_voice_cloning\"");
             } 
             if (request.Mode != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Mode}"),
-                    name: "mode");
+                    name: "\"mode\"");
             } 
             if (request.CsvFps != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.CsvFps}"),
-                    name: "csv_fps");
+                    name: "\"csv_fps\"");
             }
             __httpRequest.Content = __httpRequestContent;
 

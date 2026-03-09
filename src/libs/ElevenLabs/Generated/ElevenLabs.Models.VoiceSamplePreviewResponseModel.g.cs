@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"audio_base_64":"audio_base_64","duration_secs":5,"media_type":"audio/mpeg","sample_id":"DCwhRBWXzGAHq8TQ4Fs18","voice_id":"DCwhRBWXzGAHq8TQ4Fs18"}
     /// </summary>
     public sealed partial class VoiceSamplePreviewResponseModel
     {
@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_base_64")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AudioBase64 { get; set; }
+        public string AudioBase64 { get; set; } = default!;
 
         /// <summary>
         /// The ID of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string VoiceId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the sample.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SampleId { get; set; }
+        public string SampleId { get; set; } = default!;
 
         /// <summary>
         /// The media type of the audio.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string MediaType { get; set; }
+        public string MediaType { get; set; } = default!;
 
         /// <summary>
         /// The duration of the audio in seconds.

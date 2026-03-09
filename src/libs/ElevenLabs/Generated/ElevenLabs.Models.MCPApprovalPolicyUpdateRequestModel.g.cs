@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("approval_policy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MCPApprovalPolicyJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.MCPApprovalPolicy ApprovalPolicy { get; set; }
+        public global::ElevenLabs.MCPApprovalPolicy ApprovalPolicy { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

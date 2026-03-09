@@ -40,6 +40,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> CreateMusicAsync(
+
             global::ElevenLabs.BodyComposeMusicV1MusicPost request,
             global::ElevenLabs.ComposeMusicV1MusicPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
@@ -58,7 +59,7 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/music",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("output_format", outputFormat?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -243,8 +244,12 @@ namespace ElevenLabs
         /// <param name="prompt">
         /// A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
         /// </param>
-        /// <param name="musicPrompt"></param>
-        /// <param name="compositionPlan"></param>
+        /// <param name="musicPrompt">
+        /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
+        /// </param>
+        /// <param name="compositionPlan">
+        /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
+        /// </param>
         /// <param name="musicLengthMs">
         /// The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 10000ms and 300000ms. Optional - if not provided, the model will choose a length based on the prompt.
         /// </param>

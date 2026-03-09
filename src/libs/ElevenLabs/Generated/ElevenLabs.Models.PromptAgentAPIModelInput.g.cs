@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0,"tool_ids":[],"tools":[]}
     /// </summary>
     public sealed partial class PromptAgentAPIModelInput
     {
@@ -18,8 +18,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LLMJsonConverter))]
-        public global::ElevenLabs.LLM? Llm { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
+        public global::ElevenLabs.Llm? Llm { get; set; }
 
         /// <summary>
         /// The temperature for the LLM<br/>
@@ -145,7 +145,7 @@ namespace ElevenLabs
 #endif
         public PromptAgentAPIModelInput(
             string? prompt,
-            global::ElevenLabs.LLM? llm,
+            global::ElevenLabs.Llm? llm,
             double? temperature,
             int? maxTokens,
             global::System.Collections.Generic.IList<string>? toolIds,

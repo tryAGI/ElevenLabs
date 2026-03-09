@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareGetConvaiAgentsByAgentIdWidgetArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -58,7 +58,7 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/widget",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("conversation_signature", conversationSignature) 
                 ; 
             var __path = __pathBuilder.ToString();

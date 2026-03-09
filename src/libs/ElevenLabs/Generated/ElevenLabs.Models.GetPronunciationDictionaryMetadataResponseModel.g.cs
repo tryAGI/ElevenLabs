@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"created_by":"ar6633Es2kUjFXBdR1iVc9ztsXl1","creation_time_unix":1714156800,"description":"This is a test dictionary","id":"5xM3yVvZQKV0EfqQpLrJ","latest_version_id":"5xM3yVvZQKV0EfqQpLr2","latest_version_rules_num":2,"name":"My Dictionary","permission_on_resource":"admin"}
     /// </summary>
     public sealed partial class GetPronunciationDictionaryMetadataResponseModel
     {
@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The ID of the latest version of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("latest_version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string LatestVersionId { get; set; }
+        public string LatestVersionId { get; set; } = default!;
 
         /// <summary>
         /// The number of rules in the latest version of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("latest_version_rules_num")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LatestVersionRulesNum { get; set; }
+        public int LatestVersionRulesNum { get; set; } = default!;
 
         /// <summary>
         /// The name of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The permission on the resource of the pronunciation dictionary.
@@ -42,14 +42,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.GetPronunciationDictionaryMetadataResponseModelPermissionOnResourceJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource? PermissionOnResource { get; set; }
+        public global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource? PermissionOnResource { get; set; } = default!;
 
         /// <summary>
         /// The user ID of the creator of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CreatedBy { get; set; }
+        public string CreatedBy { get; set; } = default!;
 
         /// <summary>
         /// The creation time of the pronunciation dictionary in Unix timestamp.
@@ -57,7 +57,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_time_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset CreationTimeUnix { get; set; }
+        public global::System.DateTimeOffset CreationTimeUnix { get; set; } = default!;
 
         /// <summary>
         /// The archive time of the pronunciation dictionary in Unix timestamp.

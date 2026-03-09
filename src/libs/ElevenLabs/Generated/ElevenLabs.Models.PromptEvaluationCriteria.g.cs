@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// An evaluation using the transcript and a prompt for a yes/no achieved answer
+    /// An evaluation using the transcript and a prompt for a yes/no achieved answer<br/>
+    /// Example: {"conversation_goal_prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","id":"1234567890","name":"Customer satisfaction check","use_knowledge_base":false}
     /// </summary>
     public sealed partial class PromptEvaluationCriteria
     {
@@ -13,14 +14,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The type of evaluation criteria<br/>
@@ -35,7 +36,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_goal_prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ConversationGoalPrompt { get; set; }
+        public string ConversationGoalPrompt { get; set; } = default!;
 
         /// <summary>
         /// When evaluating the prompt, should the agent's knowledge base be used.<br/>

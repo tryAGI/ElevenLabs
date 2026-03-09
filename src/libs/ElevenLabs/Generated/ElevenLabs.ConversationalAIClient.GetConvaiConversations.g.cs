@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareGetConvaiConversationsArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -100,14 +100,14 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/conversations",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("cursor", cursor) 
-                .AddOptionalParameter("agent_id", agentId) 
-                .AddOptionalParameter("call_successful", callSuccessful?.ToValueString()) 
-                .AddOptionalParameter("call_start_before_unix", callStartBeforeUnix?.ToString()) 
-                .AddOptionalParameter("call_start_after_unix", callStartAfterUnix?.ToString()) 
-                .AddOptionalParameter("user_id", userId) 
-                .AddOptionalParameter("page_size", pageSize?.ToString()) 
+            __pathBuilder
+                .AddOptionalParameter("cursor", cursor)
+                .AddOptionalParameter("agent_id", agentId)
+                .AddOptionalParameter("call_successful", callSuccessful?.ToValueString())
+                .AddOptionalParameter("call_start_before_unix", callStartBeforeUnix?.ToString())
+                .AddOptionalParameter("call_start_after_unix", callStartAfterUnix?.ToString())
+                .AddOptionalParameter("user_id", userId)
+                .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("summary_mode", summaryMode?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();

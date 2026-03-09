@@ -34,24 +34,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params(global::ElevenLabs.EndCallToolConfig value) => new Params((global::ElevenLabs.EndCallToolConfig?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.EndCallToolConfig?(Params @this) => @this.EndCall;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Params(global::ElevenLabs.EndCallToolConfig? value)
-        {
-            EndCall = value;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LanguageDetectionToolConfig? LanguageDetection { get; init; }
 #else
@@ -65,24 +47,6 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LanguageDetection))]
 #endif
         public bool IsLanguageDetection => LanguageDetection != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator Params(global::ElevenLabs.LanguageDetectionToolConfig value) => new Params((global::ElevenLabs.LanguageDetectionToolConfig?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.LanguageDetectionToolConfig?(Params @this) => @this.LanguageDetection;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Params(global::ElevenLabs.LanguageDetectionToolConfig? value)
-        {
-            LanguageDetection = value;
-        }
 
         /// <summary>
         /// 
@@ -104,24 +68,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params(global::ElevenLabs.TransferToAgentToolConfig value) => new Params((global::ElevenLabs.TransferToAgentToolConfig?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.TransferToAgentToolConfig?(Params @this) => @this.TransferToAgent;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Params(global::ElevenLabs.TransferToAgentToolConfig? value)
-        {
-            TransferToAgent = value;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberToolConfigInput? TransferToNumber { get; init; }
 #else
@@ -135,24 +81,6 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumber))]
 #endif
         public bool IsTransferToNumber => TransferToNumber != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator Params(global::ElevenLabs.TransferToNumberToolConfigInput value) => new Params((global::ElevenLabs.TransferToNumberToolConfigInput?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.TransferToNumberToolConfigInput?(Params @this) => @this.TransferToNumber;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Params(global::ElevenLabs.TransferToNumberToolConfigInput? value)
-        {
-            TransferToNumber = value;
-        }
 
         /// <summary>
         /// Allows the agent to explicitly skip its turn.<br/>
@@ -179,24 +107,6 @@ namespace ElevenLabs
         public bool IsSkipTurn => SkipTurn != null;
 
         /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator Params(global::ElevenLabs.SkipTurnToolConfig value) => new Params((global::ElevenLabs.SkipTurnToolConfig?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.SkipTurnToolConfig?(Params @this) => @this.SkipTurn;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Params(global::ElevenLabs.SkipTurnToolConfig? value)
-        {
-            SkipTurn = value;
-        }
-
-        /// <summary>
         /// Allows the agent to play DTMF tones during a phone call.<br/>
         /// This tool can be used to interact with automated phone systems, such as<br/>
         /// navigating phone menus, entering extensions, or inputting numeric codes.
@@ -214,24 +124,6 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayKeypadTouchTone))]
 #endif
         public bool IsPlayKeypadTouchTone => PlayKeypadTouchTone != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator Params(global::ElevenLabs.PlayDTMFToolConfig value) => new Params((global::ElevenLabs.PlayDTMFToolConfig?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.PlayDTMFToolConfig?(Params @this) => @this.PlayKeypadTouchTone;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Params(global::ElevenLabs.PlayDTMFToolConfig? value)
-        {
-            PlayKeypadTouchTone = value;
-        }
 
         /// <summary>
         /// Allows the agent to detect when a voicemail system is encountered.<br/>
@@ -252,6 +144,113 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VoicemailDetection))]
 #endif
         public bool IsVoicemailDetection => VoicemailDetection != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.EndCallToolConfig value) => new Params((global::ElevenLabs.EndCallToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.EndCallToolConfig?(Params @this) => @this.EndCall;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params(global::ElevenLabs.EndCallToolConfig? value)
+        {
+            EndCall = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.LanguageDetectionToolConfig value) => new Params((global::ElevenLabs.LanguageDetectionToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.LanguageDetectionToolConfig?(Params @this) => @this.LanguageDetection;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params(global::ElevenLabs.LanguageDetectionToolConfig? value)
+        {
+            LanguageDetection = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.TransferToAgentToolConfig value) => new Params((global::ElevenLabs.TransferToAgentToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.TransferToAgentToolConfig?(Params @this) => @this.TransferToAgent;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params(global::ElevenLabs.TransferToAgentToolConfig? value)
+        {
+            TransferToAgent = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.TransferToNumberToolConfigInput value) => new Params((global::ElevenLabs.TransferToNumberToolConfigInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.TransferToNumberToolConfigInput?(Params @this) => @this.TransferToNumber;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params(global::ElevenLabs.TransferToNumberToolConfigInput? value)
+        {
+            TransferToNumber = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.SkipTurnToolConfig value) => new Params((global::ElevenLabs.SkipTurnToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.SkipTurnToolConfig?(Params @this) => @this.SkipTurn;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params(global::ElevenLabs.SkipTurnToolConfig? value)
+        {
+            SkipTurn = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.PlayDTMFToolConfig value) => new Params((global::ElevenLabs.PlayDTMFToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.PlayDTMFToolConfig?(Params @this) => @this.PlayKeypadTouchTone;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params(global::ElevenLabs.PlayDTMFToolConfig? value)
+        {
+            PlayKeypadTouchTone = value;
+        }
 
         /// <summary>
         /// 

@@ -6,21 +6,21 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyVerifyPVCVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost
+    public sealed partial class BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost
     {
         /// <summary>
         /// Audio recording of the user
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recording")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required byte[] Recording { get; set; }
+        public byte[] Recording { get; set; } = default!;
 
         /// <summary>
         /// Audio recording of the user
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recordingname")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Recordingname { get; set; }
+        public string Recordingname { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -29,7 +29,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyVerifyPVCVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost" /> class.
         /// </summary>
         /// <param name="recording">
         /// Audio recording of the user
@@ -40,7 +40,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyVerifyPVCVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost(
+        public BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost(
             byte[] recording,
             string recordingname)
         {
@@ -49,9 +49,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyVerifyPVCVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost" /> class.
         /// </summary>
-        public BodyVerifyPVCVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost()
+        public BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost()
         {
         }
     }

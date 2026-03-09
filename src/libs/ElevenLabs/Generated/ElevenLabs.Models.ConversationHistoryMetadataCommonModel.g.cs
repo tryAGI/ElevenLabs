@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StartTimeUnixSecs { get; set; }
+        public int StartTimeUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CallDurationSecs { get; set; }
+        public int CallDurationSecs { get; set; } = default!;
 
         /// <summary>
         /// 

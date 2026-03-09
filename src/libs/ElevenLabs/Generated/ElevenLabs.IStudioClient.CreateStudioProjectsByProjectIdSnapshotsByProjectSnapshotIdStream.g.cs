@@ -25,6 +25,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task CreateStudioProjectsByProjectIdSnapshotsByProjectSnapshotIdStreamAsync(
             string projectId,
             string projectSnapshotId,
+
             global::ElevenLabs.BodyStreamStudioProjectAudioV1StudioProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"has_more":true,"history":[{"character_count_change_from":17189,"character_count_change_to":17231,"content_type":"audio/mpeg","date_unix":1714650306,"history_item_id":"ja9xsmfGhxYcymxGcOGB","model_id":"eleven_multilingual_v2","request_id":"BF0BZg4IwLGBlaVjv9Im","settings":{"similarity_boost":0.5,"stability":0.71,"style":0,"use_speaker_boost":true},"source":"TTS","state":"created","text":"Hello, world!","voice_category":"premade","voice_id":"21m00Tcm4TlvDq8ikWAM","voice_name":"Rachel"}],"last_history_item_id":"ja9xsmfGhxYcymxGcOGB"}
     /// </summary>
     public sealed partial class GetSpeechHistoryResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel> History { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel> History { get; set; } = default!;
 
         /// <summary>
         /// The ID of the last history item.
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool HasMore { get; set; }
+        public bool HasMore { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

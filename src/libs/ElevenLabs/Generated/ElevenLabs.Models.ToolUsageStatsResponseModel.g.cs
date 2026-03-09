@@ -20,7 +20,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg_latency_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double AvgLatencySecs { get; set; }
+        public double AvgLatencySecs { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareGetConvaiKnowledgeBaseArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -88,12 +88,12 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/knowledge-base",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("cursor", cursor) 
-                .AddOptionalParameter("page_size", pageSize?.ToString()) 
-                .AddOptionalParameter("search", search) 
-                .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString()) 
-                .AddOptionalParameter("types", types, selector: static x => x.ToValueString(), delimiter: ",", explode: true) 
+            __pathBuilder
+                .AddOptionalParameter("cursor", cursor)
+                .AddOptionalParameter("page_size", pageSize?.ToString())
+                .AddOptionalParameter("search", search)
+                .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString())
+                .AddOptionalParameter("types", types, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                 .AddOptionalParameter("use_typesense", useTypesense?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();

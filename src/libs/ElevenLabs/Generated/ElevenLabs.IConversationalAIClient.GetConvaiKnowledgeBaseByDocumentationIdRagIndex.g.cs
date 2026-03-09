@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public partial interface IConversationalAIClient
+    public partial interface IConversationalAiClient
     {
         /// <summary>
         /// Get Rag Indexes Of The Specified Knowledgebase Document.<br/>

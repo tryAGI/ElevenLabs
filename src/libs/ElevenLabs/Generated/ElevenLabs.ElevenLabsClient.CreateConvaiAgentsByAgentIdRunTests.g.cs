@@ -41,6 +41,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestSuiteInvocationResponseModel> CreateConvaiAgentsByAgentIdRunTestsAsync(
             string agentId,
+
             global::ElevenLabs.RunAgentTestsRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

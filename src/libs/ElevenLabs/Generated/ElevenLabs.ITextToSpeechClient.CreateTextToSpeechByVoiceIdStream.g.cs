@@ -37,6 +37,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<byte[]> CreateTextToSpeechByVoiceIdStreamAsync(
             string voiceId,
+
             global::ElevenLabs.BodyTextToSpeechStreamingV1TextToSpeechVoiceIdStreamPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
@@ -83,10 +84,12 @@ namespace ElevenLabs
         /// <param name="languageCode">
         /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
         /// </param>
-        /// <param name="voiceSettings"></param>
+        /// <param name="voiceSettings">
+        /// Example: {"similarity_boost":1,"speed":1,"stability":1,"style":0,"use_speaker_boost":true}
+        /// </param>
         /// <param name="pronunciationDictionaryLocators">
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
-        /// Example: []
+        /// Example: [{"pronunciation_dictionary_id":"test","version_id":"id2"}]
         /// </param>
         /// <param name="seed">
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>

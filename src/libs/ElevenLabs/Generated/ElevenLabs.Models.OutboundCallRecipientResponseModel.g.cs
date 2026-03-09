@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -28,28 +28,28 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BatchCallRecipientStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.BatchCallRecipientStatus Status { get; set; }
+        public global::ElevenLabs.BatchCallRecipientStatus Status { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAtUnix { get; set; }
+        public int CreatedAtUnix { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int UpdatedAtUnix { get; set; }
+        public int UpdatedAtUnix { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? ConversationId { get; set; }
+        public string? ConversationId { get; set; } = default!;
 
         /// <summary>
         /// 

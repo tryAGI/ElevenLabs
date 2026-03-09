@@ -34,6 +34,39 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.DashboardCriteriaChartModel? Criteria { get; init; }
+#else
+        public global::ElevenLabs.DashboardCriteriaChartModel? Criteria { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Criteria))]
+#endif
+        public bool IsCriteria => Criteria != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.DashboardDataCollectionChartModel? DataCollection { get; init; }
+#else
+        public global::ElevenLabs.DashboardDataCollectionChartModel? DataCollection { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DataCollection))]
+#endif
+        public bool IsDataCollection => DataCollection != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ChartsItem(global::ElevenLabs.DashboardCallSuccessChartModel value) => new ChartsItem((global::ElevenLabs.DashboardCallSuccessChartModel?)value);
 
         /// <summary>
@@ -52,23 +85,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.DashboardCriteriaChartModel? Criteria { get; init; }
-#else
-        public global::ElevenLabs.DashboardCriteriaChartModel? Criteria { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Criteria))]
-#endif
-        public bool IsCriteria => Criteria != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator ChartsItem(global::ElevenLabs.DashboardCriteriaChartModel value) => new ChartsItem((global::ElevenLabs.DashboardCriteriaChartModel?)value);
 
         /// <summary>
@@ -83,23 +99,6 @@ namespace ElevenLabs
         {
             Criteria = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.DashboardDataCollectionChartModel? DataCollection { get; init; }
-#else
-        public global::ElevenLabs.DashboardDataCollectionChartModel? DataCollection { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DataCollection))]
-#endif
-        public bool IsDataCollection => DataCollection != null;
 
         /// <summary>
         /// 

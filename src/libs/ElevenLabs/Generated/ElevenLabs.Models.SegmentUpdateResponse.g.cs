@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Version { get; set; }
+        public int Version { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

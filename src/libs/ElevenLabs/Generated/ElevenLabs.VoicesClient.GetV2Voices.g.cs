@@ -126,17 +126,17 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v2/voices",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("next_page_token", nextPageToken) 
-                .AddOptionalParameter("page_size", pageSize?.ToString()) 
-                .AddOptionalParameter("search", search) 
-                .AddOptionalParameter("sort", sort) 
-                .AddOptionalParameter("sort_direction", sortDirection) 
-                .AddOptionalParameter("voice_type", voiceType) 
-                .AddOptionalParameter("category", category) 
-                .AddOptionalParameter("fine_tuning_state", fineTuningState) 
-                .AddOptionalParameter("collection_id", collectionId) 
-                .AddOptionalParameter("include_total_count", includeTotalCount?.ToString()) 
+            __pathBuilder
+                .AddOptionalParameter("next_page_token", nextPageToken)
+                .AddOptionalParameter("page_size", pageSize?.ToString())
+                .AddOptionalParameter("search", search)
+                .AddOptionalParameter("sort", sort)
+                .AddOptionalParameter("sort_direction", sortDirection)
+                .AddOptionalParameter("voice_type", voiceType)
+                .AddOptionalParameter("category", category)
+                .AddOptionalParameter("fine_tuning_state", fineTuningState)
+                .AddOptionalParameter("collection_id", collectionId)
+                .AddOptionalParameter("include_total_count", includeTotalCount?.ToString())
                 .AddOptionalParameter("voice_ids", voiceIds, delimiter: ",", explode: true) 
                 ; 
             var __path = __pathBuilder.ToString();

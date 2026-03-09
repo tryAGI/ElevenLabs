@@ -19,6 +19,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentTranscriptionResponse> CreateDubbingResourceByDubbingIdTranscribeAsync(
             string dubbingId,
+
             global::ElevenLabs.BodyTranscribesSegmentsV1DubbingResourceDubbingIdTranscribePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

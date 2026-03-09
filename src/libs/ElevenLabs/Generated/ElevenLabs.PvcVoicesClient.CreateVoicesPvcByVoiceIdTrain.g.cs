@@ -9,13 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost request);
+            global::ElevenLabs.BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost request);
         partial void PrepareCreateVoicesPvcByVoiceIdTrainRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             string? xiApiKey,
-            global::ElevenLabs.BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost request);
+            global::ElevenLabs.BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost request);
         partial void ProcessCreateVoicesPvcByVoiceIdTrainResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -41,7 +41,8 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.StartPVCVoiceTrainingResponseModel> CreateVoicesPvcByVoiceIdTrainAsync(
             string voiceId,
-            global::ElevenLabs.BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost request,
+
+            global::ElevenLabs.BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -249,7 +250,7 @@ namespace ElevenLabs
             string? modelId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost
+            var __request = new global::ElevenLabs.BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost
             {
                 ModelId = modelId,
             };

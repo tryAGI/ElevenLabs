@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"voice_id":"b38kUX8pkfYO2kHyqfFy"}
     /// </summary>
     public sealed partial class AddVoiceResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string VoiceId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

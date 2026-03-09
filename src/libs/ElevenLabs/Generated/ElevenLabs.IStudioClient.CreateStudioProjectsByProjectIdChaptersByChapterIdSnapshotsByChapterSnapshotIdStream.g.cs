@@ -30,6 +30,7 @@ namespace ElevenLabs
             string projectId,
             string chapterId,
             string chapterSnapshotId,
+
             global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

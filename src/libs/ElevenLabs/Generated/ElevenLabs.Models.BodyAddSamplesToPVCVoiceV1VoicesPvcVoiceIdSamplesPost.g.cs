@@ -6,14 +6,14 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyAddSamplesToPVCVoiceV1VoicesPvcVoiceIdSamplesPost
+    public sealed partial class BodyAddSamplesToPvcVoiceV1VoicesPvcVoiceIdSamplesPost
     {
         /// <summary>
         /// Audio files used to create the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<byte[]> Files { get; set; }
+        public global::System.Collections.Generic.IList<byte[]> Files { get; set; } = default!;
 
         /// <summary>
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
@@ -31,7 +31,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyAddSamplesToPVCVoiceV1VoicesPvcVoiceIdSamplesPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyAddSamplesToPvcVoiceV1VoicesPvcVoiceIdSamplesPost" /> class.
         /// </summary>
         /// <param name="files">
         /// Audio files used to create the voice.
@@ -44,7 +44,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyAddSamplesToPVCVoiceV1VoicesPvcVoiceIdSamplesPost(
+        public BodyAddSamplesToPvcVoiceV1VoicesPvcVoiceIdSamplesPost(
             global::System.Collections.Generic.IList<byte[]> files,
             bool? removeBackgroundNoise)
         {
@@ -53,9 +53,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyAddSamplesToPVCVoiceV1VoicesPvcVoiceIdSamplesPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyAddSamplesToPvcVoiceV1VoicesPvcVoiceIdSamplesPost" /> class.
         /// </summary>
-        public BodyAddSamplesToPVCVoiceV1VoicesPvcVoiceIdSamplesPost()
+        public BodyAddSamplesToPvcVoiceV1VoicesPvcVoiceIdSamplesPost()
         {
         }
     }

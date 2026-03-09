@@ -34,6 +34,22 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? SipTrunking { get; init; }
+#else
+        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? SipTrunking { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipTrunking))]
+#endif
+        public bool IsSipTrunking => SipTrunking != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator PhoneCall(global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel value) => new PhoneCall((global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel?)value);
 
         /// <summary>
@@ -48,23 +64,6 @@ namespace ElevenLabs
         {
             Twilio = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? SipTrunking { get; init; }
-#else
-        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? SipTrunking { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipTrunking))]
-#endif
-        public bool IsSipTrunking => SipTrunking != null;
 
         /// <summary>
         /// 

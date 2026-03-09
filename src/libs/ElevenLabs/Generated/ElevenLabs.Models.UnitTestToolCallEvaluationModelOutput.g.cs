@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("referenced_tool")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ReferencedToolCommonModel ReferencedTool { get; set; }
+        public global::ElevenLabs.ReferencedToolCommonModel ReferencedTool { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

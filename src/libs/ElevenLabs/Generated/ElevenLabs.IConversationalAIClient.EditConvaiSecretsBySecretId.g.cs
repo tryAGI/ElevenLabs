@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public partial interface IConversationalAIClient
+    public partial interface IConversationalAiClient
     {
         /// <summary>
         /// Update Convai Workspace Secret<br/>
@@ -17,6 +17,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> EditConvaiSecretsBySecretIdAsync(
             string secretId,
+
             global::ElevenLabs.PatchWorkspaceSecretRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

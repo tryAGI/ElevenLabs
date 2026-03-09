@@ -13,18 +13,19 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.MCPServerConfigOutput Config { get; set; }
+        public global::ElevenLabs.MCPServerConfigOutput Config { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </summary>
+        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
 
@@ -39,7 +40,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.MCPServerMetadataResponseModel Metadata { get; set; }
+        public global::ElevenLabs.MCPServerMetadataResponseModel Metadata { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -52,7 +53,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="id"></param>
         /// <param name="config"></param>
-        /// <param name="accessInfo"></param>
+        /// <param name="accessInfo">
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// </param>
         /// <param name="dependentAgents">
         /// List of agents that depend on this MCP Server.
         /// </param>

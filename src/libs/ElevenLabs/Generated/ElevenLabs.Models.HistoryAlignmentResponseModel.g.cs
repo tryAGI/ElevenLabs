@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("characters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Characters { get; set; }
+        public global::System.Collections.Generic.IList<string> Characters { get; set; } = default!;
 
         /// <summary>
         /// The start times of the characters in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_start_times_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<double> CharacterStartTimesSeconds { get; set; }
+        public global::System.Collections.Generic.IList<double> CharacterStartTimesSeconds { get; set; } = default!;
 
         /// <summary>
         /// The end times of the characters in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_end_times_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<double> CharacterEndTimesSeconds { get; set; }
+        public global::System.Collections.Generic.IList<double> CharacterEndTimesSeconds { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

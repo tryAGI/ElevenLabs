@@ -20,6 +20,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> CreateVoicesByVoiceIdSettingsEditAsync(
             string voiceId,
+
             global::ElevenLabs.VoiceSettingsResponseModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -9,8 +9,9 @@ namespace ElevenLabs
     public sealed partial class AgentPlatformSettingsRequestModel
     {
         /// <summary>
-        /// 
+        /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"shareable_token":"1234567890"}
         /// </summary>
+        /// <example>{"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"shareable_token":"1234567890"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth")]
         public global::ElevenLabs.AuthSettings? Auth { get; set; }
 
@@ -22,8 +23,9 @@ namespace ElevenLabs
         public global::ElevenLabs.EvaluationSettings? Evaluation { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"custom_avatar_path":"https://example.com/avatar.png","language_selector":false}
         /// </summary>
+        /// <example>{"custom_avatar_path":"https://example.com/avatar.png","language_selector":false}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("widget")]
         public global::ElevenLabs.WidgetConfigInput? Widget { get; set; }
 
@@ -34,20 +36,23 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? DataCollection { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}
         /// </summary>
+        /// <example>{"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
         public global::ElevenLabs.ConversationInitiationClientDataConfigInput? Overrides { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}
         /// </summary>
+        /// <example>{"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_limits")]
         public global::ElevenLabs.AgentCallLimits? CallLimits { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}
         /// </summary>
+        /// <example>{"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("privacy")]
         public global::ElevenLabs.PrivacyConfig? Privacy { get; set; }
 
@@ -58,8 +63,10 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentWorkspaceOverridesInput? WorkspaceOverrides { get; set; }
 
         /// <summary>
-        /// Settings for agent testing configuration.
+        /// Settings for agent testing configuration.<br/>
+        /// Example: {"attached_tests":[{"test_id":"test_123"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
         /// </summary>
+        /// <example>{"attached_tests":[{"test_id":"test_123"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("testing")]
         public global::ElevenLabs.AgentTestingSettings? Testing { get; set; }
 
@@ -72,21 +79,32 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentPlatformSettingsRequestModel" /> class.
         /// </summary>
-        /// <param name="auth"></param>
+        /// <param name="auth">
+        /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"shareable_token":"1234567890"}
+        /// </param>
         /// <param name="evaluation">
         /// Settings to evaluate an agent's performance.<br/>
         /// Agents are evaluated against a set of criteria, with success being defined as meeting some combination of those criteria.
         /// </param>
-        /// <param name="widget"></param>
+        /// <param name="widget">
+        /// Example: {"custom_avatar_path":"https://example.com/avatar.png","language_selector":false}
+        /// </param>
         /// <param name="dataCollection">
         /// Data collection settings
         /// </param>
-        /// <param name="overrides"></param>
-        /// <param name="callLimits"></param>
-        /// <param name="privacy"></param>
+        /// <param name="overrides">
+        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}
+        /// </param>
+        /// <param name="callLimits">
+        /// Example: {"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}
+        /// </param>
+        /// <param name="privacy">
+        /// Example: {"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}
+        /// </param>
         /// <param name="workspaceOverrides"></param>
         /// <param name="testing">
-        /// Settings for agent testing configuration.
+        /// Settings for agent testing configuration.<br/>
+        /// Example: {"attached_tests":[{"test_id":"test_123"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

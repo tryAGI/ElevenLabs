@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dubs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.DubbingMetadataResponse> Dubs { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingMetadataResponse> Dubs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_cursor")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? NextCursor { get; set; }
+        public string? NextCursor { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool HasMore { get; set; }
+        public bool HasMore { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -12,23 +12,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        GET,
+        Get,
         /// <summary>
         /// 
         /// </summary>
-        POST,
+        Post,
         /// <summary>
         /// 
         /// </summary>
-        PUT,
+        Put,
         /// <summary>
         /// 
         /// </summary>
-        PATCH,
+        Patch,
         /// <summary>
         /// 
         /// </summary>
-        DELETE,
+        Delete,
     }
 
     /// <summary>
@@ -43,11 +43,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                WebhookToolApiSchemaConfigInputMethod.GET => "GET",
-                WebhookToolApiSchemaConfigInputMethod.POST => "POST",
-                WebhookToolApiSchemaConfigInputMethod.PUT => "PUT",
-                WebhookToolApiSchemaConfigInputMethod.PATCH => "PATCH",
-                WebhookToolApiSchemaConfigInputMethod.DELETE => "DELETE",
+                WebhookToolApiSchemaConfigInputMethod.Get => "GET",
+                WebhookToolApiSchemaConfigInputMethod.Post => "POST",
+                WebhookToolApiSchemaConfigInputMethod.Put => "PUT",
+                WebhookToolApiSchemaConfigInputMethod.Patch => "PATCH",
+                WebhookToolApiSchemaConfigInputMethod.Delete => "DELETE",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -58,11 +58,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "GET" => WebhookToolApiSchemaConfigInputMethod.GET,
-                "POST" => WebhookToolApiSchemaConfigInputMethod.POST,
-                "PUT" => WebhookToolApiSchemaConfigInputMethod.PUT,
-                "PATCH" => WebhookToolApiSchemaConfigInputMethod.PATCH,
-                "DELETE" => WebhookToolApiSchemaConfigInputMethod.DELETE,
+                "GET" => WebhookToolApiSchemaConfigInputMethod.Get,
+                "POST" => WebhookToolApiSchemaConfigInputMethod.Post,
+                "PUT" => WebhookToolApiSchemaConfigInputMethod.Put,
+                "PATCH" => WebhookToolApiSchemaConfigInputMethod.Patch,
+                "DELETE" => WebhookToolApiSchemaConfigInputMethod.Delete,
                 _ => null,
             };
         }

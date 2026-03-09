@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"access_level":"viewer","apply_text_normalization":"auto","author":"John Doe","can_be_downloaded":true,"chapters":[{"can_be_downloaded":true,"chapter_id":"aw1NgEzBg83R7vgmiJt6","conversion_progress":0.5,"last_conversion_date_unix":1714204800,"last_conversion_error":"Error message","name":"Chapter 1","state":"converting","statistics":{"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10}}],"content_type":"Novel","cover_image_url":"https://example.com/cover.jpg","create_date_unix":1714204800,"creation_meta":{"creation_progress":0.5,"status":"pending","type":"blank"},"default_model_id":"eleven_multilingual_v2","default_paragraph_voice_id":"JBFqnCBsd6RMkjVDRZzb","default_title_voice_id":"JBFqnCBsd6RMkjVDRZzb","description":"This is a description of my project.","experimental":{},"fiction":"fiction","genres":["Novel","Short Story"],"isbn_number":"978-90-274-3964-2","language":"en","last_conversion_date_unix":1714204800,"mature_content":false,"name":"My Project","original_publication_date":"2025-01-01","project_id":"aw1NgEzBg83R7vgmiJt6","pronunciation_dictionary_locators":[],"pronunciation_dictionary_versions":[],"quality_check_on":false,"quality_check_on_when_bulk_convert":false,"quality_preset":"standard","state":"default","target_audience":"young adult","title":"My Project","volume_normalization":true}
     /// </summary>
     public sealed partial class ProjectExtendedResponseModel
     {
@@ -13,42 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ProjectId { get; set; }
+        public string ProjectId { get; set; } = default!;
 
         /// <summary>
         /// The name of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The creation date of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("create_date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreateDateUnix { get; set; }
+        public int CreateDateUnix { get; set; } = default!;
 
         /// <summary>
         /// The default title voice ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_title_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultTitleVoiceId { get; set; }
+        public string DefaultTitleVoiceId { get; set; } = default!;
 
         /// <summary>
         /// The default paragraph voice ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_paragraph_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultParagraphVoiceId { get; set; }
+        public string DefaultParagraphVoiceId { get; set; } = default!;
 
         /// <summary>
         /// The default model ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultModelId { get; set; }
+        public string DefaultModelId { get; set; } = default!;
 
         /// <summary>
         /// The last conversion date of the project.
@@ -61,7 +61,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_be_downloaded")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanBeDownloaded { get; set; }
+        public bool CanBeDownloaded { get; set; } = default!;
 
         /// <summary>
         /// The title of the project.
@@ -135,7 +135,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_normalization")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool VolumeNormalization { get; set; }
+        public bool VolumeNormalization { get; set; } = default!;
 
         /// <summary>
         /// The state of the project.
@@ -143,7 +143,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ProjectExtendedResponseModelState State { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelState State { get; set; } = default!;
 
         /// <summary>
         /// The access level of the project.
@@ -151,7 +151,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("access_level")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelAccessLevelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ProjectExtendedResponseModelAccessLevel AccessLevel { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelAccessLevel AccessLevel { get; set; } = default!;
 
         /// <summary>
         /// Whether the project is fiction.
@@ -165,18 +165,19 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool QualityCheckOn { get; set; }
+        public bool QualityCheckOn { get; set; } = default!;
 
         /// <summary>
         /// Whether quality check is enabled on the project when bulk converting.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on_when_bulk_convert")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool QualityCheckOnWhenBulkConvert { get; set; }
+        public bool QualityCheckOnWhenBulkConvert { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"creation_progress":0.5,"status":"pending","type":"blank"}
         /// </summary>
+        /// <example>{"creation_progress":0.5,"status":"pending","type":"blank"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_meta")]
         public global::ElevenLabs.ProjectCreationMetaResponseModel? CreationMeta { get; set; }
 
@@ -213,28 +214,28 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelQualityPresetJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ProjectExtendedResponseModelQualityPreset QualityPreset { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelQualityPreset QualityPreset { get; set; } = default!;
 
         /// <summary>
         /// List of chapters of the project and their metadata.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> Chapters { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> Chapters { get; set; } = default!;
 
         /// <summary>
         /// List of pronunciation dictionary versions of the project and their metadata.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_versions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> PronunciationDictionaryVersions { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> PronunciationDictionaryVersions { get; set; } = default!;
 
         /// <summary>
         /// List of pronunciation dictionary locators.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> PronunciationDictionaryLocators { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> PronunciationDictionaryLocators { get; set; } = default!;
 
         /// <summary>
         /// Whether text normalization is applied to the project.
@@ -242,7 +243,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization ApplyTextNormalization { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization ApplyTextNormalization { get; set; } = default!;
 
         /// <summary>
         /// Experimental features for the project.
@@ -334,7 +335,9 @@ namespace ElevenLabs
         /// <param name="qualityCheckOnWhenBulkConvert">
         /// Whether quality check is enabled on the project when bulk converting.
         /// </param>
-        /// <param name="creationMeta"></param>
+        /// <param name="creationMeta">
+        /// Example: {"creation_progress":0.5,"status":"pending","type":"blank"}
+        /// </param>
         /// <param name="sourceType">
         /// The source type of the project.
         /// </param>

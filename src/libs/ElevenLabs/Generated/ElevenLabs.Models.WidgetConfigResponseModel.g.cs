@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
     /// </summary>
     public sealed partial class WidgetConfigResponseModel
     {
@@ -238,7 +238,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Language { get; set; }
+        public string Language { get; set; } = default!;
 
         /// <summary>
         /// 

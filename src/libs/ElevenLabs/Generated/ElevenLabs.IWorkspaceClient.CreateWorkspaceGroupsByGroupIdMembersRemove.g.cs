@@ -19,6 +19,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteWorkspaceGroupMemberResponseModel> CreateWorkspaceGroupsByGroupIdMembersRemoveAsync(
             string groupId,
+
             global::ElevenLabs.BodyDeleteMemberFromUserGroupV1WorkspaceGroupsGroupIdMembersRemovePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

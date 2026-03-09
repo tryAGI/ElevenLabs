@@ -13,49 +13,49 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("genders")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.VoiceGenerationParameterOptionResponseModel> Genders { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceGenerationParameterOptionResponseModel> Genders { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("accents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.VoiceGenerationParameterOptionResponseModel> Accents { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceGenerationParameterOptionResponseModel> Accents { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.VoiceGenerationParameterOptionResponseModel> Ages { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceGenerationParameterOptionResponseModel> Ages { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("minimum_characters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MinimumCharacters { get; set; }
+        public int MinimumCharacters { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maximum_characters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaximumCharacters { get; set; }
+        public int MaximumCharacters { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("minimum_accent_strength")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double MinimumAccentStrength { get; set; }
+        public double MinimumAccentStrength { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maximum_accent_strength")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double MaximumAccentStrength { get; set; }
+        public double MaximumAccentStrength { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareGetConvaiConversationTokenArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -58,8 +58,8 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/conversation/token",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddRequiredParameter("agent_id", agentId) 
+            __pathBuilder
+                .AddRequiredParameter("agent_id", agentId)
                 .AddOptionalParameter("participant_name", participantName) 
                 ; 
             var __path = __pathBuilder.ToString();

@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VersionId { get; set; }
+        public string VersionId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_rules_num")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int VersionRulesNum { get; set; }
+        public int VersionRulesNum { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PronunciationDictionaryId { get; set; }
+        public string PronunciationDictionaryId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dictionary_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DictionaryName { get; set; }
+        public string DictionaryName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VersionName { get; set; }
+        public string VersionName { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -49,21 +49,21 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PronunciationDictionaryVersionResponseModelPermissionOnResourceJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource? PermissionOnResource { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource? PermissionOnResource { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CreatedBy { get; set; }
+        public string CreatedBy { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_time_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreationTimeUnix { get; set; }
+        public int CreationTimeUnix { get; set; } = default!;
 
         /// <summary>
         /// 

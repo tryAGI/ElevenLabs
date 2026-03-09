@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"actual_reported_credits":1000,"manually_gifted_credits_quota":1000,"manually_gifted_credits_used":1000,"paid_usage_based_credits_used":1000,"rollover_credits_quota":1000,"rollover_credits_used":1000,"subscription_cycle_credits_quota":1000,"subscription_cycle_credits_used":1000}
     /// </summary>
     public sealed partial class SubscriptionUsageResponseModel
     {
@@ -13,56 +13,56 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rollover_credits_quota")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int RolloverCreditsQuota { get; set; }
+        public int RolloverCreditsQuota { get; set; } = default!;
 
         /// <summary>
         /// The subscription cycle credits quota.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("subscription_cycle_credits_quota")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SubscriptionCycleCreditsQuota { get; set; }
+        public int SubscriptionCycleCreditsQuota { get; set; } = default!;
 
         /// <summary>
         /// The manually gifted credits quota.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("manually_gifted_credits_quota")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ManuallyGiftedCreditsQuota { get; set; }
+        public int ManuallyGiftedCreditsQuota { get; set; } = default!;
 
         /// <summary>
         /// The rollover credits used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rollover_credits_used")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int RolloverCreditsUsed { get; set; }
+        public int RolloverCreditsUsed { get; set; } = default!;
 
         /// <summary>
         /// The subscription cycle credits used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("subscription_cycle_credits_used")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SubscriptionCycleCreditsUsed { get; set; }
+        public int SubscriptionCycleCreditsUsed { get; set; } = default!;
 
         /// <summary>
         /// The manually gifted credits used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("manually_gifted_credits_used")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ManuallyGiftedCreditsUsed { get; set; }
+        public int ManuallyGiftedCreditsUsed { get; set; } = default!;
 
         /// <summary>
         /// The paid usage based credits used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("paid_usage_based_credits_used")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int PaidUsageBasedCreditsUsed { get; set; }
+        public int PaidUsageBasedCreditsUsed { get; set; } = default!;
 
         /// <summary>
         /// The actual reported credits.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("actual_reported_credits")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ActualReportedCredits { get; set; }
+        public int ActualReportedCredits { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("username")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Username { get; set; }
+        public string Username { get; set; } = default!;
 
         /// <summary>
         /// SIP trunk password
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("password")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

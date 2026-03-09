@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"bulletin":{"host_voice_id":"aw1NgEzBg83R7vgmiJt6"},"type":"bulletin"}
     /// </summary>
     public sealed partial class PodcastBulletinMode
     {
@@ -16,11 +16,12 @@ namespace ElevenLabs
         public global::ElevenLabs.PodcastBulletinModeType Type { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"host_voice_id":"aw1NgEzBg83R7vgmiJt6"}
         /// </summary>
+        /// <example>{"host_voice_id":"aw1NgEzBg83R7vgmiJt6"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("bulletin")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.PodcastBulletinModeData Bulletin { get; set; }
+        public global::ElevenLabs.PodcastBulletinModeData Bulletin { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,7 +35,9 @@ namespace ElevenLabs
         /// <param name="type">
         /// The type of podcast to create.
         /// </param>
-        /// <param name="bulletin"></param>
+        /// <param name="bulletin">
+        /// Example: {"host_voice_id":"aw1NgEzBg83R7vgmiJt6"}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

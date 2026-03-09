@@ -15,7 +15,7 @@ namespace ElevenLabs
         /// <example>[test_id_1, test_id_2]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> TestIds { get; set; }
+        public global::System.Collections.Generic.IList<string> TestIds { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

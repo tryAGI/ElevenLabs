@@ -13,18 +13,19 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// Name of the test
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </summary>
+        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
 
@@ -33,14 +34,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAtUnixSecs { get; set; }
+        public int CreatedAtUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// Last update time of the test in unix seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_updated_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LastUpdatedAtUnixSecs { get; set; }
+        public int LastUpdatedAtUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,7 +58,9 @@ namespace ElevenLabs
         /// <param name="name">
         /// Name of the test
         /// </param>
-        /// <param name="accessInfo"></param>
+        /// <param name="accessInfo">
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// </param>
         /// <param name="createdAtUnixSecs">
         /// Creation time of the test in unix seconds
         /// </param>

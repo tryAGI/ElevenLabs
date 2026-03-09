@@ -27,6 +27,7 @@ namespace ElevenLabs
             string dubbingId,
             string segmentId,
             string language,
+
             global::ElevenLabs.SegmentUpdatePayload request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -20,6 +20,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateStudioProjectsByProjectIdContentAsync(
             string projectId,
+
             global::ElevenLabs.BodyUpdateStudioProjectContentV1StudioProjectsProjectIdContentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

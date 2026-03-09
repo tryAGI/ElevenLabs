@@ -13,42 +13,43 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; }
+        public global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_usages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> SupportedUsages { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> SupportedUsages { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </summary>
+        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
+        public global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extracted_inner_html")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ExtractedInnerHtml { get; set; }
+        public string ExtractedInnerHtml { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -62,7 +63,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        public string Url { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -77,7 +78,9 @@ namespace ElevenLabs
         /// <param name="name"></param>
         /// <param name="metadata"></param>
         /// <param name="supportedUsages"></param>
-        /// <param name="accessInfo"></param>
+        /// <param name="accessInfo">
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// </param>
         /// <param name="extractedInnerHtml"></param>
         /// <param name="type"></param>
         /// <param name="url"></param>

@@ -23,6 +23,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentCreateResponse> CreateDubbingResourceByDubbingIdSpeakerBySpeakerIdSegmentAsync(
             string dubbingId,
             string speakerId,
+
             global::ElevenLabs.SegmentCreatePayload request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

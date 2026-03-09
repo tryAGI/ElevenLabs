@@ -29,6 +29,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task CreateAudioIsolationStreamAsync(
+
             global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -78,19 +79,26 @@ namespace ElevenLabs
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             if (xiApiKey != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-key");
-            } 
+                    name: "\"xi-api-key\"");
+            }
+            var __contentAudio = new global::System.Net.Http.ByteArrayContent(request.Audio ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
-                content: new global::System.Net.Http.ByteArrayContent(request.Audio ?? global::System.Array.Empty<byte>()),
-                name: "audio",
-                fileName: request.Audioname ?? string.Empty);
+                content: __contentAudio,
+                name: "\"audio\"",
+                fileName: request.Audioname != null ? $"\"{request.Audioname}\"" : string.Empty);
+            if (__contentAudio.Headers.ContentDisposition != null)
+            {
+                __contentAudio.Headers.ContentDisposition.FileNameStar = null;
+            }
             if (request.FileFormat != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.FileFormat?.ToValueString()}"),
-                    name: "file_format");
+                    name: "\"file_format\"");
             }
             __httpRequest.Content = __httpRequestContent;
 

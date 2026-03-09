@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"custom_avatar_path":"https://example.com/avatar.png","language_selector":false}
     /// </summary>
     public sealed partial class WidgetConfigOutput
     {

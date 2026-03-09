@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"audio_base_64":"audio_base_64","duration_secs":5,"media_type":"audio/mpeg"}
     /// </summary>
     public sealed partial class SpeakerAudioResponseModel
     {
@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_base_64")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AudioBase64 { get; set; }
+        public string AudioBase64 { get; set; } = default!;
 
         /// <summary>
         /// The media type of the audio.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string MediaType { get; set; }
+        public string MediaType { get; set; } = default!;
 
         /// <summary>
         /// The duration of the audio in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double DurationSecs { get; set; }
+        public double DurationSecs { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

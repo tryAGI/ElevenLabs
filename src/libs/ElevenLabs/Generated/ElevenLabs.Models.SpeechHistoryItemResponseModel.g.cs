@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"character_count_change_from":17189,"character_count_change_to":17231,"content_type":"audio/mpeg","date_unix":1714650306,"history_item_id":"ja9xsmfGhxYcymxGcOGB","model_id":"eleven_multilingual_v2","request_id":"BF0BZg4IwLGBlaVjv9Im","settings":{"similarity_boost":0.5,"stability":0.71,"style":0,"use_speaker_boost":true},"source":"TTS","state":"created","text":"Hello, world!","voice_category":"premade","voice_id":"21m00Tcm4TlvDq8ikWAM","voice_name":"Rachel"}
     /// </summary>
     public sealed partial class SpeechHistoryItemResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history_item_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string HistoryItemId { get; set; }
+        public string HistoryItemId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the request.
@@ -58,28 +58,28 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("date_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset DateUnix { get; set; }
+        public global::System.DateTimeOffset DateUnix { get; set; } = default!;
 
         /// <summary>
         /// The character count change from.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count_change_from")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CharacterCountChangeFrom { get; set; }
+        public int CharacterCountChangeFrom { get; set; } = default!;
 
         /// <summary>
         /// The character count change to.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count_change_to")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CharacterCountChangeTo { get; set; }
+        public int CharacterCountChangeTo { get; set; } = default!;
 
         /// <summary>
         /// The content type of the generated item.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ContentType { get; set; }
+        public string ContentType { get; set; } = default!;
 
         /// <summary>
         /// The state of the history item.
@@ -87,7 +87,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeechHistoryItemResponseModelStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SpeechHistoryItemResponseModelState State { get; set; }
+        public global::ElevenLabs.SpeechHistoryItemResponseModelState State { get; set; } = default!;
 
         /// <summary>
         /// The settings of the history item.
@@ -96,8 +96,9 @@ namespace ElevenLabs
         public object? Settings { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"audio_quality":true,"emotions":true,"feedback":"This is an example of test feedback.","glitches":true,"inaccurate_clone":false,"other":false,"review_status":"not_reviewed","thumbs_up":true}
         /// </summary>
+        /// <example>{"audio_quality":true,"emotions":true,"feedback":"This is an example of test feedback.","glitches":true,"inaccurate_clone":false,"other":false,"review_status":"not_reviewed","thumbs_up":true}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
         public global::ElevenLabs.FeedbackResponseModel? Feedback { get; set; }
 
@@ -174,7 +175,9 @@ namespace ElevenLabs
         /// <param name="settings">
         /// The settings of the history item.
         /// </param>
-        /// <param name="feedback"></param>
+        /// <param name="feedback">
+        /// Example: {"audio_quality":true,"emotions":true,"feedback":"This is an example of test feedback.","glitches":true,"inaccurate_clone":false,"other":false,"review_status":"not_reviewed","thumbs_up":true}
+        /// </param>
         /// <param name="shareLinkId">
         /// The ID of the share link.
         /// </param>

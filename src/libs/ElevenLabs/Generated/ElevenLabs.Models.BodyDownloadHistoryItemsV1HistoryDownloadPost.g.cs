@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history_item_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> HistoryItemIds { get; set; }
+        public global::System.Collections.Generic.IList<string> HistoryItemIds { get; set; } = default!;
 
         /// <summary>
         /// Output format to transcode the audio file, can be wav or default.

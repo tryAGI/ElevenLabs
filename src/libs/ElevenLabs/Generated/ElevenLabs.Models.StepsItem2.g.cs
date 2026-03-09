@@ -34,6 +34,39 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? NestedTools { get; init; }
+#else
+        public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? NestedTools { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NestedTools))]
+#endif
+        public bool IsNestedTools => NestedTools != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? MaxIterationsExceeded { get; init; }
+#else
+        public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? MaxIterationsExceeded { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MaxIterationsExceeded))]
+#endif
+        public bool IsMaxIterationsExceeded => MaxIterationsExceeded != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator StepsItem2(global::ElevenLabs.WorkflowToolEdgeStepModel value) => new StepsItem2((global::ElevenLabs.WorkflowToolEdgeStepModel?)value);
 
         /// <summary>
@@ -52,23 +85,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? NestedTools { get; init; }
-#else
-        public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? NestedTools { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NestedTools))]
-#endif
-        public bool IsNestedTools => NestedTools != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator StepsItem2(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput value) => new StepsItem2((global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput?)value);
 
         /// <summary>
@@ -83,23 +99,6 @@ namespace ElevenLabs
         {
             NestedTools = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? MaxIterationsExceeded { get; init; }
-#else
-        public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? MaxIterationsExceeded { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MaxIterationsExceeded))]
-#endif
-        public bool IsMaxIterationsExceeded => MaxIterationsExceeded != null;
 
         /// <summary>
         /// 

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("xi-api-key")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string XiApiKey { get; set; }
+        public string XiApiKey { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

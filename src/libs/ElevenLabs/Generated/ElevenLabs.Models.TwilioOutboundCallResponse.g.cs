@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Success { get; set; }
+        public bool Success { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Message { get; set; }
+        public string Message { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? ConversationId { get; set; }
+        public string? ConversationId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("callSid")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? CallSid { get; set; }
+        public string? CallSid { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

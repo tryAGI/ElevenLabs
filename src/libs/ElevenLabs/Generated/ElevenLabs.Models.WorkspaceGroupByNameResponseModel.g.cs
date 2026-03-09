@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"id":"1234567890","members_emails":["john.doe@example.com","jane.smith@example.com"],"name":"My Workspace Group"}
     /// </summary>
     public sealed partial class WorkspaceGroupByNameResponseModel
     {
@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The ID of the workspace group.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The emails of the members of the workspace group.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("members_emails")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> MembersEmails { get; set; }
+        public global::System.Collections.Generic.IList<string> MembersEmails { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

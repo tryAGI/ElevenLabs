@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"webhooks":[{"auth_type":"hmac","created_at_unix":123456789,"is_auto_disabled":false,"is_disabled":false,"most_recent_failure_error_code":404,"most_recent_failure_timestamp":123456799,"name":"My Webhook","usage":[{"usage_type":"ConvAI Settings"}],"webhook_id":"123","webhook_url":"https://elevenlabs.io/example-callback-url"}]}
     /// </summary>
     public sealed partial class WorkspaceWebhookListResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhooks")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookResponseModel> Webhooks { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookResponseModel> Webhooks { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

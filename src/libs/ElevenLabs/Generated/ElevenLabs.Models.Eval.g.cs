@@ -34,6 +34,39 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.RegexParameterEvaluationStrategy? Regex { get; init; }
+#else
+        public global::ElevenLabs.RegexParameterEvaluationStrategy? Regex { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Regex))]
+#endif
+        public bool IsRegex => Regex != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ExactParameterEvaluationStrategy? Exact { get; init; }
+#else
+        public global::ElevenLabs.ExactParameterEvaluationStrategy? Exact { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Exact))]
+#endif
+        public bool IsExact => Exact != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Eval(global::ElevenLabs.LLMParameterEvaluationStrategy value) => new Eval((global::ElevenLabs.LLMParameterEvaluationStrategy?)value);
 
         /// <summary>
@@ -52,23 +85,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.RegexParameterEvaluationStrategy? Regex { get; init; }
-#else
-        public global::ElevenLabs.RegexParameterEvaluationStrategy? Regex { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Regex))]
-#endif
-        public bool IsRegex => Regex != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator Eval(global::ElevenLabs.RegexParameterEvaluationStrategy value) => new Eval((global::ElevenLabs.RegexParameterEvaluationStrategy?)value);
 
         /// <summary>
@@ -83,23 +99,6 @@ namespace ElevenLabs
         {
             Regex = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.ExactParameterEvaluationStrategy? Exact { get; init; }
-#else
-        public global::ElevenLabs.ExactParameterEvaluationStrategy? Exact { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Exact))]
-#endif
-        public bool IsExact => Exact != null;
 
         /// <summary>
         /// 

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunks")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.RagChunkMetadata> Chunks { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.RagChunkMetadata> Chunks { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -21,21 +21,21 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EmbeddingModelEnum EmbeddingModel { get; set; }
+        public global::ElevenLabs.EmbeddingModelEnum EmbeddingModel { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrieval_query")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string RetrievalQuery { get; set; }
+        public string RetrievalQuery { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rag_latency_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double RagLatencySecs { get; set; }
+        public double RagLatencySecs { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

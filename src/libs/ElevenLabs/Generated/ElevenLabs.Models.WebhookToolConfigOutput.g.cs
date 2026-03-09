@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A webhook tool is a tool that calls an external webhook from our server
+    /// A webhook tool is a tool that calls an external webhook from our server<br/>
+    /// Example: {"response_timeout_secs":20,"type":"webhook"}
     /// </summary>
     public sealed partial class WebhookToolConfigOutput
     {
@@ -21,14 +22,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string Description { get; set; } = default!;
 
         /// <summary>
         /// The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
@@ -58,15 +59,18 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
 
         /// <summary>
-        /// Configuration for a webhook that will be called by an LLM tool.
+        /// Configuration for a webhook that will be called by an LLM tool.<br/>
+        /// Example: {"method":"GET","path_params_schema":{"agent_id":{"type":"string"}},"query_params_schema":{"param1":{"type":"string"}},"request_body_schema":{"param1":{"type":"string"}},"request_headers":{"Authorization":"Bearer {api_key}"},"url":"https://example.com/agents/{agent_id}"}
         /// </summary>
+        /// <example>{"method":"GET","path_params_schema":{"agent_id":{"type":"string"}},"query_params_schema":{"param1":{"type":"string"}},"request_body_schema":{"param1":{"type":"string"}},"request_headers":{"Authorization":"Bearer {api_key}"},"url":"https://example.com/agents/{agent_id}"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_schema")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.WebhookToolApiSchemaConfigOutput ApiSchema { get; set; }
+        public global::ElevenLabs.WebhookToolApiSchemaConfigOutput ApiSchema { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"dynamic_variable_placeholders":{"user_name":"John Doe"}}
         /// </summary>
+        /// <example>{"dynamic_variable_placeholders":{"user_name":"John Doe"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
         public global::ElevenLabs.DynamicVariablesConfig? DynamicVariables { get; set; }
 
@@ -101,9 +105,12 @@ namespace ElevenLabs
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
         /// </param>
         /// <param name="apiSchema">
-        /// Configuration for a webhook that will be called by an LLM tool.
+        /// Configuration for a webhook that will be called by an LLM tool.<br/>
+        /// Example: {"method":"GET","path_params_schema":{"agent_id":{"type":"string"}},"query_params_schema":{"param1":{"type":"string"}},"request_body_schema":{"param1":{"type":"string"}},"request_headers":{"Authorization":"Bearer {api_key}"},"url":"https://example.com/agents/{agent_id}"}
         /// </param>
-        /// <param name="dynamicVariables"></param>
+        /// <param name="dynamicVariables">
+        /// Example: {"dynamic_variable_placeholders":{"user_name":"John Doe"}}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareCreateConvaiToolsArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -34,6 +34,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> CreateConvaiToolsAsync(
+
             global::ElevenLabs.ToolRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

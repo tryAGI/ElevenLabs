@@ -41,6 +41,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditProjectResponseModel> CreateStudioProjectsByProjectIdContentAsync(
             string projectId,
+
             global::ElevenLabs.BodyUpdateStudioProjectContentV1StudioProjectsProjectIdContentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -91,37 +92,47 @@ namespace ElevenLabs
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{projectId}"),
-                name: "project_id");
+                name: "\"project_id\"");
             if (xiApiKey != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-key");
+                    name: "\"xi-api-key\"");
             } 
             if (request.FromUrl != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.FromUrl}"),
-                    name: "from_url");
+                    name: "\"from_url\"");
             } 
             if (request.FromDocument != default)
             {
+
+                var __contentFromDocument = new global::System.Net.Http.ByteArrayContent(request.FromDocument ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.ByteArrayContent(request.FromDocument ?? global::System.Array.Empty<byte>()),
-                    name: "from_document",
-                    fileName: request.FromDocumentname ?? string.Empty);
+                    content: __contentFromDocument,
+                    name: "\"from_document\"",
+                    fileName: request.FromDocumentname != null ? $"\"{request.FromDocumentname}\"" : string.Empty);
+                if (__contentFromDocument.Headers.ContentDisposition != null)
+                {
+                    __contentFromDocument.Headers.ContentDisposition.FileNameStar = null;
+                }
             } 
             if (request.FromContentJson != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.FromContentJson}"),
-                    name: "from_content_json");
+                    name: "\"from_content_json\"");
             } 
             if (request.AutoConvert != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.AutoConvert}"),
-                    name: "auto_convert");
+                    name: "\"auto_convert\"");
             }
             __httpRequest.Content = __httpRequestContent;
 

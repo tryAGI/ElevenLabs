@@ -10,12 +10,12 @@ namespace ElevenLabs
     {
         /// <summary>
         /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech.<br/>
-        /// Example: [, ]
+        /// Example: [{"text":"Hello, how are you?","voice_id":"bYTqZQo3Jz7LQtmGTgwi"}, {"text":"I\u0027m doing well, thank you!","voice_id":"6lCwbsX1yVjD49QmpkTR"}]
         /// </summary>
-        /// <example>[, ]</example>
+        /// <example>[{"text":"Hello, how are you?","voice_id":"bYTqZQo3Jz7LQtmGTgwi"}, {"text":"I\u0027m doing well, thank you!","voice_id":"6lCwbsX1yVjD49QmpkTR"}]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("inputs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput> Inputs { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput> Inputs { get; set; } = default!;
 
         /// <summary>
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.<br/>
@@ -25,16 +25,17 @@ namespace ElevenLabs
         public string? ModelId { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"similarity_boost":1,"stability":1}
         /// </summary>
+        /// <example>{"similarity_boost":1,"stability":1}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         public global::ElevenLabs.ModelSettingsResponseModel? Settings { get; set; }
 
         /// <summary>
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
-        /// Example: []
+        /// Example: [{"pronunciation_dictionary_id":"test","version_id":"id2"}]
         /// </summary>
-        /// <example>[]</example>
+        /// <example>[{"pronunciation_dictionary_id":"test","version_id":"id2"}]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? PronunciationDictionaryLocators { get; set; }
 
@@ -57,16 +58,18 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="inputs">
         /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech.<br/>
-        /// Example: [, ]
+        /// Example: [{"text":"Hello, how are you?","voice_id":"bYTqZQo3Jz7LQtmGTgwi"}, {"text":"I\u0027m doing well, thank you!","voice_id":"6lCwbsX1yVjD49QmpkTR"}]
         /// </param>
         /// <param name="modelId">
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.<br/>
         /// Default Value: eleven_v3
         /// </param>
-        /// <param name="settings"></param>
+        /// <param name="settings">
+        /// Example: {"similarity_boost":1,"stability":1}
+        /// </param>
         /// <param name="pronunciationDictionaryLocators">
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
-        /// Example: []
+        /// Example: [{"pronunciation_dictionary_id":"test","version_id":"id2"}]
         /// </param>
         /// <param name="seed">
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>

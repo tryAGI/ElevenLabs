@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"is_verified":true,"language":"en","requires_verification":false,"verification_attempts":[{"accepted":true,"date_unix":1714204800,"levenshtein_distance":2,"recording":{"mime_type":"audio/mpeg","recording_id":"CwhRBWXzGAHq8TQ4Fs17","size_bytes":1000000,"transcription":"Hello, how are you?","upload_date_unix":1714204800},"similarity":0.95,"text":"Hello, how are you?"}],"verification_attempts_count":0,"verification_failures":[]}
     /// </summary>
     public sealed partial class VoiceVerificationResponseModel
     {
@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requires_verification")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool RequiresVerification { get; set; }
+        public bool RequiresVerification { get; set; } = default!;
 
         /// <summary>
         /// Whether the voice has been verified.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_verified")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsVerified { get; set; }
+        public bool IsVerified { get; set; } = default!;
 
         /// <summary>
         /// List of verification failures.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_failures")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> VerificationFailures { get; set; }
+        public global::System.Collections.Generic.IList<string> VerificationFailures { get; set; } = default!;
 
         /// <summary>
         /// The number of verification attempts.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_attempts_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int VerificationAttemptsCount { get; set; }
+        public int VerificationAttemptsCount { get; set; } = default!;
 
         /// <summary>
         /// The language of the voice.

@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Configuration for extracting values from tool responses and assigning them to dynamic variables.
+    /// Configuration for extracting values from tool responses and assigning them to dynamic variables.<br/>
+    /// Example: {"dynamic_variable":"user_name","source":"response","value_path":"user.name"}
     /// </summary>
     public sealed partial class DynamicVariableAssignment
     {
@@ -21,14 +22,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DynamicVariable { get; set; }
+        public string DynamicVariable { get; set; } = default!;
 
         /// <summary>
         /// Dot notation path to extract the value from the source (e.g., 'user.name' or 'data.0.id')
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ValuePath { get; set; }
+        public string ValuePath { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

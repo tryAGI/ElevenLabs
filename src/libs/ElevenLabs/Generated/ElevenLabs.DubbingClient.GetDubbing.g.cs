@@ -74,10 +74,10 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/dubbing",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("cursor", cursor) 
-                .AddOptionalParameter("page_size", pageSize?.ToString()) 
-                .AddOptionalParameter("dubbing_status", dubbingStatus?.ToValueString()) 
+            __pathBuilder
+                .AddOptionalParameter("cursor", cursor)
+                .AddOptionalParameter("page_size", pageSize?.ToString())
+                .AddOptionalParameter("dubbing_status", dubbingStatus?.ToValueString())
                 .AddOptionalParameter("filter_by_creator", filterByCreator?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();

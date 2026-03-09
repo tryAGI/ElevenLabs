@@ -38,6 +38,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceCreateApiKeyResponseModel> CreateServiceAccountsByServiceAccountUserIdApiKeysAsync(
             string serviceAccountUserId,
+
             global::ElevenLabs.BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("render_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RenderTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.RenderType RenderType { get; set; }
+        public global::ElevenLabs.RenderType RenderType { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

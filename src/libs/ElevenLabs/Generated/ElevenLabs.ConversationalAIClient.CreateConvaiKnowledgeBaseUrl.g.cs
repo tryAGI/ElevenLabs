@@ -3,17 +3,17 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareCreateConvaiKnowledgeBaseUrlArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost request);
+            global::ElevenLabs.BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost request);
         partial void PrepareCreateConvaiKnowledgeBaseUrlRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::ElevenLabs.BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost request);
+            global::ElevenLabs.BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost request);
         partial void ProcessCreateConvaiKnowledgeBaseUrlResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -34,7 +34,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseUrlAsync(
-            global::ElevenLabs.BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost request,
+
+            global::ElevenLabs.BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -238,7 +239,7 @@ namespace ElevenLabs
             string? name = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost
+            var __request = new global::ElevenLabs.BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost
             {
                 Url = url,
                 Name = name,

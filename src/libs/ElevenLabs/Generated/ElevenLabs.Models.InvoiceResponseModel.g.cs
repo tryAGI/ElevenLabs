@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"amount_due_cents":1000,"next_payment_attempt_unix":1738356858}
     /// </summary>
     public sealed partial class InvoiceResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("amount_due_cents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int AmountDueCents { get; set; }
+        public int AmountDueCents { get; set; } = default!;
 
         /// <summary>
         /// The discount applied to the invoice. E.g. [20.0f] for 20% off.
@@ -33,7 +33,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("next_payment_attempt_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset NextPaymentAttemptUnix { get; set; }
+        public global::System.DateTimeOffset NextPaymentAttemptUnix { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

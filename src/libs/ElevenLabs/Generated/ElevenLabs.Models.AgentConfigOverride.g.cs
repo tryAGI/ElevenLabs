@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"first_message":"Hello, how can I help you today?","language":"en","prompt":{"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}}
     /// </summary>
     public sealed partial class AgentConfigOverride
     {
@@ -21,8 +21,9 @@ namespace ElevenLabs
         public string? Language { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}
         /// </summary>
+        /// <example>{"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public global::ElevenLabs.PromptAgentAPIModelOverride? Prompt { get; set; }
 
@@ -41,7 +42,9 @@ namespace ElevenLabs
         /// <param name="language">
         /// Language of the agent - used for ASR and TTS
         /// </param>
-        /// <param name="prompt"></param>
+        /// <param name="prompt">
+        /// Example: {"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

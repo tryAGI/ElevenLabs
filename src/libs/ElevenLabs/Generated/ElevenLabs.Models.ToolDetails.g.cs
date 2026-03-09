@@ -34,6 +34,39 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? Client { get; init; }
+#else
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? Client { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Client))]
+#endif
+        public bool IsClient => Client != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? Mcp { get; init; }
+#else
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? Mcp { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
+#endif
+        public bool IsMcp => Mcp != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ToolDetails(global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails value) => new ToolDetails((global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?)value);
 
         /// <summary>
@@ -52,23 +85,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? Client { get; init; }
-#else
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? Client { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Client))]
-#endif
-        public bool IsClient => Client != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator ToolDetails(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails value) => new ToolDetails((global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?)value);
 
         /// <summary>
@@ -83,23 +99,6 @@ namespace ElevenLabs
         {
             Client = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? Mcp { get; init; }
-#else
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? Mcp { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
-#endif
-        public bool IsMcp => Mcp != null;
 
         /// <summary>
         /// 

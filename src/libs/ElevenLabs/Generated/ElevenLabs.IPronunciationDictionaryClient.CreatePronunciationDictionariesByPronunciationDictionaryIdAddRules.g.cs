@@ -20,6 +20,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.PronunciationDictionaryRulesResponseModel> CreatePronunciationDictionariesByPronunciationDictionaryIdAddRulesAsync(
             string pronunciationDictionaryId,
+
             global::ElevenLabs.BodyAddRulesToThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdAddRulesPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

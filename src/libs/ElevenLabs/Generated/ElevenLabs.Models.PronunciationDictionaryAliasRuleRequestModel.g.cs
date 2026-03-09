@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"alias":"tie-land","string_to_replace":"Thailand","type":"alias"}
     /// </summary>
     public sealed partial class PronunciationDictionaryAliasRuleRequestModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("string_to_replace")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string StringToReplace { get; set; }
+        public string StringToReplace { get; set; } = default!;
 
         /// <summary>
         /// The type of the rule.
@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Alias { get; set; }
+        public string Alias { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

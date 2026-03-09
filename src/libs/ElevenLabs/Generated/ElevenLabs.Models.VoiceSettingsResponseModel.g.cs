@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"similarity_boost":1,"speed":1,"stability":1,"style":0,"use_speaker_boost":true}
     /// </summary>
     public sealed partial class VoiceSettingsResponseModel
     {

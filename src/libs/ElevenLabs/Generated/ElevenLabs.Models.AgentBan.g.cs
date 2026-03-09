@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int AtUnix { get; set; }
+        public int AtUnix { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -27,7 +27,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("reason_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BanReasonTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.BanReasonType ReasonType { get; set; }
+        public global::ElevenLabs.BanReasonType ReasonType { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

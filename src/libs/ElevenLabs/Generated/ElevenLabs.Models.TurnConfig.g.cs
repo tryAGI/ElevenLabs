@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"mode":"turn","silence_end_call_timeout":-1,"turn_timeout":7}
     /// </summary>
     public sealed partial class TurnConfig
     {

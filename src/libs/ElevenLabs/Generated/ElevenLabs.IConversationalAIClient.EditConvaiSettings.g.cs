@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public partial interface IConversationalAIClient
+    public partial interface IConversationalAiClient
     {
         /// <summary>
         /// Update Convai Settings<br/>
@@ -15,6 +15,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> EditConvaiSettingsAsync(
+
             global::ElevenLabs.PatchConvAISettingsRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -26,7 +27,9 @@ namespace ElevenLabs
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="conversationInitiationClientDataWebhook"></param>
+        /// <param name="conversationInitiationClientDataWebhook">
+        /// Example: {"request_headers":{"Content-Type":"application/json"},"url":"https://example.com/webhook"}
+        /// </param>
         /// <param name="webhooks"></param>
         /// <param name="canUseMcpServers">
         /// Whether the workspace can use MCP servers<br/>

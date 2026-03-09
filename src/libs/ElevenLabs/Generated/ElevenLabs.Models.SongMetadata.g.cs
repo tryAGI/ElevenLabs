@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"description":"My Song Description","genres":["pop","rock","jazz"],"is_explicit":false,"languages":["en","fr"],"title":"My Song"}
     /// </summary>
     public sealed partial class SongMetadata
     {
@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? Title { get; set; }
+        public string? Title { get; set; } = default!;
 
         /// <summary>
         /// The description of the song
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? Description { get; set; }
+        public string? Description { get; set; } = default!;
 
         /// <summary>
         /// The genres of the song
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("genres")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Genres { get; set; }
+        public global::System.Collections.Generic.IList<string> Genres { get; set; } = default!;
 
         /// <summary>
         /// The languages of the song
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("languages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Languages { get; set; }
+        public global::System.Collections.Generic.IList<string> Languages { get; set; } = default!;
 
         /// <summary>
         /// Whether the song is explicit
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_explicit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool? IsExplicit { get; set; }
+        public bool? IsExplicit { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

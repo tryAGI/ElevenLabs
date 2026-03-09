@@ -8,12 +8,12 @@ namespace ElevenLabs
         partial void PrepareCreateVoicesPvcArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyCreatePVCVoiceV1VoicesPvcPost request);
+            global::ElevenLabs.BodyCreatePvcVoiceV1VoicesPvcPost request);
         partial void PrepareCreateVoicesPvcRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::ElevenLabs.BodyCreatePVCVoiceV1VoicesPvcPost request);
+            global::ElevenLabs.BodyCreatePvcVoiceV1VoicesPvcPost request);
         partial void ProcessCreateVoicesPvcResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -34,7 +34,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> CreateVoicesPvcAsync(
-            global::ElevenLabs.BodyCreatePVCVoiceV1VoicesPvcPost request,
+
+            global::ElevenLabs.BodyCreatePvcVoiceV1VoicesPvcPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -249,7 +250,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, string>? labels = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreatePVCVoiceV1VoicesPvcPost
+            var __request = new global::ElevenLabs.BodyCreatePvcVoiceV1VoicesPvcPost
             {
                 Name = name,
                 Language = language,

@@ -13,70 +13,70 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Version { get; set; }
+        public int Version { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_language")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SourceLanguage { get; set; }
+        public string SourceLanguage { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_languages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> TargetLanguages { get; set; }
+        public global::System.Collections.Generic.IList<string> TargetLanguages { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.DubbingMediaReference Input { get; set; }
+        public global::ElevenLabs.DubbingMediaReference Input { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("background")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.DubbingMediaReference Background { get; set; }
+        public global::ElevenLabs.DubbingMediaReference Background { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("foreground")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.DubbingMediaReference Foreground { get; set; }
+        public global::ElevenLabs.DubbingMediaReference Foreground { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_tracks")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerTrack> SpeakerTracks { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerTrack> SpeakerTracks { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerSegment> SpeakerSegments { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerSegment> SpeakerSegments { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("renders")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.Render> Renders { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.Render> Renders { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

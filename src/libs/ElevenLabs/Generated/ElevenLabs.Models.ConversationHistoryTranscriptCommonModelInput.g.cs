@@ -16,7 +16,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptCommonModelInputRoleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole Role { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole Role { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -53,7 +53,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TimeInCallSecs { get; set; }
+        public int TimeInCallSecs { get; set; } = default!;
 
         /// <summary>
         /// 

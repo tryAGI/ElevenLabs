@@ -19,6 +19,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreateTextToVoiceDesignAsync(
+
             global::ElevenLabs.VoiceDesignRequestModel request,
             global::ElevenLabs.DesignAVoiceV1TextToVoiceDesignPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,

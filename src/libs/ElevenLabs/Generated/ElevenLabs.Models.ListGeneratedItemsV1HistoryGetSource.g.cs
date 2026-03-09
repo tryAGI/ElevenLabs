@@ -12,11 +12,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        TTS,
+        Tts,
         /// <summary>
         /// 
         /// </summary>
-        STS,
+        Sts,
     }
 
     /// <summary>
@@ -31,8 +31,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ListGeneratedItemsV1HistoryGetSource.TTS => "TTS",
-                ListGeneratedItemsV1HistoryGetSource.STS => "STS",
+                ListGeneratedItemsV1HistoryGetSource.Tts => "TTS",
+                ListGeneratedItemsV1HistoryGetSource.Sts => "STS",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,8 +43,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "TTS" => ListGeneratedItemsV1HistoryGetSource.TTS,
-                "STS" => ListGeneratedItemsV1HistoryGetSource.STS,
+                "TTS" => ListGeneratedItemsV1HistoryGetSource.Tts,
+                "STS" => ListGeneratedItemsV1HistoryGetSource.Sts,
                 _ => null,
             };
         }

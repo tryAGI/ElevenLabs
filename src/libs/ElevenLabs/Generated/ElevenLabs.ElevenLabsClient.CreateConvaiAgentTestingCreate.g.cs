@@ -34,6 +34,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateUnitTestResponseModel> CreateConvaiAgentTestingCreateAsync(
+
             global::ElevenLabs.CreateUnitTestRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -249,7 +250,7 @@ namespace ElevenLabs
             string name,
             string? xiApiKey = default,
             global::ElevenLabs.UnitTestToolCallEvaluationModelInput? toolCallParameters = default,
-            object? dynamicVariables = default,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnyOf<string, double?, int?, bool?>?>? dynamicVariables = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.CreateUnitTestRequest

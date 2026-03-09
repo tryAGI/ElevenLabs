@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("simulation_specification")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationSimulationSpecification SimulationSpecification { get; set; }
+        public global::ElevenLabs.ConversationSimulationSpecification SimulationSpecification { get; set; } = default!;
 
         /// <summary>
         /// A list of evaluation criteria to test

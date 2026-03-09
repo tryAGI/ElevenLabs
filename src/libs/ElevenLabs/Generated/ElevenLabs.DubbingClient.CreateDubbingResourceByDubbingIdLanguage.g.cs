@@ -40,6 +40,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.LanguageAddedResponse> CreateDubbingResourceByDubbingIdLanguageAsync(
             string dubbingId,
+
             global::ElevenLabs.BodyAddALanguageToTheResourceV1DubbingResourceDubbingIdLanguagePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

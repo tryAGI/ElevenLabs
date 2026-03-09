@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CallName { get; set; }
+        public string CallName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentPhoneNumberId { get; set; }
+        public string AgentPhoneNumberId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scheduled_time_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int? ScheduledTimeUnix { get; set; }
+        public int? ScheduledTimeUnix { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recipients")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient> Recipients { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient> Recipients { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

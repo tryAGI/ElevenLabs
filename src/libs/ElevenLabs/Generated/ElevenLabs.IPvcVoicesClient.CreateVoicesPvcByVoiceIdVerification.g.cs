@@ -20,6 +20,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.RequestPVCManualVerificationResponseModel> CreateVoicesPvcByVoiceIdVerificationAsync(
             string voiceId,
+
             global::ElevenLabs.BodyRequestManualVerificationV1VoicesPvcVoiceIdVerificationPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

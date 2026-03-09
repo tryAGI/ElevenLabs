@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public partial interface IConversationalAIClient
+    public partial interface IConversationalAiClient
     {
         /// <summary>
         /// Update Convai Dashboard Settings<br/>
@@ -15,6 +15,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> EditConvaiSettingsDashboardAsync(
+
             global::ElevenLabs.PatchConvAIDashboardSettingsRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

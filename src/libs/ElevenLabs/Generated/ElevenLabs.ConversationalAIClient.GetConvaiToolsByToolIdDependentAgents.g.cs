@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareGetConvaiToolsByToolIdDependentAgentsArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -65,8 +65,8 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/tools/{toolId}/dependent-agents",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("cursor", cursor) 
+            __pathBuilder
+                .AddOptionalParameter("cursor", cursor)
                 .AddOptionalParameter("page_size", pageSize?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();

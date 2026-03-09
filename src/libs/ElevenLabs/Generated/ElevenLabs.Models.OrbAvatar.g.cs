@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"color_1":"#2792dc","color_2":"#9ce6e6","type":"orb"}
     /// </summary>
     public sealed partial class OrbAvatar
     {

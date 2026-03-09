@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"enabled":true,"settings":{"audio_path":"audio/my_project.mp3","audio_url":"https://example.com/audio/my_project.mp3","author":"John Doe","background_color":"#FFFFFF","image":"https://example.com/image.jpg","sessionization":1,"small":false,"status":"ready","text_color":"#000000","title":"My Project"},"snapshot_id":"JBFqnCBsd6RMkjVDRZzb"}
     /// </summary>
     public sealed partial class GetAudioNativeProjectSettingsResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Enabled { get; set; }
+        public bool Enabled { get; set; } = default!;
 
         /// <summary>
         /// The ID of the latest snapshot of the project.
@@ -22,8 +22,9 @@ namespace ElevenLabs
         public string? SnapshotId { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"audio_path":"audio/my_project.mp3","audio_url":"https://example.com/audio/my_project.mp3","author":"John Doe","background_color":"#FFFFFF","image":"https://example.com/image.jpg","sessionization":1,"small":false,"status":"ready","text_color":"#000000","title":"My Project"}
         /// </summary>
+        /// <example>{"audio_path":"audio/my_project.mp3","audio_url":"https://example.com/audio/my_project.mp3","author":"John Doe","background_color":"#FFFFFF","image":"https://example.com/image.jpg","sessionization":1,"small":false,"status":"ready","text_color":"#000000","title":"My Project"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         public global::ElevenLabs.AudioNativeProjectSettingsResponseModel? Settings { get; set; }
 
@@ -42,7 +43,9 @@ namespace ElevenLabs
         /// <param name="snapshotId">
         /// The ID of the latest snapshot of the project.
         /// </param>
-        /// <param name="settings"></param>
+        /// <param name="settings">
+        /// Example: {"audio_path":"audio/my_project.mp3","audio_url":"https://example.com/audio/my_project.mp3","author":"John Doe","background_color":"#FFFFFF","image":"https://example.com/image.jpg","sessionization":1,"small":false,"status":"ready","text_color":"#000000","title":"My Project"}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

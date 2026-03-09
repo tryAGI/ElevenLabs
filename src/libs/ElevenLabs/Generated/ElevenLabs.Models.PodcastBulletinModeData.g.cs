@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"host_voice_id":"aw1NgEzBg83R7vgmiJt6"}
     /// </summary>
     public sealed partial class PodcastBulletinModeData
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("host_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string HostVoiceId { get; set; }
+        public string HostVoiceId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

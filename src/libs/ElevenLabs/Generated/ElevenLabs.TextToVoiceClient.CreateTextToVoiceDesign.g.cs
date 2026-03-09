@@ -40,6 +40,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreateTextToVoiceDesignAsync(
+
             global::ElevenLabs.VoiceDesignRequestModel request,
             global::ElevenLabs.DesignAVoiceV1TextToVoiceDesignPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
@@ -58,7 +59,7 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/text-to-voice/design",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("output_format", outputFormat?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();

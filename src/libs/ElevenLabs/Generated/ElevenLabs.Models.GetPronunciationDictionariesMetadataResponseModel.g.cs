@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"has_more":false,"next_cursor":"5xM3yVvZQKV0EfqQpLr2","pronunciation_dictionaries":[{"created_by":"ar6633Es2kUjFXBdR1iVc9ztsXl1","creation_time_unix":1714156800,"description":"This is a test dictionary","id":"5xM3yVvZQKV0EfqQpLrJ","latest_version_id":"5xM3yVvZQKV0EfqQpLr2","latest_version_rules_num":2,"name":"My Dictionary","permission_on_resource":"admin"}]}
     /// </summary>
     public sealed partial class GetPronunciationDictionariesMetadataResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionaries")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> PronunciationDictionaries { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> PronunciationDictionaries { get; set; } = default!;
 
         /// <summary>
         /// The next cursor to use for pagination.
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool HasMore { get; set; }
+        public bool HasMore { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

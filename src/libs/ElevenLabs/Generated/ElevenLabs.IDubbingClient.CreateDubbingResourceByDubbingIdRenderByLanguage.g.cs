@@ -23,6 +23,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingRenderResponseModel> CreateDubbingResourceByDubbingIdRenderByLanguageAsync(
             string dubbingId,
             string language,
+
             global::ElevenLabs.BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

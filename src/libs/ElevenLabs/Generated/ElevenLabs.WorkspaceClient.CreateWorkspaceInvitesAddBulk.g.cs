@@ -34,6 +34,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceInviteResponseModel> CreateWorkspaceInvitesAddBulkAsync(
+
             global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

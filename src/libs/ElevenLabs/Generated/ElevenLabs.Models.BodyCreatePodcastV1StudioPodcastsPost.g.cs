@@ -17,23 +17,27 @@ namespace ElevenLabs
         /// <example>eleven_multilingual_v2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelId { get; set; }
+        public string ModelId { get; set; } = default!;
 
         /// <summary>
-        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.
+        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.<br/>
+        /// Example: {"conversation":{"guest_voice_id":"bYTqZQo3Jz7LQtmGTgwi","host_voice_id":"6lCwbsX1yVjD49QmpkTR"},"type":"conversation"}
         /// </summary>
+        /// <example>{"conversation":{"guest_voice_id":"bYTqZQo3Jz7LQtmGTgwi","host_voice_id":"6lCwbsX1yVjD49QmpkTR"},"type":"conversation"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> Mode { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> Mode { get; set; } = default!;
 
         /// <summary>
-        /// The source content for the Podcast.
+        /// The source content for the Podcast.<br/>
+        /// Example: {"type":"url","url":"https://en.wikipedia.org/wiki/Cognitive_science"}
         /// </summary>
+        /// <example>{"type":"url","url":"https://en.wikipedia.org/wiki/Cognitive_science"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> Source { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> Source { get; set; } = default!;
 
         /// <summary>
         /// Output quality of the generated audio. Must be one of:<br/>
@@ -176,10 +180,12 @@ namespace ElevenLabs
         /// Example: eleven_multilingual_v2
         /// </param>
         /// <param name="mode">
-        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.
+        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.<br/>
+        /// Example: {"conversation":{"guest_voice_id":"bYTqZQo3Jz7LQtmGTgwi","host_voice_id":"6lCwbsX1yVjD49QmpkTR"},"type":"conversation"}
         /// </param>
         /// <param name="source">
-        /// The source content for the Podcast.
+        /// The source content for the Podcast.<br/>
+        /// Example: {"type":"url","url":"https://en.wikipedia.org/wiki/Cognitive_science"}
         /// </param>
         /// <param name="qualityPreset">
         /// Output quality of the generated audio. Must be one of:<br/>

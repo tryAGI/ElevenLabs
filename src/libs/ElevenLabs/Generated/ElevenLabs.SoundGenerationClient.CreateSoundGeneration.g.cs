@@ -40,6 +40,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> CreateSoundGenerationAsync(
+
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
             global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
@@ -58,7 +59,7 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/sound-generation",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("output_format", outputFormat?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();

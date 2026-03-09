@@ -12,23 +12,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        GET,
+        Get,
         /// <summary>
         /// 
         /// </summary>
-        POST,
+        Post,
         /// <summary>
         /// 
         /// </summary>
-        PUT,
+        Put,
         /// <summary>
         /// 
         /// </summary>
-        PATCH,
+        Patch,
         /// <summary>
         /// 
         /// </summary>
-        DELETE,
+        Delete,
     }
 
     /// <summary>
@@ -43,11 +43,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                WebhookToolApiSchemaConfigOutputMethod.GET => "GET",
-                WebhookToolApiSchemaConfigOutputMethod.POST => "POST",
-                WebhookToolApiSchemaConfigOutputMethod.PUT => "PUT",
-                WebhookToolApiSchemaConfigOutputMethod.PATCH => "PATCH",
-                WebhookToolApiSchemaConfigOutputMethod.DELETE => "DELETE",
+                WebhookToolApiSchemaConfigOutputMethod.Get => "GET",
+                WebhookToolApiSchemaConfigOutputMethod.Post => "POST",
+                WebhookToolApiSchemaConfigOutputMethod.Put => "PUT",
+                WebhookToolApiSchemaConfigOutputMethod.Patch => "PATCH",
+                WebhookToolApiSchemaConfigOutputMethod.Delete => "DELETE",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -58,11 +58,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "GET" => WebhookToolApiSchemaConfigOutputMethod.GET,
-                "POST" => WebhookToolApiSchemaConfigOutputMethod.POST,
-                "PUT" => WebhookToolApiSchemaConfigOutputMethod.PUT,
-                "PATCH" => WebhookToolApiSchemaConfigOutputMethod.PATCH,
-                "DELETE" => WebhookToolApiSchemaConfigOutputMethod.DELETE,
+                "GET" => WebhookToolApiSchemaConfigOutputMethod.Get,
+                "POST" => WebhookToolApiSchemaConfigOutputMethod.Post,
+                "PUT" => WebhookToolApiSchemaConfigOutputMethod.Put,
+                "PATCH" => WebhookToolApiSchemaConfigOutputMethod.Patch,
+                "DELETE" => WebhookToolApiSchemaConfigOutputMethod.Delete,
                 _ => null,
             };
         }

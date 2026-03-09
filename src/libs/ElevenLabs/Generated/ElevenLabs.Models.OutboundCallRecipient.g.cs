@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = default!;
 
         /// <summary>
         /// 

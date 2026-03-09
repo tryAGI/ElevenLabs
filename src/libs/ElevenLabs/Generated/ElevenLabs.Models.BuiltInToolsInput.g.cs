@@ -9,44 +9,58 @@ namespace ElevenLabs
     public sealed partial class BuiltInToolsInput
     {
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </summary>
+        /// <example>{"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_call")]
         public global::ElevenLabs.SystemToolConfigInput? EndCall { get; set; }
 
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </summary>
+        /// <example>{"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_detection")]
         public global::ElevenLabs.SystemToolConfigInput? LanguageDetection { get; set; }
 
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </summary>
+        /// <example>{"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_to_agent")]
         public global::ElevenLabs.SystemToolConfigInput? TransferToAgent { get; set; }
 
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </summary>
+        /// <example>{"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_to_number")]
         public global::ElevenLabs.SystemToolConfigInput? TransferToNumber { get; set; }
 
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </summary>
+        /// <example>{"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("skip_turn")]
         public global::ElevenLabs.SystemToolConfigInput? SkipTurn { get; set; }
 
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </summary>
+        /// <example>{"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("play_keypad_touch_tone")]
         public global::ElevenLabs.SystemToolConfigInput? PlayKeypadTouchTone { get; set; }
 
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </summary>
+        /// <example>{"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("voicemail_detection")]
         public global::ElevenLabs.SystemToolConfigInput? VoicemailDetection { get; set; }
 
@@ -60,25 +74,32 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BuiltInToolsInput" /> class.
         /// </summary>
         /// <param name="endCall">
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </param>
         /// <param name="languageDetection">
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </param>
         /// <param name="transferToAgent">
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </param>
         /// <param name="transferToNumber">
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </param>
         /// <param name="skipTurn">
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </param>
         /// <param name="playKeypadTouchTone">
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </param>
         /// <param name="voicemailDetection">
-        /// A system tool is a tool that is used to call a system method in the server
+        /// A system tool is a tool that is used to call a system method in the server<br/>
+        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

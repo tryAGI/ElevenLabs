@@ -66,6 +66,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> CreateSpeechToSpeechByVoiceIdAsync(
             string voiceId,
+
             global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
@@ -89,9 +90,9 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/speech-to-speech/{voiceId}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("enable_logging", enableLogging?.ToString()) 
-                .AddOptionalParameter("optimize_streaming_latency", optimizeStreamingLatency?.ToString()) 
+            __pathBuilder
+                .AddOptionalParameter("enable_logging", enableLogging?.ToString())
+                .AddOptionalParameter("optimize_streaming_latency", optimizeStreamingLatency?.ToString())
                 .AddOptionalParameter("output_format", outputFormat?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -127,64 +128,78 @@ namespace ElevenLabs
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{voiceId}"),
-                name: "voice_id");
+                name: "\"voice_id\"");
             if (enableLogging != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{enableLogging}"),
-                    name: "enable_logging");
+                    name: "\"enable_logging\"");
             } 
             if (optimizeStreamingLatency != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{optimizeStreamingLatency}"),
-                    name: "optimize_streaming_latency");
+                    name: "\"optimize_streaming_latency\"");
             } 
             if (outputFormat != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{outputFormat?.ToValueString()}"),
-                    name: "output_format");
+                    name: "\"output_format\"");
             } 
             if (xiApiKey != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-key");
-            } 
+                    name: "\"xi-api-key\"");
+            }
+            var __contentAudio = new global::System.Net.Http.ByteArrayContent(request.Audio ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
-                content: new global::System.Net.Http.ByteArrayContent(request.Audio ?? global::System.Array.Empty<byte>()),
-                name: "audio",
-                fileName: request.Audioname ?? string.Empty);
+                content: __contentAudio,
+                name: "\"audio\"",
+                fileName: request.Audioname != null ? $"\"{request.Audioname}\"" : string.Empty);
+            if (__contentAudio.Headers.ContentDisposition != null)
+            {
+                __contentAudio.Headers.ContentDisposition.FileNameStar = null;
+            }
             if (request.ModelId != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.ModelId}"),
-                    name: "model_id");
+                    name: "\"model_id\"");
             } 
             if (request.VoiceSettings != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.VoiceSettings}"),
-                    name: "voice_settings");
+                    name: "\"voice_settings\"");
             } 
             if (request.Seed != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Seed}"),
-                    name: "seed");
+                    name: "\"seed\"");
             } 
             if (request.RemoveBackgroundNoise != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.RemoveBackgroundNoise}"),
-                    name: "remove_background_noise");
+                    name: "\"remove_background_noise\"");
             } 
             if (request.FileFormat != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.FileFormat?.ToValueString()}"),
-                    name: "file_format");
+                    name: "\"file_format\"");
             }
             __httpRequest.Content = __httpRequestContent;
 

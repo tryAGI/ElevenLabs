@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Response model for testing tools available on an MCP server.
+    /// Response model for testing tools available on an MCP server.<br/>
+    /// Example: {"success":true,"tools":[{"description":"Gets current weather conditions for a location.","inputSchema":{"properties":{"latitude":{"description":"Latitude","type":"string"},"longitude":{"description":"Longitude","type":"string"}},"required":["latitude","longitude"],"type":"object"},"name":"weather_by_zapier_get_current"},{"description":"Description of tool2","inputSchema":{"properties":{},"type":"object"},"name":"tool2"}]}
     /// </summary>
     public sealed partial class ListMCPToolsResponseModel
     {
@@ -13,14 +14,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Success { get; set; }
+        public bool Success { get; set; } = default!;
 
         /// <summary>
         /// A list of tools available on the MCP server.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.Tool> Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.Tool> Tools { get; set; } = default!;
 
         /// <summary>
         /// Error message if the operation was not successful.

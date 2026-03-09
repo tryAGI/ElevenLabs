@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"constant_value":"Constant value","description":"My property","dynamic_variable":"Dynamic variable","type":"string"}
     /// </summary>
     public sealed partial class LiteralJsonSchemaProperty
     {
@@ -16,7 +16,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LiteralJsonSchemaPropertyTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.LiteralJsonSchemaPropertyType Type { get; set; }
+        public global::ElevenLabs.LiteralJsonSchemaPropertyType Type { get; set; } = default!;
 
         /// <summary>
         /// The description of the property

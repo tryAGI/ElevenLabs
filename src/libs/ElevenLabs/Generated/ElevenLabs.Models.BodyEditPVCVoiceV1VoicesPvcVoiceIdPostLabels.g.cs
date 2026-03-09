@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// Serialized labels dictionary for the voice.
     /// </summary>
-    public sealed partial class BodyEditPVCVoiceV1VoicesPvcVoiceIdPostLabels
+    public sealed partial class BodyEditPvcVoiceV1VoicesPvcVoiceIdPostLabels
     {
 
         /// <summary>

@@ -15,6 +15,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.PodcastProjectResponseModel> CreateStudioPodcastsAsync(
+
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -31,10 +32,12 @@ namespace ElevenLabs
         /// Example: eleven_multilingual_v2
         /// </param>
         /// <param name="mode">
-        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.
+        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.<br/>
+        /// Example: {"conversation":{"guest_voice_id":"bYTqZQo3Jz7LQtmGTgwi","host_voice_id":"6lCwbsX1yVjD49QmpkTR"},"type":"conversation"}
         /// </param>
         /// <param name="source">
-        /// The source content for the Podcast.
+        /// The source content for the Podcast.<br/>
+        /// Example: {"type":"url","url":"https://en.wikipedia.org/wiki/Cognitive_science"}
         /// </param>
         /// <param name="qualityPreset">
         /// Output quality of the generated audio. Must be one of:<br/>

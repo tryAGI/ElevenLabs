@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"voice_id":"cjVigY5qzO86Huf0OWal"}
     /// </summary>
     public sealed partial class TTSConversationalConfigOverride
     {

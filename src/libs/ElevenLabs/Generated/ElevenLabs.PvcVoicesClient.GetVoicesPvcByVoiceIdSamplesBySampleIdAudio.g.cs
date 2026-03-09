@@ -68,7 +68,7 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/voices/pvc/{voiceId}/samples/{sampleId}/audio",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("remove_background_noise", removeBackgroundNoise?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();

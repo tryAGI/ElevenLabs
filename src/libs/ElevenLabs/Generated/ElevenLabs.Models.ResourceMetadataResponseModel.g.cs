@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"creator_user_id":"5zavrE1kZXv2lFw9BKgEkf0B5Wqo","resource_id":"4ZUqyldxf71HqUbcP2Lc","resource_type":"voice","role_to_group_ids":{"admin":["5zavrE1kZXv2lFw9BKgEkf0B5Wqo"],"editor":["8ruQDGM2R4w1mFbHI5aROCUjIpJZ"],"viewer":[]},"share_options":[{"id":"i2YYI6huwBmcgYydAXARmQJc3pmX","name":"user@example.com","type":"user"},{"id":"x1AfvYKAmiqxCnbvZeNXHqqthJaC","name":"mygroup","type":"group"}]}
     /// </summary>
     public sealed partial class ResourceMetadataResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ResourceId { get; set; }
+        public string ResourceId { get; set; } = default!;
 
         /// <summary>
         /// Resource types that can be shared in the workspace. The name always need to match the collection names
@@ -21,28 +21,28 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WorkspaceResourceTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.WorkspaceResourceType ResourceType { get; set; }
+        public global::ElevenLabs.WorkspaceResourceType ResourceType { get; set; } = default!;
 
         /// <summary>
         /// The ID of the user who created the resource.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creator_user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? CreatorUserId { get; set; }
+        public string? CreatorUserId { get; set; } = default!;
 
         /// <summary>
         /// A mapping of roles to group IDs. When the resource is shared with a user, the group id is the user's id.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role_to_group_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>> RoleToGroupIds { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>> RoleToGroupIds { get; set; } = default!;
 
         /// <summary>
         /// List of options for sharing the resource further in the workspace. These are users who don't have access to the resource yet.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("share_options")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel> ShareOptions { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel> ShareOptions { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -34,6 +34,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetLibraryVoicesResponseModel> CreateSimilarVoicesAsync(
+
             global::ElevenLabs.BodyGetSimilarLibraryVoicesV1SimilarVoicesPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -83,28 +84,37 @@ namespace ElevenLabs
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             if (xiApiKey != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-key");
+                    name: "\"xi-api-key\"");
             } 
             if (request.AudioFile != default)
             {
+
+                var __contentAudioFile = new global::System.Net.Http.ByteArrayContent(request.AudioFile ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.ByteArrayContent(request.AudioFile ?? global::System.Array.Empty<byte>()),
-                    name: "audio_file",
-                    fileName: request.AudioFilename ?? string.Empty);
+                    content: __contentAudioFile,
+                    name: "\"audio_file\"",
+                    fileName: request.AudioFilename != null ? $"\"{request.AudioFilename}\"" : string.Empty);
+                if (__contentAudioFile.Headers.ContentDisposition != null)
+                {
+                    __contentAudioFile.Headers.ContentDisposition.FileNameStar = null;
+                }
             } 
             if (request.SimilarityThreshold != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.SimilarityThreshold}"),
-                    name: "similarity_threshold");
+                    name: "\"similarity_threshold\"");
             } 
             if (request.TopK != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.TopK}"),
-                    name: "top_k");
+                    name: "\"top_k\"");
             }
             __httpRequest.Content = __httpRequestContent;
 

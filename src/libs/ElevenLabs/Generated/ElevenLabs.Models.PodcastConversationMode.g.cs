@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"conversation":{"guest_voice_id":"aw1NgEzBg83R7vgmiJt7","host_voice_id":"aw1NgEzBg83R7vgmiJt6"},"type":"conversation"}
     /// </summary>
     public sealed partial class PodcastConversationMode
     {
@@ -16,11 +16,12 @@ namespace ElevenLabs
         public global::ElevenLabs.PodcastConversationModeType Type { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"guest_voice_id":"aw1NgEzBg83R7vgmiJt7","host_voice_id":"aw1NgEzBg83R7vgmiJt6"}
         /// </summary>
+        /// <example>{"guest_voice_id":"aw1NgEzBg83R7vgmiJt7","host_voice_id":"aw1NgEzBg83R7vgmiJt6"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.PodcastConversationModeData Conversation { get; set; }
+        public global::ElevenLabs.PodcastConversationModeData Conversation { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,7 +35,9 @@ namespace ElevenLabs
         /// <param name="type">
         /// The type of podcast to create.
         /// </param>
-        /// <param name="conversation"></param>
+        /// <param name="conversation">
+        /// Example: {"guest_voice_id":"aw1NgEzBg83R7vgmiJt7","host_voice_id":"aw1NgEzBg83R7vgmiJt6"}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

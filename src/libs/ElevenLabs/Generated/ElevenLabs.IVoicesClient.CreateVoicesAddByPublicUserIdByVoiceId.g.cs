@@ -25,6 +25,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> CreateVoicesAddByPublicUserIdByVoiceIdAsync(
             string publicUserId,
             string voiceId,
+
             global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

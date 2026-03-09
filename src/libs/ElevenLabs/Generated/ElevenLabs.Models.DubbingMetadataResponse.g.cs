@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"created_at":"2025-07-15T14:49:41.1490000\u002B00:00","dubbing_id":"21m00Tcm4TlvDq8ikWAM","editable":true,"media_metadata":{"content_type":"video/mp4","duration":127.5},"name":"My Dubbing Project","status":"dubbed","target_languages":["es","fr","de"]}
     /// </summary>
     public sealed partial class DubbingMetadataResponse
     {
@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dubbing_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DubbingId { get; set; }
+        public string DubbingId { get; set; } = default!;
 
         /// <summary>
         /// The name of the dubbing project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The status of the dubbing project. Either 'dubbed', 'dubbing' or 'failed'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Status { get; set; }
+        public string Status { get; set; } = default!;
 
         /// <summary>
         /// The target languages of the dubbing project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_languages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> TargetLanguages { get; set; }
+        public global::System.Collections.Generic.IList<string> TargetLanguages { get; set; } = default!;
 
         /// <summary>
         /// Whether this dubbing project is editable in Dubbing Studio.<br/>
@@ -48,7 +48,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime CreatedAt { get; set; }
+        public global::System.DateTime CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// 

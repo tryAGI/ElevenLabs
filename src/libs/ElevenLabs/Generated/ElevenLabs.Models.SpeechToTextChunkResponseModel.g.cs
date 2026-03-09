@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Chunk-level detail of the transcription with timing information.
+    /// Chunk-level detail of the transcription with timing information.<br/>
+    /// Example: {"language_code":"en","language_probability":0.98,"text":"Hello world!","words":[{"end":0.5,"logprob":-0.124,"speaker_id":"speaker_1","start":0,"text":"Hello","type":"word"},{"end":0.5,"logprob":0,"speaker_id":"speaker_1","start":0.5,"text":" ","type":"spacing"},{"end":1.2,"logprob":-0.089,"speaker_id":"speaker_1","start":0.5,"text":"world!","type":"word"}]}
     /// </summary>
     public sealed partial class SpeechToTextChunkResponseModel
     {
@@ -13,28 +14,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_code")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string LanguageCode { get; set; }
+        public string LanguageCode { get; set; } = default!;
 
         /// <summary>
         /// The confidence score of the language detection (0 to 1).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_probability")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double LanguageProbability { get; set; }
+        public double LanguageProbability { get; set; } = default!;
 
         /// <summary>
         /// The raw text of the transcription.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// List of words with their timing information.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("words")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextWordResponseModel> Words { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextWordResponseModel> Words { get; set; } = default!;
 
         /// <summary>
         /// The channel index this transcript belongs to (for multichannel audio).

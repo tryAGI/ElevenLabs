@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost
+    public sealed partial class BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost
     {
         /// <summary>
         /// The model ID to use for the conversion.<br/>
@@ -23,7 +23,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost" /> class.
         /// </summary>
         /// <param name="modelId">
         /// The model ID to use for the conversion.<br/>
@@ -32,16 +32,16 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost(
+        public BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost(
             string? modelId)
         {
             this.ModelId = modelId;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost" /> class.
         /// </summary>
-        public BodyRunPVCTrainingV1VoicesPvcVoiceIdTrainPost()
+        public BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost()
         {
         }
     }

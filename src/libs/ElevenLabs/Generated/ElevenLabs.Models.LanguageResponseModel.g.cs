@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"language_id":"en","name":"English"}
     /// </summary>
     public sealed partial class LanguageResponseModel
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string LanguageId { get; set; }
+        public string LanguageId { get; set; } = default!;
 
         /// <summary>
         /// The name of the language.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

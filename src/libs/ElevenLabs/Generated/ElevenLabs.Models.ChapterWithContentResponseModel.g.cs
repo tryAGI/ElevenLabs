@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"can_be_downloaded":true,"chapter_id":"aw1NgEzBg83R7vgmiJt6","content":{"blocks":[]},"conversion_progress":0.5,"last_conversion_date_unix":1714204800,"name":"Chapter 1","state":"default","statistics":{"characters_converted":200,"characters_unconverted":100,"paragraphs_converted":5,"paragraphs_unconverted":3}}
     /// </summary>
     public sealed partial class ChapterWithContentResponseModel
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ChapterId { get; set; }
+        public string ChapterId { get; set; } = default!;
 
         /// <summary>
         /// The name of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The last conversion date of the chapter.
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_be_downloaded")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanBeDownloaded { get; set; }
+        public bool CanBeDownloaded { get; set; } = default!;
 
         /// <summary>
         /// The state of the chapter.
@@ -47,7 +47,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ChapterWithContentResponseModelStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ChapterWithContentResponseModelState State { get; set; }
+        public global::ElevenLabs.ChapterWithContentResponseModelState State { get; set; } = default!;
 
         /// <summary>
         /// Whether the chapter has a video.
@@ -56,8 +56,9 @@ namespace ElevenLabs
         public bool? HasVideo { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10}
         /// </summary>
+        /// <example>{"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("statistics")]
         public global::ElevenLabs.ChapterStatisticsResponseModel? Statistics { get; set; }
 
@@ -72,7 +73,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ChapterContentResponseModel Content { get; set; }
+        public global::ElevenLabs.ChapterContentResponseModel Content { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -104,7 +105,9 @@ namespace ElevenLabs
         /// <param name="hasVideo">
         /// Whether the chapter has a video.
         /// </param>
-        /// <param name="statistics"></param>
+        /// <param name="statistics">
+        /// Example: {"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10}
+        /// </param>
         /// <param name="lastConversionError">
         /// The last conversion error of the chapter.
         /// </param>

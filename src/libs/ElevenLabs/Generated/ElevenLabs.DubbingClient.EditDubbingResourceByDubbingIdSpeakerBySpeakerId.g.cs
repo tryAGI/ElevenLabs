@@ -46,6 +46,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeakerUpdatedResponse> EditDubbingResourceByDubbingIdSpeakerBySpeakerIdAsync(
             string dubbingId,
             string speakerId,
+
             global::ElevenLabs.BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

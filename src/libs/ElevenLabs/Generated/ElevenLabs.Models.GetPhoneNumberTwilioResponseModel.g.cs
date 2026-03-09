@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"label":"Customer Support","phone_number":"\u002B1234567890","phone_number_id":"phone_123","provider":"twilio","supports_inbound":true,"supports_outbound":true}
     /// </summary>
     public sealed partial class GetPhoneNumberTwilioResponseModel
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = default!;
 
         /// <summary>
         /// Label for the phone number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Label { get; set; }
+        public string Label { get; set; } = default!;
 
         /// <summary>
         /// Whether this phone number supports inbound calls<br/>
@@ -41,11 +41,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PhoneNumberId { get; set; }
+        public string PhoneNumberId { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"agent_id":"F3Pbu5gP6NNKBscdCdwB","agent_name":"My Agent"}
         /// </summary>
+        /// <example>{"agent_id":"F3Pbu5gP6NNKBscdCdwB","agent_name":"My Agent"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("assigned_agent")]
         public global::ElevenLabs.PhoneNumberAgentInfo? AssignedAgent { get; set; }
 
@@ -83,7 +84,9 @@ namespace ElevenLabs
         /// <param name="phoneNumberId">
         /// The ID of the phone number
         /// </param>
-        /// <param name="assignedAgent"></param>
+        /// <param name="assignedAgent">
+        /// Example: {"agent_id":"F3Pbu5gP6NNKBscdCdwB","agent_name":"My Agent"}
+        /// </param>
         /// <param name="provider">
         /// Phone provider<br/>
         /// Default Value: twilio

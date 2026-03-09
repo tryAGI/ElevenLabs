@@ -9,11 +9,12 @@ namespace ElevenLabs
     public sealed partial class LanguagePresetOutput
     {
         /// <summary>
-        /// 
+        /// Example: {"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"voice_id":"cjVigY5qzO86Huf0OWal"}}
         /// </summary>
+        /// <example>{"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"voice_id":"cjVigY5qzO86Huf0OWal"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationConfigClientOverrideOutput Overrides { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideOutput Overrides { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -30,7 +31,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="LanguagePresetOutput" /> class.
         /// </summary>
-        /// <param name="overrides"></param>
+        /// <param name="overrides">
+        /// Example: {"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"voice_id":"cjVigY5qzO86Huf0OWal"}}
+        /// </param>
         /// <param name="firstMessageTranslation"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

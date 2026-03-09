@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}
     /// </summary>
     public sealed partial class PromptAgentAPIModelOverride
     {

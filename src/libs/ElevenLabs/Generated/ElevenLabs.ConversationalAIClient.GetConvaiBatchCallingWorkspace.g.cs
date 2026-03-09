@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareGetConvaiBatchCallingWorkspaceArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -55,8 +55,8 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/batch-calling/workspace",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("limit", limit?.ToString()) 
+            __pathBuilder
+                .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("last_doc", lastDoc) 
                 ; 
             var __path = __pathBuilder.ToString();

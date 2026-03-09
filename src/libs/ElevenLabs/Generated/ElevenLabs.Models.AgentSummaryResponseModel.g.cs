@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"access_info":{"creator_email":"john@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"},"agent_id":"J3Pbu5gP6NNKBscdCdwB","created_at_unix_secs":1716153600,"last_call_time_unix_secs":1716240000,"name":"My Agent","tags":["Customer Support","Technical Help","Eleven"]}
     /// </summary>
     public sealed partial class AgentSummaryResponseModel
     {
@@ -13,35 +13,36 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// The name of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Agent tags used to categorize the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Tags { get; set; }
+        public global::System.Collections.Generic.IList<string> Tags { get; set; } = default!;
 
         /// <summary>
         /// The creation time of the agent in unix seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAtUnixSecs { get; set; }
+        public int CreatedAtUnixSecs { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </summary>
+        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
+        public global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; } = default!;
 
         /// <summary>
         /// The time of the most recent call in unix seconds, null if no calls have been made
@@ -70,7 +71,9 @@ namespace ElevenLabs
         /// <param name="createdAtUnixSecs">
         /// The creation time of the agent in unix seconds
         /// </param>
-        /// <param name="accessInfo"></param>
+        /// <param name="accessInfo">
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// </param>
         /// <param name="lastCallTimeUnixSecs">
         /// The time of the most recent call in unix seconds, null if no calls have been made
         /// </param>

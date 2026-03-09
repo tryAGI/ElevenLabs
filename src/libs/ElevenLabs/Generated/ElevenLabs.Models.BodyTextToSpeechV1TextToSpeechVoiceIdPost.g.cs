@@ -15,7 +15,7 @@ namespace ElevenLabs
         /// <example>This is a test for the API of ElevenLabs.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.<br/>
@@ -31,16 +31,17 @@ namespace ElevenLabs
         public string? LanguageCode { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"similarity_boost":1,"speed":1,"stability":1,"style":0,"use_speaker_boost":true}
         /// </summary>
+        /// <example>{"similarity_boost":1,"speed":1,"stability":1,"style":0,"use_speaker_boost":true}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_settings")]
         public global::ElevenLabs.VoiceSettingsResponseModel? VoiceSettings { get; set; }
 
         /// <summary>
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
-        /// Example: []
+        /// Example: [{"pronunciation_dictionary_id":"test","version_id":"id2"}]
         /// </summary>
-        /// <example>[]</example>
+        /// <example>[{"pronunciation_dictionary_id":"test","version_id":"id2"}]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? PronunciationDictionaryLocators { get; set; }
 
@@ -133,10 +134,12 @@ namespace ElevenLabs
         /// <param name="languageCode">
         /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
         /// </param>
-        /// <param name="voiceSettings"></param>
+        /// <param name="voiceSettings">
+        /// Example: {"similarity_boost":1,"speed":1,"stability":1,"style":0,"use_speaker_boost":true}
+        /// </param>
         /// <param name="pronunciationDictionaryLocators">
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
-        /// Example: []
+        /// Example: [{"pronunciation_dictionary_id":"test","version_id":"id2"}]
         /// </param>
         /// <param name="seed">
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>

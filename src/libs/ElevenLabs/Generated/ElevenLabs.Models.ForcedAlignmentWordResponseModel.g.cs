@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Model representing a single word with its timing information from the aligner.
+    /// Model representing a single word with its timing information from the aligner.<br/>
+    /// Example: {"end":1.02,"loss":0.12,"start":0,"text":"Hello"}
     /// </summary>
     public sealed partial class ForcedAlignmentWordResponseModel
     {
@@ -13,28 +14,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// The start time of the word in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Start { get; set; }
+        public double Start { get; set; } = default!;
 
         /// <summary>
         /// The end time of the word in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double End { get; set; }
+        public double End { get; set; } = default!;
 
         /// <summary>
         /// The average alignment loss/confidence score for this word, calculated from its constituent characters.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("loss")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Loss { get; set; }
+        public double Loss { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

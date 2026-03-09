@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public partial interface IConversationalAIClient
+    public partial interface IConversationalAiClient
     {
         /// <summary>
         /// Create Url Document<br/>
@@ -15,7 +15,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseUrlAsync(
-            global::ElevenLabs.BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost request,
+
+            global::ElevenLabs.BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 

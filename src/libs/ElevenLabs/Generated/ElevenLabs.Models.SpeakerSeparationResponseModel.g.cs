@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"sample_id":"DCwhRBWXzGAHq8TQ4Fs18","status":"not_started","voice_id":"DCwhRBWXzGAHq8TQ4Fs18"}
     /// </summary>
     public sealed partial class SpeakerSeparationResponseModel
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string VoiceId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the sample.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SampleId { get; set; }
+        public string SampleId { get; set; } = default!;
 
         /// <summary>
         /// The status of the speaker separation.
@@ -28,7 +28,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeakerSeparationResponseModelStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SpeakerSeparationResponseModelStatus Status { get; set; }
+        public global::ElevenLabs.SpeakerSeparationResponseModelStatus Status { get; set; } = default!;
 
         /// <summary>
         /// The speakers of the sample.

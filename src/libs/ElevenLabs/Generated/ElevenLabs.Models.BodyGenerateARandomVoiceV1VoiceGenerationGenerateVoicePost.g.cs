@@ -16,7 +16,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("gender")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostGenderJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostGender Gender { get; set; }
+        public global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostGender Gender { get; set; } = default!;
 
         /// <summary>
         /// Category code corresponding to the accent of the generated voice. Possible values: british, american, african, australian, indian.<br/>
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// <example>british</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("accent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Accent { get; set; }
+        public string Accent { get; set; } = default!;
 
         /// <summary>
         /// Category code corresponding to the age of the generated voice. Possible values: young, middle_aged, old.<br/>
@@ -35,14 +35,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("age")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostAgeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostAge Age { get; set; }
+        public global::ElevenLabs.BodyGenerateARandomVoiceV1VoiceGenerationGenerateVoicePostAge Age { get; set; } = default!;
 
         /// <summary>
         /// The strength of the accent of the generated voice. Has to be between 0.3 and 2.0.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("accent_strength")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double AccentStrength { get; set; }
+        public double AccentStrength { get; set; } = default!;
 
         /// <summary>
         /// Text to generate, text length has to be between 100 and 1000.<br/>
@@ -51,7 +51,7 @@ namespace ElevenLabs
         /// <example>Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

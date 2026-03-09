@@ -37,6 +37,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<byte[]> CreateSpeechToSpeechByVoiceIdStreamAsync(
             string voiceId,
+
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,

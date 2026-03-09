@@ -9,13 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref string? xiApiKey,
-            global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost request);
+            global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost request);
         partial void PrepareCreateVoicesPvcByVoiceIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             string? xiApiKey,
-            global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost request);
+            global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost request);
         partial void ProcessCreateVoicesPvcByVoiceIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -41,7 +41,8 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> CreateVoicesPvcByVoiceIdAsync(
             string voiceId,
-            global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost request,
+
+            global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -263,7 +264,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, string>? labels = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost
+            var __request = new global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost
             {
                 Name = name,
                 Language = language,

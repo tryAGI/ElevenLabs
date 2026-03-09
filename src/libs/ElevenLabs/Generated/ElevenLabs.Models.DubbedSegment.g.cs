@@ -13,42 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double StartTime { get; set; }
+        public double StartTime { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double EndTime { get; set; }
+        public double EndTime { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? Text { get; set; }
+        public string? Text { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("subtitles")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.SegmentSubtitleFrame> Subtitles { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SegmentSubtitleFrame> Subtitles { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_stale")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool AudioStale { get; set; }
+        public bool AudioStale { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_ref")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.DubbingMediaReference MediaRef { get; set; }
+        public global::ElevenLabs.DubbingMediaReference MediaRef { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

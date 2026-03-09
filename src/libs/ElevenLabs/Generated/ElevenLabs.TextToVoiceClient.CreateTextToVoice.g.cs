@@ -34,6 +34,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceResponseModel> CreateTextToVoiceAsync(
+
             global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -237,7 +238,8 @@ namespace ElevenLabs
         /// Example: 37HceQefKmEi3bGovXjL
         /// </param>
         /// <param name="labels">
-        /// Optional, metadata to add to the created voice. Defaults to None.
+        /// Optional, metadata to add to the created voice. Defaults to None.<br/>
+        /// Example: {"language":"en"}
         /// </param>
         /// <param name="playedNotSelectedVoiceIds">
         /// List of voice ids that the user has played but not selected. Used for RLHF.

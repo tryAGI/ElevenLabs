@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class ConversationalAIClient
+    public partial class ConversationalAiClient
     {
         partial void PrepareEditConvaiAgentsByAgentIdArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -41,6 +41,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentResponseModel> EditConvaiAgentsByAgentIdAsync(
             string agentId,
+
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

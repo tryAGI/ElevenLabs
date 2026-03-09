@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A client tool is one that sends an event to the user's client to trigger something client side
+    /// A client tool is one that sends an event to the user's client to trigger something client side<br/>
+    /// Example: {"expects_response":false,"type":"client"}
     /// </summary>
     public sealed partial class ClientToolConfigInput
     {
@@ -21,14 +22,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string Description { get; set; } = default!;
 
         /// <summary>
         /// The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).<br/>
@@ -71,8 +72,9 @@ namespace ElevenLabs
         public bool? ExpectsResponse { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: {"dynamic_variable_placeholders":{"user_name":"John Doe"}}
         /// </summary>
+        /// <example>{"dynamic_variable_placeholders":{"user_name":"John Doe"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
         public global::ElevenLabs.DynamicVariablesConfig? DynamicVariables { get; set; }
 
@@ -111,7 +113,9 @@ namespace ElevenLabs
         /// If true, calling this tool should block the conversation until the client responds with some response which is passed to the llm. If false then we will continue the conversation without waiting for the client to respond, this is useful to show content to a user but not block the conversation<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="dynamicVariables"></param>
+        /// <param name="dynamicVariables">
+        /// Example: {"dynamic_variable_placeholders":{"user_name":"John Doe"}}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

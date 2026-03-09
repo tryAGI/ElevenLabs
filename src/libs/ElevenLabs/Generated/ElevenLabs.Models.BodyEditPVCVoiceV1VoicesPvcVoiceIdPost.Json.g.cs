@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public sealed partial class BodyEditPVCVoiceV1VoicesPvcVoiceIdPost
+    public sealed partial class BodyEditPvcVoiceV1VoicesPvcVoiceIdPost
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost? FromJson(
+        public static global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost),
-                jsonSerializerContext) as global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost;
+                typeof(global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost),
+                jsonSerializerContext) as global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost? FromJson(
+        public static global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost;
+                typeof(global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost),
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.BodyEditPVCVoiceV1VoicesPvcVoiceIdPost?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tests")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.UnitTestSummaryResponseModel> Tests { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.UnitTestSummaryResponseModel> Tests { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

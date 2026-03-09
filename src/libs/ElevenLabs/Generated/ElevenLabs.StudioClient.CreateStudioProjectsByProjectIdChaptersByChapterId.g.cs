@@ -48,6 +48,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditChapterResponseModel> CreateStudioProjectsByProjectIdChaptersByChapterIdAsync(
             string projectId,
             string chapterId,
+
             global::ElevenLabs.BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

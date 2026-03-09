@@ -34,6 +34,39 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetKnowledgeBaseFileResponseModel? File { get; init; }
+#else
+        public global::ElevenLabs.GetKnowledgeBaseFileResponseModel? File { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(File))]
+#endif
+        public bool IsFile => File != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetKnowledgeBaseTextResponseModel? Text { get; init; }
+#else
+        public global::ElevenLabs.GetKnowledgeBaseTextResponseModel? Text { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
+#endif
+        public bool IsText => Text != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseURLResponseModel value) => new UpdateDocumentRouteResponse((global::ElevenLabs.GetKnowledgeBaseURLResponseModel?)value);
 
         /// <summary>
@@ -52,23 +85,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.GetKnowledgeBaseFileResponseModel? File { get; init; }
-#else
-        public global::ElevenLabs.GetKnowledgeBaseFileResponseModel? File { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(File))]
-#endif
-        public bool IsFile => File != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseFileResponseModel value) => new UpdateDocumentRouteResponse((global::ElevenLabs.GetKnowledgeBaseFileResponseModel?)value);
 
         /// <summary>
@@ -83,23 +99,6 @@ namespace ElevenLabs
         {
             File = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.GetKnowledgeBaseTextResponseModel? Text { get; init; }
-#else
-        public global::ElevenLabs.GetKnowledgeBaseTextResponseModel? Text { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
-#endif
-        public bool IsText => Text != null;
 
         /// <summary>
         /// 

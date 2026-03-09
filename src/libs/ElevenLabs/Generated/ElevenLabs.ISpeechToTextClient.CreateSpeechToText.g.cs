@@ -19,6 +19,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>> CreateSpeechToTextAsync(
+
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request,
             bool? enableLogging = default,
             string? xiApiKey = default,

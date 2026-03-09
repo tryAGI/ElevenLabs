@@ -20,14 +20,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SecretId { get; set; }
+        public string SecretId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

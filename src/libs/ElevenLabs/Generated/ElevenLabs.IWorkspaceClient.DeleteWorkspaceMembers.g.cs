@@ -12,6 +12,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteWorkspaceMemberResponseModel> DeleteWorkspaceMembersAsync(
+
             global::ElevenLabs.BodyDeleteMemberV1WorkspaceMembersDelete request,
             global::System.Threading.CancellationToken cancellationToken = default);
 

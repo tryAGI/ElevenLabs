@@ -41,6 +41,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceResponseModel> CreateVoicesByVoiceIdEditAsync(
             string voiceId,
+
             global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -91,39 +92,44 @@ namespace ElevenLabs
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{voiceId}"),
-                name: "voice_id");
+                name: "\"voice_id\"");
             if (xiApiKey != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-key");
-            } 
+                    name: "\"xi-api-key\"");
+            }
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Name}"),
-                name: "name");
+                name: "\"name\"");
             if (request.Files != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Files, x => x))}]"),
-                    name: "files");
+                    name: "\"files\"");
             } 
             if (request.RemoveBackgroundNoise != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.RemoveBackgroundNoise}"),
-                    name: "remove_background_noise");
+                    name: "\"remove_background_noise\"");
             } 
             if (request.Description != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Description}"),
-                    name: "description");
+                    name: "\"description\"");
             } 
             if (request.Labels != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Labels}"),
-                    name: "labels");
+                    name: "\"labels\"");
             }
             __httpRequest.Content = __httpRequestContent;
 

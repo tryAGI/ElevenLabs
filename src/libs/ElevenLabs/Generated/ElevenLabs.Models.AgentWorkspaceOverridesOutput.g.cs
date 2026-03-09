@@ -9,8 +9,9 @@ namespace ElevenLabs
     public sealed partial class AgentWorkspaceOverridesOutput
     {
         /// <summary>
-        /// 
+        /// Example: {"request_headers":{"Content-Type":"application/json"},"url":"https://example.com/webhook"}
         /// </summary>
+        /// <example>{"request_headers":{"Content-Type":"application/json"},"url":"https://example.com/webhook"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_client_data_webhook")]
         public global::ElevenLabs.ConversationInitiationClientDataWebhook? ConversationInitiationClientDataWebhook { get; set; }
 
@@ -29,7 +30,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentWorkspaceOverridesOutput" /> class.
         /// </summary>
-        /// <param name="conversationInitiationClientDataWebhook"></param>
+        /// <param name="conversationInitiationClientDataWebhook">
+        /// Example: {"request_headers":{"Content-Type":"application/json"},"url":"https://example.com/webhook"}
+        /// </param>
         /// <param name="webhooks"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

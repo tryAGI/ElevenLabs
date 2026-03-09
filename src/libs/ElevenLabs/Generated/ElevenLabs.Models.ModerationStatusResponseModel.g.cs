@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"enterprise_background_moderation_enabled":false,"enterprise_check_block_nogo_voice":false,"enterprise_check_nogo_voice":false,"is_in_probation":false,"never_live_moderate":false,"nogo_voice_similar_voice_upload_count":0,"on_watchlist":false}
     /// </summary>
     public sealed partial class ModerationStatusResponseModel
     {
@@ -13,42 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_in_probation")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsInProbation { get; set; }
+        public bool IsInProbation { get; set; } = default!;
 
         /// <summary>
         /// Whether the user's enterprise check nogo voice is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enterprise_check_nogo_voice")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EnterpriseCheckNogoVoice { get; set; }
+        public bool EnterpriseCheckNogoVoice { get; set; } = default!;
 
         /// <summary>
         /// Whether the user's enterprise check block nogo voice is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enterprise_check_block_nogo_voice")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EnterpriseCheckBlockNogoVoice { get; set; }
+        public bool EnterpriseCheckBlockNogoVoice { get; set; } = default!;
 
         /// <summary>
         /// Whether the user's never live moderate is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("never_live_moderate")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool NeverLiveModerate { get; set; }
+        public bool NeverLiveModerate { get; set; } = default!;
 
         /// <summary>
         /// The number of similar voice uploads that have been blocked.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("nogo_voice_similar_voice_upload_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int NogoVoiceSimilarVoiceUploadCount { get; set; }
+        public int NogoVoiceSimilarVoiceUploadCount { get; set; } = default!;
 
         /// <summary>
         /// Whether the user's enterprise background moderation is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enterprise_background_moderation_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EnterpriseBackgroundModerationEnabled { get; set; }
+        public bool EnterpriseBackgroundModerationEnabled { get; set; } = default!;
 
         /// <summary>
         /// The safety status of the user.
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("on_watchlist")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool OnWatchlist { get; set; }
+        public bool OnWatchlist { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

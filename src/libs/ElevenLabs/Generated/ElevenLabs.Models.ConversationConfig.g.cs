@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"client_events":["audio","interruption"],"max_duration_seconds":600}
     /// </summary>
     public sealed partial class ConversationConfig
     {

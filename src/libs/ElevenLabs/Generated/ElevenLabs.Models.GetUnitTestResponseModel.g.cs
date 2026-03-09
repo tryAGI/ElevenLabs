@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -13,28 +15,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chat_history")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput> ChatHistory { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput> ChatHistory { get; set; } = default!;
 
         /// <summary>
         /// A prompt that evaluates whether the agent's response is successful. Should return True or False.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success_condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SuccessCondition { get; set; }
+        public string SuccessCondition { get; set; } = default!;
 
         /// <summary>
         /// Non-empty list of example responses that should be considered successful
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success_examples")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentSuccessfulResponseExample> SuccessExamples { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentSuccessfulResponseExample> SuccessExamples { get; set; } = default!;
 
         /// <summary>
         /// Non-empty list of example responses that should be considered failures
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("failure_examples")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentFailureResponseExample> FailureExamples { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentFailureResponseExample> FailureExamples { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -46,21 +48,21 @@ namespace ElevenLabs
         /// Dynamic variables to replace in the agent config during testing
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
-        public object? DynamicVariables { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnyOf<string, double?, int?, bool?>?>? DynamicVariables { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -98,7 +100,7 @@ namespace ElevenLabs
             string id,
             string name,
             global::ElevenLabs.UnitTestToolCallEvaluationModelOutput? toolCallParameters,
-            object? dynamicVariables)
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnyOf<string, double?, int?, bool?>?>? dynamicVariables)
         {
             this.ChatHistory = chatHistory ?? throw new global::System.ArgumentNullException(nameof(chatHistory));
             this.SuccessCondition = successCondition ?? throw new global::System.ArgumentNullException(nameof(successCondition));

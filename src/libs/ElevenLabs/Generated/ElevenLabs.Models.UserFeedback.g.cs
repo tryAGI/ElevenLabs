@@ -14,14 +14,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("score")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UserFeedbackScoreJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.UserFeedbackScore Score { get; set; }
+        public global::ElevenLabs.UserFeedbackScore Score { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TimeInCallSecs { get; set; }
+        public int TimeInCallSecs { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

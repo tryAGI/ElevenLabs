@@ -57,7 +57,7 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/workspace/resources/{resourceId}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddRequiredParameter("resource_type", resourceType.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();

@@ -12,16 +12,16 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LLMJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.LLM Llm { get; set; }
+        public global::ElevenLabs.Llm Llm { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price_per_minute")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double PricePerMinute { get; set; }
+        public double PricePerMinute { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +38,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LLMUsageCalculatorLLMResponseModel(
-            global::ElevenLabs.LLM llm,
+            global::ElevenLabs.Llm llm,
             double pricePerMinute)
         {
             this.Llm = llm;

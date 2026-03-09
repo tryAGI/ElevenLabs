@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; }
+        public global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; } = default!;
 
         /// <summary>
         /// 

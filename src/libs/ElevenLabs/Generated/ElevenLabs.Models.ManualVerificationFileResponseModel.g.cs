@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"file_id":"CwhRBWXzGAHq8TQ4Fs18","file_name":"file.mp3","mime_type":"audio/mpeg","size_bytes":1000000,"upload_date_unix":1714204800}
     /// </summary>
     public sealed partial class ManualVerificationFileResponseModel
     {
@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FileId { get; set; }
+        public string FileId { get; set; } = default!;
 
         /// <summary>
         /// The name of the file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FileName { get; set; }
+        public string FileName { get; set; } = default!;
 
         /// <summary>
         /// The MIME type of the file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string MimeType { get; set; }
+        public string MimeType { get; set; } = default!;
 
         /// <summary>
         /// The size of the file in bytes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeBytes { get; set; }
+        public int SizeBytes { get; set; } = default!;
 
         /// <summary>
         /// The date of the file in Unix time.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("upload_date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int UploadDateUnix { get; set; }
+        public int UploadDateUnix { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

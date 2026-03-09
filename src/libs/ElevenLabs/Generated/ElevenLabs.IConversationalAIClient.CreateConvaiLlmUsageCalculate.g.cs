@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public partial interface IConversationalAIClient
+    public partial interface IConversationalAiClient
     {
         /// <summary>
         /// Calculate Expected Llm Usage<br/>
@@ -12,6 +12,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.LLMUsageCalculatorResponseModel> CreateConvaiLlmUsageCalculateAsync(
+
             global::ElevenLabs.LLMUsageCalculatorPublicRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default);
 

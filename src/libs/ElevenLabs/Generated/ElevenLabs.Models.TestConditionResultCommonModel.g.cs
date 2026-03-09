@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("result")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EvaluationSuccessResult Result { get; set; }
+        public global::ElevenLabs.EvaluationSuccessResult Result { get; set; } = default!;
 
         /// <summary>
         /// Structured rationale for test condition results containing individual failure/success reasons.

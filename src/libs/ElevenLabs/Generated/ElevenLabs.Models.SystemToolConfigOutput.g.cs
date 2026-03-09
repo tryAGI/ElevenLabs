@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A system tool is a tool that is used to call a system method in the server
+    /// A system tool is a tool that is used to call a system method in the server<br/>
+    /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
     /// </summary>
     public sealed partial class SystemToolConfigOutput
     {
@@ -21,14 +22,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string Description { get; set; } = default!;
 
         /// <summary>
         /// The maximum time in seconds to wait for the tool call to complete.<br/>
@@ -63,7 +64,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("params")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Params2JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Params2 Params { get; set; }
+        public global::ElevenLabs.Params2 Params { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

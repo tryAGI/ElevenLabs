@@ -6,14 +6,14 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost
+    public sealed partial class BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost
     {
         /// <summary>
         /// URL to a page of documentation that the agent will have access to in order to interact with users.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        public string Url { get; set; } = default!;
 
         /// <summary>
         /// A custom, human-readable name for the document.
@@ -28,7 +28,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost" /> class.
         /// </summary>
         /// <param name="url">
         /// URL to a page of documentation that the agent will have access to in order to interact with users.
@@ -39,7 +39,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost(
+        public BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost(
             string url,
             string? name)
         {
@@ -48,9 +48,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost" /> class.
         /// </summary>
-        public BodyCreateURLDocumentV1ConvaiKnowledgeBaseUrlPost()
+        public BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost()
         {
         }
     }

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"end":1,"start":0}
     /// </summary>
     public sealed partial class UtteranceResponseModel
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Start { get; set; }
+        public double Start { get; set; } = default!;
 
         /// <summary>
         /// The end time of the utterance in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double End { get; set; }
+        public double End { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

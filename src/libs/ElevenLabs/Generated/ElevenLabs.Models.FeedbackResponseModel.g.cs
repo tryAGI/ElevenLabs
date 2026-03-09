@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"audio_quality":true,"emotions":true,"feedback":"This is an example of test feedback.","glitches":true,"inaccurate_clone":false,"other":false,"review_status":"not_reviewed","thumbs_up":true}
     /// </summary>
     public sealed partial class FeedbackResponseModel
     {
@@ -13,49 +13,49 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbs_up")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool ThumbsUp { get; set; }
+        public bool ThumbsUp { get; set; } = default!;
 
         /// <summary>
         /// The feedback text provided by the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Feedback { get; set; }
+        public string Feedback { get; set; } = default!;
 
         /// <summary>
         /// Whether the user provided emotions.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("emotions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Emotions { get; set; }
+        public bool Emotions { get; set; } = default!;
 
         /// <summary>
         /// Whether the user thinks the clone is inaccurate.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inaccurate_clone")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool InaccurateClone { get; set; }
+        public bool InaccurateClone { get; set; } = default!;
 
         /// <summary>
         /// Whether the user thinks there are glitches in the audio.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("glitches")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Glitches { get; set; }
+        public bool Glitches { get; set; } = default!;
 
         /// <summary>
         /// Whether the user thinks the audio quality is good.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_quality")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool AudioQuality { get; set; }
+        public bool AudioQuality { get; set; } = default!;
 
         /// <summary>
         /// Whether the user provided other feedback.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("other")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Other { get; set; }
+        public bool Other { get; set; } = default!;
 
         /// <summary>
         /// The review status of the item. Defaults to 'not_reviewed'.<br/>

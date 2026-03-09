@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Default Value: data_collection
@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DataCollectionId { get; set; }
+        public string DataCollectionId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

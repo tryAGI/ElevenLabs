@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"request_headers":{"Content-Type":"application/json"},"url":"https://example.com/webhook"}
     /// </summary>
     public sealed partial class ConversationInitiationClientDataWebhook
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        public string Url { get; set; } = default!;
 
         /// <summary>
         /// The headers to send with the webhook request
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required object RequestHeaders { get; set; }
+        public object RequestHeaders { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

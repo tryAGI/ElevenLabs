@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyCreatePVCVoiceV1VoicesPvcPost
+    public sealed partial class BodyCreatePvcVoiceV1VoicesPvcPost
     {
         /// <summary>
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
@@ -15,7 +15,7 @@ namespace ElevenLabs
         /// <example>John Smith</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Language used in the samples.<br/>
@@ -24,7 +24,7 @@ namespace ElevenLabs
         /// <example>en</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Language { get; set; }
+        public string Language { get; set; } = default!;
 
         /// <summary>
         /// Description to use for the created voice.<br/>
@@ -47,7 +47,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyCreatePVCVoiceV1VoicesPvcPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyCreatePvcVoiceV1VoicesPvcPost" /> class.
         /// </summary>
         /// <param name="name">
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
@@ -67,7 +67,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyCreatePVCVoiceV1VoicesPvcPost(
+        public BodyCreatePvcVoiceV1VoicesPvcPost(
             string name,
             string language,
             string? description,
@@ -80,9 +80,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyCreatePVCVoiceV1VoicesPvcPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyCreatePvcVoiceV1VoicesPvcPost" /> class.
         /// </summary>
-        public BodyCreatePVCVoiceV1VoicesPvcPost()
+        public BodyCreatePvcVoiceV1VoicesPvcPost()
         {
         }
     }

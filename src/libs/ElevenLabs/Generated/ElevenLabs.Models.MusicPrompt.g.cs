@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
     /// </summary>
     public sealed partial class MusicPrompt
     {
@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("positive_global_styles")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> PositiveGlobalStyles { get; set; }
+        public global::System.Collections.Generic.IList<string> PositiveGlobalStyles { get; set; } = default!;
 
         /// <summary>
         /// The styles that should not be present in the entire song.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("negative_global_styles")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> NegativeGlobalStyles { get; set; }
+        public global::System.Collections.Generic.IList<string> NegativeGlobalStyles { get; set; } = default!;
 
         /// <summary>
         /// The sections of the song.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sections")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.SongSection> Sections { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SongSection> Sections { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

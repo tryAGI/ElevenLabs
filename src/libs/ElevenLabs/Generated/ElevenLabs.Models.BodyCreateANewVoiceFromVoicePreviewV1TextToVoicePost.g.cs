@@ -15,7 +15,7 @@ namespace ElevenLabs
         /// <example>Sassy squeaky mouse</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceName { get; set; }
+        public string VoiceName { get; set; } = default!;
 
         /// <summary>
         /// Description to use for the created voice.<br/>
@@ -24,7 +24,7 @@ namespace ElevenLabs
         /// <example>A sassy squeaky mouse</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceDescription { get; set; }
+        public string VoiceDescription { get; set; } = default!;
 
         /// <summary>
         /// The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response header if don't have one yet.<br/>
@@ -33,11 +33,13 @@ namespace ElevenLabs
         /// <example>37HceQefKmEi3bGovXjL</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("generated_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string GeneratedVoiceId { get; set; }
+        public string GeneratedVoiceId { get; set; } = default!;
 
         /// <summary>
-        /// Optional, metadata to add to the created voice. Defaults to None.
+        /// Optional, metadata to add to the created voice. Defaults to None.<br/>
+        /// Example: {"language":"en"}
         /// </summary>
+        /// <example>{"language":"en"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
         public global::System.Collections.Generic.Dictionary<string, string>? Labels { get; set; }
 
@@ -69,7 +71,8 @@ namespace ElevenLabs
         /// Example: 37HceQefKmEi3bGovXjL
         /// </param>
         /// <param name="labels">
-        /// Optional, metadata to add to the created voice. Defaults to None.
+        /// Optional, metadata to add to the created voice. Defaults to None.<br/>
+        /// Example: {"language":"en"}
         /// </param>
         /// <param name="playedNotSelectedVoiceIds">
         /// List of voice ids that the user has played but not selected. Used for RLHF.

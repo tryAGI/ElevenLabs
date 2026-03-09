@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Default Value: criteria
@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("criteria_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CriteriaId { get; set; }
+        public string CriteriaId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

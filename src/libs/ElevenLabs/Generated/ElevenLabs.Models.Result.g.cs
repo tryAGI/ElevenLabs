@@ -34,6 +34,192 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.LanguageDetectionToolResultModel? LanguageDetectionSuccess { get; init; }
+#else
+        public global::ElevenLabs.LanguageDetectionToolResultModel? LanguageDetectionSuccess { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LanguageDetectionSuccess))]
+#endif
+        public bool IsLanguageDetectionSuccess => LanguageDetectionSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModel? TransferToAgentSuccess { get; init; }
+#else
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModel? TransferToAgentSuccess { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToAgentSuccess))]
+#endif
+        public bool IsTransferToAgentSuccess => TransferToAgentSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.TransferToAgentToolResultErrorModel? TransferToAgentError { get; init; }
+#else
+        public global::ElevenLabs.TransferToAgentToolResultErrorModel? TransferToAgentError { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToAgentError))]
+#endif
+        public bool IsTransferToAgentError => TransferToAgentError != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? TransferToNumberTwilioSuccess { get; init; }
+#else
+        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? TransferToNumberTwilioSuccess { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberTwilioSuccess))]
+#endif
+        public bool IsTransferToNumberTwilioSuccess => TransferToNumberTwilioSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.TransferToNumberResultSipSuccessModel? TransferToNumberSipSuccess { get; init; }
+#else
+        public global::ElevenLabs.TransferToNumberResultSipSuccessModel? TransferToNumberSipSuccess { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberSipSuccess))]
+#endif
+        public bool IsTransferToNumberSipSuccess => TransferToNumberSipSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.TransferToNumberResultErrorModel? TransferToNumberError { get; init; }
+#else
+        public global::ElevenLabs.TransferToNumberResultErrorModel? TransferToNumberError { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberError))]
+#endif
+        public bool IsTransferToNumberError => TransferToNumberError != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.SkipTurnToolResponseModel? SkipTurnSuccess { get; init; }
+#else
+        public global::ElevenLabs.SkipTurnToolResponseModel? SkipTurnSuccess { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SkipTurnSuccess))]
+#endif
+        public bool IsSkipTurnSuccess => SkipTurnSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.PlayDTMFResultSuccessModel? PlayDtmfSuccess { get; init; }
+#else
+        public global::ElevenLabs.PlayDTMFResultSuccessModel? PlayDtmfSuccess { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayDtmfSuccess))]
+#endif
+        public bool IsPlayDtmfSuccess => PlayDtmfSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.PlayDTMFResultErrorModel? PlayDtmfError { get; init; }
+#else
+        public global::ElevenLabs.PlayDTMFResultErrorModel? PlayDtmfError { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayDtmfError))]
+#endif
+        public bool IsPlayDtmfError => PlayDtmfError != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel? VoicemailDetectionSuccess { get; init; }
+#else
+        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel? VoicemailDetectionSuccess { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VoicemailDetectionSuccess))]
+#endif
+        public bool IsVoicemailDetectionSuccess => VoicemailDetectionSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.TestToolResultModel? TestingToolResult { get; init; }
+#else
+        public global::ElevenLabs.TestToolResultModel? TestingToolResult { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TestingToolResult))]
+#endif
+        public bool IsTestingToolResult => TestingToolResult != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Result(global::ElevenLabs.EndCallToolResultModel value) => new Result((global::ElevenLabs.EndCallToolResultModel?)value);
 
         /// <summary>
@@ -48,23 +234,6 @@ namespace ElevenLabs
         {
             EndCallSuccess = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.LanguageDetectionToolResultModel? LanguageDetectionSuccess { get; init; }
-#else
-        public global::ElevenLabs.LanguageDetectionToolResultModel? LanguageDetectionSuccess { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LanguageDetectionSuccess))]
-#endif
-        public bool IsLanguageDetectionSuccess => LanguageDetectionSuccess != null;
 
         /// <summary>
         /// 
@@ -87,23 +256,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModel? TransferToAgentSuccess { get; init; }
-#else
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModel? TransferToAgentSuccess { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToAgentSuccess))]
-#endif
-        public bool IsTransferToAgentSuccess => TransferToAgentSuccess != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator Result(global::ElevenLabs.TransferToAgentToolResultSuccessModel value) => new Result((global::ElevenLabs.TransferToAgentToolResultSuccessModel?)value);
 
         /// <summary>
@@ -118,23 +270,6 @@ namespace ElevenLabs
         {
             TransferToAgentSuccess = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.TransferToAgentToolResultErrorModel? TransferToAgentError { get; init; }
-#else
-        public global::ElevenLabs.TransferToAgentToolResultErrorModel? TransferToAgentError { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToAgentError))]
-#endif
-        public bool IsTransferToAgentError => TransferToAgentError != null;
 
         /// <summary>
         /// 
@@ -157,23 +292,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? TransferToNumberTwilioSuccess { get; init; }
-#else
-        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? TransferToNumberTwilioSuccess { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberTwilioSuccess))]
-#endif
-        public bool IsTransferToNumberTwilioSuccess => TransferToNumberTwilioSuccess != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator Result(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel value) => new Result((global::ElevenLabs.TransferToNumberResultTwilioSuccessModel?)value);
 
         /// <summary>
@@ -188,23 +306,6 @@ namespace ElevenLabs
         {
             TransferToNumberTwilioSuccess = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.TransferToNumberResultSipSuccessModel? TransferToNumberSipSuccess { get; init; }
-#else
-        public global::ElevenLabs.TransferToNumberResultSipSuccessModel? TransferToNumberSipSuccess { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberSipSuccess))]
-#endif
-        public bool IsTransferToNumberSipSuccess => TransferToNumberSipSuccess != null;
 
         /// <summary>
         /// 
@@ -227,23 +328,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.TransferToNumberResultErrorModel? TransferToNumberError { get; init; }
-#else
-        public global::ElevenLabs.TransferToNumberResultErrorModel? TransferToNumberError { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberError))]
-#endif
-        public bool IsTransferToNumberError => TransferToNumberError != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator Result(global::ElevenLabs.TransferToNumberResultErrorModel value) => new Result((global::ElevenLabs.TransferToNumberResultErrorModel?)value);
 
         /// <summary>
@@ -258,23 +342,6 @@ namespace ElevenLabs
         {
             TransferToNumberError = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.SkipTurnToolResponseModel? SkipTurnSuccess { get; init; }
-#else
-        public global::ElevenLabs.SkipTurnToolResponseModel? SkipTurnSuccess { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SkipTurnSuccess))]
-#endif
-        public bool IsSkipTurnSuccess => SkipTurnSuccess != null;
 
         /// <summary>
         /// 
@@ -297,23 +364,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.PlayDTMFResultSuccessModel? PlayDtmfSuccess { get; init; }
-#else
-        public global::ElevenLabs.PlayDTMFResultSuccessModel? PlayDtmfSuccess { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayDtmfSuccess))]
-#endif
-        public bool IsPlayDtmfSuccess => PlayDtmfSuccess != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator Result(global::ElevenLabs.PlayDTMFResultSuccessModel value) => new Result((global::ElevenLabs.PlayDTMFResultSuccessModel?)value);
 
         /// <summary>
@@ -328,23 +378,6 @@ namespace ElevenLabs
         {
             PlayDtmfSuccess = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.PlayDTMFResultErrorModel? PlayDtmfError { get; init; }
-#else
-        public global::ElevenLabs.PlayDTMFResultErrorModel? PlayDtmfError { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayDtmfError))]
-#endif
-        public bool IsPlayDtmfError => PlayDtmfError != null;
 
         /// <summary>
         /// 
@@ -367,23 +400,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel? VoicemailDetectionSuccess { get; init; }
-#else
-        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel? VoicemailDetectionSuccess { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VoicemailDetectionSuccess))]
-#endif
-        public bool IsVoicemailDetectionSuccess => VoicemailDetectionSuccess != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator Result(global::ElevenLabs.VoiceMailDetectionResultSuccessModel value) => new Result((global::ElevenLabs.VoiceMailDetectionResultSuccessModel?)value);
 
         /// <summary>
@@ -398,23 +414,6 @@ namespace ElevenLabs
         {
             VoicemailDetectionSuccess = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.TestToolResultModel? TestingToolResult { get; init; }
-#else
-        public global::ElevenLabs.TestToolResultModel? TestingToolResult { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TestingToolResult))]
-#endif
-        public bool IsTestingToolResult => TestingToolResult != null;
 
         /// <summary>
         /// 

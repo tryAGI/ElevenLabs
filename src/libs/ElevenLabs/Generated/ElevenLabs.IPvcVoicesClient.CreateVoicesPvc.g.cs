@@ -15,7 +15,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> CreateVoicesPvcAsync(
-            global::ElevenLabs.BodyCreatePVCVoiceV1VoicesPvcPost request,
+
+            global::ElevenLabs.BodyCreatePvcVoiceV1VoicesPvcPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 

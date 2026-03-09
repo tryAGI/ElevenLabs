@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.MCPServerConfigInput Config { get; set; }
+        public global::ElevenLabs.MCPServerConfigInput Config { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

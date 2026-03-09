@@ -20,6 +20,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetUnitTestResponseModel> PutConvaiAgentTestingByTestIdAsync(
             string testId,
+
             global::ElevenLabs.UpdateUnitTestRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -61,7 +62,7 @@ namespace ElevenLabs
             string name,
             string? xiApiKey = default,
             global::ElevenLabs.UnitTestToolCallEvaluationModelInput? toolCallParameters = default,
-            object? dynamicVariables = default,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnyOf<string, double?, int?, bool?>?>? dynamicVariables = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

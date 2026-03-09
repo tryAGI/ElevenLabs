@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"message":"Request accepted. Transcription result will be sent to the webhook endpoint.","request_id":"1234567890"}
     /// </summary>
     public sealed partial class SpeechToTextWebhookResponseModel
     {
@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Message { get; set; }
+        public string Message { get; set; } = default!;
 
         /// <summary>
         /// The request ID of the webhook response.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string RequestId { get; set; }
+        public string RequestId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

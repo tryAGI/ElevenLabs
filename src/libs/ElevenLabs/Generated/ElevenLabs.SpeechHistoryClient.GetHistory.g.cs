@@ -81,11 +81,11 @@ namespace ElevenLabs
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/history",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("page_size", pageSize?.ToString()) 
-                .AddOptionalParameter("start_after_history_item_id", startAfterHistoryItemId) 
-                .AddOptionalParameter("voice_id", voiceId) 
-                .AddOptionalParameter("search", search) 
+            __pathBuilder
+                .AddOptionalParameter("page_size", pageSize?.ToString())
+                .AddOptionalParameter("start_after_history_item_id", startAfterHistoryItemId)
+                .AddOptionalParameter("voice_id", voiceId)
+                .AddOptionalParameter("search", search)
                 .AddOptionalParameter("source", source?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();

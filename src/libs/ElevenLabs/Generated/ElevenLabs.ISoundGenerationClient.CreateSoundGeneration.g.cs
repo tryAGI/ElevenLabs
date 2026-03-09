@@ -19,6 +19,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<byte[]> CreateSoundGenerationAsync(
+
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
             global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat = default,
             string? xiApiKey = default,
