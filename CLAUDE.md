@@ -29,8 +29,8 @@ cd src/libs/ElevenLabs && ./generate.sh
 The SDK code in `src/libs/ElevenLabs/Generated/` is **entirely auto-generated** -- do not manually edit files there.
 
 1. `src/libs/ElevenLabs/openapi.yaml` -- the ElevenLabs OpenAPI spec (fetched from `https://api.elevenlabs.io/openapi.json`)
-2. `src/helpers/FixOpenApiSpec/` -- converts OpenAPI 3.1 to 3.0 format for compatibility
-3. `src/libs/ElevenLabs/generate.sh` -- orchestrates: download spec, fix spec, run AutoSDK CLI with `--methodNamingConvention MethodAndPath`, output to `Generated/`
+2. `src/helpers/FixOpenApiSpec/` -- injects the server base URL (`https://api.elevenlabs.io`) since the raw spec omits it
+3. `src/libs/ElevenLabs/generate.sh` -- orchestrates: download spec, fix spec, run AutoSDK CLI with `--methodNamingConvention MethodAndPath` and `--security-scheme ApiKey:Header:xi-api-key`, output to `Generated/`
 4. CI auto-updates the spec and creates PRs if changes are detected
 
 ### Project Layout
@@ -39,7 +39,7 @@ The SDK code in `src/libs/ElevenLabs/Generated/` is **entirely auto-generated** 
 |---------|---------|
 | `src/libs/ElevenLabs/` | Main SDK library (`ElevenLabsClient`) |
 | `src/tests/IntegrationTests/` | Integration tests against real ElevenLabs API |
-| `src/helpers/FixOpenApiSpec/` | OpenAPI spec fixer tool |
+| `src/helpers/FixOpenApiSpec/` | Injects server base URL into the OpenAPI spec |
 | `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
 | `src/helpers/TrimmingHelper/` | NativeAOT/trimming compatibility validator |
 
