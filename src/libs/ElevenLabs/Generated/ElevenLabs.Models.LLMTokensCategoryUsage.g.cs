@@ -15,7 +15,7 @@ namespace ElevenLabs
         public int? Tokens { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price")]
         public double? Price { get; set; }
@@ -33,7 +33,7 @@ namespace ElevenLabs
         /// Default Value: 0
         /// </param>
         /// <param name="price">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

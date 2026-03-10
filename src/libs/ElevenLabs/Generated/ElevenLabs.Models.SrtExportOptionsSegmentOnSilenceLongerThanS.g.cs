@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: 0.8
+    /// Default Value: 0.8F
     /// </summary>
     public sealed partial class SrtExportOptionsSegmentOnSilenceLongerThanS
     {

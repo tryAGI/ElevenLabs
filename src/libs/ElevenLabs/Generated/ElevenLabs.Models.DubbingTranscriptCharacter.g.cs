@@ -15,13 +15,13 @@ namespace ElevenLabs
         public string? Text { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_s")]
         public double? StartS { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_s")]
         public double? EndS { get; set; }
@@ -37,10 +37,10 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="text"></param>
         /// <param name="startS">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="endS">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

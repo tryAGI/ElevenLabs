@@ -5,7 +5,7 @@ namespace ElevenLabs
 {
     /// <summary>
     /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.<br/>
-    /// Default Value: 0.5
+    /// Default Value: 0.5F
     /// </summary>
     public sealed partial class VoiceSettingsResponseModelStability
     {

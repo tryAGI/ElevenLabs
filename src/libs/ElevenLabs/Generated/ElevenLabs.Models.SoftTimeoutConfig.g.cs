@@ -11,7 +11,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Time in seconds before showing the predefined message while waiting for LLM response. Set to -1 to disable.<br/>
-        /// Default Value: -1.0
+        /// Default Value: -1F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("timeout_seconds")]
         public double? TimeoutSeconds { get; set; }
@@ -41,7 +41,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="timeoutSeconds">
         /// Time in seconds before showing the predefined message while waiting for LLM response. Set to -1 to disable.<br/>
-        /// Default Value: -1.0
+        /// Default Value: -1F
         /// </param>
         /// <param name="message">
         /// Message to show when soft timeout is reached while waiting for LLM response<br/>

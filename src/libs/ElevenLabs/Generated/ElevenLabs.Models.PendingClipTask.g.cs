@@ -17,7 +17,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.PendingClipTaskType Type { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("progress")]
         public double? Progress { get; set; }
@@ -51,7 +51,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="type"></param>
         /// <param name="progress">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="startedAtMs"></param>
         /// <param name="updatedAtMs"></param>

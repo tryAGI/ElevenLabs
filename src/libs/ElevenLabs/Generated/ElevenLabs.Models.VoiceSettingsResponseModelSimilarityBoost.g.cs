@@ -5,7 +5,7 @@ namespace ElevenLabs
 {
     /// <summary>
     /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.<br/>
-    /// Default Value: 0.75
+    /// Default Value: 0.75F
     /// </summary>
     public sealed partial class VoiceSettingsResponseModelSimilarityBoost
     {

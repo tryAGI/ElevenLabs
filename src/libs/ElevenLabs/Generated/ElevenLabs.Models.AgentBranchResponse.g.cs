@@ -72,7 +72,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Percentage of traffic live on the branch<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("current_live_percentage")]
         public double? CurrentLivePercentage { get; set; }
@@ -113,7 +113,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="currentLivePercentage">
         /// Percentage of traffic live on the branch<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="parentBranch">
         /// Parent branch of the branch

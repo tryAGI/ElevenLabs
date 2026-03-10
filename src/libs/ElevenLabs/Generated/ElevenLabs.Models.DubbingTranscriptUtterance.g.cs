@@ -21,13 +21,13 @@ namespace ElevenLabs
         public string? SpeakerId { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_s")]
         public double? StartS { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_s")]
         public double? EndS { get; set; }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         /// Default Value: unknown
         /// </param>
         /// <param name="startS">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="endS">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="words"></param>
 #if NET7_0_OR_GREATER

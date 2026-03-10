@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ListResponseAgentBranchSummary
     {
         /// <summary>
-        /// 
+        /// Default Value: {}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("meta")]
         public global::ElevenLabs.ListResponseMeta? Meta { get; set; }
@@ -30,7 +30,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ListResponseAgentBranchSummary" /> class.
         /// </summary>
-        /// <param name="meta"></param>
+        /// <param name="meta">
+        /// Default Value: {}
+        /// </param>
         /// <param name="results"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

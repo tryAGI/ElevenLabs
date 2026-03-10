@@ -15,7 +15,7 @@ namespace ElevenLabs
         public bool? IsEnabled { get; set; }
 
         /// <summary>
-        /// Default Value: 0.3
+        /// Default Value: 0.3F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("threshold")]
         public double? Threshold { get; set; }
@@ -33,7 +33,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="threshold">
-        /// Default Value: 0.3
+        /// Default Value: 0.3F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

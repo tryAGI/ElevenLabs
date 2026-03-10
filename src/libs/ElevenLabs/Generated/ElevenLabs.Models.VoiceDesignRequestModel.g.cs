@@ -38,7 +38,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.<br/>
-        /// Default Value: 0.5
+        /// Default Value: 0.5F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("loudness")]
         public double? Loudness { get; set; }
@@ -125,7 +125,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="loudness">
         /// Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.<br/>
-        /// Default Value: 0.5
+        /// Default Value: 0.5F
         /// </param>
         /// <param name="seed">
         /// Random number that controls the voice generation. Same seed with same inputs produces same voice.

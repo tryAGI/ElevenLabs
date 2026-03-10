@@ -47,19 +47,19 @@ namespace ElevenLabs
         public int? KKeyword { get; set; }
 
         /// <summary>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dense_weight")]
         public double? DenseWeight { get; set; }
 
         /// <summary>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("keyword_weight")]
         public double? KeywordWeight { get; set; }
 
         /// <summary>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_weight")]
         public double? SourceWeight { get; set; }
@@ -124,13 +124,13 @@ namespace ElevenLabs
         /// Default Value: 5
         /// </param>
         /// <param name="denseWeight">
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="keywordWeight">
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="sourceWeight">
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="vectorIndexName">
         /// Default Value: default

@@ -86,7 +86,7 @@ namespace ElevenLabs
         public required int UpdatedAtMs { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_gain_db")]
         public double? VolumeGainDb { get; set; }
@@ -192,7 +192,7 @@ namespace ElevenLabs
         /// <param name="createdAtMs"></param>
         /// <param name="updatedAtMs"></param>
         /// <param name="volumeGainDb">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="muted">
         /// Default Value: false

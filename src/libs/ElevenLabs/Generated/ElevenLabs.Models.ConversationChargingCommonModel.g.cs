@@ -51,13 +51,13 @@ namespace ElevenLabs
         public int? CallCharge { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("free_minutes_consumed")]
         public double? FreeMinutesConsumed { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("free_llm_dollars_consumed")]
         public double? FreeLlmDollarsConsumed { get; set; }
@@ -83,10 +83,10 @@ namespace ElevenLabs
         /// <param name="llmCharge"></param>
         /// <param name="callCharge"></param>
         /// <param name="freeMinutesConsumed">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="freeLlmDollarsConsumed">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

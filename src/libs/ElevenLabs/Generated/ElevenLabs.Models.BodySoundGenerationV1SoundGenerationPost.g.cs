@@ -30,7 +30,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// A higher prompt influence makes your generation follow the prompt more closely while also making generations less variable. Must be a value between 0 and 1. Defaults to 0.3.<br/>
-        /// Default Value: 0.3
+        /// Default Value: 0.3F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_influence")]
         public double? PromptInfluence { get; set; }
@@ -63,7 +63,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="promptInfluence">
         /// A higher prompt influence makes your generation follow the prompt more closely while also making generations less variable. Must be a value between 0 and 1. Defaults to 0.3.<br/>
-        /// Default Value: 0.3
+        /// Default Value: 0.3F
         /// </param>
         /// <param name="modelId">
         /// The model ID to use for the sound generation.<br/>

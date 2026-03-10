@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class MessagesSearchResponse
     {
         /// <summary>
-        /// 
+        /// Default Value: {}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("meta")]
         public global::ElevenLabs.ListResponseMeta? Meta { get; set; }
@@ -43,7 +43,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="MessagesSearchResponse" /> class.
         /// </summary>
-        /// <param name="meta"></param>
+        /// <param name="meta">
+        /// Default Value: {}
+        /// </param>
         /// <param name="results"></param>
         /// <param name="nextCursor">
         /// Cursor for the next page of results

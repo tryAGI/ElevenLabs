@@ -10,7 +10,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.<br/>
-        /// Default Value: 0.5
+        /// Default Value: 0.5F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stability")]
         public double? Stability { get; set; }
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="stability">
         /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.<br/>
-        /// Default Value: 0.5
+        /// Default Value: 0.5F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

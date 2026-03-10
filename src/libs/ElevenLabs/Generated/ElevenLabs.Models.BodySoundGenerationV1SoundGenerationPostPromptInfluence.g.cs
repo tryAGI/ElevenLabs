@@ -5,7 +5,7 @@ namespace ElevenLabs
 {
     /// <summary>
     /// A higher prompt influence makes your generation follow the prompt more closely while also making generations less variable. Must be a value between 0 and 1. Defaults to 0.3.<br/>
-    /// Default Value: 0.3
+    /// Default Value: 0.3F
     /// </summary>
     public sealed partial class BodySoundGenerationV1SoundGenerationPostPromptInfluence
     {

@@ -34,7 +34,7 @@ namespace ElevenLabs
         public string Format { get; set; } = "srt";
 
         /// <summary>
-        /// Default Value: 0.8
+        /// Default Value: 0.8F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segment_on_silence_longer_than_s")]
         public double? SegmentOnSilenceLongerThanS { get; set; }
@@ -71,7 +71,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="format"></param>
         /// <param name="segmentOnSilenceLongerThanS">
-        /// Default Value: 0.8
+        /// Default Value: 0.8F
         /// </param>
         /// <param name="maxSegmentDurationS">
         /// Default Value: 4

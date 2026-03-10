@@ -36,7 +36,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// The temperature for the LLM<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         public double? Temperature { get; set; }
@@ -112,7 +112,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.<br/>
-        /// Default Value: 8.0
+        /// Default Value: 8F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cascade_timeout_seconds")]
         public double? CascadeTimeoutSeconds { get; set; }
@@ -148,7 +148,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="temperature">
         /// The temperature for the LLM<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="maxTokens">
         /// If greater than 0, maximum number of tokens the LLM can predict<br/>
@@ -187,7 +187,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cascadeTimeoutSeconds">
         /// Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.<br/>
-        /// Default Value: 8.0
+        /// Default Value: 8F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -9,13 +9,13 @@ namespace ElevenLabs
     public sealed partial class PositionInput
     {
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("x")]
         public double? X { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("y")]
         public double? Y { get; set; }
@@ -30,10 +30,10 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="PositionInput" /> class.
         /// </summary>
         /// <param name="x">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="y">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

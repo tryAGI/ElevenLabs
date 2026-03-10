@@ -10,7 +10,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.<br/>
-        /// Default Value: 0.5
+        /// Default Value: 0.5F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stability")]
         public double? Stability { get; set; }
@@ -24,21 +24,21 @@ namespace ElevenLabs
 
         /// <summary>
         /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.<br/>
-        /// Default Value: 0.75
+        /// Default Value: 0.75F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("similarity_boost")]
         public double? SimilarityBoost { get; set; }
 
         /// <summary>
         /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("style")]
         public double? Style { get; set; }
 
         /// <summary>
         /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
         public double? Speed { get; set; }
@@ -54,7 +54,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="stability">
         /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.<br/>
-        /// Default Value: 0.5
+        /// Default Value: 0.5F
         /// </param>
         /// <param name="useSpeakerBoost">
         /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.<br/>
@@ -62,15 +62,15 @@ namespace ElevenLabs
         /// </param>
         /// <param name="similarityBoost">
         /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.<br/>
-        /// Default Value: 0.75
+        /// Default Value: 0.75F
         /// </param>
         /// <param name="style">
         /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="speed">
         /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

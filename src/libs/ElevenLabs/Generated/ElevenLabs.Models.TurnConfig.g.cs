@@ -10,7 +10,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Maximum wait time for the user's reply before re-engaging the user<br/>
-        /// Default Value: 7.0
+        /// Default Value: 7F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("turn_timeout")]
         public double? TurnTimeout { get; set; }
@@ -78,7 +78,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="turnTimeout">
         /// Maximum wait time for the user's reply before re-engaging the user<br/>
-        /// Default Value: 7.0
+        /// Default Value: 7F
         /// </param>
         /// <param name="initialWaitTime">
         /// How long the agent will wait for the user to start the conversation if the first message is empty. If not set, uses the regular turn_timeout.

@@ -59,21 +59,21 @@ namespace ElevenLabs
 
         /// <summary>
         /// The stability of generated speech<br/>
-        /// Default Value: 0.5
+        /// Default Value: 0.5F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stability")]
         public double? Stability { get; set; }
 
         /// <summary>
         /// The speed of generated speech<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
         public double? Speed { get; set; }
 
         /// <summary>
         /// The similarity boost for generated speech<br/>
-        /// Default Value: 0.8
+        /// Default Value: 0.8F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("similarity_boost")]
         public double? SimilarityBoost { get; set; }
@@ -129,15 +129,15 @@ namespace ElevenLabs
         /// </param>
         /// <param name="stability">
         /// The stability of generated speech<br/>
-        /// Default Value: 0.5
+        /// Default Value: 0.5F
         /// </param>
         /// <param name="speed">
         /// The speed of generated speech<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="similarityBoost">
         /// The similarity boost for generated speech<br/>
-        /// Default Value: 0.8
+        /// Default Value: 0.8F
         /// </param>
         /// <param name="textNormalisationType">
         /// Method for converting numbers to words before converting text to speech. If set to SYSTEM_PROMPT, the system prompt will be updated to include normalization instructions. If set to ELEVENLABS, the text will be normalized after generation, incurring slight additional latency.<br/>

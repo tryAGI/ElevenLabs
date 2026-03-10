@@ -244,7 +244,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ClipAnimation? Animation { get; set; }
 
         /// <summary>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("playback_speed")]
         public double? PlaybackSpeed { get; set; }
@@ -328,7 +328,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="animation"></param>
         /// <param name="playbackSpeed">
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="trackId">
         /// Default Value: v0

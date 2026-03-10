@@ -23,7 +23,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Maximum vector distance of retrieved chunks.<br/>
-        /// Default Value: 0.6
+        /// Default Value: 0.6F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_vector_distance")]
         public double? MaxVectorDistance { get; set; }
@@ -71,7 +71,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="maxVectorDistance">
         /// Maximum vector distance of retrieved chunks.<br/>
-        /// Default Value: 0.6
+        /// Default Value: 0.6F
         /// </param>
         /// <param name="maxDocumentsLength">
         /// Maximum total length of document chunks retrieved from RAG.<br/>

@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class PositionOutput
     {
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("x")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double X { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("y")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,10 +32,10 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="PositionOutput" /> class.
         /// </summary>
         /// <param name="x">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="y">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
