@@ -12,23 +12,6 @@ openApiDocument.Servers?.Add(new OpenApiServer
 {
     Url = "https://api.elevenlabs.io",
 });
-openApiDocument.Components!.SecuritySchemes ??= new Dictionary<string, IOpenApiSecurityScheme>();
-openApiDocument.Components!.SecuritySchemes["ApiKeyAuth"] = new OpenApiSecurityScheme
-{
-    Type = SecuritySchemeType.ApiKey,
-    In = ParameterLocation.Header,
-    Name = "xi-api-key",
-};
-openApiDocument.Security =
-[
-    new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecuritySchemeReference("ApiKeyAuth", openApiDocument),
-            new List<string>()
-        }
-    }
-];
 
 ((OpenApiSchema)openApiDocument.Components.Schemas!["FineTuningResponseModel"]!.Properties!["next_max_verification_attempts_reset_unix_ms"]!).Format = "int64";
 

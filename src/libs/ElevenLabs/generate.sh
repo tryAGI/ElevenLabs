@@ -12,4 +12,5 @@ autosdk generate openapi.yaml \
   --targetFramework net8.0 \
   --output Generated \
   --exclude-deprecated-operations \
-  --methodNamingConvention MethodAndPath
+  --methodNamingConvention MethodAndPath \
+  --security-scheme ApiKey:Header:xi-api-key
