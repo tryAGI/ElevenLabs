@@ -9,13 +9,7 @@ public partial class Tests
             Environment.GetEnvironmentVariable("ELEVENLABS_API_KEY") ??
             throw new AssertInconclusiveException("ELEVENLABS_API_KEY environment variable is not found.");
 
-        var client = new ElevenLabsClient(authorizations: [new EndPointAuthorization
-        {
-            Type = "ApiKey",
-            Name = "xi-api-key",
-            Location = "Header",
-            Value = apiKey,
-        }]);
+        var client = new ElevenLabsClient(apiKey);
 
         return client;
     }
