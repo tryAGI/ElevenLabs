@@ -10,10 +10,10 @@ C# SDK for the [ElevenLabs](https://elevenlabs.io/) text-to-speech and audio AI 
 
 ```bash
 # Build the solution
-dotnet build ElevenLabs.sln
+dotnet build ElevenLabs.slnx
 
 # Build for release (also produces NuGet package)
-dotnet build ElevenLabs.sln -c Release
+dotnet build ElevenLabs.slnx -c Release
 
 # Run integration tests (requires ELEVENLABS_API_KEY env var)
 dotnet test src/tests/IntegrationTests/ElevenLabs.IntegrationTests.csproj
