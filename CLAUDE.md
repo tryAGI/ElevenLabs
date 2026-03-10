@@ -29,8 +29,25 @@ cd src/libs/ElevenLabs && ./generate.sh
 The SDK code in `src/libs/ElevenLabs/Generated/` is **entirely auto-generated** -- do not manually edit files there.
 
 1. `src/libs/ElevenLabs/openapi.yaml` -- the ElevenLabs OpenAPI spec (fetched from `https://api.elevenlabs.io/openapi.json`)
-2. `src/libs/ElevenLabs/generate.sh` -- orchestrates: download spec, run AutoSDK CLI with `--methodNamingConvention MethodAndPath`, `--security-scheme ApiKey:Header:xi-api-key`, and `--base-url https://api.elevenlabs.io`, output to `Generated/`
-4. CI auto-updates the spec and creates PRs if changes are detected
+2. `src/libs/ElevenLabs/generate.sh` -- downloads spec and runs AutoSDK CLI to generate the SDK
+3. CI auto-updates the spec every 3 hours and creates PRs if changes are detected
+
+`generate.sh` contents:
+
+```bash
+dotnet tool install --global autosdk.cli --prerelease
+rm -rf Generated
+curl -o openapi.yaml https://api.elevenlabs.io/openapi.json
+autosdk generate openapi.yaml \
+  --namespace ElevenLabs \
+  --clientClassName ElevenLabsClient \
+  --targetFramework net8.0 \
+  --output Generated \
+  --exclude-deprecated-operations \
+  --methodNamingConvention MethodAndPath \
+  --security-scheme ApiKey:Header:xi-api-key \
+  --base-url https://api.elevenlabs.io
+```
 
 ### Project Layout
 
@@ -38,7 +55,6 @@ The SDK code in `src/libs/ElevenLabs/Generated/` is **entirely auto-generated** 
 |---------|---------|
 | `src/libs/ElevenLabs/` | Main SDK library (`ElevenLabsClient`) |
 | `src/tests/IntegrationTests/` | Integration tests against real ElevenLabs API |
-| `src/helpers/FixOpenApiSpec/` | OpenAPI spec fixer (currently unused, kept for future needs) |
 | `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
 | `src/helpers/TrimmingHelper/` | NativeAOT/trimming compatibility validator |
 
