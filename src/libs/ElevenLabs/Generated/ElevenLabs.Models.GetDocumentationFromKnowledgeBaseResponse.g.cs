@@ -64,6 +64,23 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
 #endif
         public bool IsText => Text != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? Folder { get; init; }
+#else
+        public global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? Folder { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Folder))]
+#endif
+        public bool IsFolder => Folder != null;
         /// <summary>
         /// 
         /// </summary>
@@ -121,11 +138,30 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator GetDocumentationFromKnowledgeBaseResponse(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel value) => new GetDocumentationFromKnowledgeBaseResponse((global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?(GetDocumentationFromKnowledgeBaseResponse @this) => @this.Folder;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public GetDocumentationFromKnowledgeBaseResponse(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? value)
+        {
+            Folder = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public GetDocumentationFromKnowledgeBaseResponse(
             global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponseDiscriminatorType? type,
             global::ElevenLabs.GetKnowledgeBaseURLResponseModel? url,
             global::ElevenLabs.GetKnowledgeBaseFileResponseModel? file,
-            global::ElevenLabs.GetKnowledgeBaseTextResponseModel? text
+            global::ElevenLabs.GetKnowledgeBaseTextResponseModel? text,
+            global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? folder
             )
         {
             Type = type;
@@ -133,12 +169,14 @@ namespace ElevenLabs
             Url = url;
             File = file;
             Text = text;
+            Folder = folder;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Folder as object ??
             Text as object ??
             File as object ??
             Url as object 
@@ -150,7 +188,8 @@ namespace ElevenLabs
         public override string? ToString() =>
             Url?.ToString() ??
             File?.ToString() ??
-            Text?.ToString() 
+            Text?.ToString() ??
+            Folder?.ToString() 
             ;
 
         /// <summary>
@@ -158,7 +197,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsUrl && !IsFile && !IsText || !IsUrl && IsFile && !IsText || !IsUrl && !IsFile && IsText;
+            return IsUrl && !IsFile && !IsText && !IsFolder || !IsUrl && IsFile && !IsText && !IsFolder || !IsUrl && !IsFile && IsText && !IsFolder || !IsUrl && !IsFile && !IsText && IsFolder;
         }
 
         /// <summary>
@@ -168,6 +207,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.GetKnowledgeBaseURLResponseModel?, TResult>? url = null,
             global::System.Func<global::ElevenLabs.GetKnowledgeBaseFileResponseModel?, TResult>? file = null,
             global::System.Func<global::ElevenLabs.GetKnowledgeBaseTextResponseModel?, TResult>? text = null,
+            global::System.Func<global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?, TResult>? folder = null,
             bool validate = true)
         {
             if (validate)
@@ -187,6 +227,10 @@ namespace ElevenLabs
             {
                 return text(Text!);
             }
+            else if (IsFolder && folder != null)
+            {
+                return folder(Folder!);
+            }
 
             return default(TResult);
         }
@@ -198,6 +242,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseURLResponseModel?>? url = null,
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseFileResponseModel?>? file = null,
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseTextResponseModel?>? text = null,
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?>? folder = null,
             bool validate = true)
         {
             if (validate)
@@ -217,6 +262,10 @@ namespace ElevenLabs
             {
                 text?.Invoke(Text!);
             }
+            else if (IsFolder)
+            {
+                folder?.Invoke(Folder!);
+            }
         }
 
         /// <summary>
@@ -232,6 +281,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.GetKnowledgeBaseFileResponseModel),
                 Text,
                 typeof(global::ElevenLabs.GetKnowledgeBaseTextResponseModel),
+                Folder,
+                typeof(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -250,7 +301,8 @@ namespace ElevenLabs
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseURLResponseModel?>.Default.Equals(Url, other.Url) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseFileResponseModel?>.Default.Equals(File, other.File) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseTextResponseModel?>.Default.Equals(Text, other.Text) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseTextResponseModel?>.Default.Equals(Text, other.Text) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?>.Default.Equals(Folder, other.Folder) 
                 ;
         }
 

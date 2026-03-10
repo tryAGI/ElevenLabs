@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ChapterId { get; set; } = default!;
+        public required string ChapterId { get; set; }
 
         /// <summary>
         /// The name of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The last conversion date of the chapter.
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_be_downloaded")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool CanBeDownloaded { get; set; } = default!;
+        public required bool CanBeDownloaded { get; set; }
 
         /// <summary>
         /// The state of the chapter.
@@ -47,7 +47,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ChapterWithContentResponseModelStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ChapterWithContentResponseModelState State { get; set; } = default!;
+        public required global::ElevenLabs.ChapterWithContentResponseModelState State { get; set; }
 
         /// <summary>
         /// Whether the chapter has a video.
@@ -56,9 +56,20 @@ namespace ElevenLabs
         public bool? HasVideo { get; set; }
 
         /// <summary>
-        /// Example: {"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10}
+        /// Whether the chapter has any visual content (video, image, or text clips).
         /// </summary>
-        /// <example>{"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_visual_content")]
+        public bool? HasVisualContent { get; set; }
+
+        /// <summary>
+        /// List of voice ids used by the chapter
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_ids")]
+        public global::System.Collections.Generic.IList<string>? VoiceIds { get; set; }
+
+        /// <summary>
+        /// The statistics of the chapter.
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("statistics")]
         public global::ElevenLabs.ChapterStatisticsResponseModel? Statistics { get; set; }
 
@@ -73,7 +84,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ChapterContentResponseModel Content { get; set; } = default!;
+        public required global::ElevenLabs.ChapterContentResponseModel Content { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -105,8 +116,14 @@ namespace ElevenLabs
         /// <param name="hasVideo">
         /// Whether the chapter has a video.
         /// </param>
+        /// <param name="hasVisualContent">
+        /// Whether the chapter has any visual content (video, image, or text clips).
+        /// </param>
+        /// <param name="voiceIds">
+        /// List of voice ids used by the chapter
+        /// </param>
         /// <param name="statistics">
-        /// Example: {"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10}
+        /// The statistics of the chapter.
         /// </param>
         /// <param name="lastConversionError">
         /// The last conversion error of the chapter.
@@ -124,6 +141,8 @@ namespace ElevenLabs
             int? lastConversionDateUnix,
             double? conversionProgress,
             bool? hasVideo,
+            bool? hasVisualContent,
+            global::System.Collections.Generic.IList<string>? voiceIds,
             global::ElevenLabs.ChapterStatisticsResponseModel? statistics,
             string? lastConversionError)
         {
@@ -135,6 +154,8 @@ namespace ElevenLabs
             this.LastConversionDateUnix = lastConversionDateUnix;
             this.ConversionProgress = conversionProgress;
             this.HasVideo = hasVideo;
+            this.HasVisualContent = hasVisualContent;
+            this.VoiceIds = voiceIds;
             this.Statistics = statistics;
             this.LastConversionError = lastConversionError;
         }

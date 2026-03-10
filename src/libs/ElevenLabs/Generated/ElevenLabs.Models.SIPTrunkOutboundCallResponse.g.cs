@@ -13,28 +13,26 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Success { get; set; } = default!;
+        public required bool Success { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Message { get; set; } = default!;
+        public required string Message { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? ConversationId { get; set; } = default!;
+        public string? ConversationId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sip_call_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? SipCallId { get; set; } = default!;
+        public string? SipCallId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -60,8 +58,8 @@ namespace ElevenLabs
         {
             this.Success = success;
             this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
-            this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
-            this.SipCallId = sipCallId ?? throw new global::System.ArgumentNullException(nameof(sipCallId));
+            this.ConversationId = conversationId;
+            this.SipCallId = sipCallId;
         }
 
         /// <summary>

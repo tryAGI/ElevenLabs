@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
         /// The token for the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_token")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ConversationToken { get; set; } = default!;
+        public required string ConversationToken { get; set; }
 
         /// <summary>
         /// The expiration time of the token in unix seconds
@@ -35,11 +35,18 @@ namespace ElevenLabs
         public string? ConversationId { get; set; }
 
         /// <summary>
-        /// 
+        /// The purpose of the token<br/>
+        /// Default Value: signed_url
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationTokenPurposeJsonConverter))]
         public global::ElevenLabs.ConversationTokenPurpose? Purpose { get; set; }
+
+        /// <summary>
+        /// The user ID of the entity who requested the token
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("token_requester_user_id")]
+        public string? TokenRequesterUserId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -62,7 +69,13 @@ namespace ElevenLabs
         /// <param name="conversationId">
         /// The ID of the conversation
         /// </param>
-        /// <param name="purpose"></param>
+        /// <param name="purpose">
+        /// The purpose of the token<br/>
+        /// Default Value: signed_url
+        /// </param>
+        /// <param name="tokenRequesterUserId">
+        /// The user ID of the entity who requested the token
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -71,13 +84,15 @@ namespace ElevenLabs
             string conversationToken,
             int? expirationTimeUnixSecs,
             string? conversationId,
-            global::ElevenLabs.ConversationTokenPurpose? purpose)
+            global::ElevenLabs.ConversationTokenPurpose? purpose,
+            string? tokenRequesterUserId)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.ConversationToken = conversationToken ?? throw new global::System.ArgumentNullException(nameof(conversationToken));
             this.ExpirationTimeUnixSecs = expirationTimeUnixSecs;
             this.ConversationId = conversationId;
             this.Purpose = purpose;
+            this.TokenRequesterUserId = tokenRequesterUserId;
         }
 
         /// <summary>

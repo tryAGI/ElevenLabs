@@ -10,8 +10,12 @@ namespace ElevenLabs
             ref int? pageSize,
             ref string? startAfterHistoryItemId,
             ref string? voiceId,
+            ref string? modelId,
+            int? dateBeforeUnix,
+            int? dateAfterUnix,
+            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
             ref string? search,
-            ref global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource? source,
+            global::ElevenLabs.GetSpeechHistorySource2? source,
             ref string? xiApiKey);
         partial void PrepareGetHistoryRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -19,8 +23,12 @@ namespace ElevenLabs
             int? pageSize,
             string? startAfterHistoryItemId,
             string? voiceId,
+            string? modelId,
+            int? dateBeforeUnix,
+            int? dateAfterUnix,
+            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
             string? search,
-            global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource? source,
+            global::ElevenLabs.GetSpeechHistorySource2? source,
             string? xiApiKey);
         partial void ProcessGetHistoryResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -45,16 +53,27 @@ namespace ElevenLabs
         /// <param name="voiceId">
         /// Voice ID to be filtered for, you can use GET https://api.elevenlabs.io/v1/voices to receive a list of voices and their IDs.
         /// </param>
+        /// <param name="modelId">
+        /// Model ID to filter history items by.
+        /// </param>
+        /// <param name="dateBeforeUnix">
+        /// Unix timestamp to filter history items before this date (exclusive).
+        /// </param>
+        /// <param name="dateAfterUnix">
+        /// Unix timestamp to filter history items after this date (inclusive).
+        /// </param>
+        /// <param name="sortDirection">
+        /// Sort direction for the results.<br/>
+        /// Default Value: desc
+        /// </param>
         /// <param name="search">
-        /// search term used for filtering<br/>
-        /// Example: In the land far far away
+        /// search term used for filtering
         /// </param>
         /// <param name="source">
-        /// Source of the generated history item<br/>
-        /// Example: TTS
+        /// Source of the generated history item
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -62,8 +81,12 @@ namespace ElevenLabs
             int? pageSize = default,
             string? startAfterHistoryItemId = default,
             string? voiceId = default,
+            string? modelId = default,
+            int? dateBeforeUnix = default,
+            int? dateAfterUnix = default,
+            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection = default,
             string? search = default,
-            global::ElevenLabs.ListGeneratedItemsV1HistoryGetSource? source = default,
+            global::ElevenLabs.GetSpeechHistorySource2? source = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,8 +97,12 @@ namespace ElevenLabs
                 pageSize: ref pageSize,
                 startAfterHistoryItemId: ref startAfterHistoryItemId,
                 voiceId: ref voiceId,
+                modelId: ref modelId,
+                dateBeforeUnix: dateBeforeUnix,
+                dateAfterUnix: dateAfterUnix,
+                sortDirection: sortDirection,
                 search: ref search,
-                source: ref source,
+                source: source,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -85,8 +112,12 @@ namespace ElevenLabs
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("start_after_history_item_id", startAfterHistoryItemId)
                 .AddOptionalParameter("voice_id", voiceId)
+                .AddOptionalParameter("model_id", modelId)
+                .AddOptionalParameter("date_before_unix", dateBeforeUnix?.ToString())
+                .AddOptionalParameter("date_after_unix", dateAfterUnix?.ToString())
+                .AddOptionalParameter("sort_direction", sortDirection?.ToString())
                 .AddOptionalParameter("search", search)
-                .AddOptionalParameter("source", source?.ToValueString()) 
+                .AddOptionalParameter("source", source?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -96,22 +127,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -128,6 +143,10 @@ namespace ElevenLabs
                 pageSize: pageSize,
                 startAfterHistoryItemId: startAfterHistoryItemId,
                 voiceId: voiceId,
+                modelId: modelId,
+                dateBeforeUnix: dateBeforeUnix,
+                dateAfterUnix: dateAfterUnix,
+                sortDirection: sortDirection,
                 search: search,
                 source: source,
                 xiApiKey: xiApiKey);

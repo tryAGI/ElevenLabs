@@ -13,14 +13,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<byte[]> Files { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<byte[]> Files { get; set; }
 
         /// <summary>
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
-        /// Default Value: false<br/>
-        /// Example: true
+        /// Default Value: false
         /// </summary>
-        /// <example>true</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("remove_background_noise")]
         public bool? RemoveBackgroundNoise { get; set; }
 
@@ -38,8 +36,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
-        /// Default Value: false<br/>
-        /// Example: true
+        /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

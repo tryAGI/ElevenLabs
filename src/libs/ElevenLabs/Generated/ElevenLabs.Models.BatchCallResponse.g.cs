@@ -13,70 +13,87 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumberId { get; set; } = default!;
+        public string? PhoneNumberId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_provider")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyProviderJsonConverter))]
         public global::ElevenLabs.TelephonyProvider? PhoneProvider { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_params")]
+        public global::ElevenLabs.BatchCallWhatsAppParams? WhatsappParams { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAtUnix { get; set; } = default!;
+        public required int CreatedAtUnix { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scheduled_time_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ScheduledTimeUnix { get; set; } = default!;
+        public required int ScheduledTimeUnix { get; set; }
 
         /// <summary>
         /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("timezone")]
+        public string? Timezone { get; set; }
+
+        /// <summary>
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_calls_dispatched")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TotalCallsDispatched { get; set; } = default!;
+        public required int TotalCallsDispatched { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_calls_scheduled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TotalCallsScheduled { get; set; } = default!;
+        public required int TotalCallsScheduled { get; set; }
+
+        /// <summary>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("total_calls_finished")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int TotalCallsFinished { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_updated_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int LastUpdatedAtUnix { get; set; } = default!;
+        public required int LastUpdatedAtUnix { get; set; }
 
         /// <summary>
         /// 
@@ -84,14 +101,34 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BatchCallStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.BatchCallStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.BatchCallStatus Status { get; set; }
+
+        /// <summary>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("retry_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int RetryCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("telephony_call_config")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.TelephonyCallConfig TelephonyCallConfig { get; set; }
+
+        /// <summary>
+        /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("target_concurrency_limit")]
+        public int? TargetConcurrencyLimit { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentName { get; set; } = default!;
+        public required string AgentName { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -105,44 +142,72 @@ namespace ElevenLabs
         /// <param name="id"></param>
         /// <param name="phoneNumberId"></param>
         /// <param name="phoneProvider"></param>
+        /// <param name="whatsappParams"></param>
         /// <param name="name"></param>
         /// <param name="agentId"></param>
         /// <param name="createdAtUnix"></param>
         /// <param name="scheduledTimeUnix"></param>
-        /// <param name="totalCallsDispatched"></param>
-        /// <param name="totalCallsScheduled"></param>
+        /// <param name="timezone"></param>
+        /// <param name="totalCallsDispatched">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="totalCallsScheduled">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="totalCallsFinished">
+        /// Default Value: 0
+        /// </param>
         /// <param name="lastUpdatedAtUnix"></param>
         /// <param name="status"></param>
+        /// <param name="retryCount">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="telephonyCallConfig"></param>
+        /// <param name="targetConcurrencyLimit">
+        /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
+        /// </param>
         /// <param name="agentName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BatchCallResponse(
             string id,
-            string phoneNumberId,
             string name,
             string agentId,
             int createdAtUnix,
             int scheduledTimeUnix,
             int totalCallsDispatched,
             int totalCallsScheduled,
+            int totalCallsFinished,
             int lastUpdatedAtUnix,
             global::ElevenLabs.BatchCallStatus status,
+            int retryCount,
+            global::ElevenLabs.TelephonyCallConfig telephonyCallConfig,
             string agentName,
-            global::ElevenLabs.TelephonyProvider? phoneProvider)
+            string? phoneNumberId,
+            global::ElevenLabs.TelephonyProvider? phoneProvider,
+            global::ElevenLabs.BatchCallWhatsAppParams? whatsappParams,
+            string? timezone,
+            int? targetConcurrencyLimit)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.CreatedAtUnix = createdAtUnix;
             this.ScheduledTimeUnix = scheduledTimeUnix;
             this.TotalCallsDispatched = totalCallsDispatched;
             this.TotalCallsScheduled = totalCallsScheduled;
+            this.TotalCallsFinished = totalCallsFinished;
             this.LastUpdatedAtUnix = lastUpdatedAtUnix;
             this.Status = status;
+            this.RetryCount = retryCount;
+            this.TelephonyCallConfig = telephonyCallConfig ?? throw new global::System.ArgumentNullException(nameof(telephonyCallConfig));
             this.AgentName = agentName ?? throw new global::System.ArgumentNullException(nameof(agentName));
+            this.PhoneNumberId = phoneNumberId;
             this.PhoneProvider = phoneProvider;
+            this.WhatsappParams = whatsappParams;
+            this.Timezone = timezone;
+            this.TargetConcurrencyLimit = targetConcurrencyLimit;
         }
 
         /// <summary>

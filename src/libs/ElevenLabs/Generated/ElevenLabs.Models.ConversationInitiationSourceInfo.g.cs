@@ -9,10 +9,9 @@ namespace ElevenLabs
     public sealed partial class ConversationInitiationSourceInfo
     {
         /// <summary>
-        /// Enum representing the possible sources for conversation initiation.
+        /// Source of the conversation initiation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationInitiationSourceJsonConverter))]
         public global::ElevenLabs.ConversationInitiationSource? Source { get; set; }
 
         /// <summary>
@@ -31,7 +30,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationInitiationSourceInfo" /> class.
         /// </summary>
         /// <param name="source">
-        /// Enum representing the possible sources for conversation initiation.
+        /// Source of the conversation initiation
         /// </param>
         /// <param name="version">
         /// The SDK version number

@@ -13,14 +13,20 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Key { get; set; } = default!;
+        public required string Key { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Label { get; set; } = default!;
+        public required string Label { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("requires_high_fps")]
+        public bool? RequiresHighFps { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,15 +39,20 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="key"></param>
         /// <param name="label"></param>
+        /// <param name="requiresHighFps">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CaptionStyleTemplateModel(
             string key,
-            string label)
+            string label,
+            bool? requiresHighFps)
         {
             this.Key = key ?? throw new global::System.ArgumentNullException(nameof(key));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
+            this.RequiresHighFps = requiresHighFps;
         }
 
         /// <summary>

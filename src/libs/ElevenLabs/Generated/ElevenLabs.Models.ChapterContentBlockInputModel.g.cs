@@ -12,15 +12,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sub_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ChapterContentBlockInputModelSubTypeJsonConverter))]
-        public global::ElevenLabs.ChapterContentBlockInputModelSubType? SubType { get; set; }
+        public global::ElevenLabs.ChapterContentBlockInputModelSubType2? SubType { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("nodes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel> Nodes { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel> Nodes { get; set; }
 
         /// <summary>
         /// 
@@ -45,7 +44,7 @@ namespace ElevenLabs
 #endif
         public ChapterContentBlockInputModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel> nodes,
-            global::ElevenLabs.ChapterContentBlockInputModelSubType? subType,
+            global::ElevenLabs.ChapterContentBlockInputModelSubType2? subType,
             string? blockId)
         {
             this.Nodes = nodes ?? throw new global::System.ArgumentNullException(nameof(nodes));

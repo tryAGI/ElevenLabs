@@ -23,17 +23,29 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_criteria_results_list")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? EvaluationCriteriaResultsList { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_results_list")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DataCollectionResultCommonModel>? DataCollectionResultsList { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; } = default!;
+        public required global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_summary")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TranscriptSummary { get; set; } = default!;
+        public required string TranscriptSummary { get; set; }
 
         /// <summary>
         /// 
@@ -52,6 +64,8 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="evaluationCriteriaResults"></param>
         /// <param name="dataCollectionResults"></param>
+        /// <param name="evaluationCriteriaResultsList"></param>
+        /// <param name="dataCollectionResultsList"></param>
         /// <param name="callSuccessful"></param>
         /// <param name="transcriptSummary"></param>
         /// <param name="callSummaryTitle"></param>
@@ -63,12 +77,16 @@ namespace ElevenLabs
             string transcriptSummary,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? evaluationCriteriaResults,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResults,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? evaluationCriteriaResultsList,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResultsList,
             string? callSummaryTitle)
         {
             this.CallSuccessful = callSuccessful;
             this.TranscriptSummary = transcriptSummary ?? throw new global::System.ArgumentNullException(nameof(transcriptSummary));
             this.EvaluationCriteriaResults = evaluationCriteriaResults;
             this.DataCollectionResults = dataCollectionResults;
+            this.EvaluationCriteriaResultsList = evaluationCriteriaResultsList;
+            this.DataCollectionResultsList = dataCollectionResultsList;
             this.CallSummaryTitle = callSummaryTitle;
         }
 

@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAtUnixSecs { get; set; } = default!;
+        public required int CreatedAtUnixSecs { get; set; }
 
         /// <summary>
         /// The last update time of the agent in unix seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UpdatedAtUnixSecs { get; set; } = default!;
+        public required int UpdatedAtUnixSecs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

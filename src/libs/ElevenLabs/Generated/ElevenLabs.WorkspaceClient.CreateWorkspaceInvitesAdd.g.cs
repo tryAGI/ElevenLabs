@@ -25,10 +25,10 @@ namespace ElevenLabs
 
         /// <summary>
         /// Invite User<br/>
-        /// Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace administrators. If the user is already in the workspace a 400 error will be returned.
+        /// Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission. If the user is already in the workspace a 400 error will be returned.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -59,22 +59,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -220,37 +204,34 @@ namespace ElevenLabs
 
         /// <summary>
         /// Invite User<br/>
-        /// Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace administrators. If the user is already in the workspace a 400 error will be returned.
+        /// Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission. If the user is already in the workspace a 400 error will be returned.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="email">
-        /// The email of the customer<br/>
-        /// Example: john.doe@testmail.com
+        /// The email of the customer
+        /// </param>
+        /// <param name="seatType">
+        /// The seat type of the user
         /// </param>
         /// <param name="groupIds">
-        /// The group ids of the user<br/>
-        /// Example: [group_id_1, group_id_2]
-        /// </param>
-        /// <param name="workspacePermission">
-        /// The workspace permission of the user<br/>
-        /// Example: workspace_member
+        /// The group ids of the user
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceInviteResponseModel> CreateWorkspaceInvitesAddAsync(
             string email,
             string? xiApiKey = default,
+            global::ElevenLabs.SeatType? seatType = default,
             global::System.Collections.Generic.IList<string>? groupIds = default,
-            global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission? workspacePermission = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost
             {
                 Email = email,
+                SeatType = seatType,
                 GroupIds = groupIds,
-                WorkspacePermission = workspacePermission,
             };
 
             return await CreateWorkspaceInvitesAddAsync(

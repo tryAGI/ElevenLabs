@@ -64,6 +64,23 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Exact))]
 #endif
         public bool IsExact => Exact != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? Anything { get; init; }
+#else
+        public global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? Anything { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Anything))]
+#endif
+        public bool IsAnything => Anything != null;
         /// <summary>
         /// 
         /// </summary>
@@ -121,11 +138,30 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator Eval(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy value) => new Eval((global::ElevenLabs.MatchAnythingParameterEvaluationStrategy?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.MatchAnythingParameterEvaluationStrategy?(Eval @this) => @this.Anything;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Eval(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? value)
+        {
+            Anything = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Eval(
             global::ElevenLabs.UnitTestToolCallParameterEvalDiscriminatorType? type,
             global::ElevenLabs.LLMParameterEvaluationStrategy? llm,
             global::ElevenLabs.RegexParameterEvaluationStrategy? regex,
-            global::ElevenLabs.ExactParameterEvaluationStrategy? exact
+            global::ElevenLabs.ExactParameterEvaluationStrategy? exact,
+            global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? anything
             )
         {
             Type = type;
@@ -133,12 +169,14 @@ namespace ElevenLabs
             Llm = llm;
             Regex = regex;
             Exact = exact;
+            Anything = anything;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Anything as object ??
             Exact as object ??
             Regex as object ??
             Llm as object 
@@ -150,7 +188,8 @@ namespace ElevenLabs
         public override string? ToString() =>
             Llm?.ToString() ??
             Regex?.ToString() ??
-            Exact?.ToString() 
+            Exact?.ToString() ??
+            Anything?.ToString() 
             ;
 
         /// <summary>
@@ -158,7 +197,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsLlm && !IsRegex && !IsExact || !IsLlm && IsRegex && !IsExact || !IsLlm && !IsRegex && IsExact;
+            return IsLlm && !IsRegex && !IsExact && !IsAnything || !IsLlm && IsRegex && !IsExact && !IsAnything || !IsLlm && !IsRegex && IsExact && !IsAnything || !IsLlm && !IsRegex && !IsExact && IsAnything;
         }
 
         /// <summary>
@@ -168,6 +207,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.LLMParameterEvaluationStrategy?, TResult>? llm = null,
             global::System.Func<global::ElevenLabs.RegexParameterEvaluationStrategy?, TResult>? regex = null,
             global::System.Func<global::ElevenLabs.ExactParameterEvaluationStrategy?, TResult>? exact = null,
+            global::System.Func<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy?, TResult>? anything = null,
             bool validate = true)
         {
             if (validate)
@@ -187,6 +227,10 @@ namespace ElevenLabs
             {
                 return exact(Exact!);
             }
+            else if (IsAnything && anything != null)
+            {
+                return anything(Anything!);
+            }
 
             return default(TResult);
         }
@@ -198,6 +242,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.LLMParameterEvaluationStrategy?>? llm = null,
             global::System.Action<global::ElevenLabs.RegexParameterEvaluationStrategy?>? regex = null,
             global::System.Action<global::ElevenLabs.ExactParameterEvaluationStrategy?>? exact = null,
+            global::System.Action<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy?>? anything = null,
             bool validate = true)
         {
             if (validate)
@@ -217,6 +262,10 @@ namespace ElevenLabs
             {
                 exact?.Invoke(Exact!);
             }
+            else if (IsAnything)
+            {
+                anything?.Invoke(Anything!);
+            }
         }
 
         /// <summary>
@@ -232,6 +281,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.RegexParameterEvaluationStrategy),
                 Exact,
                 typeof(global::ElevenLabs.ExactParameterEvaluationStrategy),
+                Anything,
+                typeof(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -250,7 +301,8 @@ namespace ElevenLabs
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LLMParameterEvaluationStrategy?>.Default.Equals(Llm, other.Llm) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RegexParameterEvaluationStrategy?>.Default.Equals(Regex, other.Regex) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ExactParameterEvaluationStrategy?>.Default.Equals(Exact, other.Exact) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ExactParameterEvaluationStrategy?>.Default.Equals(Exact, other.Exact) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy?>.Default.Equals(Anything, other.Anything) 
                 ;
         }
 

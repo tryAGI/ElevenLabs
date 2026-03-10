@@ -11,30 +11,30 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"stored"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConvAIWorkspaceStoredSecretConfigTypeJsonConverter))]
-        public global::ElevenLabs.ConvAIWorkspaceStoredSecretConfigType Type { get; set; }
+        public string Type { get; set; } = "stored";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SecretId { get; set; } = default!;
+        public required string SecretId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("used_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConvAIStoredSecretDependencies UsedBy { get; set; } = default!;
+        public required global::ElevenLabs.ConvAIStoredSecretDependencies UsedBy { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -56,7 +56,7 @@ namespace ElevenLabs
             string secretId,
             string name,
             global::ElevenLabs.ConvAIStoredSecretDependencies usedBy,
-            global::ElevenLabs.ConvAIWorkspaceStoredSecretConfigType type)
+            string type = "stored")
         {
             this.SecretId = secretId ?? throw new global::System.ArgumentNullException(nameof(secretId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));

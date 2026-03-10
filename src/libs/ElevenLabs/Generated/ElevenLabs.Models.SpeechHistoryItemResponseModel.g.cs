@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history_item_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string HistoryItemId { get; set; } = default!;
+        public required string HistoryItemId { get; set; }
 
         /// <summary>
         /// The ID of the request.
@@ -43,8 +43,7 @@ namespace ElevenLabs
         /// The category of the voice. Either 'premade', 'cloned', 'generated' or 'professional'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_category")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeechHistoryItemResponseModelVoiceCategoryJsonConverter))]
-        public global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory? VoiceCategory { get; set; }
+        public global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory2? VoiceCategory { get; set; }
 
         /// <summary>
         /// The text used to generate the audio item.
@@ -58,28 +57,28 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("date_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTimeOffset DateUnix { get; set; } = default!;
+        public required global::System.DateTimeOffset DateUnix { get; set; }
 
         /// <summary>
         /// The character count change from.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count_change_from")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharacterCountChangeFrom { get; set; } = default!;
+        public required int CharacterCountChangeFrom { get; set; }
 
         /// <summary>
         /// The character count change to.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count_change_to")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharacterCountChangeTo { get; set; } = default!;
+        public required int CharacterCountChangeTo { get; set; }
 
         /// <summary>
         /// The content type of the generated item.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ContentType { get; set; } = default!;
+        public required string ContentType { get; set; }
 
         /// <summary>
         /// The state of the history item.
@@ -87,7 +86,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeechHistoryItemResponseModelStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SpeechHistoryItemResponseModelState State { get; set; } = default!;
+        public required global::ElevenLabs.SpeechHistoryItemResponseModelState State { get; set; }
 
         /// <summary>
         /// The settings of the history item.
@@ -96,9 +95,8 @@ namespace ElevenLabs
         public object? Settings { get; set; }
 
         /// <summary>
-        /// Example: {"audio_quality":true,"emotions":true,"feedback":"This is an example of test feedback.","glitches":true,"inaccurate_clone":false,"other":false,"review_status":"not_reviewed","thumbs_up":true}
+        /// Feedback associated with the generated item. Returns null if no feedback has been provided.
         /// </summary>
-        /// <example>{"audio_quality":true,"emotions":true,"feedback":"This is an example of test feedback.","glitches":true,"inaccurate_clone":false,"other":false,"review_status":"not_reviewed","thumbs_up":true}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
         public global::ElevenLabs.FeedbackResponseModel? Feedback { get; set; }
 
@@ -109,14 +107,13 @@ namespace ElevenLabs
         public string? ShareLinkId { get; set; }
 
         /// <summary>
-        /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI, PD (pronunciation dictionary) or ConvAI (conversational AI).
+        /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI, PD (pronunciation dictionary) or ConvAI (Agents Platform).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeechHistoryItemResponseModelSourceJsonConverter))]
-        public global::ElevenLabs.SpeechHistoryItemResponseModelSource? Source { get; set; }
+        public global::ElevenLabs.SpeechHistoryItemResponseModelSource2? Source { get; set; }
 
         /// <summary>
-        /// 
+        /// The alignments of the history item.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alignments")]
         public global::ElevenLabs.HistoryAlignmentsResponseModel? Alignments { get; set; }
@@ -176,15 +173,17 @@ namespace ElevenLabs
         /// The settings of the history item.
         /// </param>
         /// <param name="feedback">
-        /// Example: {"audio_quality":true,"emotions":true,"feedback":"This is an example of test feedback.","glitches":true,"inaccurate_clone":false,"other":false,"review_status":"not_reviewed","thumbs_up":true}
+        /// Feedback associated with the generated item. Returns null if no feedback has been provided.
         /// </param>
         /// <param name="shareLinkId">
         /// The ID of the share link.
         /// </param>
         /// <param name="source">
-        /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI, PD (pronunciation dictionary) or ConvAI (conversational AI).
+        /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI, PD (pronunciation dictionary) or ConvAI (Agents Platform).
         /// </param>
-        /// <param name="alignments"></param>
+        /// <param name="alignments">
+        /// The alignments of the history item.
+        /// </param>
         /// <param name="dialogue">
         /// The dialogue (voice and text pairs) used to generate the audio item. If this is set then the top level `text` and `voice_id` fields will be empty.
         /// </param>
@@ -202,12 +201,12 @@ namespace ElevenLabs
             string? voiceId,
             string? modelId,
             string? voiceName,
-            global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory? voiceCategory,
+            global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory2? voiceCategory,
             string? text,
             object? settings,
             global::ElevenLabs.FeedbackResponseModel? feedback,
             string? shareLinkId,
-            global::ElevenLabs.SpeechHistoryItemResponseModelSource? source,
+            global::ElevenLabs.SpeechHistoryItemResponseModelSource2? source,
             global::ElevenLabs.HistoryAlignmentsResponseModel? alignments,
             global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? dialogue)
         {

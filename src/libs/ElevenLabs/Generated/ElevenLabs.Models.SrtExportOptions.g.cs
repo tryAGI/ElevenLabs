@@ -29,9 +29,9 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"srt"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SrtExportOptionsFormatJsonConverter))]
-        public global::ElevenLabs.SrtExportOptionsFormat Format { get; set; }
+        public string Format { get; set; } = "srt";
 
         /// <summary>
         /// Default Value: 0.8
@@ -86,10 +86,10 @@ namespace ElevenLabs
             int? maxCharactersPerLine,
             bool? includeSpeakers,
             bool? includeTimestamps,
-            global::ElevenLabs.SrtExportOptionsFormat format,
             double? segmentOnSilenceLongerThanS,
             double? maxSegmentDurationS,
-            int? maxSegmentChars)
+            int? maxSegmentChars,
+            string format = "srt")
         {
             this.MaxCharactersPerLine = maxCharactersPerLine;
             this.IncludeSpeakers = includeSpeakers;

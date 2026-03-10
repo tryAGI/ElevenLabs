@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Commenter,
+        /// <summary>
+        /// 
+        /// </summary>
         Viewer,
     }
 
@@ -36,6 +40,7 @@ namespace ElevenLabs
             {
                 DependentAvailableToolIdentifierAccessLevel.Admin => "admin",
                 DependentAvailableToolIdentifierAccessLevel.Editor => "editor",
+                DependentAvailableToolIdentifierAccessLevel.Commenter => "commenter",
                 DependentAvailableToolIdentifierAccessLevel.Viewer => "viewer",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -49,6 +54,7 @@ namespace ElevenLabs
             {
                 "admin" => DependentAvailableToolIdentifierAccessLevel.Admin,
                 "editor" => DependentAvailableToolIdentifierAccessLevel.Editor,
+                "commenter" => DependentAvailableToolIdentifierAccessLevel.Commenter,
                 "viewer" => DependentAvailableToolIdentifierAccessLevel.Viewer,
                 _ => null,
             };

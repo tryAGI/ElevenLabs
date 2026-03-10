@@ -9,16 +9,20 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
-            ref global::ElevenLabs.ListDubsV1DubbingGetDubbingStatus? dubbingStatus,
-            ref global::ElevenLabs.ListDubsV1DubbingGetFilterByCreator? filterByCreator,
+            ref global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus,
+            ref global::ElevenLabs.ListDubsFilterByCreator? filterByCreator,
+            ref string? orderBy,
+            ref global::ElevenLabs.ListDubsOrderDirection? orderDirection,
             ref string? xiApiKey);
         partial void PrepareGetDubbingRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
             int? pageSize,
-            global::ElevenLabs.ListDubsV1DubbingGetDubbingStatus? dubbingStatus,
-            global::ElevenLabs.ListDubsV1DubbingGetFilterByCreator? filterByCreator,
+            global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus,
+            global::ElevenLabs.ListDubsFilterByCreator? filterByCreator,
+            string? orderBy,
+            global::ElevenLabs.ListDubsOrderDirection? orderDirection,
             string? xiApiKey);
         partial void ProcessGetDubbingResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -45,19 +49,28 @@ namespace ElevenLabs
         /// </param>
         /// <param name="filterByCreator">
         /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
-        /// Default Value: all<br/>
-        /// Example: all
+        /// Default Value: all
+        /// </param>
+        /// <param name="orderBy">
+        /// The field to use for ordering results from this query.<br/>
+        /// Default Value: created_at
+        /// </param>
+        /// <param name="orderDirection">
+        /// The order direction to use for results from this query.<br/>
+        /// Default Value: DESCENDING
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingMetadataPageResponseModel> GetDubbingAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.ListDubsV1DubbingGetDubbingStatus? dubbingStatus = default,
-            global::ElevenLabs.ListDubsV1DubbingGetFilterByCreator? filterByCreator = default,
+            global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
+            global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
+            string? orderBy = default,
+            global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -69,6 +82,8 @@ namespace ElevenLabs
                 pageSize: ref pageSize,
                 dubbingStatus: ref dubbingStatus,
                 filterByCreator: ref filterByCreator,
+                orderBy: ref orderBy,
+                orderDirection: ref orderDirection,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -78,7 +93,9 @@ namespace ElevenLabs
                 .AddOptionalParameter("cursor", cursor)
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("dubbing_status", dubbingStatus?.ToValueString())
-                .AddOptionalParameter("filter_by_creator", filterByCreator?.ToValueString()) 
+                .AddOptionalParameter("filter_by_creator", filterByCreator?.ToValueString())
+                .AddOptionalParameter("order_by", orderBy)
+                .AddOptionalParameter("order_direction", orderDirection?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -88,22 +105,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -121,6 +122,8 @@ namespace ElevenLabs
                 pageSize: pageSize,
                 dubbingStatus: dubbingStatus,
                 filterByCreator: filterByCreator,
+                orderBy: orderBy,
+                orderDirection: orderDirection,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

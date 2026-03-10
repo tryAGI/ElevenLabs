@@ -9,7 +9,7 @@ namespace ElevenLabs
         /// Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/design or POST /v1/text-to-voice/:voice_id/remix.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -25,23 +25,19 @@ namespace ElevenLabs
         /// Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/design or POST /v1/text-to-voice/:voice_id/remix.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="voiceName">
-        /// Name to use for the created voice.<br/>
-        /// Example: Sassy squeaky mouse
+        /// Name to use for the created voice.
         /// </param>
         /// <param name="voiceDescription">
-        /// Description to use for the created voice.<br/>
-        /// Example: A sassy squeaky mouse
+        /// Description to use for the created voice.
         /// </param>
         /// <param name="generatedVoiceId">
-        /// The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response header if don't have one yet.<br/>
-        /// Example: 37HceQefKmEi3bGovXjL
+        /// The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response header if don't have one yet.
         /// </param>
         /// <param name="labels">
-        /// Optional, metadata to add to the created voice. Defaults to None.<br/>
-        /// Example: {"language":"en"}
+        /// Optional, metadata to add to the created voice. Defaults to None.
         /// </param>
         /// <param name="playedNotSelectedVoiceIds">
         /// List of voice ids that the user has played but not selected. Used for RLHF.

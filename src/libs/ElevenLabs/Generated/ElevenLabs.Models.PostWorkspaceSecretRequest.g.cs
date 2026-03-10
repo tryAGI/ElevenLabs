@@ -11,23 +11,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"new"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PostWorkspaceSecretRequestTypeJsonConverter))]
-        public global::ElevenLabs.PostWorkspaceSecretRequestType Type { get; set; }
+        public string Type { get; set; } = "new";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Value { get; set; } = default!;
+        public required string Value { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -47,7 +47,7 @@ namespace ElevenLabs
         public PostWorkspaceSecretRequest(
             string name,
             string value,
-            global::ElevenLabs.PostWorkspaceSecretRequestType type)
+            string type = "new")
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));

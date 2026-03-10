@@ -14,29 +14,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The type of evaluation criteria<br/>
         /// Default Value: prompt
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PromptEvaluationCriteriaTypeJsonConverter))]
-        public global::ElevenLabs.PromptEvaluationCriteriaType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// The prompt that the agent should use to evaluate the conversation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_goal_prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ConversationGoalPrompt { get; set; } = default!;
+        public required string ConversationGoalPrompt { get; set; }
 
         /// <summary>
         /// When evaluating the prompt, should the agent's knowledge base be used.<br/>
@@ -76,7 +75,7 @@ namespace ElevenLabs
             string id,
             string name,
             string conversationGoalPrompt,
-            global::ElevenLabs.PromptEvaluationCriteriaType? type,
+            string? type,
             bool? useKnowledgeBase)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));

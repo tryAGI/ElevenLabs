@@ -13,8 +13,7 @@ namespace ElevenLabs
         /// Default Value: url
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.URLAvatarTypeJsonConverter))]
-        public global::ElevenLabs.URLAvatarType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// The custom URL of the avatar
@@ -42,7 +41,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public URLAvatar(
-            global::ElevenLabs.URLAvatarType? type,
+            string? type,
             string? customUrl)
         {
             this.Type = type;

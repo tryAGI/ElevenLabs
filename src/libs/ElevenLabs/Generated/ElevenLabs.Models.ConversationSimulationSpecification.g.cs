@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace ElevenLabs
@@ -11,12 +9,12 @@ namespace ElevenLabs
     public sealed partial class ConversationSimulationSpecification
     {
         /// <summary>
-        /// Example: {"first_message":"Hello, how can I help you today?","language":"en"}
+        /// Example: {"disable_first_message_interruptions":false,"first_message":"Hello, how can I help you today?","language":"en"}
         /// </summary>
-        /// <example>{"first_message":"Hello, how can I help you today?","language":"en"}</example>
+        /// <example>{"disable_first_message_interruptions":false,"first_message":"Hello, how can I help you today?","language":"en"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("simulated_user_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AgentConfigAPIModelInput SimulatedUserConfig { get; set; } = default!;
+        public required global::ElevenLabs.AgentConfigAPIModelInput SimulatedUserConfig { get; set; }
 
         /// <summary>
         /// 
@@ -34,7 +32,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnyOf<string, double?, int?, bool?>?>? DynamicVariables { get; set; }
+        public object? DynamicVariables { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -46,7 +44,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationSimulationSpecification" /> class.
         /// </summary>
         /// <param name="simulatedUserConfig">
-        /// Example: {"first_message":"Hello, how can I help you today?","language":"en"}
+        /// Example: {"disable_first_message_interruptions":false,"first_message":"Hello, how can I help you today?","language":"en"}
         /// </param>
         /// <param name="toolMockConfig"></param>
         /// <param name="partialConversationHistory">
@@ -60,7 +58,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentConfigAPIModelInput simulatedUserConfig,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? toolMockConfig,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? partialConversationHistory,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnyOf<string, double?, int?, bool?>?>? dynamicVariables)
+            object? dynamicVariables)
         {
             this.SimulatedUserConfig = simulatedUserConfig ?? throw new global::System.ArgumentNullException(nameof(simulatedUserConfig));
             this.ToolMockConfig = toolMockConfig;

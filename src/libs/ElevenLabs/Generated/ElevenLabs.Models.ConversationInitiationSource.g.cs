@@ -56,6 +56,26 @@ namespace ElevenLabs
         /// 
         /// </summary>
         SwiftSdk,
+        /// <summary>
+        /// 
+        /// </summary>
+        Whatsapp,
+        /// <summary>
+        /// 
+        /// </summary>
+        FlutterSdk,
+        /// <summary>
+        /// 
+        /// </summary>
+        ZendeskIntegration,
+        /// <summary>
+        /// 
+        /// </summary>
+        SlackIntegration,
+        /// <summary>
+        /// 
+        /// </summary>
+        TemplatePreview,
     }
 
     /// <summary>
@@ -82,6 +102,11 @@ namespace ElevenLabs
                 ConversationInitiationSource.Twilio => "twilio",
                 ConversationInitiationSource.Genesys => "genesys",
                 ConversationInitiationSource.SwiftSdk => "swift_sdk",
+                ConversationInitiationSource.Whatsapp => "whatsapp",
+                ConversationInitiationSource.FlutterSdk => "flutter_sdk",
+                ConversationInitiationSource.ZendeskIntegration => "zendesk_integration",
+                ConversationInitiationSource.SlackIntegration => "slack_integration",
+                ConversationInitiationSource.TemplatePreview => "template_preview",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -104,6 +129,11 @@ namespace ElevenLabs
                 "twilio" => ConversationInitiationSource.Twilio,
                 "genesys" => ConversationInitiationSource.Genesys,
                 "swift_sdk" => ConversationInitiationSource.SwiftSdk,
+                "whatsapp" => ConversationInitiationSource.Whatsapp,
+                "flutter_sdk" => ConversationInitiationSource.FlutterSdk,
+                "zendesk_integration" => ConversationInitiationSource.ZendeskIntegration,
+                "slack_integration" => ConversationInitiationSource.SlackIntegration,
+                "template_preview" => ConversationInitiationSource.TemplatePreview,
                 _ => null,
             };
         }

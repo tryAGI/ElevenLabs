@@ -9,20 +9,13 @@ namespace ElevenLabs
     public sealed partial class AgentPlatformSettingsRequestModel
     {
         /// <summary>
-        /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"shareable_token":"1234567890"}
-        /// </summary>
-        /// <example>{"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"shareable_token":"1234567890"}</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("auth")]
-        public global::ElevenLabs.AuthSettings? Auth { get; set; }
-
-        /// <summary>
-        /// Settings to evaluate an agent's performance.<br/>
-        /// Agents are evaluated against a set of criteria, with success being defined as meeting some combination of those criteria.
+        /// Settings for evaluation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation")]
         public global::ElevenLabs.EvaluationSettings? Evaluation { get; set; }
 
         /// <summary>
+        /// Configuration for the widget<br/>
         /// Example: {"custom_avatar_path":"https://example.com/avatar.png","language_selector":false}
         /// </summary>
         /// <example>{"custom_avatar_path":"https://example.com/avatar.png","language_selector":false}</example>
@@ -36,6 +29,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? DataCollection { get; set; }
 
         /// <summary>
+        /// Additional overrides for the agent during conversation initiation<br/>
         /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}
         /// </summary>
         /// <example>{"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}</example>
@@ -43,6 +37,48 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationInitiationClientDataConfigInput? Overrides { get; set; }
 
         /// <summary>
+        /// Workspace overrides for the agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workspace_overrides")]
+        public global::ElevenLabs.AgentWorkspaceOverridesInput? WorkspaceOverrides { get; set; }
+
+        /// <summary>
+        /// Testing configuration for the agent<br/>
+        /// Example: {"attached_tests":[{"test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
+        /// </summary>
+        /// <example>{"attached_tests":[{"test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("testing")]
+        public global::ElevenLabs.AgentTestingSettings? Testing { get; set; }
+
+        /// <summary>
+        /// Whether the agent is archived<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("archived")]
+        public bool? Archived { get; set; }
+
+        /// <summary>
+        /// Guardrails configuration for the agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("guardrails")]
+        public global::ElevenLabs.GuardrailsV1Input? Guardrails { get; set; }
+
+        /// <summary>
+        /// Language for all conversation analysis outputs (summaries, titles, evaluation rationales, data collection rationales). If not set, the language will be inferred from the conversation. Must be one of the supported conversation languages.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("summary_language")]
+        public string? SummaryLanguage { get; set; }
+
+        /// <summary>
+        /// Settings for authentication<br/>
+        /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"require_origin_header":true,"shareable_token":"1234567890"}
+        /// </summary>
+        /// <example>{"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"require_origin_header":true,"shareable_token":"1234567890"}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auth")]
+        public global::ElevenLabs.AuthSettings? Auth { get; set; }
+
+        /// <summary>
+        /// Call limits for the agent<br/>
         /// Example: {"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}
         /// </summary>
         /// <example>{"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}</example>
@@ -50,25 +86,12 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentCallLimits? CallLimits { get; set; }
 
         /// <summary>
+        /// Privacy settings for the agent<br/>
         /// Example: {"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}
         /// </summary>
         /// <example>{"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("privacy")]
-        public global::ElevenLabs.PrivacyConfig? Privacy { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("workspace_overrides")]
-        public global::ElevenLabs.AgentWorkspaceOverridesInput? WorkspaceOverrides { get; set; }
-
-        /// <summary>
-        /// Settings for agent testing configuration.<br/>
-        /// Example: {"attached_tests":[{"test_id":"test_123"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
-        /// </summary>
-        /// <example>{"attached_tests":[{"test_id":"test_123"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("testing")]
-        public global::ElevenLabs.AgentTestingSettings? Testing { get; set; }
+        public global::ElevenLabs.PrivacyConfigInput? Privacy { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -79,56 +102,78 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentPlatformSettingsRequestModel" /> class.
         /// </summary>
-        /// <param name="auth">
-        /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"shareable_token":"1234567890"}
-        /// </param>
         /// <param name="evaluation">
-        /// Settings to evaluate an agent's performance.<br/>
-        /// Agents are evaluated against a set of criteria, with success being defined as meeting some combination of those criteria.
+        /// Settings for evaluation
         /// </param>
         /// <param name="widget">
+        /// Configuration for the widget<br/>
         /// Example: {"custom_avatar_path":"https://example.com/avatar.png","language_selector":false}
         /// </param>
         /// <param name="dataCollection">
         /// Data collection settings
         /// </param>
         /// <param name="overrides">
+        /// Additional overrides for the agent during conversation initiation<br/>
         /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}
         /// </param>
+        /// <param name="workspaceOverrides">
+        /// Workspace overrides for the agent
+        /// </param>
+        /// <param name="testing">
+        /// Testing configuration for the agent<br/>
+        /// Example: {"attached_tests":[{"test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
+        /// </param>
+        /// <param name="archived">
+        /// Whether the agent is archived<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="guardrails">
+        /// Guardrails configuration for the agent
+        /// </param>
+        /// <param name="summaryLanguage">
+        /// Language for all conversation analysis outputs (summaries, titles, evaluation rationales, data collection rationales). If not set, the language will be inferred from the conversation. Must be one of the supported conversation languages.
+        /// </param>
+        /// <param name="auth">
+        /// Settings for authentication<br/>
+        /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"require_origin_header":true,"shareable_token":"1234567890"}
+        /// </param>
         /// <param name="callLimits">
+        /// Call limits for the agent<br/>
         /// Example: {"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}
         /// </param>
         /// <param name="privacy">
+        /// Privacy settings for the agent<br/>
         /// Example: {"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}
-        /// </param>
-        /// <param name="workspaceOverrides"></param>
-        /// <param name="testing">
-        /// Settings for agent testing configuration.<br/>
-        /// Example: {"attached_tests":[{"test_id":"test_123"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentPlatformSettingsRequestModel(
-            global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.EvaluationSettings? evaluation,
             global::ElevenLabs.WidgetConfigInput? widget,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection,
             global::ElevenLabs.ConversationInitiationClientDataConfigInput? overrides,
-            global::ElevenLabs.AgentCallLimits? callLimits,
-            global::ElevenLabs.PrivacyConfig? privacy,
             global::ElevenLabs.AgentWorkspaceOverridesInput? workspaceOverrides,
-            global::ElevenLabs.AgentTestingSettings? testing)
+            global::ElevenLabs.AgentTestingSettings? testing,
+            bool? archived,
+            global::ElevenLabs.GuardrailsV1Input? guardrails,
+            string? summaryLanguage,
+            global::ElevenLabs.AuthSettings? auth,
+            global::ElevenLabs.AgentCallLimits? callLimits,
+            global::ElevenLabs.PrivacyConfigInput? privacy)
         {
-            this.Auth = auth;
             this.Evaluation = evaluation;
             this.Widget = widget;
             this.DataCollection = dataCollection;
             this.Overrides = overrides;
-            this.CallLimits = callLimits;
-            this.Privacy = privacy;
             this.WorkspaceOverrides = workspaceOverrides;
             this.Testing = testing;
+            this.Archived = archived;
+            this.Guardrails = guardrails;
+            this.SummaryLanguage = summaryLanguage;
+            this.Auth = auth;
+            this.CallLimits = callLimits;
+            this.Privacy = privacy;
         }
 
         /// <summary>

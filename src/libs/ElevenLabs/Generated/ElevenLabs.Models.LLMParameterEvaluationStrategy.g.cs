@@ -11,16 +11,16 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"llm"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LLMParameterEvaluationStrategyTypeJsonConverter))]
-        public global::ElevenLabs.LLMParameterEvaluationStrategyType Type { get; set; }
+        public string Type { get; set; } = "llm";
 
         /// <summary>
         /// A description of the evaluation strategy to use for the test.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Description { get; set; } = default!;
+        public required string Description { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +40,7 @@ namespace ElevenLabs
 #endif
         public LLMParameterEvaluationStrategy(
             string description,
-            global::ElevenLabs.LLMParameterEvaluationStrategyType type)
+            string type = "llm")
         {
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Type = type;

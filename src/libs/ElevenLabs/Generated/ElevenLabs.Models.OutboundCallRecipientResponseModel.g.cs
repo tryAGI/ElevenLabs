@@ -13,14 +13,19 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumber { get; set; } = default!;
+        public string? PhoneNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_user_id")]
+        public string? WhatsappUserId { get; set; }
 
         /// <summary>
         /// 
@@ -28,28 +33,27 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BatchCallRecipientStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.BatchCallRecipientStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.BatchCallRecipientStatus Status { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAtUnix { get; set; } = default!;
+        public required int CreatedAtUnix { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UpdatedAtUnix { get; set; } = default!;
+        public required int UpdatedAtUnix { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? ConversationId { get; set; } = default!;
+        public string? ConversationId { get; set; }
 
         /// <summary>
         /// 
@@ -68,6 +72,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="id"></param>
         /// <param name="phoneNumber"></param>
+        /// <param name="whatsappUserId"></param>
         /// <param name="status"></param>
         /// <param name="createdAtUnix"></param>
         /// <param name="updatedAtUnix"></param>
@@ -78,19 +83,21 @@ namespace ElevenLabs
 #endif
         public OutboundCallRecipientResponseModel(
             string id,
-            string phoneNumber,
             global::ElevenLabs.BatchCallRecipientStatus status,
             int createdAtUnix,
             int updatedAtUnix,
+            string? phoneNumber,
+            string? whatsappUserId,
             string? conversationId,
             global::ElevenLabs.ConversationInitiationClientDataInternal? conversationInitiationClientData)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Status = status;
             this.CreatedAtUnix = createdAtUnix;
             this.UpdatedAtUnix = updatedAtUnix;
-            this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
+            this.PhoneNumber = phoneNumber;
+            this.WhatsappUserId = whatsappUserId;
+            this.ConversationId = conversationId;
             this.ConversationInitiationClientData = conversationInitiationClientData;
         }
 

@@ -15,7 +15,7 @@ namespace ElevenLabs
         public bool? Enabled { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: e5_mistral_7b_instruct
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
@@ -23,30 +23,36 @@ namespace ElevenLabs
 
         /// <summary>
         /// Maximum vector distance of retrieved chunks.<br/>
-        /// Default Value: 0.6<br/>
-        /// Example: 0.5
+        /// Default Value: 0.6
         /// </summary>
-        /// <example>0.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_vector_distance")]
         public double? MaxVectorDistance { get; set; }
 
         /// <summary>
         /// Maximum total length of document chunks retrieved from RAG.<br/>
-        /// Default Value: 50000<br/>
-        /// Example: 50000
+        /// Default Value: 50000
         /// </summary>
-        /// <example>50000</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_documents_length")]
         public int? MaxDocumentsLength { get; set; }
 
         /// <summary>
         /// Maximum number of RAG document chunks to initially retrieve from the vector store. These are then further filtered by vector distance and total length.<br/>
-        /// Default Value: 20<br/>
-        /// Example: 5
+        /// Default Value: 20
         /// </summary>
-        /// <example>5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_retrieved_rag_chunks_count")]
         public int? MaxRetrievedRagChunksCount { get; set; }
+
+        /// <summary>
+        /// Number of candidates evaluated in ANN vector search. Higher number means better results, but higher latency. Minimum recommended value is 100. If disabled, the default value is used.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("num_candidates")]
+        public int? NumCandidates { get; set; }
+
+        /// <summary>
+        /// Custom prompt for rewriting user queries before RAG retrieval. The conversation history will be automatically appended at the end. If not set, the default prompt will be used.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("query_rewrite_prompt_override")]
+        public string? QueryRewritePromptOverride { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -60,21 +66,26 @@ namespace ElevenLabs
         /// <param name="enabled">
         /// Default Value: false
         /// </param>
-        /// <param name="embeddingModel"></param>
+        /// <param name="embeddingModel">
+        /// Default Value: e5_mistral_7b_instruct
+        /// </param>
         /// <param name="maxVectorDistance">
         /// Maximum vector distance of retrieved chunks.<br/>
-        /// Default Value: 0.6<br/>
-        /// Example: 0.5
+        /// Default Value: 0.6
         /// </param>
         /// <param name="maxDocumentsLength">
         /// Maximum total length of document chunks retrieved from RAG.<br/>
-        /// Default Value: 50000<br/>
-        /// Example: 50000
+        /// Default Value: 50000
         /// </param>
         /// <param name="maxRetrievedRagChunksCount">
         /// Maximum number of RAG document chunks to initially retrieve from the vector store. These are then further filtered by vector distance and total length.<br/>
-        /// Default Value: 20<br/>
-        /// Example: 5
+        /// Default Value: 20
+        /// </param>
+        /// <param name="numCandidates">
+        /// Number of candidates evaluated in ANN vector search. Higher number means better results, but higher latency. Minimum recommended value is 100. If disabled, the default value is used.
+        /// </param>
+        /// <param name="queryRewritePromptOverride">
+        /// Custom prompt for rewriting user queries before RAG retrieval. The conversation history will be automatically appended at the end. If not set, the default prompt will be used.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -84,13 +95,17 @@ namespace ElevenLabs
             global::ElevenLabs.EmbeddingModelEnum? embeddingModel,
             double? maxVectorDistance,
             int? maxDocumentsLength,
-            int? maxRetrievedRagChunksCount)
+            int? maxRetrievedRagChunksCount,
+            int? numCandidates,
+            string? queryRewritePromptOverride)
         {
             this.Enabled = enabled;
             this.EmbeddingModel = embeddingModel;
             this.MaxVectorDistance = maxVectorDistance;
             this.MaxDocumentsLength = maxDocumentsLength;
             this.MaxRetrievedRagChunksCount = maxRetrievedRagChunksCount;
+            this.NumCandidates = numCandidates;
+            this.QueryRewritePromptOverride = queryRewritePromptOverride;
         }
 
         /// <summary>

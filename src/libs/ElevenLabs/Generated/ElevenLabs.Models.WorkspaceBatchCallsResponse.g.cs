@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_calls")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.BatchCallResponse> BatchCalls { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.BatchCallResponse> BatchCalls { get; set; }
 
         /// <summary>
         /// The next document, used to paginate through the batch calls

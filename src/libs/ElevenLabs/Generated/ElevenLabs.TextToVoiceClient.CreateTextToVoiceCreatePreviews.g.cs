@@ -7,13 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareCreateTextToVoiceCreatePreviewsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::ElevenLabs.GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat? outputFormat,
+            ref global::ElevenLabs.AllowedOutputFormats? outputFormat,
             ref string? xiApiKey,
             global::ElevenLabs.VoicePreviewsRequestModel request);
         partial void PrepareCreateTextToVoiceCreatePreviewsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat? outputFormat,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat,
             string? xiApiKey,
             global::ElevenLabs.VoicePreviewsRequestModel request);
         partial void ProcessCreateTextToVoiceCreatePreviewsResponse(
@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_192
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -42,7 +42,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreateTextToVoiceCreatePreviewsAsync(
 
             global::ElevenLabs.VoicePreviewsRequestModel request,
-            global::ElevenLabs.GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -70,22 +70,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -239,15 +223,13 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_192
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="voiceDescription">
-        /// Description to use for the created voice.<br/>
-        /// Example: A sassy squeaky mouse
+        /// Description to use for the created voice.
         /// </param>
         /// <param name="text">
-        /// Text to generate, text length has to be between 100 and 1000.<br/>
-        /// Example: Every act of kindness, no matter how small, carries value and can make a difference, as no gesture of goodwill is ever wasted.
+        /// Text to generate, text length has to be between 100 and 1000.
         /// </param>
         /// <param name="autoGenerateText">
         /// Whether to automatically generate a text suitable for the voice description.<br/>
@@ -255,28 +237,28 @@ namespace ElevenLabs
         /// </param>
         /// <param name="loudness">
         /// Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.<br/>
-        /// Default Value: 0.5<br/>
-        /// Example: 0.5
+        /// Default Value: 0.5
         /// </param>
         /// <param name="quality">
         /// Higher quality results in better voice output but less variety.<br/>
-        /// Default Value: 0.9<br/>
-        /// Example: 0.9
+        /// Default Value: 0.9
         /// </param>
         /// <param name="seed">
-        /// Random number that controls the voice generation. Same seed with same inputs produces same voice.<br/>
-        /// Example: 11
+        /// Random number that controls the voice generation. Same seed with same inputs produces same voice.
         /// </param>
         /// <param name="guidanceScale">
         /// Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.<br/>
-        /// Default Value: 5<br/>
-        /// Example: 5
+        /// Default Value: 5
+        /// </param>
+        /// <param name="shouldEnhance">
+        /// Whether to enhance the voice description using AI to add more detail and improve voice generation quality. When enabled, the system will automatically expand simple prompts into more detailed voice descriptions. Defaults to False<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreateTextToVoiceCreatePreviewsAsync(
             string voiceDescription,
-            global::ElevenLabs.GenerateAVoicePreviewFromDescriptionV1TextToVoiceCreatePreviewsPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             string? text = default,
             bool? autoGenerateText = default,
@@ -284,6 +266,7 @@ namespace ElevenLabs
             double? quality = default,
             int? seed = default,
             double? guidanceScale = default,
+            bool? shouldEnhance = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.VoicePreviewsRequestModel
@@ -295,6 +278,7 @@ namespace ElevenLabs
                 Quality = quality,
                 Seed = seed,
                 GuidanceScale = guidanceScale,
+                ShouldEnhance = shouldEnhance,
             };
 
             return await CreateTextToVoiceCreatePreviewsAsync(

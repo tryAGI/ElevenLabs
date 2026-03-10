@@ -13,36 +13,32 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Version { get; set; } = default!;
+        public required int Version { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? Language { get; set; } = default!;
+        public string? Language { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RenderTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.RenderType Type { get; set; } = default!;
+        public global::ElevenLabs.RenderType2? Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_ref")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.DubbingMediaReference MediaRef { get; set; } = default!;
+        public global::ElevenLabs.DubbingMediaReference? MediaRef { get; set; }
 
         /// <summary>
         /// 
@@ -50,7 +46,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RenderStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.RenderStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.RenderStatus Status { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -73,17 +69,17 @@ namespace ElevenLabs
         public Render(
             string id,
             int version,
+            global::ElevenLabs.RenderStatus status,
             string? language,
-            global::ElevenLabs.RenderType type,
-            global::ElevenLabs.DubbingMediaReference mediaRef,
-            global::ElevenLabs.RenderStatus status)
+            global::ElevenLabs.RenderType2? type,
+            global::ElevenLabs.DubbingMediaReference? mediaRef)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Version = version;
-            this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
-            this.Type = type;
-            this.MediaRef = mediaRef ?? throw new global::System.ArgumentNullException(nameof(mediaRef));
             this.Status = status;
+            this.Language = language;
+            this.Type = type;
+            this.MediaRef = mediaRef;
         }
 
         /// <summary>

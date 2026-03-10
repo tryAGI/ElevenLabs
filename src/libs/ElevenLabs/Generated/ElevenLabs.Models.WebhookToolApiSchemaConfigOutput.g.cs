@@ -4,17 +4,22 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Configuration for a webhook that will be called by an LLM tool.<br/>
     /// Example: {"method":"GET","path_params_schema":{"agent_id":{"type":"string"}},"query_params_schema":{"param1":{"type":"string"}},"request_body_schema":{"param1":{"type":"string"}},"request_headers":{"Authorization":"Bearer {api_key}"},"url":"https://example.com/agents/{agent_id}"}
     /// </summary>
     public sealed partial class WebhookToolApiSchemaConfigOutput
     {
         /// <summary>
+        /// Headers that should be included in the request
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
+        public object? RequestHeaders { get; set; }
+
+        /// <summary>
         /// The URL that the webhook will be sent to. May include path parameters, e.g. https://example.com/agents/{agent_id}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Url { get; set; } = default!;
+        public required string Url { get; set; }
 
         /// <summary>
         /// The HTTP method to use for the webhook<br/>
@@ -31,25 +36,27 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? PathParamsSchema { get; set; }
 
         /// <summary>
-        /// 
+        /// Schema for any query params, if any. These will be added to end of the URL as query params. Note: properties in a query param must all be literal types
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query_params_schema")]
         public global::ElevenLabs.QueryParamsJsonSchema? QueryParamsSchema { get; set; }
 
         /// <summary>
-        /// 
+        /// Schema for the body parameters, if any. Used for POST/PATCH/PUT requests. The schema should be an object which will be sent as the json body
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_body_schema")]
         public global::ElevenLabs.ObjectJsonSchemaPropertyOutput? RequestBodySchema { get; set; }
 
         /// <summary>
-        /// Headers that should be included in the request
+        /// Content type for the request body. Only applies to POST/PUT/PATCH requests.<br/>
+        /// Default Value: application/json
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
-        public object? RequestHeaders { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("content_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WebhookToolApiSchemaConfigOutputContentTypeJsonConverter))]
+        public global::ElevenLabs.WebhookToolApiSchemaConfigOutputContentType? ContentType { get; set; }
 
         /// <summary>
-        /// Used to reference an auth connection from the workspace's auth connection store.
+        /// Optional auth connection to use for authentication with this webhook
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
         public global::ElevenLabs.AuthConnectionLocator? AuthConnection { get; set; }
@@ -63,6 +70,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookToolApiSchemaConfigOutput" /> class.
         /// </summary>
+        /// <param name="requestHeaders">
+        /// Headers that should be included in the request
+        /// </param>
         /// <param name="url">
         /// The URL that the webhook will be sent to. May include path parameters, e.g. https://example.com/agents/{agent_id}
         /// </param>
@@ -73,32 +83,39 @@ namespace ElevenLabs
         /// <param name="pathParamsSchema">
         /// Schema for path parameters, if any. The keys should match the placeholders in the URL.
         /// </param>
-        /// <param name="queryParamsSchema"></param>
-        /// <param name="requestBodySchema"></param>
-        /// <param name="requestHeaders">
-        /// Headers that should be included in the request
+        /// <param name="queryParamsSchema">
+        /// Schema for any query params, if any. These will be added to end of the URL as query params. Note: properties in a query param must all be literal types
+        /// </param>
+        /// <param name="requestBodySchema">
+        /// Schema for the body parameters, if any. Used for POST/PATCH/PUT requests. The schema should be an object which will be sent as the json body
+        /// </param>
+        /// <param name="contentType">
+        /// Content type for the request body. Only applies to POST/PUT/PATCH requests.<br/>
+        /// Default Value: application/json
         /// </param>
         /// <param name="authConnection">
-        /// Used to reference an auth connection from the workspace's auth connection store.
+        /// Optional auth connection to use for authentication with this webhook
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WebhookToolApiSchemaConfigOutput(
             string url,
+            object? requestHeaders,
             global::ElevenLabs.WebhookToolApiSchemaConfigOutputMethod? method,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? pathParamsSchema,
             global::ElevenLabs.QueryParamsJsonSchema? queryParamsSchema,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? requestBodySchema,
-            object? requestHeaders,
+            global::ElevenLabs.WebhookToolApiSchemaConfigOutputContentType? contentType,
             global::ElevenLabs.AuthConnectionLocator? authConnection)
         {
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
+            this.RequestHeaders = requestHeaders;
             this.Method = method;
             this.PathParamsSchema = pathParamsSchema;
             this.QueryParamsSchema = queryParamsSchema;
             this.RequestBodySchema = requestBodySchema;
-            this.RequestHeaders = requestHeaders;
+            this.ContentType = contentType;
             this.AuthConnection = authConnection;
         }
 

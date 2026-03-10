@@ -12,15 +12,14 @@ namespace ElevenLabs
         /// Default Value: cancellation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("kind")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PendingCancellationResponseModelKindJsonConverter))]
-        public global::ElevenLabs.PendingCancellationResponseModelKind? Kind { get; set; }
+        public string? Kind { get; set; }
 
         /// <summary>
         /// The timestamp of the cancellation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TimestampSeconds { get; set; } = default!;
+        public required int TimestampSeconds { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,7 +41,7 @@ namespace ElevenLabs
 #endif
         public PendingCancellationResponseModel(
             int timestampSeconds,
-            global::ElevenLabs.PendingCancellationResponseModelKind? kind)
+            string? kind)
         {
             this.TimestampSeconds = timestampSeconds;
             this.Kind = kind;

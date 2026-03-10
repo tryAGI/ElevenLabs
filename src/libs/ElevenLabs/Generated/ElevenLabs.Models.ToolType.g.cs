@@ -28,6 +28,18 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Workflow,
+        /// <summary>
+        /// 
+        /// </summary>
+        ApiIntegrationWebhook,
+        /// <summary>
+        /// 
+        /// </summary>
+        ApiIntegrationMcp,
+        /// <summary>
+        /// 
+        /// </summary>
+        Smb,
     }
 
     /// <summary>
@@ -47,6 +59,9 @@ namespace ElevenLabs
                 ToolType.Client => "client",
                 ToolType.Mcp => "mcp",
                 ToolType.Workflow => "workflow",
+                ToolType.ApiIntegrationWebhook => "api_integration_webhook",
+                ToolType.ApiIntegrationMcp => "api_integration_mcp",
+                ToolType.Smb => "smb",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,6 +77,9 @@ namespace ElevenLabs
                 "client" => ToolType.Client,
                 "mcp" => ToolType.Mcp,
                 "workflow" => ToolType.Workflow,
+                "api_integration_webhook" => ToolType.ApiIntegrationWebhook,
+                "api_integration_mcp" => ToolType.ApiIntegrationMcp,
+                "smb" => ToolType.Smb,
                 _ => null,
             };
         }

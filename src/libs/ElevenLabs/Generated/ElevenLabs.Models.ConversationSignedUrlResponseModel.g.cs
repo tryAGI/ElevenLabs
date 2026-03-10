@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("signed_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SignedUrl { get; set; } = default!;
+        public required string SignedUrl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// The name of the created pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The user ID of the creator of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CreatedBy { get; set; } = default!;
+        public required string CreatedBy { get; set; }
 
         /// <summary>
         /// The creation time of the pronunciation dictionary in Unix timestamp.
@@ -35,21 +35,21 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_time_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTimeOffset CreationTimeUnix { get; set; } = default!;
+        public required global::System.DateTimeOffset CreationTimeUnix { get; set; }
 
         /// <summary>
         /// The ID of the created pronunciation dictionary version.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VersionId { get; set; } = default!;
+        public required string VersionId { get; set; }
 
         /// <summary>
         /// The number of rules in the version of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_rules_num")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int VersionRulesNum { get; set; } = default!;
+        public required int VersionRulesNum { get; set; }
 
         /// <summary>
         /// The description of the pronunciation dictionary.
@@ -61,9 +61,7 @@ namespace ElevenLabs
         /// The permission on the resource of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AddPronunciationDictionaryResponseModelPermissionOnResourceJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource? PermissionOnResource { get; set; } = default!;
+        public global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource2? PermissionOnResource { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -108,8 +106,8 @@ namespace ElevenLabs
             global::System.DateTimeOffset creationTimeUnix,
             string versionId,
             int versionRulesNum,
-            global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource? permissionOnResource,
-            string? description)
+            string? description,
+            global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource2? permissionOnResource)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -117,8 +115,8 @@ namespace ElevenLabs
             this.CreationTimeUnix = creationTimeUnix;
             this.VersionId = versionId ?? throw new global::System.ArgumentNullException(nameof(versionId));
             this.VersionRulesNum = versionRulesNum;
-            this.PermissionOnResource = permissionOnResource;
             this.Description = description;
+            this.PermissionOnResource = permissionOnResource;
         }
 
         /// <summary>

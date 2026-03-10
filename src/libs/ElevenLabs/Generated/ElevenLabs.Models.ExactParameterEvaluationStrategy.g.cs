@@ -11,16 +11,16 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"exact"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ExactParameterEvaluationStrategyTypeJsonConverter))]
-        public global::ElevenLabs.ExactParameterEvaluationStrategyType Type { get; set; }
+        public string Type { get; set; } = "exact";
 
         /// <summary>
         /// The exact string value that the parameter must match.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expected_value")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ExpectedValue { get; set; } = default!;
+        public required string ExpectedValue { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +40,7 @@ namespace ElevenLabs
 #endif
         public ExactParameterEvaluationStrategy(
             string expectedValue,
-            global::ElevenLabs.ExactParameterEvaluationStrategyType type)
+            string type = "exact")
         {
             this.ExpectedValue = expectedValue ?? throw new global::System.ArgumentNullException(nameof(expectedValue));
             this.Type = type;

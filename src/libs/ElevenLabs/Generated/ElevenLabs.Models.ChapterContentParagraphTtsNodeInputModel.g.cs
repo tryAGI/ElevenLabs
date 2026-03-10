@@ -11,23 +11,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"tts_node"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ChapterContentParagraphTtsNodeInputModelTypeJsonConverter))]
-        public global::ElevenLabs.ChapterContentParagraphTtsNodeInputModelType Type { get; set; }
+        public string Type { get; set; } = "tts_node";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceId { get; set; } = default!;
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -47,7 +47,7 @@ namespace ElevenLabs
         public ChapterContentParagraphTtsNodeInputModel(
             string text,
             string voiceId,
-            global::ElevenLabs.ChapterContentParagraphTtsNodeInputModelType type)
+            string type = "tts_node")
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));

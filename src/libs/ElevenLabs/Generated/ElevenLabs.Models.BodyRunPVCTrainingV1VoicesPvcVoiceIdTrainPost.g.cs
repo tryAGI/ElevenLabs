@@ -9,10 +9,8 @@ namespace ElevenLabs
     public sealed partial class BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost
     {
         /// <summary>
-        /// The model ID to use for the conversion.<br/>
-        /// Example: eleven_turbo_v2
+        /// The model ID to use for the conversion.
         /// </summary>
-        /// <example>eleven_turbo_v2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         public string? ModelId { get; set; }
 
@@ -26,8 +24,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost" /> class.
         /// </summary>
         /// <param name="modelId">
-        /// The model ID to use for the conversion.<br/>
-        /// Example: eleven_turbo_v2
+        /// The model ID to use for the conversion.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -105,17 +105,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public VoiceGenerationClient VoiceGeneration { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public TextToVoiceClient TextToVoice { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public UserClient User { get; }
 
         /// <summary>
         /// 
@@ -150,12 +140,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public UsageClient Usage { get; }
+        public PronunciationDictionaryClient PronunciationDictionary { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public PronunciationDictionaryClient PronunciationDictionary { get; }
+        public SingleUseTokenClient SingleUseToken { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public AgentsPlatformClient AgentsPlatform { get; }
 
         /// <summary>
         /// 

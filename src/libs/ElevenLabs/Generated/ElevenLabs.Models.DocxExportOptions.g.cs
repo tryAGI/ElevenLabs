@@ -23,9 +23,9 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"docx"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DocxExportOptionsFormatJsonConverter))]
-        public global::ElevenLabs.DocxExportOptionsFormat Format { get; set; }
+        public string Format { get; set; } = "docx";
 
         /// <summary>
         /// 
@@ -70,10 +70,10 @@ namespace ElevenLabs
         public DocxExportOptions(
             bool? includeSpeakers,
             bool? includeTimestamps,
-            global::ElevenLabs.DocxExportOptionsFormat format,
             double? segmentOnSilenceLongerThanS,
             double? maxSegmentDurationS,
-            int? maxSegmentChars)
+            int? maxSegmentChars,
+            string format = "docx")
         {
             this.IncludeSpeakers = includeSpeakers;
             this.IncludeTimestamps = includeTimestamps;

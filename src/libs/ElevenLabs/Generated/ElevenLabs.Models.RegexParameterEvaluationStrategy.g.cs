@@ -11,16 +11,16 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"regex"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RegexParameterEvaluationStrategyTypeJsonConverter))]
-        public global::ElevenLabs.RegexParameterEvaluationStrategyType Type { get; set; }
+        public string Type { get; set; } = "regex";
 
         /// <summary>
         /// A regex pattern to match the agent's response against.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pattern")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Pattern { get; set; } = default!;
+        public required string Pattern { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +40,7 @@ namespace ElevenLabs
 #endif
         public RegexParameterEvaluationStrategy(
             string pattern,
-            global::ElevenLabs.RegexParameterEvaluationStrategyType type)
+            string type = "regex")
         {
             this.Pattern = pattern ?? throw new global::System.ArgumentNullException(nameof(pattern));
             this.Type = type;

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("used_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UsedBytes { get; set; } = default!;
+        public required int UsedBytes { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

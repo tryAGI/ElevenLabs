@@ -12,15 +12,13 @@ namespace ElevenLabs
         /// Default Value: testing_tool_result
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TestToolResultModelResultTypeJsonConverter))]
-        public global::ElevenLabs.TestToolResultModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TestToolResultModelStatusJsonConverter))]
-        public global::ElevenLabs.TestToolResultModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// Default Value: Skipping tool call in test mode
@@ -50,8 +48,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TestToolResultModel(
-            global::ElevenLabs.TestToolResultModelResultType? resultType,
-            global::ElevenLabs.TestToolResultModelStatus? status,
+            string? resultType,
+            string? status,
             string? reason)
         {
             this.ResultType = resultType;

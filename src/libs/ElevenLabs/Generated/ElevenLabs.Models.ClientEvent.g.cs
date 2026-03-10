@@ -59,11 +59,31 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AgentToolRequest,
+        /// <summary>
+        /// 
+        /// </summary>
         AgentToolResponse,
         /// <summary>
         /// 
         /// </summary>
+        AgentResponseMetadata,
+        /// <summary>
+        /// 
+        /// </summary>
         VadScore,
+        /// <summary>
+        /// 
+        /// </summary>
+        AgentChatResponsePart,
+        /// <summary>
+        /// 
+        /// </summary>
+        ClientError,
+        /// <summary>
+        /// 
+        /// </summary>
+        GuardrailTriggered,
         /// <summary>
         /// 
         /// </summary>
@@ -98,8 +118,13 @@ namespace ElevenLabs
                 ClientEvent.ClientToolCall => "client_tool_call",
                 ClientEvent.McpToolCall => "mcp_tool_call",
                 ClientEvent.McpConnectionStatus => "mcp_connection_status",
+                ClientEvent.AgentToolRequest => "agent_tool_request",
                 ClientEvent.AgentToolResponse => "agent_tool_response",
+                ClientEvent.AgentResponseMetadata => "agent_response_metadata",
                 ClientEvent.VadScore => "vad_score",
+                ClientEvent.AgentChatResponsePart => "agent_chat_response_part",
+                ClientEvent.ClientError => "client_error",
+                ClientEvent.GuardrailTriggered => "guardrail_triggered",
                 ClientEvent.InternalTurnProbability => "internal_turn_probability",
                 ClientEvent.InternalTentativeAgentResponse => "internal_tentative_agent_response",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -124,8 +149,13 @@ namespace ElevenLabs
                 "client_tool_call" => ClientEvent.ClientToolCall,
                 "mcp_tool_call" => ClientEvent.McpToolCall,
                 "mcp_connection_status" => ClientEvent.McpConnectionStatus,
+                "agent_tool_request" => ClientEvent.AgentToolRequest,
                 "agent_tool_response" => ClientEvent.AgentToolResponse,
+                "agent_response_metadata" => ClientEvent.AgentResponseMetadata,
                 "vad_score" => ClientEvent.VadScore,
+                "agent_chat_response_part" => ClientEvent.AgentChatResponsePart,
+                "client_error" => ClientEvent.ClientError,
+                "guardrail_triggered" => ClientEvent.GuardrailTriggered,
                 "internal_turn_probability" => ClientEvent.InternalTurnProbability,
                 "internal_tentative_agent_response" => ClientEvent.InternalTentativeAgentResponse,
                 _ => null,

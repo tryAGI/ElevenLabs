@@ -1,0 +1,801 @@
+#pragma warning disable CS0618 // Type or member is obsolete
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// Right operand of the binary operator.
+    /// </summary>
+    public readonly partial struct Right7 : global::System.IEquatable<Right7>
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTLessThanOperatorNodeInputRightDiscriminatorType? Type { get; }
+
+        /// <summary>
+        /// String literal.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTStringNodeInput? StringLiteral { get; init; }
+#else
+        public global::ElevenLabs.ASTStringNodeInput? StringLiteral { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StringLiteral))]
+#endif
+        public bool IsStringLiteral => StringLiteral != null;
+
+        /// <summary>
+        /// Number literal.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTNumberNodeInput? NumberLiteral { get; init; }
+#else
+        public global::ElevenLabs.ASTNumberNodeInput? NumberLiteral { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NumberLiteral))]
+#endif
+        public bool IsNumberLiteral => NumberLiteral != null;
+
+        /// <summary>
+        /// Boolean literal.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTBooleanNodeInput? BooleanLiteral { get; init; }
+#else
+        public global::ElevenLabs.ASTBooleanNodeInput? BooleanLiteral { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BooleanLiteral))]
+#endif
+        public bool IsBooleanLiteral => BooleanLiteral != null;
+
+        /// <summary>
+        /// Prompt evaluated by an LLM to a boolean value.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTLLMNodeInput? Llm { get; init; }
+#else
+        public global::ElevenLabs.ASTLLMNodeInput? Llm { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Llm))]
+#endif
+        public bool IsLlm => Llm != null;
+
+        /// <summary>
+        /// Reference to a dynamic variable.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTDynamicVariableNodeInput? DynamicVariable { get; init; }
+#else
+        public global::ElevenLabs.ASTDynamicVariableNodeInput? DynamicVariable { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariable))]
+#endif
+        public bool IsDynamicVariable => DynamicVariable != null;
+
+        /// <summary>
+        /// Evaluates to true if any child is true.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTOrOperatorNodeInput? OrOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTOrOperatorNodeInput? OrOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(OrOperator))]
+#endif
+        public bool IsOrOperator => OrOperator != null;
+
+        /// <summary>
+        /// Evaluates to true if all children are true.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTAndOperatorNodeInput? AndOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTAndOperatorNodeInput? AndOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AndOperator))]
+#endif
+        public bool IsAndOperator => AndOperator != null;
+
+        /// <summary>
+        /// Evaluates to true if the left value equals the right.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTEqualsOperatorNodeInput? EqOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTEqualsOperatorNodeInput? EqOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EqOperator))]
+#endif
+        public bool IsEqOperator => EqOperator != null;
+
+        /// <summary>
+        /// Evaluates to true if the left value does not equal the right.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTNotEqualsOperatorNodeInput? NeqOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTNotEqualsOperatorNodeInput? NeqOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NeqOperator))]
+#endif
+        public bool IsNeqOperator => NeqOperator != null;
+
+        /// <summary>
+        /// Evaluates to true if the left value is greater than the right.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTGreaterThanOperatorNodeInput? GtOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTGreaterThanOperatorNodeInput? GtOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GtOperator))]
+#endif
+        public bool IsGtOperator => GtOperator != null;
+
+        /// <summary>
+        /// Evaluates to true if the left value is less than the right.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTLessThanOperatorNodeInput? LtOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTLessThanOperatorNodeInput? LtOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LtOperator))]
+#endif
+        public bool IsLtOperator => LtOperator != null;
+
+        /// <summary>
+        /// Evaluates to true if the left value is greater than or equal to the right.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput? GteOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput? GteOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GteOperator))]
+#endif
+        public bool IsGteOperator => GteOperator != null;
+
+        /// <summary>
+        /// Evaluates to true if the left value is less than or equal to the right.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput? LteOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput? LteOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LteOperator))]
+#endif
+        public bool IsLteOperator => LteOperator != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTStringNodeInput value) => new Right7((global::ElevenLabs.ASTStringNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTStringNodeInput?(Right7 @this) => @this.StringLiteral;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTStringNodeInput? value)
+        {
+            StringLiteral = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTNumberNodeInput value) => new Right7((global::ElevenLabs.ASTNumberNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTNumberNodeInput?(Right7 @this) => @this.NumberLiteral;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTNumberNodeInput? value)
+        {
+            NumberLiteral = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTBooleanNodeInput value) => new Right7((global::ElevenLabs.ASTBooleanNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTBooleanNodeInput?(Right7 @this) => @this.BooleanLiteral;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTBooleanNodeInput? value)
+        {
+            BooleanLiteral = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTLLMNodeInput value) => new Right7((global::ElevenLabs.ASTLLMNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTLLMNodeInput?(Right7 @this) => @this.Llm;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTLLMNodeInput? value)
+        {
+            Llm = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTDynamicVariableNodeInput value) => new Right7((global::ElevenLabs.ASTDynamicVariableNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTDynamicVariableNodeInput?(Right7 @this) => @this.DynamicVariable;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTDynamicVariableNodeInput? value)
+        {
+            DynamicVariable = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTOrOperatorNodeInput value) => new Right7((global::ElevenLabs.ASTOrOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTOrOperatorNodeInput?(Right7 @this) => @this.OrOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTOrOperatorNodeInput? value)
+        {
+            OrOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTAndOperatorNodeInput value) => new Right7((global::ElevenLabs.ASTAndOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTAndOperatorNodeInput?(Right7 @this) => @this.AndOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTAndOperatorNodeInput? value)
+        {
+            AndOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTEqualsOperatorNodeInput value) => new Right7((global::ElevenLabs.ASTEqualsOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTEqualsOperatorNodeInput?(Right7 @this) => @this.EqOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTEqualsOperatorNodeInput? value)
+        {
+            EqOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTNotEqualsOperatorNodeInput value) => new Right7((global::ElevenLabs.ASTNotEqualsOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTNotEqualsOperatorNodeInput?(Right7 @this) => @this.NeqOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTNotEqualsOperatorNodeInput? value)
+        {
+            NeqOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTGreaterThanOperatorNodeInput value) => new Right7((global::ElevenLabs.ASTGreaterThanOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTGreaterThanOperatorNodeInput?(Right7 @this) => @this.GtOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTGreaterThanOperatorNodeInput? value)
+        {
+            GtOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTLessThanOperatorNodeInput value) => new Right7((global::ElevenLabs.ASTLessThanOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTLessThanOperatorNodeInput?(Right7 @this) => @this.LtOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTLessThanOperatorNodeInput? value)
+        {
+            LtOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput value) => new Right7((global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?(Right7 @this) => @this.GteOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput? value)
+        {
+            GteOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Right7(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput value) => new Right7((global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?(Right7 @this) => @this.LteOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput? value)
+        {
+            LteOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Right7(
+            global::ElevenLabs.ASTLessThanOperatorNodeInputRightDiscriminatorType? type,
+            global::ElevenLabs.ASTStringNodeInput? stringLiteral,
+            global::ElevenLabs.ASTNumberNodeInput? numberLiteral,
+            global::ElevenLabs.ASTBooleanNodeInput? booleanLiteral,
+            global::ElevenLabs.ASTLLMNodeInput? llm,
+            global::ElevenLabs.ASTDynamicVariableNodeInput? dynamicVariable,
+            global::ElevenLabs.ASTOrOperatorNodeInput? orOperator,
+            global::ElevenLabs.ASTAndOperatorNodeInput? andOperator,
+            global::ElevenLabs.ASTEqualsOperatorNodeInput? eqOperator,
+            global::ElevenLabs.ASTNotEqualsOperatorNodeInput? neqOperator,
+            global::ElevenLabs.ASTGreaterThanOperatorNodeInput? gtOperator,
+            global::ElevenLabs.ASTLessThanOperatorNodeInput? ltOperator,
+            global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput? gteOperator,
+            global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput? lteOperator
+            )
+        {
+            Type = type;
+
+            StringLiteral = stringLiteral;
+            NumberLiteral = numberLiteral;
+            BooleanLiteral = booleanLiteral;
+            Llm = llm;
+            DynamicVariable = dynamicVariable;
+            OrOperator = orOperator;
+            AndOperator = andOperator;
+            EqOperator = eqOperator;
+            NeqOperator = neqOperator;
+            GtOperator = gtOperator;
+            LtOperator = ltOperator;
+            GteOperator = gteOperator;
+            LteOperator = lteOperator;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public object? Object =>
+            LteOperator as object ??
+            GteOperator as object ??
+            LtOperator as object ??
+            GtOperator as object ??
+            NeqOperator as object ??
+            EqOperator as object ??
+            AndOperator as object ??
+            OrOperator as object ??
+            DynamicVariable as object ??
+            Llm as object ??
+            BooleanLiteral as object ??
+            NumberLiteral as object ??
+            StringLiteral as object 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override string? ToString() =>
+            StringLiteral?.ToString() ??
+            NumberLiteral?.ToString() ??
+            BooleanLiteral?.ToString() ??
+            Llm?.ToString() ??
+            DynamicVariable?.ToString() ??
+            OrOperator?.ToString() ??
+            AndOperator?.ToString() ??
+            EqOperator?.ToString() ??
+            NeqOperator?.ToString() ??
+            GtOperator?.ToString() ??
+            LtOperator?.ToString() ??
+            GteOperator?.ToString() ??
+            LteOperator?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Validate()
+        {
+            return IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && IsLtOperator && !IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && IsGteOperator && !IsLteOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && IsLteOperator;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TResult? Match<TResult>(
+            global::System.Func<global::ElevenLabs.ASTStringNodeInput?, TResult>? stringLiteral = null,
+            global::System.Func<global::ElevenLabs.ASTNumberNodeInput?, TResult>? numberLiteral = null,
+            global::System.Func<global::ElevenLabs.ASTBooleanNodeInput?, TResult>? booleanLiteral = null,
+            global::System.Func<global::ElevenLabs.ASTLLMNodeInput?, TResult>? llm = null,
+            global::System.Func<global::ElevenLabs.ASTDynamicVariableNodeInput?, TResult>? dynamicVariable = null,
+            global::System.Func<global::ElevenLabs.ASTOrOperatorNodeInput?, TResult>? orOperator = null,
+            global::System.Func<global::ElevenLabs.ASTAndOperatorNodeInput?, TResult>? andOperator = null,
+            global::System.Func<global::ElevenLabs.ASTEqualsOperatorNodeInput?, TResult>? eqOperator = null,
+            global::System.Func<global::ElevenLabs.ASTNotEqualsOperatorNodeInput?, TResult>? neqOperator = null,
+            global::System.Func<global::ElevenLabs.ASTGreaterThanOperatorNodeInput?, TResult>? gtOperator = null,
+            global::System.Func<global::ElevenLabs.ASTLessThanOperatorNodeInput?, TResult>? ltOperator = null,
+            global::System.Func<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?, TResult>? gteOperator = null,
+            global::System.Func<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?, TResult>? lteOperator = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsStringLiteral && stringLiteral != null)
+            {
+                return stringLiteral(StringLiteral!);
+            }
+            else if (IsNumberLiteral && numberLiteral != null)
+            {
+                return numberLiteral(NumberLiteral!);
+            }
+            else if (IsBooleanLiteral && booleanLiteral != null)
+            {
+                return booleanLiteral(BooleanLiteral!);
+            }
+            else if (IsLlm && llm != null)
+            {
+                return llm(Llm!);
+            }
+            else if (IsDynamicVariable && dynamicVariable != null)
+            {
+                return dynamicVariable(DynamicVariable!);
+            }
+            else if (IsOrOperator && orOperator != null)
+            {
+                return orOperator(OrOperator!);
+            }
+            else if (IsAndOperator && andOperator != null)
+            {
+                return andOperator(AndOperator!);
+            }
+            else if (IsEqOperator && eqOperator != null)
+            {
+                return eqOperator(EqOperator!);
+            }
+            else if (IsNeqOperator && neqOperator != null)
+            {
+                return neqOperator(NeqOperator!);
+            }
+            else if (IsGtOperator && gtOperator != null)
+            {
+                return gtOperator(GtOperator!);
+            }
+            else if (IsLtOperator && ltOperator != null)
+            {
+                return ltOperator(LtOperator!);
+            }
+            else if (IsGteOperator && gteOperator != null)
+            {
+                return gteOperator(GteOperator!);
+            }
+            else if (IsLteOperator && lteOperator != null)
+            {
+                return lteOperator(LteOperator!);
+            }
+
+            return default(TResult);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Match(
+            global::System.Action<global::ElevenLabs.ASTStringNodeInput?>? stringLiteral = null,
+            global::System.Action<global::ElevenLabs.ASTNumberNodeInput?>? numberLiteral = null,
+            global::System.Action<global::ElevenLabs.ASTBooleanNodeInput?>? booleanLiteral = null,
+            global::System.Action<global::ElevenLabs.ASTLLMNodeInput?>? llm = null,
+            global::System.Action<global::ElevenLabs.ASTDynamicVariableNodeInput?>? dynamicVariable = null,
+            global::System.Action<global::ElevenLabs.ASTOrOperatorNodeInput?>? orOperator = null,
+            global::System.Action<global::ElevenLabs.ASTAndOperatorNodeInput?>? andOperator = null,
+            global::System.Action<global::ElevenLabs.ASTEqualsOperatorNodeInput?>? eqOperator = null,
+            global::System.Action<global::ElevenLabs.ASTNotEqualsOperatorNodeInput?>? neqOperator = null,
+            global::System.Action<global::ElevenLabs.ASTGreaterThanOperatorNodeInput?>? gtOperator = null,
+            global::System.Action<global::ElevenLabs.ASTLessThanOperatorNodeInput?>? ltOperator = null,
+            global::System.Action<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?>? gteOperator = null,
+            global::System.Action<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?>? lteOperator = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsStringLiteral)
+            {
+                stringLiteral?.Invoke(StringLiteral!);
+            }
+            else if (IsNumberLiteral)
+            {
+                numberLiteral?.Invoke(NumberLiteral!);
+            }
+            else if (IsBooleanLiteral)
+            {
+                booleanLiteral?.Invoke(BooleanLiteral!);
+            }
+            else if (IsLlm)
+            {
+                llm?.Invoke(Llm!);
+            }
+            else if (IsDynamicVariable)
+            {
+                dynamicVariable?.Invoke(DynamicVariable!);
+            }
+            else if (IsOrOperator)
+            {
+                orOperator?.Invoke(OrOperator!);
+            }
+            else if (IsAndOperator)
+            {
+                andOperator?.Invoke(AndOperator!);
+            }
+            else if (IsEqOperator)
+            {
+                eqOperator?.Invoke(EqOperator!);
+            }
+            else if (IsNeqOperator)
+            {
+                neqOperator?.Invoke(NeqOperator!);
+            }
+            else if (IsGtOperator)
+            {
+                gtOperator?.Invoke(GtOperator!);
+            }
+            else if (IsLtOperator)
+            {
+                ltOperator?.Invoke(LtOperator!);
+            }
+            else if (IsGteOperator)
+            {
+                gteOperator?.Invoke(GteOperator!);
+            }
+            else if (IsLteOperator)
+            {
+                lteOperator?.Invoke(LteOperator!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override int GetHashCode()
+        {
+            var fields = new object?[]
+            {
+                StringLiteral,
+                typeof(global::ElevenLabs.ASTStringNodeInput),
+                NumberLiteral,
+                typeof(global::ElevenLabs.ASTNumberNodeInput),
+                BooleanLiteral,
+                typeof(global::ElevenLabs.ASTBooleanNodeInput),
+                Llm,
+                typeof(global::ElevenLabs.ASTLLMNodeInput),
+                DynamicVariable,
+                typeof(global::ElevenLabs.ASTDynamicVariableNodeInput),
+                OrOperator,
+                typeof(global::ElevenLabs.ASTOrOperatorNodeInput),
+                AndOperator,
+                typeof(global::ElevenLabs.ASTAndOperatorNodeInput),
+                EqOperator,
+                typeof(global::ElevenLabs.ASTEqualsOperatorNodeInput),
+                NeqOperator,
+                typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeInput),
+                GtOperator,
+                typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeInput),
+                LtOperator,
+                typeof(global::ElevenLabs.ASTLessThanOperatorNodeInput),
+                GteOperator,
+                typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput),
+                LteOperator,
+                typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput),
+            };
+            const int offset = unchecked((int)2166136261);
+            const int prime = 16777619;
+            static int HashCodeAggregator(int hashCode, object? value) => value == null
+                ? (hashCode ^ 0) * prime
+                : (hashCode ^ value.GetHashCode()) * prime;
+
+            return global::System.Linq.Enumerable.Aggregate(fields, offset, HashCodeAggregator);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Equals(Right7 other)
+        {
+            return
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTStringNodeInput?>.Default.Equals(StringLiteral, other.StringLiteral) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTNumberNodeInput?>.Default.Equals(NumberLiteral, other.NumberLiteral) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTBooleanNodeInput?>.Default.Equals(BooleanLiteral, other.BooleanLiteral) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLLMNodeInput?>.Default.Equals(Llm, other.Llm) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTDynamicVariableNodeInput?>.Default.Equals(DynamicVariable, other.DynamicVariable) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTOrOperatorNodeInput?>.Default.Equals(OrOperator, other.OrOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTAndOperatorNodeInput?>.Default.Equals(AndOperator, other.AndOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTEqualsOperatorNodeInput?>.Default.Equals(EqOperator, other.EqOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTNotEqualsOperatorNodeInput?>.Default.Equals(NeqOperator, other.NeqOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTGreaterThanOperatorNodeInput?>.Default.Equals(GtOperator, other.GtOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLessThanOperatorNodeInput?>.Default.Equals(LtOperator, other.LtOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?>.Default.Equals(GteOperator, other.GteOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?>.Default.Equals(LteOperator, other.LteOperator) 
+                ;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator ==(Right7 obj1, Right7 obj2)
+        {
+            return global::System.Collections.Generic.EqualityComparer<Right7>.Default.Equals(obj1, obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator !=(Right7 obj1, Right7 obj2)
+        {
+            return !(obj1 == obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool Equals(object? obj)
+        {
+            return obj is Right7 o && Equals(o);
+        }
+    }
+}

@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType? SystemToolType { get; }
+        public global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType? SystemToolType { get; }
 
         /// <summary>
         /// 
@@ -69,9 +69,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.TransferToNumberToolConfigOutput? TransferToNumber { get; init; }
+        public global::ElevenLabs.TransferToNumberToolConfigInput? TransferToNumber { get; init; }
 #else
-        public global::ElevenLabs.TransferToNumberToolConfigOutput? TransferToNumber { get; }
+        public global::ElevenLabs.TransferToNumberToolConfigInput? TransferToNumber { get; }
 #endif
 
         /// <summary>
@@ -144,6 +144,91 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VoicemailDetection))]
 #endif
         public bool IsVoicemailDetection => VoicemailDetection != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.MemoryEntrySearchToolConfig? MemoryEntrySearch { get; init; }
+#else
+        public global::ElevenLabs.MemoryEntrySearchToolConfig? MemoryEntrySearch { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MemoryEntrySearch))]
+#endif
+        public bool IsMemoryEntrySearch => MemoryEntrySearch != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.MemoryEntryCreateToolConfig? MemoryEntryCreate { get; init; }
+#else
+        public global::ElevenLabs.MemoryEntryCreateToolConfig? MemoryEntryCreate { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MemoryEntryCreate))]
+#endif
+        public bool IsMemoryEntryCreate => MemoryEntryCreate != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.MemoryEntryUpdateToolConfig? MemoryEntryUpdate { get; init; }
+#else
+        public global::ElevenLabs.MemoryEntryUpdateToolConfig? MemoryEntryUpdate { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MemoryEntryUpdate))]
+#endif
+        public bool IsMemoryEntryUpdate => MemoryEntryUpdate != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.MemoryEntryDeleteToolConfig? MemoryEntryDelete { get; init; }
+#else
+        public global::ElevenLabs.MemoryEntryDeleteToolConfig? MemoryEntryDelete { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MemoryEntryDelete))]
+#endif
+        public bool IsMemoryEntryDelete => MemoryEntryDelete != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.AgentPromptChangeToolConfig? AgentPromptChange { get; init; }
+#else
+        public global::ElevenLabs.AgentPromptChangeToolConfig? AgentPromptChange { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AgentPromptChange))]
+#endif
+        public bool IsAgentPromptChange => AgentPromptChange != null;
         /// <summary>
         /// 
         /// </summary>
@@ -201,17 +286,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params2(global::ElevenLabs.TransferToNumberToolConfigOutput value) => new Params2((global::ElevenLabs.TransferToNumberToolConfigOutput?)value);
+        public static implicit operator Params2(global::ElevenLabs.TransferToNumberToolConfigInput value) => new Params2((global::ElevenLabs.TransferToNumberToolConfigInput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.TransferToNumberToolConfigOutput?(Params2 @this) => @this.TransferToNumber;
+        public static implicit operator global::ElevenLabs.TransferToNumberToolConfigInput?(Params2 @this) => @this.TransferToNumber;
 
         /// <summary>
         /// 
         /// </summary>
-        public Params2(global::ElevenLabs.TransferToNumberToolConfigOutput? value)
+        public Params2(global::ElevenLabs.TransferToNumberToolConfigInput? value)
         {
             TransferToNumber = value;
         }
@@ -273,15 +358,110 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.MemoryEntrySearchToolConfig value) => new Params2((global::ElevenLabs.MemoryEntrySearchToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.MemoryEntrySearchToolConfig?(Params2 @this) => @this.MemoryEntrySearch;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.MemoryEntrySearchToolConfig? value)
+        {
+            MemoryEntrySearch = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.MemoryEntryCreateToolConfig value) => new Params2((global::ElevenLabs.MemoryEntryCreateToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.MemoryEntryCreateToolConfig?(Params2 @this) => @this.MemoryEntryCreate;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.MemoryEntryCreateToolConfig? value)
+        {
+            MemoryEntryCreate = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.MemoryEntryUpdateToolConfig value) => new Params2((global::ElevenLabs.MemoryEntryUpdateToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.MemoryEntryUpdateToolConfig?(Params2 @this) => @this.MemoryEntryUpdate;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.MemoryEntryUpdateToolConfig? value)
+        {
+            MemoryEntryUpdate = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.MemoryEntryDeleteToolConfig value) => new Params2((global::ElevenLabs.MemoryEntryDeleteToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.MemoryEntryDeleteToolConfig?(Params2 @this) => @this.MemoryEntryDelete;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.MemoryEntryDeleteToolConfig? value)
+        {
+            MemoryEntryDelete = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.AgentPromptChangeToolConfig value) => new Params2((global::ElevenLabs.AgentPromptChangeToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.AgentPromptChangeToolConfig?(Params2 @this) => @this.AgentPromptChange;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.AgentPromptChangeToolConfig? value)
+        {
+            AgentPromptChange = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Params2(
-            global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType? systemToolType,
+            global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType? systemToolType,
             global::ElevenLabs.EndCallToolConfig? endCall,
             global::ElevenLabs.LanguageDetectionToolConfig? languageDetection,
             global::ElevenLabs.TransferToAgentToolConfig? transferToAgent,
-            global::ElevenLabs.TransferToNumberToolConfigOutput? transferToNumber,
+            global::ElevenLabs.TransferToNumberToolConfigInput? transferToNumber,
             global::ElevenLabs.SkipTurnToolConfig? skipTurn,
             global::ElevenLabs.PlayDTMFToolConfig? playKeypadTouchTone,
-            global::ElevenLabs.VoicemailDetectionToolConfig? voicemailDetection
+            global::ElevenLabs.VoicemailDetectionToolConfig? voicemailDetection,
+            global::ElevenLabs.MemoryEntrySearchToolConfig? memoryEntrySearch,
+            global::ElevenLabs.MemoryEntryCreateToolConfig? memoryEntryCreate,
+            global::ElevenLabs.MemoryEntryUpdateToolConfig? memoryEntryUpdate,
+            global::ElevenLabs.MemoryEntryDeleteToolConfig? memoryEntryDelete,
+            global::ElevenLabs.AgentPromptChangeToolConfig? agentPromptChange
             )
         {
             SystemToolType = systemToolType;
@@ -293,12 +473,22 @@ namespace ElevenLabs
             SkipTurn = skipTurn;
             PlayKeypadTouchTone = playKeypadTouchTone;
             VoicemailDetection = voicemailDetection;
+            MemoryEntrySearch = memoryEntrySearch;
+            MemoryEntryCreate = memoryEntryCreate;
+            MemoryEntryUpdate = memoryEntryUpdate;
+            MemoryEntryDelete = memoryEntryDelete;
+            AgentPromptChange = agentPromptChange;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            AgentPromptChange as object ??
+            MemoryEntryDelete as object ??
+            MemoryEntryUpdate as object ??
+            MemoryEntryCreate as object ??
+            MemoryEntrySearch as object ??
             VoicemailDetection as object ??
             PlayKeypadTouchTone as object ??
             SkipTurn as object ??
@@ -318,7 +508,12 @@ namespace ElevenLabs
             TransferToNumber?.ToString() ??
             SkipTurn?.ToString() ??
             PlayKeypadTouchTone?.ToString() ??
-            VoicemailDetection?.ToString() 
+            VoicemailDetection?.ToString() ??
+            MemoryEntrySearch?.ToString() ??
+            MemoryEntryCreate?.ToString() ??
+            MemoryEntryUpdate?.ToString() ??
+            MemoryEntryDelete?.ToString() ??
+            AgentPromptChange?.ToString() 
             ;
 
         /// <summary>
@@ -326,7 +521,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection;
+            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && IsMemoryEntryUpdate && !IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && IsMemoryEntryDelete && !IsAgentPromptChange || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsMemoryEntrySearch && !IsMemoryEntryCreate && !IsMemoryEntryUpdate && !IsMemoryEntryDelete && IsAgentPromptChange;
         }
 
         /// <summary>
@@ -336,10 +531,15 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.EndCallToolConfig?, TResult>? endCall = null,
             global::System.Func<global::ElevenLabs.LanguageDetectionToolConfig?, TResult>? languageDetection = null,
             global::System.Func<global::ElevenLabs.TransferToAgentToolConfig?, TResult>? transferToAgent = null,
-            global::System.Func<global::ElevenLabs.TransferToNumberToolConfigOutput?, TResult>? transferToNumber = null,
+            global::System.Func<global::ElevenLabs.TransferToNumberToolConfigInput?, TResult>? transferToNumber = null,
             global::System.Func<global::ElevenLabs.SkipTurnToolConfig?, TResult>? skipTurn = null,
             global::System.Func<global::ElevenLabs.PlayDTMFToolConfig?, TResult>? playKeypadTouchTone = null,
             global::System.Func<global::ElevenLabs.VoicemailDetectionToolConfig?, TResult>? voicemailDetection = null,
+            global::System.Func<global::ElevenLabs.MemoryEntrySearchToolConfig?, TResult>? memoryEntrySearch = null,
+            global::System.Func<global::ElevenLabs.MemoryEntryCreateToolConfig?, TResult>? memoryEntryCreate = null,
+            global::System.Func<global::ElevenLabs.MemoryEntryUpdateToolConfig?, TResult>? memoryEntryUpdate = null,
+            global::System.Func<global::ElevenLabs.MemoryEntryDeleteToolConfig?, TResult>? memoryEntryDelete = null,
+            global::System.Func<global::ElevenLabs.AgentPromptChangeToolConfig?, TResult>? agentPromptChange = null,
             bool validate = true)
         {
             if (validate)
@@ -375,6 +575,26 @@ namespace ElevenLabs
             {
                 return voicemailDetection(VoicemailDetection!);
             }
+            else if (IsMemoryEntrySearch && memoryEntrySearch != null)
+            {
+                return memoryEntrySearch(MemoryEntrySearch!);
+            }
+            else if (IsMemoryEntryCreate && memoryEntryCreate != null)
+            {
+                return memoryEntryCreate(MemoryEntryCreate!);
+            }
+            else if (IsMemoryEntryUpdate && memoryEntryUpdate != null)
+            {
+                return memoryEntryUpdate(MemoryEntryUpdate!);
+            }
+            else if (IsMemoryEntryDelete && memoryEntryDelete != null)
+            {
+                return memoryEntryDelete(MemoryEntryDelete!);
+            }
+            else if (IsAgentPromptChange && agentPromptChange != null)
+            {
+                return agentPromptChange(AgentPromptChange!);
+            }
 
             return default(TResult);
         }
@@ -386,10 +606,15 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.EndCallToolConfig?>? endCall = null,
             global::System.Action<global::ElevenLabs.LanguageDetectionToolConfig?>? languageDetection = null,
             global::System.Action<global::ElevenLabs.TransferToAgentToolConfig?>? transferToAgent = null,
-            global::System.Action<global::ElevenLabs.TransferToNumberToolConfigOutput?>? transferToNumber = null,
+            global::System.Action<global::ElevenLabs.TransferToNumberToolConfigInput?>? transferToNumber = null,
             global::System.Action<global::ElevenLabs.SkipTurnToolConfig?>? skipTurn = null,
             global::System.Action<global::ElevenLabs.PlayDTMFToolConfig?>? playKeypadTouchTone = null,
             global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig?>? voicemailDetection = null,
+            global::System.Action<global::ElevenLabs.MemoryEntrySearchToolConfig?>? memoryEntrySearch = null,
+            global::System.Action<global::ElevenLabs.MemoryEntryCreateToolConfig?>? memoryEntryCreate = null,
+            global::System.Action<global::ElevenLabs.MemoryEntryUpdateToolConfig?>? memoryEntryUpdate = null,
+            global::System.Action<global::ElevenLabs.MemoryEntryDeleteToolConfig?>? memoryEntryDelete = null,
+            global::System.Action<global::ElevenLabs.AgentPromptChangeToolConfig?>? agentPromptChange = null,
             bool validate = true)
         {
             if (validate)
@@ -425,6 +650,26 @@ namespace ElevenLabs
             {
                 voicemailDetection?.Invoke(VoicemailDetection!);
             }
+            else if (IsMemoryEntrySearch)
+            {
+                memoryEntrySearch?.Invoke(MemoryEntrySearch!);
+            }
+            else if (IsMemoryEntryCreate)
+            {
+                memoryEntryCreate?.Invoke(MemoryEntryCreate!);
+            }
+            else if (IsMemoryEntryUpdate)
+            {
+                memoryEntryUpdate?.Invoke(MemoryEntryUpdate!);
+            }
+            else if (IsMemoryEntryDelete)
+            {
+                memoryEntryDelete?.Invoke(MemoryEntryDelete!);
+            }
+            else if (IsAgentPromptChange)
+            {
+                agentPromptChange?.Invoke(AgentPromptChange!);
+            }
         }
 
         /// <summary>
@@ -441,13 +686,23 @@ namespace ElevenLabs
                 TransferToAgent,
                 typeof(global::ElevenLabs.TransferToAgentToolConfig),
                 TransferToNumber,
-                typeof(global::ElevenLabs.TransferToNumberToolConfigOutput),
+                typeof(global::ElevenLabs.TransferToNumberToolConfigInput),
                 SkipTurn,
                 typeof(global::ElevenLabs.SkipTurnToolConfig),
                 PlayKeypadTouchTone,
                 typeof(global::ElevenLabs.PlayDTMFToolConfig),
                 VoicemailDetection,
                 typeof(global::ElevenLabs.VoicemailDetectionToolConfig),
+                MemoryEntrySearch,
+                typeof(global::ElevenLabs.MemoryEntrySearchToolConfig),
+                MemoryEntryCreate,
+                typeof(global::ElevenLabs.MemoryEntryCreateToolConfig),
+                MemoryEntryUpdate,
+                typeof(global::ElevenLabs.MemoryEntryUpdateToolConfig),
+                MemoryEntryDelete,
+                typeof(global::ElevenLabs.MemoryEntryDeleteToolConfig),
+                AgentPromptChange,
+                typeof(global::ElevenLabs.AgentPromptChangeToolConfig),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -467,10 +722,15 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndCallToolConfig?>.Default.Equals(EndCall, other.EndCall) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LanguageDetectionToolConfig?>.Default.Equals(LanguageDetection, other.LanguageDetection) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolConfig?>.Default.Equals(TransferToAgent, other.TransferToAgent) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfigOutput?>.Default.Equals(TransferToNumber, other.TransferToNumber) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfigInput?>.Default.Equals(TransferToNumber, other.TransferToNumber) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolConfig?>.Default.Equals(SkipTurn, other.SkipTurn) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFToolConfig?>.Default.Equals(PlayKeypadTouchTone, other.PlayKeypadTouchTone) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoicemailDetectionToolConfig?>.Default.Equals(VoicemailDetection, other.VoicemailDetection) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoicemailDetectionToolConfig?>.Default.Equals(VoicemailDetection, other.VoicemailDetection) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MemoryEntrySearchToolConfig?>.Default.Equals(MemoryEntrySearch, other.MemoryEntrySearch) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MemoryEntryCreateToolConfig?>.Default.Equals(MemoryEntryCreate, other.MemoryEntryCreate) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MemoryEntryUpdateToolConfig?>.Default.Equals(MemoryEntryUpdate, other.MemoryEntryUpdate) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MemoryEntryDeleteToolConfig?>.Default.Equals(MemoryEntryDelete, other.MemoryEntryDelete) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AgentPromptChangeToolConfig?>.Default.Equals(AgentPromptChange, other.AgentPromptChange) 
                 ;
         }
 

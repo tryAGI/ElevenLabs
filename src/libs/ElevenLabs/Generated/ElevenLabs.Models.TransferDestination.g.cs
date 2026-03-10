@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType? Type { get; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminatorType? Type { get; }
 
         /// <summary>
         /// 
@@ -47,6 +47,40 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipUri))]
 #endif
         public bool IsSipUri => SipUri != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? PhoneDynamicVariable { get; init; }
+#else
+        public global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? PhoneDynamicVariable { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PhoneDynamicVariable))]
+#endif
+        public bool IsPhoneDynamicVariable => PhoneDynamicVariable != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.SIPUriDynamicVariableTransferDestination? SipUriDynamicVariable { get; init; }
+#else
+        public global::ElevenLabs.SIPUriDynamicVariableTransferDestination? SipUriDynamicVariable { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipUriDynamicVariable))]
+#endif
+        public bool IsSipUriDynamicVariable => SipUriDynamicVariable != null;
         /// <summary>
         /// 
         /// </summary>
@@ -86,22 +120,64 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator TransferDestination(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination value) => new TransferDestination((global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?(TransferDestination @this) => @this.PhoneDynamicVariable;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TransferDestination(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? value)
+        {
+            PhoneDynamicVariable = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator TransferDestination(global::ElevenLabs.SIPUriDynamicVariableTransferDestination value) => new TransferDestination((global::ElevenLabs.SIPUriDynamicVariableTransferDestination?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.SIPUriDynamicVariableTransferDestination?(TransferDestination @this) => @this.SipUriDynamicVariable;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TransferDestination(global::ElevenLabs.SIPUriDynamicVariableTransferDestination? value)
+        {
+            SipUriDynamicVariable = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public TransferDestination(
-            global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType? type,
+            global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminatorType? type,
             global::ElevenLabs.PhoneNumberTransferDestination? phone,
-            global::ElevenLabs.SIPUriTransferDestination? sipUri
+            global::ElevenLabs.SIPUriTransferDestination? sipUri,
+            global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? phoneDynamicVariable,
+            global::ElevenLabs.SIPUriDynamicVariableTransferDestination? sipUriDynamicVariable
             )
         {
             Type = type;
 
             Phone = phone;
             SipUri = sipUri;
+            PhoneDynamicVariable = phoneDynamicVariable;
+            SipUriDynamicVariable = sipUriDynamicVariable;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            SipUriDynamicVariable as object ??
+            PhoneDynamicVariable as object ??
             SipUri as object ??
             Phone as object 
             ;
@@ -111,7 +187,9 @@ namespace ElevenLabs
         /// </summary>
         public override string? ToString() =>
             Phone?.ToString() ??
-            SipUri?.ToString() 
+            SipUri?.ToString() ??
+            PhoneDynamicVariable?.ToString() ??
+            SipUriDynamicVariable?.ToString() 
             ;
 
         /// <summary>
@@ -119,7 +197,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsPhone && !IsSipUri || !IsPhone && IsSipUri;
+            return IsPhone && !IsSipUri && !IsPhoneDynamicVariable && !IsSipUriDynamicVariable || !IsPhone && IsSipUri && !IsPhoneDynamicVariable && !IsSipUriDynamicVariable || !IsPhone && !IsSipUri && IsPhoneDynamicVariable && !IsSipUriDynamicVariable || !IsPhone && !IsSipUri && !IsPhoneDynamicVariable && IsSipUriDynamicVariable;
         }
 
         /// <summary>
@@ -128,6 +206,8 @@ namespace ElevenLabs
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.PhoneNumberTransferDestination?, TResult>? phone = null,
             global::System.Func<global::ElevenLabs.SIPUriTransferDestination?, TResult>? sipUri = null,
+            global::System.Func<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?, TResult>? phoneDynamicVariable = null,
+            global::System.Func<global::ElevenLabs.SIPUriDynamicVariableTransferDestination?, TResult>? sipUriDynamicVariable = null,
             bool validate = true)
         {
             if (validate)
@@ -143,6 +223,14 @@ namespace ElevenLabs
             {
                 return sipUri(SipUri!);
             }
+            else if (IsPhoneDynamicVariable && phoneDynamicVariable != null)
+            {
+                return phoneDynamicVariable(PhoneDynamicVariable!);
+            }
+            else if (IsSipUriDynamicVariable && sipUriDynamicVariable != null)
+            {
+                return sipUriDynamicVariable(SipUriDynamicVariable!);
+            }
 
             return default(TResult);
         }
@@ -153,6 +241,8 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.PhoneNumberTransferDestination?>? phone = null,
             global::System.Action<global::ElevenLabs.SIPUriTransferDestination?>? sipUri = null,
+            global::System.Action<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?>? phoneDynamicVariable = null,
+            global::System.Action<global::ElevenLabs.SIPUriDynamicVariableTransferDestination?>? sipUriDynamicVariable = null,
             bool validate = true)
         {
             if (validate)
@@ -168,6 +258,14 @@ namespace ElevenLabs
             {
                 sipUri?.Invoke(SipUri!);
             }
+            else if (IsPhoneDynamicVariable)
+            {
+                phoneDynamicVariable?.Invoke(PhoneDynamicVariable!);
+            }
+            else if (IsSipUriDynamicVariable)
+            {
+                sipUriDynamicVariable?.Invoke(SipUriDynamicVariable!);
+            }
         }
 
         /// <summary>
@@ -181,6 +279,10 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.PhoneNumberTransferDestination),
                 SipUri,
                 typeof(global::ElevenLabs.SIPUriTransferDestination),
+                PhoneDynamicVariable,
+                typeof(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination),
+                SipUriDynamicVariable,
+                typeof(global::ElevenLabs.SIPUriDynamicVariableTransferDestination),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -198,7 +300,9 @@ namespace ElevenLabs
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PhoneNumberTransferDestination?>.Default.Equals(Phone, other.Phone) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SIPUriTransferDestination?>.Default.Equals(SipUri, other.SipUri) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SIPUriTransferDestination?>.Default.Equals(SipUri, other.SipUri) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?>.Default.Equals(PhoneDynamicVariable, other.PhoneDynamicVariable) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SIPUriDynamicVariableTransferDestination?>.Default.Equals(SipUriDynamicVariable, other.SipUriDynamicVariable) 
                 ;
         }
 

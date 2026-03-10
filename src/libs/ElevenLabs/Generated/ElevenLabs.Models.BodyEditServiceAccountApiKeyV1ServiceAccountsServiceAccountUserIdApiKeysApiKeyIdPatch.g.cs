@@ -15,24 +15,22 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsEnabled { get; set; } = default!;
+        public required bool IsEnabled { get; set; }
 
         /// <summary>
-        /// The name of the XI API key to use (used for identification purposes only).<br/>
-        /// Example: Sneaky Fox
+        /// The name of the XI API key to use (used for identification purposes only).
         /// </summary>
-        /// <example>Sneaky Fox</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The permissions of the XI API.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("permissions")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermission>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions?>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermission>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions?> Permissions { get; set; } = default!;
+        public required global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string> Permissions { get; set; }
 
         /// <summary>
         /// The character limit of the XI API key. If provided this will limit the usage of this api key to n characters per month where n is the chosen value. Requests that incur charges will fail after reaching this monthly limit.
@@ -53,8 +51,7 @@ namespace ElevenLabs
         /// Whether to enable or disable the API key.
         /// </param>
         /// <param name="name">
-        /// The name of the XI API key to use (used for identification purposes only).<br/>
-        /// Example: Sneaky Fox
+        /// The name of the XI API key to use (used for identification purposes only).
         /// </param>
         /// <param name="permissions">
         /// The permissions of the XI API.
@@ -68,7 +65,7 @@ namespace ElevenLabs
         public BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch(
             bool isEnabled,
             string name,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermission>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions?> permissions,
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string> permissions,
             int? characterLimit)
         {
             this.IsEnabled = isEnabled;

@@ -9,21 +9,24 @@ namespace ElevenLabs
     public sealed partial class ASRConversationalConfig
     {
         /// <summary>
-        /// 
+        /// The quality of the transcription<br/>
+        /// Default Value: high
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASRQualityJsonConverter))]
         public global::ElevenLabs.ASRQuality? Quality { get; set; }
 
         /// <summary>
-        /// 
+        /// The provider of the transcription service<br/>
+        /// Default Value: elevenlabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASRProviderJsonConverter))]
         public global::ElevenLabs.ASRProvider? Provider { get; set; }
 
         /// <summary>
-        /// 
+        /// The format of the audio to be transcribed<br/>
+        /// Default Value: pcm_16000
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_input_audio_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASRInputFormatJsonConverter))]
@@ -44,9 +47,18 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ASRConversationalConfig" /> class.
         /// </summary>
-        /// <param name="quality"></param>
-        /// <param name="provider"></param>
-        /// <param name="userInputAudioFormat"></param>
+        /// <param name="quality">
+        /// The quality of the transcription<br/>
+        /// Default Value: high
+        /// </param>
+        /// <param name="provider">
+        /// The provider of the transcription service<br/>
+        /// Default Value: elevenlabs
+        /// </param>
+        /// <param name="userInputAudioFormat">
+        /// The format of the audio to be transcribed<br/>
+        /// Default Value: pcm_16000
+        /// </param>
         /// <param name="keywords">
         /// Keywords to boost prediction probability for
         /// </param>

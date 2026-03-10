@@ -13,22 +13,22 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceId { get; set; } = default!;
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("category")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SimilarVoiceCategoryJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceCategoryJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SimilarVoiceCategory Category { get; set; } = default!;
+        public required global::ElevenLabs.VoiceCategory Category { get; set; }
 
         /// <summary>
         /// 
@@ -62,7 +62,7 @@ namespace ElevenLabs
         public SimilarVoice(
             string voiceId,
             string name,
-            global::ElevenLabs.SimilarVoiceCategory category,
+            global::ElevenLabs.VoiceCategory category,
             string? description,
             string? previewUrl)
         {

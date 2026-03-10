@@ -21,17 +21,24 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? AllowedNumbers { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether or not to encrypt media (data layer).<br/>
+        /// Default Value: allowed
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_encryption")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPMediaEncryptionEnumJsonConverter))]
         public global::ElevenLabs.SIPMediaEncryptionEnum? MediaEncryption { get; set; }
 
         /// <summary>
-        /// 
+        /// Optional digest authentication credentials (username/password).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credentials")]
         public global::ElevenLabs.SIPTrunkCredentialsRequestModel? Credentials { get; set; }
+
+        /// <summary>
+        /// Domains of remote SIP servers used to validate TLS certificates.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("remote_domains")]
+        public global::System.Collections.Generic.IList<string>? RemoteDomains { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -48,8 +55,16 @@ namespace ElevenLabs
         /// <param name="allowedNumbers">
         /// List of phone numbers that are allowed to use the trunk.
         /// </param>
-        /// <param name="mediaEncryption"></param>
-        /// <param name="credentials"></param>
+        /// <param name="mediaEncryption">
+        /// Whether or not to encrypt media (data layer).<br/>
+        /// Default Value: allowed
+        /// </param>
+        /// <param name="credentials">
+        /// Optional digest authentication credentials (username/password).
+        /// </param>
+        /// <param name="remoteDomains">
+        /// Domains of remote SIP servers used to validate TLS certificates.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -57,12 +72,14 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? allowedAddresses,
             global::System.Collections.Generic.IList<string>? allowedNumbers,
             global::ElevenLabs.SIPMediaEncryptionEnum? mediaEncryption,
-            global::ElevenLabs.SIPTrunkCredentialsRequestModel? credentials)
+            global::ElevenLabs.SIPTrunkCredentialsRequestModel? credentials,
+            global::System.Collections.Generic.IList<string>? remoteDomains)
         {
             this.AllowedAddresses = allowedAddresses;
             this.AllowedNumbers = allowedNumbers;
             this.MediaEncryption = mediaEncryption;
             this.Credentials = credentials;
+            this.RemoteDomains = remoteDomains;
         }
 
         /// <summary>

@@ -30,11 +30,10 @@ namespace ElevenLabs
         /// Run selected tests on the agent with provided configuration. If the agent configuration is provided, it will be used to override default agent configuration.
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -67,22 +66,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -232,16 +215,20 @@ namespace ElevenLabs
         /// Run selected tests on the agent with provided configuration. If the agent configuration is provided, it will be used to override default agent configuration.
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="tests">
         /// List of tests to run on the agent
         /// </param>
-        /// <param name="agentConfigOverride"></param>
+        /// <param name="agentConfigOverride">
+        /// Configuration overrides to use for testing. If not provided, the agent's default configuration will be used.
+        /// </param>
+        /// <param name="branchId">
+        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestSuiteInvocationResponseModel> CreateConvaiAgentsByAgentIdRunTestsAsync(
@@ -249,12 +236,14 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel> tests,
             string? xiApiKey = default,
             global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? agentConfigOverride = default,
+            string? branchId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.RunAgentTestsRequestModel
             {
                 Tests = tests,
                 AgentConfigOverride = agentConfigOverride,
+                BranchId = branchId,
             };
 
             return await CreateConvaiAgentsByAgentIdRunTestsAsync(

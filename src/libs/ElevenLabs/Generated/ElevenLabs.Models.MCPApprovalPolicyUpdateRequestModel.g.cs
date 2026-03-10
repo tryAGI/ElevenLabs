@@ -9,12 +9,12 @@ namespace ElevenLabs
     public sealed partial class MCPApprovalPolicyUpdateRequestModel
     {
         /// <summary>
-        /// Defines the MCP server-level approval policy for tool execution.
+        /// The approval mode to set for the MCP server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("approval_policy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MCPApprovalPolicyJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.MCPApprovalPolicy ApprovalPolicy { get; set; } = default!;
+        public required global::ElevenLabs.MCPApprovalPolicy ApprovalPolicy { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="MCPApprovalPolicyUpdateRequestModel" /> class.
         /// </summary>
         /// <param name="approvalPolicy">
-        /// Defines the MCP server-level approval policy for tool execution.
+        /// The approval mode to set for the MCP server
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

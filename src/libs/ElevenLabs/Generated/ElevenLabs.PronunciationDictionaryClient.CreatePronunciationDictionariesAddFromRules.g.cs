@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// Creates a new pronunciation dictionary from provided rules.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -59,22 +59,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -223,29 +207,21 @@ namespace ElevenLabs
         /// Creates a new pronunciation dictionary from provided rules.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="rules">
         /// List of pronunciation rules. Rule can be either:<br/>
         ///     an alias rule: {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b', }<br/>
-        ///     or a phoneme rule: {'string_to_replace': 'a', 'type': 'phoneme', 'phoneme': 'b', 'alphabet': 'ipa' }<br/>
-        /// Example: <br/>
-        ///     [<br/>
-        ///         {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b' },<br/>
-        ///         {'string_to_replace': 'c', 'type': 'phoneme', 'phoneme': 'd', 'alphabet': 'ipa' }<br/>
-        ///     ]
+        ///     or a phoneme rule: {'string_to_replace': 'a', 'type': 'phoneme', 'phoneme': 'b', 'alphabet': 'ipa' }
         /// </param>
         /// <param name="name">
-        /// The name of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: My Dictionary
+        /// The name of the pronunciation dictionary, used for identification only.
         /// </param>
         /// <param name="description">
-        /// A description of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: Contains pronunciation's of our character names
+        /// A description of the pronunciation dictionary, used for identification only.
         /// </param>
         /// <param name="workspaceAccess">
-        /// Should be one of 'admin', 'editor' or 'viewer'. If not provided, defaults to no access.<br/>
-        /// Example: viewer
+        /// Should be one of 'admin', 'editor' or 'viewer'. If not provided, defaults to no access.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -254,7 +230,7 @@ namespace ElevenLabs
             string name,
             string? xiApiKey = default,
             string? description = default,
-            global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess? workspaceAccess = default,
+            global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess2? workspaceAccess = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPost

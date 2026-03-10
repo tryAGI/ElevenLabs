@@ -11,11 +11,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ApiIntegrationWebhook,
+        /// <summary>
+        /// 
+        /// </summary>
         Client,
         /// <summary>
         /// 
         /// </summary>
         Mcp,
+        /// <summary>
+        /// 
+        /// </summary>
+        Smb,
         /// <summary>
         /// 
         /// </summary>
@@ -38,8 +46,10 @@ namespace ElevenLabs
         {
             return value switch
             {
+                PromptAgentAPIModelInputToolDiscriminatorType.ApiIntegrationWebhook => "api_integration_webhook",
                 PromptAgentAPIModelInputToolDiscriminatorType.Client => "client",
                 PromptAgentAPIModelInputToolDiscriminatorType.Mcp => "mcp",
+                PromptAgentAPIModelInputToolDiscriminatorType.Smb => "smb",
                 PromptAgentAPIModelInputToolDiscriminatorType.System => "system",
                 PromptAgentAPIModelInputToolDiscriminatorType.Webhook => "webhook",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -52,8 +62,10 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "api_integration_webhook" => PromptAgentAPIModelInputToolDiscriminatorType.ApiIntegrationWebhook,
                 "client" => PromptAgentAPIModelInputToolDiscriminatorType.Client,
                 "mcp" => PromptAgentAPIModelInputToolDiscriminatorType.Mcp,
+                "smb" => PromptAgentAPIModelInputToolDiscriminatorType.Smb,
                 "system" => PromptAgentAPIModelInputToolDiscriminatorType.System,
                 "webhook" => PromptAgentAPIModelInputToolDiscriminatorType.Webhook,
                 _ => null,

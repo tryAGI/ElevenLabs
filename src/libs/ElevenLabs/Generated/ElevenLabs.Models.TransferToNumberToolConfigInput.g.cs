@@ -12,15 +12,14 @@ namespace ElevenLabs
         /// Default Value: transfer_to_number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_tool_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToNumberToolConfigInputSystemToolTypeJsonConverter))]
-        public global::ElevenLabs.TransferToNumberToolConfigInputSystemToolType? SystemToolType { get; set; }
+        public string? SystemToolType { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer> Transfers { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer> Transfers { get; set; }
 
         /// <summary>
         /// Whether to play a message to the client while they wait for transfer. Defaults to true for backward compatibility.<br/>
@@ -51,7 +50,7 @@ namespace ElevenLabs
 #endif
         public TransferToNumberToolConfigInput(
             global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer> transfers,
-            global::ElevenLabs.TransferToNumberToolConfigInputSystemToolType? systemToolType,
+            string? systemToolType,
             bool? enableClientMessage)
         {
             this.Transfers = transfers ?? throw new global::System.ArgumentNullException(nameof(transfers));

@@ -12,15 +12,14 @@ namespace ElevenLabs
         /// Default Value: phone
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PhoneNumberTransferDestinationTypeJsonConverter))]
-        public global::ElevenLabs.PhoneNumberTransferDestinationType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumber { get; set; } = default!;
+        public required string PhoneNumber { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +39,7 @@ namespace ElevenLabs
 #endif
         public PhoneNumberTransferDestination(
             string phoneNumber,
-            global::ElevenLabs.PhoneNumberTransferDestinationType? type)
+            string? type)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Type = type;

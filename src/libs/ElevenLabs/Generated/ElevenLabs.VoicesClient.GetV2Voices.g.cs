@@ -48,8 +48,7 @@ namespace ElevenLabs
         /// Gets a list of all available voices for a user with search, filtering and pagination.
         /// </summary>
         /// <param name="nextPageToken">
-        /// The next page token to use for pagination. Returned from the previous request.<br/>
-        /// Example: 0
+        /// The next page token to use for pagination. Returned from the previous request. Use this in combination with the has_more flag for reliable pagination.
         /// </param>
         /// <param name="pageSize">
         /// How many voices to return at maximum. Can not exceed 100, defaults to 10. Page 0 may include more voices due to default voices being included.<br/>
@@ -59,15 +58,13 @@ namespace ElevenLabs
         /// Search term to filter voices by. Searches in name, description, labels, category.
         /// </param>
         /// <param name="sort">
-        /// Which field to sort by, one of 'created_at_unix' or 'name'. 'created_at_unix' may not be available for older voices.<br/>
-        /// Example: created_at_unix
+        /// Which field to sort by, one of 'created_at_unix' or 'name'. 'created_at_unix' may not be available for older voices.
         /// </param>
         /// <param name="sortDirection">
-        /// Which direction to sort the voices in. 'asc' or 'desc'.<br/>
-        /// Example: desc
+        /// Which direction to sort the voices in. 'asc' or 'desc'.
         /// </param>
         /// <param name="voiceType">
-        /// Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default'. 'non-default' is equal to all but 'default'.
+        /// Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default', 'saved'. 'non-default' is equal to all but 'default'. 'saved' is equal to non-default, but includes default voices if they have been added to a collection.
         /// </param>
         /// <param name="category">
         /// Category of the voice to filter by. One of 'premade', 'cloned', 'generated', 'professional'
@@ -79,15 +76,14 @@ namespace ElevenLabs
         /// Collection ID to filter voices by.
         /// </param>
         /// <param name="includeTotalCount">
-        /// Whether to include the total count of voices found in the response. Incurs a performance cost.<br/>
-        /// Default Value: true<br/>
-        /// Example: true
+        /// Whether to include the total count of voices found in the response. NOTE: The total_count value is a live snapshot and may change between requests as users create, modify, or delete voices. For pagination, rely on the has_more flag instead. Only enable this when you actually need the total count (e.g., for display purposes), as it incurs a performance cost.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="voiceIds">
         /// Voice IDs to lookup by. Maximum 100 voice IDs.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -137,7 +133,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("fine_tuning_state", fineTuningState)
                 .AddOptionalParameter("collection_id", collectionId)
                 .AddOptionalParameter("include_total_count", includeTotalCount?.ToString())
-                .AddOptionalParameter("voice_ids", voiceIds, delimiter: ",", explode: true) 
+                .AddOptionalParameter("voice_ids", voiceIds?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -147,22 +143,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {

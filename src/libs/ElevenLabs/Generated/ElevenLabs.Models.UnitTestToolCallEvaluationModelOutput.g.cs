@@ -15,11 +15,23 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>? Parameters { get; set; }
 
         /// <summary>
-        /// Reference to a tool for unit test evaluation.
+        /// The tool to evaluate a call against.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("referenced_tool")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ReferencedToolCommonModel ReferencedTool { get; set; } = default!;
+        public global::ElevenLabs.ReferencedToolCommonModel? ReferencedTool { get; set; }
+
+        /// <summary>
+        /// Whether to verify that the tool was NOT called.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("verify_absence")]
+        public bool? VerifyAbsence { get; set; }
+
+        /// <summary>
+        /// Configuration for testing workflow node transitions. When set, the test will verify the agent transitions to the specified workflow node.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workflow_node_transition")]
+        public global::ElevenLabs.UnitTestWorkflowNodeTransitionEvaluationNodeId? WorkflowNodeTransition { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,17 +46,28 @@ namespace ElevenLabs
         /// Parameters to evaluate for the agent's tool call. If empty, the tool call parameters are not evaluated.
         /// </param>
         /// <param name="referencedTool">
-        /// Reference to a tool for unit test evaluation.
+        /// The tool to evaluate a call against.
+        /// </param>
+        /// <param name="verifyAbsence">
+        /// Whether to verify that the tool was NOT called.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="workflowNodeTransition">
+        /// Configuration for testing workflow node transitions. When set, the test will verify the agent transitions to the specified workflow node.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UnitTestToolCallEvaluationModelOutput(
-            global::ElevenLabs.ReferencedToolCommonModel referencedTool,
-            global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>? parameters)
+            global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>? parameters,
+            global::ElevenLabs.ReferencedToolCommonModel? referencedTool,
+            bool? verifyAbsence,
+            global::ElevenLabs.UnitTestWorkflowNodeTransitionEvaluationNodeId? workflowNodeTransition)
         {
-            this.ReferencedTool = referencedTool ?? throw new global::System.ArgumentNullException(nameof(referencedTool));
             this.Parameters = parameters;
+            this.ReferencedTool = referencedTool;
+            this.VerifyAbsence = verifyAbsence;
+            this.WorkflowNodeTransition = workflowNodeTransition;
         }
 
         /// <summary>

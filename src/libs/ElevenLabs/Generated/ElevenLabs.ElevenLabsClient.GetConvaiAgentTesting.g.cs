@@ -1,6 +1,8 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class ElevenLabsClient
@@ -10,6 +12,10 @@ namespace ElevenLabs
             ref string? cursor,
             ref int? pageSize,
             ref string? search,
+            ref string? parentFolderId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TestType>? types,
+            bool? includeFolders,
+            ref global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode,
             ref string? xiApiKey);
         partial void PrepareGetConvaiAgentTestingRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -17,6 +23,10 @@ namespace ElevenLabs
             string? cursor,
             int? pageSize,
             string? search,
+            string? parentFolderId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TestType>? types,
+            bool? includeFolders,
+            global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode,
             string? xiApiKey);
         partial void ProcessGetConvaiAgentTestingResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -41,8 +51,21 @@ namespace ElevenLabs
         /// <param name="search">
         /// Search query to filter tests by name.
         /// </param>
+        /// <param name="parentFolderId">
+        /// Filter by parent folder ID. Use 'root' to get items in the root folder.
+        /// </param>
+        /// <param name="types">
+        /// If present, the endpoint will return only tests/folders of the given types.
+        /// </param>
+        /// <param name="includeFolders">
+        /// Deprecated. Use the `types` query param and include `folder` instead.
+        /// </param>
+        /// <param name="sortMode">
+        /// Sort mode for listing tests. Use 'folders_first' to place folders before tests.<br/>
+        /// Default Value: default
+        /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -50,6 +73,10 @@ namespace ElevenLabs
             string? cursor = default,
             int? pageSize = default,
             string? search = default,
+            string? parentFolderId = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TestType>? types = default,
+            bool? includeFolders = default,
+            global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -60,6 +87,10 @@ namespace ElevenLabs
                 cursor: ref cursor,
                 pageSize: ref pageSize,
                 search: ref search,
+                parentFolderId: ref parentFolderId,
+                types: types,
+                includeFolders: includeFolders,
+                sortMode: ref sortMode,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -68,7 +99,11 @@ namespace ElevenLabs
             __pathBuilder
                 .AddOptionalParameter("cursor", cursor)
                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                .AddOptionalParameter("search", search) 
+                .AddOptionalParameter("search", search)
+                .AddOptionalParameter("parent_folder_id", parentFolderId)
+                .AddOptionalParameter("types", types?.ToString())
+                .AddOptionalParameter("include_folders", includeFolders?.ToString())
+                .AddOptionalParameter("sort_mode", sortMode?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -78,22 +113,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -110,6 +129,10 @@ namespace ElevenLabs
                 cursor: cursor,
                 pageSize: pageSize,
                 search: search,
+                parentFolderId: parentFolderId,
+                types: types,
+                includeFolders: includeFolders,
+                sortMode: sortMode,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

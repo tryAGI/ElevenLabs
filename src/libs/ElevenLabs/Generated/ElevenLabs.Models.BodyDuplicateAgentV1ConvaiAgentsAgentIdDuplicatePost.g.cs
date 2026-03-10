@@ -9,10 +9,8 @@ namespace ElevenLabs
     public sealed partial class BodyDuplicateAgentV1ConvaiAgentsAgentIdDuplicatePost
     {
         /// <summary>
-        /// A name to make the agent easier to find<br/>
-        /// Example: My agent
+        /// A name to make the agent easier to find
         /// </summary>
-        /// <example>My agent</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
 
@@ -26,8 +24,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyDuplicateAgentV1ConvaiAgentsAgentIdDuplicatePost" /> class.
         /// </summary>
         /// <param name="name">
-        /// A name to make the agent easier to find<br/>
-        /// Example: My agent
+        /// A name to make the agent easier to find
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

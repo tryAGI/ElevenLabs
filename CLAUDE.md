@@ -28,7 +28,7 @@ cd src/libs/ElevenLabs && ./generate.sh
 
 The SDK code in `src/libs/ElevenLabs/Generated/` is **entirely auto-generated** -- do not manually edit files there.
 
-1. `src/libs/ElevenLabs/openapi.yaml` -- the ElevenLabs OpenAPI spec (fetched from the official `elevenlabs-docs` repo)
+1. `src/libs/ElevenLabs/openapi.yaml` -- the ElevenLabs OpenAPI spec (fetched from `https://api.elevenlabs.io/openapi.json`)
 2. `src/helpers/FixOpenApiSpec/` -- converts OpenAPI 3.1 to 3.0 format for compatibility
 3. `src/libs/ElevenLabs/generate.sh` -- orchestrates: download spec, fix spec, run AutoSDK CLI with `--methodNamingConvention MethodAndPath`, output to `Generated/`
 4. CI auto-updates the spec and creates PRs if changes are detected

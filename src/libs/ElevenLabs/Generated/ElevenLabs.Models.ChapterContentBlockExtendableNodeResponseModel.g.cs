@@ -11,9 +11,9 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"_other"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ChapterContentBlockExtendableNodeResponseModelTypeJsonConverter))]
-        public global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModelType Type { get; set; }
+        public string Type { get; set; } = "_other";
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -29,7 +29,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChapterContentBlockExtendableNodeResponseModel(
-            global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModelType type)
+            string type = "_other")
         {
             this.Type = type;
         }

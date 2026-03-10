@@ -13,7 +13,19 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
+        public string? BranchId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
+        public string? VersionId { get; set; }
 
         /// <summary>
         /// 
@@ -26,28 +38,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ConversationId { get; set; } = default!;
+        public required string ConversationId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int StartTimeUnixSecs { get; set; } = default!;
+        public required int StartTimeUnixSecs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CallDurationSecs { get; set; } = default!;
+        public required int CallDurationSecs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MessageCount { get; set; } = default!;
+        public required int MessageCount { get; set; }
 
         /// <summary>
         /// 
@@ -55,7 +67,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationSummaryResponseModelStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.ConversationSummaryResponseModelStatus Status { get; set; }
 
         /// <summary>
         /// 
@@ -63,7 +75,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("call_successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; } = default!;
+        public required global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; }
 
         /// <summary>
         /// 
@@ -80,9 +92,32 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("main_language")]
+        public string? MainLanguage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_source")]
+        public global::ElevenLabs.ConversationInitiationSource? ConversationInitiationSource { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_names")]
+        public global::System.Collections.Generic.IList<string>? ToolNames { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationSummaryResponseModelDirectionJsonConverter))]
-        public global::ElevenLabs.ConversationSummaryResponseModelDirection? Direction { get; set; }
+        public global::ElevenLabs.ConversationSummaryResponseModelDirection2? Direction { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rating")]
+        public double? Rating { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -94,6 +129,8 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationSummaryResponseModel" /> class.
         /// </summary>
         /// <param name="agentId"></param>
+        /// <param name="branchId"></param>
+        /// <param name="versionId"></param>
         /// <param name="agentName"></param>
         /// <param name="conversationId"></param>
         /// <param name="startTimeUnixSecs"></param>
@@ -103,7 +140,11 @@ namespace ElevenLabs
         /// <param name="callSuccessful"></param>
         /// <param name="transcriptSummary"></param>
         /// <param name="callSummaryTitle"></param>
+        /// <param name="mainLanguage"></param>
+        /// <param name="conversationInitiationSource"></param>
+        /// <param name="toolNames"></param>
         /// <param name="direction"></param>
+        /// <param name="rating"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -115,10 +156,16 @@ namespace ElevenLabs
             int messageCount,
             global::ElevenLabs.ConversationSummaryResponseModelStatus status,
             global::ElevenLabs.EvaluationSuccessResult callSuccessful,
+            string? branchId,
+            string? versionId,
             string? agentName,
             string? transcriptSummary,
             string? callSummaryTitle,
-            global::ElevenLabs.ConversationSummaryResponseModelDirection? direction)
+            string? mainLanguage,
+            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            global::System.Collections.Generic.IList<string>? toolNames,
+            global::ElevenLabs.ConversationSummaryResponseModelDirection2? direction,
+            double? rating)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
@@ -127,10 +174,16 @@ namespace ElevenLabs
             this.MessageCount = messageCount;
             this.Status = status;
             this.CallSuccessful = callSuccessful;
+            this.BranchId = branchId;
+            this.VersionId = versionId;
             this.AgentName = agentName;
             this.TranscriptSummary = transcriptSummary;
             this.CallSummaryTitle = callSummaryTitle;
+            this.MainLanguage = mainLanguage;
+            this.ConversationInitiationSource = conversationInitiationSource;
+            this.ToolNames = toolNames;
             this.Direction = direction;
+            this.Rating = rating;
         }
 
         /// <summary>

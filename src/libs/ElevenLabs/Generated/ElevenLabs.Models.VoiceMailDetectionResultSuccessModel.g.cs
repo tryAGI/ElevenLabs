@@ -12,15 +12,13 @@ namespace ElevenLabs
         /// Default Value: voicemail_detection_success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceMailDetectionResultSuccessModelResultTypeJsonConverter))]
-        public global::ElevenLabs.VoiceMailDetectionResultSuccessModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceMailDetectionResultSuccessModelStatusJsonConverter))]
-        public global::ElevenLabs.VoiceMailDetectionResultSuccessModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
@@ -55,8 +53,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VoiceMailDetectionResultSuccessModel(
-            global::ElevenLabs.VoiceMailDetectionResultSuccessModelResultType? resultType,
-            global::ElevenLabs.VoiceMailDetectionResultSuccessModelStatus? status,
+            string? resultType,
+            string? status,
             string? voicemailMessage,
             string? reason)
         {

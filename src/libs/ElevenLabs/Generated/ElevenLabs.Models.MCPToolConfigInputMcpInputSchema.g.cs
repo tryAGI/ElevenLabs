@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Original inputSchema dict for consistent hashing (pure MCP format)
+    /// Original inputSchema dict for consistent hashing
     /// </summary>
     public sealed partial class MCPToolConfigInputMcpInputSchema
     {

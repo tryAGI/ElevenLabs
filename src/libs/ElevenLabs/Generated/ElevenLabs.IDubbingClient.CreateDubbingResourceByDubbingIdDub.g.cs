@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// ID of the dubbing project.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -32,7 +32,7 @@ namespace ElevenLabs
         /// ID of the dubbing project.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="segments">
         /// Dub only this list of segments.
@@ -45,8 +45,8 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentDubResponse> CreateDubbingResourceByDubbingIdDubAsync(
             string dubbingId,
             global::System.Collections.Generic.IList<string> segments,
-            global::System.Collections.Generic.IList<string>? languages,
             string? xiApiKey = default,
+            global::System.Collections.Generic.IList<string>? languages = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

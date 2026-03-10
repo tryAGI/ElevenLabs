@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int StartTimeUnixSecs { get; set; } = default!;
+        public required int StartTimeUnixSecs { get; set; }
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CallDurationSecs { get; set; } = default!;
+        public required int CallDurationSecs { get; set; }
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationHistoryFeedbackCommonModel? Feedback { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: public
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("authorization_method")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter))]
@@ -63,8 +63,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_call")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PhoneCallJsonConverter))]
-        public global::ElevenLabs.PhoneCall? PhoneCall { get; set; }
+        public global::ElevenLabs.PhoneCallVariant1? PhoneCall { get; set; }
 
         /// <summary>
         /// 
@@ -83,6 +82,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::ElevenLabs.ConversationHistoryErrorCommonModel? Error { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
+        public global::System.Collections.Generic.IList<string>? Warnings { get; set; }
 
         /// <summary>
         /// 
@@ -121,7 +126,8 @@ namespace ElevenLabs
         public string? InitiatorId { get; set; }
 
         /// <summary>
-        /// Enum representing the possible sources for conversation initiation.
+        /// Enum representing the possible sources for conversation initiation.<br/>
+        /// Default Value: unknown
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationInitiationSourceJsonConverter))]
@@ -140,6 +146,32 @@ namespace ElevenLabs
         public string? Timezone { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("async_metadata")]
+        public global::ElevenLabs.AsyncConversationMetadata? AsyncMetadata { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp")]
+        public global::ElevenLabs.WhatsAppConversationInfo? Whatsapp { get; set; }
+
+        /// <summary>
+        /// Default Value: unknown
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_created_from")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AgentDefinitionSourceJsonConverter))]
+        public global::ElevenLabs.AgentDefinitionSource? AgentCreatedFrom { get; set; }
+
+        /// <summary>
+        /// Default Value: unknown
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_last_updated_from")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AgentDefinitionSourceJsonConverter))]
+        public global::ElevenLabs.AgentDefinitionSource? AgentLastUpdatedFrom { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -154,12 +186,15 @@ namespace ElevenLabs
         /// <param name="cost"></param>
         /// <param name="deletionSettings"></param>
         /// <param name="feedback"></param>
-        /// <param name="authorizationMethod"></param>
+        /// <param name="authorizationMethod">
+        /// Default Value: public
+        /// </param>
         /// <param name="charging"></param>
         /// <param name="phoneCall"></param>
         /// <param name="batchCall"></param>
         /// <param name="terminationReason"></param>
         /// <param name="error"></param>
+        /// <param name="warnings"></param>
         /// <param name="mainLanguage"></param>
         /// <param name="ragUsage"></param>
         /// <param name="textOnly">
@@ -169,10 +204,19 @@ namespace ElevenLabs
         /// <param name="elevenAssistant"></param>
         /// <param name="initiatorId"></param>
         /// <param name="conversationInitiationSource">
-        /// Enum representing the possible sources for conversation initiation.
+        /// Enum representing the possible sources for conversation initiation.<br/>
+        /// Default Value: unknown
         /// </param>
         /// <param name="conversationInitiationSourceVersion"></param>
         /// <param name="timezone"></param>
+        /// <param name="asyncMetadata"></param>
+        /// <param name="whatsapp"></param>
+        /// <param name="agentCreatedFrom">
+        /// Default Value: unknown
+        /// </param>
+        /// <param name="agentLastUpdatedFrom">
+        /// Default Value: unknown
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -185,10 +229,11 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryFeedbackCommonModel? feedback,
             global::ElevenLabs.AuthorizationMethod? authorizationMethod,
             global::ElevenLabs.ConversationChargingCommonModel? charging,
-            global::ElevenLabs.PhoneCall? phoneCall,
+            global::ElevenLabs.PhoneCallVariant1? phoneCall,
             global::ElevenLabs.ConversationHistoryBatchCallModel? batchCall,
             string? terminationReason,
             global::ElevenLabs.ConversationHistoryErrorCommonModel? error,
+            global::System.Collections.Generic.IList<string>? warnings,
             string? mainLanguage,
             global::ElevenLabs.ConversationHistoryRagUsageCommonModel? ragUsage,
             bool? textOnly,
@@ -197,7 +242,11 @@ namespace ElevenLabs
             string? initiatorId,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             string? conversationInitiationSourceVersion,
-            string? timezone)
+            string? timezone,
+            global::ElevenLabs.AsyncConversationMetadata? asyncMetadata,
+            global::ElevenLabs.WhatsAppConversationInfo? whatsapp,
+            global::ElevenLabs.AgentDefinitionSource? agentCreatedFrom,
+            global::ElevenLabs.AgentDefinitionSource? agentLastUpdatedFrom)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
@@ -211,6 +260,7 @@ namespace ElevenLabs
             this.BatchCall = batchCall;
             this.TerminationReason = terminationReason;
             this.Error = error;
+            this.Warnings = warnings;
             this.MainLanguage = mainLanguage;
             this.RagUsage = ragUsage;
             this.TextOnly = textOnly;
@@ -220,6 +270,10 @@ namespace ElevenLabs
             this.ConversationInitiationSource = conversationInitiationSource;
             this.ConversationInitiationSourceVersion = conversationInitiationSourceVersion;
             this.Timezone = timezone;
+            this.AsyncMetadata = asyncMetadata;
+            this.Whatsapp = whatsapp;
+            this.AgentCreatedFrom = agentCreatedFrom;
+            this.AgentLastUpdatedFrom = agentLastUpdatedFrom;
         }
 
         /// <summary>

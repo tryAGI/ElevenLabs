@@ -11,8 +11,8 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref bool? enableLogging,
-            ref int? optimizeStreamingLatency,
-            ref global::ElevenLabs.SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat? outputFormat,
+            int? optimizeStreamingLatency,
+            ref global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat,
             ref string? xiApiKey,
             global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request);
         partial void PrepareCreateSpeechToSpeechByVoiceIdRequest(
@@ -21,7 +21,7 @@ namespace ElevenLabs
             string voiceId,
             bool? enableLogging,
             int? optimizeStreamingLatency,
-            global::ElevenLabs.SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat? outputFormat,
+            global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat,
             string? xiApiKey,
             global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request);
         partial void ProcessCreateSpeechToSpeechByVoiceIdResponse(
@@ -38,8 +38,7 @@ namespace ElevenLabs
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
@@ -59,7 +58,7 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -70,7 +69,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            global::ElevenLabs.SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -82,7 +81,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 voiceId: ref voiceId,
                 enableLogging: ref enableLogging,
-                optimizeStreamingLatency: ref optimizeStreamingLatency,
+                optimizeStreamingLatency: optimizeStreamingLatency,
                 outputFormat: ref outputFormat,
                 xiApiKey: ref xiApiKey,
                 request: request);
@@ -103,22 +102,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -198,7 +181,7 @@ namespace ElevenLabs
             {
 
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.FileFormat?.ToValueString()}"),
+                    content: new global::System.Net.Http.StringContent($"{request.FileFormat}"),
                     name: "\"file_format\"");
             }
             __httpRequest.Content = __httpRequestContent;
@@ -333,8 +316,7 @@ namespace ElevenLabs
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.<br/>
@@ -354,7 +336,7 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="audio">
         /// The audio file which holds the content and emotion that will control the generated speech.
@@ -370,18 +352,15 @@ namespace ElevenLabs
         /// Voice settings overriding stored settings for the given voice. They are applied only on the given request. Needs to be send as a JSON encoded string.
         /// </param>
         /// <param name="seed">
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
-        /// Example: 12345
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set, will remove the background noise from your audio input using our audio isolation model. Only applies to Voice Changer.<br/>
-        /// Default Value: false<br/>
-        /// Example: true
+        /// Default Value: false
         /// </param>
         /// <param name="fileFormat">
         /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
-        /// Default Value: other<br/>
-        /// Example: pcm_s16le_16
+        /// Default Value: other
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -391,13 +370,13 @@ namespace ElevenLabs
             string audioname,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
-            global::ElevenLabs.SpeechToSpeechV1SpeechToSpeechVoiceIdPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             string? modelId = default,
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2? fileFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost

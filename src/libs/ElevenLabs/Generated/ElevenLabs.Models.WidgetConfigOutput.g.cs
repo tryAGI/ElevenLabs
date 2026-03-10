@@ -11,21 +11,24 @@ namespace ElevenLabs
     public sealed partial class WidgetConfigOutput
     {
         /// <summary>
-        /// 
+        /// The variant of the widget<br/>
+        /// Default Value: full
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("variant")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbedVariantJsonConverter))]
         public global::ElevenLabs.EmbedVariant? Variant { get; set; }
 
         /// <summary>
-        /// 
+        /// The placement of the widget on the screen<br/>
+        /// Default Value: bottom-right
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("placement")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetPlacementJsonConverter))]
         public global::ElevenLabs.WidgetPlacement? Placement { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the widget is expandable<br/>
+        /// Default Value: never
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expandable")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetExpandableJsonConverter))]
@@ -39,11 +42,18 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? Avatar { get; set; }
 
         /// <summary>
-        /// 
+        /// The feedback mode of the widget<br/>
+        /// Default Value: none
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetFeedbackModeJsonConverter))]
         public global::ElevenLabs.WidgetFeedbackMode? FeedbackMode { get; set; }
+
+        /// <summary>
+        /// Configuration for feedback collected at the end of the conversation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_feedback")]
+        public global::ElevenLabs.WidgetEndFeedbackConfig? EndFeedback { get; set; }
 
         /// <summary>
         /// The background color of the widget<br/>
@@ -187,6 +197,26 @@ namespace ElevenLabs
         public string? OverrideLink { get; set; }
 
         /// <summary>
+        /// List of allowed hostnames for clickable markdown links. Use { hostname: '*' } to allow any domain. Empty means no links are allowed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("markdown_link_allowed_hosts")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AllowlistItem>? MarkdownLinkAllowedHosts { get; set; }
+
+        /// <summary>
+        /// Whether to automatically include www. variants of allowed hosts<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("markdown_link_include_www")]
+        public bool? MarkdownLinkIncludeWww { get; set; }
+
+        /// <summary>
+        /// Whether to allow http:// in addition to https:// for allowed hosts<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("markdown_link_allow_http")]
+        public bool? MarkdownLinkAllowHttp { get; set; }
+
+        /// <summary>
         /// Whether to enable mic muting<br/>
         /// Default Value: false
         /// </summary>
@@ -208,6 +238,13 @@ namespace ElevenLabs
         public bool? TextInputEnabled { get; set; }
 
         /// <summary>
+        /// Whether to enable the conversation mode toggle in the widget<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_mode_toggle_enabled")]
+        public bool? ConversationModeToggleEnabled { get; set; }
+
+        /// <summary>
         /// Whether the widget should be expanded by default<br/>
         /// Default Value: false
         /// </summary>
@@ -222,13 +259,47 @@ namespace ElevenLabs
         public bool? AlwaysExpanded { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether the widget can be dismissed by the user<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dismissible")]
+        public bool? Dismissible { get; set; }
+
+        /// <summary>
+        /// Whether to show agent working/done/error status during tool use<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("show_agent_status")]
+        public bool? ShowAgentStatus { get; set; }
+
+        /// <summary>
+        /// Whether to show the conversation ID after disconnection.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("show_conversation_id")]
+        public bool? ShowConversationId { get; set; }
+
+        /// <summary>
+        /// Whether to strip audio markup from messages.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("strip_audio_tags")]
+        public bool? StripAudioTags { get; set; }
+
+        /// <summary>
+        /// Theme for code block syntax highlighting. Defaults to auto-detection by the widget when not set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("syntax_highlight_theme")]
+        public global::ElevenLabs.WidgetConfigOutputSyntaxHighlightTheme2? SyntaxHighlightTheme { get; set; }
+
+        /// <summary>
+        /// Text contents of the widget
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_contents")]
         public global::ElevenLabs.WidgetTextContents? TextContents { get; set; }
 
         /// <summary>
-        /// 
+        /// Styles for the widget
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("styles")]
         public global::ElevenLabs.WidgetStyles? Styles { get; set; }
@@ -268,13 +339,28 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WidgetConfigOutput" /> class.
         /// </summary>
-        /// <param name="variant"></param>
-        /// <param name="placement"></param>
-        /// <param name="expandable"></param>
+        /// <param name="variant">
+        /// The variant of the widget<br/>
+        /// Default Value: full
+        /// </param>
+        /// <param name="placement">
+        /// The placement of the widget on the screen<br/>
+        /// Default Value: bottom-right
+        /// </param>
+        /// <param name="expandable">
+        /// Whether the widget is expandable<br/>
+        /// Default Value: never
+        /// </param>
         /// <param name="avatar">
         /// The avatar of the widget
         /// </param>
-        /// <param name="feedbackMode"></param>
+        /// <param name="feedbackMode">
+        /// The feedback mode of the widget<br/>
+        /// Default Value: none
+        /// </param>
+        /// <param name="endFeedback">
+        /// Configuration for feedback collected at the end of the conversation
+        /// </param>
         /// <param name="bgColor">
         /// The background color of the widget<br/>
         /// Default Value: #ffffff
@@ -350,6 +436,17 @@ namespace ElevenLabs
         /// <param name="overrideLink">
         /// The override link for the widget
         /// </param>
+        /// <param name="markdownLinkAllowedHosts">
+        /// List of allowed hostnames for clickable markdown links. Use { hostname: '*' } to allow any domain. Empty means no links are allowed.
+        /// </param>
+        /// <param name="markdownLinkIncludeWww">
+        /// Whether to automatically include www. variants of allowed hosts<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="markdownLinkAllowHttp">
+        /// Whether to allow http:// in addition to https:// for allowed hosts<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="micMutingEnabled">
         /// Whether to enable mic muting<br/>
         /// Default Value: false
@@ -362,6 +459,10 @@ namespace ElevenLabs
         /// Whether the user should be able to send text messages<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="conversationModeToggleEnabled">
+        /// Whether to enable the conversation mode toggle in the widget<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="defaultExpanded">
         /// Whether the widget should be expanded by default<br/>
         /// Default Value: false
@@ -370,8 +471,31 @@ namespace ElevenLabs
         /// Whether the widget should always be expanded<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="textContents"></param>
-        /// <param name="styles"></param>
+        /// <param name="dismissible">
+        /// Whether the widget can be dismissed by the user<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="showAgentStatus">
+        /// Whether to show agent working/done/error status during tool use<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="showConversationId">
+        /// Whether to show the conversation ID after disconnection.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="stripAudioTags">
+        /// Whether to strip audio markup from messages.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="syntaxHighlightTheme">
+        /// Theme for code block syntax highlighting. Defaults to auto-detection by the widget when not set.
+        /// </param>
+        /// <param name="textContents">
+        /// Text contents of the widget
+        /// </param>
+        /// <param name="styles">
+        /// Styles for the widget
+        /// </param>
         /// <param name="languageSelector">
         /// Whether to show the language selector<br/>
         /// Default Value: false
@@ -395,6 +519,7 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetExpandable? expandable,
             global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? avatar,
             global::ElevenLabs.WidgetFeedbackMode? feedbackMode,
+            global::ElevenLabs.WidgetEndFeedbackConfig? endFeedback,
             string? bgColor,
             string? textColor,
             string? btnColor,
@@ -417,11 +542,20 @@ namespace ElevenLabs
             bool? showAvatarWhenCollapsed,
             bool? disableBanner,
             string? overrideLink,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AllowlistItem>? markdownLinkAllowedHosts,
+            bool? markdownLinkIncludeWww,
+            bool? markdownLinkAllowHttp,
             bool? micMutingEnabled,
             bool? transcriptEnabled,
             bool? textInputEnabled,
+            bool? conversationModeToggleEnabled,
             bool? defaultExpanded,
             bool? alwaysExpanded,
+            bool? dismissible,
+            bool? showAgentStatus,
+            bool? showConversationId,
+            bool? stripAudioTags,
+            global::ElevenLabs.WidgetConfigOutputSyntaxHighlightTheme2? syntaxHighlightTheme,
             global::ElevenLabs.WidgetTextContents? textContents,
             global::ElevenLabs.WidgetStyles? styles,
             bool? languageSelector,
@@ -434,6 +568,7 @@ namespace ElevenLabs
             this.Expandable = expandable;
             this.Avatar = avatar;
             this.FeedbackMode = feedbackMode;
+            this.EndFeedback = endFeedback;
             this.BgColor = bgColor;
             this.TextColor = textColor;
             this.BtnColor = btnColor;
@@ -456,11 +591,20 @@ namespace ElevenLabs
             this.ShowAvatarWhenCollapsed = showAvatarWhenCollapsed;
             this.DisableBanner = disableBanner;
             this.OverrideLink = overrideLink;
+            this.MarkdownLinkAllowedHosts = markdownLinkAllowedHosts;
+            this.MarkdownLinkIncludeWww = markdownLinkIncludeWww;
+            this.MarkdownLinkAllowHttp = markdownLinkAllowHttp;
             this.MicMutingEnabled = micMutingEnabled;
             this.TranscriptEnabled = transcriptEnabled;
             this.TextInputEnabled = textInputEnabled;
+            this.ConversationModeToggleEnabled = conversationModeToggleEnabled;
             this.DefaultExpanded = defaultExpanded;
             this.AlwaysExpanded = alwaysExpanded;
+            this.Dismissible = dismissible;
+            this.ShowAgentStatus = showAgentStatus;
+            this.ShowConversationId = showConversationId;
+            this.StripAudioTags = stripAudioTags;
+            this.SyntaxHighlightTheme = syntaxHighlightTheme;
             this.TextContents = textContents;
             this.Styles = styles;
             this.LanguageSelector = languageSelector;

@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hint")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Hint { get; set; } = default!;
+        public required string Hint { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string KeyId { get; set; } = default!;
+        public required string KeyId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("service_account_user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ServiceAccountUserId { get; set; } = default!;
+        public required string ServiceAccountUserId { get; set; }
 
         /// <summary>
         /// 
@@ -52,7 +52,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("permissions")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceApiKeyResponseModelPermission>? Permissions { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>? Permissions { get; set; }
 
         /// <summary>
         /// 
@@ -65,6 +65,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count")]
         public int? CharacterCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hashed_xi_api_key")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string HashedXiApiKey { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -86,6 +93,7 @@ namespace ElevenLabs
         /// <param name="permissions"></param>
         /// <param name="characterLimit"></param>
         /// <param name="characterCount"></param>
+        /// <param name="hashedXiApiKey"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -94,9 +102,10 @@ namespace ElevenLabs
             string hint,
             string keyId,
             string serviceAccountUserId,
+            string hashedXiApiKey,
             int? createdAtUnix,
             bool? isDisabled,
-            global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceApiKeyResponseModelPermission>? permissions,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>? permissions,
             int? characterLimit,
             int? characterCount)
         {
@@ -104,6 +113,7 @@ namespace ElevenLabs
             this.Hint = hint ?? throw new global::System.ArgumentNullException(nameof(hint));
             this.KeyId = keyId ?? throw new global::System.ArgumentNullException(nameof(keyId));
             this.ServiceAccountUserId = serviceAccountUserId ?? throw new global::System.ArgumentNullException(nameof(serviceAccountUserId));
+            this.HashedXiApiKey = hashedXiApiKey ?? throw new global::System.ArgumentNullException(nameof(hashedXiApiKey));
             this.CreatedAtUnix = createdAtUnix;
             this.IsDisabled = isDisabled;
             this.Permissions = permissions;

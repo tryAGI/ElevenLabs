@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_config")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolConfigJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ToolConfig ToolConfig { get; set; } = default!;
+        public required global::ElevenLabs.ToolConfig ToolConfig { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

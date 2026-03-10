@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_allowed_to_fine_tune")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsAllowedToFineTune { get; set; } = default!;
+        public required bool IsAllowedToFineTune { get; set; }
 
         /// <summary>
         /// The state of the fine-tuning process for each model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2> State { get; set; } = default!;
+        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2> State { get; set; }
 
         /// <summary>
         /// List of verification failures in the fine-tuning process.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_failures")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> VerificationFailures { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> VerificationFailures { get; set; }
 
         /// <summary>
         /// The number of verification attempts in the fine-tuning process.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_attempts_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int VerificationAttemptsCount { get; set; } = default!;
+        public required int VerificationAttemptsCount { get; set; }
 
         /// <summary>
         /// Whether a manual verification was requested for the fine-tuning process.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("manual_verification_requested")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool ManualVerificationRequested { get; set; } = default!;
+        public required bool ManualVerificationRequested { get; set; }
 
         /// <summary>
         /// The language of the fine-tuning process.
@@ -80,9 +80,8 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? SliceIds { get; set; }
 
         /// <summary>
-        /// Example: {"extra_text":"Please verify the voice is that of a female.","files":[{"file_id":"CwhRBWXzGAHq8TQ4Fs18","file_name":"file.mp3","mime_type":"audio/mpeg","size_bytes":1000000,"upload_date_unix":1714204800}],"request_time_unix":1714204800}
+        /// The manual verification of the fine-tuning process.
         /// </summary>
-        /// <example>{"extra_text":"Please verify the voice is that of a female.","files":[{"file_id":"CwhRBWXzGAHq8TQ4Fs18","file_name":"file.mp3","mime_type":"audio/mpeg","size_bytes":1000000,"upload_date_unix":1714204800}],"request_time_unix":1714204800}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("manual_verification")]
         public global::ElevenLabs.ManualVerificationResponseModel? ManualVerification { get; set; }
 
@@ -96,7 +95,7 @@ namespace ElevenLabs
         /// The next maximum verification attempts reset time in Unix milliseconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_max_verification_attempts_reset_unix_ms")]
-        public long? NextMaxVerificationAttemptsResetUnixMs { get; set; }
+        public int? NextMaxVerificationAttemptsResetUnixMs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -141,7 +140,7 @@ namespace ElevenLabs
         /// List of slice IDs.
         /// </param>
         /// <param name="manualVerification">
-        /// Example: {"extra_text":"Please verify the voice is that of a female.","files":[{"file_id":"CwhRBWXzGAHq8TQ4Fs18","file_name":"file.mp3","mime_type":"audio/mpeg","size_bytes":1000000,"upload_date_unix":1714204800}],"request_time_unix":1714204800}
+        /// The manual verification of the fine-tuning process.
         /// </param>
         /// <param name="maxVerificationAttempts">
         /// The maximum number of verification attempts.
@@ -166,7 +165,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? sliceIds,
             global::ElevenLabs.ManualVerificationResponseModel? manualVerification,
             int? maxVerificationAttempts,
-            long? nextMaxVerificationAttemptsResetUnixMs)
+            int? nextMaxVerificationAttemptsResetUnixMs)
         {
             this.IsAllowedToFineTune = isAllowedToFineTune;
             this.State = state ?? throw new global::System.ArgumentNullException(nameof(state));

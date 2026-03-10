@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Folder,
+        /// <summary>
+        /// 
+        /// </summary>
         Text,
         /// <summary>
         /// 
@@ -35,6 +39,7 @@ namespace ElevenLabs
             return value switch
             {
                 GetKnowledgeBaseListResponseModelDocumentDiscriminatorType.File => "file",
+                GetKnowledgeBaseListResponseModelDocumentDiscriminatorType.Folder => "folder",
                 GetKnowledgeBaseListResponseModelDocumentDiscriminatorType.Text => "text",
                 GetKnowledgeBaseListResponseModelDocumentDiscriminatorType.Url => "url",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -48,6 +53,7 @@ namespace ElevenLabs
             return value switch
             {
                 "file" => GetKnowledgeBaseListResponseModelDocumentDiscriminatorType.File,
+                "folder" => GetKnowledgeBaseListResponseModelDocumentDiscriminatorType.Folder,
                 "text" => GetKnowledgeBaseListResponseModelDocumentDiscriminatorType.Text,
                 "url" => GetKnowledgeBaseListResponseModelDocumentDiscriminatorType.Url,
                 _ => null,

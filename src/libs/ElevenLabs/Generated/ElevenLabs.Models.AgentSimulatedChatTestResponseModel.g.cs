@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("simulated_conversation")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput> SimulatedConversation { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> SimulatedConversation { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("analysis")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationHistoryAnalysisCommonModel Analysis { get; set; } = default!;
+        public required global::ElevenLabs.ConversationHistoryAnalysisCommonModel Analysis { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -37,7 +37,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentSimulatedChatTestResponseModel(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput> simulatedConversation,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> simulatedConversation,
             global::ElevenLabs.ConversationHistoryAnalysisCommonModel analysis)
         {
             this.SimulatedConversation = simulatedConversation ?? throw new global::System.ArgumentNullException(nameof(simulatedConversation));

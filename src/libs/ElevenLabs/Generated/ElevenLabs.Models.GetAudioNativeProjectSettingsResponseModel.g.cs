@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Enabled { get; set; } = default!;
+        public required bool Enabled { get; set; }
 
         /// <summary>
         /// The ID of the latest snapshot of the project.
@@ -22,9 +22,8 @@ namespace ElevenLabs
         public string? SnapshotId { get; set; }
 
         /// <summary>
-        /// Example: {"audio_path":"audio/my_project.mp3","audio_url":"https://example.com/audio/my_project.mp3","author":"John Doe","background_color":"#FFFFFF","image":"https://example.com/image.jpg","sessionization":1,"small":false,"status":"ready","text_color":"#000000","title":"My Project"}
+        /// The settings of the project.
         /// </summary>
-        /// <example>{"audio_path":"audio/my_project.mp3","audio_url":"https://example.com/audio/my_project.mp3","author":"John Doe","background_color":"#FFFFFF","image":"https://example.com/image.jpg","sessionization":1,"small":false,"status":"ready","text_color":"#000000","title":"My Project"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         public global::ElevenLabs.AudioNativeProjectSettingsResponseModel? Settings { get; set; }
 
@@ -44,7 +43,7 @@ namespace ElevenLabs
         /// The ID of the latest snapshot of the project.
         /// </param>
         /// <param name="settings">
-        /// Example: {"audio_path":"audio/my_project.mp3","audio_url":"https://example.com/audio/my_project.mp3","author":"John Doe","background_color":"#FFFFFF","image":"https://example.com/image.jpg","sessionization":1,"small":false,"status":"ready","text_color":"#000000","title":"My Project"}
+        /// The settings of the project.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

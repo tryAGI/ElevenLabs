@@ -11,17 +11,18 @@ namespace ElevenLabs
         /// <summary>
         /// The type of podcast to create.
         /// </summary>
+        /// <default>"conversation"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PodcastConversationModeTypeJsonConverter))]
-        public global::ElevenLabs.PodcastConversationModeType Type { get; set; }
+        public string Type { get; set; } = "conversation";
 
         /// <summary>
+        /// The voice settings for the conversation.<br/>
         /// Example: {"guest_voice_id":"aw1NgEzBg83R7vgmiJt7","host_voice_id":"aw1NgEzBg83R7vgmiJt6"}
         /// </summary>
         /// <example>{"guest_voice_id":"aw1NgEzBg83R7vgmiJt7","host_voice_id":"aw1NgEzBg83R7vgmiJt6"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.PodcastConversationModeData Conversation { get; set; } = default!;
+        public required global::ElevenLabs.PodcastConversationModeData Conversation { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,6 +37,7 @@ namespace ElevenLabs
         /// The type of podcast to create.
         /// </param>
         /// <param name="conversation">
+        /// The voice settings for the conversation.<br/>
         /// Example: {"guest_voice_id":"aw1NgEzBg83R7vgmiJt7","host_voice_id":"aw1NgEzBg83R7vgmiJt6"}
         /// </param>
 #if NET7_0_OR_GREATER
@@ -43,7 +45,7 @@ namespace ElevenLabs
 #endif
         public PodcastConversationMode(
             global::ElevenLabs.PodcastConversationModeData conversation,
-            global::ElevenLabs.PodcastConversationModeType type)
+            string type = "conversation")
         {
             this.Conversation = conversation ?? throw new global::System.ArgumentNullException(nameof(conversation));
             this.Type = type;

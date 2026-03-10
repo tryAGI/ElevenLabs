@@ -30,11 +30,10 @@ namespace ElevenLabs
         /// Partially update the pronunciation dictionary without changing the version
         /// </summary>
         /// <param name="pronunciationDictionaryId">
-        /// The id of the pronunciation dictionary<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The id of the pronunciation dictionary
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -67,22 +66,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -232,19 +215,16 @@ namespace ElevenLabs
         /// Partially update the pronunciation dictionary without changing the version
         /// </summary>
         /// <param name="pronunciationDictionaryId">
-        /// The id of the pronunciation dictionary<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The id of the pronunciation dictionary
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="archived">
-        /// The name of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: My Dictionary
+        /// Whether to archive the pronunciation dictionary.
         /// </param>
         /// <param name="name">
-        /// The name of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: My Dictionary
+        /// The name of the pronunciation dictionary, used for identification only.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

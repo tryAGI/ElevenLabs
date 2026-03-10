@@ -13,70 +13,68 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Version { get; set; } = default!;
+        public required int Version { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_language")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SourceLanguage { get; set; } = default!;
+        public required string SourceLanguage { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_languages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> TargetLanguages { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> TargetLanguages { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.DubbingMediaReference Input { get; set; } = default!;
+        public required global::ElevenLabs.DubbingMediaReference Input { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("background")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.DubbingMediaReference Background { get; set; } = default!;
+        public global::ElevenLabs.DubbingMediaReference? Background { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("foreground")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.DubbingMediaReference Foreground { get; set; } = default!;
+        public global::ElevenLabs.DubbingMediaReference? Foreground { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_tracks")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerTrack> SpeakerTracks { get; set; } = default!;
+        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerTrack> SpeakerTracks { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerSegment> SpeakerSegments { get; set; } = default!;
+        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerSegment> SpeakerSegments { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("renders")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.Render> Renders { get; set; } = default!;
+        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.Render> Renders { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -106,22 +104,22 @@ namespace ElevenLabs
             string sourceLanguage,
             global::System.Collections.Generic.IList<string> targetLanguages,
             global::ElevenLabs.DubbingMediaReference input,
-            global::ElevenLabs.DubbingMediaReference background,
-            global::ElevenLabs.DubbingMediaReference foreground,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerTrack> speakerTracks,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerSegment> speakerSegments,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.Render> renders)
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.Render> renders,
+            global::ElevenLabs.DubbingMediaReference? background,
+            global::ElevenLabs.DubbingMediaReference? foreground)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Version = version;
             this.SourceLanguage = sourceLanguage ?? throw new global::System.ArgumentNullException(nameof(sourceLanguage));
             this.TargetLanguages = targetLanguages ?? throw new global::System.ArgumentNullException(nameof(targetLanguages));
             this.Input = input ?? throw new global::System.ArgumentNullException(nameof(input));
-            this.Background = background ?? throw new global::System.ArgumentNullException(nameof(background));
-            this.Foreground = foreground ?? throw new global::System.ArgumentNullException(nameof(foreground));
             this.SpeakerTracks = speakerTracks ?? throw new global::System.ArgumentNullException(nameof(speakerTracks));
             this.SpeakerSegments = speakerSegments ?? throw new global::System.ArgumentNullException(nameof(speakerSegments));
             this.Renders = renders ?? throw new global::System.ArgumentNullException(nameof(renders));
+            this.Background = background;
+            this.Foreground = foreground;
         }
 
         /// <summary>

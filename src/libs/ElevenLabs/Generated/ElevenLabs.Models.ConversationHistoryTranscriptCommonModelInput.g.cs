@@ -16,7 +16,13 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptCommonModelInputRoleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole Role { get; set; } = default!;
+        public required global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole Role { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_metadata")]
+        public global::ElevenLabs.AgentMetadata? AgentMetadata { get; set; }
 
         /// <summary>
         /// 
@@ -27,14 +33,20 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("multivoice_message")]
+        public global::ElevenLabs.ConversationHistoryMultivoiceMessageModel? MultivoiceMessage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModel>? ToolCalls { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInput>? ToolCalls { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_results")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>? ToolResults { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>? ToolResults { get; set; }
 
         /// <summary>
         /// 
@@ -53,7 +65,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TimeInCallSecs { get; set; } = default!;
+        public required int TimeInCallSecs { get; set; }
 
         /// <summary>
         /// 
@@ -89,8 +101,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_medium")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptCommonModelInputSourceMediumJsonConverter))]
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputSourceMedium? SourceMedium { get; set; }
+        public global::ElevenLabs.ChatSourceMedium? SourceMedium { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -102,7 +113,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptCommonModelInput" /> class.
         /// </summary>
         /// <param name="role"></param>
+        /// <param name="agentMetadata"></param>
         /// <param name="message"></param>
+        /// <param name="multivoiceMessage"></param>
         /// <param name="toolCalls"></param>
         /// <param name="toolResults"></param>
         /// <param name="feedback"></param>
@@ -122,9 +135,11 @@ namespace ElevenLabs
         public ConversationHistoryTranscriptCommonModelInput(
             global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole role,
             int timeInCallSecs,
+            global::ElevenLabs.AgentMetadata? agentMetadata,
             string? message,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModel>? toolCalls,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>? toolResults,
+            global::ElevenLabs.ConversationHistoryMultivoiceMessageModel? multivoiceMessage,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInput>? toolCalls,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>? toolResults,
             global::ElevenLabs.UserFeedback? feedback,
             string? llmOverride,
             global::ElevenLabs.ConversationTurnMetrics? conversationTurnMetrics,
@@ -132,11 +147,13 @@ namespace ElevenLabs
             global::ElevenLabs.LLMUsageInput? llmUsage,
             bool? interrupted,
             string? originalMessage,
-            global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputSourceMedium? sourceMedium)
+            global::ElevenLabs.ChatSourceMedium? sourceMedium)
         {
             this.Role = role;
             this.TimeInCallSecs = timeInCallSecs;
+            this.AgentMetadata = agentMetadata;
             this.Message = message;
+            this.MultivoiceMessage = multivoiceMessage;
             this.ToolCalls = toolCalls;
             this.ToolResults = toolResults;
             this.Feedback = feedback;

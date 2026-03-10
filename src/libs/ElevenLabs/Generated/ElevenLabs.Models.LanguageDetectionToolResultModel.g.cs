@@ -12,15 +12,13 @@ namespace ElevenLabs
         /// Default Value: language_detection_success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LanguageDetectionToolResultModelResultTypeJsonConverter))]
-        public global::ElevenLabs.LanguageDetectionToolResultModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LanguageDetectionToolResultModelStatusJsonConverter))]
-        public global::ElevenLabs.LanguageDetectionToolResultModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
@@ -55,8 +53,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LanguageDetectionToolResultModel(
-            global::ElevenLabs.LanguageDetectionToolResultModelResultType? resultType,
-            global::ElevenLabs.LanguageDetectionToolResultModelStatus? status,
+            string? resultType,
+            string? status,
             string? reason,
             string? language)
         {

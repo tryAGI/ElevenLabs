@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"has_more":true,"history":[{"character_count_change_from":17189,"character_count_change_to":17231,"content_type":"audio/mpeg","date_unix":1714650306,"history_item_id":"ja9xsmfGhxYcymxGcOGB","model_id":"eleven_multilingual_v2","request_id":"BF0BZg4IwLGBlaVjv9Im","settings":{"similarity_boost":0.5,"stability":0.71,"style":0,"use_speaker_boost":true},"source":"TTS","state":"created","text":"Hello, world!","voice_category":"premade","voice_id":"21m00Tcm4TlvDq8ikWAM","voice_name":"Rachel"}],"last_history_item_id":"ja9xsmfGhxYcymxGcOGB"}
+    /// Example: {"has_more":true,"history":[{"character_count_change_from":17189,"character_count_change_to":17231,"content_type":"audio/mpeg","date_unix":1714650306,"history_item_id":"ja9xsmfGhxYcymxGcOGB","model_id":"eleven_multilingual_v2","request_id":"BF0BZg4IwLGBlaVjv9Im","settings":{"similarity_boost":0.5,"stability":0.71,"style":0,"use_speaker_boost":true},"source":"TTS","state":"created","text":"Hello, world!","voice_category":"premade","voice_id":"21m00Tcm4TlvDq8ikWAM","voice_name":"Rachel"}],"last_history_item_id":"ja9xsmfGhxYcymxGcOGB","scanned_until":1714650306}
     /// </summary>
     public sealed partial class GetSpeechHistoryResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel> History { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel> History { get; set; }
 
         /// <summary>
         /// The ID of the last history item.
@@ -26,7 +26,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool HasMore { get; set; } = default!;
+        public required bool HasMore { get; set; }
+
+        /// <summary>
+        /// The timestamp of the last history item.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scanned_until")]
+        public int? ScannedUntil { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -46,17 +52,22 @@ namespace ElevenLabs
         /// <param name="hasMore">
         /// Whether there are more history items to fetch.
         /// </param>
+        /// <param name="scannedUntil">
+        /// The timestamp of the last history item.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetSpeechHistoryResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel> history,
             bool hasMore,
-            string? lastHistoryItemId)
+            string? lastHistoryItemId,
+            int? scannedUntil)
         {
             this.History = history ?? throw new global::System.ArgumentNullException(nameof(history));
             this.HasMore = hasMore;
             this.LastHistoryItemId = lastHistoryItemId;
+            this.ScannedUntil = scannedUntil;
         }
 
         /// <summary>

@@ -13,63 +13,63 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("public_owner_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PublicOwnerId { get; set; } = default!;
+        public required string PublicOwnerId { get; set; }
 
         /// <summary>
         /// The id of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceId { get; set; } = default!;
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// The date the voice was added to the library in Unix time.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int DateUnix { get; set; } = default!;
+        public required int DateUnix { get; set; }
 
         /// <summary>
         /// The name of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The accent of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("accent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Accent { get; set; } = default!;
+        public required string Accent { get; set; }
 
         /// <summary>
         /// The gender of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gender")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Gender { get; set; } = default!;
+        public required string Gender { get; set; }
 
         /// <summary>
         /// The age of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("age")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Age { get; set; } = default!;
+        public required string Age { get; set; }
 
         /// <summary>
         /// The descriptive of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("descriptive")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Descriptive { get; set; } = default!;
+        public required string Descriptive { get; set; }
 
         /// <summary>
         /// The use case of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_case")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string UseCase { get; set; } = default!;
+        public required string UseCase { get; set; }
 
         /// <summary>
         /// The category of the voice.
@@ -77,7 +77,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("category")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LibraryVoiceResponseModelCategoryJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.LibraryVoiceResponseModelCategory Category { get; set; } = default!;
+        public required global::ElevenLabs.LibraryVoiceResponseModelCategory Category { get; set; }
 
         /// <summary>
         /// The language of the voice.
@@ -108,28 +108,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_character_count_1y")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UsageCharacterCount1y { get; set; } = default!;
+        public required int UsageCharacterCount1y { get; set; }
 
         /// <summary>
         /// The usage character count of the voice in the last 7 days.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_character_count_7d")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UsageCharacterCount7d { get; set; } = default!;
+        public required int UsageCharacterCount7d { get; set; }
 
         /// <summary>
         /// The play API usage character count of the voice in the last year.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("play_api_usage_character_count_1y")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int PlayApiUsageCharacterCount1y { get; set; } = default!;
+        public required int PlayApiUsageCharacterCount1y { get; set; }
 
         /// <summary>
         /// The number of times the voice has been cloned.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cloned_by_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ClonedByCount { get; set; } = default!;
+        public required int ClonedByCount { get; set; }
 
         /// <summary>
         /// The rate multiplier of the voice.
@@ -148,21 +148,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("free_users_allowed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool FreeUsersAllowed { get; set; } = default!;
+        public required bool FreeUsersAllowed { get; set; }
 
         /// <summary>
         /// Whether live moderation is enabled for the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("live_moderation_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool LiveModerationEnabled { get; set; } = default!;
+        public required bool LiveModerationEnabled { get; set; }
 
         /// <summary>
         /// Whether the voice is featured.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("featured")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Featured { get; set; } = default!;
+        public required bool Featured { get; set; }
 
         /// <summary>
         /// The verified languages of the voice.
@@ -211,6 +211,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_added_by_user")]
         public bool? IsAddedByUser { get; set; }
+
+        /// <summary>
+        /// Whether the voice is bookmarked by the current user. Only relevant when is_added_by_user is True.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_bookmarked")]
+        public bool? IsBookmarked { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -314,6 +320,9 @@ namespace ElevenLabs
         /// <param name="isAddedByUser">
         /// Whether the voice was added by the user.
         /// </param>
+        /// <param name="isBookmarked">
+        /// Whether the voice is bookmarked by the current user. Only relevant when is_added_by_user is True.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -348,7 +357,8 @@ namespace ElevenLabs
             string? youtubeUsername,
             string? tiktokUsername,
             string? imageUrl,
-            bool? isAddedByUser)
+            bool? isAddedByUser,
+            bool? isBookmarked)
         {
             this.PublicOwnerId = publicOwnerId ?? throw new global::System.ArgumentNullException(nameof(publicOwnerId));
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
@@ -381,6 +391,7 @@ namespace ElevenLabs
             this.TiktokUsername = tiktokUsername;
             this.ImageUrl = imageUrl;
             this.IsAddedByUser = isAddedByUser;
+            this.IsBookmarked = isBookmarked;
         }
 
         /// <summary>

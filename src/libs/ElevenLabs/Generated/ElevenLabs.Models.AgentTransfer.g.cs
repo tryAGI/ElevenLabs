@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Condition { get; set; } = default!;
+        public required string Condition { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -41,6 +41,12 @@ namespace ElevenLabs
         public bool? EnableTransferredAgentFirstMessage { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_workflow_node_transfer")]
+        public bool? IsWorkflowNodeTransfer { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -58,6 +64,9 @@ namespace ElevenLabs
         /// <param name="enableTransferredAgentFirstMessage">
         /// Default Value: false
         /// </param>
+        /// <param name="isWorkflowNodeTransfer">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -66,13 +75,15 @@ namespace ElevenLabs
             string condition,
             int? delayMs,
             string? transferMessage,
-            bool? enableTransferredAgentFirstMessage)
+            bool? enableTransferredAgentFirstMessage,
+            bool? isWorkflowNodeTransfer)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Condition = condition ?? throw new global::System.ArgumentNullException(nameof(condition));
             this.DelayMs = delayMs;
             this.TransferMessage = transferMessage;
             this.EnableTransferredAgentFirstMessage = enableTransferredAgentFirstMessage;
+            this.IsWorkflowNodeTransfer = isWorkflowNodeTransfer;
         }
 
         /// <summary>

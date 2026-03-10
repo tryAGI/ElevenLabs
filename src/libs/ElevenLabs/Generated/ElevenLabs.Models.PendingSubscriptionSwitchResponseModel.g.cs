@@ -12,8 +12,7 @@ namespace ElevenLabs
         /// Default Value: change
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("kind")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PendingSubscriptionSwitchResponseModelKindJsonConverter))]
-        public global::ElevenLabs.PendingSubscriptionSwitchResponseModelKind? Kind { get; set; }
+        public string? Kind { get; set; }
 
         /// <summary>
         /// The tier to change to.
@@ -21,14 +20,22 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("next_tier")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PendingSubscriptionSwitchResponseModelNextTierJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.PendingSubscriptionSwitchResponseModelNextTier NextTier { get; set; } = default!;
+        public required global::ElevenLabs.PendingSubscriptionSwitchResponseModelNextTier NextTier { get; set; }
+
+        /// <summary>
+        /// The billing period to change to.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("next_billing_period")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BillingPeriodJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.BillingPeriod NextBillingPeriod { get; set; }
 
         /// <summary>
         /// The timestamp of the change.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TimestampSeconds { get; set; } = default!;
+        public required int TimestampSeconds { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -45,6 +52,9 @@ namespace ElevenLabs
         /// <param name="nextTier">
         /// The tier to change to.
         /// </param>
+        /// <param name="nextBillingPeriod">
+        /// The billing period to change to.
+        /// </param>
         /// <param name="timestampSeconds">
         /// The timestamp of the change.
         /// </param>
@@ -53,10 +63,12 @@ namespace ElevenLabs
 #endif
         public PendingSubscriptionSwitchResponseModel(
             global::ElevenLabs.PendingSubscriptionSwitchResponseModelNextTier nextTier,
+            global::ElevenLabs.BillingPeriod nextBillingPeriod,
             int timestampSeconds,
-            global::ElevenLabs.PendingSubscriptionSwitchResponseModelKind? kind)
+            string? kind)
         {
             this.NextTier = nextTier;
+            this.NextBillingPeriod = nextBillingPeriod;
             this.TimestampSeconds = timestampSeconds;
             this.Kind = kind;
         }

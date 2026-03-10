@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"character_cost_multiplier":1}
+    /// Example: {"character_cost_multiplier":1.0}
     /// </summary>
     public sealed partial class ModelRatesResponseModel
     {
@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_cost_multiplier")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double CharacterCostMultiplier { get; set; } = default!;
+        public required double CharacterCostMultiplier { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

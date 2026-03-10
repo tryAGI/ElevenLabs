@@ -9,11 +9,11 @@ namespace ElevenLabs
     public sealed partial class BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost
     {
         /// <summary>
-        /// A specification that will be used to simulate a conversation between an agent and an AI user.
+        /// A specification detailing how the conversation should be simulated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("simulation_specification")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationSimulationSpecification SimulationSpecification { get; set; } = default!;
+        public required global::ElevenLabs.ConversationSimulationSpecification SimulationSpecification { get; set; }
 
         /// <summary>
         /// A list of evaluation criteria to test
@@ -38,7 +38,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost" /> class.
         /// </summary>
         /// <param name="simulationSpecification">
-        /// A specification that will be used to simulate a conversation between an agent and an AI user.
+        /// A specification detailing how the conversation should be simulated
         /// </param>
         /// <param name="extraEvaluationCriteria">
         /// A list of evaluation criteria to test

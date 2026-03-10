@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Version { get; set; } = default!;
+        public required int Version { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("new_segment")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string NewSegment { get; set; } = default!;
+        public required string NewSegment { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

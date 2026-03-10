@@ -5,7 +5,7 @@ namespace ElevenLabs
 {
     /// <summary>
     /// Settings for agent testing configuration.<br/>
-    /// Example: {"attached_tests":[{"test_id":"test_123"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
+    /// Example: {"attached_tests":[{"test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
     /// </summary>
     public sealed partial class AgentTestingSettings
     {

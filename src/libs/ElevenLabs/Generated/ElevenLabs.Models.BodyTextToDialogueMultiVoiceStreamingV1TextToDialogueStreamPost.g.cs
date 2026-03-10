@@ -9,13 +9,11 @@ namespace ElevenLabs
     public sealed partial class BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost
     {
         /// <summary>
-        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech.<br/>
-        /// Example: [{"text":"Hello, how are you?","voice_id":"bYTqZQo3Jz7LQtmGTgwi"}, {"text":"I\u0027m doing well, thank you!","voice_id":"6lCwbsX1yVjD49QmpkTR"}]
+        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech. The maximum number of unique voice IDs is 10.
         /// </summary>
-        /// <example>[{"text":"Hello, how are you?","voice_id":"bYTqZQo3Jz7LQtmGTgwi"}, {"text":"I\u0027m doing well, thank you!","voice_id":"6lCwbsX1yVjD49QmpkTR"}]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("inputs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput> Inputs { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput> Inputs { get; set; }
 
         /// <summary>
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.<br/>
@@ -25,27 +23,36 @@ namespace ElevenLabs
         public string? ModelId { get; set; }
 
         /// <summary>
-        /// Example: {"similarity_boost":1,"stability":1}
+        /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
         /// </summary>
-        /// <example>{"similarity_boost":1,"stability":1}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("language_code")]
+        public string? LanguageCode { get; set; }
+
+        /// <summary>
+        /// Settings controlling the dialogue generation.
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         public global::ElevenLabs.ModelSettingsResponseModel? Settings { get; set; }
 
         /// <summary>
-        /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
-        /// Example: [{"pronunciation_dictionary_id":"test","version_id":"id2"}]
+        /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
         /// </summary>
-        /// <example>[{"pronunciation_dictionary_id":"test","version_id":"id2"}]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? PronunciationDictionaryLocators { get; set; }
 
         /// <summary>
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
-        /// Example: 12345
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
         /// </summary>
-        /// <example>12345</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
         public int? Seed { get; set; }
+
+        /// <summary>
+        /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalizationJsonConverter))]
+        public global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? ApplyTextNormalization { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,23 +64,27 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost" /> class.
         /// </summary>
         /// <param name="inputs">
-        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech.<br/>
-        /// Example: [{"text":"Hello, how are you?","voice_id":"bYTqZQo3Jz7LQtmGTgwi"}, {"text":"I\u0027m doing well, thank you!","voice_id":"6lCwbsX1yVjD49QmpkTR"}]
+        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech. The maximum number of unique voice IDs is 10.
         /// </param>
         /// <param name="modelId">
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.<br/>
         /// Default Value: eleven_v3
         /// </param>
+        /// <param name="languageCode">
+        /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+        /// </param>
         /// <param name="settings">
-        /// Example: {"similarity_boost":1,"stability":1}
+        /// Settings controlling the dialogue generation.
         /// </param>
         /// <param name="pronunciationDictionaryLocators">
-        /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
-        /// Example: [{"pronunciation_dictionary_id":"test","version_id":"id2"}]
+        /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
         /// </param>
         /// <param name="seed">
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
-        /// Example: 12345
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+        /// </param>
+        /// <param name="applyTextNormalization">
+        /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
+        /// Default Value: auto
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -81,15 +92,19 @@ namespace ElevenLabs
         public BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost(
             global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput> inputs,
             string? modelId,
+            string? languageCode,
             global::ElevenLabs.ModelSettingsResponseModel? settings,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? pronunciationDictionaryLocators,
-            int? seed)
+            int? seed,
+            global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? applyTextNormalization)
         {
             this.Inputs = inputs ?? throw new global::System.ArgumentNullException(nameof(inputs));
             this.ModelId = modelId;
+            this.LanguageCode = languageCode;
             this.Settings = settings;
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
             this.Seed = seed;
+            this.ApplyTextNormalization = applyTextNormalization;
         }
 
         /// <summary>

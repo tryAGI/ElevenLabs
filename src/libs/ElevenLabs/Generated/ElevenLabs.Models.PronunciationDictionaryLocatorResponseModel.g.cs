@@ -13,14 +13,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PronunciationDictionaryId { get; set; } = default!;
+        public required string PronunciationDictionaryId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? VersionId { get; set; } = default!;
+        public string? VersionId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,7 +40,7 @@ namespace ElevenLabs
             string? versionId)
         {
             this.PronunciationDictionaryId = pronunciationDictionaryId ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryId));
-            this.VersionId = versionId ?? throw new global::System.ArgumentNullException(nameof(versionId));
+            this.VersionId = versionId;
         }
 
         /// <summary>

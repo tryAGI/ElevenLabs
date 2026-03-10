@@ -12,15 +12,14 @@ namespace ElevenLabs
         /// Default Value: sip_uri
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPUriTransferDestinationTypeJsonConverter))]
-        public global::ElevenLabs.SIPUriTransferDestinationType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sip_uri")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SipUri { get; set; } = default!;
+        public required string SipUri { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +39,7 @@ namespace ElevenLabs
 #endif
         public SIPUriTransferDestination(
             string sipUri,
-            global::ElevenLabs.SIPUriTransferDestinationType? type)
+            string? type)
         {
             this.SipUri = sipUri ?? throw new global::System.ArgumentNullException(nameof(sipUri));
             this.Type = type;

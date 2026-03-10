@@ -29,9 +29,9 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"txt"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TxtExportOptionsFormatJsonConverter))]
-        public global::ElevenLabs.TxtExportOptionsFormat Format { get; set; }
+        public string Format { get; set; } = "txt";
 
         /// <summary>
         /// 
@@ -80,10 +80,10 @@ namespace ElevenLabs
             int? maxCharactersPerLine,
             bool? includeSpeakers,
             bool? includeTimestamps,
-            global::ElevenLabs.TxtExportOptionsFormat format,
             double? segmentOnSilenceLongerThanS,
             double? maxSegmentDurationS,
-            int? maxSegmentChars)
+            int? maxSegmentChars,
+            string format = "txt")
         {
             this.MaxCharactersPerLine = maxCharactersPerLine;
             this.IncludeSpeakers = includeSpeakers;

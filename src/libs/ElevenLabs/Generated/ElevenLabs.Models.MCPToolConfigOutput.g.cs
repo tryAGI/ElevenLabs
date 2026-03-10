@@ -12,22 +12,21 @@ namespace ElevenLabs
         /// Default Value: mcp
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOutputTypeJsonConverter))]
-        public global::ElevenLabs.MCPToolConfigOutputType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// Description of when the tool should be used and what it does.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Description { get; set; } = default!;
+        public required string Description { get; set; }
 
         /// <summary>
         /// The maximum time in seconds to wait for the tool call to complete.<br/>
@@ -57,21 +56,44 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
 
         /// <summary>
-        /// 
+        /// Predefined tool call sound type to play during tool execution. If not specified, no tool call sound will be played.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_sound")]
+        public global::ElevenLabs.ToolCallSoundType? ToolCallSound { get; set; }
+
+        /// <summary>
+        /// Determines when the tool call sound should play. 'auto' only plays when there's pre-tool speech, 'always' plays for every tool call.<br/>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_sound_behavior")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolCallSoundBehaviorJsonConverter))]
+        public global::ElevenLabs.ToolCallSoundBehavior? ToolCallSoundBehavior { get; set; }
+
+        /// <summary>
+        /// Controls how tool errors are processed before being shared with the agent. 'auto' determines handling based on tool type (summarized for native integrations, hide for others), 'summarized' sends an LLM-generated summary, 'passthrough' sends the raw error, 'hide' does not share the error with the agent.<br/>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_error_handling_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolErrorHandlingModeJsonConverter))]
+        public global::ElevenLabs.ToolErrorHandlingMode? ToolErrorHandlingMode { get; set; }
+
+        /// <summary>
+        /// The type of MCP tool
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.IntegrationTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.IntegrationType IntegrationType { get; set; } = default!;
+        public required global::ElevenLabs.IntegrationType IntegrationType { get; set; }
 
         /// <summary>
-        /// 
+        /// Schema for any parameters the LLM needs to provide to the MCP tool.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parameters")]
         public global::ElevenLabs.ObjectJsonSchemaPropertyOutput? Parameters { get; set; }
 
         /// <summary>
-        /// Defines the MCP server-level approval policy for tool execution.
+        /// The approval policy for the MCP tool<br/>
+        /// Default Value: require_approval_all
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("approval_policy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MCPApprovalPolicyJsonConverter))]
@@ -82,34 +104,48 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_tool_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpToolName { get; set; } = default!;
+        public required string McpToolName { get; set; }
 
         /// <summary>
         /// The description of the MCP tool to call
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_tool_description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpToolDescription { get; set; } = default!;
+        public required string McpToolDescription { get; set; }
 
         /// <summary>
         /// The id of the MCP server to call
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpServerId { get; set; } = default!;
+        public required string McpServerId { get; set; }
 
         /// <summary>
         /// The name of the MCP server to call
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpServerName { get; set; } = default!;
+        public required string McpServerName { get; set; }
 
         /// <summary>
-        /// Original inputSchema dict for consistent hashing (pure MCP format)
+        /// Original inputSchema dict for consistent hashing
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_input_schema")]
         public object? McpInputSchema { get; set; }
+
+        /// <summary>
+        /// Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.<br/>
+        /// Default Value: immediate
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("execution_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolExecutionModeJsonConverter))]
+        public global::ElevenLabs.ToolExecutionMode? ExecutionMode { get; set; }
+
+        /// <summary>
+        /// Input parameter overrides for this tool
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_overrides")]
+        public object? InputOverrides { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -124,7 +160,9 @@ namespace ElevenLabs
         /// Default Value: mcp
         /// </param>
         /// <param name="name"></param>
-        /// <param name="description"></param>
+        /// <param name="description">
+        /// Description of when the tool should be used and what it does.
+        /// </param>
         /// <param name="responseTimeoutSecs">
         /// The maximum time in seconds to wait for the tool call to complete.<br/>
         /// Default Value: 20
@@ -140,10 +178,26 @@ namespace ElevenLabs
         /// <param name="assignments">
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
         /// </param>
-        /// <param name="integrationType"></param>
-        /// <param name="parameters"></param>
+        /// <param name="toolCallSound">
+        /// Predefined tool call sound type to play during tool execution. If not specified, no tool call sound will be played.
+        /// </param>
+        /// <param name="toolCallSoundBehavior">
+        /// Determines when the tool call sound should play. 'auto' only plays when there's pre-tool speech, 'always' plays for every tool call.<br/>
+        /// Default Value: auto
+        /// </param>
+        /// <param name="toolErrorHandlingMode">
+        /// Controls how tool errors are processed before being shared with the agent. 'auto' determines handling based on tool type (summarized for native integrations, hide for others), 'summarized' sends an LLM-generated summary, 'passthrough' sends the raw error, 'hide' does not share the error with the agent.<br/>
+        /// Default Value: auto
+        /// </param>
+        /// <param name="integrationType">
+        /// The type of MCP tool
+        /// </param>
+        /// <param name="parameters">
+        /// Schema for any parameters the LLM needs to provide to the MCP tool.
+        /// </param>
         /// <param name="approvalPolicy">
-        /// Defines the MCP server-level approval policy for tool execution.
+        /// The approval policy for the MCP tool<br/>
+        /// Default Value: require_approval_all
         /// </param>
         /// <param name="mcpToolName">
         /// The name of the MCP tool to call
@@ -158,7 +212,14 @@ namespace ElevenLabs
         /// The name of the MCP server to call
         /// </param>
         /// <param name="mcpInputSchema">
-        /// Original inputSchema dict for consistent hashing (pure MCP format)
+        /// Original inputSchema dict for consistent hashing
+        /// </param>
+        /// <param name="executionMode">
+        /// Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.<br/>
+        /// Default Value: immediate
+        /// </param>
+        /// <param name="inputOverrides">
+        /// Input parameter overrides for this tool
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -171,14 +232,19 @@ namespace ElevenLabs
             string mcpToolDescription,
             string mcpServerId,
             string mcpServerName,
-            global::ElevenLabs.MCPToolConfigOutputType? type,
+            string? type,
             int? responseTimeoutSecs,
             bool? disableInterruptions,
             bool? forcePreToolSpeech,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
+            global::ElevenLabs.ToolCallSoundType? toolCallSound,
+            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
+            global::ElevenLabs.ToolErrorHandlingMode? toolErrorHandlingMode,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? parameters,
             global::ElevenLabs.MCPApprovalPolicy? approvalPolicy,
-            object? mcpInputSchema)
+            object? mcpInputSchema,
+            global::ElevenLabs.ToolExecutionMode? executionMode,
+            object? inputOverrides)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
@@ -192,9 +258,14 @@ namespace ElevenLabs
             this.DisableInterruptions = disableInterruptions;
             this.ForcePreToolSpeech = forcePreToolSpeech;
             this.Assignments = assignments;
+            this.ToolCallSound = toolCallSound;
+            this.ToolCallSoundBehavior = toolCallSoundBehavior;
+            this.ToolErrorHandlingMode = toolErrorHandlingMode;
             this.Parameters = parameters;
             this.ApprovalPolicy = approvalPolicy;
             this.McpInputSchema = mcpInputSchema;
+            this.ExecutionMode = executionMode;
+            this.InputOverrides = inputOverrides;
         }
 
         /// <summary>

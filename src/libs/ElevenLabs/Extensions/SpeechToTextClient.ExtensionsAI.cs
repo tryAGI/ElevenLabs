@@ -6,7 +6,7 @@ namespace ElevenLabs;
 
 public sealed partial class SpeechToTextClient : Microsoft.Extensions.AI.ISpeechToTextClient
 {
-    private const string DefaultModelId = "scribe_v1";
+    private const BodySpeechToTextV1SpeechToTextPostModelId DefaultModelId = BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1;
 
     /// <inheritdoc />
     object? Microsoft.Extensions.AI.ISpeechToTextClient.GetService(Type serviceType, object? serviceKey) =>
@@ -22,7 +22,7 @@ public sealed partial class SpeechToTextClient : Microsoft.Extensions.AI.ISpeech
 
         BodySpeechToTextV1SpeechToTextPost post =
             options?.RawRepresentationFactory?.Invoke(this) as BodySpeechToTextV1SpeechToTextPost ??
-            new() { ModelId = options?.ModelId ?? DefaultModelId };
+            new() { ModelId = ParseModelId(options?.ModelId) ?? DefaultModelId };
 
         if (post.File is null)
         {
@@ -36,9 +36,7 @@ public sealed partial class SpeechToTextClient : Microsoft.Extensions.AI.ISpeech
             post.File = bytes.TryGetBuffer(out ArraySegment<byte> buffer) && buffer.Array is not null && buffer.Offset == 0 && buffer.Count == bytes.Length ? buffer.Array : bytes.ToArray();
         }
 
-        post.Filename ??= audioSpeechStream is FileStream fileStream ? fileStream.Name : nameof(audioSpeechStream);
         post.LanguageCode ??= options?.SpeechLanguage;
-        post.ModelId ??= options?.ModelId ?? DefaultModelId;
 
         var result = await CreateSpeechToTextAsync(post, cancellationToken: cancellationToken).ConfigureAwait(false);
 
@@ -73,7 +71,7 @@ public sealed partial class SpeechToTextClient : Microsoft.Extensions.AI.ISpeech
         return new(text)
         {
             EndTime = words?.Count > 0 && words.Max(w => w.End) is double endTime ? TimeSpan.FromSeconds(endTime) : null,
-            ModelId = post.ModelId,
+            ModelId = post.ModelId.ToValueString(),
             RawRepresentation = result,
             StartTime = words?.Count > 0 && words.Min(w => w.Start) is double startTime ? TimeSpan.FromSeconds(startTime) : null,
         };
@@ -89,4 +87,7 @@ public sealed partial class SpeechToTextClient : Microsoft.Extensions.AI.ISpeech
             yield return update;
         }
     }
+
+    private static BodySpeechToTextV1SpeechToTextPostModelId? ParseModelId(string? modelId) =>
+        modelId is null ? null : BodySpeechToTextV1SpeechToTextPostModelIdExtensions.ToEnum(modelId);
 }

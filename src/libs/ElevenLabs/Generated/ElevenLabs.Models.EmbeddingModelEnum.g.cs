@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         MultilingualE5LargeInstruct,
+        /// <summary>
+        /// 
+        /// </summary>
+        Qwen3Embedding4b,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 EmbeddingModelEnum.E5Mistral7bInstruct => "e5_mistral_7b_instruct",
                 EmbeddingModelEnum.MultilingualE5LargeInstruct => "multilingual_e5_large_instruct",
+                EmbeddingModelEnum.Qwen3Embedding4b => "qwen3_embedding_4b",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "e5_mistral_7b_instruct" => EmbeddingModelEnum.E5Mistral7bInstruct,
                 "multilingual_e5_large_instruct" => EmbeddingModelEnum.MultilingualE5LargeInstruct,
+                "qwen3_embedding_4b" => EmbeddingModelEnum.Qwen3Embedding4b,
                 _ => null,
             };
         }

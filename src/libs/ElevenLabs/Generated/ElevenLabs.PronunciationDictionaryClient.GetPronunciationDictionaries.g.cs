@@ -9,7 +9,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
-            ref global::ElevenLabs.GetPronunciationDictionariesV1PronunciationDictionariesGetSort? sort,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
             ref string? sortDirection,
             ref string? xiApiKey);
         partial void PrepareGetPronunciationDictionariesRequest(
@@ -17,7 +17,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
             int? pageSize,
-            global::ElevenLabs.GetPronunciationDictionariesV1PronunciationDictionariesGetSort? sort,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
             string? sortDirection,
             string? xiApiKey);
         partial void ProcessGetPronunciationDictionariesResponse(
@@ -42,23 +42,21 @@ namespace ElevenLabs
         /// </param>
         /// <param name="sort">
         /// Which field to sort by, one of 'created_at_unix' or 'name'.<br/>
-        /// Default Value: creation_time_unix<br/>
-        /// Example: creation_time_unix
+        /// Default Value: creation_time_unix
         /// </param>
         /// <param name="sortDirection">
         /// Which direction to sort the voices in. 'ascending' or 'descending'.<br/>
-        /// Default Value: DESCENDING<br/>
-        /// Example: descending
+        /// Default Value: DESCENDING
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPronunciationDictionariesMetadataResponseModel> GetPronunciationDictionariesAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.GetPronunciationDictionariesV1PronunciationDictionariesGetSort? sort = default,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
             string? sortDirection = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -69,7 +67,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 cursor: ref cursor,
                 pageSize: ref pageSize,
-                sort: ref sort,
+                sort: sort,
                 sortDirection: ref sortDirection,
                 xiApiKey: ref xiApiKey);
 
@@ -79,7 +77,7 @@ namespace ElevenLabs
             __pathBuilder
                 .AddOptionalParameter("cursor", cursor)
                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                .AddOptionalParameter("sort", sort?.ToValueString())
+                .AddOptionalParameter("sort", sort?.ToString())
                 .AddOptionalParameter("sort_direction", sortDirection) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -90,22 +88,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {

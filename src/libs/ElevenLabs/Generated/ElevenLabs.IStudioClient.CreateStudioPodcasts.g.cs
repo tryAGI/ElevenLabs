@@ -8,8 +8,11 @@ namespace ElevenLabs
         /// Create Podcast<br/>
         /// Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.
         /// </summary>
+        /// <param name="safetyIdentifier">
+        /// Used for moderation. Your workspace must be allowlisted to use this feature.
+        /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -17,6 +20,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.PodcastProjectResponseModel> CreateStudioPodcastsAsync(
 
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost request,
+            string? safetyIdentifier = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -24,57 +28,50 @@ namespace ElevenLabs
         /// Create Podcast<br/>
         /// Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.
         /// </summary>
+        /// <param name="safetyIdentifier">
+        /// Used for moderation. Your workspace must be allowlisted to use this feature.
+        /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="modelId">
-        /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.<br/>
-        /// Example: eleven_multilingual_v2
+        /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
         /// </param>
         /// <param name="mode">
-        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.<br/>
-        /// Example: {"conversation":{"guest_voice_id":"bYTqZQo3Jz7LQtmGTgwi","host_voice_id":"6lCwbsX1yVjD49QmpkTR"},"type":"conversation"}
+        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.
         /// </param>
         /// <param name="source">
-        /// The source content for the Podcast.<br/>
-        /// Example: {"type":"url","url":"https://en.wikipedia.org/wiki/Cognitive_science"}
+        /// The source content for the Podcast.
         /// </param>
         /// <param name="qualityPreset">
         /// Output quality of the generated audio. Must be one of:<br/>
-        /// standard - standard output format, 128kbps with 44.1kHz sample rate.<br/>
-        /// high - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.<br/>
-        /// ultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.<br/>
-        /// ultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.<br/>
-        /// Default Value: standard<br/>
-        /// Example: standard
+        /// 'standard' - standard output format, 128kbps with 44.1kHz sample rate.<br/>
+        /// 'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.<br/>
+        /// 'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.<br/>
+        /// 'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.<br/>
+        /// Default Value: standard
         /// </param>
         /// <param name="durationScale">
         /// Duration of the generated podcast. Must be one of:<br/>
         /// short - produces podcasts shorter than 3 minutes.<br/>
         /// default - produces podcasts roughly between 3-7 minutes.<br/>
         /// long - produces podcasts longer than 7 minutes.<br/>
-        /// Default Value: default<br/>
-        /// Example: short
+        /// Default Value: default
         /// </param>
         /// <param name="language">
-        /// An optional language of the Studio project. Two-letter language code (ISO 639-1).<br/>
-        /// Example: en
+        /// An optional language of the Studio project. Two-letter language code (ISO 639-1).
         /// </param>
         /// <param name="intro">
-        /// The intro text that will always be added to the beginning of the podcast.<br/>
-        /// Example: Welcome to the podcast.
+        /// The intro text that will always be added to the beginning of the podcast.
         /// </param>
         /// <param name="outro">
-        /// The outro text that will always be added to the end of the podcast.<br/>
-        /// Example: Thank you for listening!
+        /// The outro text that will always be added to the end of the podcast.
         /// </param>
         /// <param name="instructionsPrompt">
-        /// Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.<br/>
-        /// Example: Ensure the podcast remains factual, accurate and appropriate for all audiences.
+        /// Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.
         /// </param>
         /// <param name="highlights">
-        /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.<br/>
-        /// Example: [Emphasize the importance of AI on education]
+        /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.
         /// </param>
         /// <param name="callbackUrl">
         ///     A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion<br/>
@@ -129,8 +126,14 @@ namespace ElevenLabs
         ///         error_details: "Error details if conversion failed"<br/>
         ///       }<br/>
         ///     }<br/>
-        ///     <br/>
-        /// Example: [https://www.test.com/my-api/projects-status]
+        ///     
+        /// </param>
+        /// <param name="applyTextNormalization">
+        ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
+        ///     When set to 'auto', the system will automatically decide whether to apply text normalization<br/>
+        ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while<br/>
+        ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
+        ///     
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -138,6 +141,7 @@ namespace ElevenLabs
             string modelId,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> mode,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> source,
+            string? safetyIdentifier = default,
             string? xiApiKey = default,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? qualityPreset = default,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? durationScale = default,
@@ -147,6 +151,7 @@ namespace ElevenLabs
             string? instructionsPrompt = default,
             global::System.Collections.Generic.IList<string>? highlights = default,
             string? callbackUrl = default,
+            global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2? applyTextNormalization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

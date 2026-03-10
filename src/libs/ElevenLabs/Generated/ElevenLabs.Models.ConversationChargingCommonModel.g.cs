@@ -51,6 +51,18 @@ namespace ElevenLabs
         public int? CallCharge { get; set; }
 
         /// <summary>
+        /// Default Value: 0.0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("free_minutes_consumed")]
+        public double? FreeMinutesConsumed { get; set; }
+
+        /// <summary>
+        /// Default Value: 0.0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("free_llm_dollars_consumed")]
+        public double? FreeLlmDollarsConsumed { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -70,6 +82,12 @@ namespace ElevenLabs
         /// <param name="llmPrice"></param>
         /// <param name="llmCharge"></param>
         /// <param name="callCharge"></param>
+        /// <param name="freeMinutesConsumed">
+        /// Default Value: 0.0
+        /// </param>
+        /// <param name="freeLlmDollarsConsumed">
+        /// Default Value: 0.0
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,7 +98,9 @@ namespace ElevenLabs
             global::ElevenLabs.LLMCategoryUsage? llmUsage,
             double? llmPrice,
             int? llmCharge,
-            int? callCharge)
+            int? callCharge,
+            double? freeMinutesConsumed,
+            double? freeLlmDollarsConsumed)
         {
             this.DevDiscount = devDiscount;
             this.IsBurst = isBurst;
@@ -89,6 +109,8 @@ namespace ElevenLabs
             this.LlmPrice = llmPrice;
             this.LlmCharge = llmCharge;
             this.CallCharge = callCharge;
+            this.FreeMinutesConsumed = freeMinutesConsumed;
+            this.FreeLlmDollarsConsumed = freeLlmDollarsConsumed;
         }
 
         /// <summary>

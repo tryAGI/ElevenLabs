@@ -33,7 +33,7 @@ namespace ElevenLabs
         /// The id of a test invocation. This is returned when tests are run.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -66,22 +66,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -230,14 +214,19 @@ namespace ElevenLabs
         /// The id of a test invocation. This is returned when tests are run.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="testRunIds">
         /// List of test run IDs to resubmit
         /// </param>
-        /// <param name="agentConfigOverride"></param>
+        /// <param name="agentConfigOverride">
+        /// Configuration overrides to use for testing. If not provided, the agent's default configuration will be used.
+        /// </param>
         /// <param name="agentId">
         /// Agent ID to resubmit tests for
+        /// </param>
+        /// <param name="branchId">
+        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -247,6 +236,7 @@ namespace ElevenLabs
             string agentId,
             string? xiApiKey = default,
             global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? agentConfigOverride = default,
+            string? branchId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.ResubmitTestsRequestModel
@@ -254,6 +244,7 @@ namespace ElevenLabs
                 TestRunIds = testRunIds,
                 AgentConfigOverride = agentConfigOverride,
                 AgentId = agentId,
+                BranchId = branchId,
             };
 
             return await CreateConvaiTestInvocationsByTestInvocationIdResubmitAsync(

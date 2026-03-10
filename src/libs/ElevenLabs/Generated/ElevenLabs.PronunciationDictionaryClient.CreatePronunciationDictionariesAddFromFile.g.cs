@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// Creates a new pronunciation dictionary from a lexicon .PLS file
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -60,22 +60,6 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
-
             if (xiApiKey != default)
             {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
@@ -95,15 +79,9 @@ namespace ElevenLabs
             if (request.File != default)
             {
 
-                var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: __contentFile,
-                    name: "\"file\"",
-                    fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
-                if (__contentFile.Headers.ContentDisposition != null)
-                {
-                    __contentFile.Headers.ContentDisposition.FileNameStar = null;
-                }
+                    content: new global::System.Net.Http.StringContent($"{request.File}"),
+                    name: "\"file\"");
             } 
             if (request.Description != default)
             {
@@ -116,7 +94,7 @@ namespace ElevenLabs
             {
 
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.WorkspaceAccess?.ToValueString()}"),
+                    content: new global::System.Net.Http.StringContent($"{request.WorkspaceAccess}"),
                     name: "\"workspace_access\"");
             }
             __httpRequest.Content = __httpRequestContent;
@@ -256,25 +234,19 @@ namespace ElevenLabs
         /// Creates a new pronunciation dictionary from a lexicon .PLS file
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
-        /// The name of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: My Dictionary
+        /// The name of the pronunciation dictionary, used for identification only.
         /// </param>
         /// <param name="file">
         /// A lexicon .pls file which we will use to initialize the project with.
         /// </param>
-        /// <param name="filename">
-        /// A lexicon .pls file which we will use to initialize the project with.
-        /// </param>
         /// <param name="description">
-        /// A description of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: Contains pronunciation's of our character names
+        /// A description of the pronunciation dictionary, used for identification only.
         /// </param>
         /// <param name="workspaceAccess">
-        /// Should be one of 'admin', 'editor' or 'viewer'. If not provided, defaults to no access.<br/>
-        /// Example: viewer
+        /// Should be one of 'admin', 'editor' or 'viewer'. If not provided, defaults to no access.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -282,16 +254,14 @@ namespace ElevenLabs
             string name,
             string? xiApiKey = default,
             byte[]? file = default,
-            string? filename = default,
             string? description = default,
-            global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccess? workspaceAccess = default,
+            global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccess2? workspaceAccess = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePost
             {
                 Name = name,
                 File = file,
-                Filename = filename,
                 Description = description,
                 WorkspaceAccess = workspaceAccess,
             };

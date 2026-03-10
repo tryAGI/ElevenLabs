@@ -1,0 +1,75 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum BodyCreateStudioProjectV1StudioProjectsPostSourceType2
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        Blank,
+        /// <summary>
+        /// 
+        /// </summary>
+        Book,
+        /// <summary>
+        /// 
+        /// </summary>
+        Article,
+        /// <summary>
+        /// 
+        /// </summary>
+        Genfm,
+        /// <summary>
+        /// 
+        /// </summary>
+        Video,
+        /// <summary>
+        /// 
+        /// </summary>
+        Screenplay,
+    }
+
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class BodyCreateStudioProjectV1StudioProjectsPostSourceType2Extensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this BodyCreateStudioProjectV1StudioProjectsPostSourceType2 value)
+        {
+            return value switch
+            {
+                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Blank => "blank",
+                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Book => "book",
+                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Article => "article",
+                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Genfm => "genfm",
+                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Video => "video",
+                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Screenplay => "screenplay",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static BodyCreateStudioProjectV1StudioProjectsPostSourceType2? ToEnum(string value)
+        {
+            return value switch
+            {
+                "blank" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Blank,
+                "book" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Book,
+                "article" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Article,
+                "genfm" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Genfm,
+                "video" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Video,
+                "screenplay" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Screenplay,
+                _ => null,
+            };
+        }
+    }
+}

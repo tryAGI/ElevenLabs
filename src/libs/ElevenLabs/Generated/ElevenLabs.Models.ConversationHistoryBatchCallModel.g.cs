@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_call_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string BatchCallId { get; set; } = default!;
+        public required string BatchCallId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_call_recipient_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string BatchCallRecipientId { get; set; } = default!;
+        public required string BatchCallRecipientId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

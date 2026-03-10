@@ -7,13 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareCreateTextToDialogueStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::ElevenLabs.TextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostOutputFormat? outputFormat,
+            ref global::ElevenLabs.AllowedOutputFormats? outputFormat,
             ref string? xiApiKey,
             global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost request);
         partial void PrepareCreateTextToDialogueStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.TextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostOutputFormat? outputFormat,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat,
             string? xiApiKey,
             global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost request);
         partial void ProcessCreateTextToDialogueStreamResponse(
@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -42,7 +42,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<byte[]> CreateTextToDialogueStreamAsync(
 
             global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost request,
-            global::ElevenLabs.TextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -70,22 +70,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -230,46 +214,54 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="inputs">
-        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech.<br/>
-        /// Example: [{"text":"Hello, how are you?","voice_id":"bYTqZQo3Jz7LQtmGTgwi"}, {"text":"I\u0027m doing well, thank you!","voice_id":"6lCwbsX1yVjD49QmpkTR"}]
+        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech. The maximum number of unique voice IDs is 10.
         /// </param>
         /// <param name="modelId">
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.<br/>
         /// Default Value: eleven_v3
         /// </param>
+        /// <param name="languageCode">
+        /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+        /// </param>
         /// <param name="settings">
-        /// Example: {"similarity_boost":1,"stability":1}
+        /// Settings controlling the dialogue generation.
         /// </param>
         /// <param name="pronunciationDictionaryLocators">
-        /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request<br/>
-        /// Example: [{"pronunciation_dictionary_id":"test","version_id":"id2"}]
+        /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
         /// </param>
         /// <param name="seed">
-        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.<br/>
-        /// Example: 12345
+        /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+        /// </param>
+        /// <param name="applyTextNormalization">
+        /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
+        /// Default Value: auto
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> CreateTextToDialogueStreamAsync(
             global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput> inputs,
-            global::ElevenLabs.TextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             string? modelId = default,
+            string? languageCode = default,
             global::ElevenLabs.ModelSettingsResponseModel? settings = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? pronunciationDictionaryLocators = default,
             int? seed = default,
+            global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? applyTextNormalization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost
             {
                 Inputs = inputs,
                 ModelId = modelId,
+                LanguageCode = languageCode,
                 Settings = settings,
                 PronunciationDictionaryLocators = pronunciationDictionaryLocators,
                 Seed = seed,
+                ApplyTextNormalization = applyTextNormalization,
             };
 
             return await CreateTextToDialogueStreamAsync(

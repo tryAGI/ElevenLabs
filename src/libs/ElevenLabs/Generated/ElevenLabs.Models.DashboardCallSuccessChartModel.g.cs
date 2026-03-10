@@ -13,14 +13,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Default Value: call_success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DashboardCallSuccessChartModelTypeJsonConverter))]
-        public global::ElevenLabs.DashboardCallSuccessChartModelType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +39,7 @@ namespace ElevenLabs
 #endif
         public DashboardCallSuccessChartModel(
             string name,
-            global::ElevenLabs.DashboardCallSuccessChartModelType? type)
+            string? type)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;

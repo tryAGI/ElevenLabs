@@ -12,36 +12,34 @@ namespace ElevenLabs
         /// Default Value: transfer_to_agent_success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelResultTypeJsonConverter))]
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelStatusJsonConverter))]
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_agent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FromAgent { get; set; } = default!;
+        public required string FromAgent { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to_agent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ToAgent { get; set; } = default!;
+        public required string ToAgent { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Condition { get; set; } = default!;
+        public required string Condition { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -60,6 +58,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_transferred_agent_first_message")]
         public bool? EnableTransferredAgentFirstMessage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branch_info")]
+        public global::ElevenLabs.BranchInfoVariant1? BranchInfo { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -86,6 +90,7 @@ namespace ElevenLabs
         /// <param name="enableTransferredAgentFirstMessage">
         /// Default Value: false
         /// </param>
+        /// <param name="branchInfo"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -93,11 +98,12 @@ namespace ElevenLabs
             string fromAgent,
             string toAgent,
             string condition,
-            global::ElevenLabs.TransferToAgentToolResultSuccessModelResultType? resultType,
-            global::ElevenLabs.TransferToAgentToolResultSuccessModelStatus? status,
+            string? resultType,
+            string? status,
             int? delayMs,
             string? transferMessage,
-            bool? enableTransferredAgentFirstMessage)
+            bool? enableTransferredAgentFirstMessage,
+            global::ElevenLabs.BranchInfoVariant1? branchInfo)
         {
             this.FromAgent = fromAgent ?? throw new global::System.ArgumentNullException(nameof(fromAgent));
             this.ToAgent = toAgent ?? throw new global::System.ArgumentNullException(nameof(toAgent));
@@ -107,6 +113,7 @@ namespace ElevenLabs
             this.DelayMs = delayMs;
             this.TransferMessage = transferMessage;
             this.EnableTransferredAgentFirstMessage = enableTransferredAgentFirstMessage;
+            this.BranchInfo = branchInfo;
         }
 
         /// <summary>

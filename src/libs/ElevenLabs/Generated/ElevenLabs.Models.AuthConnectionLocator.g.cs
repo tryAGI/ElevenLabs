@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AuthConnectionId { get; set; } = default!;
+        public required string AuthConnectionId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Anything,
+        /// <summary>
+        /// 
+        /// </summary>
         Exact,
         /// <summary>
         /// 
@@ -34,6 +38,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                UnitTestToolCallParameterEvalDiscriminatorType.Anything => "anything",
                 UnitTestToolCallParameterEvalDiscriminatorType.Exact => "exact",
                 UnitTestToolCallParameterEvalDiscriminatorType.Llm => "llm",
                 UnitTestToolCallParameterEvalDiscriminatorType.Regex => "regex",
@@ -47,6 +52,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "anything" => UnitTestToolCallParameterEvalDiscriminatorType.Anything,
                 "exact" => UnitTestToolCallParameterEvalDiscriminatorType.Exact,
                 "llm" => UnitTestToolCallParameterEvalDiscriminatorType.Llm,
                 "regex" => UnitTestToolCallParameterEvalDiscriminatorType.Regex,

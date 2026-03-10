@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"shareable_token":"1234567890"}
+    /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"require_origin_header":true,"shareable_token":"1234567890"}
     /// </summary>
     public sealed partial class AuthSettings
     {
@@ -20,6 +20,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowlist")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.AllowlistItem>? Allowlist { get; set; }
+
+        /// <summary>
+        /// When enabled, connections with no origin header will be rejected. If the allowlist is empty, this option has no effect.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("require_origin_header")]
+        public bool? RequireOriginHeader { get; set; }
 
         /// <summary>
         /// A shareable token that can be used to start a conversation with the agent
@@ -43,6 +50,10 @@ namespace ElevenLabs
         /// <param name="allowlist">
         /// A list of hosts that are allowed to start conversations with the agent
         /// </param>
+        /// <param name="requireOriginHeader">
+        /// When enabled, connections with no origin header will be rejected. If the allowlist is empty, this option has no effect.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="shareableToken">
         /// A shareable token that can be used to start a conversation with the agent
         /// </param>
@@ -52,10 +63,12 @@ namespace ElevenLabs
         public AuthSettings(
             bool? enableAuth,
             global::System.Collections.Generic.IList<global::ElevenLabs.AllowlistItem>? allowlist,
+            bool? requireOriginHeader,
             string? shareableToken)
         {
             this.EnableAuth = enableAuth;
             this.Allowlist = allowlist;
+            this.RequireOriginHeader = requireOriginHeader;
             this.ShareableToken = shareableToken;
         }
 

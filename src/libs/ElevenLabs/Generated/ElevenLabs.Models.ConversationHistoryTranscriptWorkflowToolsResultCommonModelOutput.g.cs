@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string RequestId { get; set; } = default!;
+        public required string RequestId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ToolName { get; set; } = default!;
+        public required string ToolName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_value")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ResultValue { get; set; } = default!;
+        public required string ResultValue { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_error")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsError { get; set; } = default!;
+        public required bool IsError { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_has_been_called")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool ToolHasBeenCalled { get; set; } = default!;
+        public required bool ToolHasBeenCalled { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -52,18 +52,30 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error_type")]
+        public string? ErrorType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("raw_error_message")]
+        public string? RawErrorMessage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable_updates")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableUpdateCommonModel>? DynamicVariableUpdates { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"workflow"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutputTypeJsonConverter))]
-        public global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutputType Type { get; set; }
+        public string Type { get; set; } = "workflow";
 
         /// <summary>
-        /// A common model for workflow tool responses.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result")]
         public global::ElevenLabs.WorkflowToolResponseModelOutput? Result { get; set; }
@@ -85,11 +97,11 @@ namespace ElevenLabs
         /// <param name="toolLatencySecs">
         /// Default Value: 0
         /// </param>
+        /// <param name="errorType"></param>
+        /// <param name="rawErrorMessage"></param>
         /// <param name="dynamicVariableUpdates"></param>
         /// <param name="type"></param>
-        /// <param name="result">
-        /// A common model for workflow tool responses.
-        /// </param>
+        /// <param name="result"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -100,9 +112,11 @@ namespace ElevenLabs
             bool isError,
             bool toolHasBeenCalled,
             double? toolLatencySecs,
+            string? errorType,
+            string? rawErrorMessage,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableUpdateCommonModel>? dynamicVariableUpdates,
-            global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutputType type,
-            global::ElevenLabs.WorkflowToolResponseModelOutput? result)
+            global::ElevenLabs.WorkflowToolResponseModelOutput? result,
+            string type = "workflow")
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
@@ -110,6 +124,8 @@ namespace ElevenLabs
             this.IsError = isError;
             this.ToolHasBeenCalled = toolHasBeenCalled;
             this.ToolLatencySecs = toolLatencySecs;
+            this.ErrorType = errorType;
+            this.RawErrorMessage = rawErrorMessage;
             this.DynamicVariableUpdates = dynamicVariableUpdates;
             this.Type = type;
             this.Result = result;

@@ -9,6 +9,7 @@ namespace ElevenLabs
     public sealed partial class ConversationalConfigAPIModelOutput
     {
         /// <summary>
+        /// Configuration for conversational transcription<br/>
         /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
         /// </summary>
         /// <example>{"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}</example>
@@ -16,20 +17,23 @@ namespace ElevenLabs
         public global::ElevenLabs.ASRConversationalConfig? Asr { get; set; }
 
         /// <summary>
-        /// Example: {"mode":"turn","silence_end_call_timeout":-1,"turn_timeout":7}
+        /// Configuration for turn detection<br/>
+        /// Example: {"mode":"turn","silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
         /// </summary>
-        /// <example>{"mode":"turn","silence_end_call_timeout":-1,"turn_timeout":7}</example>
+        /// <example>{"mode":"turn","silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("turn")]
         public global::ElevenLabs.TurnConfig? Turn { get; set; }
 
         /// <summary>
-        /// Example: {"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}
+        /// Configuration for conversational text to speech<br/>
+        /// Example: {"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}
         /// </summary>
-        /// <example>{"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}</example>
+        /// <example>{"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("tts")]
         public global::ElevenLabs.TTSConversationalConfigOutput? Tts { get; set; }
 
         /// <summary>
+        /// Configuration for conversational events<br/>
         /// Example: {"client_events":["audio","interruption"],"max_duration_seconds":600}
         /// </summary>
         /// <example>{"client_events":["audio","interruption"],"max_duration_seconds":600}</example>
@@ -43,9 +47,18 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetOutput>? LanguagePresets { get; set; }
 
         /// <summary>
-        /// Example: {"first_message":"Hello, how can I help you today?","language":"en"}
+        /// Configuration for voice activity detection<br/>
+        /// Example: {"background_voice_detection":false}
         /// </summary>
-        /// <example>{"first_message":"Hello, how can I help you today?","language":"en"}</example>
+        /// <example>{"background_voice_detection":false}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("vad")]
+        public global::ElevenLabs.VADConfig? Vad { get; set; }
+
+        /// <summary>
+        /// Agent specific configuration<br/>
+        /// Example: {"disable_first_message_interruptions":false,"first_message":"Hello, how can I help you today?","language":"en"}
+        /// </summary>
+        /// <example>{"disable_first_message_interruptions":false,"first_message":"Hello, how can I help you today?","language":"en"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent")]
         public global::ElevenLabs.AgentConfigAPIModelOutput? Agent { get; set; }
 
@@ -59,22 +72,31 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationalConfigAPIModelOutput" /> class.
         /// </summary>
         /// <param name="asr">
+        /// Configuration for conversational transcription<br/>
         /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
         /// </param>
         /// <param name="turn">
-        /// Example: {"mode":"turn","silence_end_call_timeout":-1,"turn_timeout":7}
+        /// Configuration for turn detection<br/>
+        /// Example: {"mode":"turn","silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
         /// </param>
         /// <param name="tts">
-        /// Example: {"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}
+        /// Configuration for conversational text to speech<br/>
+        /// Example: {"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}
         /// </param>
         /// <param name="conversation">
+        /// Configuration for conversational events<br/>
         /// Example: {"client_events":["audio","interruption"],"max_duration_seconds":600}
         /// </param>
         /// <param name="languagePresets">
         /// Language presets for conversations
         /// </param>
+        /// <param name="vad">
+        /// Configuration for voice activity detection<br/>
+        /// Example: {"background_voice_detection":false}
+        /// </param>
         /// <param name="agent">
-        /// Example: {"first_message":"Hello, how can I help you today?","language":"en"}
+        /// Agent specific configuration<br/>
+        /// Example: {"disable_first_message_interruptions":false,"first_message":"Hello, how can I help you today?","language":"en"}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -85,6 +107,7 @@ namespace ElevenLabs
             global::ElevenLabs.TTSConversationalConfigOutput? tts,
             global::ElevenLabs.ConversationConfig? conversation,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetOutput>? languagePresets,
+            global::ElevenLabs.VADConfig? vad,
             global::ElevenLabs.AgentConfigAPIModelOutput? agent)
         {
             this.Asr = asr;
@@ -92,6 +115,7 @@ namespace ElevenLabs
             this.Tts = tts;
             this.Conversation = conversation;
             this.LanguagePresets = languagePresets;
+            this.Vad = vad;
             this.Agent = agent;
         }
 

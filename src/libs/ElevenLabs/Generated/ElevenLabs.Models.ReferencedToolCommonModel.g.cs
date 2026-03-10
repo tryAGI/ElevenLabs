@@ -13,15 +13,15 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        /// The type of the tool
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ReferencedToolCommonModelTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ToolType Type { get; set; } = default!;
+        public required global::ElevenLabs.ReferencedToolCommonModelType Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -35,13 +35,15 @@ namespace ElevenLabs
         /// <param name="id">
         /// The ID of the tool
         /// </param>
-        /// <param name="type"></param>
+        /// <param name="type">
+        /// The type of the tool
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ReferencedToolCommonModel(
             string id,
-            global::ElevenLabs.ToolType type)
+            global::ElevenLabs.ReferencedToolCommonModelType type)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Type = type;

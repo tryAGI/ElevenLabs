@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Response { get; set; } = default!;
+        public required string Response { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"failure"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AgentFailureResponseExampleTypeJsonConverter))]
-        public global::ElevenLabs.AgentFailureResponseExampleType Type { get; set; }
+        public string Type { get; set; } = "failure";
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +38,7 @@ namespace ElevenLabs
 #endif
         public AgentFailureResponseExample(
             string response,
-            global::ElevenLabs.AgentFailureResponseExampleType type)
+            string type = "failure")
         {
             this.Response = response ?? throw new global::System.ArgumentNullException(nameof(response));
             this.Type = type;

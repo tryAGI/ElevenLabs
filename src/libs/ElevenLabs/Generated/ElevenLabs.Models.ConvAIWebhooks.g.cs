@@ -15,10 +15,16 @@ namespace ElevenLabs
         public string? PostCallWebhookId { get; set; }
 
         /// <summary>
-        /// Whether to send audio data with post-call webhooks for ConvAI conversations<br/>
-        /// Default Value: false
+        /// List of event types to send via webhook. Options: transcript, audio, call_initiation_failure.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("events")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>? Events { get; set; }
+
+        /// <summary>
+        /// DEPRECATED: Use 'events' field instead. Whether to send audio data with post-call webhooks for ConvAI conversations
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("send_audio")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? SendAudio { get; set; }
 
         /// <summary>
@@ -31,19 +37,18 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConvAIWebhooks" /> class.
         /// </summary>
         /// <param name="postCallWebhookId"></param>
-        /// <param name="sendAudio">
-        /// Whether to send audio data with post-call webhooks for ConvAI conversations<br/>
-        /// Default Value: false
+        /// <param name="events">
+        /// List of event types to send via webhook. Options: transcript, audio, call_initiation_failure.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConvAIWebhooks(
             string? postCallWebhookId,
-            bool? sendAudio)
+            global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>? events)
         {
             this.PostCallWebhookId = postCallWebhookId;
-            this.SendAudio = sendAudio;
+            this.Events = events;
         }
 
         /// <summary>

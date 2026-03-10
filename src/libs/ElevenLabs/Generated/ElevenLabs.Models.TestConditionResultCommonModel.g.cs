@@ -14,10 +14,10 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("result")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.EvaluationSuccessResult Result { get; set; } = default!;
+        public required global::ElevenLabs.EvaluationSuccessResult Result { get; set; }
 
         /// <summary>
-        /// Structured rationale for test condition results containing individual failure/success reasons.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rationale")]
         public global::ElevenLabs.TestConditionRationaleCommonModel? Rationale { get; set; }
@@ -32,9 +32,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="TestConditionResultCommonModel" /> class.
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="rationale">
-        /// Structured rationale for test condition results containing individual failure/success reasons.
-        /// </param>
+        /// <param name="rationale"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

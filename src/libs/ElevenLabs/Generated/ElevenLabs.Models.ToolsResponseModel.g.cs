@@ -13,7 +13,20 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel> Tools { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel> Tools { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("next_cursor")]
+        public string? NextCursor { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool HasMore { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -25,13 +38,19 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ToolsResponseModel" /> class.
         /// </summary>
         /// <param name="tools"></param>
+        /// <param name="nextCursor"></param>
+        /// <param name="hasMore"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ToolsResponseModel(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel> tools)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel> tools,
+            bool hasMore,
+            string? nextCursor)
         {
             this.Tools = tools ?? throw new global::System.ArgumentNullException(nameof(tools));
+            this.HasMore = hasMore;
+            this.NextCursor = nextCursor;
         }
 
         /// <summary>

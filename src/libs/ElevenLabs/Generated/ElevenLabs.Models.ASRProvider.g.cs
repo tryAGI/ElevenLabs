@@ -15,7 +15,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        RealtimeScribeV1,
+        ScribeRealtime,
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace ElevenLabs
             return value switch
             {
                 ASRProvider.Elevenlabs => "elevenlabs",
-                ASRProvider.RealtimeScribeV1 => "realtime_scribe_v1",
+                ASRProvider.ScribeRealtime => "scribe_realtime",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,7 +43,7 @@ namespace ElevenLabs
             return value switch
             {
                 "elevenlabs" => ASRProvider.Elevenlabs,
-                "realtime_scribe_v1" => ASRProvider.RealtimeScribeV1,
+                "scribe_realtime" => ASRProvider.ScribeRealtime,
                 _ => null,
             };
         }

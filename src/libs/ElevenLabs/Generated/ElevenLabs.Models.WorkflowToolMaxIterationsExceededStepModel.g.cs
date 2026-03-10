@@ -13,21 +13,20 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("step_latency_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double StepLatencySecs { get; set; } = default!;
+        public required double StepLatencySecs { get; set; }
 
         /// <summary>
         /// Default Value: max_iterations_exceeded
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WorkflowToolMaxIterationsExceededStepModelTypeJsonConverter))]
-        public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModelType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_iterations")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxIterations { get; set; } = default!;
+        public required int MaxIterations { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -49,7 +48,7 @@ namespace ElevenLabs
         public WorkflowToolMaxIterationsExceededStepModel(
             double stepLatencySecs,
             int maxIterations,
-            global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModelType? type)
+            string? type)
         {
             this.StepLatencySecs = stepLatencySecs;
             this.MaxIterations = maxIterations;

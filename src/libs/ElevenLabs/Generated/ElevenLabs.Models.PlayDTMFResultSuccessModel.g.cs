@@ -12,22 +12,20 @@ namespace ElevenLabs
         /// Default Value: play_dtmf_success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PlayDTMFResultSuccessModelResultTypeJsonConverter))]
-        public global::ElevenLabs.PlayDTMFResultSuccessModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PlayDTMFResultSuccessModelStatusJsonConverter))]
-        public global::ElevenLabs.PlayDTMFResultSuccessModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dtmf_tones")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DtmfTones { get; set; } = default!;
+        public required string DtmfTones { get; set; }
 
         /// <summary>
         /// 
@@ -57,8 +55,8 @@ namespace ElevenLabs
 #endif
         public PlayDTMFResultSuccessModel(
             string dtmfTones,
-            global::ElevenLabs.PlayDTMFResultSuccessModelResultType? resultType,
-            global::ElevenLabs.PlayDTMFResultSuccessModelStatus? status,
+            string? resultType,
+            string? status,
             string? reason)
         {
             this.DtmfTones = dtmfTones ?? throw new global::System.ArgumentNullException(nameof(dtmfTones));

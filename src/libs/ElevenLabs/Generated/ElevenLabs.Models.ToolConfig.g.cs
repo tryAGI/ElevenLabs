@@ -51,8 +51,7 @@ namespace ElevenLabs
         public bool IsClient => Client != null;
 
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server<br/>
-        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
+        /// A system tool is a tool that is used to call a system method in the server
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SystemToolConfigInput? System { get; init; }

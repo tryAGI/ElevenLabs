@@ -14,42 +14,48 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistorySIPTrunkingPhoneCallModelDirectionJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModelDirection Direction { get; set; } = default!;
+        public required global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModelDirection Direction { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumberId { get; set; } = default!;
+        public required string PhoneNumberId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentNumber { get; set; } = default!;
+        public required string AgentNumber { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ExternalNumber { get; set; } = default!;
+        public required string ExternalNumber { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"sip_trunking"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistorySIPTrunkingPhoneCallModelTypeJsonConverter))]
-        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModelType Type { get; set; }
+        public string Type { get; set; } = "sip_trunking";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_sid")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CallSid { get; set; } = default!;
+        public required string CallSid { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sip_header_dynamic_variables")]
+        public global::System.Collections.Generic.Dictionary<string, string>? SipHeaderDynamicVariables { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -66,6 +72,7 @@ namespace ElevenLabs
         /// <param name="externalNumber"></param>
         /// <param name="type"></param>
         /// <param name="callSid"></param>
+        /// <param name="sipHeaderDynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -75,7 +82,8 @@ namespace ElevenLabs
             string agentNumber,
             string externalNumber,
             string callSid,
-            global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModelType type)
+            global::System.Collections.Generic.Dictionary<string, string>? sipHeaderDynamicVariables,
+            string type = "sip_trunking")
         {
             this.Direction = direction;
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
@@ -83,6 +91,7 @@ namespace ElevenLabs
             this.ExternalNumber = externalNumber ?? throw new global::System.ArgumentNullException(nameof(externalNumber));
             this.CallSid = callSid ?? throw new global::System.ArgumentNullException(nameof(callSid));
             this.Type = type;
+            this.SipHeaderDynamicVariables = sipHeaderDynamicVariables;
         }
 
         /// <summary>

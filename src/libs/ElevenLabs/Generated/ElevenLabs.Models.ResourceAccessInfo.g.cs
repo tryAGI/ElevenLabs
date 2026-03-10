@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_creator")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsCreator { get; set; } = default!;
+        public required bool IsCreator { get; set; }
 
         /// <summary>
         /// Name of the agent's creator
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creator_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CreatorName { get; set; } = default!;
+        public required string CreatorName { get; set; }
 
         /// <summary>
         /// Email of the agent's creator
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creator_email")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CreatorEmail { get; set; } = default!;
+        public required string CreatorEmail { get; set; }
 
         /// <summary>
         /// The role of the user making the request
@@ -35,7 +35,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ResourceAccessInfoRoleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ResourceAccessInfoRole Role { get; set; } = default!;
+        public required global::ElevenLabs.ResourceAccessInfoRole Role { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

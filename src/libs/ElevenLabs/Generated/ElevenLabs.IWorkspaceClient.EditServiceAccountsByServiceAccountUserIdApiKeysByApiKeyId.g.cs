@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <param name="serviceAccountUserId"></param>
         /// <param name="apiKeyId"></param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -31,14 +31,13 @@ namespace ElevenLabs
         /// <param name="serviceAccountUserId"></param>
         /// <param name="apiKeyId"></param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="isEnabled">
         /// Whether to enable or disable the API key.
         /// </param>
         /// <param name="name">
-        /// The name of the XI API key to use (used for identification purposes only).<br/>
-        /// Example: Sneaky Fox
+        /// The name of the XI API key to use (used for identification purposes only).
         /// </param>
         /// <param name="permissions">
         /// The permissions of the XI API.
@@ -53,7 +52,7 @@ namespace ElevenLabs
             string apiKeyId,
             bool isEnabled,
             string name,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermission>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions?> permissions,
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string> permissions,
             string? xiApiKey = default,
             int? characterLimit = default,
             global::System.Threading.CancellationToken cancellationToken = default);

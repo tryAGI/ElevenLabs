@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The ID of the workspace group.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// The emails of the members of the workspace group.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("members_emails")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> MembersEmails { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> MembersEmails { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

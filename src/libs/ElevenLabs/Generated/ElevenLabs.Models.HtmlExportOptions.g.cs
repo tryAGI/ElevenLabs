@@ -23,9 +23,9 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"html"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.HtmlExportOptionsFormatJsonConverter))]
-        public global::ElevenLabs.HtmlExportOptionsFormat Format { get; set; }
+        public string Format { get; set; } = "html";
 
         /// <summary>
         /// 
@@ -70,10 +70,10 @@ namespace ElevenLabs
         public HtmlExportOptions(
             bool? includeSpeakers,
             bool? includeTimestamps,
-            global::ElevenLabs.HtmlExportOptionsFormat format,
             double? segmentOnSilenceLongerThanS,
             double? maxSegmentDurationS,
-            int? maxSegmentChars)
+            int? maxSegmentChars,
+            string format = "html")
         {
             this.IncludeSpeakers = includeSpeakers;
             this.IncludeTimestamps = includeTimestamps;

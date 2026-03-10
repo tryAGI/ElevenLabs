@@ -13,7 +13,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem3> Agents { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem3> Agents { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branches")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentBranchInfo>? Branches { get; set; }
 
         /// <summary>
         /// 
@@ -26,7 +32,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool HasMore { get; set; } = default!;
+        public required bool HasMore { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,6 +44,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="GetToolDependentAgentsResponseModel" /> class.
         /// </summary>
         /// <param name="agents"></param>
+        /// <param name="branches"></param>
         /// <param name="nextCursor"></param>
         /// <param name="hasMore"></param>
 #if NET7_0_OR_GREATER
@@ -46,10 +53,12 @@ namespace ElevenLabs
         public GetToolDependentAgentsResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem3> agents,
             bool hasMore,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DependentBranchInfo>? branches,
             string? nextCursor)
         {
             this.Agents = agents ?? throw new global::System.ArgumentNullException(nameof(agents));
             this.HasMore = hasMore;
+            this.Branches = branches;
             this.NextCursor = nextCursor;
         }
 

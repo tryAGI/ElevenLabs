@@ -13,21 +13,20 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Default Value: criteria
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DashboardCriteriaChartModelTypeJsonConverter))]
-        public global::ElevenLabs.DashboardCriteriaChartModelType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("criteria_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CriteriaId { get; set; } = default!;
+        public required string CriteriaId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -49,7 +48,7 @@ namespace ElevenLabs
         public DashboardCriteriaChartModel(
             string name,
             string criteriaId,
-            global::ElevenLabs.DashboardCriteriaChartModelType? type)
+            string? type)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.CriteriaId = criteriaId ?? throw new global::System.ArgumentNullException(nameof(criteriaId));

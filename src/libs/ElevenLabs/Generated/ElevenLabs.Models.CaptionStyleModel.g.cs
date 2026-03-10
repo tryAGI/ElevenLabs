@@ -36,22 +36,31 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_align")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CaptionStyleModelTextAlignJsonConverter))]
-        public global::ElevenLabs.CaptionStyleModelTextAlign? TextAlign { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextAlign2? TextAlign { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_style")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CaptionStyleModelTextStyleJsonConverter))]
-        public global::ElevenLabs.CaptionStyleModelTextStyle? TextStyle { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextStyle2? TextStyle { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_weight")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CaptionStyleModelTextWeightJsonConverter))]
-        public global::ElevenLabs.CaptionStyleModelTextWeight? TextWeight { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextWeight2? TextWeight { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_shadow")]
+        public global::ElevenLabs.StudioTextStyleShadowModel? TextShadow { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_outline")]
+        public global::ElevenLabs.StudioTextStyleOutlineModel? TextOutline { get; set; }
 
         /// <summary>
         /// 
@@ -165,6 +174,8 @@ namespace ElevenLabs
         /// <param name="textAlign"></param>
         /// <param name="textStyle"></param>
         /// <param name="textWeight"></param>
+        /// <param name="textShadow"></param>
+        /// <param name="textOutline"></param>
         /// <param name="backgroundEnabled"></param>
         /// <param name="backgroundColor"></param>
         /// <param name="backgroundOpacity"></param>
@@ -189,9 +200,11 @@ namespace ElevenLabs
             string? textFont,
             double? textScale,
             string? textColor,
-            global::ElevenLabs.CaptionStyleModelTextAlign? textAlign,
-            global::ElevenLabs.CaptionStyleModelTextStyle? textStyle,
-            global::ElevenLabs.CaptionStyleModelTextWeight? textWeight,
+            global::ElevenLabs.CaptionStyleModelTextAlign2? textAlign,
+            global::ElevenLabs.CaptionStyleModelTextStyle2? textStyle,
+            global::ElevenLabs.CaptionStyleModelTextWeight2? textWeight,
+            global::ElevenLabs.StudioTextStyleShadowModel? textShadow,
+            global::ElevenLabs.StudioTextStyleOutlineModel? textOutline,
             bool? backgroundEnabled,
             string? backgroundColor,
             double? backgroundOpacity,
@@ -216,6 +229,8 @@ namespace ElevenLabs
             this.TextAlign = textAlign;
             this.TextStyle = textStyle;
             this.TextWeight = textWeight;
+            this.TextShadow = textShadow;
+            this.TextOutline = textOutline;
             this.BackgroundEnabled = backgroundEnabled;
             this.BackgroundColor = backgroundColor;
             this.BackgroundOpacity = backgroundOpacity;

@@ -13,14 +13,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Segments { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Segments { get; set; }
 
         /// <summary>
         /// Translate only these languages for each segment.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("languages")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string>? Languages { get; set; } = default!;
+        public global::System.Collections.Generic.IList<string>? Languages { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -45,7 +44,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? languages)
         {
             this.Segments = segments ?? throw new global::System.ArgumentNullException(nameof(segments));
-            this.Languages = languages ?? throw new global::System.ArgumentNullException(nameof(languages));
+            this.Languages = languages;
         }
 
         /// <summary>

@@ -12,7 +12,8 @@ openApiDocument.Servers?.Add(new OpenApiServer
 {
     Url = "https://api.elevenlabs.io",
 });
-openApiDocument.Components!.SecuritySchemes!["ApiKeyAuth"] = new OpenApiSecurityScheme
+openApiDocument.Components!.SecuritySchemes ??= new Dictionary<string, IOpenApiSecurityScheme>();
+openApiDocument.Components!.SecuritySchemes["ApiKeyAuth"] = new OpenApiSecurityScheme
 {
     Type = SecuritySchemeType.ApiKey,
     In = ParameterLocation.Header,

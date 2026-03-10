@@ -13,7 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("xi-api-key")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string XiApiKey { get; set; } = default!;
+        public required string XiApiKey { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("key_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string KeyId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -25,13 +32,16 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="WorkspaceCreateApiKeyResponseModel" /> class.
         /// </summary>
         /// <param name="xiApiKey"></param>
+        /// <param name="keyId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WorkspaceCreateApiKeyResponseModel(
-            string xiApiKey)
+            string xiApiKey,
+            string keyId)
         {
             this.XiApiKey = xiApiKey ?? throw new global::System.ArgumentNullException(nameof(xiApiKey));
+            this.KeyId = keyId ?? throw new global::System.ArgumentNullException(nameof(keyId));
         }
 
         /// <summary>

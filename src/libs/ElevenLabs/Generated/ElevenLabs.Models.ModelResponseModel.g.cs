@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"can_be_finetuned":true,"can_do_text_to_speech":true,"can_do_voice_conversion":true,"can_use_speaker_boost":true,"can_use_style":true,"concurrency_group":"standard","description":"Our state of the art multilingual speech synthesis model, able to generate life-like speech in 29 languages.","languages":[{"language_id":"en","name":"English"}],"max_characters_request_free_user":2500,"max_characters_request_subscribed_user":5000,"maximum_text_length_per_request":1000000,"model_id":"eleven_multilingual_v2","model_rates":{"character_cost_multiplier":1},"name":"Eleven Multilingual v2","requires_alpha_access":false,"serves_pro_voices":false,"token_cost_factor":1}
+    /// Example: {"can_be_finetuned":true,"can_do_text_to_speech":true,"can_do_voice_conversion":true,"can_use_speaker_boost":true,"can_use_style":true,"concurrency_group":"standard_eleven_multilingual_v2","description":"Our state of the art multilingual speech synthesis model, able to generate life-like speech in 29 languages.","languages":[{"language_id":"en","name":"English"}],"max_characters_request_free_user":2500,"max_characters_request_subscribed_user":5000,"maximum_text_length_per_request":1000000,"model_id":"eleven_multilingual_v2","model_rates":{"character_cost_multiplier":1.0},"name":"Eleven Multilingual v2","requires_alpha_access":false,"serves_pro_voices":false,"token_cost_factor":1.0}
     /// </summary>
     public sealed partial class ModelResponseModel
     {
@@ -13,121 +13,121 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelId { get; set; } = default!;
+        public required string ModelId { get; set; }
 
         /// <summary>
         /// The name of the model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Whether the model can be finetuned.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_be_finetuned")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool CanBeFinetuned { get; set; } = default!;
+        public required bool CanBeFinetuned { get; set; }
 
         /// <summary>
         /// Whether the model can do text-to-speech.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_do_text_to_speech")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool CanDoTextToSpeech { get; set; } = default!;
+        public required bool CanDoTextToSpeech { get; set; }
 
         /// <summary>
         /// Whether the model can do voice conversion.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_do_voice_conversion")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool CanDoVoiceConversion { get; set; } = default!;
+        public required bool CanDoVoiceConversion { get; set; }
 
         /// <summary>
         /// Whether the model can use style.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_use_style")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool CanUseStyle { get; set; } = default!;
+        public required bool CanUseStyle { get; set; }
 
         /// <summary>
         /// Whether the model can use speaker boost.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_use_speaker_boost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool CanUseSpeakerBoost { get; set; } = default!;
+        public required bool CanUseSpeakerBoost { get; set; }
 
         /// <summary>
         /// Whether the model serves pro voices.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("serves_pro_voices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool ServesProVoices { get; set; } = default!;
+        public required bool ServesProVoices { get; set; }
 
         /// <summary>
         /// The cost factor for the model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_cost_factor")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double TokenCostFactor { get; set; } = default!;
+        public required double TokenCostFactor { get; set; }
 
         /// <summary>
         /// The description of the model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Description { get; set; } = default!;
+        public required string Description { get; set; }
 
         /// <summary>
         /// Whether the model requires alpha access.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requires_alpha_access")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool RequiresAlphaAccess { get; set; } = default!;
+        public required bool RequiresAlphaAccess { get; set; }
 
         /// <summary>
         /// The maximum number of characters that can be requested by a free user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_characters_request_free_user")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxCharactersRequestFreeUser { get; set; } = default!;
+        public required int MaxCharactersRequestFreeUser { get; set; }
 
         /// <summary>
         /// The maximum number of characters that can be requested by a subscribed user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_characters_request_subscribed_user")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxCharactersRequestSubscribedUser { get; set; } = default!;
+        public required int MaxCharactersRequestSubscribedUser { get; set; }
 
         /// <summary>
         /// The maximum length of text that can be requested for this model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maximum_text_length_per_request")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaximumTextLengthPerRequest { get; set; } = default!;
+        public required int MaximumTextLengthPerRequest { get; set; }
 
         /// <summary>
         /// The languages supported by the model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("languages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.LanguageResponseModel> Languages { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.LanguageResponseModel> Languages { get; set; }
 
         /// <summary>
-        /// Example: {"character_cost_multiplier":1}
+        /// The rates for the model.<br/>
+        /// Example: {"character_cost_multiplier":1.0}
         /// </summary>
-        /// <example>{"character_cost_multiplier":1}</example>
+        /// <example>{"character_cost_multiplier":1.0}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_rates")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ModelRatesResponseModel ModelRates { get; set; } = default!;
+        public required global::ElevenLabs.ModelRatesResponseModel ModelRates { get; set; }
 
         /// <summary>
         /// The concurrency group for the model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("concurrency_group")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ModelResponseModelConcurrencyGroupJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ModelResponseModelConcurrencyGroup ConcurrencyGroup { get; set; } = default!;
+        public required string ConcurrencyGroup { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -184,7 +184,8 @@ namespace ElevenLabs
         /// The languages supported by the model.
         /// </param>
         /// <param name="modelRates">
-        /// Example: {"character_cost_multiplier":1}
+        /// The rates for the model.<br/>
+        /// Example: {"character_cost_multiplier":1.0}
         /// </param>
         /// <param name="concurrencyGroup">
         /// The concurrency group for the model.
@@ -209,7 +210,7 @@ namespace ElevenLabs
             int maximumTextLengthPerRequest,
             global::System.Collections.Generic.IList<global::ElevenLabs.LanguageResponseModel> languages,
             global::ElevenLabs.ModelRatesResponseModel modelRates,
-            global::ElevenLabs.ModelResponseModelConcurrencyGroup concurrencyGroup)
+            string concurrencyGroup)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -227,7 +228,7 @@ namespace ElevenLabs
             this.MaximumTextLengthPerRequest = maximumTextLengthPerRequest;
             this.Languages = languages ?? throw new global::System.ArgumentNullException(nameof(languages));
             this.ModelRates = modelRates ?? throw new global::System.ArgumentNullException(nameof(modelRates));
-            this.ConcurrencyGroup = concurrencyGroup;
+            this.ConcurrencyGroup = concurrencyGroup ?? throw new global::System.ArgumentNullException(nameof(concurrencyGroup));
         }
 
         /// <summary>

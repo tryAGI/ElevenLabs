@@ -12,29 +12,27 @@ namespace ElevenLabs
         /// Default Value: transfer_to_agent_error
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultErrorModelResultTypeJsonConverter))]
-        public global::ElevenLabs.TransferToAgentToolResultErrorModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: error
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultErrorModelStatusJsonConverter))]
-        public global::ElevenLabs.TransferToAgentToolResultErrorModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_agent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FromAgent { get; set; } = default!;
+        public required string FromAgent { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Error { get; set; } = default!;
+        public required string Error { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -59,8 +57,8 @@ namespace ElevenLabs
         public TransferToAgentToolResultErrorModel(
             string fromAgent,
             string error,
-            global::ElevenLabs.TransferToAgentToolResultErrorModelResultType? resultType,
-            global::ElevenLabs.TransferToAgentToolResultErrorModelStatus? status)
+            string? resultType,
+            string? status)
         {
             this.FromAgent = fromAgent ?? throw new global::System.ArgumentNullException(nameof(fromAgent));
             this.Error = error ?? throw new global::System.ArgumentNullException(nameof(error));

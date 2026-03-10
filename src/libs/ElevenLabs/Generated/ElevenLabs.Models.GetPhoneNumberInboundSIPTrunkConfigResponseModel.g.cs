@@ -13,14 +13,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_addresses")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> AllowedAddresses { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> AllowedAddresses { get; set; }
 
         /// <summary>
         /// List of phone numbers that are allowed to use the trunk.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_numbers")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string>? AllowedNumbers { get; set; } = default!;
+        public global::System.Collections.Generic.IList<string>? AllowedNumbers { get; set; }
 
         /// <summary>
         /// 
@@ -28,20 +27,26 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("media_encryption")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPMediaEncryptionEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; } = default!;
+        public required global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; }
 
         /// <summary>
         /// Whether authentication credentials are configured
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_auth_credentials")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool HasAuthCredentials { get; set; } = default!;
+        public required bool HasAuthCredentials { get; set; }
 
         /// <summary>
         /// SIP trunk username (if available)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("username")]
         public string? Username { get; set; }
+
+        /// <summary>
+        /// Domains of remote SIP servers used to validate TLS certificates.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("remote_domains")]
+        public global::System.Collections.Generic.IList<string>? RemoteDomains { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -65,21 +70,26 @@ namespace ElevenLabs
         /// <param name="username">
         /// SIP trunk username (if available)
         /// </param>
+        /// <param name="remoteDomains">
+        /// Domains of remote SIP servers used to validate TLS certificates.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetPhoneNumberInboundSIPTrunkConfigResponseModel(
             global::System.Collections.Generic.IList<string> allowedAddresses,
-            global::System.Collections.Generic.IList<string>? allowedNumbers,
             global::ElevenLabs.SIPMediaEncryptionEnum mediaEncryption,
             bool hasAuthCredentials,
-            string? username)
+            global::System.Collections.Generic.IList<string>? allowedNumbers,
+            string? username,
+            global::System.Collections.Generic.IList<string>? remoteDomains)
         {
             this.AllowedAddresses = allowedAddresses ?? throw new global::System.ArgumentNullException(nameof(allowedAddresses));
-            this.AllowedNumbers = allowedNumbers ?? throw new global::System.ArgumentNullException(nameof(allowedNumbers));
             this.MediaEncryption = mediaEncryption;
             this.HasAuthCredentials = hasAuthCredentials;
+            this.AllowedNumbers = allowedNumbers;
             this.Username = username;
+            this.RemoteDomains = remoteDomains;
         }
 
         /// <summary>

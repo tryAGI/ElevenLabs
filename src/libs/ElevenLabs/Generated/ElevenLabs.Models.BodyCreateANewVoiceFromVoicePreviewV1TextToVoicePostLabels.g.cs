@@ -4,8 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Optional, metadata to add to the created voice. Defaults to None.<br/>
-    /// Example: {"language":"en"}
+    /// Optional, metadata to add to the created voice. Defaults to None.
     /// </summary>
     public sealed partial class BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePostLabels
     {

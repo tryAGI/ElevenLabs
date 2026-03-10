@@ -20,6 +20,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Text,
+        /// <summary>
+        /// 
+        /// </summary>
+        Folder,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace ElevenLabs
                 KnowledgeBaseDocumentType.File => "file",
                 KnowledgeBaseDocumentType.Url => "url",
                 KnowledgeBaseDocumentType.Text => "text",
+                KnowledgeBaseDocumentType.Folder => "folder",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace ElevenLabs
                 "file" => KnowledgeBaseDocumentType.File,
                 "url" => KnowledgeBaseDocumentType.Url,
                 "text" => KnowledgeBaseDocumentType.Text,
+                "folder" => KnowledgeBaseDocumentType.Folder,
                 _ => null,
             };
         }

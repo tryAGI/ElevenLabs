@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"can_use_delayed_payment_methods":false,"created_at":1753999199,"first_name":"John","is_api_key_hashed":false,"is_new_user":false,"is_onboarding_checklist_completed":true,"is_onboarding_completed":true,"subscription":{"allowed_to_extend_character_limit":false,"billing_period":"monthly_period","can_extend_character_limit":false,"can_extend_voice_limit":false,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":17231,"character_limit":100000,"character_refresh_period":"monthly_period","currency":"usd","max_character_limit_extension":10000,"max_voice_add_edits":230,"next_character_count_reset_unix":1738356858,"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"free","tier":"trial","voice_add_edit_counter":212,"voice_limit":120,"voice_slots_used":1},"subscription_extras":{"can_bypass_voice_captcha":true,"can_request_manual_pro_voice_verification":true,"concurrency":10,"convai_concurrency":10,"force_logging_disabled":false,"moderation":{"enterprise_background_moderation_enabled":false,"enterprise_check_block_nogo_voice":false,"enterprise_check_nogo_voice":false,"is_in_probation":false,"never_live_moderate":false,"nogo_voice_similar_voice_upload_count":0,"on_watchlist":false},"overused_characters_rolled_over_from_previous_period":1000,"unused_characters_rolled_over_from_previous_period":1000,"usage":{"actual_reported_credits":1000,"manually_gifted_credits_quota":1000,"manually_gifted_credits_used":1000,"paid_usage_based_credits_used":1000,"rollover_credits_quota":1000,"rollover_credits_used":1000,"subscription_cycle_credits_quota":1000,"subscription_cycle_credits_used":1000}},"user_id":"1234567890","xi_api_key":"8so27l7327189x0h939ekx293380l920"}
+    /// Example: {"can_use_delayed_payment_methods":false,"created_at":1753999199,"first_name":"John","is_api_key_hashed":false,"is_new_user":false,"is_onboarding_checklist_completed":true,"is_onboarding_completed":true,"seat_type":"workspace_member","show_compliance_terms":false,"subscription":{"allowed_to_extend_character_limit":false,"billing_period":"monthly_period","can_extend_character_limit":false,"can_extend_voice_limit":false,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":17231,"character_limit":100000,"character_refresh_period":"monthly_period","currency":"usd","max_character_limit_extension":10000,"max_voice_add_edits":230,"next_character_count_reset_unix":1738356858,"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"free","tier":"trial","voice_add_edit_counter":212,"voice_limit":120,"voice_slots_used":1},"user_id":"1234567890","xi_api_key":"8so27l7327189x0h939ekx293380l920"}
     /// </summary>
     public sealed partial class UserResponseModel
     {
@@ -13,29 +13,23 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string UserId { get; set; } = default!;
+        public required string UserId { get; set; }
 
         /// <summary>
+        /// Details of the user's subscription.<br/>
         /// Example: {"allowed_to_extend_character_limit":false,"billing_period":"monthly_period","can_extend_character_limit":false,"can_extend_voice_limit":false,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":17231,"character_limit":100000,"character_refresh_period":"monthly_period","currency":"usd","max_character_limit_extension":10000,"max_voice_add_edits":230,"next_character_count_reset_unix":1738356858,"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"free","tier":"trial","voice_add_edit_counter":212,"voice_limit":120,"voice_slots_used":1}
         /// </summary>
         /// <example>{"allowed_to_extend_character_limit":false,"billing_period":"monthly_period","can_extend_character_limit":false,"can_extend_voice_limit":false,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":17231,"character_limit":100000,"character_refresh_period":"monthly_period","currency":"usd","max_character_limit_extension":10000,"max_voice_add_edits":230,"next_character_count_reset_unix":1738356858,"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"free","tier":"trial","voice_add_edit_counter":212,"voice_limit":120,"voice_slots_used":1}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("subscription")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SubscriptionResponseModel Subscription { get; set; } = default!;
-
-        /// <summary>
-        /// Example: {"can_bypass_voice_captcha":true,"can_request_manual_pro_voice_verification":true,"concurrency":10,"convai_concurrency":10,"force_logging_disabled":false,"moderation":{"enterprise_background_moderation_enabled":false,"enterprise_check_block_nogo_voice":false,"enterprise_check_nogo_voice":false,"is_in_probation":false,"never_live_moderate":false,"nogo_voice_similar_voice_upload_count":0,"on_watchlist":false},"overused_characters_rolled_over_from_previous_period":1000,"unused_characters_rolled_over_from_previous_period":1000,"usage":{"actual_reported_credits":1000,"manually_gifted_credits_quota":1000,"manually_gifted_credits_used":1000,"paid_usage_based_credits_used":1000,"rollover_credits_quota":1000,"rollover_credits_used":1000,"subscription_cycle_credits_quota":1000,"subscription_cycle_credits_used":1000}}
-        /// </summary>
-        /// <example>{"can_bypass_voice_captcha":true,"can_request_manual_pro_voice_verification":true,"concurrency":10,"convai_concurrency":10,"force_logging_disabled":false,"moderation":{"enterprise_background_moderation_enabled":false,"enterprise_check_block_nogo_voice":false,"enterprise_check_nogo_voice":false,"is_in_probation":false,"never_live_moderate":false,"nogo_voice_similar_voice_upload_count":0,"on_watchlist":false},"overused_characters_rolled_over_from_previous_period":1000,"unused_characters_rolled_over_from_previous_period":1000,"usage":{"actual_reported_credits":1000,"manually_gifted_credits_quota":1000,"manually_gifted_credits_used":1000,"paid_usage_based_credits_used":1000,"rollover_credits_quota":1000,"rollover_credits_used":1000,"subscription_cycle_credits_quota":1000,"subscription_cycle_credits_used":1000}}</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("subscription_extras")]
-        public global::ElevenLabs.SubscriptionExtrasResponseModel? SubscriptionExtras { get; set; }
+        public required global::ElevenLabs.SubscriptionResponseModel Subscription { get; set; }
 
         /// <summary>
         /// Whether the user is new. This field is deprecated and will be removed in the future. Use 'created_at' instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_new_user")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsNewUser { get; set; } = default!;
+        public required bool IsNewUser { get; set; }
 
         /// <summary>
         /// The API key of the user.
@@ -48,21 +42,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_use_delayed_payment_methods")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool CanUseDelayedPaymentMethods { get; set; } = default!;
+        public required bool CanUseDelayedPaymentMethods { get; set; }
 
         /// <summary>
         /// Whether the user's onboarding is completed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_onboarding_completed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsOnboardingCompleted { get; set; } = default!;
+        public required bool IsOnboardingCompleted { get; set; }
 
         /// <summary>
         /// Whether the user's onboarding checklist is completed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_onboarding_checklist_completed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsOnboardingChecklistCompleted { get; set; } = default!;
+        public required bool IsOnboardingChecklistCompleted { get; set; }
+
+        /// <summary>
+        /// Whether to show compliance terms (ToS, Privacy Policy, biometric consent) during onboarding. Set for users signing up from the marketing site.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("show_compliance_terms")]
+        public bool? ShowComplianceTerms { get; set; }
 
         /// <summary>
         /// First name of the user.
@@ -101,7 +102,15 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTimeOffset CreatedAt { get; set; } = default!;
+        public required global::System.DateTimeOffset CreatedAt { get; set; }
+
+        /// <summary>
+        /// The seat type of the user.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seat_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SeatTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.SeatType SeatType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -116,10 +125,8 @@ namespace ElevenLabs
         /// The unique identifier of the user.
         /// </param>
         /// <param name="subscription">
+        /// Details of the user's subscription.<br/>
         /// Example: {"allowed_to_extend_character_limit":false,"billing_period":"monthly_period","can_extend_character_limit":false,"can_extend_voice_limit":false,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":17231,"character_limit":100000,"character_refresh_period":"monthly_period","currency":"usd","max_character_limit_extension":10000,"max_voice_add_edits":230,"next_character_count_reset_unix":1738356858,"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"free","tier":"trial","voice_add_edit_counter":212,"voice_limit":120,"voice_slots_used":1}
-        /// </param>
-        /// <param name="subscriptionExtras">
-        /// Example: {"can_bypass_voice_captcha":true,"can_request_manual_pro_voice_verification":true,"concurrency":10,"convai_concurrency":10,"force_logging_disabled":false,"moderation":{"enterprise_background_moderation_enabled":false,"enterprise_check_block_nogo_voice":false,"enterprise_check_nogo_voice":false,"is_in_probation":false,"never_live_moderate":false,"nogo_voice_similar_voice_upload_count":0,"on_watchlist":false},"overused_characters_rolled_over_from_previous_period":1000,"unused_characters_rolled_over_from_previous_period":1000,"usage":{"actual_reported_credits":1000,"manually_gifted_credits_quota":1000,"manually_gifted_credits_used":1000,"paid_usage_based_credits_used":1000,"rollover_credits_quota":1000,"rollover_credits_used":1000,"subscription_cycle_credits_quota":1000,"subscription_cycle_credits_used":1000}}
         /// </param>
         /// <param name="isNewUser">
         /// Whether the user is new. This field is deprecated and will be removed in the future. Use 'created_at' instead.
@@ -135,6 +142,10 @@ namespace ElevenLabs
         /// </param>
         /// <param name="isOnboardingChecklistCompleted">
         /// Whether the user's onboarding checklist is completed.
+        /// </param>
+        /// <param name="showComplianceTerms">
+        /// Whether to show compliance terms (ToS, Privacy Policy, biometric consent) during onboarding. Set for users signing up from the marketing site.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="firstName">
         /// First name of the user.
@@ -155,6 +166,9 @@ namespace ElevenLabs
         /// <param name="createdAt">
         /// The unix timestamp of the user's creation. 0 if the user was created before the unix timestamp was added.
         /// </param>
+        /// <param name="seatType">
+        /// The seat type of the user.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -166,8 +180,9 @@ namespace ElevenLabs
             bool isOnboardingCompleted,
             bool isOnboardingChecklistCompleted,
             global::System.DateTimeOffset createdAt,
-            global::ElevenLabs.SubscriptionExtrasResponseModel? subscriptionExtras,
+            global::ElevenLabs.SeatType seatType,
             string? xiApiKey,
+            bool? showComplianceTerms,
             string? firstName,
             bool? isApiKeyHashed,
             string? xiApiKeyPreview,
@@ -181,8 +196,9 @@ namespace ElevenLabs
             this.IsOnboardingCompleted = isOnboardingCompleted;
             this.IsOnboardingChecklistCompleted = isOnboardingChecklistCompleted;
             this.CreatedAt = createdAt;
-            this.SubscriptionExtras = subscriptionExtras;
+            this.SeatType = seatType;
             this.XiApiKey = xiApiKey;
+            this.ShowComplianceTerms = showComplianceTerms;
             this.FirstName = firstName;
             this.IsApiKeyHashed = isApiKeyHashed;
             this.XiApiKeyPreview = xiApiKeyPreview;

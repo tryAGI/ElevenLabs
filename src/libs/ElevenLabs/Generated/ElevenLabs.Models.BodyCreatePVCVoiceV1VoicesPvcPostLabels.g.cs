@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Serialized labels dictionary for the voice.
+    /// Labels for the voice. Keys can be language, accent, gender, or age.
     /// </summary>
     public sealed partial class BodyCreatePvcVoiceV1VoicesPvcPostLabels
     {

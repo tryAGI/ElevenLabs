@@ -6,46 +6,13 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public enum ConversationSummaryResponseModelDirection
+    public sealed partial class ConversationSummaryResponseModelDirection
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        Inbound,
-        /// <summary>
-        /// 
-        /// </summary>
-        Outbound,
-    }
 
-    /// <summary>
-    /// Enum extensions to do fast conversions without the reflection.
-    /// </summary>
-    public static class ConversationSummaryResponseModelDirectionExtensions
-    {
         /// <summary>
-        /// Converts an enum to a string.
+        /// Additional properties that are not explicitly defined in the schema
         /// </summary>
-        public static string ToValueString(this ConversationSummaryResponseModelDirection value)
-        {
-            return value switch
-            {
-                ConversationSummaryResponseModelDirection.Inbound => "inbound",
-                ConversationSummaryResponseModelDirection.Outbound => "outbound",
-                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
-            };
-        }
-        /// <summary>
-        /// Converts an string to a enum.
-        /// </summary>
-        public static ConversationSummaryResponseModelDirection? ToEnum(string value)
-        {
-            return value switch
-            {
-                "inbound" => ConversationSummaryResponseModelDirection.Inbound,
-                "outbound" => ConversationSummaryResponseModelDirection.Outbound,
-                _ => null,
-            };
-        }
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
     }
 }

@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Blind,
+        /// <summary>
+        /// 
+        /// </summary>
         Conference,
         /// <summary>
         /// 
@@ -30,6 +34,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                TransferTypeEnum.Blind => "blind",
                 TransferTypeEnum.Conference => "conference",
                 TransferTypeEnum.SipRefer => "sip_refer",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "blind" => TransferTypeEnum.Blind,
                 "conference" => TransferTypeEnum.Conference,
                 "sip_refer" => TransferTypeEnum.SipRefer,
                 _ => null,

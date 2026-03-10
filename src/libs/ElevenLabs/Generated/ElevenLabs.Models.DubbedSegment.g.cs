@@ -13,42 +13,40 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double StartTime { get; set; } = default!;
+        public required double StartTime { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double EndTime { get; set; } = default!;
+        public required double EndTime { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? Text { get; set; } = default!;
+        public string? Text { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("subtitles")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SegmentSubtitleFrame> Subtitles { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.SegmentSubtitleFrame> Subtitles { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_stale")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool AudioStale { get; set; } = default!;
+        public required bool AudioStale { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_ref")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.DubbingMediaReference MediaRef { get; set; } = default!;
+        public global::ElevenLabs.DubbingMediaReference? MediaRef { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -71,17 +69,17 @@ namespace ElevenLabs
         public DubbedSegment(
             double startTime,
             double endTime,
-            string? text,
             global::System.Collections.Generic.IList<global::ElevenLabs.SegmentSubtitleFrame> subtitles,
             bool audioStale,
-            global::ElevenLabs.DubbingMediaReference mediaRef)
+            string? text,
+            global::ElevenLabs.DubbingMediaReference? mediaRef)
         {
             this.StartTime = startTime;
             this.EndTime = endTime;
-            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Subtitles = subtitles ?? throw new global::System.ArgumentNullException(nameof(subtitles));
             this.AudioStale = audioStale;
-            this.MediaRef = mediaRef ?? throw new global::System.ArgumentNullException(nameof(mediaRef));
+            this.Text = text;
+            this.MediaRef = mediaRef;
         }
 
         /// <summary>

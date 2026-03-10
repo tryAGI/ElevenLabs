@@ -11,16 +11,16 @@ namespace ElevenLabs
         /// <summary>
         /// The type of source to create.
         /// </summary>
+        /// <default>"text"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PodcastTextSourceTypeJsonConverter))]
-        public global::ElevenLabs.PodcastTextSourceType Type { get; set; }
+        public string Type { get; set; } = "text";
 
         /// <summary>
         /// The text to create the podcast from.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,7 +42,7 @@ namespace ElevenLabs
 #endif
         public PodcastTextSource(
             string text,
-            global::ElevenLabs.PodcastTextSourceType type)
+            string type = "text")
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Type = type;

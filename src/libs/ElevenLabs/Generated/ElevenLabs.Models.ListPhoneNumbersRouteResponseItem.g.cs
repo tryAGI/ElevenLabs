@@ -15,7 +15,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ListPhoneNumbersRouteResponseItemDiscriminatorProvider? Provider { get; }
 
         /// <summary>
-        /// Example: {"label":"Customer Support","phone_number":"\u002B1234567890","phone_number_id":"phone_123","provider":"twilio","supports_inbound":true,"supports_outbound":true}
+        /// Example: {"label":"Customer Support","phone_number":"\u002B1234567890","phone_number_id":"phone_123","provider":"twilio"}
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetPhoneNumberTwilioResponseModel? Twilio { get; init; }
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsTwilio => Twilio != null;
 
         /// <summary>
-        /// Example: {"label":"Sales Team","phone_number":"\u002B1987654321","phone_number_id":"phone_456","provider":"sip_trunk","supports_inbound":true,"supports_outbound":true}
+        /// Example: {"label":"Sales Team","livekit_stack":"standard","phone_number":"\u002B1987654321","phone_number_id":"phone_456","provider":"sip_trunk"}
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? SipTrunk { get; init; }

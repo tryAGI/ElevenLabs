@@ -9,11 +9,11 @@ namespace ElevenLabs
     public sealed partial class MCPServerRequestModel
     {
         /// <summary>
-        /// 
+        /// Configuration details for the MCP Server.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.MCPServerConfigInput Config { get; set; } = default!;
+        public required global::ElevenLabs.MCPServerConfigInput Config { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="MCPServerRequestModel" /> class.
         /// </summary>
-        /// <param name="config"></param>
+        /// <param name="config">
+        /// Configuration details for the MCP Server.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

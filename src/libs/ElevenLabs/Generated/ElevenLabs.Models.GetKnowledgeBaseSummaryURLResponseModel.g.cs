@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; } = default!;
+        public required global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_usages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> SupportedUsages { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> SupportedUsages { get; set; }
 
         /// <summary>
         /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
@@ -42,28 +42,40 @@ namespace ElevenLabs
         /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; } = default!;
+        public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
 
         /// <summary>
-        /// 
+        /// The ID of the parent folder, or null if the document is at the root level.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("folder_parent_id")]
+        public string? FolderParentId { get; set; }
+
+        /// <summary>
+        /// The folder path segments leading to this entity, from root to parent folder.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("folder_path")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentSummaryResponseModel>? FolderPath { get; set; }
+
+        /// <summary>
+        /// This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dependent_agents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem3> DependentAgents { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem4> DependentAgents { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"url"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.GetKnowledgeBaseSummaryURLResponseModelTypeJsonConverter))]
-        public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelType Type { get; set; }
+        public string Type { get; set; } = "url";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Url { get; set; } = default!;
+        public required string Url { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -81,7 +93,15 @@ namespace ElevenLabs
         /// <param name="accessInfo">
         /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </param>
-        /// <param name="dependentAgents"></param>
+        /// <param name="folderParentId">
+        /// The ID of the parent folder, or null if the document is at the root level.
+        /// </param>
+        /// <param name="folderPath">
+        /// The folder path segments leading to this entity, from root to parent folder.
+        /// </param>
+        /// <param name="dependentAgents">
+        /// This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
+        /// </param>
         /// <param name="type"></param>
         /// <param name="url"></param>
 #if NET7_0_OR_GREATER
@@ -93,9 +113,11 @@ namespace ElevenLabs
             global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel metadata,
             global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> supportedUsages,
             global::ElevenLabs.ResourceAccessInfo accessInfo,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem3> dependentAgents,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem4> dependentAgents,
             string url,
-            global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelType type)
+            string? folderParentId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentSummaryResponseModel>? folderPath,
+            string type = "url")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -104,6 +126,8 @@ namespace ElevenLabs
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
             this.DependentAgents = dependentAgents ?? throw new global::System.ArgumentNullException(nameof(dependentAgents));
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
+            this.FolderParentId = folderParentId;
+            this.FolderPath = folderPath;
             this.Type = type;
         }
 

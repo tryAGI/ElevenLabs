@@ -9,15 +9,13 @@ namespace ElevenLabs
         /// Updates a chapter.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The ID of the Studio project.
         /// </param>
         /// <param name="chapterId">
-        /// The ID of the chapter.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The ID of the chapter.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -35,21 +33,20 @@ namespace ElevenLabs
         /// Updates a chapter.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The ID of the Studio project.
         /// </param>
         /// <param name="chapterId">
-        /// The ID of the chapter.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The ID of the chapter.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
-        /// The name of the chapter, used for identification only.<br/>
-        /// Example: Chapter 1
+        /// The name of the chapter, used for identification only.
         /// </param>
-        /// <param name="content"></param>
+        /// <param name="content">
+        /// The chapter content to use.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditChapterResponseModel> CreateStudioProjectsByProjectIdChaptersByChapterIdAsync(

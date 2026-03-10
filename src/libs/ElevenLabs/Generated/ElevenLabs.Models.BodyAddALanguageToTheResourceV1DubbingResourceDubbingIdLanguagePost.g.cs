@@ -12,8 +12,7 @@ namespace ElevenLabs
         /// The Target language.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? Language { get; set; } = default!;
+        public string? Language { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,7 +32,7 @@ namespace ElevenLabs
         public BodyAddALanguageToTheResourceV1DubbingResourceDubbingIdLanguagePost(
             string? language)
         {
-            this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
+            this.Language = language;
         }
 
         /// <summary>

@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace ElevenLabs
@@ -11,9 +9,9 @@ namespace ElevenLabs
     public sealed partial class ConversationInitiationClientDataRequestInput
     {
         /// <summary>
-        /// Example: {"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"voice_id":"cjVigY5qzO86Huf0OWal"}}
+        /// Example: {"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"llm":"gemini-2.0-flash-001","prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"soft_timeout_config":{"message":"Hhmmmm...yeah."}}}
         /// </summary>
-        /// <example>{"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"voice_id":"cjVigY5qzO86Huf0OWal"}}</example>
+        /// <example>{"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"llm":"gemini-2.0-flash-001","prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"soft_timeout_config":{"message":"Hhmmmm...yeah."}}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config_override")]
         public global::ElevenLabs.ConversationConfigClientOverrideInput? ConversationConfigOverride { get; set; }
 
@@ -39,7 +37,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnyOf<string, double?, int?, bool?>?>? DynamicVariables { get; set; }
+        public object? DynamicVariables { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -51,7 +49,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationInitiationClientDataRequestInput" /> class.
         /// </summary>
         /// <param name="conversationConfigOverride">
-        /// Example: {"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"voice_id":"cjVigY5qzO86Huf0OWal"}}
+        /// Example: {"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"llm":"gemini-2.0-flash-001","prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"soft_timeout_config":{"message":"Hhmmmm...yeah."}}}
         /// </param>
         /// <param name="customLlmExtraBody"></param>
         /// <param name="userId">
@@ -69,7 +67,7 @@ namespace ElevenLabs
             object? customLlmExtraBody,
             string? userId,
             global::ElevenLabs.ConversationInitiationSourceInfo? sourceInfo,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnyOf<string, double?, int?, bool?>?>? dynamicVariables)
+            object? dynamicVariables)
         {
             this.ConversationConfigOverride = conversationConfigOverride;
             this.CustomLlmExtraBody = customLlmExtraBody;

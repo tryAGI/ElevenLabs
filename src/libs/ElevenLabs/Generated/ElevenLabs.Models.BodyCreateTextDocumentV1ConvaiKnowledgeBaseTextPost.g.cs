@@ -13,13 +13,19 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
 
         /// <summary>
         /// A custom, human-readable name for the document.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// If set, the created document or folder will be placed inside the given folder.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("parent_folder_id")]
+        public string? ParentFolderId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,15 +42,20 @@ namespace ElevenLabs
         /// <param name="name">
         /// A custom, human-readable name for the document.
         /// </param>
+        /// <param name="parentFolderId">
+        /// If set, the created document or folder will be placed inside the given folder.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost(
             string text,
-            string? name)
+            string? name,
+            string? parentFolderId)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Name = name;
+            this.ParentFolderId = parentFolderId;
         }
 
         /// <summary>

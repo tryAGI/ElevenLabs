@@ -13,35 +13,36 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumber { get; set; } = default!;
+        public required string PhoneNumber { get; set; }
 
         /// <summary>
         /// Label for the phone number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Label { get; set; } = default!;
+        public required string Label { get; set; }
 
         /// <summary>
-        /// Whether this phone number supports inbound calls<br/>
+        /// This field is deprecated and will be removed in the future. Whether this phone number supports inbound calls<br/>
         /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_inbound")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? SupportsInbound { get; set; }
 
         /// <summary>
-        /// Whether this phone number supports outbound calls<br/>
+        /// This field is deprecated and will be removed in the future. Whether this phone number supports outbound calls<br/>
         /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_outbound")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? SupportsOutbound { get; set; }
 
         /// <summary>
         /// Default Value: sip_trunk
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CreateSIPTrunkPhoneNumberRequestV2ProviderJsonConverter))]
-        public global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2Provider? Provider { get; set; }
+        public string? Provider { get; set; }
 
         /// <summary>
         /// 
@@ -70,14 +71,6 @@ namespace ElevenLabs
         /// <param name="label">
         /// Label for the phone number
         /// </param>
-        /// <param name="supportsInbound">
-        /// Whether this phone number supports inbound calls<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="supportsOutbound">
-        /// Whether this phone number supports outbound calls<br/>
-        /// Default Value: true
-        /// </param>
         /// <param name="provider">
         /// Default Value: sip_trunk
         /// </param>
@@ -89,16 +82,12 @@ namespace ElevenLabs
         public CreateSIPTrunkPhoneNumberRequestV2(
             string phoneNumber,
             string label,
-            bool? supportsInbound,
-            bool? supportsOutbound,
-            global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2Provider? provider,
+            string? provider,
             global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig,
             global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
-            this.SupportsInbound = supportsInbound;
-            this.SupportsOutbound = supportsOutbound;
             this.Provider = provider;
             this.InboundTrunkConfig = inboundTrunkConfig;
             this.OutboundTrunkConfig = outboundTrunkConfig;

@@ -35,10 +35,10 @@ namespace ElevenLabs
         /// ID of the dubbing project.
         /// </param>
         /// <param name="language">
-        /// Render this language
+        /// The target language code to render, eg. 'es'. To render the source track use 'original'.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -73,22 +73,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -242,24 +226,32 @@ namespace ElevenLabs
         /// ID of the dubbing project.
         /// </param>
         /// <param name="language">
-        /// Render this language
+        /// The target language code to render, eg. 'es'. To render the source track use 'original'.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="renderType"></param>
+        /// <param name="renderType">
+        /// The type of the render. One of ['mp4', 'aac', 'mp3', 'wav', 'aaf', 'tracks_zip', 'clips_zip']
+        /// </param>
+        /// <param name="normalizeVolume">
+        /// Whether to normalize the volume of the rendered audio.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingRenderResponseModel> CreateDubbingResourceByDubbingIdRenderByLanguageAsync(
             string dubbingId,
             string language,
-            global::ElevenLabs.RenderType renderType,
+            global::ElevenLabs.RenderType2 renderType,
             string? xiApiKey = default,
+            bool? normalizeVolume = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost
             {
                 RenderType = renderType,
+                NormalizeVolume = normalizeVolume,
             };
 
             return await CreateDubbingResourceByDubbingIdRenderByLanguageAsync(

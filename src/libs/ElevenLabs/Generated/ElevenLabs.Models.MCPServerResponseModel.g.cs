@@ -13,19 +13,18 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.MCPServerConfigOutput Config { get; set; } = default!;
+        public required global::ElevenLabs.MCPServerConfigOutput Config { get; set; }
 
         /// <summary>
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// The access information of the MCP Server
         /// </summary>
-        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
 
@@ -33,14 +32,14 @@ namespace ElevenLabs
         /// List of agents that depend on this MCP Server.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dependent_agents")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem4>? DependentAgents { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem5>? DependentAgents { get; set; }
 
         /// <summary>
-        /// 
+        /// The metadata of the MCP Server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.MCPServerMetadataResponseModel Metadata { get; set; } = default!;
+        public required global::ElevenLabs.MCPServerMetadataResponseModel Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -54,12 +53,14 @@ namespace ElevenLabs
         /// <param name="id"></param>
         /// <param name="config"></param>
         /// <param name="accessInfo">
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// The access information of the MCP Server
         /// </param>
         /// <param name="dependentAgents">
         /// List of agents that depend on this MCP Server.
         /// </param>
-        /// <param name="metadata"></param>
+        /// <param name="metadata">
+        /// The metadata of the MCP Server
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -68,7 +69,7 @@ namespace ElevenLabs
             global::ElevenLabs.MCPServerConfigOutput config,
             global::ElevenLabs.MCPServerMetadataResponseModel metadata,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem4>? dependentAgents)
+            global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem5>? dependentAgents)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Config = config ?? throw new global::System.ArgumentNullException(nameof(config));

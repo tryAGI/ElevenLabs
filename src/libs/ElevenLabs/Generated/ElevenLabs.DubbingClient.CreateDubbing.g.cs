@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// Dubs a provided audio or video file into given language.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -60,22 +60,6 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
-
             if (xiApiKey != default)
             {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
@@ -92,54 +76,30 @@ namespace ElevenLabs
             if (request.File != default)
             {
 
-                var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: __contentFile,
-                    name: "\"file\"",
-                    fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
-                if (__contentFile.Headers.ContentDisposition != null)
-                {
-                    __contentFile.Headers.ContentDisposition.FileNameStar = null;
-                }
+                    content: new global::System.Net.Http.StringContent($"{request.File}"),
+                    name: "\"file\"");
             } 
             if (request.CsvFile != default)
             {
 
-                var __contentCsvFile = new global::System.Net.Http.ByteArrayContent(request.CsvFile ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: __contentCsvFile,
-                    name: "\"csv_file\"",
-                    fileName: request.CsvFilename != null ? $"\"{request.CsvFilename}\"" : string.Empty);
-                if (__contentCsvFile.Headers.ContentDisposition != null)
-                {
-                    __contentCsvFile.Headers.ContentDisposition.FileNameStar = null;
-                }
+                    content: new global::System.Net.Http.StringContent($"{request.CsvFile}"),
+                    name: "\"csv_file\"");
             } 
             if (request.ForegroundAudioFile != default)
             {
 
-                var __contentForegroundAudioFile = new global::System.Net.Http.ByteArrayContent(request.ForegroundAudioFile ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: __contentForegroundAudioFile,
-                    name: "\"foreground_audio_file\"",
-                    fileName: request.ForegroundAudioFilename != null ? $"\"{request.ForegroundAudioFilename}\"" : string.Empty);
-                if (__contentForegroundAudioFile.Headers.ContentDisposition != null)
-                {
-                    __contentForegroundAudioFile.Headers.ContentDisposition.FileNameStar = null;
-                }
+                    content: new global::System.Net.Http.StringContent($"{request.ForegroundAudioFile}"),
+                    name: "\"foreground_audio_file\"");
             } 
             if (request.BackgroundAudioFile != default)
             {
 
-                var __contentBackgroundAudioFile = new global::System.Net.Http.ByteArrayContent(request.BackgroundAudioFile ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: __contentBackgroundAudioFile,
-                    name: "\"background_audio_file\"",
-                    fileName: request.BackgroundAudioFilename != null ? $"\"{request.BackgroundAudioFilename}\"" : string.Empty);
-                if (__contentBackgroundAudioFile.Headers.ContentDisposition != null)
-                {
-                    __contentBackgroundAudioFile.Headers.ContentDisposition.FileNameStar = null;
-                }
+                    content: new global::System.Net.Http.StringContent($"{request.BackgroundAudioFile}"),
+                    name: "\"background_audio_file\"");
             } 
             if (request.Name != default)
             {
@@ -243,7 +203,7 @@ namespace ElevenLabs
             {
 
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Mode}"),
+                    content: new global::System.Net.Http.StringContent($"{request.Mode?.ToValueString()}"),
                     name: "\"mode\"");
             } 
             if (request.CsvFps != default)
@@ -390,30 +350,18 @@ namespace ElevenLabs
         /// Dubs a provided audio or video file into given language.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="file">
-        /// A list of file paths to audio recordings intended for voice cloning
-        /// </param>
-        /// <param name="filename">
         /// A list of file paths to audio recordings intended for voice cloning
         /// </param>
         /// <param name="csvFile">
         /// CSV file containing transcription/translation metadata
         /// </param>
-        /// <param name="csvFilename">
-        /// CSV file containing transcription/translation metadata
-        /// </param>
         /// <param name="foregroundAudioFile">
         /// For use only with csv input
         /// </param>
-        /// <param name="foregroundAudioFilename">
-        /// For use only with csv input
-        /// </param>
         /// <param name="backgroundAudioFile">
-        /// For use only with csv input
-        /// </param>
-        /// <param name="backgroundAudioFilename">
         /// For use only with csv input
         /// </param>
         /// <param name="name">
@@ -423,11 +371,11 @@ namespace ElevenLabs
         /// URL of the source video/audio file.
         /// </param>
         /// <param name="sourceLang">
-        /// Source language.<br/>
+        /// Source language. Expects a valid iso639-1 or iso639-3 language code.<br/>
         /// Default Value: auto
         /// </param>
         /// <param name="targetLang">
-        /// The Target language to dub the content into.
+        /// The Target language to dub the content into. Expects a valid iso639-1 or iso639-3 language code.
         /// </param>
         /// <param name="targetAccent">
         /// [Experimental] An accent to apply when selecting voices from the library and to use to inform translation of the dialect to prefer.
@@ -462,11 +410,11 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="disableVoiceCloning">
-        /// [BETA] Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library.<br/>
+        /// Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library. Voices used from the library will contribute towards a workspace's custom voices limit, and if there aren't enough available slots the dub will fail. Using this feature requires the caller to have the 'add_voice_from_voice_library' permission on their workspace to access new voices.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="mode">
-        /// automatic or manual. Manual mode is only supported when creating a dubbing studio project<br/>
+        /// The mode in which to run this Dubbing job. Defaults to automatic, use manual if specifically providing a CSV transcript to use. Note that manual mode is experimental and production use is strongly discouraged.<br/>
         /// Default Value: automatic
         /// </param>
         /// <param name="csvFps">
@@ -477,13 +425,9 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> CreateDubbingAsync(
             string? xiApiKey = default,
             byte[]? file = default,
-            string? filename = default,
             byte[]? csvFile = default,
-            string? csvFilename = default,
             byte[]? foregroundAudioFile = default,
-            string? foregroundAudioFilename = default,
             byte[]? backgroundAudioFile = default,
-            string? backgroundAudioFilename = default,
             string? name = default,
             string? sourceUrl = default,
             string? sourceLang = default,
@@ -498,20 +442,16 @@ namespace ElevenLabs
             bool? useProfanityFilter = default,
             bool? dubbingStudio = default,
             bool? disableVoiceCloning = default,
-            string? mode = default,
+            global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPostMode? mode = default,
             double? csvFps = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost
             {
                 File = file,
-                Filename = filename,
                 CsvFile = csvFile,
-                CsvFilename = csvFilename,
                 ForegroundAudioFile = foregroundAudioFile,
-                ForegroundAudioFilename = foregroundAudioFilename,
                 BackgroundAudioFile = backgroundAudioFile,
-                BackgroundAudioFilename = backgroundAudioFilename,
                 Name = name,
                 SourceUrl = sourceUrl,
                 SourceLang = sourceLang,

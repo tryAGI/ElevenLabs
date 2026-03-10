@@ -7,13 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareCreateSoundGenerationArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat,
+            ref global::ElevenLabs.AllowedOutputFormats? outputFormat,
             ref string? xiApiKey,
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request);
         partial void PrepareCreateSoundGenerationRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat,
             string? xiApiKey,
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request);
         partial void ProcessCreateSoundGenerationResponse(
@@ -27,14 +27,14 @@ namespace ElevenLabs
 
         /// <summary>
         /// Sound Generation<br/>
-        /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects model in the world.
+        /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects models in the world.
         /// </summary>
         /// <param name="outputFormat">
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -42,7 +42,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<byte[]> CreateSoundGenerationAsync(
 
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
-            global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -70,22 +70,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -223,18 +207,21 @@ namespace ElevenLabs
 
         /// <summary>
         /// Sound Generation<br/>
-        /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects model in the world.
+        /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects models in the world.
         /// </summary>
         /// <param name="outputFormat">
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="text">
-        /// The text that will get converted into a sound effect.<br/>
-        /// Example: A large, ancient wooden door slowly opening in an eerie, abandoned castle..
+        /// The text that will get converted into a sound effect.
+        /// </param>
+        /// <param name="loop">
+        /// Whether to create a sound effect that loops smoothly. Only available for the 'eleven_text_to_sound_v2 model'.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="durationSeconds">
         /// The duration of the sound which will be generated in seconds. Must be at least 0.5 and at most 30. If set to None we will guess the optimal duration using the prompt. Defaults to None.
@@ -243,21 +230,29 @@ namespace ElevenLabs
         /// A higher prompt influence makes your generation follow the prompt more closely while also making generations less variable. Must be a value between 0 and 1. Defaults to 0.3.<br/>
         /// Default Value: 0.3
         /// </param>
+        /// <param name="modelId">
+        /// The model ID to use for the sound generation.<br/>
+        /// Default Value: eleven_text_to_sound_v2
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> CreateSoundGenerationAsync(
             string text,
-            global::ElevenLabs.SoundGenerationV1SoundGenerationPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
+            bool? loop = default,
             double? durationSeconds = default,
             double? promptInfluence = default,
+            string? modelId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost
             {
                 Text = text,
+                Loop = loop,
                 DurationSeconds = durationSeconds,
                 PromptInfluence = promptInfluence,
+                ModelId = modelId,
             };
 
             return await CreateSoundGenerationAsync(

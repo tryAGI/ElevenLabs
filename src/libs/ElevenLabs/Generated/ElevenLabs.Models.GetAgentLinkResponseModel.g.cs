@@ -13,12 +13,11 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
-        /// Example: {"agent_id":"agent_J3Pbu5gP6NNKBscdCdwB","conversation_id":"conv_J3Pbu5gP6NNKBscdCdwB","conversation_token":"1234567890","expiration_time_unix_secs":1716153600,"purpose":"signed_url"}
+        /// The token data for the agent
         /// </summary>
-        /// <example>{"agent_id":"agent_J3Pbu5gP6NNKBscdCdwB","conversation_id":"conv_J3Pbu5gP6NNKBscdCdwB","conversation_token":"1234567890","expiration_time_unix_secs":1716153600,"purpose":"signed_url"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
         public global::ElevenLabs.ConversationTokenDBModel? Token { get; set; }
 
@@ -35,7 +34,7 @@ namespace ElevenLabs
         /// The ID of the agent
         /// </param>
         /// <param name="token">
-        /// Example: {"agent_id":"agent_J3Pbu5gP6NNKBscdCdwB","conversation_id":"conv_J3Pbu5gP6NNKBscdCdwB","conversation_token":"1234567890","expiration_time_unix_secs":1716153600,"purpose":"signed_url"}
+        /// The token data for the agent
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

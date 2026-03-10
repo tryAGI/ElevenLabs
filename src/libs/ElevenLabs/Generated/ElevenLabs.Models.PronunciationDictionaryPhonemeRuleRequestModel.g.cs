@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"alphabet":"ipa","phoneme":"/\u02C8ta\u026A.l\u00E6nd/","string_to_replace":"Thailand","type":"phoneme"}
+    /// Example: {"alphabet":"ipa","case_sensitive":true,"phoneme":"/\u02C8ta\u026A.l\u00E6nd/","string_to_replace":"Thailand","type":"phoneme","word_boundaries":true}
     /// </summary>
     public sealed partial class PronunciationDictionaryPhonemeRuleRequestModel
     {
@@ -13,28 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("string_to_replace")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string StringToReplace { get; set; } = default!;
+        public required string StringToReplace { get; set; }
+
+        /// <summary>
+        /// Whether the rule should match case-sensitively.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("case_sensitive")]
+        public bool? CaseSensitive { get; set; }
+
+        /// <summary>
+        /// Whether the rule should only match at word boundaries.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("word_boundaries")]
+        public bool? WordBoundaries { get; set; }
 
         /// <summary>
         /// The type of the rule.
         /// </summary>
+        /// <default>"phoneme"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PronunciationDictionaryPhonemeRuleRequestModelTypeJsonConverter))]
-        public global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModelType Type { get; set; }
+        public string Type { get; set; } = "phoneme";
 
         /// <summary>
         /// The phoneme rule.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phoneme")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Phoneme { get; set; } = default!;
+        public required string Phoneme { get; set; }
 
         /// <summary>
         /// The alphabet to use with the phoneme rule.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alphabet")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Alphabet { get; set; } = default!;
+        public required string Alphabet { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -47,6 +61,14 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="stringToReplace">
         /// The string to replace. Must be a non-empty string.
+        /// </param>
+        /// <param name="caseSensitive">
+        /// Whether the rule should match case-sensitively.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="wordBoundaries">
+        /// Whether the rule should only match at word boundaries.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="type">
         /// The type of the rule.
@@ -64,11 +86,15 @@ namespace ElevenLabs
             string stringToReplace,
             string phoneme,
             string alphabet,
-            global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModelType type)
+            bool? caseSensitive,
+            bool? wordBoundaries,
+            string type = "phoneme")
         {
             this.StringToReplace = stringToReplace ?? throw new global::System.ArgumentNullException(nameof(stringToReplace));
             this.Phoneme = phoneme ?? throw new global::System.ArgumentNullException(nameof(phoneme));
             this.Alphabet = alphabet ?? throw new global::System.ArgumentNullException(nameof(alphabet));
+            this.CaseSensitive = caseSensitive;
+            this.WordBoundaries = wordBoundaries;
             this.Type = type;
         }
 

@@ -15,6 +15,30 @@ namespace ElevenLabs
         public string? AgentId { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("label")]
+        public string? Label { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inbound_trunk_config")]
+        public global::ElevenLabs.InboundSIPTrunkConfigRequestModel? InboundTrunkConfig { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("outbound_trunk_config")]
+        public global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? OutboundTrunkConfig { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("livekit_stack")]
+        public global::ElevenLabs.LivekitStackType? LivekitStack { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -24,13 +48,25 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="UpdatePhoneNumberRequest" /> class.
         /// </summary>
         /// <param name="agentId"></param>
+        /// <param name="label"></param>
+        /// <param name="inboundTrunkConfig"></param>
+        /// <param name="outboundTrunkConfig"></param>
+        /// <param name="livekitStack"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdatePhoneNumberRequest(
-            string? agentId)
+            string? agentId,
+            string? label,
+            global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig,
+            global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig,
+            global::ElevenLabs.LivekitStackType? livekitStack)
         {
             this.AgentId = agentId;
+            this.Label = label;
+            this.InboundTrunkConfig = inboundTrunkConfig;
+            this.OutboundTrunkConfig = outboundTrunkConfig;
+            this.LivekitStack = livekitStack;
         }
 
         /// <summary>

@@ -9,30 +9,30 @@ namespace ElevenLabs
     public sealed partial class BodyInviteUserV1WorkspaceInvitesAddPost
     {
         /// <summary>
-        /// The email of the customer<br/>
-        /// Example: john.doe@testmail.com
+        /// The email of the customer
         /// </summary>
-        /// <example>john.doe@testmail.com</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Email { get; set; } = default!;
+        public required string Email { get; set; }
 
         /// <summary>
-        /// The group ids of the user<br/>
-        /// Example: [group_id_1, group_id_2]
+        /// The workspace permission of the user. This is deprecated, use `seat_type` instead.
         /// </summary>
-        /// <example>[group_id_1, group_id_2]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workspace_permission")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public string? WorkspacePermission { get; set; }
+
+        /// <summary>
+        /// The seat type of the user
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seat_type")]
+        public global::ElevenLabs.SeatType? SeatType { get; set; }
+
+        /// <summary>
+        /// The group ids of the user
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_ids")]
         public global::System.Collections.Generic.IList<string>? GroupIds { get; set; }
-
-        /// <summary>
-        /// The workspace permission of the user<br/>
-        /// Example: workspace_member
-        /// </summary>
-        /// <example>workspace_member</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("workspace_permission")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermissionJsonConverter))]
-        public global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission? WorkspacePermission { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -44,28 +44,25 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyInviteUserV1WorkspaceInvitesAddPost" /> class.
         /// </summary>
         /// <param name="email">
-        /// The email of the customer<br/>
-        /// Example: john.doe@testmail.com
+        /// The email of the customer
+        /// </param>
+        /// <param name="seatType">
+        /// The seat type of the user
         /// </param>
         /// <param name="groupIds">
-        /// The group ids of the user<br/>
-        /// Example: [group_id_1, group_id_2]
-        /// </param>
-        /// <param name="workspacePermission">
-        /// The workspace permission of the user<br/>
-        /// Example: workspace_member
+        /// The group ids of the user
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyInviteUserV1WorkspaceInvitesAddPost(
             string email,
-            global::System.Collections.Generic.IList<string>? groupIds,
-            global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPostWorkspacePermission? workspacePermission)
+            global::ElevenLabs.SeatType? seatType,
+            global::System.Collections.Generic.IList<string>? groupIds)
         {
             this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
+            this.SeatType = seatType;
             this.GroupIds = groupIds;
-            this.WorkspacePermission = workspacePermission;
         }
 
         /// <summary>

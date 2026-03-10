@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Email { get; set; } = default!;
+        public required string Email { get; set; }
 
         /// <summary>
         /// Whether to lock or unlock the user account.
@@ -22,11 +22,17 @@ namespace ElevenLabs
         public bool? IsLocked { get; set; }
 
         /// <summary>
-        /// Role dictating permissions in the workspace.
+        /// The workspace role of the user. This is deprecated, use `workspace_seat_type` instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace_role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyUpdateMemberV1WorkspaceMembersPostWorkspaceRoleJsonConverter))]
-        public global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPostWorkspaceRole? WorkspaceRole { get; set; }
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public global::ElevenLabs.SeatType? WorkspaceRole { get; set; }
+
+        /// <summary>
+        /// The workspace seat type
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workspace_seat_type")]
+        public global::ElevenLabs.SeatType? WorkspaceSeatType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,8 +49,8 @@ namespace ElevenLabs
         /// <param name="isLocked">
         /// Whether to lock or unlock the user account.
         /// </param>
-        /// <param name="workspaceRole">
-        /// Role dictating permissions in the workspace.
+        /// <param name="workspaceSeatType">
+        /// The workspace seat type
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -52,11 +58,11 @@ namespace ElevenLabs
         public BodyUpdateMemberV1WorkspaceMembersPost(
             string email,
             bool? isLocked,
-            global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPostWorkspaceRole? workspaceRole)
+            global::ElevenLabs.SeatType? workspaceSeatType)
         {
             this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
             this.IsLocked = isLocked;
-            this.WorkspaceRole = workspaceRole;
+            this.WorkspaceSeatType = workspaceSeatType;
         }
 
         /// <summary>

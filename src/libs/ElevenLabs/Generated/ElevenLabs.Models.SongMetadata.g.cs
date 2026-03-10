@@ -12,36 +12,33 @@ namespace ElevenLabs
         /// The title of the song
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? Title { get; set; } = default!;
+        public string? Title { get; set; }
 
         /// <summary>
         /// The description of the song
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? Description { get; set; } = default!;
+        public string? Description { get; set; }
 
         /// <summary>
         /// The genres of the song
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("genres")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Genres { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Genres { get; set; }
 
         /// <summary>
         /// The languages of the song
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("languages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Languages { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Languages { get; set; }
 
         /// <summary>
         /// Whether the song is explicit
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_explicit")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public bool? IsExplicit { get; set; } = default!;
+        public bool? IsExplicit { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -71,16 +68,16 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SongMetadata(
-            string? title,
-            string? description,
             global::System.Collections.Generic.IList<string> genres,
             global::System.Collections.Generic.IList<string> languages,
+            string? title,
+            string? description,
             bool? isExplicit)
         {
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
-            this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Genres = genres ?? throw new global::System.ArgumentNullException(nameof(genres));
             this.Languages = languages ?? throw new global::System.ArgumentNullException(nameof(languages));
+            this.Title = title;
+            this.Description = description;
             this.IsExplicit = isExplicit;
         }
 

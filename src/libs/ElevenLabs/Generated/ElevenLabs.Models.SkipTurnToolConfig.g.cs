@@ -19,8 +19,7 @@ namespace ElevenLabs
         /// Default Value: skip_turn
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_tool_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SkipTurnToolConfigSystemToolTypeJsonConverter))]
-        public global::ElevenLabs.SkipTurnToolConfigSystemToolType? SystemToolType { get; set; }
+        public string? SystemToolType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +37,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SkipTurnToolConfig(
-            global::ElevenLabs.SkipTurnToolConfigSystemToolType? systemToolType)
+            string? systemToolType)
         {
             this.SystemToolType = systemToolType;
         }

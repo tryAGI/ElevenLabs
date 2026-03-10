@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}
+    /// Example: {"llm":"gemini-2.0-flash-001","prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}
     /// </summary>
     public sealed partial class PromptAgentAPIModelOverride
     {
@@ -13,6 +13,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public string? Prompt { get; set; }
+
+        /// <summary>
+        /// The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
+        public global::ElevenLabs.Llm? Llm { get; set; }
 
         /// <summary>
         /// A list of Native MCP server ids to be used by the agent
@@ -32,6 +38,9 @@ namespace ElevenLabs
         /// <param name="prompt">
         /// The prompt for the agent
         /// </param>
+        /// <param name="llm">
+        /// The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment
+        /// </param>
         /// <param name="nativeMcpServerIds">
         /// A list of Native MCP server ids to be used by the agent
         /// </param>
@@ -40,9 +49,11 @@ namespace ElevenLabs
 #endif
         public PromptAgentAPIModelOverride(
             string? prompt,
+            global::ElevenLabs.Llm? llm,
             global::System.Collections.Generic.IList<string>? nativeMcpServerIds)
         {
             this.Prompt = prompt;
+            this.Llm = llm;
             this.NativeMcpServerIds = nativeMcpServerIds;
         }
 

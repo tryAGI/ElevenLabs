@@ -12,15 +12,13 @@ namespace ElevenLabs
         /// Default Value: end_call_success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EndCallToolResultModelResultTypeJsonConverter))]
-        public global::ElevenLabs.EndCallToolResultModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EndCallToolResultModelStatusJsonConverter))]
-        public global::ElevenLabs.EndCallToolResultModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
@@ -55,8 +53,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EndCallToolResultModel(
-            global::ElevenLabs.EndCallToolResultModelResultType? resultType,
-            global::ElevenLabs.EndCallToolResultModelStatus? status,
+            string? resultType,
+            string? status,
             string? reason,
             string? message)
         {

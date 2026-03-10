@@ -9,12 +9,19 @@ namespace ElevenLabs
     public sealed partial class BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost
     {
         /// <summary>
-        /// 
+        /// The type of the render. One of ['mp4', 'aac', 'mp3', 'wav', 'aaf', 'tracks_zip', 'clips_zip']
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("render_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RenderTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RenderType2JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.RenderType RenderType { get; set; } = default!;
+        public required global::ElevenLabs.RenderType2 RenderType { get; set; }
+
+        /// <summary>
+        /// Whether to normalize the volume of the rendered audio.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("normalize_volume")]
+        public bool? NormalizeVolume { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -25,14 +32,22 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost" /> class.
         /// </summary>
-        /// <param name="renderType"></param>
+        /// <param name="renderType">
+        /// The type of the render. One of ['mp4', 'aac', 'mp3', 'wav', 'aaf', 'tracks_zip', 'clips_zip']
+        /// </param>
+        /// <param name="normalizeVolume">
+        /// Whether to normalize the volume of the rendered audio.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost(
-            global::ElevenLabs.RenderType renderType)
+            global::ElevenLabs.RenderType2 renderType,
+            bool? normalizeVolume)
         {
             this.RenderType = renderType;
+            this.NormalizeVolume = normalizeVolume;
         }
 
         /// <summary>

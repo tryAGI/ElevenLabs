@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("service_account_user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ServiceAccountUserId { get; set; } = default!;
+        public required string ServiceAccountUserId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
@@ -33,7 +33,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api-keys")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceApiKeyResponseModel> ApiKeys { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceApiKeyResponseModel> ApiKeys { get; set; }
+
+        /// <summary>
+        /// Default Value: []
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_sharing_groups")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DefaultSharingGroupResponseModel>? DefaultSharingGroups { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -48,6 +54,9 @@ namespace ElevenLabs
         /// <param name="name"></param>
         /// <param name="createdAtUnix"></param>
         /// <param name="apiKeys"></param>
+        /// <param name="defaultSharingGroups">
+        /// Default Value: []
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -55,12 +64,14 @@ namespace ElevenLabs
             string serviceAccountUserId,
             string name,
             global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceApiKeyResponseModel> apiKeys,
-            int? createdAtUnix)
+            int? createdAtUnix,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DefaultSharingGroupResponseModel>? defaultSharingGroups)
         {
             this.ServiceAccountUserId = serviceAccountUserId ?? throw new global::System.ArgumentNullException(nameof(serviceAccountUserId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ApiKeys = apiKeys ?? throw new global::System.ArgumentNullException(nameof(apiKeys));
             this.CreatedAtUnix = createdAtUnix;
+            this.DefaultSharingGroups = defaultSharingGroups;
         }
 
         /// <summary>

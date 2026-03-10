@@ -6,7 +6,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"constant_value":"Constant value","description":"My property","dynamic_variable":"Dynamic variable","type":"string"}
+    /// Schema property for literal JSON types. IMPORTANT: Only ONE of the following fields can be set: description (LLM provides value), dynamic_variable (value from variable), is_system_provided (system provides value), or constant_value (fixed value). These are mutually exclusive.<br/>
+    /// Example: {"description":"A user-provided message","type":"string"}
     /// </summary>
     public sealed partial class LiteralJsonSchemaProperty
     {
@@ -16,22 +17,35 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LiteralJsonSchemaPropertyTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.LiteralJsonSchemaPropertyType Type { get; set; } = default!;
+        public required global::ElevenLabs.LiteralJsonSchemaPropertyType Type { get; set; }
 
         /// <summary>
-        /// The description of the property
+        /// The description of the property. When set, the LLM will provide the value based on this description. Mutually exclusive with dynamic_variable, is_system_provided, and constant_value.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// The dynamic variable of the property
+        /// List of allowed string values for string type parameters
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enum")]
+        public global::System.Collections.Generic.IList<string>? Enum { get; set; }
+
+        /// <summary>
+        /// If true, the value will be populated by the system at runtime. Used by API Integration Webhook tools for templating. Mutually exclusive with description, dynamic_variable, and constant_value.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_system_provided")]
+        public bool? IsSystemProvided { get; set; }
+
+        /// <summary>
+        /// The name of the dynamic variable to use for this property's value. Mutually exclusive with description, is_system_provided, and constant_value.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable")]
         public string? DynamicVariable { get; set; }
 
         /// <summary>
-        /// The constant value of the property
+        /// A constant value to use for this property. Mutually exclusive with description, dynamic_variable, and is_system_provided.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("constant_value")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?>))]
@@ -48,13 +62,20 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="type"></param>
         /// <param name="description">
-        /// The description of the property
+        /// The description of the property. When set, the LLM will provide the value based on this description. Mutually exclusive with dynamic_variable, is_system_provided, and constant_value.
+        /// </param>
+        /// <param name="enum">
+        /// List of allowed string values for string type parameters
+        /// </param>
+        /// <param name="isSystemProvided">
+        /// If true, the value will be populated by the system at runtime. Used by API Integration Webhook tools for templating. Mutually exclusive with description, dynamic_variable, and constant_value.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="dynamicVariable">
-        /// The dynamic variable of the property
+        /// The name of the dynamic variable to use for this property's value. Mutually exclusive with description, is_system_provided, and constant_value.
         /// </param>
         /// <param name="constantValue">
-        /// The constant value of the property
+        /// A constant value to use for this property. Mutually exclusive with description, dynamic_variable, and is_system_provided.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -62,11 +83,15 @@ namespace ElevenLabs
         public LiteralJsonSchemaProperty(
             global::ElevenLabs.LiteralJsonSchemaPropertyType type,
             string? description,
+            global::System.Collections.Generic.IList<string>? @enum,
+            bool? isSystemProvided,
             string? dynamicVariable,
             global::ElevenLabs.AnyOf<string, int?, double?, bool?>? constantValue)
         {
             this.Type = type;
             this.Description = description;
+            this.Enum = @enum;
+            this.IsSystemProvided = isSystemProvided;
             this.DynamicVariable = dynamicVariable;
             this.ConstantValue = constantValue;
         }

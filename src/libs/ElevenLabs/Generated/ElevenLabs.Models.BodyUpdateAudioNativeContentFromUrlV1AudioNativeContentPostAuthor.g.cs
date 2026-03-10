@@ -1,0 +1,18 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// Author used in the player and inserted at the start of the uploaded article. If not provided, the default author set in the Player settings is used.
+    /// </summary>
+    public sealed partial class BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPostAuthor
+    {
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+    }
+}

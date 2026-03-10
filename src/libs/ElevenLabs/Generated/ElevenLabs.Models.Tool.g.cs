@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
@@ -32,7 +32,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inputSchema")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public object InputSchema { get; set; } = default!;
+        public required object InputSchema { get; set; }
 
         /// <summary>
         /// 
@@ -41,15 +41,10 @@ namespace ElevenLabs
         public object? OutputSchema { get; set; }
 
         /// <summary>
-        /// Additional properties describing a Tool to clients.<br/>
-        /// NOTE: all properties in ToolAnnotations are **hints**.<br/>
-        /// They are not guaranteed to provide a faithful description of<br/>
-        /// tool behavior (including descriptive properties like `title`).<br/>
-        /// Clients should never make tool use decisions based on ToolAnnotations<br/>
-        /// received from untrusted servers.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotations")]
-        public global::ElevenLabs.ToolAnnotations? Annotations { get; set; }
+        public global::ElevenLabs.ToolAnnotations2? Annotations { get; set; }
 
         /// <summary>
         /// 
@@ -71,14 +66,7 @@ namespace ElevenLabs
         /// <param name="description"></param>
         /// <param name="inputSchema"></param>
         /// <param name="outputSchema"></param>
-        /// <param name="annotations">
-        /// Additional properties describing a Tool to clients.<br/>
-        /// NOTE: all properties in ToolAnnotations are **hints**.<br/>
-        /// They are not guaranteed to provide a faithful description of<br/>
-        /// tool behavior (including descriptive properties like `title`).<br/>
-        /// Clients should never make tool use decisions based on ToolAnnotations<br/>
-        /// received from untrusted servers.
-        /// </param>
+        /// <param name="annotations"></param>
         /// <param name="meta"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -89,7 +77,7 @@ namespace ElevenLabs
             string? title,
             string? description,
             object? outputSchema,
-            global::ElevenLabs.ToolAnnotations? annotations,
+            global::ElevenLabs.ToolAnnotations2? annotations,
             object? meta)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));

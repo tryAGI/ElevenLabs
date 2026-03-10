@@ -13,17 +13,19 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("address")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Address { get; set; } = default!;
+        public required string Address { get; set; }
 
         /// <summary>
-        /// 
+        /// Protocol to use for SIP transport (signalling layer).<br/>
+        /// Default Value: auto
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transport")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPTrunkTransportEnumJsonConverter))]
         public global::ElevenLabs.SIPTrunkTransportEnum? Transport { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether or not to encrypt media (data layer).<br/>
+        /// Default Value: allowed
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_encryption")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPMediaEncryptionEnumJsonConverter))]
@@ -36,7 +38,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, string>? Headers { get; set; }
 
         /// <summary>
-        /// 
+        /// Optional digest authentication credentials (username/password). If not provided, ACL authentication is assumed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credentials")]
         public global::ElevenLabs.SIPTrunkCredentialsRequestModel? Credentials { get; set; }
@@ -53,12 +55,20 @@ namespace ElevenLabs
         /// <param name="address">
         /// Hostname or IP the SIP INVITE is sent to.
         /// </param>
-        /// <param name="transport"></param>
-        /// <param name="mediaEncryption"></param>
+        /// <param name="transport">
+        /// Protocol to use for SIP transport (signalling layer).<br/>
+        /// Default Value: auto
+        /// </param>
+        /// <param name="mediaEncryption">
+        /// Whether or not to encrypt media (data layer).<br/>
+        /// Default Value: allowed
+        /// </param>
         /// <param name="headers">
         /// SIP X-* headers for INVITE request. These headers are sent as-is and may help identify this call.
         /// </param>
-        /// <param name="credentials"></param>
+        /// <param name="credentials">
+        /// Optional digest authentication credentials (username/password). If not provided, ACL authentication is assumed.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

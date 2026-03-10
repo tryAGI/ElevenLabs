@@ -13,21 +13,20 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dubs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingMetadataResponse> Dubs { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.DubbingMetadataResponse> Dubs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_cursor")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? NextCursor { get; set; } = default!;
+        public string? NextCursor { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool HasMore { get; set; } = default!;
+        public required bool HasMore { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -46,12 +45,12 @@ namespace ElevenLabs
 #endif
         public DubbingMetadataPageResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.DubbingMetadataResponse> dubs,
-            string? nextCursor,
-            bool hasMore)
+            bool hasMore,
+            string? nextCursor)
         {
             this.Dubs = dubs ?? throw new global::System.ArgumentNullException(nameof(dubs));
-            this.NextCursor = nextCursor ?? throw new global::System.ArgumentNullException(nameof(nextCursor));
             this.HasMore = hasMore;
+            this.NextCursor = nextCursor;
         }
 
         /// <summary>

@@ -4,8 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A system tool is a tool that is used to call a system method in the server<br/>
-    /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
+    /// A system tool is a tool that is used to call a system method in the server
     /// </summary>
     public sealed partial class SystemToolConfigOutput
     {
@@ -14,22 +13,20 @@ namespace ElevenLabs
         /// Default Value: system
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SystemToolConfigOutputTypeJsonConverter))]
-        public global::ElevenLabs.SystemToolConfigOutputType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// Description of when the tool should be used and what it does. Leave empty to use the default description that's optimized for the specific tool type.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Description { get; set; } = default!;
+        public string? Description { get; set; }
 
         /// <summary>
         /// The maximum time in seconds to wait for the tool call to complete.<br/>
@@ -59,12 +56,34 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Assignments { get; set; }
 
         /// <summary>
+        /// Predefined tool call sound type to play during tool execution. If not specified, no tool call sound will be played.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_sound")]
+        public global::ElevenLabs.ToolCallSoundType? ToolCallSound { get; set; }
+
+        /// <summary>
+        /// Determines when the tool call sound should play. 'auto' only plays when there's pre-tool speech, 'always' plays for every tool call.<br/>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_sound_behavior")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolCallSoundBehaviorJsonConverter))]
+        public global::ElevenLabs.ToolCallSoundBehavior? ToolCallSoundBehavior { get; set; }
+
+        /// <summary>
+        /// Controls how tool errors are processed before being shared with the agent. 'auto' determines handling based on tool type (summarized for native integrations, hide for others), 'summarized' sends an LLM-generated summary, 'passthrough' sends the raw error, 'hide' does not share the error with the agent.<br/>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_error_handling_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolErrorHandlingModeJsonConverter))]
+        public global::ElevenLabs.ToolErrorHandlingMode? ToolErrorHandlingMode { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("params")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Params2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Params3JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.Params2 Params { get; set; } = default!;
+        public required global::ElevenLabs.Params3 Params { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -80,7 +99,9 @@ namespace ElevenLabs
         /// Default Value: system
         /// </param>
         /// <param name="name"></param>
-        /// <param name="description"></param>
+        /// <param name="description">
+        /// Description of when the tool should be used and what it does. Leave empty to use the default description that's optimized for the specific tool type.
+        /// </param>
         /// <param name="responseTimeoutSecs">
         /// The maximum time in seconds to wait for the tool call to complete.<br/>
         /// Default Value: 20
@@ -96,28 +117,45 @@ namespace ElevenLabs
         /// <param name="assignments">
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
         /// </param>
+        /// <param name="toolCallSound">
+        /// Predefined tool call sound type to play during tool execution. If not specified, no tool call sound will be played.
+        /// </param>
+        /// <param name="toolCallSoundBehavior">
+        /// Determines when the tool call sound should play. 'auto' only plays when there's pre-tool speech, 'always' plays for every tool call.<br/>
+        /// Default Value: auto
+        /// </param>
+        /// <param name="toolErrorHandlingMode">
+        /// Controls how tool errors are processed before being shared with the agent. 'auto' determines handling based on tool type (summarized for native integrations, hide for others), 'summarized' sends an LLM-generated summary, 'passthrough' sends the raw error, 'hide' does not share the error with the agent.<br/>
+        /// Default Value: auto
+        /// </param>
         /// <param name="params"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SystemToolConfigOutput(
             string name,
-            string description,
-            global::ElevenLabs.Params2 @params,
-            global::ElevenLabs.SystemToolConfigOutputType? type,
+            global::ElevenLabs.Params3 @params,
+            string? type,
+            string? description,
             int? responseTimeoutSecs,
             bool? disableInterruptions,
             bool? forcePreToolSpeech,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments)
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
+            global::ElevenLabs.ToolCallSoundType? toolCallSound,
+            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
+            global::ElevenLabs.ToolErrorHandlingMode? toolErrorHandlingMode)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Params = @params;
             this.Type = type;
+            this.Description = description;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.DisableInterruptions = disableInterruptions;
             this.ForcePreToolSpeech = forcePreToolSpeech;
             this.Assignments = assignments;
+            this.ToolCallSound = toolCallSound;
+            this.ToolCallSoundBehavior = toolCallSoundBehavior;
+            this.ToolErrorHandlingMode = toolErrorHandlingMode;
         }
 
         /// <summary>

@@ -12,15 +12,14 @@ namespace ElevenLabs
         /// Default Value: client
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptToolCallClientDetailsTypeJsonConverter))]
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetailsType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parameters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Parameters { get; set; } = default!;
+        public required string Parameters { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +39,7 @@ namespace ElevenLabs
 #endif
         public ConversationHistoryTranscriptToolCallClientDetails(
             string parameters,
-            global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetailsType? type)
+            string? type)
         {
             this.Parameters = parameters ?? throw new global::System.ArgumentNullException(nameof(parameters));
             this.Type = type;

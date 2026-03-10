@@ -1,10 +1,12 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"access_level":"viewer","apply_text_normalization":"auto","author":"John Doe","can_be_downloaded":true,"chapters":[{"can_be_downloaded":true,"chapter_id":"aw1NgEzBg83R7vgmiJt6","conversion_progress":0.5,"last_conversion_date_unix":1714204800,"last_conversion_error":"Error message","name":"Chapter 1","state":"converting","statistics":{"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10}}],"content_type":"Novel","cover_image_url":"https://example.com/cover.jpg","create_date_unix":1714204800,"creation_meta":{"creation_progress":0.5,"status":"pending","type":"blank"},"default_model_id":"eleven_multilingual_v2","default_paragraph_voice_id":"JBFqnCBsd6RMkjVDRZzb","default_title_voice_id":"JBFqnCBsd6RMkjVDRZzb","description":"This is a description of my project.","experimental":{},"fiction":"fiction","genres":["Novel","Short Story"],"isbn_number":"978-90-274-3964-2","language":"en","last_conversion_date_unix":1714204800,"mature_content":false,"name":"My Project","original_publication_date":"2025-01-01","project_id":"aw1NgEzBg83R7vgmiJt6","pronunciation_dictionary_locators":[],"pronunciation_dictionary_versions":[],"quality_check_on":false,"quality_check_on_when_bulk_convert":false,"quality_preset":"standard","state":"default","target_audience":"young adult","title":"My Project","volume_normalization":true}
+    /// Example: {"access_level":"viewer","apply_text_normalization":"auto","assets":[],"author":"John Doe","base_voices":[],"can_be_downloaded":true,"chapters":[{"can_be_downloaded":true,"chapter_id":"aw1NgEzBg83R7vgmiJt6","conversion_progress":0.5,"last_conversion_date_unix":1714204800,"last_conversion_error":"Error message","name":"Chapter 1","state":"converting","statistics":{"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10,"voice_statistics":[{"characters_converted":300,"characters_unconverted":600,"voice_id":"voice123"},{"characters_converted":200,"characters_unconverted":400,"voice_id":"voice456"}]}}],"content_type":"Novel","cover_image_url":"https://example.com/cover.jpg","create_date_unix":1714204800,"created_by_user_id":"Vbtgl3bRdj6lk79rYAgx","creation_meta":{"creation_progress":0.5,"status":"pending","type":"blank"},"default_model_id":"eleven_multilingual_v2","default_paragraph_voice_id":"JBFqnCBsd6RMkjVDRZzb","default_title_voice_id":"JBFqnCBsd6RMkjVDRZzb","description":"This is a description of my project.","experimental":{},"fiction":"fiction","genres":["Novel","Short Story"],"isbn_number":"978-90-274-3964-2","language":"en","last_conversion_date_unix":1714204800,"mature_content":false,"name":"My Project","original_publication_date":"2025-01-01","project_id":"aw1NgEzBg83R7vgmiJt6","pronunciation_dictionary_locators":[],"pronunciation_dictionary_versions":[],"public_share_id":"abc123def456789","quality_check_on":false,"quality_check_on_when_bulk_convert":false,"quality_preset":"standard","state":"default","target_audience":"young adult","title":"My Project","voices":[],"volume_normalization":true}
     /// </summary>
     public sealed partial class ProjectExtendedResponseModel
     {
@@ -13,42 +15,48 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ProjectId { get; set; } = default!;
+        public required string ProjectId { get; set; }
 
         /// <summary>
         /// The name of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The creation date of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("create_date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreateDateUnix { get; set; } = default!;
+        public required int CreateDateUnix { get; set; }
+
+        /// <summary>
+        /// The user ID who created the project.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_by_user_id")]
+        public string? CreatedByUserId { get; set; }
 
         /// <summary>
         /// The default title voice ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_title_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DefaultTitleVoiceId { get; set; } = default!;
+        public required string DefaultTitleVoiceId { get; set; }
 
         /// <summary>
         /// The default paragraph voice ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_paragraph_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DefaultParagraphVoiceId { get; set; } = default!;
+        public required string DefaultParagraphVoiceId { get; set; }
 
         /// <summary>
         /// The default model ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DefaultModelId { get; set; } = default!;
+        public required string DefaultModelId { get; set; }
 
         /// <summary>
         /// The last conversion date of the project.
@@ -61,7 +69,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_be_downloaded")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool CanBeDownloaded { get; set; } = default!;
+        public required bool CanBeDownloaded { get; set; }
 
         /// <summary>
         /// The title of the project.
@@ -97,8 +105,7 @@ namespace ElevenLabs
         /// The target audience of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_audience")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelTargetAudienceJsonConverter))]
-        public global::ElevenLabs.ProjectExtendedResponseModelTargetAudience? TargetAudience { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelTargetAudience2? TargetAudience { get; set; }
 
         /// <summary>
         /// Two-letter language code (ISO 639-1) of the language of the project.
@@ -135,7 +142,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_normalization")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool VolumeNormalization { get; set; } = default!;
+        public required bool VolumeNormalization { get; set; }
 
         /// <summary>
         /// The state of the project.
@@ -143,7 +150,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectExtendedResponseModelState State { get; set; } = default!;
+        public required global::ElevenLabs.ProjectExtendedResponseModelState State { get; set; }
 
         /// <summary>
         /// The access level of the project.
@@ -151,33 +158,31 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("access_level")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelAccessLevelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectExtendedResponseModelAccessLevel AccessLevel { get; set; } = default!;
+        public required global::ElevenLabs.ProjectExtendedResponseModelAccessLevel AccessLevel { get; set; }
 
         /// <summary>
         /// Whether the project is fiction.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fiction")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelFictionJsonConverter))]
-        public global::ElevenLabs.ProjectExtendedResponseModelFiction? Fiction { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelFiction2? Fiction { get; set; }
 
         /// <summary>
         /// Whether quality check is enabled for this project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool QualityCheckOn { get; set; } = default!;
+        public required bool QualityCheckOn { get; set; }
 
         /// <summary>
         /// Whether quality check is enabled on the project when bulk converting.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on_when_bulk_convert")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool QualityCheckOnWhenBulkConvert { get; set; } = default!;
+        public required bool QualityCheckOnWhenBulkConvert { get; set; }
 
         /// <summary>
-        /// Example: {"creation_progress":0.5,"status":"pending","type":"blank"}
+        /// The creation meta of the project.
         /// </summary>
-        /// <example>{"creation_progress":0.5,"status":"pending","type":"blank"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_meta")]
         public global::ElevenLabs.ProjectCreationMetaResponseModel? CreationMeta { get; set; }
 
@@ -185,8 +190,7 @@ namespace ElevenLabs
         /// The source type of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelSourceTypeJsonConverter))]
-        public global::ElevenLabs.ProjectExtendedResponseModelSourceType? SourceType { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelSourceType2? SourceType { get; set; }
 
         /// <summary>
         /// Whether chapters are enabled for the project.<br/>
@@ -203,10 +207,34 @@ namespace ElevenLabs
         public bool? CaptionsEnabled { get; set; }
 
         /// <summary>
-        /// 
+        /// Global styling to be applied to all captions
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("caption_style")]
         public global::ElevenLabs.CaptionStyleModel? CaptionStyle { get; set; }
+
+        /// <summary>
+        /// Styling changes that have been made to the provided templates
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("caption_style_template_overrides")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.CaptionStyleModel>? CaptionStyleTemplateOverrides { get; set; }
+
+        /// <summary>
+        /// The public share ID of the project.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("public_share_id")]
+        public string? PublicShareId { get; set; }
+
+        /// <summary>
+        /// The aspect ratio of the project.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("aspect_ratio")]
+        public global::ElevenLabs.ProjectExtendedResponseModelAspectRatio2? AspectRatio { get; set; }
+
+        /// <summary>
+        /// Agent-related settings for the project
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_settings")]
+        public global::ElevenLabs.StudioAgentSettingsModel? AgentSettings { get; set; }
 
         /// <summary>
         /// The quality preset level of the project.
@@ -214,28 +242,28 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelQualityPresetJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectExtendedResponseModelQualityPreset QualityPreset { get; set; } = default!;
+        public required global::ElevenLabs.ProjectExtendedResponseModelQualityPreset QualityPreset { get; set; }
 
         /// <summary>
         /// List of chapters of the project and their metadata.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> Chapters { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> Chapters { get; set; }
 
         /// <summary>
         /// List of pronunciation dictionary versions of the project and their metadata.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_versions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> PronunciationDictionaryVersions { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> PronunciationDictionaryVersions { get; set; }
 
         /// <summary>
         /// List of pronunciation dictionary locators.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> PronunciationDictionaryLocators { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> PronunciationDictionaryLocators { get; set; }
 
         /// <summary>
         /// Whether text normalization is applied to the project.
@@ -243,13 +271,39 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization ApplyTextNormalization { get; set; } = default!;
+        public required global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization ApplyTextNormalization { get; set; }
 
         /// <summary>
         /// Experimental features for the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
         public object? Experimental { get; set; }
+
+        /// <summary>
+        /// List of uploaded assets e.g. videos, audios.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("assets")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>> Assets { get; set; }
+
+        /// <summary>
+        /// List of configured project voices.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voices")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVoiceResponseModel> Voices { get; set; }
+
+        /// <summary>
+        /// List of voices used by the project.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("base_voices")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceResponseModel>? BaseVoices { get; set; }
+
+        /// <summary>
+        /// The ElevenReader data if the book was published.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("publishing_read")]
+        public global::ElevenLabs.DirectPublishingReadResponseModel? PublishingRead { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -268,6 +322,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="createDateUnix">
         /// The creation date of the project.
+        /// </param>
+        /// <param name="createdByUserId">
+        /// The user ID who created the project.
         /// </param>
         /// <param name="defaultTitleVoiceId">
         /// The default title voice ID.
@@ -336,7 +393,7 @@ namespace ElevenLabs
         /// Whether quality check is enabled on the project when bulk converting.
         /// </param>
         /// <param name="creationMeta">
-        /// Example: {"creation_progress":0.5,"status":"pending","type":"blank"}
+        /// The creation meta of the project.
         /// </param>
         /// <param name="sourceType">
         /// The source type of the project.
@@ -349,7 +406,21 @@ namespace ElevenLabs
         /// Whether captions are enabled for the project.<br/>
         /// Default Value: true
         /// </param>
-        /// <param name="captionStyle"></param>
+        /// <param name="captionStyle">
+        /// Global styling to be applied to all captions
+        /// </param>
+        /// <param name="captionStyleTemplateOverrides">
+        /// Styling changes that have been made to the provided templates
+        /// </param>
+        /// <param name="publicShareId">
+        /// The public share ID of the project.
+        /// </param>
+        /// <param name="aspectRatio">
+        /// The aspect ratio of the project.
+        /// </param>
+        /// <param name="agentSettings">
+        /// Agent-related settings for the project
+        /// </param>
         /// <param name="qualityPreset">
         /// The quality preset level of the project.
         /// </param>
@@ -367,6 +438,18 @@ namespace ElevenLabs
         /// </param>
         /// <param name="experimental">
         /// Experimental features for the project.
+        /// </param>
+        /// <param name="assets">
+        /// List of uploaded assets e.g. videos, audios.
+        /// </param>
+        /// <param name="voices">
+        /// List of configured project voices.
+        /// </param>
+        /// <param name="baseVoices">
+        /// List of voices used by the project.
+        /// </param>
+        /// <param name="publishingRead">
+        /// The ElevenReader data if the book was published.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -389,25 +472,34 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> pronunciationDictionaryVersions,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> pronunciationDictionaryLocators,
             global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization applyTextNormalization,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>> assets,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVoiceResponseModel> voices,
+            string? createdByUserId,
             int? lastConversionDateUnix,
             string? title,
             string? author,
             string? description,
             global::System.Collections.Generic.IList<string>? genres,
             string? coverImageUrl,
-            global::ElevenLabs.ProjectExtendedResponseModelTargetAudience? targetAudience,
+            global::ElevenLabs.ProjectExtendedResponseModelTargetAudience2? targetAudience,
             string? language,
             string? contentType,
             string? originalPublicationDate,
             bool? matureContent,
             string? isbnNumber,
-            global::ElevenLabs.ProjectExtendedResponseModelFiction? fiction,
+            global::ElevenLabs.ProjectExtendedResponseModelFiction2? fiction,
             global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta,
-            global::ElevenLabs.ProjectExtendedResponseModelSourceType? sourceType,
+            global::ElevenLabs.ProjectExtendedResponseModelSourceType2? sourceType,
             bool? chaptersEnabled,
             bool? captionsEnabled,
             global::ElevenLabs.CaptionStyleModel? captionStyle,
-            object? experimental)
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.CaptionStyleModel>? captionStyleTemplateOverrides,
+            string? publicShareId,
+            global::ElevenLabs.ProjectExtendedResponseModelAspectRatio2? aspectRatio,
+            global::ElevenLabs.StudioAgentSettingsModel? agentSettings,
+            object? experimental,
+            global::System.Collections.Generic.IList<global::ElevenLabs.VoiceResponseModel>? baseVoices,
+            global::ElevenLabs.DirectPublishingReadResponseModel? publishingRead)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -426,6 +518,9 @@ namespace ElevenLabs
             this.PronunciationDictionaryVersions = pronunciationDictionaryVersions ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryVersions));
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators ?? throw new global::System.ArgumentNullException(nameof(pronunciationDictionaryLocators));
             this.ApplyTextNormalization = applyTextNormalization;
+            this.Assets = assets ?? throw new global::System.ArgumentNullException(nameof(assets));
+            this.Voices = voices ?? throw new global::System.ArgumentNullException(nameof(voices));
+            this.CreatedByUserId = createdByUserId;
             this.LastConversionDateUnix = lastConversionDateUnix;
             this.Title = title;
             this.Author = author;
@@ -444,7 +539,13 @@ namespace ElevenLabs
             this.ChaptersEnabled = chaptersEnabled;
             this.CaptionsEnabled = captionsEnabled;
             this.CaptionStyle = captionStyle;
+            this.CaptionStyleTemplateOverrides = captionStyleTemplateOverrides;
+            this.PublicShareId = publicShareId;
+            this.AspectRatio = aspectRatio;
+            this.AgentSettings = agentSettings;
             this.Experimental = experimental;
+            this.BaseVoices = baseVoices;
+            this.PublishingRead = publishingRead;
         }
 
         /// <summary>

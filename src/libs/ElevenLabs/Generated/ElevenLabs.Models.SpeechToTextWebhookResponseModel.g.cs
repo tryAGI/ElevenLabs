@@ -13,14 +13,20 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Message { get; set; } = default!;
+        public required string Message { get; set; }
 
         /// <summary>
         /// The request ID of the webhook response.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string RequestId { get; set; } = default!;
+        public required string RequestId { get; set; }
+
+        /// <summary>
+        /// The transcription ID of the webhook response.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcription_id")]
+        public string? TranscriptionId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -37,15 +43,20 @@ namespace ElevenLabs
         /// <param name="requestId">
         /// The request ID of the webhook response.
         /// </param>
+        /// <param name="transcriptionId">
+        /// The transcription ID of the webhook response.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SpeechToTextWebhookResponseModel(
             string message,
-            string requestId)
+            string requestId,
+            string? transcriptionId)
         {
             this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
+            this.TranscriptionId = transcriptionId;
         }
 
         /// <summary>

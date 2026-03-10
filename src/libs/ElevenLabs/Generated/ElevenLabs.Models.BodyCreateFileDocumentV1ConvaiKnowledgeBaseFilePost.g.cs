@@ -13,20 +13,26 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public byte[] File { get; set; } = default!;
+        public required byte[] File { get; set; }
 
         /// <summary>
         /// Documentation that the agent will have access to in order to interact with users.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Filename { get; set; } = default!;
+        public required string Filename { get; set; }
 
         /// <summary>
         /// A custom, human-readable name for the document.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// If set, the created document or folder will be placed inside the given folder.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("parent_folder_id")]
+        public string? ParentFolderId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -46,17 +52,22 @@ namespace ElevenLabs
         /// <param name="name">
         /// A custom, human-readable name for the document.
         /// </param>
+        /// <param name="parentFolderId">
+        /// If set, the created document or folder will be placed inside the given folder.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost(
             byte[] file,
             string filename,
-            string? name)
+            string? name,
+            string? parentFolderId)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.Name = name;
+            this.ParentFolderId = parentFolderId;
         }
 
         /// <summary>

@@ -13,13 +13,19 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tests")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel> Tests { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel> Tests { get; set; }
 
         /// <summary>
-        /// 
+        /// Configuration overrides to use for testing. If not provided, the agent's default configuration will be used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_config_override")]
         public global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? AgentConfigOverride { get; set; }
+
+        /// <summary>
+        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
+        public string? BranchId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,16 +39,23 @@ namespace ElevenLabs
         /// <param name="tests">
         /// List of tests to run on the agent
         /// </param>
-        /// <param name="agentConfigOverride"></param>
+        /// <param name="agentConfigOverride">
+        /// Configuration overrides to use for testing. If not provided, the agent's default configuration will be used.
+        /// </param>
+        /// <param name="branchId">
+        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RunAgentTestsRequestModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel> tests,
-            global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? agentConfigOverride)
+            global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? agentConfigOverride,
+            string? branchId)
         {
             this.Tests = tests ?? throw new global::System.ArgumentNullException(nameof(tests));
             this.AgentConfigOverride = agentConfigOverride;
+            this.BranchId = branchId;
         }
 
         /// <summary>

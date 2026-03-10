@@ -12,8 +12,7 @@ namespace ElevenLabs
         /// Default Value: object
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ObjectJsonSchemaPropertyInputTypeJsonConverter))]
-        public global::ElevenLabs.ObjectJsonSchemaPropertyInputType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
@@ -34,6 +33,12 @@ namespace ElevenLabs
         public object? Properties { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("required_constraints")]
+        public global::ElevenLabs.RequiredConstraints? RequiredConstraints { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -48,19 +53,22 @@ namespace ElevenLabs
         /// <param name="required"></param>
         /// <param name="description"></param>
         /// <param name="properties"></param>
+        /// <param name="requiredConstraints"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ObjectJsonSchemaPropertyInput(
-            global::ElevenLabs.ObjectJsonSchemaPropertyInputType? type,
+            string? type,
             global::System.Collections.Generic.IList<string>? required,
             string? description,
-            object? properties)
+            object? properties,
+            global::ElevenLabs.RequiredConstraints? requiredConstraints)
         {
             this.Type = type;
             this.Required = required;
             this.Description = description;
             this.Properties = properties;
+            this.RequiredConstraints = requiredConstraints;
         }
 
         /// <summary>

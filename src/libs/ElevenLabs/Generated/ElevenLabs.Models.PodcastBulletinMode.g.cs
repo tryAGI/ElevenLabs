@@ -11,17 +11,18 @@ namespace ElevenLabs
         /// <summary>
         /// The type of podcast to create.
         /// </summary>
+        /// <default>"bulletin"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PodcastBulletinModeTypeJsonConverter))]
-        public global::ElevenLabs.PodcastBulletinModeType Type { get; set; }
+        public string Type { get; set; } = "bulletin";
 
         /// <summary>
+        /// The voice settings for the bulletin.<br/>
         /// Example: {"host_voice_id":"aw1NgEzBg83R7vgmiJt6"}
         /// </summary>
         /// <example>{"host_voice_id":"aw1NgEzBg83R7vgmiJt6"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("bulletin")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.PodcastBulletinModeData Bulletin { get; set; } = default!;
+        public required global::ElevenLabs.PodcastBulletinModeData Bulletin { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,6 +37,7 @@ namespace ElevenLabs
         /// The type of podcast to create.
         /// </param>
         /// <param name="bulletin">
+        /// The voice settings for the bulletin.<br/>
         /// Example: {"host_voice_id":"aw1NgEzBg83R7vgmiJt6"}
         /// </param>
 #if NET7_0_OR_GREATER
@@ -43,7 +45,7 @@ namespace ElevenLabs
 #endif
         public PodcastBulletinMode(
             global::ElevenLabs.PodcastBulletinModeData bulletin,
-            global::ElevenLabs.PodcastBulletinModeType type)
+            string type = "bulletin")
         {
             this.Bulletin = bulletin ?? throw new global::System.ArgumentNullException(nameof(bulletin));
             this.Type = type;

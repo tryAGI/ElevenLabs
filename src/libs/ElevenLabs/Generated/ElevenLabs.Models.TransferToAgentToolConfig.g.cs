@@ -12,15 +12,14 @@ namespace ElevenLabs
         /// Default Value: transfer_to_agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_tool_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolConfigSystemToolTypeJsonConverter))]
-        public global::ElevenLabs.TransferToAgentToolConfigSystemToolType? SystemToolType { get; set; }
+        public string? SystemToolType { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransfer> Transfers { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransfer> Transfers { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +39,7 @@ namespace ElevenLabs
 #endif
         public TransferToAgentToolConfig(
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransfer> transfers,
-            global::ElevenLabs.TransferToAgentToolConfigSystemToolType? systemToolType)
+            string? systemToolType)
         {
             this.Transfers = transfers ?? throw new global::System.ArgumentNullException(nameof(transfers));
             this.SystemToolType = systemToolType;

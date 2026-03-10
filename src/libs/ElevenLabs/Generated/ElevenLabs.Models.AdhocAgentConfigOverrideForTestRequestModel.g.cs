@@ -13,14 +13,20 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; } = default!;
+        public required global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("platform_settings")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AgentPlatformSettingsRequestModel PlatformSettings { get; set; } = default!;
+        public required global::ElevenLabs.AgentPlatformSettingsRequestModel PlatformSettings { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workflow")]
+        public global::ElevenLabs.AgentWorkflowRequestModel? Workflow { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,15 +39,18 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="conversationConfig"></param>
         /// <param name="platformSettings"></param>
+        /// <param name="workflow"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AdhocAgentConfigOverrideForTestRequestModel(
             global::ElevenLabs.ConversationalConfigAPIModelInput conversationConfig,
-            global::ElevenLabs.AgentPlatformSettingsRequestModel platformSettings)
+            global::ElevenLabs.AgentPlatformSettingsRequestModel platformSettings,
+            global::ElevenLabs.AgentWorkflowRequestModel? workflow)
         {
             this.ConversationConfig = conversationConfig ?? throw new global::System.ArgumentNullException(nameof(conversationConfig));
             this.PlatformSettings = platformSettings ?? throw new global::System.ArgumentNullException(nameof(platformSettings));
+            this.Workflow = workflow;
         }
 
         /// <summary>

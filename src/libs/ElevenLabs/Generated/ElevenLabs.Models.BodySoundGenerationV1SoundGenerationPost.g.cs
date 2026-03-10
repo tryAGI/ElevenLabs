@@ -9,13 +9,18 @@ namespace ElevenLabs
     public sealed partial class BodySoundGenerationV1SoundGenerationPost
     {
         /// <summary>
-        /// The text that will get converted into a sound effect.<br/>
-        /// Example: A large, ancient wooden door slowly opening in an eerie, abandoned castle..
+        /// The text that will get converted into a sound effect.
         /// </summary>
-        /// <example>A large, ancient wooden door slowly opening in an eerie, abandoned castle..</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
+
+        /// <summary>
+        /// Whether to create a sound effect that loops smoothly. Only available for the 'eleven_text_to_sound_v2 model'.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("loop")]
+        public bool? Loop { get; set; }
 
         /// <summary>
         /// The duration of the sound which will be generated in seconds. Must be at least 0.5 and at most 30. If set to None we will guess the optimal duration using the prompt. Defaults to None.
@@ -31,6 +36,13 @@ namespace ElevenLabs
         public double? PromptInfluence { get; set; }
 
         /// <summary>
+        /// The model ID to use for the sound generation.<br/>
+        /// Default Value: eleven_text_to_sound_v2
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
+        public string? ModelId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,8 +52,11 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodySoundGenerationV1SoundGenerationPost" /> class.
         /// </summary>
         /// <param name="text">
-        /// The text that will get converted into a sound effect.<br/>
-        /// Example: A large, ancient wooden door slowly opening in an eerie, abandoned castle..
+        /// The text that will get converted into a sound effect.
+        /// </param>
+        /// <param name="loop">
+        /// Whether to create a sound effect that loops smoothly. Only available for the 'eleven_text_to_sound_v2 model'.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="durationSeconds">
         /// The duration of the sound which will be generated in seconds. Must be at least 0.5 and at most 30. If set to None we will guess the optimal duration using the prompt. Defaults to None.
@@ -50,17 +65,25 @@ namespace ElevenLabs
         /// A higher prompt influence makes your generation follow the prompt more closely while also making generations less variable. Must be a value between 0 and 1. Defaults to 0.3.<br/>
         /// Default Value: 0.3
         /// </param>
+        /// <param name="modelId">
+        /// The model ID to use for the sound generation.<br/>
+        /// Default Value: eleven_text_to_sound_v2
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodySoundGenerationV1SoundGenerationPost(
             string text,
+            bool? loop,
             double? durationSeconds,
-            double? promptInfluence)
+            double? promptInfluence,
+            string? modelId)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.Loop = loop;
             this.DurationSeconds = durationSeconds;
             this.PromptInfluence = promptInfluence;
+            this.ModelId = modelId;
         }
 
         /// <summary>

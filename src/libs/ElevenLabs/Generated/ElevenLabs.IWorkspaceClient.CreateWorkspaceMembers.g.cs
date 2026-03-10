@@ -9,7 +9,7 @@ namespace ElevenLabs
         /// Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="email">
         /// Email of the target user.
@@ -33,8 +33,8 @@ namespace ElevenLabs
         /// <param name="isLocked">
         /// Whether to lock or unlock the user account.
         /// </param>
-        /// <param name="workspaceRole">
-        /// Role dictating permissions in the workspace.
+        /// <param name="workspaceSeatType">
+        /// The workspace seat type
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -42,7 +42,7 @@ namespace ElevenLabs
             string email,
             string? xiApiKey = default,
             bool? isLocked = default,
-            global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPostWorkspaceRole? workspaceRole = default,
+            global::ElevenLabs.SeatType? workspaceSeatType = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

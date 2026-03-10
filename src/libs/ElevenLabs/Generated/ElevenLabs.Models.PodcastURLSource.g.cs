@@ -11,16 +11,16 @@ namespace ElevenLabs
         /// <summary>
         /// The type of source to create.
         /// </summary>
+        /// <default>"url"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PodcastURLSourceTypeJsonConverter))]
-        public global::ElevenLabs.PodcastURLSourceType Type { get; set; }
+        public string Type { get; set; } = "url";
 
         /// <summary>
         /// The URL to create the podcast from.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Url { get; set; } = default!;
+        public required string Url { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,7 +42,7 @@ namespace ElevenLabs
 #endif
         public PodcastURLSource(
             string url,
-            global::ElevenLabs.PodcastURLSourceType type)
+            string type = "url")
         {
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.Type = type;

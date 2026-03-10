@@ -42,12 +42,20 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ExactParameterEvaluationStrategy)}");
                 exact = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? anything = default;
+            if (discriminator?.Type == global::ElevenLabs.UnitTestToolCallParameterEvalDiscriminatorType.Anything)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy)}");
+                anything = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var result = new global::ElevenLabs.Eval(
                 discriminator?.Type,
                 llm,
                 regex,
-                exact
+                exact,
+                anything
                 );
 
             return result;
@@ -79,6 +87,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ExactParameterEvaluationStrategy), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ExactParameterEvaluationStrategy?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ExactParameterEvaluationStrategy).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Exact, typeInfo);
+            }
+            else if (value.IsAnything)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Anything, typeInfo);
             }
         }
     }

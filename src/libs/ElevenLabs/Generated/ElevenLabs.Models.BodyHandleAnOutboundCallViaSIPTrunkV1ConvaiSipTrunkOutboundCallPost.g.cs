@@ -13,27 +13,33 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentPhoneNumberId { get; set; } = default!;
+        public required string AgentPhoneNumberId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ToNumber { get; set; } = default!;
+        public required string ToNumber { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_client_data")]
         public global::ElevenLabs.ConversationInitiationClientDataRequestInput? ConversationInitiationClientData { get; set; }
+
+        /// <summary>
+        /// Default Value: {"ringing_timeout_secs":60}
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("telephony_call_config")]
+        public global::ElevenLabs.TelephonyCallConfig? TelephonyCallConfig { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -48,6 +54,9 @@ namespace ElevenLabs
         /// <param name="agentPhoneNumberId"></param>
         /// <param name="toNumber"></param>
         /// <param name="conversationInitiationClientData"></param>
+        /// <param name="telephonyCallConfig">
+        /// Default Value: {"ringing_timeout_secs":60}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -55,12 +64,14 @@ namespace ElevenLabs
             string agentId,
             string agentPhoneNumberId,
             string toNumber,
-            global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData)
+            global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData,
+            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.AgentPhoneNumberId = agentPhoneNumberId ?? throw new global::System.ArgumentNullException(nameof(agentPhoneNumberId));
             this.ToNumber = toNumber ?? throw new global::System.ArgumentNullException(nameof(toNumber));
             this.ConversationInitiationClientData = conversationInitiationClientData;
+            this.TelephonyCallConfig = telephonyCallConfig;
         }
 
         /// <summary>

@@ -9,18 +9,14 @@ namespace ElevenLabs
     public sealed partial class BodyUpdatePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdPatch
     {
         /// <summary>
-        /// The name of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: My Dictionary
+        /// Whether to archive the pronunciation dictionary.
         /// </summary>
-        /// <example>My Dictionary</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("archived")]
         public bool? Archived { get; set; }
 
         /// <summary>
-        /// The name of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: My Dictionary
+        /// The name of the pronunciation dictionary, used for identification only.
         /// </summary>
-        /// <example>My Dictionary</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
 
@@ -34,12 +30,10 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyUpdatePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdPatch" /> class.
         /// </summary>
         /// <param name="archived">
-        /// The name of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: My Dictionary
+        /// Whether to archive the pronunciation dictionary.
         /// </param>
         /// <param name="name">
-        /// The name of the pronunciation dictionary, used for identification only.<br/>
-        /// Example: My Dictionary
+        /// The name of the pronunciation dictionary, used for identification only.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

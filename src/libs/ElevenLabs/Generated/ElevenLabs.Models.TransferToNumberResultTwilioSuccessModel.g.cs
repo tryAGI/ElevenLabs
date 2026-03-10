@@ -12,22 +12,20 @@ namespace ElevenLabs
         /// Default Value: transfer_to_number_twilio_success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToNumberResultTwilioSuccessModelResultTypeJsonConverter))]
-        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToNumberResultTwilioSuccessModelStatusJsonConverter))]
-        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TransferNumber { get; set; } = default!;
+        public required string TransferNumber { get; set; }
 
         /// <summary>
         /// 
@@ -46,14 +44,20 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentMessage { get; set; } = default!;
+        public required string AgentMessage { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conference_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ConferenceName { get; set; } = default!;
+        public required string ConferenceName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("post_dial_digits")]
+        public string? PostDialDigits { get; set; }
 
         /// <summary>
         /// 
@@ -81,6 +85,7 @@ namespace ElevenLabs
         /// <param name="clientMessage"></param>
         /// <param name="agentMessage"></param>
         /// <param name="conferenceName"></param>
+        /// <param name="postDialDigits"></param>
         /// <param name="note"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -89,10 +94,11 @@ namespace ElevenLabs
             string transferNumber,
             string agentMessage,
             string conferenceName,
-            global::ElevenLabs.TransferToNumberResultTwilioSuccessModelResultType? resultType,
-            global::ElevenLabs.TransferToNumberResultTwilioSuccessModelStatus? status,
+            string? resultType,
+            string? status,
             string? reason,
             string? clientMessage,
+            string? postDialDigits,
             string? note)
         {
             this.TransferNumber = transferNumber ?? throw new global::System.ArgumentNullException(nameof(transferNumber));
@@ -102,6 +108,7 @@ namespace ElevenLabs
             this.Status = status;
             this.Reason = reason;
             this.ClientMessage = clientMessage;
+            this.PostDialDigits = postDialDigits;
             this.Note = note;
         }
 

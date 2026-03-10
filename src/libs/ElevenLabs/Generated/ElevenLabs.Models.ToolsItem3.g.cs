@@ -51,8 +51,7 @@ namespace ElevenLabs
         public bool IsClient => Client != null;
 
         /// <summary>
-        /// A system tool is a tool that is used to call a system method in the server<br/>
-        /// Example: {"description":"Ends the current conversation","name":"end_call","params":{"system_tool_type":"end_call"},"type":"system"}
+        /// A system tool is a tool that is used to call a system method in the server
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SystemToolConfigOutput? System { get; init; }
@@ -84,6 +83,40 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
 #endif
         public bool IsMcp => Mcp != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput? ApiIntegrationWebhook { get; init; }
+#else
+        public global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput? ApiIntegrationWebhook { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiIntegrationWebhook))]
+#endif
+        public bool IsApiIntegrationWebhook => ApiIntegrationWebhook != null;
+
+        /// <summary>
+        /// SMB tool configuration that wraps SMB tool parameters.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.SMBToolConfig? Smb { get; init; }
+#else
+        public global::ElevenLabs.SMBToolConfig? Smb { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Smb))]
+#endif
+        public bool IsSmb => Smb != null;
         /// <summary>
         /// 
         /// </summary>
@@ -159,12 +192,50 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator ToolsItem3(global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput value) => new ToolsItem3((global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput?(ToolsItem3 @this) => @this.ApiIntegrationWebhook;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ToolsItem3(global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput? value)
+        {
+            ApiIntegrationWebhook = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator ToolsItem3(global::ElevenLabs.SMBToolConfig value) => new ToolsItem3((global::ElevenLabs.SMBToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.SMBToolConfig?(ToolsItem3 @this) => @this.Smb;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ToolsItem3(global::ElevenLabs.SMBToolConfig? value)
+        {
+            Smb = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ToolsItem3(
             global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminatorType? type,
             global::ElevenLabs.WebhookToolConfigOutput? webhook,
             global::ElevenLabs.ClientToolConfigOutput? client,
             global::ElevenLabs.SystemToolConfigOutput? system,
-            global::ElevenLabs.MCPToolConfigOutput? mcp
+            global::ElevenLabs.MCPToolConfigOutput? mcp,
+            global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput? apiIntegrationWebhook,
+            global::ElevenLabs.SMBToolConfig? smb
             )
         {
             Type = type;
@@ -173,12 +244,16 @@ namespace ElevenLabs
             Client = client;
             System = system;
             Mcp = mcp;
+            ApiIntegrationWebhook = apiIntegrationWebhook;
+            Smb = smb;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Smb as object ??
+            ApiIntegrationWebhook as object ??
             Mcp as object ??
             System as object ??
             Client as object ??
@@ -192,7 +267,9 @@ namespace ElevenLabs
             Webhook?.ToString() ??
             Client?.ToString() ??
             System?.ToString() ??
-            Mcp?.ToString() 
+            Mcp?.ToString() ??
+            ApiIntegrationWebhook?.ToString() ??
+            Smb?.ToString() 
             ;
 
         /// <summary>
@@ -200,7 +277,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsWebhook && !IsClient && !IsSystem && !IsMcp || !IsWebhook && IsClient && !IsSystem && !IsMcp || !IsWebhook && !IsClient && IsSystem && !IsMcp || !IsWebhook && !IsClient && !IsSystem && IsMcp;
+            return IsWebhook && !IsClient && !IsSystem && !IsMcp && !IsApiIntegrationWebhook && !IsSmb || !IsWebhook && IsClient && !IsSystem && !IsMcp && !IsApiIntegrationWebhook && !IsSmb || !IsWebhook && !IsClient && IsSystem && !IsMcp && !IsApiIntegrationWebhook && !IsSmb || !IsWebhook && !IsClient && !IsSystem && IsMcp && !IsApiIntegrationWebhook && !IsSmb || !IsWebhook && !IsClient && !IsSystem && !IsMcp && IsApiIntegrationWebhook && !IsSmb || !IsWebhook && !IsClient && !IsSystem && !IsMcp && !IsApiIntegrationWebhook && IsSmb;
         }
 
         /// <summary>
@@ -211,6 +288,8 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.ClientToolConfigOutput?, TResult>? client = null,
             global::System.Func<global::ElevenLabs.SystemToolConfigOutput?, TResult>? system = null,
             global::System.Func<global::ElevenLabs.MCPToolConfigOutput?, TResult>? mcp = null,
+            global::System.Func<global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput?, TResult>? apiIntegrationWebhook = null,
+            global::System.Func<global::ElevenLabs.SMBToolConfig?, TResult>? smb = null,
             bool validate = true)
         {
             if (validate)
@@ -234,6 +313,14 @@ namespace ElevenLabs
             {
                 return mcp(Mcp!);
             }
+            else if (IsApiIntegrationWebhook && apiIntegrationWebhook != null)
+            {
+                return apiIntegrationWebhook(ApiIntegrationWebhook!);
+            }
+            else if (IsSmb && smb != null)
+            {
+                return smb(Smb!);
+            }
 
             return default(TResult);
         }
@@ -246,6 +333,8 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.ClientToolConfigOutput?>? client = null,
             global::System.Action<global::ElevenLabs.SystemToolConfigOutput?>? system = null,
             global::System.Action<global::ElevenLabs.MCPToolConfigOutput?>? mcp = null,
+            global::System.Action<global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput?>? apiIntegrationWebhook = null,
+            global::System.Action<global::ElevenLabs.SMBToolConfig?>? smb = null,
             bool validate = true)
         {
             if (validate)
@@ -269,6 +358,14 @@ namespace ElevenLabs
             {
                 mcp?.Invoke(Mcp!);
             }
+            else if (IsApiIntegrationWebhook)
+            {
+                apiIntegrationWebhook?.Invoke(ApiIntegrationWebhook!);
+            }
+            else if (IsSmb)
+            {
+                smb?.Invoke(Smb!);
+            }
         }
 
         /// <summary>
@@ -286,6 +383,10 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.SystemToolConfigOutput),
                 Mcp,
                 typeof(global::ElevenLabs.MCPToolConfigOutput),
+                ApiIntegrationWebhook,
+                typeof(global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput),
+                Smb,
+                typeof(global::ElevenLabs.SMBToolConfig),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -305,7 +406,9 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookToolConfigOutput?>.Default.Equals(Webhook, other.Webhook) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfigOutput?>.Default.Equals(Client, other.Client) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfigOutput?>.Default.Equals(System, other.System) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MCPToolConfigOutput?>.Default.Equals(Mcp, other.Mcp) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MCPToolConfigOutput?>.Default.Equals(Mcp, other.Mcp) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput?>.Default.Equals(ApiIntegrationWebhook, other.ApiIntegrationWebhook) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SMBToolConfig?>.Default.Equals(Smb, other.Smb) 
                 ;
         }
 

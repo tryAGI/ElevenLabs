@@ -11,44 +11,36 @@ namespace ElevenLabs
     public sealed partial class BodyCreatePodcastV1StudioPodcastsPost
     {
         /// <summary>
-        /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.<br/>
-        /// Example: eleven_multilingual_v2
+        /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
         /// </summary>
-        /// <example>eleven_multilingual_v2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelId { get; set; } = default!;
+        public required string ModelId { get; set; }
 
         /// <summary>
-        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.<br/>
-        /// Example: {"conversation":{"guest_voice_id":"bYTqZQo3Jz7LQtmGTgwi","host_voice_id":"6lCwbsX1yVjD49QmpkTR"},"type":"conversation"}
+        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.
         /// </summary>
-        /// <example>{"conversation":{"guest_voice_id":"bYTqZQo3Jz7LQtmGTgwi","host_voice_id":"6lCwbsX1yVjD49QmpkTR"},"type":"conversation"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> Mode { get; set; } = default!;
+        public required global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> Mode { get; set; }
 
         /// <summary>
-        /// The source content for the Podcast.<br/>
-        /// Example: {"type":"url","url":"https://en.wikipedia.org/wiki/Cognitive_science"}
+        /// The source content for the Podcast.
         /// </summary>
-        /// <example>{"type":"url","url":"https://en.wikipedia.org/wiki/Cognitive_science"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> Source { get; set; } = default!;
+        public required global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> Source { get; set; }
 
         /// <summary>
         /// Output quality of the generated audio. Must be one of:<br/>
-        /// standard - standard output format, 128kbps with 44.1kHz sample rate.<br/>
-        /// high - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.<br/>
-        /// ultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.<br/>
-        /// ultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.<br/>
-        /// Default Value: standard<br/>
-        /// Example: standard
+        /// 'standard' - standard output format, 128kbps with 44.1kHz sample rate.<br/>
+        /// 'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.<br/>
+        /// 'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.<br/>
+        /// 'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.<br/>
+        /// Default Value: standard
         /// </summary>
-        /// <example>standard</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyCreatePodcastV1StudioPodcastsPostQualityPresetJsonConverter))]
         public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? QualityPreset { get; set; }
@@ -58,51 +50,39 @@ namespace ElevenLabs
         /// short - produces podcasts shorter than 3 minutes.<br/>
         /// default - produces podcasts roughly between 3-7 minutes.<br/>
         /// long - produces podcasts longer than 7 minutes.<br/>
-        /// Default Value: default<br/>
-        /// Example: short
+        /// Default Value: default
         /// </summary>
-        /// <example>short</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_scale")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyCreatePodcastV1StudioPodcastsPostDurationScaleJsonConverter))]
         public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? DurationScale { get; set; }
 
         /// <summary>
-        /// An optional language of the Studio project. Two-letter language code (ISO 639-1).<br/>
-        /// Example: en
+        /// An optional language of the Studio project. Two-letter language code (ISO 639-1).
         /// </summary>
-        /// <example>en</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         public string? Language { get; set; }
 
         /// <summary>
-        /// The intro text that will always be added to the beginning of the podcast.<br/>
-        /// Example: Welcome to the podcast.
+        /// The intro text that will always be added to the beginning of the podcast.
         /// </summary>
-        /// <example>Welcome to the podcast.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("intro")]
         public string? Intro { get; set; }
 
         /// <summary>
-        /// The outro text that will always be added to the end of the podcast.<br/>
-        /// Example: Thank you for listening!
+        /// The outro text that will always be added to the end of the podcast.
         /// </summary>
-        /// <example>Thank you for listening!</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("outro")]
         public string? Outro { get; set; }
 
         /// <summary>
-        /// Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.<br/>
-        /// Example: Ensure the podcast remains factual, accurate and appropriate for all audiences.
+        /// Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.
         /// </summary>
-        /// <example>Ensure the podcast remains factual, accurate and appropriate for all audiences.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("instructions_prompt")]
         public string? InstructionsPrompt { get; set; }
 
         /// <summary>
-        /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.<br/>
-        /// Example: [Emphasize the importance of AI on education]
+        /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.
         /// </summary>
-        /// <example>[Emphasize the importance of AI on education]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("highlights")]
         public global::System.Collections.Generic.IList<string>? Highlights { get; set; }
 
@@ -159,12 +139,20 @@ namespace ElevenLabs
         ///         error_details: "Error details if conversion failed"<br/>
         ///       }<br/>
         ///     }<br/>
-        ///     <br/>
-        /// Example: [https://www.test.com/my-api/projects-status]
+        ///     
         /// </summary>
-        /// <example>[https://www.test.com/my-api/projects-status]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
         public string? CallbackUrl { get; set; }
+
+        /// <summary>
+        ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
+        ///     When set to 'auto', the system will automatically decide whether to apply text normalization<br/>
+        ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while<br/>
+        ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
+        ///     
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
+        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2? ApplyTextNormalization { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -176,53 +164,43 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyCreatePodcastV1StudioPodcastsPost" /> class.
         /// </summary>
         /// <param name="modelId">
-        /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.<br/>
-        /// Example: eleven_multilingual_v2
+        /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
         /// </param>
         /// <param name="mode">
-        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.<br/>
-        /// Example: {"conversation":{"guest_voice_id":"bYTqZQo3Jz7LQtmGTgwi","host_voice_id":"6lCwbsX1yVjD49QmpkTR"},"type":"conversation"}
+        /// The type of podcast to generate. Can be 'conversation', an interaction between two voices, or 'bulletin', a monologue.
         /// </param>
         /// <param name="source">
-        /// The source content for the Podcast.<br/>
-        /// Example: {"type":"url","url":"https://en.wikipedia.org/wiki/Cognitive_science"}
+        /// The source content for the Podcast.
         /// </param>
         /// <param name="qualityPreset">
         /// Output quality of the generated audio. Must be one of:<br/>
-        /// standard - standard output format, 128kbps with 44.1kHz sample rate.<br/>
-        /// high - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.<br/>
-        /// ultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.<br/>
-        /// ultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.<br/>
-        /// Default Value: standard<br/>
-        /// Example: standard
+        /// 'standard' - standard output format, 128kbps with 44.1kHz sample rate.<br/>
+        /// 'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.<br/>
+        /// 'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.<br/>
+        /// 'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.<br/>
+        /// Default Value: standard
         /// </param>
         /// <param name="durationScale">
         /// Duration of the generated podcast. Must be one of:<br/>
         /// short - produces podcasts shorter than 3 minutes.<br/>
         /// default - produces podcasts roughly between 3-7 minutes.<br/>
         /// long - produces podcasts longer than 7 minutes.<br/>
-        /// Default Value: default<br/>
-        /// Example: short
+        /// Default Value: default
         /// </param>
         /// <param name="language">
-        /// An optional language of the Studio project. Two-letter language code (ISO 639-1).<br/>
-        /// Example: en
+        /// An optional language of the Studio project. Two-letter language code (ISO 639-1).
         /// </param>
         /// <param name="intro">
-        /// The intro text that will always be added to the beginning of the podcast.<br/>
-        /// Example: Welcome to the podcast.
+        /// The intro text that will always be added to the beginning of the podcast.
         /// </param>
         /// <param name="outro">
-        /// The outro text that will always be added to the end of the podcast.<br/>
-        /// Example: Thank you for listening!
+        /// The outro text that will always be added to the end of the podcast.
         /// </param>
         /// <param name="instructionsPrompt">
-        /// Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.<br/>
-        /// Example: Ensure the podcast remains factual, accurate and appropriate for all audiences.
+        /// Additional instructions prompt for the podcast generation used to adjust the podcast's style and tone.
         /// </param>
         /// <param name="highlights">
-        /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.<br/>
-        /// Example: [Emphasize the importance of AI on education]
+        /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.
         /// </param>
         /// <param name="callbackUrl">
         ///     A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion<br/>
@@ -277,8 +255,14 @@ namespace ElevenLabs
         ///         error_details: "Error details if conversion failed"<br/>
         ///       }<br/>
         ///     }<br/>
-        ///     <br/>
-        /// Example: [https://www.test.com/my-api/projects-status]
+        ///     
+        /// </param>
+        /// <param name="applyTextNormalization">
+        ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
+        ///     When set to 'auto', the system will automatically decide whether to apply text normalization<br/>
+        ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while<br/>
+        ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
+        ///     
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -294,7 +278,8 @@ namespace ElevenLabs
             string? outro,
             string? instructionsPrompt,
             global::System.Collections.Generic.IList<string>? highlights,
-            string? callbackUrl)
+            string? callbackUrl,
+            global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2? applyTextNormalization)
         {
             this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.Mode = mode;
@@ -307,6 +292,7 @@ namespace ElevenLabs
             this.InstructionsPrompt = instructionsPrompt;
             this.Highlights = highlights;
             this.CallbackUrl = callbackUrl;
+            this.ApplyTextNormalization = applyTextNormalization;
         }
 
         /// <summary>

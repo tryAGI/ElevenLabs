@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Dispatched,
+        /// <summary>
+        /// 
+        /// </summary>
         Initiated,
         /// <summary>
         /// 
@@ -51,6 +55,7 @@ namespace ElevenLabs
             return value switch
             {
                 BatchCallRecipientStatus.Pending => "pending",
+                BatchCallRecipientStatus.Dispatched => "dispatched",
                 BatchCallRecipientStatus.Initiated => "initiated",
                 BatchCallRecipientStatus.InProgress => "in_progress",
                 BatchCallRecipientStatus.Completed => "completed",
@@ -68,6 +73,7 @@ namespace ElevenLabs
             return value switch
             {
                 "pending" => BatchCallRecipientStatus.Pending,
+                "dispatched" => BatchCallRecipientStatus.Dispatched,
                 "initiated" => BatchCallRecipientStatus.Initiated,
                 "in_progress" => BatchCallRecipientStatus.InProgress,
                 "completed" => BatchCallRecipientStatus.Completed,

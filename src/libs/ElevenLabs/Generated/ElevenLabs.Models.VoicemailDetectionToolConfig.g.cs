@@ -15,11 +15,10 @@ namespace ElevenLabs
         /// Default Value: voicemail_detection
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_tool_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoicemailDetectionToolConfigSystemToolTypeJsonConverter))]
-        public global::ElevenLabs.VoicemailDetectionToolConfigSystemToolType? SystemToolType { get; set; }
+        public string? SystemToolType { get; set; }
 
         /// <summary>
-        /// Optional message to leave on voicemail when detected. If not provided, the call will end immediately when voicemail is detected.
+        /// Optional message to leave on voicemail when detected. If not provided, the call will end immediately when voicemail is detected. Supports dynamic variables (e.g., {{system__time}}, {{system__call_duration_secs}}, {{custom_variable}}).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voicemail_message")]
         public string? VoicemailMessage { get; set; }
@@ -37,13 +36,13 @@ namespace ElevenLabs
         /// Default Value: voicemail_detection
         /// </param>
         /// <param name="voicemailMessage">
-        /// Optional message to leave on voicemail when detected. If not provided, the call will end immediately when voicemail is detected.
+        /// Optional message to leave on voicemail when detected. If not provided, the call will end immediately when voicemail is detected. Supports dynamic variables (e.g., {{system__time}}, {{system__call_duration_secs}}, {{custom_variable}}).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VoicemailDetectionToolConfig(
-            global::ElevenLabs.VoicemailDetectionToolConfigSystemToolType? systemToolType,
+            string? systemToolType,
             string? voicemailMessage)
         {
             this.SystemToolType = systemToolType;

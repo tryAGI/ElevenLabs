@@ -12,8 +12,7 @@ namespace ElevenLabs
         /// Default Value: end_call
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_tool_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EndCallToolConfigSystemToolTypeJsonConverter))]
-        public global::ElevenLabs.EndCallToolConfigSystemToolType? SystemToolType { get; set; }
+        public string? SystemToolType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,7 +30,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EndCallToolConfig(
-            global::ElevenLabs.EndCallToolConfigSystemToolType? systemToolType)
+            string? systemToolType)
         {
             this.SystemToolType = systemToolType;
         }

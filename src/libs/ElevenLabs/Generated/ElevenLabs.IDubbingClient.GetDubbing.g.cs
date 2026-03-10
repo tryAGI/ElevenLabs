@@ -20,19 +20,28 @@ namespace ElevenLabs
         /// </param>
         /// <param name="filterByCreator">
         /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
-        /// Default Value: all<br/>
-        /// Example: all
+        /// Default Value: all
+        /// </param>
+        /// <param name="orderBy">
+        /// The field to use for ordering results from this query.<br/>
+        /// Default Value: created_at
+        /// </param>
+        /// <param name="orderDirection">
+        /// The order direction to use for results from this query.<br/>
+        /// Default Value: DESCENDING
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingMetadataPageResponseModel> GetDubbingAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.ListDubsV1DubbingGetDubbingStatus? dubbingStatus = default,
-            global::ElevenLabs.ListDubsV1DubbingGetFilterByCreator? filterByCreator = default,
+            global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
+            global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
+            string? orderBy = default,
+            global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

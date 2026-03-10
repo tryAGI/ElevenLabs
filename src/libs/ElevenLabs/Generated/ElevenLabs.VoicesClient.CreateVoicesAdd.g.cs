@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// Add a new voice to your collection of voices in VoiceLab.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -59,22 +59,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -113,7 +97,7 @@ namespace ElevenLabs
             {
 
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Labels}"),
+                    content: new global::System.Net.Http.StringContent(request.Labels?.ToString() ?? string.Empty),
                     name: "\"labels\"");
             }
             __httpRequest.Content = __httpRequestContent;
@@ -253,26 +237,23 @@ namespace ElevenLabs
         /// Add a new voice to your collection of voices in VoiceLab.
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
-        /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
-        /// Example: John Smith
+        /// The name that identifies this voice. This will be displayed in the dropdown of the website.
         /// </param>
         /// <param name="files">
         /// A list of file paths to audio recordings intended for voice cloning.
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
-        /// Default Value: false<br/>
-        /// Example: true
+        /// Default Value: false
         /// </param>
         /// <param name="description">
-        /// A description of the voice.<br/>
-        /// Example: An old American male voice with a slight hoarseness in his throat. Perfect for news.
+        /// A description of the voice.
         /// </param>
         /// <param name="labels">
-        /// Serialized labels dictionary for the voice.
+        /// Labels for the voice. Keys can be language, accent, gender, or age.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -282,7 +263,7 @@ namespace ElevenLabs
             string? xiApiKey = default,
             bool? removeBackgroundNoise = default,
             string? description = default,
-            string? labels = default,
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyAddVoiceV1VoicesAddPost

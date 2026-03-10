@@ -7,13 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareCreateMusicArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::ElevenLabs.ComposeMusicV1MusicPostOutputFormat? outputFormat,
+            ref global::ElevenLabs.AllowedOutputFormats? outputFormat,
             ref string? xiApiKey,
             global::ElevenLabs.BodyComposeMusicV1MusicPost request);
         partial void PrepareCreateMusicRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.ComposeMusicV1MusicPostOutputFormat? outputFormat,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat,
             string? xiApiKey,
             global::ElevenLabs.BodyComposeMusicV1MusicPost request);
         partial void ProcessCreateMusicResponse(
@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -42,7 +42,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<byte[]> CreateMusicAsync(
 
             global::ElevenLabs.BodyComposeMusicV1MusicPost request,
-            global::ElevenLabs.ComposeMusicV1MusicPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -70,22 +70,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -239,43 +223,78 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="prompt">
         /// A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
         /// </param>
-        /// <param name="musicPrompt">
-        /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
-        /// </param>
         /// <param name="compositionPlan">
-        /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
+        /// A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`.
         /// </param>
         /// <param name="musicLengthMs">
-        /// The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 10000ms and 300000ms. Optional - if not provided, the model will choose a length based on the prompt.
+        /// The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt.
         /// </param>
         /// <param name="modelId">
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="seed">
+        /// Random seed to initialize the music generation process. Providing the same seed with the same parameters can help achieve more consistent results, but exact reproducibility is not guaranteed and outputs may change across system updates. Cannot be used in conjunction with prompt.
+        /// </param>
+        /// <param name="forceInstrumental">
+        /// If true, guarantees that the generated song will be instrumental. If false, the song may or may not be instrumental depending on the `prompt`. Can only be used with `prompt`.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="finetuneId">
+        /// The ID of the finetune to use for the generation
+        /// </param>
+        /// <param name="usePhoneticNames">
+        /// If true, proper names in the prompt will be phonetically spelled in the lyrics for better pronunciation by the music model. The original names will be restored in word timestamps.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="respectSectionsDurations">
+        /// Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan`. When set to true, the model will precisely respect each section's `duration_ms` from the plan. When set to false, the model may adjust individual section durations which will generally lead to better generation quality and improved latency, while always preserving the total song duration from the plan.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="storeForInpainting">
+        /// Whether to store the generated song for inpainting. Only available to enterprise clients with access to the inpainting feature.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="signWithC2pa">
+        /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> CreateMusicAsync(
-            global::ElevenLabs.ComposeMusicV1MusicPostOutputFormat? outputFormat = default,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             string? prompt = default,
-            global::ElevenLabs.MusicPrompt? musicPrompt = default,
             global::ElevenLabs.MusicPrompt? compositionPlan = default,
             int? musicLengthMs = default,
             global::ElevenLabs.BodyComposeMusicV1MusicPostModelId? modelId = default,
+            int? seed = default,
+            bool? forceInstrumental = default,
+            string? finetuneId = default,
+            bool? usePhoneticNames = default,
+            bool? respectSectionsDurations = default,
+            bool? storeForInpainting = default,
+            bool? signWithC2pa = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyComposeMusicV1MusicPost
             {
                 Prompt = prompt,
-                MusicPrompt = musicPrompt,
                 CompositionPlan = compositionPlan,
                 MusicLengthMs = musicLengthMs,
                 ModelId = modelId,
+                Seed = seed,
+                ForceInstrumental = forceInstrumental,
+                FinetuneId = finetuneId,
+                UsePhoneticNames = usePhoneticNames,
+                RespectSectionsDurations = respectSectionsDurations,
+                StoreForInpainting = storeForInpainting,
+                SignWithC2pa = signWithC2pa,
             };
 
             return await CreateMusicAsync(

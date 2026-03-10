@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -9,43 +11,38 @@ namespace ElevenLabs
     public sealed partial class BodyAddVoiceV1VoicesAddPost
     {
         /// <summary>
-        /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
-        /// Example: John Smith
+        /// The name that identifies this voice. This will be displayed in the dropdown of the website.
         /// </summary>
-        /// <example>John Smith</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// A list of file paths to audio recordings intended for voice cloning.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<byte[]> Files { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<byte[]> Files { get; set; }
 
         /// <summary>
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
-        /// Default Value: false<br/>
-        /// Example: true
+        /// Default Value: false
         /// </summary>
-        /// <example>true</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("remove_background_noise")]
         public bool? RemoveBackgroundNoise { get; set; }
 
         /// <summary>
-        /// A description of the voice.<br/>
-        /// Example: An old American male voice with a slight hoarseness in his throat. Perfect for news.
+        /// A description of the voice.
         /// </summary>
-        /// <example>An old American male voice with a slight hoarseness in his throat. Perfect for news.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// Serialized labels dictionary for the voice.
+        /// Labels for the voice. Keys can be language, accent, gender, or age.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
-        public string? Labels { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.Dictionary<string, string>, string, object>))]
+        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? Labels { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,23 +54,20 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyAddVoiceV1VoicesAddPost" /> class.
         /// </summary>
         /// <param name="name">
-        /// The name that identifies this voice. This will be displayed in the dropdown of the website.<br/>
-        /// Example: John Smith
+        /// The name that identifies this voice. This will be displayed in the dropdown of the website.
         /// </param>
         /// <param name="files">
         /// A list of file paths to audio recordings intended for voice cloning.
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
-        /// Default Value: false<br/>
-        /// Example: true
+        /// Default Value: false
         /// </param>
         /// <param name="description">
-        /// A description of the voice.<br/>
-        /// Example: An old American male voice with a slight hoarseness in his throat. Perfect for news.
+        /// A description of the voice.
         /// </param>
         /// <param name="labels">
-        /// Serialized labels dictionary for the voice.
+        /// Labels for the voice. Keys can be language, accent, gender, or age.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -83,7 +77,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]> files,
             bool? removeBackgroundNoise,
             string? description,
-            string? labels)
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Files = files ?? throw new global::System.ArgumentNullException(nameof(files));

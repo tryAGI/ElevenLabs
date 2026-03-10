@@ -13,8 +13,7 @@ namespace ElevenLabs
         /// Default Value: orb
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OrbAvatarTypeJsonConverter))]
-        public global::ElevenLabs.OrbAvatarType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// The first color of the avatar<br/>
@@ -55,7 +54,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public OrbAvatar(
-            global::ElevenLabs.OrbAvatarType? type,
+            string? type,
             string? color1,
             string? color2)
         {

@@ -159,6 +159,114 @@ namespace ElevenLabs
         public string? CopyId { get; set; }
 
         /// <summary>
+        /// Text displayed to prompt the user for feedback.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("initiate_feedback")]
+        public string? InitiateFeedback { get; set; }
+
+        /// <summary>
+        /// Text displayed to request additional feedback details.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_follow_up_feedback")]
+        public string? RequestFollowUpFeedback { get; set; }
+
+        /// <summary>
+        /// Text displayed to thank the user for providing feedback.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("thanks_for_feedback")]
+        public string? ThanksForFeedback { get; set; }
+
+        /// <summary>
+        /// Additional text displayed explaining the value of user feedback.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("thanks_for_feedback_details")]
+        public string? ThanksForFeedbackDetails { get; set; }
+
+        /// <summary>
+        /// Placeholder text for the follow-up feedback input field.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("follow_up_feedback_placeholder")]
+        public string? FollowUpFeedbackPlaceholder { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the submit button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("submit")]
+        public string? Submit { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the go back button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("go_back")]
+        public string? GoBack { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the send message button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("send_message")]
+        public string? SendMessage { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the switch to text mode button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_mode")]
+        public string? TextMode { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the switch to voice mode button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_mode")]
+        public string? VoiceMode { get; set; }
+
+        /// <summary>
+        /// Toast notification displayed when switching to text mode.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("switched_to_text_mode")]
+        public string? SwitchedToTextMode { get; set; }
+
+        /// <summary>
+        /// Toast notification displayed when switching to voice mode.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("switched_to_voice_mode")]
+        public string? SwitchedToVoiceMode { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the copy button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("copy")]
+        public string? Copy { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the download button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("download")]
+        public string? Download { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the wrap toggle button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("wrap")]
+        public string? Wrap { get; set; }
+
+        /// <summary>
+        /// Status text displayed when the agent is processing a tool call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_working")]
+        public string? AgentWorking { get; set; }
+
+        /// <summary>
+        /// Status text displayed when the agent finishes processing a tool call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_done")]
+        public string? AgentDone { get; set; }
+
+        /// <summary>
+        /// Status text displayed when the agent encounters an error during a tool call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_error")]
+        public string? AgentError { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -242,6 +350,60 @@ namespace ElevenLabs
         /// <param name="copyId">
         /// Text and ARIA label used for the copy ID button.
         /// </param>
+        /// <param name="initiateFeedback">
+        /// Text displayed to prompt the user for feedback.
+        /// </param>
+        /// <param name="requestFollowUpFeedback">
+        /// Text displayed to request additional feedback details.
+        /// </param>
+        /// <param name="thanksForFeedback">
+        /// Text displayed to thank the user for providing feedback.
+        /// </param>
+        /// <param name="thanksForFeedbackDetails">
+        /// Additional text displayed explaining the value of user feedback.
+        /// </param>
+        /// <param name="followUpFeedbackPlaceholder">
+        /// Placeholder text for the follow-up feedback input field.
+        /// </param>
+        /// <param name="submit">
+        /// Text and ARIA label for the submit button.
+        /// </param>
+        /// <param name="goBack">
+        /// Text and ARIA label for the go back button.
+        /// </param>
+        /// <param name="sendMessage">
+        /// Text and ARIA label for the send message button.
+        /// </param>
+        /// <param name="textMode">
+        /// Text and ARIA label for the switch to text mode button.
+        /// </param>
+        /// <param name="voiceMode">
+        /// Text and ARIA label for the switch to voice mode button.
+        /// </param>
+        /// <param name="switchedToTextMode">
+        /// Toast notification displayed when switching to text mode.
+        /// </param>
+        /// <param name="switchedToVoiceMode">
+        /// Toast notification displayed when switching to voice mode.
+        /// </param>
+        /// <param name="copy">
+        /// Text and ARIA label for the copy button.
+        /// </param>
+        /// <param name="download">
+        /// Text and ARIA label for the download button.
+        /// </param>
+        /// <param name="wrap">
+        /// Text and ARIA label for the wrap toggle button.
+        /// </param>
+        /// <param name="agentWorking">
+        /// Status text displayed when the agent is processing a tool call.
+        /// </param>
+        /// <param name="agentDone">
+        /// Status text displayed when the agent finishes processing a tool call.
+        /// </param>
+        /// <param name="agentError">
+        /// Status text displayed when the agent encounters an error during a tool call.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -270,7 +432,25 @@ namespace ElevenLabs
             string? agentEndedConversation,
             string? conversationId,
             string? errorOccurred,
-            string? copyId)
+            string? copyId,
+            string? initiateFeedback,
+            string? requestFollowUpFeedback,
+            string? thanksForFeedback,
+            string? thanksForFeedbackDetails,
+            string? followUpFeedbackPlaceholder,
+            string? submit,
+            string? goBack,
+            string? sendMessage,
+            string? textMode,
+            string? voiceMode,
+            string? switchedToTextMode,
+            string? switchedToVoiceMode,
+            string? copy,
+            string? download,
+            string? wrap,
+            string? agentWorking,
+            string? agentDone,
+            string? agentError)
         {
             this.MainLabel = mainLabel;
             this.StartCall = startCall;
@@ -297,6 +477,24 @@ namespace ElevenLabs
             this.ConversationId = conversationId;
             this.ErrorOccurred = errorOccurred;
             this.CopyId = copyId;
+            this.InitiateFeedback = initiateFeedback;
+            this.RequestFollowUpFeedback = requestFollowUpFeedback;
+            this.ThanksForFeedback = thanksForFeedback;
+            this.ThanksForFeedbackDetails = thanksForFeedbackDetails;
+            this.FollowUpFeedbackPlaceholder = followUpFeedbackPlaceholder;
+            this.Submit = submit;
+            this.GoBack = goBack;
+            this.SendMessage = sendMessage;
+            this.TextMode = textMode;
+            this.VoiceMode = voiceMode;
+            this.SwitchedToTextMode = switchedToTextMode;
+            this.SwitchedToVoiceMode = switchedToVoiceMode;
+            this.Copy = copy;
+            this.Download = download;
+            this.Wrap = wrap;
+            this.AgentWorking = agentWorking;
+            this.AgentDone = agentDone;
+            this.AgentError = agentError;
         }
 
         /// <summary>

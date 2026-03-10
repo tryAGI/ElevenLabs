@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Commenter,
+        /// <summary>
+        /// 
+        /// </summary>
         Viewer,
     }
 
@@ -36,6 +40,7 @@ namespace ElevenLabs
             {
                 ResourceAccessInfoRole.Admin => "admin",
                 ResourceAccessInfoRole.Editor => "editor",
+                ResourceAccessInfoRole.Commenter => "commenter",
                 ResourceAccessInfoRole.Viewer => "viewer",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -49,6 +54,7 @@ namespace ElevenLabs
             {
                 "admin" => ResourceAccessInfoRole.Admin,
                 "editor" => ResourceAccessInfoRole.Editor,
+                "commenter" => ResourceAccessInfoRole.Commenter,
                 "viewer" => ResourceAccessInfoRole.Viewer,
                 _ => null,
             };

@@ -23,9 +23,9 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"segmented_json"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SegmentedJsonExportOptionsFormatJsonConverter))]
-        public global::ElevenLabs.SegmentedJsonExportOptionsFormat Format { get; set; }
+        public string Format { get; set; } = "segmented_json";
 
         /// <summary>
         /// 
@@ -70,10 +70,10 @@ namespace ElevenLabs
         public SegmentedJsonExportOptions(
             bool? includeSpeakers,
             bool? includeTimestamps,
-            global::ElevenLabs.SegmentedJsonExportOptionsFormat format,
             double? segmentOnSilenceLongerThanS,
             double? maxSegmentDurationS,
-            int? maxSegmentChars)
+            int? maxSegmentChars,
+            string format = "segmented_json")
         {
             this.IncludeSpeakers = includeSpeakers;
             this.IncludeTimestamps = includeTimestamps;

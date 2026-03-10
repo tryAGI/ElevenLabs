@@ -13,8 +13,7 @@ namespace ElevenLabs
         /// Default Value: unknown
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DependentUnknownToolIdentifierTypeJsonConverter))]
-        public global::ElevenLabs.DependentUnknownToolIdentifierType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -32,7 +31,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DependentUnknownToolIdentifier(
-            global::ElevenLabs.DependentUnknownToolIdentifierType? type)
+            string? type)
         {
             this.Type = type;
         }

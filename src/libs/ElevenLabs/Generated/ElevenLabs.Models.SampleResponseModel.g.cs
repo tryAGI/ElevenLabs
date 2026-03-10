@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SampleId { get; set; } = default!;
+        public required string SampleId { get; set; }
 
         /// <summary>
         /// The name of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FileName { get; set; } = default!;
+        public required string FileName { get; set; }
 
         /// <summary>
         /// The MIME type of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string MimeType { get; set; } = default!;
+        public required string MimeType { get; set; }
 
         /// <summary>
         /// The size of the sample file in bytes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int SizeBytes { get; set; } = default!;
+        public required int SizeBytes { get; set; }
 
         /// <summary>
         /// The hash of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hash")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Hash { get; set; } = default!;
+        public required string Hash { get; set; }
 
         /// <summary>
         /// 
@@ -68,9 +68,8 @@ namespace ElevenLabs
         public bool? HasIsolatedAudioPreview { get; set; }
 
         /// <summary>
-        /// Example: {"sample_id":"DCwhRBWXzGAHq8TQ4Fs18","status":"not_started","voice_id":"DCwhRBWXzGAHq8TQ4Fs18"}
+        /// 
         /// </summary>
-        /// <example>{"sample_id":"DCwhRBWXzGAHq8TQ4Fs18","status":"not_started","voice_id":"DCwhRBWXzGAHq8TQ4Fs18"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_separation")]
         public global::ElevenLabs.SpeakerSeparationResponseModel? SpeakerSeparation { get; set; }
 
@@ -114,9 +113,7 @@ namespace ElevenLabs
         /// <param name="removeBackgroundNoise"></param>
         /// <param name="hasIsolatedAudio"></param>
         /// <param name="hasIsolatedAudioPreview"></param>
-        /// <param name="speakerSeparation">
-        /// Example: {"sample_id":"DCwhRBWXzGAHq8TQ4Fs18","status":"not_started","voice_id":"DCwhRBWXzGAHq8TQ4Fs18"}
-        /// </param>
+        /// <param name="speakerSeparation"></param>
         /// <param name="trimStart"></param>
         /// <param name="trimEnd"></param>
 #if NET7_0_OR_GREATER

@@ -15,22 +15,10 @@ namespace ElevenLabs
         public byte[]? File { get; set; }
 
         /// <summary>
-        /// A list of file paths to audio recordings intended for voice cloning
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
-        public string? Filename { get; set; }
-
-        /// <summary>
         /// CSV file containing transcription/translation metadata
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("csv_file")]
         public byte[]? CsvFile { get; set; }
-
-        /// <summary>
-        /// CSV file containing transcription/translation metadata
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("csv_filename")]
-        public string? CsvFilename { get; set; }
 
         /// <summary>
         /// For use only with csv input
@@ -41,20 +29,8 @@ namespace ElevenLabs
         /// <summary>
         /// For use only with csv input
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("foreground_audio_filename")]
-        public string? ForegroundAudioFilename { get; set; }
-
-        /// <summary>
-        /// For use only with csv input
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("background_audio_file")]
         public byte[]? BackgroundAudioFile { get; set; }
-
-        /// <summary>
-        /// For use only with csv input
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("background_audio_filename")]
-        public string? BackgroundAudioFilename { get; set; }
 
         /// <summary>
         /// Name of the dubbing project.
@@ -69,14 +45,14 @@ namespace ElevenLabs
         public string? SourceUrl { get; set; }
 
         /// <summary>
-        /// Source language.<br/>
+        /// Source language. Expects a valid iso639-1 or iso639-3 language code.<br/>
         /// Default Value: auto
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_lang")]
         public string? SourceLang { get; set; }
 
         /// <summary>
-        /// The Target language to dub the content into.
+        /// The Target language to dub the content into. Expects a valid iso639-1 or iso639-3 language code.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_lang")]
         public string? TargetLang { get; set; }
@@ -141,18 +117,19 @@ namespace ElevenLabs
         public bool? DubbingStudio { get; set; }
 
         /// <summary>
-        /// [BETA] Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library.<br/>
+        /// Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library. Voices used from the library will contribute towards a workspace's custom voices limit, and if there aren't enough available slots the dub will fail. Using this feature requires the caller to have the 'add_voice_from_voice_library' permission on their workspace to access new voices.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_voice_cloning")]
         public bool? DisableVoiceCloning { get; set; }
 
         /// <summary>
-        /// automatic or manual. Manual mode is only supported when creating a dubbing studio project<br/>
+        /// The mode in which to run this Dubbing job. Defaults to automatic, use manual if specifically providing a CSV transcript to use. Note that manual mode is experimental and production use is strongly discouraged.<br/>
         /// Default Value: automatic
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
-        public string? Mode { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyDubAVideoOrAnAudioFileV1DubbingPostModeJsonConverter))]
+        public global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPostMode? Mode { get; set; }
 
         /// <summary>
         /// Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes.
@@ -172,25 +149,13 @@ namespace ElevenLabs
         /// <param name="file">
         /// A list of file paths to audio recordings intended for voice cloning
         /// </param>
-        /// <param name="filename">
-        /// A list of file paths to audio recordings intended for voice cloning
-        /// </param>
         /// <param name="csvFile">
-        /// CSV file containing transcription/translation metadata
-        /// </param>
-        /// <param name="csvFilename">
         /// CSV file containing transcription/translation metadata
         /// </param>
         /// <param name="foregroundAudioFile">
         /// For use only with csv input
         /// </param>
-        /// <param name="foregroundAudioFilename">
-        /// For use only with csv input
-        /// </param>
         /// <param name="backgroundAudioFile">
-        /// For use only with csv input
-        /// </param>
-        /// <param name="backgroundAudioFilename">
         /// For use only with csv input
         /// </param>
         /// <param name="name">
@@ -200,11 +165,11 @@ namespace ElevenLabs
         /// URL of the source video/audio file.
         /// </param>
         /// <param name="sourceLang">
-        /// Source language.<br/>
+        /// Source language. Expects a valid iso639-1 or iso639-3 language code.<br/>
         /// Default Value: auto
         /// </param>
         /// <param name="targetLang">
-        /// The Target language to dub the content into.
+        /// The Target language to dub the content into. Expects a valid iso639-1 or iso639-3 language code.
         /// </param>
         /// <param name="targetAccent">
         /// [Experimental] An accent to apply when selecting voices from the library and to use to inform translation of the dialect to prefer.
@@ -239,11 +204,11 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="disableVoiceCloning">
-        /// [BETA] Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library.<br/>
+        /// Instead of using a voice clone in dubbing, use a similar voice from the ElevenLabs Voice Library. Voices used from the library will contribute towards a workspace's custom voices limit, and if there aren't enough available slots the dub will fail. Using this feature requires the caller to have the 'add_voice_from_voice_library' permission on their workspace to access new voices.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="mode">
-        /// automatic or manual. Manual mode is only supported when creating a dubbing studio project<br/>
+        /// The mode in which to run this Dubbing job. Defaults to automatic, use manual if specifically providing a CSV transcript to use. Note that manual mode is experimental and production use is strongly discouraged.<br/>
         /// Default Value: automatic
         /// </param>
         /// <param name="csvFps">
@@ -254,13 +219,9 @@ namespace ElevenLabs
 #endif
         public BodyDubAVideoOrAnAudioFileV1DubbingPost(
             byte[]? file,
-            string? filename,
             byte[]? csvFile,
-            string? csvFilename,
             byte[]? foregroundAudioFile,
-            string? foregroundAudioFilename,
             byte[]? backgroundAudioFile,
-            string? backgroundAudioFilename,
             string? name,
             string? sourceUrl,
             string? sourceLang,
@@ -275,17 +236,13 @@ namespace ElevenLabs
             bool? useProfanityFilter,
             bool? dubbingStudio,
             bool? disableVoiceCloning,
-            string? mode,
+            global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPostMode? mode,
             double? csvFps)
         {
             this.File = file;
-            this.Filename = filename;
             this.CsvFile = csvFile;
-            this.CsvFilename = csvFilename;
             this.ForegroundAudioFile = foregroundAudioFile;
-            this.ForegroundAudioFilename = foregroundAudioFilename;
             this.BackgroundAudioFile = backgroundAudioFile;
-            this.BackgroundAudioFilename = backgroundAudioFilename;
             this.Name = name;
             this.SourceUrl = sourceUrl;
             this.SourceLang = sourceLang;

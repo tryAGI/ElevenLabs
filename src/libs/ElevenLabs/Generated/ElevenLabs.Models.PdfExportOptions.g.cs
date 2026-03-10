@@ -23,9 +23,9 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"pdf"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PdfExportOptionsFormatJsonConverter))]
-        public global::ElevenLabs.PdfExportOptionsFormat Format { get; set; }
+        public string Format { get; set; } = "pdf";
 
         /// <summary>
         /// 
@@ -70,10 +70,10 @@ namespace ElevenLabs
         public PdfExportOptions(
             bool? includeSpeakers,
             bool? includeTimestamps,
-            global::ElevenLabs.PdfExportOptionsFormat format,
             double? segmentOnSilenceLongerThanS,
             double? maxSegmentDurationS,
-            int? maxSegmentChars)
+            int? maxSegmentChars,
+            string format = "pdf")
         {
             this.IncludeSpeakers = includeSpeakers;
             this.IncludeTimestamps = includeTimestamps;

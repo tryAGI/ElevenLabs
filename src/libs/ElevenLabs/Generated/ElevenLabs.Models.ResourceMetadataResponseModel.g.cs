@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"creator_user_id":"5zavrE1kZXv2lFw9BKgEkf0B5Wqo","resource_id":"4ZUqyldxf71HqUbcP2Lc","resource_type":"voice","role_to_group_ids":{"admin":["5zavrE1kZXv2lFw9BKgEkf0B5Wqo"],"editor":["8ruQDGM2R4w1mFbHI5aROCUjIpJZ"],"viewer":[]},"share_options":[{"id":"i2YYI6huwBmcgYydAXARmQJc3pmX","name":"user@example.com","type":"user"},{"id":"x1AfvYKAmiqxCnbvZeNXHqqthJaC","name":"mygroup","type":"group"}]}
+    /// Example: {"anonymous_access_level_override":"viewer","creator_user_id":"5zavrE1kZXv2lFw9BKgEkf0B5Wqo","resource_id":"4ZUqyldxf71HqUbcP2Lc","resource_name":"My Custom Voice","resource_type":"voice","role_to_group_ids":{"admin":["5zavrE1kZXv2lFw9BKgEkf0B5Wqo"],"editor":["8ruQDGM2R4w1mFbHI5aROCUjIpJZ"],"viewer":[]},"share_options":[{"id":"i2YYI6huwBmcgYydAXARmQJc3pmX","name":"user@example.com","type":"user"},{"id":"x1AfvYKAmiqxCnbvZeNXHqqthJaC","name":"mygroup","type":"group"}]}
     /// </summary>
     public sealed partial class ResourceMetadataResponseModel
     {
@@ -13,36 +13,47 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ResourceId { get; set; } = default!;
+        public required string ResourceId { get; set; }
 
         /// <summary>
-        /// Resource types that can be shared in the workspace. The name always need to match the collection names
+        /// The name of the resource, if available.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("resource_name")]
+        public string? ResourceName { get; set; }
+
+        /// <summary>
+        /// The type of the resource.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WorkspaceResourceTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.WorkspaceResourceType ResourceType { get; set; } = default!;
+        public required global::ElevenLabs.WorkspaceResourceType ResourceType { get; set; }
 
         /// <summary>
         /// The ID of the user who created the resource.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creator_user_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string? CreatorUserId { get; set; } = default!;
+        public string? CreatorUserId { get; set; }
+
+        /// <summary>
+        /// The access level for anonymous users. If None, the resource is not shared publicly.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("anonymous_access_level_override")]
+        public global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride2? AnonymousAccessLevelOverride { get; set; }
 
         /// <summary>
         /// A mapping of roles to group IDs. When the resource is shared with a user, the group id is the user's id.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role_to_group_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>> RoleToGroupIds { get; set; } = default!;
+        public required global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>> RoleToGroupIds { get; set; }
 
         /// <summary>
         /// List of options for sharing the resource further in the workspace. These are users who don't have access to the resource yet.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("share_options")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel> ShareOptions { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel> ShareOptions { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -56,11 +67,17 @@ namespace ElevenLabs
         /// <param name="resourceId">
         /// The ID of the resource.
         /// </param>
+        /// <param name="resourceName">
+        /// The name of the resource, if available.
+        /// </param>
         /// <param name="resourceType">
-        /// Resource types that can be shared in the workspace. The name always need to match the collection names
+        /// The type of the resource.
         /// </param>
         /// <param name="creatorUserId">
         /// The ID of the user who created the resource.
+        /// </param>
+        /// <param name="anonymousAccessLevelOverride">
+        /// The access level for anonymous users. If None, the resource is not shared publicly.
         /// </param>
         /// <param name="roleToGroupIds">
         /// A mapping of roles to group IDs. When the resource is shared with a user, the group id is the user's id.
@@ -74,15 +91,19 @@ namespace ElevenLabs
         public ResourceMetadataResponseModel(
             string resourceId,
             global::ElevenLabs.WorkspaceResourceType resourceType,
-            string? creatorUserId,
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>> roleToGroupIds,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel> shareOptions)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel> shareOptions,
+            string? resourceName,
+            string? creatorUserId,
+            global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride2? anonymousAccessLevelOverride)
         {
             this.ResourceId = resourceId ?? throw new global::System.ArgumentNullException(nameof(resourceId));
             this.ResourceType = resourceType;
-            this.CreatorUserId = creatorUserId ?? throw new global::System.ArgumentNullException(nameof(creatorUserId));
             this.RoleToGroupIds = roleToGroupIds ?? throw new global::System.ArgumentNullException(nameof(roleToGroupIds));
             this.ShareOptions = shareOptions ?? throw new global::System.ArgumentNullException(nameof(shareOptions));
+            this.ResourceName = resourceName;
+            this.CreatorUserId = creatorUserId;
+            this.AnonymousAccessLevelOverride = anonymousAccessLevelOverride;
         }
 
         /// <summary>

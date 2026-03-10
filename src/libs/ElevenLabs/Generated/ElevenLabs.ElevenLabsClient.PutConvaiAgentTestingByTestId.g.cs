@@ -9,13 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string testId,
             ref string? xiApiKey,
-            global::ElevenLabs.UpdateUnitTestRequest request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest> request);
         partial void PreparePutConvaiAgentTestingByTestIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string testId,
             string? xiApiKey,
-            global::ElevenLabs.UpdateUnitTestRequest request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest> request);
         partial void ProcessPutConvaiAgentTestingByTestIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,24 +30,21 @@ namespace ElevenLabs
         /// Updates an agent response test by ID.
         /// </summary>
         /// <param name="testId">
-        /// The id of a chat response test. This is returned on test creation.<br/>
-        /// Example: TeaqRRdTcIfIu2i7BYfT
+        /// The id of a chat response test. This is returned on test creation.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetUnitTestResponseModel> PutConvaiAgentTestingByTestIdAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateAgentResponseTestRouteResponse> PutConvaiAgentTestingByTestIdAsync(
             string testId,
 
-            global::ElevenLabs.UpdateUnitTestRequest request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest> request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
             PreparePutConvaiAgentTestingByTestIdArguments(
@@ -67,22 +64,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -177,7 +158,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.GetUnitTestResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        global::ElevenLabs.UpdateAgentResponseTestRouteResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -208,7 +189,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.GetUnitTestResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::ElevenLabs.UpdateAgentResponseTestRouteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -232,50 +213,20 @@ namespace ElevenLabs
         /// Updates an agent response test by ID.
         /// </summary>
         /// <param name="testId">
-        /// The id of a chat response test. This is returned on test creation.<br/>
-        /// Example: TeaqRRdTcIfIu2i7BYfT
+        /// The id of a chat response test. This is returned on test creation.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="chatHistory"></param>
-        /// <param name="successCondition">
-        /// A prompt that evaluates whether the agent's response is successful. Should return True or False.
-        /// </param>
-        /// <param name="successExamples">
-        /// Non-empty list of example responses that should be considered successful
-        /// </param>
-        /// <param name="failureExamples">
-        /// Non-empty list of example responses that should be considered failures
-        /// </param>
-        /// <param name="toolCallParameters"></param>
-        /// <param name="dynamicVariables">
-        /// Dynamic variables to replace in the agent config during testing
-        /// </param>
-        /// <param name="name"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetUnitTestResponseModel> PutConvaiAgentTestingByTestIdAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateAgentResponseTestRouteResponse> PutConvaiAgentTestingByTestIdAsync(
             string testId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput> chatHistory,
-            string successCondition,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AgentSuccessfulResponseExample> successExamples,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AgentFailureResponseExample> failureExamples,
-            string name,
             string? xiApiKey = default,
-            global::ElevenLabs.UnitTestToolCallEvaluationModelInput? toolCallParameters = default,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnyOf<string, double?, int?, bool?>?>? dynamicVariables = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.UpdateUnitTestRequest
+            var __request = new global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest>
             {
-                ChatHistory = chatHistory,
-                SuccessCondition = successCondition,
-                SuccessExamples = successExamples,
-                FailureExamples = failureExamples,
-                ToolCallParameters = toolCallParameters,
-                DynamicVariables = dynamicVariables,
-                Name = name,
             };
 
             return await PutConvaiAgentTestingByTestIdAsync(

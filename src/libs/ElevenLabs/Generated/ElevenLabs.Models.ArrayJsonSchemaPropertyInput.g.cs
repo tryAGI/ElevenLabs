@@ -14,8 +14,7 @@ namespace ElevenLabs
         /// Default Value: array
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ArrayJsonSchemaPropertyInputTypeJsonConverter))]
-        public global::ElevenLabs.ArrayJsonSchemaPropertyInputType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
@@ -29,7 +28,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OneOfJsonConverter<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput> Items { get; set; } = default!;
+        public required global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput> Items { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -50,7 +49,7 @@ namespace ElevenLabs
 #endif
         public ArrayJsonSchemaPropertyInput(
             global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput> items,
-            global::ElevenLabs.ArrayJsonSchemaPropertyInputType? type,
+            string? type,
             string? description)
         {
             this.Items = items;

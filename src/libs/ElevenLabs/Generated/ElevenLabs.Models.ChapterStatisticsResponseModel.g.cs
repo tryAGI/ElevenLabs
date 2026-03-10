@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10}
+    /// Example: {"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10,"voice_statistics":[{"characters_converted":300,"characters_unconverted":600,"voice_id":"voice123"},{"characters_converted":200,"characters_unconverted":400,"voice_id":"voice456"}]}
     /// </summary>
     public sealed partial class ChapterStatisticsResponseModel
     {
@@ -13,28 +13,34 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("characters_unconverted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharactersUnconverted { get; set; } = default!;
+        public required int CharactersUnconverted { get; set; }
 
         /// <summary>
         /// The number of converted characters.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("characters_converted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharactersConverted { get; set; } = default!;
+        public required int CharactersConverted { get; set; }
 
         /// <summary>
         /// The number of converted paragraphs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("paragraphs_converted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ParagraphsConverted { get; set; } = default!;
+        public required int ParagraphsConverted { get; set; }
 
         /// <summary>
         /// The number of unconverted paragraphs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("paragraphs_unconverted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ParagraphsUnconverted { get; set; } = default!;
+        public required int ParagraphsUnconverted { get; set; }
+
+        /// <summary>
+        /// Per-voice breakdown of character counts.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_statistics")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceStatisticsResponseModel>? VoiceStatistics { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,6 +63,9 @@ namespace ElevenLabs
         /// <param name="paragraphsUnconverted">
         /// The number of unconverted paragraphs.
         /// </param>
+        /// <param name="voiceStatistics">
+        /// Per-voice breakdown of character counts.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -64,12 +73,14 @@ namespace ElevenLabs
             int charactersUnconverted,
             int charactersConverted,
             int paragraphsConverted,
-            int paragraphsUnconverted)
+            int paragraphsUnconverted,
+            global::System.Collections.Generic.IList<global::ElevenLabs.VoiceStatisticsResponseModel>? voiceStatistics)
         {
             this.CharactersUnconverted = charactersUnconverted;
             this.CharactersConverted = charactersConverted;
             this.ParagraphsConverted = paragraphsConverted;
             this.ParagraphsUnconverted = paragraphsUnconverted;
+            this.VoiceStatistics = voiceStatistics;
         }
 
         /// <summary>

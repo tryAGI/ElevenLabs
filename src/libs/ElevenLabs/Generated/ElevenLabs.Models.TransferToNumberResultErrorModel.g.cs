@@ -12,22 +12,20 @@ namespace ElevenLabs
         /// Default Value: transfer_to_number_error
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToNumberResultErrorModelResultTypeJsonConverter))]
-        public global::ElevenLabs.TransferToNumberResultErrorModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: error
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToNumberResultErrorModelStatusJsonConverter))]
-        public global::ElevenLabs.TransferToNumberResultErrorModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Error { get; set; } = default!;
+        public required string Error { get; set; }
 
         /// <summary>
         /// 
@@ -57,8 +55,8 @@ namespace ElevenLabs
 #endif
         public TransferToNumberResultErrorModel(
             string error,
-            global::ElevenLabs.TransferToNumberResultErrorModelResultType? resultType,
-            global::ElevenLabs.TransferToNumberResultErrorModelStatus? status,
+            string? resultType,
+            string? status,
             string? details)
         {
             this.Error = error ?? throw new global::System.ArgumentNullException(nameof(error));

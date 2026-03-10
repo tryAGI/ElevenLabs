@@ -12,22 +12,20 @@ namespace ElevenLabs
         /// Default Value: transfer_to_number_sip_success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToNumberResultSipSuccessModelResultTypeJsonConverter))]
-        public global::ElevenLabs.TransferToNumberResultSipSuccessModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferToNumberResultSipSuccessModelStatusJsonConverter))]
-        public global::ElevenLabs.TransferToNumberResultSipSuccessModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TransferNumber { get; set; } = default!;
+        public required string TransferNumber { get; set; }
 
         /// <summary>
         /// 
@@ -64,8 +62,8 @@ namespace ElevenLabs
 #endif
         public TransferToNumberResultSipSuccessModel(
             string transferNumber,
-            global::ElevenLabs.TransferToNumberResultSipSuccessModelResultType? resultType,
-            global::ElevenLabs.TransferToNumberResultSipSuccessModelStatus? status,
+            string? resultType,
+            string? status,
             string? reason,
             string? note)
         {

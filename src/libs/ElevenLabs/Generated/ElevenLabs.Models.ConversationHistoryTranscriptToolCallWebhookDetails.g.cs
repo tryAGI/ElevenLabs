@@ -12,22 +12,21 @@ namespace ElevenLabs
         /// Default Value: webhook
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptToolCallWebhookDetailsTypeJsonConverter))]
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetailsType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("method")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Method { get; set; } = default!;
+        public required string Method { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Url { get; set; } = default!;
+        public required string Url { get; set; }
 
         /// <summary>
         /// 
@@ -77,7 +76,7 @@ namespace ElevenLabs
         public ConversationHistoryTranscriptToolCallWebhookDetails(
             string method,
             string url,
-            global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetailsType? type,
+            string? type,
             global::System.Collections.Generic.Dictionary<string, string>? headers,
             global::System.Collections.Generic.Dictionary<string, string>? pathParams,
             global::System.Collections.Generic.Dictionary<string, string>? queryParams,

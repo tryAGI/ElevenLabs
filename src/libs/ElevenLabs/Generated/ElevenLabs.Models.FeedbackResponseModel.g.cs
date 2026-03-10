@@ -13,49 +13,49 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbs_up")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool ThumbsUp { get; set; } = default!;
+        public required bool ThumbsUp { get; set; }
 
         /// <summary>
         /// The feedback text provided by the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Feedback { get; set; } = default!;
+        public required string Feedback { get; set; }
 
         /// <summary>
         /// Whether the user provided emotions.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("emotions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Emotions { get; set; } = default!;
+        public required bool Emotions { get; set; }
 
         /// <summary>
         /// Whether the user thinks the clone is inaccurate.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inaccurate_clone")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool InaccurateClone { get; set; } = default!;
+        public required bool InaccurateClone { get; set; }
 
         /// <summary>
         /// Whether the user thinks there are glitches in the audio.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("glitches")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Glitches { get; set; } = default!;
+        public required bool Glitches { get; set; }
 
         /// <summary>
         /// Whether the user thinks the audio quality is good.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_quality")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool AudioQuality { get; set; } = default!;
+        public required bool AudioQuality { get; set; }
 
         /// <summary>
         /// Whether the user provided other feedback.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("other")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Other { get; set; } = default!;
+        public required bool Other { get; set; }
 
         /// <summary>
         /// The review status of the item. Defaults to 'not_reviewed'.<br/>

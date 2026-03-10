@@ -9,7 +9,7 @@ namespace ElevenLabs
         /// Removes background noise from audio
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Removes background noise from audio
         /// </summary>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="audio">
         /// The audio file from which vocals/speech will be isolated from.
@@ -35,8 +35,10 @@ namespace ElevenLabs
         /// </param>
         /// <param name="fileFormat">
         /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
-        /// Default Value: other<br/>
-        /// Example: pcm_s16le_16
+        /// Default Value: other
+        /// </param>
+        /// <param name="previewB64">
+        /// Optional preview image base64 for tracking this generation.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -44,7 +46,8 @@ namespace ElevenLabs
             byte[] audio,
             string audioname,
             string? xiApiKey = default,
-            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat2? fileFormat = default,
+            string? previewB64 = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

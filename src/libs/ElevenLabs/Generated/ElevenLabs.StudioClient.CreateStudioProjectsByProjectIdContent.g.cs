@@ -30,11 +30,10 @@ namespace ElevenLabs
         /// Updates Studio project content.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The ID of the Studio project.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -68,22 +67,6 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
-
             if (xiApiKey != default)
             {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
@@ -110,15 +93,9 @@ namespace ElevenLabs
             if (request.FromDocument != default)
             {
 
-                var __contentFromDocument = new global::System.Net.Http.ByteArrayContent(request.FromDocument ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: __contentFromDocument,
-                    name: "\"from_document\"",
-                    fileName: request.FromDocumentname != null ? $"\"{request.FromDocumentname}\"" : string.Empty);
-                if (__contentFromDocument.Headers.ContentDisposition != null)
-                {
-                    __contentFromDocument.Headers.ContentDisposition.FileNameStar = null;
-                }
+                    content: new global::System.Net.Http.StringContent($"{request.FromDocument}"),
+                    name: "\"from_document\"");
             } 
             if (request.FromContentJson != default)
             {
@@ -272,29 +249,22 @@ namespace ElevenLabs
         /// Updates Studio project content.
         /// </summary>
         /// <param name="projectId">
-        /// The ID of the Studio project.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// The ID of the Studio project.
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="fromUrl">
-        /// An optional URL from which we will extract content to initialize the Studio project. If this is set, 'from_url' and 'from_content' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.<br/>
-        /// Example: https://blog.elevenlabs.io/the_first_ai_that_can_laugh/
+        /// An optional URL from which we will extract content to initialize the Studio project. If this is set, 'from_url' and 'from_content' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.
         /// </param>
         /// <param name="fromDocument">
         /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, 'from_url' and 'from_content' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.
         /// </param>
-        /// <param name="fromDocumentname">
-        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, 'from_url' and 'from_content' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.
-        /// </param>
         /// <param name="fromContentJson">
         ///     An optional content to initialize the Studio project with. If this is set, 'from_url' and 'from_document' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.<br/>
-        ///     <br/>
         ///     Example:<br/>
         ///     [{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]<br/>
-        ///     <br/>
-        /// Example: [{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]
+        ///     
         /// </param>
         /// <param name="autoConvert">
         /// Whether to auto convert the Studio project to audio or not.<br/>
@@ -307,7 +277,6 @@ namespace ElevenLabs
             string? xiApiKey = default,
             string? fromUrl = default,
             byte[]? fromDocument = default,
-            string? fromDocumentname = default,
             string? fromContentJson = default,
             bool? autoConvert = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -316,7 +285,6 @@ namespace ElevenLabs
             {
                 FromUrl = fromUrl,
                 FromDocument = fromDocument,
-                FromDocumentname = fromDocumentname,
                 FromContentJson = fromContentJson,
                 AutoConvert = autoConvert,
             };

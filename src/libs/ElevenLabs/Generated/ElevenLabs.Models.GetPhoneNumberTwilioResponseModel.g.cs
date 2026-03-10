@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"label":"Customer Support","phone_number":"\u002B1234567890","phone_number_id":"phone_123","provider":"twilio","supports_inbound":true,"supports_outbound":true}
+    /// Example: {"label":"Customer Support","phone_number":"\u002B1234567890","phone_number_id":"phone_123","provider":"twilio"}
     /// </summary>
     public sealed partial class GetPhoneNumberTwilioResponseModel
     {
@@ -13,27 +13,29 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumber { get; set; } = default!;
+        public required string PhoneNumber { get; set; }
 
         /// <summary>
         /// Label for the phone number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Label { get; set; } = default!;
+        public required string Label { get; set; }
 
         /// <summary>
-        /// Whether this phone number supports inbound calls<br/>
+        /// This field is deprecated and will be removed in the future. Whether this phone number supports inbound calls<br/>
         /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_inbound")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? SupportsInbound { get; set; }
 
         /// <summary>
-        /// Whether this phone number supports outbound calls<br/>
+        /// This field is deprecated and will be removed in the future. Whether this phone number supports outbound calls<br/>
         /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_outbound")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? SupportsOutbound { get; set; }
 
         /// <summary>
@@ -41,12 +43,11 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumberId { get; set; } = default!;
+        public required string PhoneNumberId { get; set; }
 
         /// <summary>
-        /// Example: {"agent_id":"F3Pbu5gP6NNKBscdCdwB","agent_name":"My Agent"}
+        /// The agent that is assigned to the phone number
         /// </summary>
-        /// <example>{"agent_id":"F3Pbu5gP6NNKBscdCdwB","agent_name":"My Agent"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("assigned_agent")]
         public global::ElevenLabs.PhoneNumberAgentInfo? AssignedAgent { get; set; }
 
@@ -55,8 +56,7 @@ namespace ElevenLabs
         /// Default Value: twilio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.GetPhoneNumberTwilioResponseModelProviderJsonConverter))]
-        public global::ElevenLabs.GetPhoneNumberTwilioResponseModelProvider? Provider { get; set; }
+        public string? Provider { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -73,19 +73,11 @@ namespace ElevenLabs
         /// <param name="label">
         /// Label for the phone number
         /// </param>
-        /// <param name="supportsInbound">
-        /// Whether this phone number supports inbound calls<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="supportsOutbound">
-        /// Whether this phone number supports outbound calls<br/>
-        /// Default Value: true
-        /// </param>
         /// <param name="phoneNumberId">
         /// The ID of the phone number
         /// </param>
         /// <param name="assignedAgent">
-        /// Example: {"agent_id":"F3Pbu5gP6NNKBscdCdwB","agent_name":"My Agent"}
+        /// The agent that is assigned to the phone number
         /// </param>
         /// <param name="provider">
         /// Phone provider<br/>
@@ -98,16 +90,12 @@ namespace ElevenLabs
             string phoneNumber,
             string label,
             string phoneNumberId,
-            bool? supportsInbound,
-            bool? supportsOutbound,
             global::ElevenLabs.PhoneNumberAgentInfo? assignedAgent,
-            global::ElevenLabs.GetPhoneNumberTwilioResponseModelProvider? provider)
+            string? provider)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
-            this.SupportsInbound = supportsInbound;
-            this.SupportsOutbound = supportsOutbound;
             this.AssignedAgent = assignedAgent;
             this.Provider = provider;
         }

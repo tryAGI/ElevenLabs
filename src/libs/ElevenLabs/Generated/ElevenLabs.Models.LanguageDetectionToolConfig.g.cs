@@ -12,8 +12,7 @@ namespace ElevenLabs
         /// Default Value: language_detection
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_tool_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LanguageDetectionToolConfigSystemToolTypeJsonConverter))]
-        public global::ElevenLabs.LanguageDetectionToolConfigSystemToolType? SystemToolType { get; set; }
+        public string? SystemToolType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,7 +30,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LanguageDetectionToolConfig(
-            global::ElevenLabs.LanguageDetectionToolConfigSystemToolType? systemToolType)
+            string? systemToolType)
         {
             this.SystemToolType = systemToolType;
         }

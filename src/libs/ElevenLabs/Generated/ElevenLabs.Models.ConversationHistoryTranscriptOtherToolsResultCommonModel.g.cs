@@ -13,41 +13,53 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string RequestId { get; set; } = default!;
+        public required string RequestId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ToolName { get; set; } = default!;
+        public required string ToolName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_value")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ResultValue { get; set; } = default!;
+        public required string ResultValue { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_error")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsError { get; set; } = default!;
+        public required bool IsError { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_has_been_called")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool ToolHasBeenCalled { get; set; } = default!;
+        public required bool ToolHasBeenCalled { get; set; }
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_latency_secs")]
         public double? ToolLatencySecs { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error_type")]
+        public string? ErrorType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("raw_error_message")]
+        public string? RawErrorMessage { get; set; }
 
         /// <summary>
         /// 
@@ -59,9 +71,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTranscriptOtherToolsResultCommonModelTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModelType Type { get; set; } = default!;
+        public global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModelType2? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -80,6 +90,8 @@ namespace ElevenLabs
         /// <param name="toolLatencySecs">
         /// Default Value: 0
         /// </param>
+        /// <param name="errorType"></param>
+        /// <param name="rawErrorMessage"></param>
         /// <param name="dynamicVariableUpdates"></param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
@@ -91,18 +103,22 @@ namespace ElevenLabs
             string resultValue,
             bool isError,
             bool toolHasBeenCalled,
-            global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModelType type,
             double? toolLatencySecs,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableUpdateCommonModel>? dynamicVariableUpdates)
+            string? errorType,
+            string? rawErrorMessage,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableUpdateCommonModel>? dynamicVariableUpdates,
+            global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModelType2? type)
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
             this.ResultValue = resultValue ?? throw new global::System.ArgumentNullException(nameof(resultValue));
             this.IsError = isError;
             this.ToolHasBeenCalled = toolHasBeenCalled;
-            this.Type = type;
             this.ToolLatencySecs = toolLatencySecs;
+            this.ErrorType = errorType;
+            this.RawErrorMessage = rawErrorMessage;
             this.DynamicVariableUpdates = dynamicVariableUpdates;
+            this.Type = type;
         }
 
         /// <summary>

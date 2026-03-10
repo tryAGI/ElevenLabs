@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        TtsCharacters,
+        /// <summary>
+        /// 
+        /// </summary>
         MinutesUsed,
         /// <summary>
         /// 
@@ -55,6 +59,7 @@ namespace ElevenLabs
             return value switch
             {
                 MetricType.Credits => "credits",
+                MetricType.TtsCharacters => "tts_characters",
                 MetricType.MinutesUsed => "minutes_used",
                 MetricType.RequestCount => "request_count",
                 MetricType.TtfbAvg => "ttfb_avg",
@@ -73,6 +78,7 @@ namespace ElevenLabs
             return value switch
             {
                 "credits" => MetricType.Credits,
+                "tts_characters" => MetricType.TtsCharacters,
                 "minutes_used" => MetricType.MinutesUsed,
                 "request_count" => MetricType.RequestCount,
                 "ttfb_avg" => MetricType.TtfbAvg,

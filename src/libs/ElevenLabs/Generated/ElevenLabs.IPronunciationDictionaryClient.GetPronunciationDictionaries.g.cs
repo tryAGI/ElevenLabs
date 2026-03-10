@@ -17,23 +17,21 @@ namespace ElevenLabs
         /// </param>
         /// <param name="sort">
         /// Which field to sort by, one of 'created_at_unix' or 'name'.<br/>
-        /// Default Value: creation_time_unix<br/>
-        /// Example: creation_time_unix
+        /// Default Value: creation_time_unix
         /// </param>
         /// <param name="sortDirection">
         /// Which direction to sort the voices in. 'ascending' or 'descending'.<br/>
-        /// Default Value: DESCENDING<br/>
-        /// Example: descending
+        /// Default Value: DESCENDING
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetPronunciationDictionariesMetadataResponseModel> GetPronunciationDictionariesAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.GetPronunciationDictionariesV1PronunciationDictionariesGetSort? sort = default,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
             string? sortDirection = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

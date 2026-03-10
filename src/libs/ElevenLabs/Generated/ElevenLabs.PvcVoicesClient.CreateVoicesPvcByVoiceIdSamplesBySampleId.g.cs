@@ -29,18 +29,16 @@ namespace ElevenLabs
 
         /// <summary>
         /// Update Pvc Voice Sample<br/>
-        /// Update a PVC voice sample - apply noise removal, or select speaker.
+        /// Update a PVC voice sample - apply noise removal, select speaker, change trim times or file name.
         /// </summary>
         /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="sampleId">
-        /// Sample ID to be used<br/>
-        /// Example: VW7YKqPnjY4h39yTbx2L
+        /// Sample ID to be used
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -75,22 +73,6 @@ namespace ElevenLabs
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             if (xiApiKey != default)
             {
@@ -238,35 +220,32 @@ namespace ElevenLabs
 
         /// <summary>
         /// Update Pvc Voice Sample<br/>
-        /// Update a PVC voice sample - apply noise removal, or select speaker.
+        /// Update a PVC voice sample - apply noise removal, select speaker, change trim times or file name.
         /// </summary>
         /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.<br/>
-        /// Example: 21m00Tcm4TlvDq8ikWAM
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="sampleId">
-        /// Sample ID to be used<br/>
-        /// Example: VW7YKqPnjY4h39yTbx2L
+        /// Sample ID to be used
         /// </param>
         /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
-        /// Default Value: false<br/>
-        /// Example: true
+        /// Default Value: false
         /// </param>
         /// <param name="selectedSpeakerIds">
-        /// Speaker IDs to be used for PVC training. Make sure you send all the speaker IDs you want to use for PVC training in one request because the last request will override the previous ones.<br/>
-        /// Example: speaker_0
+        /// Speaker IDs to be used for PVC training. Make sure you send all the speaker IDs you want to use for PVC training in one request because the last request will override the previous ones.
         /// </param>
         /// <param name="trimStartTime">
-        /// The start time of the audio to be used for PVC training. Time should be in milliseconds<br/>
-        /// Example: 0
+        /// The start time of the audio to be used for PVC training. Time should be in milliseconds
         /// </param>
         /// <param name="trimEndTime">
-        /// The end time of the audio to be used for PVC training. Time should be in milliseconds<br/>
-        /// Example: 10
+        /// The end time of the audio to be used for PVC training. Time should be in milliseconds
+        /// </param>
+        /// <param name="fileName">
+        /// The name of the audio file to be used for PVC training.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -278,6 +257,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? selectedSpeakerIds = default,
             int? trimStartTime = default,
             int? trimEndTime = default,
+            string? fileName = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost
@@ -286,6 +266,7 @@ namespace ElevenLabs
                 SelectedSpeakerIds = selectedSpeakerIds,
                 TrimStartTime = trimStartTime,
                 TrimEndTime = trimEndTime,
+                FileName = fileName,
             };
 
             return await CreateVoicesPvcByVoiceIdSamplesBySampleIdAsync(

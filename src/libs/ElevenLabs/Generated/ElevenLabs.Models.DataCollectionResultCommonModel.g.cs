@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DataCollectionId { get; set; } = default!;
+        public required string DataCollectionId { get; set; }
 
         /// <summary>
         /// 
@@ -22,9 +22,8 @@ namespace ElevenLabs
         public object? Value { get; set; }
 
         /// <summary>
-        /// Example: {"constant_value":"Constant value","description":"My property","dynamic_variable":"Dynamic variable","type":"string"}
+        /// 
         /// </summary>
-        /// <example>{"constant_value":"Constant value","description":"My property","dynamic_variable":"Dynamic variable","type":"string"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
         public global::ElevenLabs.LiteralJsonSchemaProperty? JsonSchema { get; set; }
 
@@ -33,7 +32,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rationale")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Rationale { get; set; } = default!;
+        public required string Rationale { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -46,9 +45,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="dataCollectionId"></param>
         /// <param name="value"></param>
-        /// <param name="jsonSchema">
-        /// Example: {"constant_value":"Constant value","description":"My property","dynamic_variable":"Dynamic variable","type":"string"}
-        /// </param>
+        /// <param name="jsonSchema"></param>
         /// <param name="rationale"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

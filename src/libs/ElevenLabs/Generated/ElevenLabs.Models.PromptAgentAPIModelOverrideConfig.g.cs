@@ -16,6 +16,13 @@ namespace ElevenLabs
         public bool? Prompt { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the llm field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
+        public bool? Llm { get; set; }
+
+        /// <summary>
         /// Whether to allow overriding the native_mcp_server_ids field.<br/>
         /// Default Value: false
         /// </summary>
@@ -35,6 +42,10 @@ namespace ElevenLabs
         /// Whether to allow overriding the prompt field.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="llm">
+        /// Whether to allow overriding the llm field.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="nativeMcpServerIds">
         /// Whether to allow overriding the native_mcp_server_ids field.<br/>
         /// Default Value: false
@@ -44,9 +55,11 @@ namespace ElevenLabs
 #endif
         public PromptAgentAPIModelOverrideConfig(
             bool? prompt,
+            bool? llm,
             bool? nativeMcpServerIds)
         {
             this.Prompt = prompt;
+            this.Llm = llm;
             this.NativeMcpServerIds = nativeMcpServerIds;
         }
 

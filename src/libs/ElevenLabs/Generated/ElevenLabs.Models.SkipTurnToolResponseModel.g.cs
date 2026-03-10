@@ -12,15 +12,13 @@ namespace ElevenLabs
         /// Default Value: skip_turn_success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SkipTurnToolResponseModelResultTypeJsonConverter))]
-        public global::ElevenLabs.SkipTurnToolResponseModelResultType? ResultType { get; set; }
+        public string? ResultType { get; set; }
 
         /// <summary>
         /// Default Value: success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SkipTurnToolResponseModelStatusJsonConverter))]
-        public global::ElevenLabs.SkipTurnToolResponseModelStatus? Status { get; set; }
+        public string? Status { get; set; }
 
         /// <summary>
         /// 
@@ -48,8 +46,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SkipTurnToolResponseModel(
-            global::ElevenLabs.SkipTurnToolResponseModelResultType? resultType,
-            global::ElevenLabs.SkipTurnToolResponseModelStatus? status,
+            string? resultType,
+            string? status,
             string? reason)
         {
             this.ResultType = resultType;
