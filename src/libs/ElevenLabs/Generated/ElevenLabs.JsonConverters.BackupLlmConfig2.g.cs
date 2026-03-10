@@ -43,14 +43,16 @@ namespace ElevenLabs.JsonConverters
                 @override = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.BackupLlmConfig2(
+            var __value = new global::ElevenLabs.BackupLlmConfig2(
                 discriminator?.Preference,
                 @default,
+
                 disabled,
+
                 @override
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

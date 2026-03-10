@@ -106,23 +106,34 @@ namespace ElevenLabs.JsonConverters
                 agentPromptChange = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.Params2(
+            var __value = new global::ElevenLabs.Params2(
                 discriminator?.SystemToolType,
                 endCall,
+
                 languageDetection,
+
                 transferToAgent,
+
                 transferToNumber,
+
                 skipTurn,
+
                 playKeypadTouchTone,
+
                 voicemailDetection,
+
                 memoryEntrySearch,
+
                 memoryEntryCreate,
+
                 memoryEntryUpdate,
+
                 memoryEntryDelete,
+
                 agentPromptChange
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

@@ -50,15 +50,18 @@ namespace ElevenLabs.JsonConverters
                 expression = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.BackwardConditionVariant1(
+            var __value = new global::ElevenLabs.BackwardConditionVariant1(
                 discriminator?.Type,
                 unconditional,
+
                 llm,
+
                 result,
+
                 expression
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

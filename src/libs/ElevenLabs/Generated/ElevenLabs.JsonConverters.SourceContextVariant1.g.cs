@@ -43,14 +43,16 @@ namespace ElevenLabs.JsonConverters
                 sfx = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.SourceContextVariant1(
+            var __value = new global::ElevenLabs.SourceContextVariant1(
                 discriminator?.SourceType,
                 musicExploreSong1,
+
                 musicExploreSong2,
+
                 sfx
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

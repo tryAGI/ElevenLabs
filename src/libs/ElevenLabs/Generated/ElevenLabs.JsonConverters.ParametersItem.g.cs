@@ -50,15 +50,18 @@ namespace ElevenLabs.JsonConverters
                 location = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.ParametersItem(
+            var __value = new global::ElevenLabs.ParametersItem(
                 discriminator?.Type,
                 text,
+
                 image,
+
                 document,
+
                 location
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

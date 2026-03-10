@@ -50,15 +50,18 @@ namespace ElevenLabs.JsonConverters
                 mcp = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.ToolConfig(
+            var __value = new global::ElevenLabs.ToolConfig(
                 discriminator?.Type,
                 webhook,
+
                 client,
+
                 system,
+
                 mcp
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

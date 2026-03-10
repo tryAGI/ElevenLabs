@@ -113,24 +113,36 @@ namespace ElevenLabs.JsonConverters
                 lteOperator = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.Left5(
+            var __value = new global::ElevenLabs.Left5(
                 discriminator?.Type,
                 stringLiteral,
+
                 numberLiteral,
+
                 booleanLiteral,
+
                 llm,
+
                 dynamicVariable,
+
                 orOperator,
+
                 andOperator,
+
                 eqOperator,
+
                 neqOperator,
+
                 gtOperator,
+
                 ltOperator,
+
                 gteOperator,
+
                 lteOperator
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

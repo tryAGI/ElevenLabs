@@ -43,14 +43,16 @@ namespace ElevenLabs.JsonConverters
                 dataCollection = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.ChartsItem2(
+            var __value = new global::ElevenLabs.ChartsItem2(
                 discriminator?.Type,
                 callSuccess,
+
                 criteria,
+
                 dataCollection
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

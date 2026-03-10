@@ -50,15 +50,18 @@ namespace ElevenLabs.JsonConverters
                 apiIntegrationWebhook = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.ToolDetailsVariant12(
+            var __value = new global::ElevenLabs.ToolDetailsVariant12(
                 discriminator?.Type,
                 webhook,
+
                 client,
+
                 mcp,
+
                 apiIntegrationWebhook
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

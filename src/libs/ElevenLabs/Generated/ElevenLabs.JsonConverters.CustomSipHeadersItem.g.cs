@@ -36,13 +36,14 @@ namespace ElevenLabs.JsonConverters
                 dynamic2 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.CustomSipHeadersItem(
+            var __value = new global::ElevenLabs.CustomSipHeadersItem(
                 discriminator?.Type,
                 dynamic1,
+
                 dynamic2
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

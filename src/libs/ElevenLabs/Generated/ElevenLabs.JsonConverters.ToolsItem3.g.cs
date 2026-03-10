@@ -64,17 +64,22 @@ namespace ElevenLabs.JsonConverters
                 smb = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.ToolsItem3(
+            var __value = new global::ElevenLabs.ToolsItem3(
                 discriminator?.Type,
                 webhook,
+
                 client,
+
                 system,
+
                 mcp,
+
                 apiIntegrationWebhook,
+
                 smb
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

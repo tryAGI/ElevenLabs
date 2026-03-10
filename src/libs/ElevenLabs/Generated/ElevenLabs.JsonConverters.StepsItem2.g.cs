@@ -43,14 +43,16 @@ namespace ElevenLabs.JsonConverters
                 maxIterationsExceeded = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.StepsItem2(
+            var __value = new global::ElevenLabs.StepsItem2(
                 discriminator?.Type,
                 edge,
+
                 nestedTools,
+
                 maxIterationsExceeded
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

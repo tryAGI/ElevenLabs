@@ -106,23 +106,34 @@ namespace ElevenLabs.JsonConverters
                 testingToolResult = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.ResultVariant12(
+            var __value = new global::ElevenLabs.ResultVariant12(
                 discriminator?.ResultType,
                 endCallSuccess,
+
                 languageDetectionSuccess,
+
                 transferToAgentSuccess,
+
                 transferToAgentError,
+
                 transferToNumberTwilioSuccess,
+
                 transferToNumberSipSuccess,
+
                 transferToNumberError,
+
                 skipTurnSuccess,
+
                 playDtmfSuccess,
+
                 playDtmfError,
+
                 voicemailDetectionSuccess,
+
                 testingToolResult
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

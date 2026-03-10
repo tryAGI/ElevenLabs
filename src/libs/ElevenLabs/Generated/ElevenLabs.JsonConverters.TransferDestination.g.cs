@@ -50,15 +50,18 @@ namespace ElevenLabs.JsonConverters
                 sipUriDynamicVariable = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.TransferDestination(
+            var __value = new global::ElevenLabs.TransferDestination(
                 discriminator?.Type,
                 phone,
+
                 sipUri,
+
                 phoneDynamicVariable,
+
                 sipUriDynamicVariable
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

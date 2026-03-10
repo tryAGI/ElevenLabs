@@ -64,17 +64,22 @@ namespace ElevenLabs.JsonConverters
                 tool = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.Nodes2(
+            var __value = new global::ElevenLabs.Nodes2(
                 discriminator?.Type,
                 start,
+
                 end,
+
                 phoneNumber,
+
                 overrideAgent,
+
                 standaloneAgent,
+
                 tool
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

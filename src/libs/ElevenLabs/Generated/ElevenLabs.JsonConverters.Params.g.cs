@@ -239,42 +239,72 @@ namespace ElevenLabs.JsonConverters
                 createRentalBooking = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.Params(
+            var __value = new global::ElevenLabs.Params(
                 discriminator?.SmbToolType,
                 searchClients,
+
                 listClients,
+
                 getClientByPhone,
+
                 createClient,
+
                 updateClient,
+
                 deleteClient,
+
                 listStaff,
+
                 createStaff,
+
                 updateStaff,
+
                 deleteStaff,
+
                 listAssets,
+
                 createAsset,
+
                 updateAsset,
+
                 deleteAsset,
+
                 listServices,
+
                 createService,
+
                 updateService,
+
                 deleteService,
+
                 listProducts,
+
                 createProduct,
+
                 updateProduct,
+
                 deleteProduct,
+
                 checkServiceAvailability,
+
                 createClientAppointment,
+
                 getClientAppointments,
+
                 listCalendarEvents,
+
                 updateCalendarEvent,
+
                 deleteCalendarEvent,
+
                 listRentalServices,
+
                 checkRentalAvailability,
+
                 createRentalBooking
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

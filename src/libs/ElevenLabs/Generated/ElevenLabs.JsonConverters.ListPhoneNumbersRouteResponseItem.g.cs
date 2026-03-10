@@ -36,13 +36,14 @@ namespace ElevenLabs.JsonConverters
                 sipTrunk = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.ListPhoneNumbersRouteResponseItem(
+            var __value = new global::ElevenLabs.ListPhoneNumbersRouteResponseItem(
                 discriminator?.Provider,
                 twilio,
+
                 sipTrunk
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

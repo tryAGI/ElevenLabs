@@ -50,15 +50,18 @@ namespace ElevenLabs.JsonConverters
                 anything = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.Eval(
+            var __value = new global::ElevenLabs.Eval(
                 discriminator?.Type,
                 llm,
+
                 regex,
+
                 exact,
+
                 anything
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

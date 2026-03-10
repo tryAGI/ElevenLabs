@@ -43,14 +43,16 @@ namespace ElevenLabs.JsonConverters
                 button = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.TemplateParamsItem(
+            var __value = new global::ElevenLabs.TemplateParamsItem(
                 discriminator?.Type,
                 header,
+
                 body,
+
                 button
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

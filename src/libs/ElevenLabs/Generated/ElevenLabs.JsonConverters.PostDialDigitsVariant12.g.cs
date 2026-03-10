@@ -36,13 +36,14 @@ namespace ElevenLabs.JsonConverters
                 dynamic = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.PostDialDigitsVariant12(
+            var __value = new global::ElevenLabs.PostDialDigitsVariant12(
                 discriminator?.Type,
                 @static,
+
                 dynamic
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

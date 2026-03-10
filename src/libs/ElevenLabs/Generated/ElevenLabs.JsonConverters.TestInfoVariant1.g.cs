@@ -43,14 +43,16 @@ namespace ElevenLabs.JsonConverters
                 simulation = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.TestInfoVariant1(
+            var __value = new global::ElevenLabs.TestInfoVariant1(
                 discriminator?.Type,
                 llm,
+
                 tool,
+
                 simulation
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

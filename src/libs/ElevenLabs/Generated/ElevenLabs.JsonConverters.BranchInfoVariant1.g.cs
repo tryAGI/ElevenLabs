@@ -36,13 +36,14 @@ namespace ElevenLabs.JsonConverters
                 defaultingToMain = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.BranchInfoVariant1(
+            var __value = new global::ElevenLabs.BranchInfoVariant1(
                 discriminator?.BranchReason,
                 trafficSplit,
+
                 defaultingToMain
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

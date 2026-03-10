@@ -50,15 +50,18 @@ namespace ElevenLabs.JsonConverters
                 folder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.UpdateDocumentRouteResponse(
+            var __value = new global::ElevenLabs.UpdateDocumentRouteResponse(
                 discriminator?.Type,
                 url,
+
                 file,
+
                 text,
+
                 folder
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

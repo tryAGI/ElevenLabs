@@ -36,13 +36,14 @@ namespace ElevenLabs.JsonConverters
                 unknown = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::ElevenLabs.DependentAgentsItem2(
+            var __value = new global::ElevenLabs.DependentAgentsItem2(
                 discriminator?.Type,
                 available,
+
                 unknown
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />
