@@ -13,8 +13,6 @@ openApiDocument.Servers?.Add(new OpenApiServer
     Url = "https://api.elevenlabs.io",
 });
 
-((OpenApiSchema)openApiDocument.Components.Schemas!["FineTuningResponseModel"]!.Properties!["next_max_verification_attempts_reset_unix_ms"]!).Format = "int64";
-
 yamlOrJson = await openApiDocument.SerializeAsYamlAsync(OpenApiSpecVersion.OpenApi3_2);
 
 await File.WriteAllTextAsync(path, yamlOrJson);

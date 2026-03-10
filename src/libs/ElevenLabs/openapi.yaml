@@ -28279,7 +28279,6 @@ components:
             - type: integer
             - type: 'null'
           description: The next maximum verification attempts reset time in Unix milliseconds.
-          format: int64
       example:
         is_allowed_to_fine_tune: true
         manual_verification_requested: false
@@ -46946,13 +46945,6 @@ components:
       properties:
         usage_type:
           $ref: '#/components/schemas/WebhookUsageType'
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      name: xi-api-key
-      in: header
-security:
-  - { }
 tags:
   - name: text-to-speech
     description: Convert text into lifelike speech using a voice of your choice.
