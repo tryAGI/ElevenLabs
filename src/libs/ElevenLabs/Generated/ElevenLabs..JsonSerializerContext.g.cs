@@ -617,6 +617,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.TurnModelNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.UsersSortByJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.UsersSortByNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.VoiceDesignRequestModelModelIdJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.VoiceDesignRequestModelModelIdNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.WebhookAuthMethodTypeJsonConverter),
