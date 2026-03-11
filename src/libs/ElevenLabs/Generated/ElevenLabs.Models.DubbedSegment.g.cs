@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double StartTime { get; set; } = default!;
+        public required double StartTime { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double EndTime { get; set; } = default!;
+        public required double EndTime { get; set; }
 
         /// <summary>
         /// 
@@ -33,14 +33,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("subtitles")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SegmentSubtitleFrame> Subtitles { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.SegmentSubtitleFrame> Subtitles { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_stale")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool AudioStale { get; set; } = default!;
+        public required bool AudioStale { get; set; }
 
         /// <summary>
         /// 

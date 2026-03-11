@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// Name of the test
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The access information of the test
@@ -33,14 +33,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAtUnixSecs { get; set; } = default!;
+        public required int CreatedAtUnixSecs { get; set; }
 
         /// <summary>
         /// Last update time of the test in unix seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_updated_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int LastUpdatedAtUnixSecs { get; set; } = default!;
+        public required int LastUpdatedAtUnixSecs { get; set; }
 
         /// <summary>
         /// Type of the test or entity
@@ -48,7 +48,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TestTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.TestType Type { get; set; } = default!;
+        public required global::ElevenLabs.TestType Type { get; set; }
 
         /// <summary>
         /// The type of entity (test or folder)<br/>

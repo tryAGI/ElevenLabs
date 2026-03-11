@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.WebhookHMACSettings Settings { get; set; } = default!;
+        public required global::ElevenLabs.WebhookHMACSettings Settings { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

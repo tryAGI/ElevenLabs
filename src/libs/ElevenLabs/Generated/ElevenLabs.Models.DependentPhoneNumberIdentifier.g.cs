@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumberId { get; set; } = default!;
+        public required string PhoneNumberId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumber { get; set; } = default!;
+        public required string PhoneNumber { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Label { get; set; } = default!;
+        public required string Label { get; set; }
 
         /// <summary>
         /// 
@@ -35,7 +35,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyProviderJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.TelephonyProvider Provider { get; set; } = default!;
+        public required global::ElevenLabs.TelephonyProvider Provider { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

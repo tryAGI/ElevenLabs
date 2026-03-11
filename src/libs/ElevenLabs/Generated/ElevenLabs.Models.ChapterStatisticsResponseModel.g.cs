@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("characters_unconverted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharactersUnconverted { get; set; } = default!;
+        public required int CharactersUnconverted { get; set; }
 
         /// <summary>
         /// The number of converted characters.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("characters_converted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharactersConverted { get; set; } = default!;
+        public required int CharactersConverted { get; set; }
 
         /// <summary>
         /// The number of converted paragraphs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("paragraphs_converted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ParagraphsConverted { get; set; } = default!;
+        public required int ParagraphsConverted { get; set; }
 
         /// <summary>
         /// The number of unconverted paragraphs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("paragraphs_unconverted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ParagraphsUnconverted { get; set; } = default!;
+        public required int ParagraphsUnconverted { get; set; }
 
         /// <summary>
         /// Per-voice breakdown of character counts.

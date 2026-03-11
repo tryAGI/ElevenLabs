@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DubbingTranscriptsResponseModelTranscriptFormatJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.DubbingTranscriptsResponseModelTranscriptFormat TranscriptFormat { get; set; } = default!;
+        public required global::ElevenLabs.DubbingTranscriptsResponseModelTranscriptFormat TranscriptFormat { get; set; }
 
         /// <summary>
         /// 

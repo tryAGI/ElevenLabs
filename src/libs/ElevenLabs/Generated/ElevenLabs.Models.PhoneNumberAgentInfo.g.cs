@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
         /// The name of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentName { get; set; } = default!;
+        public required string AgentName { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

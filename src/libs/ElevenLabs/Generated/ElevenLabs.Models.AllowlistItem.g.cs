@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hostname")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Hostname { get; set; } = default!;
+        public required string Hostname { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

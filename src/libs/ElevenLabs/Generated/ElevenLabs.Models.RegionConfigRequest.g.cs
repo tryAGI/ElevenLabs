@@ -14,14 +14,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("region_id")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TwilioRegionIdJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.TwilioRegionId RegionId { get; set; } = default!;
+        public required global::ElevenLabs.TwilioRegionId RegionId { get; set; }
 
         /// <summary>
         /// Auth Token for this region
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Token { get; set; } = default!;
+        public required string Token { get; set; }
 
         /// <summary>
         /// Edge location for this region
@@ -29,7 +29,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("edge_location")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TwilioEdgeLocationJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.TwilioEdgeLocation EdgeLocation { get; set; } = default!;
+        public required global::ElevenLabs.TwilioEdgeLocation EdgeLocation { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

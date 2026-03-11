@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string LanguageId { get; set; } = default!;
+        public required string LanguageId { get; set; }
 
         /// <summary>
         /// The name of the language.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TransferNumber { get; set; } = default!;
+        public required string TransferNumber { get; set; }
 
         /// <summary>
         /// 

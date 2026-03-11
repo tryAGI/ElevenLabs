@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string RequestId { get; set; } = default!;
+        public required string RequestId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ToolName { get; set; } = default!;
+        public required string ToolName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_value")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ResultValue { get; set; } = default!;
+        public required string ResultValue { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_error")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsError { get; set; } = default!;
+        public required bool IsError { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_has_been_called")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool ToolHasBeenCalled { get; set; } = default!;
+        public required bool ToolHasBeenCalled { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -79,21 +79,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string IntegrationId { get; set; } = default!;
+        public required string IntegrationId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credential_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CredentialId { get; set; } = default!;
+        public required string CredentialId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_connection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string IntegrationConnectionId { get; set; } = default!;
+        public required string IntegrationConnectionId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

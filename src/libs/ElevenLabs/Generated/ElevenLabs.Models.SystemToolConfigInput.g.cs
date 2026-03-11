@@ -20,7 +20,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Description of when the tool should be used and what it does. Leave empty to use the default description that's optimized for the specific tool type.
@@ -83,7 +83,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("params")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Params2JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.Params2 Params { get; set; } = default!;
+        public required global::ElevenLabs.Params2 Params { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

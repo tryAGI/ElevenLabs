@@ -13,42 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The unique ID for this webhook.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhook_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string WebhookId { get; set; } = default!;
+        public required string WebhookId { get; set; }
 
         /// <summary>
         /// The HTTPS callback URL that is called when this webhook is triggered in the platform.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhook_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string WebhookUrl { get; set; } = default!;
+        public required string WebhookUrl { get; set; }
 
         /// <summary>
         /// Whether the webhook has been manually disabled by a user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_disabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsDisabled { get; set; } = default!;
+        public required bool IsDisabled { get; set; }
 
         /// <summary>
         /// Whether the webhook has been automatically disabled due to repeated consecutive failures over a long period of time.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_auto_disabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsAutoDisabled { get; set; } = default!;
+        public required bool IsAutoDisabled { get; set; }
 
         /// <summary>
         /// Original creation time of the webhook.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAtUnix { get; set; } = default!;
+        public required int CreatedAtUnix { get; set; }
 
         /// <summary>
         /// The authentication mode used to secure the webhook.
@@ -56,7 +56,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WebhookAuthMethodTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.WebhookAuthMethodType AuthType { get; set; } = default!;
+        public required global::ElevenLabs.WebhookAuthMethodType AuthType { get; set; }
 
         /// <summary>
         /// The list of products that are currently configured to trigger this webhook.

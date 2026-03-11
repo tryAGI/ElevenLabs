@@ -26,7 +26,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("expression")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ExpressionJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.Expression Expression { get; set; } = default!;
+        public required global::ElevenLabs.Expression Expression { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

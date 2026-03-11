@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("elapsed_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double ElapsedTime { get; set; } = default!;
+        public required double ElapsedTime { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

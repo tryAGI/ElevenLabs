@@ -14,14 +14,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.EmbeddingModelEnum Model { get; set; } = default!;
+        public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("used_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UsedBytes { get; set; } = default!;
+        public required int UsedBytes { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

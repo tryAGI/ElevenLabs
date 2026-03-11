@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("blocks")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentBlockResponseModel> Blocks { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentBlockResponseModel> Blocks { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

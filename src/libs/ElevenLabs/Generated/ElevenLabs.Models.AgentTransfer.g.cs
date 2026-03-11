@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Condition { get; set; } = default!;
+        public required string Condition { get; set; }
 
         /// <summary>
         /// Default Value: 0

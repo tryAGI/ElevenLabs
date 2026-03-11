@@ -14,28 +14,28 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistorySIPTrunkingPhoneCallModelDirectionJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModelDirection Direction { get; set; } = default!;
+        public required global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModelDirection Direction { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumberId { get; set; } = default!;
+        public required string PhoneNumberId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentNumber { get; set; } = default!;
+        public required string AgentNumber { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ExternalNumber { get; set; } = default!;
+        public required string ExternalNumber { get; set; }
 
         /// <summary>
         /// 
@@ -49,7 +49,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_sid")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CallSid { get; set; } = default!;
+        public required string CallSid { get; set; }
 
         /// <summary>
         /// 

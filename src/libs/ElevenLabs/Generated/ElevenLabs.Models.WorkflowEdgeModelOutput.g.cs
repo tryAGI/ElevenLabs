@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Source { get; set; } = default!;
+        public required string Source { get; set; }
 
         /// <summary>
         /// ID of the target node.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Target { get; set; } = default!;
+        public required string Target { get; set; }
 
         /// <summary>
         /// Condition that must be met for the edge to be traversed in the forward direction (source to target).

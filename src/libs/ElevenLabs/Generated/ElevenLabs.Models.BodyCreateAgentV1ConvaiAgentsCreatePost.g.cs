@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; } = default!;
+        public required global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; }
 
         /// <summary>
         /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.

@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parent_version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ParentVersionId { get; set; } = default!;
+        public required string ParentVersionId { get; set; }
 
         /// <summary>
         /// Name of the branch. It is unique within the agent.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Description for the branch
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Description { get; set; } = default!;
+        public required string Description { get; set; }
 
         /// <summary>
         /// Changes to apply to conversation config

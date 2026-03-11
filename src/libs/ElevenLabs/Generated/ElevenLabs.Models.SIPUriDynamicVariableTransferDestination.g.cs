@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sip_uri")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SipUri { get; set; } = default!;
+        public required string SipUri { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

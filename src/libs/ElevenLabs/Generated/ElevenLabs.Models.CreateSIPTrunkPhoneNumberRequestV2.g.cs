@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumber { get; set; } = default!;
+        public required string PhoneNumber { get; set; }
 
         /// <summary>
         /// Label for the phone number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Label { get; set; } = default!;
+        public required string Label { get; set; }
 
         /// <summary>
         /// This field is deprecated and will be removed in the future. Whether this phone number supports inbound calls<br/>

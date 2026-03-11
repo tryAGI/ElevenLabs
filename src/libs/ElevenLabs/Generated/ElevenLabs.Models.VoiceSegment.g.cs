@@ -13,42 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceId { get; set; } = default!;
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// Start time of this voice segment
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double StartTimeSeconds { get; set; } = default!;
+        public required double StartTimeSeconds { get; set; }
 
         /// <summary>
         /// End time of this voice segment
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double EndTimeSeconds { get; set; } = default!;
+        public required double EndTimeSeconds { get; set; }
 
         /// <summary>
         /// Start index in the characters array
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_start_index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharacterStartIndex { get; set; } = default!;
+        public required int CharacterStartIndex { get; set; }
 
         /// <summary>
         /// End index in the characters array (exclusive)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_end_index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharacterEndIndex { get; set; } = default!;
+        public required int CharacterEndIndex { get; set; }
 
         /// <summary>
         /// Line of the dialogue (script) that this segment is a part of.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dialogue_input_index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int DialogueInputIndex { get; set; } = default!;
+        public required int DialogueInputIndex { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

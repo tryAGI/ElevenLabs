@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
 
         /// <summary>
         /// The type of entity detected (e.g., 'credit_card', 'email_address', 'person_name').
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entity_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string EntityType { get; set; } = default!;
+        public required string EntityType { get; set; }
 
         /// <summary>
         /// Start character position in the transcript text.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_char")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int StartChar { get; set; } = default!;
+        public required int StartChar { get; set; }
 
         /// <summary>
         /// End character position in the transcript text.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_char")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int EndChar { get; set; } = default!;
+        public required int EndChar { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

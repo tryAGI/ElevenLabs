@@ -14,14 +14,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Success { get; set; } = default!;
+        public required bool Success { get; set; }
 
         /// <summary>
         /// A list of tools available on the MCP server.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.Tool> Tools { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.Tool> Tools { get; set; }
 
         /// <summary>
         /// Error message if the operation was not successful.

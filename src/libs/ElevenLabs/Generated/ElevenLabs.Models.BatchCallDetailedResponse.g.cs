@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
@@ -38,28 +38,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAtUnix { get; set; } = default!;
+        public required int CreatedAtUnix { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scheduled_time_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ScheduledTimeUnix { get; set; } = default!;
+        public required int ScheduledTimeUnix { get; set; }
 
         /// <summary>
         /// 
@@ -72,28 +72,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_calls_dispatched")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TotalCallsDispatched { get; set; } = default!;
+        public required int TotalCallsDispatched { get; set; }
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_calls_scheduled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TotalCallsScheduled { get; set; } = default!;
+        public required int TotalCallsScheduled { get; set; }
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_calls_finished")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TotalCallsFinished { get; set; } = default!;
+        public required int TotalCallsFinished { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_updated_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int LastUpdatedAtUnix { get; set; } = default!;
+        public required int LastUpdatedAtUnix { get; set; }
 
         /// <summary>
         /// 
@@ -101,21 +101,21 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BatchCallStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.BatchCallStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.BatchCallStatus Status { get; set; }
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retry_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int RetryCount { get; set; } = default!;
+        public required int RetryCount { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("telephony_call_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.TelephonyCallConfig TelephonyCallConfig { get; set; } = default!;
+        public required global::ElevenLabs.TelephonyCallConfig TelephonyCallConfig { get; set; }
 
         /// <summary>
         /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
@@ -128,14 +128,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentName { get; set; } = default!;
+        public required string AgentName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recipients")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel> Recipients { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel> Recipients { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

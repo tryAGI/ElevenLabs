@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FileId { get; set; } = default!;
+        public required string FileId { get; set; }
 
         /// <summary>
         /// The name of the file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FileName { get; set; } = default!;
+        public required string FileName { get; set; }
 
         /// <summary>
         /// The MIME type of the file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string MimeType { get; set; } = default!;
+        public required string MimeType { get; set; }
 
         /// <summary>
         /// The size of the file in bytes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int SizeBytes { get; set; } = default!;
+        public required int SizeBytes { get; set; }
 
         /// <summary>
         /// The date of the file in Unix time.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("upload_date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UploadDateUnix { get; set; } = default!;
+        public required int UploadDateUnix { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

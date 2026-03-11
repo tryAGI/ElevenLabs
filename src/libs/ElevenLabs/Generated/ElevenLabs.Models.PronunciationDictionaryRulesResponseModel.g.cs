@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// The version ID of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VersionId { get; set; } = default!;
+        public required string VersionId { get; set; }
 
         /// <summary>
         /// The number of rules in the version of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_rules_num")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int VersionRulesNum { get; set; } = default!;
+        public required int VersionRulesNum { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

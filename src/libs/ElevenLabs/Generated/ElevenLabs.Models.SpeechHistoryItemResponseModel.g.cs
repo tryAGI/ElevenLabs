@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history_item_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string HistoryItemId { get; set; } = default!;
+        public required string HistoryItemId { get; set; }
 
         /// <summary>
         /// The ID of the request.
@@ -57,28 +57,28 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("date_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTimeOffset DateUnix { get; set; } = default!;
+        public required global::System.DateTimeOffset DateUnix { get; set; }
 
         /// <summary>
         /// The character count change from.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count_change_from")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharacterCountChangeFrom { get; set; } = default!;
+        public required int CharacterCountChangeFrom { get; set; }
 
         /// <summary>
         /// The character count change to.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count_change_to")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharacterCountChangeTo { get; set; } = default!;
+        public required int CharacterCountChangeTo { get; set; }
 
         /// <summary>
         /// The content type of the generated item.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ContentType { get; set; } = default!;
+        public required string ContentType { get; set; }
 
         /// <summary>
         /// The state of the history item.
@@ -86,7 +86,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeechHistoryItemResponseModelStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SpeechHistoryItemResponseModelState State { get; set; } = default!;
+        public required global::ElevenLabs.SpeechHistoryItemResponseModelState State { get; set; }
 
         /// <summary>
         /// The settings of the history item.

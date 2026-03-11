@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string WorkspaceId { get; set; } = default!;
+        public required string WorkspaceId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TestName { get; set; } = default!;
+        public required string TestName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ran_by_user_email")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string RanByUserEmail { get; set; } = default!;
+        public required string RanByUserEmail { get; set; }
 
         /// <summary>
         /// Default Value: llm

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_sip_headers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem3> CustomSipHeaders { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem3> CustomSipHeaders { get; set; }
 
         /// <summary>
         /// Default Value: phone_number
@@ -27,14 +27,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("position")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.PositionOutput Position { get; set; } = default!;
+        public required global::ElevenLabs.PositionOutput Position { get; set; }
 
         /// <summary>
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("edge_order")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> EdgeOrder { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> EdgeOrder { get; set; }
 
         /// <summary>
         /// 
@@ -42,7 +42,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_destination")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestination2JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.TransferDestination2 TransferDestination { get; set; } = default!;
+        public required global::ElevenLabs.TransferDestination2 TransferDestination { get; set; }
 
         /// <summary>
         /// Default Value: conference
@@ -51,7 +51,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferTypeEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.TransferTypeEnum TransferType { get; set; } = default!;
+        public required global::ElevenLabs.TransferTypeEnum TransferType { get; set; } = global::ElevenLabs.TransferTypeEnum.Conference;
 
         /// <summary>
         /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause.

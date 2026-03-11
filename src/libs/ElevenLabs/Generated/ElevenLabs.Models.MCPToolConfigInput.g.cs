@@ -19,14 +19,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Description of when the tool should be used and what it does.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Description { get; set; } = default!;
+        public required string Description { get; set; }
 
         /// <summary>
         /// The maximum time in seconds to wait for the tool call to complete.<br/>
@@ -83,7 +83,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.IntegrationTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.IntegrationType IntegrationType { get; set; } = default!;
+        public required global::ElevenLabs.IntegrationType IntegrationType { get; set; }
 
         /// <summary>
         /// Schema for any parameters the LLM needs to provide to the MCP tool.
@@ -104,28 +104,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_tool_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpToolName { get; set; } = default!;
+        public required string McpToolName { get; set; }
 
         /// <summary>
         /// The description of the MCP tool to call
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_tool_description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpToolDescription { get; set; } = default!;
+        public required string McpToolDescription { get; set; }
 
         /// <summary>
         /// The id of the MCP server to call
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpServerId { get; set; } = default!;
+        public required string McpServerId { get; set; }
 
         /// <summary>
         /// The name of the MCP server to call
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpServerName { get; set; } = default!;
+        public required string McpServerName { get; set; }
 
         /// <summary>
         /// Original inputSchema dict for consistent hashing

@@ -14,7 +14,7 @@ namespace ElevenLabs
         /// <example>{"disable_first_message_interruptions":false,"first_message":"Hello, how can I help you today?","language":"en"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("simulated_user_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AgentConfigAPIModelInput SimulatedUserConfig { get; set; } = default!;
+        public required global::ElevenLabs.AgentConfigAPIModelInput SimulatedUserConfig { get; set; }
 
         /// <summary>
         /// 

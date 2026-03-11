@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel> History { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel> History { get; set; }
 
         /// <summary>
         /// The ID of the last history item.
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool HasMore { get; set; } = default!;
+        public required bool HasMore { get; set; }
 
         /// <summary>
         /// The timestamp of the last history item.

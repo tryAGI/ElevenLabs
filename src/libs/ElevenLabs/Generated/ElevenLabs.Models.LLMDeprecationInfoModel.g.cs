@@ -14,14 +14,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.Llm Llm { get; set; } = default!;
+        public required global::ElevenLabs.Llm Llm { get; set; }
 
         /// <summary>
         /// Whether this model is currently deprecated. True if the model is immediately deprecated or within the warning period.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_deprecated")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool IsDeprecated { get; set; } = default!;
+        public required bool IsDeprecated { get; set; }
 
         /// <summary>
         /// Whether this model is currently in the warning period before deprecation.<br/>

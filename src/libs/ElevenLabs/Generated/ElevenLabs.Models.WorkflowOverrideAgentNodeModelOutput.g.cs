@@ -15,28 +15,28 @@ namespace ElevenLabs
         /// <example>{"agent":{"disable_first_message_interruptions":false,"dynamic_variables":{"dynamic_variable_placeholders":{"user_name":"John Doe"}},"first_message":"Hello, how can I help you today?","language":"en","prompt":{"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}},"asr":{"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"conversation":{"client_events":["audio","interruption"],"max_duration_seconds":600},"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"mode":"turn","silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0},"vad":{"background_voice_detection":false}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationalConfigAPIModelWorkflowOverrideOutput ConversationConfig { get; set; } = default!;
+        public required global::ElevenLabs.ConversationalConfigAPIModelWorkflowOverrideOutput ConversationConfig { get; set; }
 
         /// <summary>
         /// Specific goal for this subagent. It will be added to the system prompt and can be used to further refine the agent's behavior in this specific context.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("additional_prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AdditionalPrompt { get; set; } = default!;
+        public required string AdditionalPrompt { get; set; }
 
         /// <summary>
         /// Additional knowledge base documents that the subagent has access to. These will be used in addition to the main agent's documents.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("additional_knowledge_base")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator> AdditionalKnowledgeBase { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator> AdditionalKnowledgeBase { get; set; }
 
         /// <summary>
         /// IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("additional_tool_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> AdditionalToolIds { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> AdditionalToolIds { get; set; }
 
         /// <summary>
         /// Default Value: override_agent
@@ -50,21 +50,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("position")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.PositionOutput Position { get; set; } = default!;
+        public required global::ElevenLabs.PositionOutput Position { get; set; }
 
         /// <summary>
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("edge_order")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> EdgeOrder { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> EdgeOrder { get; set; }
 
         /// <summary>
         /// Human-readable label for the node used throughout the UI.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Label { get; set; } = default!;
+        public required string Label { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

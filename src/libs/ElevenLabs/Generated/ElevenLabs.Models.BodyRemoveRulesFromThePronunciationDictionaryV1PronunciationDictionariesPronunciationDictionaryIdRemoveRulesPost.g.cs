@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rule_strings")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> RuleStrings { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> RuleStrings { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("successful")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Successful { get; set; } = default!;
+        public required bool Successful { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

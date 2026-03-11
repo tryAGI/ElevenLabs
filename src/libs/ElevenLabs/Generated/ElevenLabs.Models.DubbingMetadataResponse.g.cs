@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dubbing_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DubbingId { get; set; } = default!;
+        public required string DubbingId { get; set; }
 
         /// <summary>
         /// The name of the dubbing project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The state this dub is in.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Status { get; set; } = default!;
+        public required string Status { get; set; }
 
         /// <summary>
         /// Once dubbing has completed, the ISO-639-1 code of the original media's source language.
@@ -40,7 +40,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_languages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> TargetLanguages { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> TargetLanguages { get; set; }
 
         /// <summary>
         /// Whether this dubbing project is editable in Dubbing Studio.<br/>
@@ -54,7 +54,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTime CreatedAt { get; set; } = default!;
+        public required global::System.DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Metadata, such as the length in seconds and content type, of the dubbed content.

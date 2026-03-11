@@ -22,7 +22,7 @@ namespace ElevenLabs
         /// <example>{"host_voice_id":"aw1NgEzBg83R7vgmiJt6"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("bulletin")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.PodcastBulletinModeData Bulletin { get; set; } = default!;
+        public required global::ElevenLabs.PodcastBulletinModeData Bulletin { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

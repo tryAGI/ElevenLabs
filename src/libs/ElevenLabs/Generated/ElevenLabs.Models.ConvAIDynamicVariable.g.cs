@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("variable_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VariableName { get; set; } = default!;
+        public required string VariableName { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
@@ -33,21 +33,21 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BatchCallRecipientStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.BatchCallRecipientStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.BatchCallRecipientStatus Status { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAtUnix { get; set; } = default!;
+        public required int CreatedAtUnix { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UpdatedAtUnix { get; set; } = default!;
+        public required int UpdatedAtUnix { get; set; }
 
         /// <summary>
         /// 

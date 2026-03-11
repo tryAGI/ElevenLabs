@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.EmbeddingModelEnum Model { get; set; } = default!;
+        public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; }
 
         /// <summary>
         /// 
@@ -29,21 +29,21 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RAGIndexStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.RAGIndexStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.RAGIndexStatus Status { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("progress_percentage")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double ProgressPercentage { get; set; } = default!;
+        public required double ProgressPercentage { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("document_model_index_usage")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.RAGDocumentIndexUsage DocumentModelIndexUsage { get; set; } = default!;
+        public required global::ElevenLabs.RAGDocumentIndexUsage DocumentModelIndexUsage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

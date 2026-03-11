@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.MCPServerConfigOutput Config { get; set; } = default!;
+        public required global::ElevenLabs.MCPServerConfigOutput Config { get; set; }
 
         /// <summary>
         /// The access information of the MCP Server
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.MCPServerMetadataResponseModel Metadata { get; set; } = default!;
+        public required global::ElevenLabs.MCPServerMetadataResponseModel Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

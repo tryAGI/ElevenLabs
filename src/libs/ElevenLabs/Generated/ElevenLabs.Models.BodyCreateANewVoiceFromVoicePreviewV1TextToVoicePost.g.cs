@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceName { get; set; } = default!;
+        public required string VoiceName { get; set; }
 
         /// <summary>
         /// Description to use for the created voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceDescription { get; set; } = default!;
+        public required string VoiceDescription { get; set; }
 
         /// <summary>
         /// The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response header if don't have one yet.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generated_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string GeneratedVoiceId { get; set; } = default!;
+        public required string GeneratedVoiceId { get; set; }
 
         /// <summary>
         /// Optional, metadata to add to the created voice. Defaults to None.

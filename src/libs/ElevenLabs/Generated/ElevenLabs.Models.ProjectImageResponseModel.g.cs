@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ImageId { get; set; } = default!;
+        public required string ImageId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Filename { get; set; } = default!;
+        public required string Filename { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("signed_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SignedUrl { get; set; } = default!;
+        public required string SignedUrl { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail_signed_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ThumbnailSignedUrl { get; set; } = default!;
+        public required string ThumbnailSignedUrl { get; set; }
 
         /// <summary>
         /// Default Value: image
@@ -53,21 +53,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int FileSizeBytes { get; set; } = default!;
+        public required int FileSizeBytes { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("width")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Width { get; set; } = default!;
+        public required int Width { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("height")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Height { get; set; } = default!;
+        public required int Height { get; set; }
 
         /// <summary>
         /// Default Value: v0
@@ -80,28 +80,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("offset_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int OffsetMs { get; set; } = default!;
+        public required int OffsetMs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int DurationMs { get; set; } = default!;
+        public required int DurationMs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("order")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Order { get; set; } = default!;
+        public required string Order { get; set; }
 
         /// <summary>
         /// Defines asset positioning and transformation on canvas.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("canvas_placement")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.CanvasPlacement CanvasPlacement { get; set; } = default!;
+        public required global::ElevenLabs.CanvasPlacement CanvasPlacement { get; set; }
 
         /// <summary>
         /// Default Value: {"enter_effect":"none","enter_duration_ms":0,"exit_effect":"none","exit_duration_ms":0}
@@ -114,14 +114,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAtMs { get; set; } = default!;
+        public required int CreatedAtMs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UpdatedAtMs { get; set; } = default!;
+        public required int UpdatedAtMs { get; set; }
 
         /// <summary>
         /// 

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("step_latency_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double StepLatencySecs { get; set; } = default!;
+        public required double StepLatencySecs { get; set; }
 
         /// <summary>
         /// Default Value: max_iterations_exceeded
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_iterations")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxIterations { get; set; } = default!;
+        public required int MaxIterations { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

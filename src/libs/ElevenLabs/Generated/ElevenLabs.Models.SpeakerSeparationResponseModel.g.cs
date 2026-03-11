@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceId { get; set; } = default!;
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// The ID of the sample.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SampleId { get; set; } = default!;
+        public required string SampleId { get; set; }
 
         /// <summary>
         /// The status of the speaker separation.
@@ -28,7 +28,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeakerSeparationResponseModelStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SpeakerSeparationResponseModelStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.SpeakerSeparationResponseModelStatus Status { get; set; }
 
         /// <summary>
         /// The speakers of the sample.

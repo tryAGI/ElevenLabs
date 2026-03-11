@@ -38,7 +38,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::ElevenLabs.ConvAISecretLocator>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator> Url { get; set; } = default!;
+        public required global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator> Url { get; set; }
 
         /// <summary>
         /// The secret token (Authorization header) stored as a workspace secret or in-place secret
@@ -64,7 +64,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 

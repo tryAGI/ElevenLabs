@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warning_start_days")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int WarningStartDays { get; set; } = default!;
+        public required int WarningStartDays { get; set; }
 
         /// <summary>
         /// Number of days before the provider deprecation date when traffic starts being routed to the replacement model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fallback_start_days")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int FallbackStartDays { get; set; } = default!;
+        public required int FallbackStartDays { get; set; }
 
         /// <summary>
         /// Number of days before the provider deprecation date when all traffic is routed to the replacement model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fallback_complete_days")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int FallbackCompleteDays { get; set; } = default!;
+        public required int FallbackCompleteDays { get; set; }
 
         /// <summary>
         /// Percentage of traffic routed to the replacement model when fallback begins.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fallback_start_percentage")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int FallbackStartPercentage { get; set; } = default!;
+        public required int FallbackStartPercentage { get; set; }
 
         /// <summary>
         /// Percentage of traffic routed to the replacement model when fallback is complete.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fallback_complete_percentage")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int FallbackCompletePercentage { get; set; } = default!;
+        public required int FallbackCompletePercentage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

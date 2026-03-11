@@ -21,7 +21,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DataJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.Data Data { get; set; } = default!;
+        public required global::ElevenLabs.Data Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

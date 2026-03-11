@@ -16,21 +16,21 @@ namespace ElevenLabs
         /// <example>{"composition_plan":{"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]},"song_metadata":{"description":"My Song Description","genres":["pop","rock","jazz"],"is_explicit":false,"languages":["en","fr"],"title":"My Song"},"words_timestamps":[{"end_ms":1000,"start_ms":0,"word":"Verse"},{"end_ms":2000,"start_ms":1000,"word":"1"},{"end_ms":3000,"start_ms":2000,"word":"lyrics"}]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.DetailedMusicResponse Metadata { get; set; } = default!;
+        public required global::ElevenLabs.DetailedMusicResponse Metadata { get; set; }
 
         /// <summary>
         /// Binary audio data in the requested format
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public byte[] Audio { get; set; } = default!;
+        public required byte[] Audio { get; set; }
 
         /// <summary>
         /// Binary audio data in the requested format
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audioname")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Audioname { get; set; } = default!;
+        public required string Audioname { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

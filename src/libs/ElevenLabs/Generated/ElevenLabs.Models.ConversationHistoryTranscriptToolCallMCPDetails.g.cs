@@ -19,21 +19,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpServerId { get; set; } = default!;
+        public required string McpServerId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string McpServerName { get; set; } = default!;
+        public required string McpServerName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string IntegrationType { get; set; } = default!;
+        public required string IntegrationType { get; set; }
 
         /// <summary>
         /// 
@@ -46,7 +46,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("approval_policy")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ApprovalPolicy { get; set; } = default!;
+        public required string ApprovalPolicy { get; set; }
 
         /// <summary>
         /// Default Value: false

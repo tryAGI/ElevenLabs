@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tag")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Tag { get; set; } = default!;
+        public required string Tag { get; set; }
 
         /// <summary>
         /// Optional description of when to use this tag

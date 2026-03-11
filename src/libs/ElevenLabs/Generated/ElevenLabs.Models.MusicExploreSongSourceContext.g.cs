@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("music_explore_song_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string MusicExploreSongId { get; set; } = default!;
+        public required string MusicExploreSongId { get; set; }
 
         /// <summary>
         /// 

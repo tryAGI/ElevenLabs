@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceId { get; set; } = default!;
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// Whether the voice requires verification
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requires_verification")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool RequiresVerification { get; set; } = default!;
+        public required bool RequiresVerification { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

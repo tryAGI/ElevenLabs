@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_snapshot_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ProjectSnapshotId { get; set; } = default!;
+        public required string ProjectSnapshotId { get; set; }
 
         /// <summary>
         /// The ID of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ProjectId { get; set; } = default!;
+        public required string ProjectId { get; set; }
 
         /// <summary>
         /// The creation date of the project snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAtUnix { get; set; } = default!;
+        public required int CreatedAtUnix { get; set; }
 
         /// <summary>
         /// The name of the project snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// (Deprecated)
@@ -53,14 +53,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_alignments")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.CharacterAlignmentModel> CharacterAlignments { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.CharacterAlignmentModel> CharacterAlignments { get; set; }
 
         /// <summary>
         /// The total duration of the audio in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double AudioDurationSecs { get; set; } = default!;
+        public required double AudioDurationSecs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

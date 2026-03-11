@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TestId { get; set; } = default!;
+        public required string TestId { get; set; }
 
         /// <summary>
         /// ID of the workflow node to run the test on. If not provided, the test will be run on the agent's default workflow node.

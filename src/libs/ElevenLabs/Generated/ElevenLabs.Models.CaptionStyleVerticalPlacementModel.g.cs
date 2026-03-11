@@ -14,14 +14,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("align")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CaptionStyleVerticalPlacementModelAlignJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.CaptionStyleVerticalPlacementModelAlign Align { get; set; } = default!;
+        public required global::ElevenLabs.CaptionStyleVerticalPlacementModelAlign Align { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("translate_pct")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double TranslatePct { get; set; } = default!;
+        public required double TranslatePct { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

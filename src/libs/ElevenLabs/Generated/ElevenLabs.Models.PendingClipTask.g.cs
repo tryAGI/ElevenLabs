@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PendingClipTaskTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.PendingClipTaskType Type { get; set; } = default!;
+        public required global::ElevenLabs.PendingClipTaskType Type { get; set; }
 
         /// <summary>
         /// Default Value: 0F

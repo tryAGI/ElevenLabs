@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("string_to_replace")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string StringToReplace { get; set; } = default!;
+        public required string StringToReplace { get; set; }
 
         /// <summary>
         /// Whether the rule matches case-sensitively.<br/>
@@ -41,7 +41,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Alias { get; set; } = default!;
+        public required string Alias { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

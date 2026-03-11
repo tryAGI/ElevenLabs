@@ -21,7 +21,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("left")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Left2JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.Left2 Left { get; set; } = default!;
+        public required global::ElevenLabs.Left2 Left { get; set; }
 
         /// <summary>
         /// Right operand of the binary operator.
@@ -29,7 +29,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("right")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Right2JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.Right2 Right { get; set; } = default!;
+        public required global::ElevenLabs.Right2 Right { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

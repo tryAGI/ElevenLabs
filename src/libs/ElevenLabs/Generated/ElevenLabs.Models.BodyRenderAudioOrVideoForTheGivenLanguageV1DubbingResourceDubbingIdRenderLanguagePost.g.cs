@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("render_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RenderType2JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.RenderType2 RenderType { get; set; } = default!;
+        public required global::ElevenLabs.RenderType2 RenderType { get; set; }
 
         /// <summary>
         /// Whether to normalize the volume of the rendered audio.<br/>

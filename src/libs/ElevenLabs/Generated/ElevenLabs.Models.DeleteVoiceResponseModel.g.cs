@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Status { get; set; } = default!;
+        public required string Status { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

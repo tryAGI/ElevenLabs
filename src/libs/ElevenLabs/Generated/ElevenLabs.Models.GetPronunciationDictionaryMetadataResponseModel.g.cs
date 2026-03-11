@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// The ID of the latest version of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("latest_version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string LatestVersionId { get; set; } = default!;
+        public required string LatestVersionId { get; set; }
 
         /// <summary>
         /// The number of rules in the latest version of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("latest_version_rules_num")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int LatestVersionRulesNum { get; set; } = default!;
+        public required int LatestVersionRulesNum { get; set; }
 
         /// <summary>
         /// The name of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The permission on the resource of the pronunciation dictionary.
@@ -47,7 +47,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CreatedBy { get; set; } = default!;
+        public required string CreatedBy { get; set; }
 
         /// <summary>
         /// The creation time of the pronunciation dictionary in Unix timestamp.
@@ -55,7 +55,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_time_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTimeOffset CreationTimeUnix { get; set; } = default!;
+        public required global::System.DateTimeOffset CreationTimeUnix { get; set; }
 
         /// <summary>
         /// The archive time of the pronunciation dictionary in Unix timestamp.

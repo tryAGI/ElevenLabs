@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ResourceId { get; set; } = default!;
+        public required string ResourceId { get; set; }
 
         /// <summary>
         /// The name of the resource, if available.
@@ -27,7 +27,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WorkspaceResourceTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.WorkspaceResourceType ResourceType { get; set; } = default!;
+        public required global::ElevenLabs.WorkspaceResourceType ResourceType { get; set; }
 
         /// <summary>
         /// The ID of the user who created the resource.
@@ -46,14 +46,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role_to_group_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>> RoleToGroupIds { get; set; } = default!;
+        public required global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>> RoleToGroupIds { get; set; }
 
         /// <summary>
         /// List of options for sharing the resource further in the workspace. These are users who don't have access to the resource yet.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("share_options")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel> ShareOptions { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel> ShareOptions { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

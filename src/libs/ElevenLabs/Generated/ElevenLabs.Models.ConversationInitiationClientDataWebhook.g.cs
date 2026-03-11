@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Url { get; set; } = default!;
+        public required string Url { get; set; }
 
         /// <summary>
         /// The headers to send with the webhook request
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public object RequestHeaders { get; set; } = default!;
+        public required object RequestHeaders { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

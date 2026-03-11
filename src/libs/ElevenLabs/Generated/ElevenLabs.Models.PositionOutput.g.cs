@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("x")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double X { get; set; } = default!;
+        public required double X { get; set; }
 
         /// <summary>
         /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("y")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double Y { get; set; } = default!;
+        public required double Y { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -25,14 +25,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("genres")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Genres { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Genres { get; set; }
 
         /// <summary>
         /// The languages of the song
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("languages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Languages { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Languages { get; set; }
 
         /// <summary>
         /// Whether the song is explicit

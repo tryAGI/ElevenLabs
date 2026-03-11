@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer> Transfers { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer> Transfers { get; set; }
 
         /// <summary>
         /// Whether to play a message to the client while they wait for transfer. Defaults to true for backward compatibility.<br/>

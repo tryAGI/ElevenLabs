@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("step_latency_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double StepLatencySecs { get; set; } = default!;
+        public required double StepLatencySecs { get; set; }
 
         /// <summary>
         /// Default Value: edge
@@ -26,14 +26,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("edge_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string EdgeId { get; set; } = default!;
+        public required string EdgeId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_node_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TargetNodeId { get; set; } = default!;
+        public required string TargetNodeId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

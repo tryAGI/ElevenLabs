@@ -25,21 +25,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_agent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FromAgent { get; set; } = default!;
+        public required string FromAgent { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to_agent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ToAgent { get; set; } = default!;
+        public required string ToAgent { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Condition { get; set; } = default!;
+        public required string Condition { get; set; }
 
         /// <summary>
         /// Default Value: 0

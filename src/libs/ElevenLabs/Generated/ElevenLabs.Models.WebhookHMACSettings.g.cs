@@ -20,14 +20,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The HTTPS callback URL that will be called when this webhook is triggered
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhook_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string WebhookUrl { get; set; } = default!;
+        public required string WebhookUrl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
