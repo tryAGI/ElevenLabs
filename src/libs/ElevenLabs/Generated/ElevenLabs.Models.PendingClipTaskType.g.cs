@@ -24,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         VideoToMusic,
+        /// <summary>
+        /// 
+        /// </summary>
+        MediaGeneration,
     }
 
     /// <summary>
@@ -42,6 +46,7 @@ namespace ElevenLabs
                 PendingClipTaskType.SpeechImport => "speech_import",
                 PendingClipTaskType.Dubbing => "dubbing",
                 PendingClipTaskType.VideoToMusic => "video_to_music",
+                PendingClipTaskType.MediaGeneration => "media_generation",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +61,7 @@ namespace ElevenLabs
                 "speech_import" => PendingClipTaskType.SpeechImport,
                 "dubbing" => PendingClipTaskType.Dubbing,
                 "video_to_music" => PendingClipTaskType.VideoToMusic,
+                "media_generation" => PendingClipTaskType.MediaGeneration,
                 _ => null,
             };
         }
