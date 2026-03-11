@@ -585,6 +585,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.PronunciationDictionaryVersionResponseModelPermissionOnResource2NullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.VideoAnalysisStatusJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.VideoAnalysisStatusNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceTypeJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceTypeNullableJsonConverter),
             typeof(global::ElevenLabs.JsonConverters.RAGIndexStatusJsonConverter),
