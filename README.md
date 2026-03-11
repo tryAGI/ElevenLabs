@@ -51,6 +51,21 @@ byte[] audioBytes = await client.TextToSpeech.CreateTextToSpeechByVoiceIdAsync(
 await File.WriteAllBytesAsync("output.mp3", audioBytes);
 ```
 
+### Streaming Text to Speech
+```csharp
+//// Stream text-to-speech audio using a specific voice, useful for real-time playback.
+var voices = await client.Voices.GetVoicesAsync();
+var voiceId = voices.Voices[0].VoiceId;
+
+byte[] streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
+    voiceId: voiceId,
+    text: "This audio is streamed for low-latency playback.",
+    modelId: "eleven_multilingual_v2",
+    outputFormat: TextToSpeechStreamOutputFormat.Mp32205032);
+
+await File.WriteAllBytesAsync("streamed-output.mp3", streamedAudio);
+```
+
 ### Sound Generation
 ```csharp
 //// Generate a sound effect from a text description.

@@ -39,6 +39,27 @@ public partial class Tests
     }
 
     [TestMethod]
+    public async Task StreamingTextToSpeech()
+    {
+        using var client = GetAuthenticatedClient();
+
+        //// Stream text-to-speech audio using a specific voice, useful for real-time playback.
+        var voices = await client.Voices.GetVoicesAsync();
+        var voiceId = voices.Voices[0].VoiceId;
+
+        byte[] streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
+            voiceId: voiceId,
+            text: "This audio is streamed for low-latency playback.",
+            modelId: "eleven_multilingual_v2",
+            outputFormat: TextToSpeechStreamOutputFormat.Mp32205032);
+
+        streamedAudio.Should().NotBeNull();
+        streamedAudio.Length.Should().BeGreaterThan(0);
+
+        Console.WriteLine($"Streamed {streamedAudio.Length} bytes of audio.");
+    }
+
+    [TestMethod]
     public async Task SoundGeneration()
     {
         using var client = GetAuthenticatedClient();
