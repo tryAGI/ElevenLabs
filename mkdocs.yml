@@ -1,4 +1,9 @@
 site_name: ElevenLabs .NET Documentation
+site_description: Official .NET SDK documentation for ElevenLabs text to speech, speech to text, voice cloning, and realtime APIs.
+site_url: https://tryagi.github.io/ElevenLabs/
+repo_url: https://github.com/tryAGI/ElevenLabs
+repo_name: tryAGI/ElevenLabs
+edit_uri: edit/main/docs/
 nav:
 - Overview: index.md
 # EXAMPLES:START
@@ -15,6 +20,7 @@ nav:
         
 theme:
   name: material
+  logo: media/icon128.png
   static_templates:
     - 404.html
   language: 'en'
@@ -22,47 +28,67 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: white
-      accent: red
+      primary: black
+      accent: green
       toggle:
-        icon: material/weather-sunny
+        icon: material/weather-night
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue
-      accent: blue
+      primary: black
+      accent: green
       toggle:
-        icon: material/weather-night
+        icon: material/weather-sunny
         name: Switch to light mode
   include_search_page: false
   search_index_only: true
   favicon: 'media/icon128.png'
-  icon:
-    logo: 'material/file-document'
   features:
     - content.action.edit
+    - content.code.copy
     - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - toc.follow
   font:
-    text: 'Fira Sans'
-    code: 'Fira Mono'
+    text: 'Space Grotesk'
+    code: 'IBM Plex Mono'
+  icon:
+    repo: 'fontawesome/brands/github'
 
 extra:
   version:
     provider: mike
 
 extra_css:
-  - 'css/extra.css?v=14'
+  - 'css/extra.css?v=15'
+
+extra_javascript:
+  - 'js/site.js?v=1'
+
+plugins:
+  - search
+  - copy-to-llm
 
 markdown_extensions:
   - admonition
+  - attr_list
   - def_list
   - footnotes
+  - md_in_html
   - meta
   - toc:
       permalink: ""
-      slugify: !!python/name:pymdownx.slugs.uslugify
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+          percent_encode: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.caret

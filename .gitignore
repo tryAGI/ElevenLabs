@@ -210,6 +210,13 @@ PublishScripts/
 csx/
 *.build.csdef
 
+# MkDocs local build artifacts
+_site/
+_site-local-test/
+docs/assets/copy-to-llm/
+myenv/
+.tmp-mkdocs-venv/
+
 # Microsoft Azure Emulator
 ecf/
 rcf/

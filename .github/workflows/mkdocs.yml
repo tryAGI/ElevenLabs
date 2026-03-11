@@ -46,8 +46,8 @@ jobs:
         run: |
           python -m venv myenv
           source myenv/bin/activate
-          pip install mkdocs-material
-          mkdocs build -d ./_site
+          pip install mkdocs-material mkdocs-copy-to-llm
+          NO_MKDOCS_2_WARNING=1 mkdocs build -d ./_site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
