@@ -63,6 +63,14 @@ autosdk generate openapi.yaml \
 | File | Purpose |
 |------|---------|
 | `Extensions/SpeechToTextClient.ExtensionsAI.cs` | Microsoft.Extensions.AI speech-to-text integration |
+| `Extensions/SpeechToTextClient.Realtime.cs` | `ConnectRealtimeAsync()` — opens a realtime STT WebSocket session |
+| `Extensions/ElevenLabsClient.Realtime.cs` | Convenience delegate to `SpeechToText.ConnectRealtimeAsync()` |
+| `Realtime/RealtimeAudioFormat.cs` | Enum for supported PCM/μ-law audio formats |
+| `Realtime/RealtimeCommitStrategy.cs` | Enum for Manual/VAD commit strategies |
+| `Realtime/RealtimeSpeechToTextOptions.cs` | Options record for realtime session configuration |
+| `Realtime/RealtimeSpeechToTextEvents.cs` | Typed event records and JSON parser for WebSocket messages |
+| `Realtime/RealtimeSpeechToTextSession.cs` | WebSocket session: send audio chunks, receive typed events |
+| `Realtime/RealtimeJsonContext.cs` | Source-generated `JsonSerializerContext` for AOT/trimming compatibility |
 
 ### Build Configuration
 
