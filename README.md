@@ -11,19 +11,115 @@
 - Updated and supported automatically if there are no breaking changes
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
 - Support .Net Framework/.Net Standard 2.0
+- Realtime speech-to-text via WebSocket
 
-### Usage
+## Usage
+
+### Installation
+```bash
+dotnet add package ElevenLabs
+```
+
+### Authentication
 ```csharp
 using ElevenLabs;
 
 using var client = new ElevenLabsClient(apiKey);
 ```
 
+### List Available Voices
+```csharp
+//// List all available voices and print their names.
+var response = await client.Voices.GetVoicesAsync();
+
+foreach (var voice in response.Voices)
+{
+    Console.WriteLine(voice.Name);
+}
+```
+
+### Text to Speech
+```csharp
+//// Convert text to speech using a specific voice and save the audio to a file.
+var voices = await client.Voices.GetVoicesAsync();
+var voiceId = voices.Voices[0].VoiceId;
+
+byte[] audioBytes = await client.TextToSpeech.CreateTextToSpeechByVoiceIdAsync(
+    voiceId: voiceId,
+    text: "Hello, world! This is a test of the ElevenLabs text-to-speech API.");
+
+await File.WriteAllBytesAsync("output.mp3", audioBytes);
+```
+
+### Sound Generation
+```csharp
+//// Generate a sound effect from a text description.
+byte[] soundBytes = await client.SoundGeneration.CreateSoundGenerationAsync(
+    text: "A gentle ocean wave crashing on a sandy beach",
+    durationSeconds: 3.0);
+
+await File.WriteAllBytesAsync("ocean-wave.mp3", soundBytes);
+```
+
+### Speech to Text (File)
+```csharp
+//// Transcribe an audio file to text.
+byte[] audioFile = await File.ReadAllBytesAsync("recording.mp3");
+
+var transcription = await client.SpeechToText.CreateSpeechToTextAsync(
+    modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
+    file: audioFile,
+    languageCode: "en");
+
+// Access the transcript text
+if (transcription.Value1 is { } chunk)
+{
+    Console.WriteLine(chunk.Text);
+}
+```
+
+### Realtime Speech-to-Text (WebSocket)
+```csharp
+//// Stream audio to ElevenLabs for realtime transcription via WebSocket.
+await using var session = await client.ConnectRealtimeAsync(
+    new RealtimeSpeechToTextOptions
+    {
+        AudioFormat = RealtimeAudioFormat.Pcm16000,
+        CommitStrategy = RealtimeCommitStrategy.Vad,
+    });
+
+// Send audio chunks (e.g., from a microphone)
+await session.SendAudioChunkAsync(
+    audioBytes: pcmAudioChunk,
+    sampleRate: 16000,
+    commit: false);
+
+// Read transcription events
+await foreach (var evt in session.ReadEventsAsync())
+{
+    switch (evt)
+    {
+        case SessionStartedEvent started:
+            Console.WriteLine($"Session started: {started.SessionId}");
+            break;
+        case PartialTranscriptEvent partial:
+            Console.Write(partial.Text);
+            break;
+        case CommittedTranscriptEvent committed:
+            Console.WriteLine($"\nFinal: {committed.Text}");
+            break;
+        case ErrorEvent error:
+            Console.WriteLine($"Error: {error.ErrorType} - {error.Error}");
+            break;
+    }
+}
+```
+
 ## Support
 
-Priority place for bugs: https://github.com/tryAGI/ElevenLabs/issues  
-Priority place for ideas and general questions: https://github.com/tryAGI/ElevenLabs/discussions  
-Discord: https://discord.gg/Ca2xhfBf3v  
+Priority place for bugs: https://github.com/tryAGI/ElevenLabs/issues
+Priority place for ideas and general questions: https://github.com/tryAGI/ElevenLabs/discussions
+Discord: https://discord.gg/Ca2xhfBf3v
 
 ## Acknowledgments
 

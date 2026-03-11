@@ -7,36 +7,50 @@ public partial class Tests
     {
         using var client = GetAuthenticatedClient();
 
+        //// List all available voices and print their names.
         GetVoicesResponseModel response = await client.Voices.GetVoicesAsync();
-        
-        Console.WriteLine("Voices:");
+
         foreach (var voice in response.Voices)
         {
             Console.WriteLine(voice.Name);
         }
-        
+
         response.Should().NotBeNull();
         response.Voices.Should().NotBeEmpty();
     }
-    
+
     [TestMethod]
     public async Task TextToSpeech()
     {
         using var client = GetAuthenticatedClient();
-        
-        GetVoicesResponseModel voices = await client.Voices.GetVoicesAsync();
 
-        var randomIndex = new Random().Next(0, voices.Voices.Count);
-        var bytes = await client.TextToSpeech.CreateTextToSpeechByVoiceIdAsync(
-            voiceId: voices.Voices[randomIndex].VoiceId,
-            text: "Hello, world!");
-        
-        bytes.Should().NotBeNull();
+        //// Convert text to speech using a specific voice and save the audio to a file.
+        var voices = await client.Voices.GetVoicesAsync();
+        var voiceId = voices.Voices[0].VoiceId;
 
-        FileInfo fileInfo = new($"{Guid.NewGuid()}.mp3");
-        
-        await File.WriteAllBytesAsync(fileInfo.FullName, bytes);
-        
-        Console.WriteLine($"Audio available at:\n{new Uri(fileInfo.FullName).AbsoluteUri}");
+        byte[] audioBytes = await client.TextToSpeech.CreateTextToSpeechByVoiceIdAsync(
+            voiceId: voiceId,
+            text: "Hello, world! This is a test of the ElevenLabs text-to-speech API.");
+
+        audioBytes.Should().NotBeNull();
+        audioBytes.Length.Should().BeGreaterThan(0);
+
+        Console.WriteLine($"Generated {audioBytes.Length} bytes of audio.");
+    }
+
+    [TestMethod]
+    public async Task SoundGeneration()
+    {
+        using var client = GetAuthenticatedClient();
+
+        //// Generate a sound effect from a text description.
+        byte[] soundBytes = await client.SoundGeneration.CreateSoundGenerationAsync(
+            text: "A gentle ocean wave crashing on a sandy beach",
+            durationSeconds: 3.0);
+
+        soundBytes.Should().NotBeNull();
+        soundBytes.Length.Should().BeGreaterThan(0);
+
+        Console.WriteLine($"Generated {soundBytes.Length} bytes of sound.");
     }
 }
