@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// The token for the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_token")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ConversationToken { get; set; }
+        public string ConversationToken { get; set; } = default!;
 
         /// <summary>
         /// The expiration time of the token in unix seconds

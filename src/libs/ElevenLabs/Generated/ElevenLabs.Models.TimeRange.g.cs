@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StartMs { get; set; }
+        public int StartMs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int EndMs { get; set; }
+        public int EndMs { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

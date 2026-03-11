@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WhatsappPhoneNumberId { get; set; }
+        public string WhatsappPhoneNumberId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WhatsappUserId { get; set; }
+        public string WhatsappUserId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_call_permission_request_template_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WhatsappCallPermissionRequestTemplateName { get; set; }
+        public string WhatsappCallPermissionRequestTemplateName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_call_permission_request_template_language_code")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WhatsappCallPermissionRequestTemplateLanguageCode { get; set; }
+        public string WhatsappCallPermissionRequestTemplateLanguageCode { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// 

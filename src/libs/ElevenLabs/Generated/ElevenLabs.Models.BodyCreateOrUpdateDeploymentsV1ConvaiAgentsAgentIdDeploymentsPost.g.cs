@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deployment_request")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AgentDeploymentRequest DeploymentRequest { get; set; }
+        public global::ElevenLabs.AgentDeploymentRequest DeploymentRequest { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

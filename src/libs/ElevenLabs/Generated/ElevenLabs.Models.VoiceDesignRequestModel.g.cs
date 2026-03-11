@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceDescription { get; set; }
+        public string VoiceDescription { get; set; } = default!;
 
         /// <summary>
         /// Model to use for the voice generation. Possible values: eleven_multilingual_ttv_v2, eleven_ttv_v3.<br/>

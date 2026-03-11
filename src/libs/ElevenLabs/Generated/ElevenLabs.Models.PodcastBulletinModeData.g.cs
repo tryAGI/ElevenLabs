@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("host_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string HostVoiceId { get; set; }
+        public string HostVoiceId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

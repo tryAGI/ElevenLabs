@@ -20,14 +20,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("position")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.PositionOutput Position { get; set; }
+        public global::ElevenLabs.PositionOutput Position { get; set; } = default!;
 
         /// <summary>
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("edge_order")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> EdgeOrder { get; set; }
+        public global::System.Collections.Generic.IList<string> EdgeOrder { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceSharingResponseModelStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.VoiceSharingResponseModelStatus Status { get; set; }
+        public global::ElevenLabs.VoiceSharingResponseModelStatus Status { get; set; } = default!;
 
         /// <summary>
         /// The sample ID of the history item.
@@ -27,49 +27,49 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DateUnix { get; set; }
+        public int DateUnix { get; set; } = default!;
 
         /// <summary>
         /// A list of whitelisted emails.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whitelisted_emails")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> WhitelistedEmails { get; set; }
+        public global::System.Collections.Generic.IList<string> WhitelistedEmails { get; set; } = default!;
 
         /// <summary>
         /// The ID of the public owner.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("public_owner_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PublicOwnerId { get; set; }
+        public string PublicOwnerId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the original voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("original_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string OriginalVoiceId { get; set; }
+        public string OriginalVoiceId { get; set; } = default!;
 
         /// <summary>
         /// Whether financial rewards are enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("financial_rewards_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool FinancialRewardsEnabled { get; set; }
+        public bool FinancialRewardsEnabled { get; set; } = default!;
 
         /// <summary>
         /// Whether free users are allowed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("free_users_allowed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool FreeUsersAllowed { get; set; }
+        public bool FreeUsersAllowed { get; set; } = default!;
 
         /// <summary>
         /// Whether live moderation is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("live_moderation_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool LiveModerationEnabled { get; set; }
+        public bool LiveModerationEnabled { get; set; } = default!;
 
         /// <summary>
         /// The rate of the voice sharing.
@@ -88,7 +88,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notice_period")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int NoticePeriod { get; set; }
+        public int NoticePeriod { get; set; } = default!;
 
         /// <summary>
         /// The date of the voice sharing in Unix time.
@@ -101,14 +101,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_mixing_allowed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool VoiceMixingAllowed { get; set; }
+        public bool VoiceMixingAllowed { get; set; } = default!;
 
         /// <summary>
         /// Whether the voice is featured.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("featured")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Featured { get; set; }
+        public bool Featured { get; set; } = default!;
 
         /// <summary>
         /// The category of the voice.
@@ -116,7 +116,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("category")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceSharingResponseModelCategoryJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.VoiceSharingResponseModelCategory Category { get; set; }
+        public global::ElevenLabs.VoiceSharingResponseModelCategory Category { get; set; } = default!;
 
         /// <summary>
         /// Whether the reader app is enabled.
@@ -141,21 +141,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("liked_by_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LikedByCount { get; set; }
+        public int LikedByCount { get; set; } = default!;
 
         /// <summary>
         /// The number of clones on the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cloned_by_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ClonedByCount { get; set; }
+        public int ClonedByCount { get; set; } = default!;
 
         /// <summary>
         /// The name of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The description of the voice.
@@ -168,7 +168,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, string> Labels { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, string> Labels { get; set; } = default!;
 
         /// <summary>
         /// The review status of the voice.
@@ -176,7 +176,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("review_status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceSharingResponseModelReviewStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.VoiceSharingResponseModelReviewStatus ReviewStatus { get; set; }
+        public global::ElevenLabs.VoiceSharingResponseModelReviewStatus ReviewStatus { get; set; } = default!;
 
         /// <summary>
         /// The review message of the voice.
@@ -189,7 +189,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled_in_library")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EnabledInLibrary { get; set; }
+        public bool EnabledInLibrary { get; set; } = default!;
 
         /// <summary>
         /// The Instagram username of the voice.

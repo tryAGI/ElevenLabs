@@ -4,7 +4,7 @@ curl -o openapi.yaml https://api.elevenlabs.io/openapi.json
 autosdk generate openapi.yaml \
   --namespace ElevenLabs \
   --clientClassName ElevenLabsClient \
-  --targetFramework net8.0 \
+  --targetFramework net10.0 \
   --output Generated \
   --exclude-deprecated-operations \
   --methodNamingConvention MethodAndPath \

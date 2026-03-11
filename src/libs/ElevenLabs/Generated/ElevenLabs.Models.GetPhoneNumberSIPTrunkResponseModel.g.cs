@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = default!;
 
         /// <summary>
         /// Label for the phone number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Label { get; set; }
+        public string Label { get; set; } = default!;
 
         /// <summary>
         /// This field is deprecated and will be removed in the future. Whether this phone number supports inbound calls<br/>
@@ -43,7 +43,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PhoneNumberId { get; set; }
+        public string PhoneNumberId { get; set; } = default!;
 
         /// <summary>
         /// The agent that is assigned to the phone number
@@ -83,7 +83,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("livekit_stack")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LivekitStackTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.LivekitStackType LivekitStack { get; set; }
+        public global::ElevenLabs.LivekitStackType LivekitStack { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

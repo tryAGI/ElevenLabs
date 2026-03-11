@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("amount_due_cents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int AmountDueCents { get; set; }
+        public int AmountDueCents { get; set; } = default!;
 
         /// <summary>
         /// The subtotal amount in cents before tax (exclusive of tax and discounts).
@@ -44,7 +44,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("discounts")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.DiscountResponseModel> Discounts { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DiscountResponseModel> Discounts { get; set; } = default!;
 
         /// <summary>
         /// The Unix timestamp of the next payment attempt. -1 when there is no next payment attempt.
@@ -52,7 +52,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("next_payment_attempt_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset NextPaymentAttemptUnix { get; set; }
+        public global::System.DateTimeOffset NextPaymentAttemptUnix { get; set; } = default!;
 
         /// <summary>
         /// Deprecated. Use [payment_intent_statusses] instead. The status of this invoice's first payment intent. None when there is no payment intent.
@@ -65,7 +65,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("payment_intent_statusses")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse> PaymentIntentStatusses { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse> PaymentIntentStatusses { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,49 +13,49 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Title { get; set; }
+        public string Title { get; set; } = default!;
 
         /// <summary>
         /// The image of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Image { get; set; }
+        public string Image { get; set; } = default!;
 
         /// <summary>
         /// The author of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("author")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Author { get; set; }
+        public string Author { get; set; } = default!;
 
         /// <summary>
         /// Whether the project is small.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("small")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Small { get; set; }
+        public bool Small { get; set; } = default!;
 
         /// <summary>
         /// The text color of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_color")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string TextColor { get; set; }
+        public string TextColor { get; set; } = default!;
 
         /// <summary>
         /// The background color of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("background_color")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string BackgroundColor { get; set; }
+        public string BackgroundColor { get; set; } = default!;
 
         /// <summary>
         /// The sessionization of the project. Specifies for how many minutes to persist the session across page reloads.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sessionization")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Sessionization { get; set; }
+        public int Sessionization { get; set; } = default!;
 
         /// <summary>
         /// The path of the audio file.

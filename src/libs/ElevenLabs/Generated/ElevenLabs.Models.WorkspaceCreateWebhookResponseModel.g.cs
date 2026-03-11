@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhook_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WebhookId { get; set; }
+        public string WebhookId { get; set; } = default!;
 
         /// <summary>
         /// 

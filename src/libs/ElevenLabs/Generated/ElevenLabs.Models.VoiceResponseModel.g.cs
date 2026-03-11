@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string VoiceId { get; set; } = default!;
 
         /// <summary>
         /// The name of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// List of samples associated with the voice.
@@ -34,7 +34,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("category")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelCategoryJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.VoiceResponseModelCategory Category { get; set; }
+        public global::ElevenLabs.VoiceResponseModelCategory Category { get; set; } = default!;
 
         /// <summary>
         /// Fine-tuning information for the voice.
@@ -47,7 +47,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, string> Labels { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, string> Labels { get; set; } = default!;
 
         /// <summary>
         /// The description of the voice.
@@ -66,7 +66,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("available_for_tiers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> AvailableForTiers { get; set; }
+        public global::System.Collections.Generic.IList<string> AvailableForTiers { get; set; } = default!;
 
         /// <summary>
         /// The settings of the voice.
@@ -85,7 +85,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("high_quality_base_model_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> HighQualityBaseModelIds { get; set; }
+        public global::System.Collections.Generic.IList<string> HighQualityBaseModelIds { get; set; } = default!;
 
         /// <summary>
         /// The verified languages of the voice.

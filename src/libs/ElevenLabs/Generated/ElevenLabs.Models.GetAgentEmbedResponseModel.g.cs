@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// Example: {"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
@@ -21,7 +21,7 @@ namespace ElevenLabs
         /// <example>{"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("widget_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.WidgetConfigResponseModel WidgetConfig { get; set; }
+        public global::ElevenLabs.WidgetConfigResponseModel WidgetConfig { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_allowed_to_fine_tune")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsAllowedToFineTune { get; set; }
+        public bool IsAllowedToFineTune { get; set; } = default!;
 
         /// <summary>
         /// The state of the fine-tuning process for each model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2> State { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2> State { get; set; } = default!;
 
         /// <summary>
         /// List of verification failures in the fine-tuning process.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_failures")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> VerificationFailures { get; set; }
+        public global::System.Collections.Generic.IList<string> VerificationFailures { get; set; } = default!;
 
         /// <summary>
         /// The number of verification attempts in the fine-tuning process.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_attempts_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int VerificationAttemptsCount { get; set; }
+        public int VerificationAttemptsCount { get; set; } = default!;
 
         /// <summary>
         /// Whether a manual verification was requested for the fine-tuning process.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("manual_verification_requested")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool ManualVerificationRequested { get; set; }
+        public bool ManualVerificationRequested { get; set; } = default!;
 
         /// <summary>
         /// The language of the fine-tuning process.

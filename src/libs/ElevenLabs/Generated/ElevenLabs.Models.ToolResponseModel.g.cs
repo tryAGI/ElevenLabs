@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The type of tool
@@ -21,7 +21,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_config")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolConfig2JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ToolConfig2 ToolConfig { get; set; }
+        public global::ElevenLabs.ToolConfig2 ToolConfig { get; set; } = default!;
 
         /// <summary>
         /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
@@ -29,14 +29,14 @@ namespace ElevenLabs
         /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
+        public global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_stats")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ToolUsageStatsResponseModel UsageStats { get; set; }
+        public global::ElevenLabs.ToolUsageStatsResponseModel UsageStats { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,42 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("read_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ReadId { get; set; }
+        public string ReadId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAtUnix { get; set; }
+        public int CreatedAtUnix { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int UpdatedAtUnix { get; set; }
+        public int UpdatedAtUnix { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("word_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int WordCount { get; set; }
+        public int WordCount { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("char_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CharCount { get; set; }
+        public int CharCount { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ReadMetadataChapterDBModel> Chapters { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ReadMetadataChapterDBModel> Chapters { get; set; } = default!;
 
         /// <summary>
         /// 

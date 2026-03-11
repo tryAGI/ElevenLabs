@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string BranchId { get; set; }
+        public string BranchId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deployment_strategy")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AgentDeploymentPercentageStrategy DeploymentStrategy { get; set; }
+        public global::ElevenLabs.AgentDeploymentPercentageStrategy DeploymentStrategy { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

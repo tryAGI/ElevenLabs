@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ChapterId { get; set; }
+        public string ChapterId { get; set; } = default!;
 
         /// <summary>
         /// The name of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The last conversion date of the chapter.
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_be_downloaded")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanBeDownloaded { get; set; }
+        public bool CanBeDownloaded { get; set; } = default!;
 
         /// <summary>
         /// The state of the chapter.
@@ -47,7 +47,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ChapterResponseModelStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ChapterResponseModelState State { get; set; }
+        public global::ElevenLabs.ChapterResponseModelState State { get; set; } = default!;
 
         /// <summary>
         /// Whether the chapter has a video.

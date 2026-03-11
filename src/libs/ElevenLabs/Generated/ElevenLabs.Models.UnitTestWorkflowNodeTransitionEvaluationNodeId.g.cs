@@ -19,14 +19,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the workflow node that the agent should transition to.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_node_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string TargetNodeId { get; set; }
+        public string TargetNodeId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

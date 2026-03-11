@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TimestampSeconds { get; set; }
+        public int TimestampSeconds { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

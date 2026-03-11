@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_ref")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.DubbingMediaReference MediaRef { get; set; }
+        public global::ElevenLabs.DubbingMediaReference MediaRef { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SpeakerName { get; set; }
+        public string SpeakerName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, string> Voices { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, string> Voices { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Segments { get; set; }
+        public global::System.Collections.Generic.IList<string> Segments { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

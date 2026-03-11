@@ -20,21 +20,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("position")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.PositionOutput Position { get; set; }
+        public global::ElevenLabs.PositionOutput Position { get; set; } = default!;
 
         /// <summary>
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("edge_order")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> EdgeOrder { get; set; }
+        public global::System.Collections.Generic.IList<string> EdgeOrder { get; set; } = default!;
 
         /// <summary>
         /// The ID of the agent to transfer the conversation to.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// Artificial delay in milliseconds applied before transferring the conversation.<br/>
@@ -42,7 +42,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("delay_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DelayMs { get; set; }
+        public int DelayMs { get; set; } = default!;
 
         /// <summary>
         /// Optional message sent to the user before the transfer is initiated.
@@ -56,7 +56,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_transferred_agent_first_message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EnableTransferredAgentFirstMessage { get; set; }
+        public bool EnableTransferredAgentFirstMessage { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.WorkspaceGroupResponseModel Group { get; set; }
+        public global::ElevenLabs.WorkspaceGroupResponseModel Group { get; set; } = default!;
 
         /// <summary>
         /// The permission level to grant to the group
@@ -21,7 +21,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("permission_level")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DefaultSharingGroupResponseModelPermissionLevelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.DefaultSharingGroupResponseModelPermissionLevel PermissionLevel { get; set; }
+        public global::ElevenLabs.DefaultSharingGroupResponseModelPermissionLevel PermissionLevel { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

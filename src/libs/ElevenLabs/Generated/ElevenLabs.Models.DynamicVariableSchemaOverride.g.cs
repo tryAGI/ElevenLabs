@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DynamicVariable { get; set; }
+        public string DynamicVariable { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

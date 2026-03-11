@@ -14,7 +14,7 @@ namespace ElevenLabs
         /// <example>{"can_be_downloaded":true,"chapter_id":"aw1NgEzBg83R7vgmiJt6","content":{"blocks":[]},"conversion_progress":0.5,"last_conversion_date_unix":1714204800,"name":"Chapter 1","state":"default","statistics":{"characters_converted":200,"characters_unconverted":100,"paragraphs_converted":5,"paragraphs_unconverted":3}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ChapterWithContentResponseModel Chapter { get; set; }
+        public global::ElevenLabs.ChapterWithContentResponseModel Chapter { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

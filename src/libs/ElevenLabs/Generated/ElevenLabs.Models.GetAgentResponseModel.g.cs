@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// The name of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The conversation configuration of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationalConfigAPIModelOutput ConversationConfig { get; set; }
+        public global::ElevenLabs.ConversationalConfigAPIModelOutput ConversationConfig { get; set; } = default!;
 
         /// <summary>
         /// The metadata of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AgentMetadataResponseModel Metadata { get; set; }
+        public global::ElevenLabs.AgentMetadataResponseModel Metadata { get; set; } = default!;
 
         /// <summary>
         /// The platform settings of the agent

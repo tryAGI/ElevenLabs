@@ -19,28 +19,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string IntegrationId { get; set; }
+        public string IntegrationId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credential_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CredentialId { get; set; }
+        public string CredentialId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_connection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string IntegrationConnectionId { get; set; }
+        public string IntegrationConnectionId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhook_details")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails WebhookDetails { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails WebhookDetails { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

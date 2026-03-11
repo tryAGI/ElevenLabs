@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// The ID of the voice used for this dialogue input line.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string VoiceId { get; set; } = default!;
 
         /// <summary>
         /// The name of the voice used for this dialogue input line.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceName { get; set; }
+        public string VoiceName { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

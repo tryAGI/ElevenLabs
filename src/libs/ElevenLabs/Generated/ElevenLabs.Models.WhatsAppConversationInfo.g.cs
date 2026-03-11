@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WhatsappUserId { get; set; }
+        public string WhatsappUserId { get; set; } = default!;
 
         /// <summary>
         /// 

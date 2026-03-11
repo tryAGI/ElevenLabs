@@ -19,14 +19,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_call_permission_request_template_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WhatsappCallPermissionRequestTemplateName { get; set; }
+        public string WhatsappCallPermissionRequestTemplateName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_call_permission_request_template_language_code")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WhatsappCallPermissionRequestTemplateLanguageCode { get; set; }
+        public string WhatsappCallPermissionRequestTemplateLanguageCode { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

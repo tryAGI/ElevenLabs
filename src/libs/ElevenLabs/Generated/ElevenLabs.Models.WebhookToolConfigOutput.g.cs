@@ -21,14 +21,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Description of when the tool should be used and what it does.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string Description { get; set; } = default!;
 
         /// <summary>
         /// The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
@@ -102,7 +102,7 @@ namespace ElevenLabs
         /// <example>{"method":"GET","path_params_schema":{"agent_id":{"type":"string"}},"query_params_schema":{"param1":{"type":"string"}},"request_body_schema":{"param1":{"type":"string"}},"request_headers":{"Authorization":"Bearer {api_key}"},"url":"https://example.com/agents/{agent_id}"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_schema")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.WebhookToolApiSchemaConfigOutput ApiSchema { get; set; }
+        public global::ElevenLabs.WebhookToolApiSchemaConfigOutput ApiSchema { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

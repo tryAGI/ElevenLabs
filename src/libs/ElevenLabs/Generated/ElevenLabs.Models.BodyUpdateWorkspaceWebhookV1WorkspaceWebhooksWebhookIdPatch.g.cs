@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_disabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsDisabled { get; set; }
+        public bool IsDisabled { get; set; } = default!;
 
         /// <summary>
         /// The display name of the webhook (used for display purposes only).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Whether to enable automatic retries for transient failures (5xx, 429, timeout)

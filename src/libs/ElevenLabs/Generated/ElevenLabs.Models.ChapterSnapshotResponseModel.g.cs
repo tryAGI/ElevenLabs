@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_snapshot_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ChapterSnapshotId { get; set; }
+        public string ChapterSnapshotId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ProjectId { get; set; }
+        public string ProjectId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the chapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ChapterId { get; set; }
+        public string ChapterId { get; set; } = default!;
 
         /// <summary>
         /// The creation date of the chapter snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAtUnix { get; set; }
+        public int CreatedAtUnix { get; set; } = default!;
 
         /// <summary>
         /// The name of the chapter snapshot.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

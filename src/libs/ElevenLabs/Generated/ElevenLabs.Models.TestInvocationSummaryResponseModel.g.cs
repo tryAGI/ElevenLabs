@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The ID of the agent this test invocation belongs to
@@ -32,42 +32,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAtUnixSecs { get; set; }
+        public int CreatedAtUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// Number of test runs in this invocation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_run_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TestRunCount { get; set; }
+        public int TestRunCount { get; set; } = default!;
 
         /// <summary>
         /// Number of test runs that passed
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("passed_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int PassedCount { get; set; }
+        public int PassedCount { get; set; } = default!;
 
         /// <summary>
         /// Number of test runs that failed
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("failed_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int FailedCount { get; set; }
+        public int FailedCount { get; set; } = default!;
 
         /// <summary>
         /// Number of test runs that are pending
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pending_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int PendingCount { get; set; }
+        public int PendingCount { get; set; } = default!;
 
         /// <summary>
         /// Title of the test invocation - either the single test name or count of tests
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Title { get; set; }
+        public string Title { get; set; } = default!;
 
         /// <summary>
         /// The access information of the test invocation

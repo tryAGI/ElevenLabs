@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.WhatsAppTemplateImageParamDetails Image { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateImageParamDetails Image { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

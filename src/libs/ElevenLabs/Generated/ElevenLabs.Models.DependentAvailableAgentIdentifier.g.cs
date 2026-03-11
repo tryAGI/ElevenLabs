@@ -19,14 +19,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Default Value: available
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAtUnixSecs { get; set; }
+        public int CreatedAtUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("access_level")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DependentAvailableAgentIdentifierAccessLevelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.DependentAvailableAgentIdentifierAccessLevel AccessLevel { get; set; }
+        public global::ElevenLabs.DependentAvailableAgentIdentifierAccessLevel AccessLevel { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

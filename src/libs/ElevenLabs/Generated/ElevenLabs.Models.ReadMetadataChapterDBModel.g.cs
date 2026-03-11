@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ChapterName { get; set; }
+        public string ChapterName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("word_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int WordCount { get; set; }
+        public int WordCount { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("char_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CharCount { get; set; }
+        public int CharCount { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("starting_char_offset")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StartingCharOffset { get; set; }
+        public int StartingCharOffset { get; set; } = default!;
 
         /// <summary>
         /// Default Value: false

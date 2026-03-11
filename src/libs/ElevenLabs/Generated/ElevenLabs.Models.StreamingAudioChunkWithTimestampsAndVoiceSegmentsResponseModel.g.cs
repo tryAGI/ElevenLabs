@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_base64")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AudioBase64 { get; set; }
+        public string AudioBase64 { get; set; } = default!;
 
         /// <summary>
         /// Timestamp information for each character in the original text
@@ -32,7 +32,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.VoiceSegment> VoiceSegments { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceSegment> VoiceSegments { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

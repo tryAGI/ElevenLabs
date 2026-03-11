@@ -13,63 +13,63 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceId { get; set; }
+        public string VoiceId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Alias { get; set; }
+        public string Alias { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stability")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Stability { get; set; }
+        public double Stability { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("similarity_boost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double SimilarityBoost { get; set; }
+        public double SimilarityBoost { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("style")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Style { get; set; }
+        public double Style { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_pinned")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsPinned { get; set; }
+        public bool IsPinned { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_speaker_boost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool UseSpeakerBoost { get; set; }
+        public bool UseSpeakerBoost { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_gain")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double VolumeGain { get; set; }
+        public double VolumeGain { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Speed { get; set; }
+        public double Speed { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("variable_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VariableName { get; set; }
+        public string VariableName { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -26,28 +26,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("new_value")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string NewValue { get; set; }
+        public string NewValue { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double UpdatedAt { get; set; }
+        public double UpdatedAt { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ToolName { get; set; }
+        public string ToolName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ToolRequestId { get; set; }
+        public string ToolRequestId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

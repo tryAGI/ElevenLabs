@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ToolName { get; set; }
+        public string ToolName { get; set; } = default!;
 
         /// <summary>
         /// If set, overrides the server's force_pre_tool_speech setting for this tool

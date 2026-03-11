@@ -19,14 +19,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Description of when the tool should be used and what it does.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string Description { get; set; } = default!;
 
         /// <summary>
         /// The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
@@ -105,14 +105,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_integration_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ApiIntegrationId { get; set; }
+        public string ApiIntegrationId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_integration_connection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ApiIntegrationConnectionId { get; set; }
+        public string ApiIntegrationConnectionId { get; set; } = default!;
 
         /// <summary>
         /// User overrides applied on top of the base api_schema

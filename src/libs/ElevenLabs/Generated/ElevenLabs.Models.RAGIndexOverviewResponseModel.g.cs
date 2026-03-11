@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_used_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalUsedBytes { get; set; }
+        public int TotalUsedBytes { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_max_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalMaxBytes { get; set; }
+        public int TotalMaxBytes { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("models")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.RAGIndexOverviewEmbeddingModelResponseModel> Models { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.RAGIndexOverviewEmbeddingModelResponseModel> Models { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

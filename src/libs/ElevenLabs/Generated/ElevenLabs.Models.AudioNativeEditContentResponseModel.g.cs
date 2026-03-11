@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ProjectId { get; set; }
+        public string ProjectId { get; set; } = default!;
 
         /// <summary>
         /// Whether the project is currently being converted.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("converting")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Converting { get; set; }
+        public bool Converting { get; set; } = default!;
 
         /// <summary>
         /// Whether the project is currently being published.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("publishing")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Publishing { get; set; }
+        public bool Publishing { get; set; } = default!;
 
         /// <summary>
         /// The HTML snippet to embed the Audio Native player.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("html_snippet")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string HtmlSnippet { get; set; }
+        public string HtmlSnippet { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

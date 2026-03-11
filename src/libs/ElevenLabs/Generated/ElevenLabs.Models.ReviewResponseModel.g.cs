@@ -14,14 +14,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("review_status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ReviewResponseModelReviewStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ReviewResponseModelReviewStatus ReviewStatus { get; set; }
+        public global::ElevenLabs.ReviewResponseModelReviewStatus ReviewStatus { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewed_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ReviewedAtUnix { get; set; }
+        public int ReviewedAtUnix { get; set; } = default!;
 
         /// <summary>
         /// 

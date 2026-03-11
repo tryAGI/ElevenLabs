@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_thumbnail_index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StartThumbnailIndex { get; set; }
+        public int StartThumbnailIndex { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ThumbnailCount { get; set; }
+        public int ThumbnailCount { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("signed_cloud_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SignedCloudUrl { get; set; }
+        public string SignedCloudUrl { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

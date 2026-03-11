@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel> PronunciationDictionaryLocators { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel> PronunciationDictionaryLocators { get; set; } = default!;
 
         /// <summary>
         /// This will automatically mark text in this project for reconversion when the new dictionary applies or the old one no longer does.<br/>

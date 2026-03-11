@@ -20,14 +20,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Description of when the tool should be used and what it does.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string Description { get; set; } = default!;
 
         /// <summary>
         /// The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
@@ -35,7 +35,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ResponseTimeoutSecs { get; set; }
+        public int ResponseTimeoutSecs { get; set; } = default!;
 
         /// <summary>
         /// If true, the user will not be able to interrupt the agent while this tool is running.<br/>
@@ -43,7 +43,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_interruptions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool DisableInterruptions { get; set; }
+        public bool DisableInterruptions { get; set; } = default!;
 
         /// <summary>
         /// If true, the agent will speak before the tool call.<br/>
@@ -51,14 +51,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("force_pre_tool_speech")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool ForcePreToolSpeech { get; set; }
+        public bool ForcePreToolSpeech { get; set; } = default!;
 
         /// <summary>
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assignments")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment> Assignments { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment> Assignments { get; set; } = default!;
 
         /// <summary>
         /// Predefined tool call sound type to play during tool execution. If not specified, no tool call sound will be played.
@@ -74,7 +74,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_sound_behavior")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolCallSoundBehaviorJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ToolCallSoundBehavior ToolCallSoundBehavior { get; set; } = global::ElevenLabs.ToolCallSoundBehavior.Auto;
+        public global::ElevenLabs.ToolCallSoundBehavior ToolCallSoundBehavior { get; set; } = default!;
 
         /// <summary>
         /// Controls how tool errors are processed before being shared with the agent. 'auto' determines handling based on tool type (summarized for native integrations, hide for others), 'summarized' sends an LLM-generated summary, 'passthrough' sends the raw error, 'hide' does not share the error with the agent.<br/>
@@ -84,7 +84,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_error_handling_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolErrorHandlingModeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ToolErrorHandlingMode ToolErrorHandlingMode { get; set; } = global::ElevenLabs.ToolErrorHandlingMode.Auto;
+        public global::ElevenLabs.ToolErrorHandlingMode ToolErrorHandlingMode { get; set; } = default!;
 
         /// <summary>
         /// Configuration for dynamic variables<br/>
@@ -93,7 +93,7 @@ namespace ElevenLabs
         /// <example>{"dynamic_variable_placeholders":{"user_name":"John Doe"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.DynamicVariablesConfig DynamicVariables { get; set; }
+        public global::ElevenLabs.DynamicVariablesConfig DynamicVariables { get; set; } = default!;
 
         /// <summary>
         /// Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.<br/>
@@ -103,7 +103,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("execution_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolExecutionModeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ToolExecutionMode ExecutionMode { get; set; } = global::ElevenLabs.ToolExecutionMode.Immediate;
+        public global::ElevenLabs.ToolExecutionMode ExecutionMode { get; set; } = default!;
 
         /// <summary>
         /// The version of the API integration tool<br/>
@@ -112,21 +112,21 @@ namespace ElevenLabs
         /// <default>"1.0.0"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ToolVersion { get; set; } = "1.0.0";
+        public string ToolVersion { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_integration_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ApiIntegrationId { get; set; }
+        public string ApiIntegrationId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_integration_connection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ApiIntegrationConnectionId { get; set; }
+        public string ApiIntegrationConnectionId { get; set; } = default!;
 
         /// <summary>
         /// User overrides applied on top of the base api_schema

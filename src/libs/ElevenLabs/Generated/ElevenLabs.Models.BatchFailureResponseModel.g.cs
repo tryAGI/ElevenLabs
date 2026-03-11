@@ -20,21 +20,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error_code")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ErrorCode { get; set; }
+        public int ErrorCode { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error_status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ErrorStatus { get; set; }
+        public string ErrorStatus { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error_message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

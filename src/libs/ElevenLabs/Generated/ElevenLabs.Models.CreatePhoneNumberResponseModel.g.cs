@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PhoneNumberId { get; set; }
+        public string PhoneNumberId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

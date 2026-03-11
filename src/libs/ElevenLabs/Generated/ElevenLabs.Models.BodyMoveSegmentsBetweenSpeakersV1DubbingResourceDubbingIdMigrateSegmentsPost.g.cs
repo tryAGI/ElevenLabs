@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segment_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> SegmentIds { get; set; }
+        public global::System.Collections.Generic.IList<string> SegmentIds { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SpeakerId { get; set; }
+        public string SpeakerId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

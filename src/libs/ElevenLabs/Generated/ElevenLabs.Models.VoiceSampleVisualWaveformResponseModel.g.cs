@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SampleId { get; set; }
+        public string SampleId { get; set; } = default!;
 
         /// <summary>
         /// The visual waveform of the sample, represented as a list of floats.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("visual_waveform")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<double> VisualWaveform { get; set; }
+        public global::System.Collections.Generic.IList<double> VisualWaveform { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

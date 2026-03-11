@@ -14,14 +14,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("delivery_status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AsyncConversationMetadataDeliveryStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AsyncConversationMetadataDeliveryStatus DeliveryStatus { get; set; }
+        public global::ElevenLabs.AsyncConversationMetadataDeliveryStatus DeliveryStatus { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("delivery_timestamp")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DeliveryTimestamp { get; set; }
+        public int DeliveryTimestamp { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -34,14 +34,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_system")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ExternalSystem { get; set; }
+        public string ExternalSystem { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ExternalId { get; set; }
+        public string ExternalId { get; set; } = default!;
 
         /// <summary>
         /// Default Value: 0

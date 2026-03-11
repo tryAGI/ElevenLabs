@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// The name of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Agent tags used to categorize the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Tags { get; set; }
+        public global::System.Collections.Generic.IList<string> Tags { get; set; } = default!;
 
         /// <summary>
         /// The creation time of the agent in unix seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAtUnixSecs { get; set; }
+        public int CreatedAtUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// The access information of the agent<br/>
@@ -43,7 +43,7 @@ namespace ElevenLabs
         /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
+        public global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; } = default!;
 
         /// <summary>
         /// The time of the most recent call in unix seconds, null if no calls have been made

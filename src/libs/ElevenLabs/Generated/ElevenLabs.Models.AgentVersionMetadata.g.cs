@@ -13,49 +13,49 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string BranchId { get; set; }
+        public string BranchId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VersionDescription { get; set; }
+        public string VersionDescription { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("seq_no_in_branch")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SeqNoInBranch { get; set; }
+        public int SeqNoInBranch { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_committed_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TimeCommittedSecs { get; set; }
+        public int TimeCommittedSecs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AgentVersionParents Parents { get; set; }
+        public global::ElevenLabs.AgentVersionParents Parents { get; set; } = default!;
 
         /// <summary>
         /// 

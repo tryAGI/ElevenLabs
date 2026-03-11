@@ -14,7 +14,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("song_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SongId { get; set; }
+        public string SongId { get; set; } = default!;
 
         /// <summary>
         /// The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was True in the request body

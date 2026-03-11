@@ -19,28 +19,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string RequestId { get; set; }
+        public string RequestId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ToolName { get; set; }
+        public string ToolName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("params_as_json")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ParamsAsJson { get; set; }
+        public string ParamsAsJson { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_has_been_called")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool ToolHasBeenCalled { get; set; }
+        public bool ToolHasBeenCalled { get; set; } = default!;
 
         /// <summary>
         /// 

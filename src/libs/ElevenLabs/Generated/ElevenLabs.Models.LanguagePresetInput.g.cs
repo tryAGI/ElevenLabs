@@ -15,7 +15,7 @@ namespace ElevenLabs
         /// <example>{"agent":{"first_message":"Hello, how can I help you today?","language":"en","prompt":{"llm":"gemini-2.0-flash-001","prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}},"tts":{"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"soft_timeout_config":{"message":"Hhmmmm...yeah."}}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationConfigClientOverrideInput Overrides { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideInput Overrides { get; set; } = default!;
 
         /// <summary>
         /// The translation of the first message

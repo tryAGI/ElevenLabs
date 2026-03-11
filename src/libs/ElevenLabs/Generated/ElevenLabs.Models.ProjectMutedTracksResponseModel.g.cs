@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> ChapterIds { get; set; }
+        public global::System.Collections.Generic.IList<string> ChapterIds { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

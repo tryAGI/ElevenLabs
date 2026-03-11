@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extra_text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ExtraText { get; set; }
+        public string ExtraText { get; set; } = default!;
 
         /// <summary>
         /// The date of the manual verification in Unix time.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_time_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int RequestTimeUnix { get; set; }
+        public int RequestTimeUnix { get; set; } = default!;
 
         /// <summary>
         /// The files of the manual verification.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ManualVerificationFileResponseModel> Files { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ManualVerificationFileResponseModel> Files { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

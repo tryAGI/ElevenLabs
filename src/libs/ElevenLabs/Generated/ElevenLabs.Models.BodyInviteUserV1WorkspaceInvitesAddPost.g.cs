@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Email { get; set; }
+        public string Email { get; set; } = default!;
 
         /// <summary>
         /// The workspace permission of the user. This is deprecated, use `seat_type` instead.

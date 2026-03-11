@@ -15,14 +15,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ConversationId { get; set; }
+        public string ConversationId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -35,28 +35,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TranscriptIndex { get; set; }
+        public int TranscriptIndex { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunk_text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ChunkText { get; set; }
+        public string ChunkText { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("score")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Score { get; set; }
+        public double Score { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_start_time_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ConversationStartTimeUnixSecs { get; set; }
+        public int ConversationStartTimeUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

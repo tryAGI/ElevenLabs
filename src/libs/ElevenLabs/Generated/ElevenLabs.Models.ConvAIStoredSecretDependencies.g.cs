@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem> Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem> Tools { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem> Agents { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem> Agents { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("others")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType> Others { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType> Others { get; set; } = default!;
 
         /// <summary>
         /// 

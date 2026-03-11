@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("document_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DocumentId { get; set; }
+        public string DocumentId { get; set; } = default!;
 
         /// <summary>
         /// Whether to create the RAG index if it does not exist
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("create_if_missing")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CreateIfMissing { get; set; }
+        public bool CreateIfMissing { get; set; } = default!;
 
         /// <summary>
         /// Embedding model to use for the RAG index
@@ -28,7 +28,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; }
+        public global::ElevenLabs.EmbeddingModelEnum Model { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

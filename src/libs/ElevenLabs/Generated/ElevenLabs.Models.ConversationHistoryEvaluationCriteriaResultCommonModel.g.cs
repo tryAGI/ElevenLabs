@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("criteria_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CriteriaId { get; set; }
+        public string CriteriaId { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -21,14 +21,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("result")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EvaluationSuccessResult Result { get; set; }
+        public global::ElevenLabs.EvaluationSuccessResult Result { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rationale")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Rationale { get; set; }
+        public string Rationale { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("string_to_replace")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string StringToReplace { get; set; }
+        public string StringToReplace { get; set; } = default!;
 
         /// <summary>
         /// Whether the rule should match case-sensitively.<br/>
@@ -41,14 +41,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phoneme")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Phoneme { get; set; }
+        public string Phoneme { get; set; } = default!;
 
         /// <summary>
         /// The alphabet to use with the phoneme rule.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alphabet")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Alphabet { get; set; }
+        public string Alphabet { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string UserId { get; set; }
+        public string UserId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_contact_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LastContactUnixSecs { get; set; }
+        public int LastContactUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("first_contact_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int FirstContactUnixSecs { get; set; }
+        public int FirstContactUnixSecs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ConversationCount { get; set; }
+        public int ConversationCount { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_contact_conversation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string LastContactConversationId { get; set; }
+        public string LastContactConversationId { get; set; } = default!;
 
         /// <summary>
         /// 

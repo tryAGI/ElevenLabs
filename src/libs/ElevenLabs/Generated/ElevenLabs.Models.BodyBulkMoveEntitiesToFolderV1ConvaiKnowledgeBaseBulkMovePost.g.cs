@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("document_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> DocumentIds { get; set; }
+        public global::System.Collections.Generic.IList<string> DocumentIds { get; set; } = default!;
 
         /// <summary>
         /// The folder to move the entities to. If not set, the entities will be moved to the root folder.

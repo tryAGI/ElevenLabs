@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required byte[] Audio { get; set; }
+        public byte[] Audio { get; set; } = default!;
 
         /// <summary>
         /// The audio file from which vocals/speech will be isolated from.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audioname")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Audioname { get; set; }
+        public string Audioname { get; set; } = default!;
 
         /// <summary>
         /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>

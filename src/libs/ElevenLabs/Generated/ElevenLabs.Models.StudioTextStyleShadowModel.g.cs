@@ -13,42 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Enabled { get; set; }
+        public bool Enabled { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("color")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Color { get; set; }
+        public string Color { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("opacity")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Opacity { get; set; }
+        public double Opacity { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("blur")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Blur { get; set; }
+        public double Blur { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("offset_x")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double OffsetX { get; set; }
+        public double OffsetX { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("offset_y")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double OffsetY { get; set; }
+        public double OffsetY { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

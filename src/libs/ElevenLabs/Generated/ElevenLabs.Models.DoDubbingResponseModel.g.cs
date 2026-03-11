@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dubbing_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DubbingId { get; set; }
+        public string DubbingId { get; set; } = default!;
 
         /// <summary>
         /// The expected duration of the dubbing project in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expected_duration_sec")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double ExpectedDurationSec { get; set; }
+        public double ExpectedDurationSec { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

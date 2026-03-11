@@ -14,49 +14,49 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Llm Llm { get; set; }
+        public global::ElevenLabs.Llm Llm { get; set; } = default!;
 
         /// <summary>
         /// Whether this is a pinned checkpoint version of a model rather than a top-level alias.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_checkpoint")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsCheckpoint { get; set; }
+        public bool IsCheckpoint { get; set; } = default!;
 
         /// <summary>
         /// Maximum number of output tokens the model can generate.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaxTokensLimit { get; set; }
+        public int MaxTokensLimit { get; set; } = default!;
 
         /// <summary>
         /// Maximum number of input context tokens the model supports.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_context_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaxContextLimit { get; set; }
+        public int MaxContextLimit { get; set; } = default!;
 
         /// <summary>
         /// Whether the model supports image file inputs during conversations.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_image_input")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool SupportsImageInput { get; set; }
+        public bool SupportsImageInput { get; set; } = default!;
 
         /// <summary>
         /// Whether the model supports document (PDF) file inputs during conversations.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_document_input")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool SupportsDocumentInput { get; set; }
+        public bool SupportsDocumentInput { get; set; } = default!;
 
         /// <summary>
         /// Whether the model supports calling multiple tools in parallel.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_parallel_tool_calls")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool SupportsParallelToolCalls { get; set; }
+        public bool SupportsParallelToolCalls { get; set; } = default!;
 
         /// <summary>
         /// Available reasoning effort levels for this model. Null if the model does not support configurable reasoning.

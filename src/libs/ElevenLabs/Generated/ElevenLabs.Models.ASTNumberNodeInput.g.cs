@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Value { get; set; }
+        public double Value { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

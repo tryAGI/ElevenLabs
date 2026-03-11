@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.LLMInfoModelInput> Llms { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.LLMInfoModelInput> Llms { get; set; } = default!;
 
         /// <summary>
         /// The default deprecation timing configuration used for models without a custom override.<br/>
@@ -22,7 +22,7 @@ namespace ElevenLabs
         /// <example>{"fallback_complete_days":7,"fallback_complete_percentage":100,"fallback_start_days":14,"fallback_start_percentage":25,"warning_start_days":30}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_deprecation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.LLMDeprecationConfigModel DefaultDeprecationConfig { get; set; }
+        public global::ElevenLabs.LLMDeprecationConfigModel DefaultDeprecationConfig { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

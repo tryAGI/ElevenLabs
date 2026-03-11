@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parameters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Parameters { get; set; }
+        public string Parameters { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -27,7 +27,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.GetConversationResponseModelStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.GetConversationResponseModelStatus Status { get; set; }
+        public global::ElevenLabs.GetConversationResponseModelStatus Status { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -52,7 +52,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationHistoryMetadataCommonModel Metadata { get; set; }
+        public global::ElevenLabs.ConversationHistoryMetadataCommonModel Metadata { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -77,35 +77,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ConversationId { get; set; }
+        public string ConversationId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool HasAudio { get; set; }
+        public bool HasAudio { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_user_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool HasUserAudio { get; set; }
+        public bool HasUserAudio { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_response_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool HasResponseAudio { get; set; }
+        public bool HasResponseAudio { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> Transcript { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> Transcript { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

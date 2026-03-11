@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_run_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> TestRunIds { get; set; }
+        public global::System.Collections.Generic.IList<string> TestRunIds { get; set; } = default!;
 
         /// <summary>
         /// Configuration overrides to use for testing. If not provided, the agent's default configuration will be used.
@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.

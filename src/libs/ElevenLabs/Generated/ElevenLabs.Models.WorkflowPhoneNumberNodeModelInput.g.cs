@@ -38,7 +38,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_destination")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestinationJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.TransferDestination TransferDestination { get; set; }
+        public global::ElevenLabs.TransferDestination TransferDestination { get; set; } = default!;
 
         /// <summary>
         /// Default Value: conference

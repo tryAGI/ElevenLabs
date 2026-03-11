@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string UserId { get; set; }
+        public string UserId { get; set; } = default!;
 
         /// <summary>
         /// Details of the user's subscription.<br/>
@@ -22,14 +22,14 @@ namespace ElevenLabs
         /// <example>{"allowed_to_extend_character_limit":false,"billing_period":"monthly_period","can_extend_character_limit":false,"can_extend_voice_limit":false,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":17231,"character_limit":100000,"character_refresh_period":"monthly_period","currency":"usd","max_character_limit_extension":10000,"max_voice_add_edits":230,"next_character_count_reset_unix":1738356858,"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"free","tier":"trial","voice_add_edit_counter":212,"voice_limit":120,"voice_slots_used":1}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("subscription")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SubscriptionResponseModel Subscription { get; set; }
+        public global::ElevenLabs.SubscriptionResponseModel Subscription { get; set; } = default!;
 
         /// <summary>
         /// Whether the user is new. This field is deprecated and will be removed in the future. Use 'created_at' instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_new_user")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsNewUser { get; set; }
+        public bool IsNewUser { get; set; } = default!;
 
         /// <summary>
         /// The API key of the user.
@@ -42,21 +42,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_use_delayed_payment_methods")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool CanUseDelayedPaymentMethods { get; set; }
+        public bool CanUseDelayedPaymentMethods { get; set; } = default!;
 
         /// <summary>
         /// Whether the user's onboarding is completed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_onboarding_completed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsOnboardingCompleted { get; set; }
+        public bool IsOnboardingCompleted { get; set; } = default!;
 
         /// <summary>
         /// Whether the user's onboarding checklist is completed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_onboarding_checklist_completed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsOnboardingChecklistCompleted { get; set; }
+        public bool IsOnboardingChecklistCompleted { get; set; } = default!;
 
         /// <summary>
         /// Whether to show compliance terms (ToS, Privacy Policy, biometric consent) during onboarding. Set for users signing up from the marketing site.<br/>
@@ -102,7 +102,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset CreatedAt { get; set; }
+        public global::System.DateTimeOffset CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// The seat type of the user.
@@ -110,7 +110,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("seat_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SeatTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SeatType SeatType { get; set; }
+        public global::ElevenLabs.SeatType SeatType { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

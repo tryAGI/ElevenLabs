@@ -20,7 +20,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("next_tier")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PendingSubscriptionSwitchResponseModelNextTierJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.PendingSubscriptionSwitchResponseModelNextTier NextTier { get; set; }
+        public global::ElevenLabs.PendingSubscriptionSwitchResponseModelNextTier NextTier { get; set; } = default!;
 
         /// <summary>
         /// The billing period to change to.
@@ -28,14 +28,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("next_billing_period")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BillingPeriodJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.BillingPeriod NextBillingPeriod { get; set; }
+        public global::ElevenLabs.BillingPeriod NextBillingPeriod { get; set; } = default!;
 
         /// <summary>
         /// The timestamp of the change.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TimestampSeconds { get; set; }
+        public int TimestampSeconds { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

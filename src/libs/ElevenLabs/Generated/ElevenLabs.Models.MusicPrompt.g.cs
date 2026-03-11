@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("positive_global_styles")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> PositiveGlobalStyles { get; set; }
+        public global::System.Collections.Generic.IList<string> PositiveGlobalStyles { get; set; } = default!;
 
         /// <summary>
         /// The styles and musical directions that should not be present in the entire song. Use English language for best result.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("negative_global_styles")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> NegativeGlobalStyles { get; set; }
+        public global::System.Collections.Generic.IList<string> NegativeGlobalStyles { get; set; } = default!;
 
         /// <summary>
         /// The sections of the song.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sections")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.SongSection> Sections { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SongSection> Sections { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

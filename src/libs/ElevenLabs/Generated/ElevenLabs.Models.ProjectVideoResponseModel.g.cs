@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VideoId { get; set; }
+        public string VideoId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Filename { get; set; }
+        public string Filename { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -39,28 +39,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("offset_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int OffsetMs { get; set; }
+        public int OffsetMs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DurationMs { get; set; }
+        public int DurationMs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_gain_db")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double VolumeGainDb { get; set; }
+        public double VolumeGainDb { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("muted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Muted { get; set; }
+        public bool Muted { get; set; } = default!;
 
         /// <summary>
         /// Default Value: 0
@@ -79,42 +79,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("width")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Width { get; set; }
+        public int Width { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("height")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Height { get; set; }
+        public int Height { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("codec")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Codec { get; set; }
+        public string Codec { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("order")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Order { get; set; }
+        public string Order { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAtMs { get; set; }
+        public int CreatedAtMs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int UpdatedAtMs { get; set; }
+        public int UpdatedAtMs { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -127,35 +127,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail_interval_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double ThumbnailIntervalSeconds { get; set; }
+        public double ThumbnailIntervalSeconds { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail_size")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<int> ThumbnailSize { get; set; }
+        public global::System.Collections.Generic.IList<int> ThumbnailSize { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail_sheets")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVideoThumbnailSheetResponseModel> ThumbnailSheets { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVideoThumbnailSheetResponseModel> ThumbnailSheets { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StartTimeMs { get; set; }
+        public int StartTimeMs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int EndTimeMs { get; set; }
+        public int EndTimeMs { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -180,14 +180,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pending_block_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> PendingBlockIds { get; set; }
+        public global::System.Collections.Generic.IList<string> PendingBlockIds { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pending_external_audio_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> PendingExternalAudioIds { get; set; }
+        public global::System.Collections.Generic.IList<string> PendingExternalAudioIds { get; set; } = default!;
 
         /// <summary>
         /// Default Value: false

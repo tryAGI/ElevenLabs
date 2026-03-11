@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The voice_id that corresponds to the default voice used for new titles.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_title_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultTitleVoiceId { get; set; }
+        public string DefaultTitleVoiceId { get; set; } = default!;
 
         /// <summary>
         /// The voice_id that corresponds to the default voice used for new paragraphs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_paragraph_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultParagraphVoiceId { get; set; }
+        public string DefaultParagraphVoiceId { get; set; } = default!;
 
         /// <summary>
         /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.

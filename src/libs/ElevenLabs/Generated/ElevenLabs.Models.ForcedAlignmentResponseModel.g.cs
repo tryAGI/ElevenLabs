@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("characters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentCharacterResponseModel> Characters { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentCharacterResponseModel> Characters { get; set; } = default!;
 
         /// <summary>
         /// List of words with their timing information.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("words")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentWordResponseModel> Words { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentWordResponseModel> Words { get; set; } = default!;
 
         /// <summary>
         /// The average alignment loss/confidence score for the entire transcript, calculated from all characters.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("loss")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Loss { get; set; }
+        public double Loss { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

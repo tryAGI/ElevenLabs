@@ -32,7 +32,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Condition { get; set; }
+        public string Condition { get; set; } = default!;
 
         /// <summary>
         /// Default Value: conference

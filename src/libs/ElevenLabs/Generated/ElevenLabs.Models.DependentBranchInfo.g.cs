@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string AgentId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentName { get; set; }
+        public string AgentName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string BranchId { get; set; }
+        public string BranchId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string BranchName { get; set; }
+        public string BranchName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_main")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsMain { get; set; }
+        public bool IsMain { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

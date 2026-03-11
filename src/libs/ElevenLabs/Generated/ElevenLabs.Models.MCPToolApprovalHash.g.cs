@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ToolName { get; set; }
+        public string ToolName { get; set; } = default!;
 
         /// <summary>
         /// SHA256 hash of the tool's parameters and description
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_hash")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ToolHash { get; set; }
+        public string ToolHash { get; set; } = default!;
 
         /// <summary>
         /// The approval policy for this tool<br/>

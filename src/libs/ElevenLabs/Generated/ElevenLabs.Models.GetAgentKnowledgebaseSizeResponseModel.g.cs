@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("number_of_pages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double NumberOfPages { get; set; }
+        public double NumberOfPages { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

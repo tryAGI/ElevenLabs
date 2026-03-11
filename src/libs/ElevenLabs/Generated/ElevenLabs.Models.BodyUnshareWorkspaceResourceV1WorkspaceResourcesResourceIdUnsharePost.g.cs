@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WorkspaceResourceTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.WorkspaceResourceType ResourceType { get; set; }
+        public global::ElevenLabs.WorkspaceResourceType ResourceType { get; set; } = default!;
 
         /// <summary>
         /// The email of the user or service account.

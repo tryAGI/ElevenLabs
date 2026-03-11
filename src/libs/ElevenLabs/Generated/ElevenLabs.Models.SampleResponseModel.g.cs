@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SampleId { get; set; }
+        public string SampleId { get; set; } = default!;
 
         /// <summary>
         /// The name of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FileName { get; set; }
+        public string FileName { get; set; } = default!;
 
         /// <summary>
         /// The MIME type of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string MimeType { get; set; }
+        public string MimeType { get; set; } = default!;
 
         /// <summary>
         /// The size of the sample file in bytes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeBytes { get; set; }
+        public int SizeBytes { get; set; } = default!;
 
         /// <summary>
         /// The hash of the sample file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hash")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Hash { get; set; }
+        public string Hash { get; set; } = default!;
 
         /// <summary>
         /// 

@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_length")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int PromptLength { get; set; }
+        public int PromptLength { get; set; } = default!;
 
         /// <summary>
         /// Pages of content in PDF documents or URLs in the agent's knowledge base.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("number_of_pages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int NumberOfPages { get; set; }
+        public int NumberOfPages { get; set; } = default!;
 
         /// <summary>
         /// Whether RAG is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rag_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool RagEnabled { get; set; }
+        public bool RagEnabled { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

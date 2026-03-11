@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ProjectId { get; set; }
+        public string ProjectId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ChapterId { get; set; }
+        public string ChapterId { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -28,14 +28,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("clip_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.StudioClipReferenceClipTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.StudioClipReferenceClipType ClipType { get; set; }
+        public global::ElevenLabs.StudioClipReferenceClipType ClipType { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("clip_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ClipId { get; set; }
+        public string ClipId { get; set; } = default!;
 
         /// <summary>
         /// 

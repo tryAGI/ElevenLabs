@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("document")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.WhatsAppTemplateDocumentParamDetails Document { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateDocumentParamDetails Document { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

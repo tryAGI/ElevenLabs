@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VoiceDescription { get; set; }
+        public string VoiceDescription { get; set; } = default!;
 
         /// <summary>
         /// Text to generate, text length has to be between 100 and 1000.

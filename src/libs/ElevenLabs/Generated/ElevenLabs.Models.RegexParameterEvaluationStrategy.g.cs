@@ -20,7 +20,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pattern")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Pattern { get; set; }
+        public string Pattern { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

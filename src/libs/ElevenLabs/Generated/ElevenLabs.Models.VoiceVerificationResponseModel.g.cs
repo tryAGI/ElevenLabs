@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requires_verification")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool RequiresVerification { get; set; }
+        public bool RequiresVerification { get; set; } = default!;
 
         /// <summary>
         /// Whether the voice has been verified.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_verified")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsVerified { get; set; }
+        public bool IsVerified { get; set; } = default!;
 
         /// <summary>
         /// List of verification failures.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_failures")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> VerificationFailures { get; set; }
+        public global::System.Collections.Generic.IList<string> VerificationFailures { get; set; } = default!;
 
         /// <summary>
         /// The number of verification attempts.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verification_attempts_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int VerificationAttemptsCount { get; set; }
+        public int VerificationAttemptsCount { get; set; } = default!;
 
         /// <summary>
         /// The language of the voice.

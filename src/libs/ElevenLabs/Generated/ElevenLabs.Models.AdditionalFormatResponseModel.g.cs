@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requested_format")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string RequestedFormat { get; set; }
+        public string RequestedFormat { get; set; } = default!;
 
         /// <summary>
         /// The file extension of the additional format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_extension")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FileExtension { get; set; }
+        public string FileExtension { get; set; } = default!;
 
         /// <summary>
         /// The content type of the additional format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ContentType { get; set; }
+        public string ContentType { get; set; } = default!;
 
         /// <summary>
         /// Whether the content is base64 encoded.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_base64_encoded")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsBase64Encoded { get; set; }
+        public bool IsBase64Encoded { get; set; } = default!;
 
         /// <summary>
         /// The content of the additional format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Content { get; set; }
+        public string Content { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
