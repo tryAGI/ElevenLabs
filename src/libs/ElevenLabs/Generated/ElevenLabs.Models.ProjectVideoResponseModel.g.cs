@@ -226,6 +226,12 @@ namespace ElevenLabs
         public global::ElevenLabs.GenerationSourceContext? SourceContext { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("analysis")]
+        public global::ElevenLabs.VideoAnalysis? Analysis { get; set; }
+
+        /// <summary>
         /// Default Value: video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -320,6 +326,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="currentSnapshotId"></param>
         /// <param name="sourceContext"></param>
+        /// <param name="analysis"></param>
         /// <param name="type">
         /// Default Value: video
         /// </param>
@@ -376,6 +383,7 @@ namespace ElevenLabs
             bool? exportFormatReady,
             string? currentSnapshotId,
             global::ElevenLabs.GenerationSourceContext? sourceContext,
+            global::ElevenLabs.VideoAnalysis? analysis,
             string? type,
             global::ElevenLabs.CanvasPlacement? canvasPlacement,
             global::ElevenLabs.ClipAnimation? animation,
@@ -417,6 +425,7 @@ namespace ElevenLabs
             this.ExportFormatReady = exportFormatReady;
             this.CurrentSnapshotId = currentSnapshotId;
             this.SourceContext = sourceContext;
+            this.Analysis = analysis;
             this.Type = type;
             this.CanvasPlacement = canvasPlacement;
             this.Animation = animation;
