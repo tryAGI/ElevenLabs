@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// How many users to return at maximum. Defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by. Defaults to last_contact_unix_secs.<br/>
+        /// Default Value: last_contact_unix_secs
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -42,6 +46,7 @@ namespace ElevenLabs
             int? callStartAfterUnix = default,
             string? search = default,
             int? pageSize = default,
+            global::ElevenLabs.UsersSortBy? sortBy = default,
             string? cursor = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

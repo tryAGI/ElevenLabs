@@ -13,6 +13,7 @@ namespace ElevenLabs
             int? callStartAfterUnix,
             ref string? search,
             ref int? pageSize,
+            ref global::ElevenLabs.UsersSortBy? sortBy,
             ref string? cursor,
             ref string? xiApiKey);
         partial void PrepareGetConvaiUsersRequest(
@@ -24,6 +25,7 @@ namespace ElevenLabs
             int? callStartAfterUnix,
             string? search,
             int? pageSize,
+            global::ElevenLabs.UsersSortBy? sortBy,
             string? cursor,
             string? xiApiKey);
         partial void ProcessGetConvaiUsersResponse(
@@ -58,6 +60,10 @@ namespace ElevenLabs
         /// How many users to return at maximum. Defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by. Defaults to last_contact_unix_secs.<br/>
+        /// Default Value: last_contact_unix_secs
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -73,6 +79,7 @@ namespace ElevenLabs
             int? callStartAfterUnix = default,
             string? search = default,
             int? pageSize = default,
+            global::ElevenLabs.UsersSortBy? sortBy = default,
             string? cursor = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -87,6 +94,7 @@ namespace ElevenLabs
                 callStartAfterUnix: callStartAfterUnix,
                 search: ref search,
                 pageSize: ref pageSize,
+                sortBy: ref sortBy,
                 cursor: ref cursor,
                 xiApiKey: ref xiApiKey);
 
@@ -100,6 +108,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("call_start_after_unix", callStartAfterUnix?.ToString())
                 .AddOptionalParameter("search", search)
                 .AddOptionalParameter("page_size", pageSize?.ToString())
+                .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                 .AddOptionalParameter("cursor", cursor) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -145,6 +154,7 @@ namespace ElevenLabs
                 callStartAfterUnix: callStartAfterUnix,
                 search: search,
                 pageSize: pageSize,
+                sortBy: sortBy,
                 cursor: cursor,
                 xiApiKey: xiApiKey);
 
