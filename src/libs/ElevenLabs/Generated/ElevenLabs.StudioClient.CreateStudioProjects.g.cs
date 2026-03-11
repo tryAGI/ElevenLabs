@@ -123,9 +123,15 @@ namespace ElevenLabs
             if (request.FromDocument != default)
             {
 
+                var __contentFromDocument = new global::System.Net.Http.ByteArrayContent(request.FromDocument ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.FromDocument}"),
-                    name: "\"from_document\"");
+                    content: __contentFromDocument,
+                    name: "\"from_document\"",
+                    fileName: request.FromDocumentname != null ? $"\"{request.FromDocumentname}\"" : string.Empty);
+                if (__contentFromDocument.Headers.ContentDisposition != null)
+                {
+                    __contentFromDocument.Headers.ContentDisposition.FileNameStar = null;
+                }
             } 
             if (request.FromContentJson != default)
             {
@@ -445,6 +451,9 @@ namespace ElevenLabs
         /// <param name="fromDocument">
         /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, 'from_url' and 'from_content' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.
         /// </param>
+        /// <param name="fromDocumentname">
+        /// An optional .epub, .pdf, .txt or similar file can be provided. If provided, we will initialize the Studio project with its content. If this is set, 'from_url' and 'from_content' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.
+        /// </param>
         /// <param name="fromContentJson">
         ///     An optional content to initialize the Studio project with. If this is set, 'from_url' and 'from_document' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.<br/>
         ///     Example:<br/>
@@ -597,6 +606,7 @@ namespace ElevenLabs
             string? defaultModelId = default,
             string? fromUrl = default,
             byte[]? fromDocument = default,
+            string? fromDocumentname = default,
             string? fromContentJson = default,
             global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostQualityPreset? qualityPreset = default,
             string? title = default,
@@ -630,6 +640,7 @@ namespace ElevenLabs
                 DefaultModelId = defaultModelId,
                 FromUrl = fromUrl,
                 FromDocument = fromDocument,
+                FromDocumentname = fromDocumentname,
                 FromContentJson = fromContentJson,
                 QualityPreset = qualityPreset,
                 Title = title,

@@ -25,6 +25,12 @@ namespace ElevenLabs
         public byte[]? File { get; set; }
 
         /// <summary>
+        /// The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
+        public string? Filename { get; set; }
+
+        /// <summary>
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_code")]
@@ -159,6 +165,9 @@ namespace ElevenLabs
         /// <param name="file">
         /// The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
         /// </param>
+        /// <param name="filename">
+        /// The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
         /// </param>
@@ -227,6 +236,7 @@ namespace ElevenLabs
         public BodySpeechToTextV1SpeechToTextPost(
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostModelId modelId,
             byte[]? file,
+            string? filename,
             string? languageCode,
             bool? tagAudioEvents,
             int? numSpeakers,
@@ -248,6 +258,7 @@ namespace ElevenLabs
         {
             this.ModelId = modelId;
             this.File = file;
+            this.Filename = filename;
             this.LanguageCode = languageCode;
             this.TagAudioEvents = tagAudioEvents;
             this.NumSpeakers = numSpeakers;

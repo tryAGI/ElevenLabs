@@ -95,9 +95,15 @@ namespace ElevenLabs
             if (request.File != default)
             {
 
+                var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.File}"),
-                    name: "\"file\"");
+                    content: __contentFile,
+                    name: "\"file\"",
+                    fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
+                if (__contentFile.Headers.ContentDisposition != null)
+                {
+                    __contentFile.Headers.ContentDisposition.FileNameStar = null;
+                }
             } 
             if (request.Description != default)
             {
@@ -258,6 +264,9 @@ namespace ElevenLabs
         /// <param name="file">
         /// A lexicon .pls file which we will use to initialize the project with.
         /// </param>
+        /// <param name="filename">
+        /// A lexicon .pls file which we will use to initialize the project with.
+        /// </param>
         /// <param name="description">
         /// A description of the pronunciation dictionary, used for identification only.
         /// </param>
@@ -270,6 +279,7 @@ namespace ElevenLabs
             string name,
             string? xiApiKey = default,
             byte[]? file = default,
+            string? filename = default,
             string? description = default,
             global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccess2? workspaceAccess = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -278,6 +288,7 @@ namespace ElevenLabs
             {
                 Name = name,
                 File = file,
+                Filename = filename,
                 Description = description,
                 WorkspaceAccess = workspaceAccess,
             };

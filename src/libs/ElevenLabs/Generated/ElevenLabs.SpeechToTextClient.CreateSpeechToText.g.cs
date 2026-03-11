@@ -113,9 +113,15 @@ namespace ElevenLabs
             if (request.File != default)
             {
 
+                var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.File}"),
-                    name: "\"file\"");
+                    content: __contentFile,
+                    name: "\"file\"",
+                    fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
+                if (__contentFile.Headers.ContentDisposition != null)
+                {
+                    __contentFile.Headers.ContentDisposition.FileNameStar = null;
+                }
             } 
             if (request.LanguageCode != default)
             {
@@ -393,6 +399,9 @@ namespace ElevenLabs
         /// <param name="file">
         /// The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
         /// </param>
+        /// <param name="filename">
+        /// The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
         /// </param>
@@ -462,6 +471,7 @@ namespace ElevenLabs
             bool? enableLogging = default,
             string? xiApiKey = default,
             byte[]? file = default,
+            string? filename = default,
             string? languageCode = default,
             bool? tagAudioEvents = default,
             int? numSpeakers = default,
@@ -486,6 +496,7 @@ namespace ElevenLabs
             {
                 ModelId = modelId,
                 File = file,
+                Filename = filename,
                 LanguageCode = languageCode,
                 TagAudioEvents = tagAudioEvents,
                 NumSpeakers = numSpeakers,

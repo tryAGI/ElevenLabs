@@ -30,13 +30,25 @@ namespace ElevenLabs
         /// <param name="file">
         /// A list of file paths to audio recordings intended for voice cloning
         /// </param>
+        /// <param name="filename">
+        /// A list of file paths to audio recordings intended for voice cloning
+        /// </param>
         /// <param name="csvFile">
+        /// CSV file containing transcription/translation metadata
+        /// </param>
+        /// <param name="csvFilename">
         /// CSV file containing transcription/translation metadata
         /// </param>
         /// <param name="foregroundAudioFile">
         /// For use only with csv input
         /// </param>
+        /// <param name="foregroundAudioFilename">
+        /// For use only with csv input
+        /// </param>
         /// <param name="backgroundAudioFile">
+        /// For use only with csv input
+        /// </param>
+        /// <param name="backgroundAudioFilename">
         /// For use only with csv input
         /// </param>
         /// <param name="name">
@@ -100,9 +112,13 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> CreateDubbingAsync(
             string? xiApiKey = default,
             byte[]? file = default,
+            string? filename = default,
             byte[]? csvFile = default,
+            string? csvFilename = default,
             byte[]? foregroundAudioFile = default,
+            string? foregroundAudioFilename = default,
             byte[]? backgroundAudioFile = default,
+            string? backgroundAudioFilename = default,
             string? name = default,
             string? sourceUrl = default,
             string? sourceLang = default,

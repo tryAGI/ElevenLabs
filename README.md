@@ -66,6 +66,31 @@ byte[] streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStre
 await File.WriteAllBytesAsync("streamed-output.mp3", streamedAudio);
 ```
 
+### Streaming Text to Speech with Timestamps
+```csharp
+//// Stream text-to-speech audio with character-level timing for lip-sync or subtitles.
+var voices = await client.Voices.GetVoicesAsync();
+var voiceId = voices.Voices[0].VoiceId;
+
+StreamingAudioChunkWithTimestampsResponseModel response =
+    await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
+        voiceId: voiceId,
+        text: "Hello, this has timestamps.",
+        modelId: "eleven_multilingual_v2",
+        outputFormat: TextToSpeechStreamWithTimestampsOutputFormat.Mp32205032);
+
+// Access character-level alignment data
+if (response.Alignment is { } alignment)
+{
+    for (int i = 0; i < alignment.Characters?.Count; i++)
+    {
+        Console.WriteLine($"'{alignment.Characters[i]}' " +
+            $"{alignment.CharacterStartTimesSeconds?[i]:F3}s - " +
+            $"{alignment.CharacterEndTimesSeconds?[i]:F3}s");
+    }
+}
+```
+
 ### Sound Generation
 ```csharp
 //// Generate a sound effect from a text description.
@@ -91,6 +116,20 @@ if (transcription.Value1 is { } chunk)
 {
     Console.WriteLine(chunk.Text);
 }
+```
+
+### Voice Cloning
+```csharp
+//// Clone a voice from an audio sample using instant voice cloning.
+byte[] voiceSample = await File.ReadAllBytesAsync("voice-sample.wav");
+
+AddVoiceIVCResponseModel response = await client.Voices.CreateVoicesAddAsync(
+    name: "My Cloned Voice",
+    files: [voiceSample],
+    description: "A cloned voice from my audio sample",
+    removeBackgroundNoise: true);
+
+Console.WriteLine($"Cloned voice ID: {response.VoiceId}");
 ```
 
 ### Realtime Speech-to-Text (WebSocket)

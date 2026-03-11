@@ -22,6 +22,12 @@ namespace ElevenLabs
         public byte[]? File { get; set; }
 
         /// <summary>
+        /// A lexicon .pls file which we will use to initialize the project with.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
+        public string? Filename { get; set; }
+
+        /// <summary>
         /// A description of the pronunciation dictionary, used for identification only.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
@@ -48,6 +54,9 @@ namespace ElevenLabs
         /// <param name="file">
         /// A lexicon .pls file which we will use to initialize the project with.
         /// </param>
+        /// <param name="filename">
+        /// A lexicon .pls file which we will use to initialize the project with.
+        /// </param>
         /// <param name="description">
         /// A description of the pronunciation dictionary, used for identification only.
         /// </param>
@@ -60,11 +69,13 @@ namespace ElevenLabs
         public BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePost(
             string name,
             byte[]? file,
+            string? filename,
             string? description,
             global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccess2? workspaceAccess)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.File = file;
+            this.Filename = filename;
             this.Description = description;
             this.WorkspaceAccess = workspaceAccess;
         }
