@@ -77,11 +77,20 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 32px 32px;
-  opacity: 0.24;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(55, 224, 139, 0.1), transparent 24%),
+    radial-gradient(circle at 84% 12%, rgba(82, 121, 255, 0.08), transparent 22%),
+    radial-gradient(circle at 52% 100%, rgba(255, 157, 84, 0.08), transparent 28%);
+  opacity: 0.8;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 22%);
+  opacity: 0.5;
 }
 
 .md-grid {
