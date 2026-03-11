@@ -16,6 +16,12 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> Emails { get; set; }
 
         /// <summary>
+        /// The seat type of the user
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seat_type")]
+        public global::ElevenLabs.SeatType? SeatType { get; set; }
+
+        /// <summary>
         /// The group ids of the user
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_ids")]
@@ -33,6 +39,9 @@ namespace ElevenLabs
         /// <param name="emails">
         /// The email of the customer
         /// </param>
+        /// <param name="seatType">
+        /// The seat type of the user
+        /// </param>
         /// <param name="groupIds">
         /// The group ids of the user
         /// </param>
@@ -41,9 +50,11 @@ namespace ElevenLabs
 #endif
         public BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost(
             global::System.Collections.Generic.IList<string> emails,
+            global::ElevenLabs.SeatType? seatType,
             global::System.Collections.Generic.IList<string>? groupIds)
         {
             this.Emails = emails ?? throw new global::System.ArgumentNullException(nameof(emails));
+            this.SeatType = seatType;
             this.GroupIds = groupIds;
         }
 

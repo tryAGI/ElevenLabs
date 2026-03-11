@@ -228,6 +228,9 @@ namespace ElevenLabs
         /// <param name="emails">
         /// The email of the customer
         /// </param>
+        /// <param name="seatType">
+        /// The seat type of the user
+        /// </param>
         /// <param name="groupIds">
         /// The group ids of the user
         /// </param>
@@ -236,12 +239,14 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceInviteResponseModel> CreateWorkspaceInvitesAddBulkAsync(
             global::System.Collections.Generic.IList<string> emails,
             string? xiApiKey = default,
+            global::ElevenLabs.SeatType? seatType = default,
             global::System.Collections.Generic.IList<string>? groupIds = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost
             {
                 Emails = emails,
+                SeatType = seatType,
                 GroupIds = groupIds,
             };
 
