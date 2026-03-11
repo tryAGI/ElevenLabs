@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_base64")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AudioBase64 { get; set; } = default!;
+        public required string AudioBase64 { get; set; }
 
         /// <summary>
         /// Timestamp information for each character in the original text

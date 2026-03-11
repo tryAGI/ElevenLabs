@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("emails")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Emails { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Emails { get; set; }
 
         /// <summary>
         /// The group ids of the user

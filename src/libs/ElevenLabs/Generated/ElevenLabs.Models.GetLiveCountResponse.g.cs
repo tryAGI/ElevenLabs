@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Count { get; set; } = default!;
+        public required int Count { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

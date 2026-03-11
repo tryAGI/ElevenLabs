@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("enter_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CaptionStyleSectionAnimationModelEnterTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.CaptionStyleSectionAnimationModelEnterType EnterType { get; set; } = default!;
+        public required global::ElevenLabs.CaptionStyleSectionAnimationModelEnterType EnterType { get; set; }
 
         /// <summary>
         /// 
@@ -22,7 +22,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("exit_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CaptionStyleSectionAnimationModelExitTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.CaptionStyleSectionAnimationModelExitType ExitType { get; set; } = default!;
+        public required global::ElevenLabs.CaptionStyleSectionAnimationModelExitType ExitType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

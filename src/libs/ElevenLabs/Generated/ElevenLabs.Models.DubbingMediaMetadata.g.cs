@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ContentType { get; set; } = default!;
+        public required string ContentType { get; set; }
 
         /// <summary>
         /// The duration of the media in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double Duration { get; set; } = default!;
+        public required double Duration { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

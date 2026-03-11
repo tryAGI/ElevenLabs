@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Segments { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Segments { get; set; }
 
         /// <summary>
         /// Translate only these languages for each segment.

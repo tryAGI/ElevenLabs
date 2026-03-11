@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_base_64")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AudioBase64 { get; set; } = default!;
+        public required string AudioBase64 { get; set; }
 
         /// <summary>
         /// The ID of the generated voice. Use it to create a voice from the preview.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generated_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string GeneratedVoiceId { get; set; } = default!;
+        public required string GeneratedVoiceId { get; set; }
 
         /// <summary>
         /// The media type of the preview.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string MediaType { get; set; } = default!;
+        public required string MediaType { get; set; }
 
         /// <summary>
         /// The duration of the preview in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double DurationSecs { get; set; } = default!;
+        public required double DurationSecs { get; set; }
 
         /// <summary>
         /// The language of the preview.

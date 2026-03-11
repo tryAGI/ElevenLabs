@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("address")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Address { get; set; } = default!;
+        public required string Address { get; set; }
 
         /// <summary>
         /// Protocol to use for SIP transport (signalling layer).<br/>

@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TransferNumber { get; set; } = default!;
+        public required string TransferNumber { get; set; }
 
         /// <summary>
         /// 
@@ -44,14 +44,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentMessage { get; set; } = default!;
+        public required string AgentMessage { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conference_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ConferenceName { get; set; } = default!;
+        public required string ConferenceName { get; set; }
 
         /// <summary>
         /// 

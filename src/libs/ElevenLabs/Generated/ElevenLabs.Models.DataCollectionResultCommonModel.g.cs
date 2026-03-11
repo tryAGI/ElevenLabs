@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DataCollectionId { get; set; } = default!;
+        public required string DataCollectionId { get; set; }
 
         /// <summary>
         /// 
@@ -32,7 +32,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rationale")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Rationale { get; set; } = default!;
+        public required string Rationale { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

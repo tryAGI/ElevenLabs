@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("address")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Address { get; set; } = default!;
+        public required string Address { get; set; }
 
         /// <summary>
         /// Protocol to use for SIP transport
@@ -21,7 +21,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("transport")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPTrunkTransportEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SIPTrunkTransportEnum Transport { get; set; } = default!;
+        public required global::ElevenLabs.SIPTrunkTransportEnum Transport { get; set; }
 
         /// <summary>
         /// Whether or not to encrypt media (data layer).
@@ -29,7 +29,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("media_encryption")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPMediaEncryptionEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; } = default!;
+        public required global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; }
 
         /// <summary>
         /// SIP headers for INVITE request
@@ -42,7 +42,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_auth_credentials")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool HasAuthCredentials { get; set; } = default!;
+        public required bool HasAuthCredentials { get; set; }
 
         /// <summary>
         /// SIP trunk username (if available)

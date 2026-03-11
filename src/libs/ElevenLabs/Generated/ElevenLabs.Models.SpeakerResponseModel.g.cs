@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SpeakerId { get; set; } = default!;
+        public required string SpeakerId { get; set; }
 
         /// <summary>
         /// The duration of the speaker segment in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double DurationSecs { get; set; } = default!;
+        public required double DurationSecs { get; set; }
 
         /// <summary>
         /// The utterances of the speaker.

@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UsageCount { get; set; } = default!;
+        public required int UsageCount { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string EmbeddingModel { get; set; } = default!;
+        public required string EmbeddingModel { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

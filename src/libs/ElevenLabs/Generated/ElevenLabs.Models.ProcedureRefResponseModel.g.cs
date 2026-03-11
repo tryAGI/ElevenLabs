@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("procedure_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ProcedureId { get; set; } = default!;
+        public required string ProcedureId { get; set; }
 
         /// <summary>
         /// Version ID of a version of the procedure. None for a procedure never versioned.

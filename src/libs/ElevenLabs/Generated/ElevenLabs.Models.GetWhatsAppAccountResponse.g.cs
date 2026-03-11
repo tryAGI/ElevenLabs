@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("business_account_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string BusinessAccountId { get; set; } = default!;
+        public required string BusinessAccountId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumberId { get; set; } = default!;
+        public required string PhoneNumberId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("business_account_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string BusinessAccountName { get; set; } = default!;
+        public required string BusinessAccountName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumberName { get; set; } = default!;
+        public required string PhoneNumberName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PhoneNumber { get; set; } = default!;
+        public required string PhoneNumber { get; set; }
 
         /// <summary>
         /// 

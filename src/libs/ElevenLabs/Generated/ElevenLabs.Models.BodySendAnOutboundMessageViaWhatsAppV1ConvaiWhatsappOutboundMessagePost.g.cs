@@ -13,42 +13,42 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string WhatsappPhoneNumberId { get; set; } = default!;
+        public required string WhatsappPhoneNumberId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string WhatsappUserId { get; set; } = default!;
+        public required string WhatsappUserId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("template_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TemplateName { get; set; } = default!;
+        public required string TemplateName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("template_language_code")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TemplateLanguageCode { get; set; } = default!;
+        public required string TemplateLanguageCode { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("template_params")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateParamsItem> TemplateParams { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.TemplateParamsItem> TemplateParams { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
         /// 

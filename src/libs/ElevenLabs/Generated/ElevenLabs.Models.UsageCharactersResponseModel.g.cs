@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<int> Time { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<int> Time { get; set; }
 
         /// <summary>
         /// The usage of each breakdown type along the time axis.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<double>> Usage { get; set; } = default!;
+        public required global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<double>> Usage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

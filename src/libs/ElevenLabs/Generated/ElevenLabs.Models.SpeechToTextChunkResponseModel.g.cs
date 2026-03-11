@@ -14,28 +14,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_code")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string LanguageCode { get; set; } = default!;
+        public required string LanguageCode { get; set; }
 
         /// <summary>
         /// The confidence score of the language detection (0 to 1).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_probability")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double LanguageProbability { get; set; } = default!;
+        public required double LanguageProbability { get; set; }
 
         /// <summary>
         /// The raw text of the transcription.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
 
         /// <summary>
         /// List of words with their timing information.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("words")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextWordResponseModel> Words { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextWordResponseModel> Words { get; set; }
 
         /// <summary>
         /// The channel index this transcript belongs to (for multichannel audio).

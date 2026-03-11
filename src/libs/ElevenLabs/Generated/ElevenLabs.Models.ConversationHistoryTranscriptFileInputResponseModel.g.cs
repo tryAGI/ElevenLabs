@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FileId { get; set; } = default!;
+        public required string FileId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("original_filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string OriginalFilename { get; set; } = default!;
+        public required string OriginalFilename { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string MimeType { get; set; } = default!;
+        public required string MimeType { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FileUrl { get; set; } = default!;
+        public required string FileUrl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

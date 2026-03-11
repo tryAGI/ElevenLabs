@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_addresses")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> AllowedAddresses { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> AllowedAddresses { get; set; }
 
         /// <summary>
         /// List of phone numbers that are allowed to use the trunk.
@@ -27,14 +27,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("media_encryption")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPMediaEncryptionEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; } = default!;
+        public required global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; }
 
         /// <summary>
         /// Whether authentication credentials are configured
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_auth_credentials")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool HasAuthCredentials { get; set; } = default!;
+        public required bool HasAuthCredentials { get; set; }
 
         /// <summary>
         /// SIP trunk username (if available)

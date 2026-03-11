@@ -13,35 +13,35 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recording_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string RecordingId { get; set; } = default!;
+        public required string RecordingId { get; set; }
 
         /// <summary>
         /// The MIME type of the recording.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string MimeType { get; set; } = default!;
+        public required string MimeType { get; set; }
 
         /// <summary>
         /// The size of the recording in bytes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int SizeBytes { get; set; } = default!;
+        public required int SizeBytes { get; set; }
 
         /// <summary>
         /// The date of the recording in Unix time.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("upload_date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int UploadDateUnix { get; set; } = default!;
+        public required int UploadDateUnix { get; set; }
 
         /// <summary>
         /// The transcription of the recording.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcription")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Transcription { get; set; } = default!;
+        public required string Transcription { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

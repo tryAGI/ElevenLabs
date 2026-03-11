@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_run_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TestRunId { get; set; } = default!;
+        public required string TestRunId { get; set; }
 
         /// <summary>
         /// 
@@ -26,14 +26,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_invocation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TestInvocationId { get; set; } = default!;
+        public required string TestInvocationId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AgentId { get; set; } = default!;
+        public required string AgentId { get; set; }
 
         /// <summary>
         /// 
@@ -53,7 +53,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TestRunStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.TestRunStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.TestRunStatus Status { get; set; }
 
         /// <summary>
         /// 
@@ -66,7 +66,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TestId { get; set; } = default!;
+        public required string TestId { get; set; }
 
         /// <summary>
         /// Default Value: Unknown Test

@@ -15,21 +15,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ProjectId { get; set; } = default!;
+        public required string ProjectId { get; set; }
 
         /// <summary>
         /// The name of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The creation date of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("create_date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreateDateUnix { get; set; } = default!;
+        public required int CreateDateUnix { get; set; }
 
         /// <summary>
         /// The user ID who created the project.
@@ -42,21 +42,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_title_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DefaultTitleVoiceId { get; set; } = default!;
+        public required string DefaultTitleVoiceId { get; set; }
 
         /// <summary>
         /// The default paragraph voice ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_paragraph_voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DefaultParagraphVoiceId { get; set; } = default!;
+        public required string DefaultParagraphVoiceId { get; set; }
 
         /// <summary>
         /// The default model ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DefaultModelId { get; set; } = default!;
+        public required string DefaultModelId { get; set; }
 
         /// <summary>
         /// The last conversion date of the project.
@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_be_downloaded")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool CanBeDownloaded { get; set; } = default!;
+        public required bool CanBeDownloaded { get; set; }
 
         /// <summary>
         /// The title of the project.
@@ -142,7 +142,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_normalization")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool VolumeNormalization { get; set; } = default!;
+        public required bool VolumeNormalization { get; set; }
 
         /// <summary>
         /// The state of the project.
@@ -150,7 +150,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectExtendedResponseModelState State { get; set; } = default!;
+        public required global::ElevenLabs.ProjectExtendedResponseModelState State { get; set; }
 
         /// <summary>
         /// The access level of the project.
@@ -158,7 +158,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("access_level")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelAccessLevelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectExtendedResponseModelAccessLevel AccessLevel { get; set; } = default!;
+        public required global::ElevenLabs.ProjectExtendedResponseModelAccessLevel AccessLevel { get; set; }
 
         /// <summary>
         /// Whether the project is fiction.
@@ -171,14 +171,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool QualityCheckOn { get; set; } = default!;
+        public required bool QualityCheckOn { get; set; }
 
         /// <summary>
         /// Whether quality check is enabled on the project when bulk converting.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_check_on_when_bulk_convert")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool QualityCheckOnWhenBulkConvert { get; set; } = default!;
+        public required bool QualityCheckOnWhenBulkConvert { get; set; }
 
         /// <summary>
         /// The creation meta of the project.
@@ -242,28 +242,28 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelQualityPresetJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectExtendedResponseModelQualityPreset QualityPreset { get; set; } = default!;
+        public required global::ElevenLabs.ProjectExtendedResponseModelQualityPreset QualityPreset { get; set; }
 
         /// <summary>
         /// List of chapters of the project and their metadata.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> Chapters { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> Chapters { get; set; }
 
         /// <summary>
         /// List of pronunciation dictionary versions of the project and their metadata.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_versions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> PronunciationDictionaryVersions { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> PronunciationDictionaryVersions { get; set; }
 
         /// <summary>
         /// List of pronunciation dictionary locators.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> PronunciationDictionaryLocators { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> PronunciationDictionaryLocators { get; set; }
 
         /// <summary>
         /// Whether text normalization is applied to the project.
@@ -271,7 +271,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization ApplyTextNormalization { get; set; } = default!;
+        public required global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization ApplyTextNormalization { get; set; }
 
         /// <summary>
         /// Experimental features for the project.
@@ -284,14 +284,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assets")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>> Assets { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>> Assets { get; set; }
 
         /// <summary>
         /// List of configured project voices.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVoiceResponseModel> Voices { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVoiceResponseModel> Voices { get; set; }
 
         /// <summary>
         /// List of voices used by the project.

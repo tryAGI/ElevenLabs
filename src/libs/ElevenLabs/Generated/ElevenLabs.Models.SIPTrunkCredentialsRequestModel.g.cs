@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("username")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Username { get; set; } = default!;
+        public required string Username { get; set; }
 
         /// <summary>
         /// SIP trunk password - if not specified, then remain unchanged

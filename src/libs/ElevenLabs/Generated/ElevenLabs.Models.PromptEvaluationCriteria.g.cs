@@ -14,14 +14,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// The type of evaluation criteria<br/>
@@ -35,7 +35,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_goal_prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ConversationGoalPrompt { get; set; } = default!;
+        public required string ConversationGoalPrompt { get; set; }
 
         /// <summary>
         /// When evaluating the prompt, should the agent's knowledge base be used.<br/>

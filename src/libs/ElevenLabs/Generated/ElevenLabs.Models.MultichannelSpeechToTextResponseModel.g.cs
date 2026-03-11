@@ -14,7 +14,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcripts")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextChunkResponseModel> Transcripts { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextChunkResponseModel> Transcripts { get; set; }
 
         /// <summary>
         /// The transcription ID of the response.

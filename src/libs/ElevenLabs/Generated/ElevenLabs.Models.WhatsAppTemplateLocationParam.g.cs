@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("location")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.WhatsAppTemplateLocationParamDetails Location { get; set; } = default!;
+        public required global::ElevenLabs.WhatsAppTemplateLocationParamDetails Location { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

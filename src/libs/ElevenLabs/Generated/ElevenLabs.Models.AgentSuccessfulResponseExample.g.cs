@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Response { get; set; } = default!;
+        public required string Response { get; set; }
 
         /// <summary>
         /// 

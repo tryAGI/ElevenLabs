@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_base_64")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AudioBase64 { get; set; } = default!;
+        public required string AudioBase64 { get; set; }
 
         /// <summary>
         /// The ID of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceId { get; set; } = default!;
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// The ID of the sample.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SampleId { get; set; } = default!;
+        public required string SampleId { get; set; }
 
         /// <summary>
         /// The media type of the audio.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string MediaType { get; set; } = default!;
+        public required string MediaType { get; set; }
 
         /// <summary>
         /// The duration of the audio in seconds.

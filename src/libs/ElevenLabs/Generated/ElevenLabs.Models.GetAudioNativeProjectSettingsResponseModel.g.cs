@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Enabled { get; set; } = default!;
+        public required bool Enabled { get; set; }
 
         /// <summary>
         /// The ID of the latest snapshot of the project.

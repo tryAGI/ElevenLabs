@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; } = default!;
+        public required global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("platform_settings")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AgentPlatformSettingsRequestModel PlatformSettings { get; set; } = default!;
+        public required global::ElevenLabs.AgentPlatformSettingsRequestModel PlatformSettings { get; set; }
 
         /// <summary>
         /// 

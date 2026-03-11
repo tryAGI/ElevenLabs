@@ -14,7 +14,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WebhookUsageTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.WebhookUsageType UsageType { get; set; } = default!;
+        public required global::ElevenLabs.WebhookUsageType UsageType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

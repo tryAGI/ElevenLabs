@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("coached_agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CoachedAgentId { get; set; } = default!;
+        public required string CoachedAgentId { get; set; }
 
         /// <summary>
         /// 

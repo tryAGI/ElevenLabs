@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Error { get; set; } = default!;
+        public required string Error { get; set; }
 
         /// <summary>
         /// 

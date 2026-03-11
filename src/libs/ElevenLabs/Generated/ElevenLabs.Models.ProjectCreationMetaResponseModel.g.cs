@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_progress")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double CreationProgress { get; set; } = default!;
+        public required double CreationProgress { get; set; }
 
         /// <summary>
         /// The status of the project creation action.
@@ -21,7 +21,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectCreationMetaResponseModelStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectCreationMetaResponseModelStatus Status { get; set; } = default!;
+        public required global::ElevenLabs.ProjectCreationMetaResponseModelStatus Status { get; set; }
 
         /// <summary>
         /// The type of the project creation action.
@@ -29,7 +29,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectCreationMetaResponseModelTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ProjectCreationMetaResponseModelType Type { get; set; } = default!;
+        public required global::ElevenLabs.ProjectCreationMetaResponseModelType Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

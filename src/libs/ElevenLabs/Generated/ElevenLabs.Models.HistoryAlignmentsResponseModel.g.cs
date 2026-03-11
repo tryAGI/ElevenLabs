@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alignment")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.HistoryAlignmentResponseModel Alignment { get; set; } = default!;
+        public required global::ElevenLabs.HistoryAlignmentResponseModel Alignment { get; set; }
 
         /// <summary>
         /// The normalized alignment of the text.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("normalized_alignment")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.HistoryAlignmentResponseModel NormalizedAlignment { get; set; } = default!;
+        public required global::ElevenLabs.HistoryAlignmentResponseModel NormalizedAlignment { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

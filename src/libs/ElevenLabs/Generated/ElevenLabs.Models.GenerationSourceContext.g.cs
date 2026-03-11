@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string GenerationId { get; set; } = default!;
+        public required string GenerationId { get; set; }
 
         /// <summary>
         /// 
@@ -32,7 +32,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelId { get; set; } = default!;
+        public required string ModelId { get; set; }
 
         /// <summary>
         /// 

@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("collection_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CollectionName { get; set; } = default!;
+        public required string CollectionName { get; set; }
 
         /// <summary>
         /// Default Value: eleven_customer_support

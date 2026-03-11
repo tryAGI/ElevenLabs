@@ -38,14 +38,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("call_successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; } = default!;
+        public required global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_summary")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TranscriptSummary { get; set; } = default!;
+        public required string TranscriptSummary { get; set; }
 
         /// <summary>
         /// 

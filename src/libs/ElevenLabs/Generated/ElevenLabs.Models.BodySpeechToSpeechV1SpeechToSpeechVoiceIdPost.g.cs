@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public byte[] Audio { get; set; } = default!;
+        public required byte[] Audio { get; set; }
 
         /// <summary>
         /// The audio file which holds the content and emotion that will control the generated speech.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audioname")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Audioname { get; set; } = default!;
+        public required string Audioname { get; set; }
 
         /// <summary>
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for speech to speech, you can check this using the can_do_voice_conversion property.<br/>

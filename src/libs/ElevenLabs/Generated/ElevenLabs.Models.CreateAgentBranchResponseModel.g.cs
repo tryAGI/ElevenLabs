@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_branch_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CreatedBranchId { get; set; } = default!;
+        public required string CreatedBranchId { get; set; }
 
         /// <summary>
         /// ID of the first version on the created branch
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CreatedVersionId { get; set; } = default!;
+        public required string CreatedVersionId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

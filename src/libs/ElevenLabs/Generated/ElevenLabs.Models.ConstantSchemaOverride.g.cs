@@ -22,7 +22,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("constant_value")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?> ConstantValue { get; set; } = default!;
+        public required global::ElevenLabs.AnyOf<string, int?, double?, bool?> ConstantValue { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dtmf_tones")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DtmfTones { get; set; } = default!;
+        public required string DtmfTones { get; set; }
 
         /// <summary>
         /// 

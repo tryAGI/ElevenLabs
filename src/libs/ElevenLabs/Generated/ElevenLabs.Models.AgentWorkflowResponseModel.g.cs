@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("edges")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkflowEdgeModelOutput> Edges { get; set; } = default!;
+        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkflowEdgeModelOutput> Edges { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("nodes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public object Nodes { get; set; } = default!;
+        public required object Nodes { get; set; }
 
         /// <summary>
         /// Whether to prevent loops in the workflow execution.<br/>
@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prevent_subagent_loops")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool PreventSubagentLoops { get; set; } = default!;
+        public required bool PreventSubagentLoops { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avatar_file")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public byte[] AvatarFile { get; set; } = default!;
+        public required byte[] AvatarFile { get; set; }
 
         /// <summary>
         /// An image file to be used as the agent's avatar.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avatar_filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AvatarFilename { get; set; } = default!;
+        public required string AvatarFilename { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

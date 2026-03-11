@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Condition { get; set; } = default!;
+        public required string Condition { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

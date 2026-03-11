@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("song_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SongId { get; set; } = default!;
+        public required string SongId { get; set; }
 
         /// <summary>
         /// The range to extract from the source song.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("range")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.TimeRange Range { get; set; } = default!;
+        public required global::ElevenLabs.TimeRange Range { get; set; }
 
         /// <summary>
         /// The ranges to exclude from the 'range'.

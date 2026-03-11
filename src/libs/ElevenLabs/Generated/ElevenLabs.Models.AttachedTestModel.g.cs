@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TestId { get; set; } = default!;
+        public required string TestId { get; set; }
 
         /// <summary>
         /// 

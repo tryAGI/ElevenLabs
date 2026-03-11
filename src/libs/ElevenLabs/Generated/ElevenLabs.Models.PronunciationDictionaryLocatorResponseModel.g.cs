@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PronunciationDictionaryId { get; set; } = default!;
+        public required string PronunciationDictionaryId { get; set; }
 
         /// <summary>
         /// 

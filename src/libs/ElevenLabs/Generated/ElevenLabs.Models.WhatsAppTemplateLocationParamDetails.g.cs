@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("latitude")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Latitude { get; set; } = default!;
+        public required string Latitude { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("longitude")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Longitude { get; set; } = default!;
+        public required string Longitude { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("address")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Address { get; set; } = default!;
+        public required string Address { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

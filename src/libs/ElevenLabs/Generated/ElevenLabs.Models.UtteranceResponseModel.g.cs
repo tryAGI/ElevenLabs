@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double Start { get; set; } = default!;
+        public required double Start { get; set; }
 
         /// <summary>
         /// The end time of the utterance in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double End { get; set; } = default!;
+        public required double End { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -14,14 +14,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.Llm Llm { get; set; } = default!;
+        public required global::ElevenLabs.Llm Llm { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price_per_minute")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double PricePerMinute { get; set; } = default!;
+        public required double PricePerMinute { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

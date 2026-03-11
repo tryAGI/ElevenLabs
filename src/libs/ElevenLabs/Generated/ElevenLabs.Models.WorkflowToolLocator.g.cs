@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ToolId { get; set; } = default!;
+        public required string ToolId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

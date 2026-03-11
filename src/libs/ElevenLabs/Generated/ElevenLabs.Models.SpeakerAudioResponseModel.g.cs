@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_base_64")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string AudioBase64 { get; set; } = default!;
+        public required string AudioBase64 { get; set; }
 
         /// <summary>
         /// The media type of the audio.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string MediaType { get; set; } = default!;
+        public required string MediaType { get; set; }
 
         /// <summary>
         /// The duration of the audio in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double DurationSecs { get; set; } = default!;
+        public required double DurationSecs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,21 +13,21 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VoiceId { get; set; } = default!;
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// The number of unconverted characters for this voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("characters_unconverted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharactersUnconverted { get; set; } = default!;
+        public required int CharactersUnconverted { get; set; }
 
         /// <summary>
         /// The number of converted characters for this voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("characters_converted")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CharactersConverted { get; set; } = default!;
+        public required int CharactersConverted { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,28 +13,28 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hint")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Hint { get; set; } = default!;
+        public required string Hint { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string KeyId { get; set; } = default!;
+        public required string KeyId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("service_account_user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ServiceAccountUserId { get; set; } = default!;
+        public required string ServiceAccountUserId { get; set; }
 
         /// <summary>
         /// 
@@ -71,7 +71,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hashed_xi_api_key")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string HashedXiApiKey { get; set; } = default!;
+        public required string HashedXiApiKey { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

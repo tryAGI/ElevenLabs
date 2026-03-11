@@ -14,14 +14,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ReaderResourceResponseModelResourceTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.ReaderResourceResponseModelResourceType ResourceType { get; set; } = default!;
+        public required global::ElevenLabs.ReaderResourceResponseModelResourceType ResourceType { get; set; }
 
         /// <summary>
         /// The ID of the resource.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ResourceId { get; set; } = default!;
+        public required string ResourceId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

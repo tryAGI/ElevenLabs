@@ -14,7 +14,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
 
         /// <summary>
         /// The start time of the word or sound in seconds.
@@ -34,7 +34,7 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SpeechToTextWordResponseModelTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::ElevenLabs.SpeechToTextWordResponseModelType Type { get; set; } = default!;
+        public required global::ElevenLabs.SpeechToTextWordResponseModelType Type { get; set; }
 
         /// <summary>
         /// Unique identifier for the speaker of this word.
@@ -47,7 +47,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logprob")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double Logprob { get; set; } = default!;
+        public required double Logprob { get; set; }
 
         /// <summary>
         /// The characters that make up the word and their timing information.

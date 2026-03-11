@@ -13,14 +13,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recording")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public byte[] Recording { get; set; } = default!;
+        public required byte[] Recording { get; set; }
 
         /// <summary>
         /// Audio recording of the user
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recordingname")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Recordingname { get; set; } = default!;
+        public required string Recordingname { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

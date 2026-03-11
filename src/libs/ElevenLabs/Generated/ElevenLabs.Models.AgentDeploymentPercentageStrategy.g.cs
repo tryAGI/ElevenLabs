@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("traffic_percentage")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double TrafficPercentage { get; set; } = default!;
+        public required double TrafficPercentage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

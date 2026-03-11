@@ -25,14 +25,14 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_agent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FromAgent { get; set; } = default!;
+        public required string FromAgent { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Error { get; set; } = default!;
+        public required string Error { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
