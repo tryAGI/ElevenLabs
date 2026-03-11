@@ -1,7 +1,17 @@
 site_name: ElevenLabs .NET Documentation
 nav:
 - Overview: index.md
-# EXAMPLES #
+# EXAMPLES:START
+- Examples:
+  - List Available Voices: examples/list-available-voices.md
+  - Text to Speech: examples/text-to-speech.md
+  - Streaming Text to Speech: examples/streaming-text-to-speech.md
+  - Streaming Text to Speech with Timestamps: examples/streaming-text-to-speech-with-timestamps.md
+  - Sound Generation: examples/sound-generation.md
+  - Speech to Text from a File: examples/speech-to-text-from-a-file.md
+  - Voice Cloning: examples/voice-cloning.md
+  - Realtime Speech to Text: examples/realtime-speech-to-text.md
+# EXAMPLES:END
         
 theme:
   name: material
