@@ -3252,11 +3252,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost? Type806 { get; set; }
+        public global::ElevenLabs.SeatType? Type806 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.SeatType? Type807 { get; set; }
+        public global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost? Type807 { get; set; }
         /// <summary>
         /// 
         /// </summary>
