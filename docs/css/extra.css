@@ -442,7 +442,7 @@ body::after {
 }
 
 .highlight pre {
-  padding-top: 1rem;
+  padding: 1.05rem 3.7rem 1.05rem 1.35rem;
 }
 
 .md-typeset .admonition,
@@ -588,11 +588,38 @@ details > summary + .highlight:last-child > .highlighttable {
   display: none !important;
 }
 
+.md-code__nav {
+  position: absolute;
+  inset: 0.85rem 0.85rem auto auto;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.md-code__button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 999px;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: rgba(255, 255, 255, 0.54) !important;
+  transition: background-color 180ms ease, color 180ms ease, opacity 180ms ease;
+}
+
+.md-code__button:is(:hover, :focus-visible),
+.highlight:hover .md-code__button {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: var(--docs-text) !important;
+}
+
 .highlight .md-clipboard,
 .highlight .copy-to-llm-code {
   top: 0.9rem;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.08);
+  background: transparent;
 }
 
 .highlight > .copy-to-llm-code {

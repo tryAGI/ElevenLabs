@@ -63,7 +63,7 @@ theme:
     repo: 'fontawesome/brands/github'
 
 extra_css:
-  - 'css/extra.css?v=25'
+  - 'css/extra.css?v=26'
 
 extra_javascript:
   - 'js/site.js?v=1'
@@ -93,7 +93,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.highlight:
-      linenums: true
+      linenums: false
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink
