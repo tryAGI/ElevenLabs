@@ -465,6 +465,7 @@ body::after {
 .highlighttable .linenodiv {
   padding: 0;
   border: 0;
+  box-shadow: none !important;
 }
 
 .highlighttable .linenodiv pre {
