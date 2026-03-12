@@ -62,12 +62,8 @@ theme:
   icon:
     repo: 'fontawesome/brands/github'
 
-extra:
-  version:
-    provider: mike
-
 extra_css:
-  - 'css/extra.css?v=19'
+  - 'css/extra.css?v=20'
 
 extra_javascript:
   - 'js/site.js?v=1'

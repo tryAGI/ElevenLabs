@@ -141,12 +141,17 @@ body::after {
 
 .md-tabs {
   background: transparent;
-  padding-block: 0.55rem 0.7rem;
+}
+
+.md-tabs .md-grid {
+  padding-top: 0.85rem;
+  padding-bottom: 0.8rem;
 }
 
 .md-tabs__list {
   align-items: center;
   gap: 0.45rem;
+  margin: 0;
   padding-bottom: 0;
 }
 
@@ -260,6 +265,10 @@ body::after {
   padding: 0.55rem;
 }
 
+.md-sidebar--primary .md-nav__item {
+  width: 100%;
+}
+
 .md-sidebar--primary .md-nav__item--active > label.md-nav__link {
   display: none;
 }
@@ -274,6 +283,12 @@ body::after {
 .md-sidebar--primary .md-nav--primary > .md-nav__list {
   margin: 0;
   padding: 0;
+}
+
+.md-sidebar--primary a.md-nav__link {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
 }
 
 .md-sidebar--primary .md-nav--secondary {
