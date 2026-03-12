@@ -8,11 +8,13 @@ namespace ElevenLabs
         partial void PrepareDeleteConvaiToolsByToolIdArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string toolId,
+            ref bool? force,
             ref string? xiApiKey);
         partial void PrepareDeleteConvaiToolsByToolIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string toolId,
+            bool? force,
             string? xiApiKey);
         partial void ProcessDeleteConvaiToolsByToolIdResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,6 +32,10 @@ namespace ElevenLabs
         /// <param name="toolId">
         /// ID of the requested tool.
         /// </param>
+        /// <param name="force">
+        /// If set to true, the tool will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents and branches.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -37,6 +43,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> DeleteConvaiToolsByToolIdAsync(
             string toolId,
+            bool? force = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -45,11 +52,15 @@ namespace ElevenLabs
             PrepareDeleteConvaiToolsByToolIdArguments(
                 httpClient: HttpClient,
                 toolId: ref toolId,
+                force: ref force,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/tools/{toolId}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("force", force?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -88,6 +99,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 toolId: toolId,
+                force: force,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
