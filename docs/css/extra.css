@@ -166,6 +166,7 @@ body::after {
 }
 
 .md-tabs__link:is(:hover, :focus-visible),
+.md-tabs__item--active .md-tabs__link,
 .md-tabs__link--active {
   color: var(--docs-text);
   background: var(--docs-bg-elevated);
@@ -511,6 +512,11 @@ details > summary + .highlight:last-child > .highlighttable {
   display: flex;
   flex: 0 0 auto;
   align-items: center;
+  border: 1px solid var(--docs-border);
+  border-radius: 999px;
+  background: var(--docs-bg-strong);
+  box-shadow: var(--docs-shadow-soft);
+  overflow: hidden;
 }
 
 .copy-to-llm,
@@ -528,9 +534,9 @@ details > summary + .highlight:last-child > .highlighttable {
 
 .copy-to-llm-section {
   color: var(--docs-text) !important;
-  background: var(--docs-bg-strong) !important;
-  border: 1px solid var(--docs-border) !important;
-  box-shadow: var(--docs-shadow-soft);
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none;
 }
 
 .copy-to-llm-left {
@@ -540,6 +546,7 @@ details > summary + .highlight:last-child > .highlighttable {
 
 .copy-to-llm-right {
   border-radius: 0 999px 999px 0 !important;
+  border-left: 1px solid var(--docs-border) !important;
   min-width: 2.7rem;
 }
 
