@@ -22,6 +22,18 @@ namespace ElevenLabs
         public string? WorkflowNodeId { get; set; }
 
         /// <summary>
+        /// ID of the root folder to run the test on. If not provided, the test will be run on the agent's default folder.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("root_folder_id")]
+        public string? RootFolderId { get; set; }
+
+        /// <summary>
+        /// Name of the root folder to run the test on. If not provided, the test will be run on the agent's default folder.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("root_folder_name")]
+        public string? RootFolderName { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -36,15 +48,25 @@ namespace ElevenLabs
         /// <param name="workflowNodeId">
         /// ID of the workflow node to run the test on. If not provided, the test will be run on the agent's default workflow node.
         /// </param>
+        /// <param name="rootFolderId">
+        /// ID of the root folder to run the test on. If not provided, the test will be run on the agent's default folder.
+        /// </param>
+        /// <param name="rootFolderName">
+        /// Name of the root folder to run the test on. If not provided, the test will be run on the agent's default folder.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SingleTestRunRequestModel(
             string testId,
-            string? workflowNodeId)
+            string? workflowNodeId,
+            string? rootFolderId,
+            string? rootFolderName)
         {
             this.TestId = testId ?? throw new global::System.ArgumentNullException(nameof(testId));
             this.WorkflowNodeId = workflowNodeId;
+            this.RootFolderId = rootFolderId;
+            this.RootFolderName = rootFolderName;
         }
 
         /// <summary>

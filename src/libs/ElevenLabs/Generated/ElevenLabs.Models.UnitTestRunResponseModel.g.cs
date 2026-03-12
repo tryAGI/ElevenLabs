@@ -93,6 +93,18 @@ namespace ElevenLabs
         public global::ElevenLabs.TestRunMetadata? Metadata { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("root_folder_id")]
+        public string? RootFolderId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("root_folder_name")]
+        public string? RootFolderName { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -116,6 +128,8 @@ namespace ElevenLabs
         /// <param name="conditionResult"></param>
         /// <param name="lastUpdatedAtUnix"></param>
         /// <param name="metadata"></param>
+        /// <param name="rootFolderId"></param>
+        /// <param name="rootFolderName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -132,7 +146,9 @@ namespace ElevenLabs
             string? testName,
             global::ElevenLabs.TestConditionResultCommonModel? conditionResult,
             int? lastUpdatedAtUnix,
-            global::ElevenLabs.TestRunMetadata? metadata)
+            global::ElevenLabs.TestRunMetadata? metadata,
+            string? rootFolderId,
+            string? rootFolderName)
         {
             this.TestRunId = testRunId ?? throw new global::System.ArgumentNullException(nameof(testRunId));
             this.TestInvocationId = testInvocationId ?? throw new global::System.ArgumentNullException(nameof(testInvocationId));
@@ -147,6 +163,8 @@ namespace ElevenLabs
             this.ConditionResult = conditionResult;
             this.LastUpdatedAtUnix = lastUpdatedAtUnix;
             this.Metadata = metadata;
+            this.RootFolderId = rootFolderId;
+            this.RootFolderName = rootFolderName;
         }
 
         /// <summary>
