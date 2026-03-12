@@ -36,6 +36,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("folder_id")]
+        public string? FolderId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_runs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestRunResponseModel> TestRuns { get; set; }
@@ -53,6 +59,7 @@ namespace ElevenLabs
         /// <param name="agentId"></param>
         /// <param name="branchId"></param>
         /// <param name="createdAt"></param>
+        /// <param name="folderId"></param>
         /// <param name="testRuns"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -62,13 +69,15 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestRunResponseModel> testRuns,
             string? agentId,
             string? branchId,
-            int? createdAt)
+            int? createdAt,
+            string? folderId)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.TestRuns = testRuns ?? throw new global::System.ArgumentNullException(nameof(testRuns));
             this.AgentId = agentId;
             this.BranchId = branchId;
             this.CreatedAt = createdAt;
+            this.FolderId = folderId;
         }
 
         /// <summary>
