@@ -17,11 +17,18 @@ namespace ElevenLabs
         public string? SystemToolType { get; set; }
 
         /// <summary>
-        /// If true, send DTMF tones out-of-band using RFC 4733 (useful for SIP calls only). If false, send DTMF as in-band audio tones (default, works for all call types).<br/>
-        /// Default Value: false
+        /// If true, send DTMF tones out-of-band using RFC 4733 (useful for SIP calls only). If false, send DTMF as in-band audio tones (works for all call types).<br/>
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_out_of_band_dtmf")]
         public bool? UseOutOfBandDtmf { get; set; }
+
+        /// <summary>
+        /// If true, the agent will not generate further speech after playing DTMF tones. This prevents the agent's speech from interfering with IVR systems.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("suppress_turn_after_dtmf")]
+        public bool? SuppressTurnAfterDtmf { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,7 +43,11 @@ namespace ElevenLabs
         /// Default Value: play_keypad_touch_tone
         /// </param>
         /// <param name="useOutOfBandDtmf">
-        /// If true, send DTMF tones out-of-band using RFC 4733 (useful for SIP calls only). If false, send DTMF as in-band audio tones (default, works for all call types).<br/>
+        /// If true, send DTMF tones out-of-band using RFC 4733 (useful for SIP calls only). If false, send DTMF as in-band audio tones (works for all call types).<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="suppressTurnAfterDtmf">
+        /// If true, the agent will not generate further speech after playing DTMF tones. This prevents the agent's speech from interfering with IVR systems.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
@@ -44,10 +55,12 @@ namespace ElevenLabs
 #endif
         public PlayDTMFToolConfig(
             string? systemToolType,
-            bool? useOutOfBandDtmf)
+            bool? useOutOfBandDtmf,
+            bool? suppressTurnAfterDtmf)
         {
             this.SystemToolType = systemToolType;
             this.UseOutOfBandDtmf = useOutOfBandDtmf;
+            this.SuppressTurnAfterDtmf = suppressTurnAfterDtmf;
         }
 
         /// <summary>
