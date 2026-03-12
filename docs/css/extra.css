@@ -595,6 +595,10 @@ details > summary + .highlight:last-child > .highlighttable {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.highlight > .copy-to-llm-code {
+  display: none !important;
+}
+
 .highlight .copy-to-llm-code:is(:hover, :focus-visible),
 .highlight .md-clipboard:is(:hover, :focus-visible) {
   background: rgba(255, 255, 255, 0.16);
