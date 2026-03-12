@@ -446,6 +446,7 @@ body::after {
 
 .highlighttable {
   width: 100%;
+  margin: 0;
 }
 
 .highlighttable td {
@@ -456,24 +457,39 @@ body::after {
 .highlighttable .linenos {
   width: 1%;
   white-space: nowrap;
-}
-
-.highlighttable .linenodiv {
-  padding: 1.05rem 0 1.05rem 1.05rem;
+  padding: 1.05rem 0.9rem 1.05rem 1.05rem;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.highlighttable .linenodiv {
+  padding: 0;
+  border: 0;
+}
+
 .highlighttable .linenodiv pre {
-  padding: 0 0.9rem 0 0;
+  margin: 0;
+  padding: 0;
   color: rgba(255, 255, 255, 0.34);
+  text-align: right;
 }
 
 .highlighttable .code {
   width: 100%;
 }
 
+.highlighttable .code > div {
+  width: 100%;
+}
+
 .highlighttable .code pre {
+  margin: 0;
   padding: 1.05rem 3.7rem 1.05rem 1.35rem;
+}
+
+.highlighttable .code pre > code {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
 }
 
 .highlight:not(:has(.linenodiv .normal + .normal)) .linenos {
