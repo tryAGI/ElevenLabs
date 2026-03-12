@@ -455,10 +455,11 @@ body::after {
 }
 
 .highlighttable .linenos {
-  width: 1%;
+  width: auto;
   white-space: nowrap;
-  padding: 1.05rem 0.9rem 1.05rem 1.05rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.95rem 0.55rem 0.95rem 0.75rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.012);
 }
 
 .highlighttable .linenodiv {
@@ -469,8 +470,10 @@ body::after {
 .highlighttable .linenodiv pre {
   margin: 0;
   padding: 0;
+  min-width: 2.15rem;
   color: rgba(255, 255, 255, 0.34);
   text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .highlighttable .code {
@@ -483,7 +486,10 @@ body::after {
 
 .highlighttable .code pre {
   margin: 0;
-  padding: 1.05rem 3.7rem 1.05rem 1.35rem;
+  padding: 0.95rem 3.1rem 0.95rem 0.85rem;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
 }
 
 .highlighttable .code pre > code {
@@ -492,12 +498,26 @@ body::after {
   background: transparent !important;
 }
 
+.highlighttable .code pre::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.highlighttable .code pre::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.highlighttable .code pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .highlight:not(:has(.linenodiv .normal + .normal)) .linenos {
   display: none;
 }
 
 .highlight:not(:has(.linenodiv .normal + .normal)) .code pre {
-  padding-left: 1.35rem;
+  padding-left: 1rem;
 }
 
 .md-typeset .admonition,

@@ -63,7 +63,7 @@ theme:
     repo: 'fontawesome/brands/github'
 
 extra_css:
-  - 'css/extra.css?v=29'
+  - 'css/extra.css?v=30'
 
 extra_javascript:
   - 'js/site.js?v=1'
