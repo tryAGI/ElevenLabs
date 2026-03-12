@@ -96,7 +96,7 @@ body::after {
 }
 
 .md-grid {
-  max-width: 1440px;
+  max-width: min(1840px, calc(100vw - 2.5rem));
 }
 
 .md-header {
