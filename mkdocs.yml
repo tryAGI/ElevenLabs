@@ -67,7 +67,7 @@ extra:
     provider: mike
 
 extra_css:
-  - 'css/extra.css?v=18'
+  - 'css/extra.css?v=19'
 
 extra_javascript:
   - 'js/site.js?v=1'
