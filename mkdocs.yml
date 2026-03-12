@@ -20,7 +20,7 @@ nav:
         
 theme:
   name: material
-  logo: media/icon128.png
+  logo: media/elevenlabs-symbol-white.svg
   static_templates:
     - 404.html
   language: 'en'
@@ -44,7 +44,7 @@ theme:
         name: Switch to light mode
   include_search_page: false
   search_index_only: true
-  favicon: 'media/icon128.png'
+  favicon: 'media/elevenlabs-symbol-black.svg'
   features:
     - content.action.edit
     - content.code.copy
@@ -63,7 +63,7 @@ theme:
     repo: 'fontawesome/brands/github'
 
 extra_css:
-  - 'css/extra.css?v=26'
+  - 'css/extra.css?v=27'
 
 extra_javascript:
   - 'js/site.js?v=1'
