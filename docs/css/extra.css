@@ -444,8 +444,44 @@ body::after {
   background: transparent !important;
 }
 
-.highlight pre {
+.highlighttable {
+  width: 100%;
+}
+
+.highlighttable td {
+  padding: 0;
+  vertical-align: top;
+}
+
+.highlighttable .linenos {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.highlighttable .linenodiv {
+  padding: 1.05rem 0 1.05rem 1.05rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.highlighttable .linenodiv pre {
+  padding: 0 0.9rem 0 0;
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.highlighttable .code {
+  width: 100%;
+}
+
+.highlighttable .code pre {
   padding: 1.05rem 3.7rem 1.05rem 1.35rem;
+}
+
+.highlight:not(:has(.linenodiv .normal + .normal)) .linenos {
+  display: none;
+}
+
+.highlight:not(:has(.linenodiv .normal + .normal)) .code pre {
+  padding-left: 1.35rem;
 }
 
 .md-typeset .admonition,
