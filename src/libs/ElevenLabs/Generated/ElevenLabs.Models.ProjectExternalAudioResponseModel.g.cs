@@ -26,8 +26,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("signed_url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SignedUrl { get; set; }
+        public string? SignedUrl { get; set; }
 
         /// <summary>
         /// 
@@ -150,6 +149,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public string? Error { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("current_snapshot_id")]
         public string? CurrentSnapshotId { get; set; }
 
@@ -211,6 +216,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="pendingTask"></param>
+        /// <param name="error"></param>
         /// <param name="currentSnapshotId"></param>
         /// <param name="sourceContext"></param>
         /// <param name="type">
@@ -225,7 +231,6 @@ namespace ElevenLabs
         public ProjectExternalAudioResponseModel(
             string externalAudioId,
             string filename,
-            string signedUrl,
             int offsetMs,
             int durationMs,
             int startTimeMs,
@@ -236,6 +241,7 @@ namespace ElevenLabs
             int updatedAtMs,
             global::System.Collections.Generic.IList<string> pendingBlockIds,
             global::System.Collections.Generic.IList<string> pendingExternalAudioIds,
+            string? signedUrl,
             double? volumeGainDb,
             bool? muted,
             int? fadeInMs,
@@ -244,6 +250,7 @@ namespace ElevenLabs
             string? sourceAssetId,
             bool? speechImported,
             global::ElevenLabs.PendingClipTask? pendingTask,
+            string? error,
             string? currentSnapshotId,
             global::ElevenLabs.SourceContextVariant1? sourceContext,
             string? type,
@@ -251,7 +258,6 @@ namespace ElevenLabs
         {
             this.ExternalAudioId = externalAudioId ?? throw new global::System.ArgumentNullException(nameof(externalAudioId));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
-            this.SignedUrl = signedUrl ?? throw new global::System.ArgumentNullException(nameof(signedUrl));
             this.OffsetMs = offsetMs;
             this.DurationMs = durationMs;
             this.StartTimeMs = startTimeMs;
@@ -262,6 +268,7 @@ namespace ElevenLabs
             this.UpdatedAtMs = updatedAtMs;
             this.PendingBlockIds = pendingBlockIds ?? throw new global::System.ArgumentNullException(nameof(pendingBlockIds));
             this.PendingExternalAudioIds = pendingExternalAudioIds ?? throw new global::System.ArgumentNullException(nameof(pendingExternalAudioIds));
+            this.SignedUrl = signedUrl;
             this.VolumeGainDb = volumeGainDb;
             this.Muted = muted;
             this.FadeInMs = fadeInMs;
@@ -270,6 +277,7 @@ namespace ElevenLabs
             this.SourceAssetId = sourceAssetId;
             this.SpeechImported = speechImported;
             this.PendingTask = pendingTask;
+            this.Error = error;
             this.CurrentSnapshotId = currentSnapshotId;
             this.SourceContext = sourceContext;
             this.Type = type;
