@@ -21,6 +21,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? evaluationParams,
             global::System.Collections.Generic.IList<string>? dataCollectionParams,
             global::System.Collections.Generic.IList<string>? toolNames,
+            global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
+            global::System.Collections.Generic.IList<string>? toolNamesErrored,
             global::System.Collections.Generic.IList<string>? mainLanguages,
             ref int? pageSize,
             ref global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
@@ -45,6 +47,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? evaluationParams,
             global::System.Collections.Generic.IList<string>? dataCollectionParams,
             global::System.Collections.Generic.IList<string>? toolNames,
+            global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
+            global::System.Collections.Generic.IList<string>? toolNamesErrored,
             global::System.Collections.Generic.IList<string>? mainLanguages,
             int? pageSize,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
@@ -107,6 +111,12 @@ namespace ElevenLabs
         /// <param name="toolNames">
         /// Filter conversations by tool names used during the call.
         /// </param>
+        /// <param name="toolNamesSuccessful">
+        /// Filter conversations by tool names that had successful calls.
+        /// </param>
+        /// <param name="toolNamesErrored">
+        /// Filter conversations by tool names that had errored calls.
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
@@ -145,6 +155,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
+            global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
+            global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
@@ -172,6 +184,8 @@ namespace ElevenLabs
                 evaluationParams: evaluationParams,
                 dataCollectionParams: dataCollectionParams,
                 toolNames: toolNames,
+                toolNamesSuccessful: toolNamesSuccessful,
+                toolNamesErrored: toolNamesErrored,
                 mainLanguages: mainLanguages,
                 pageSize: ref pageSize,
                 summaryMode: ref summaryMode,
@@ -198,6 +212,8 @@ namespace ElevenLabs
                 .AddOptionalParameter("evaluation_params", evaluationParams?.ToString())
                 .AddOptionalParameter("data_collection_params", dataCollectionParams?.ToString())
                 .AddOptionalParameter("tool_names", toolNames?.ToString())
+                .AddOptionalParameter("tool_names_successful", toolNamesSuccessful?.ToString())
+                .AddOptionalParameter("tool_names_errored", toolNamesErrored?.ToString())
                 .AddOptionalParameter("main_languages", mainLanguages?.ToString())
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("summary_mode", summaryMode?.ToValueString())
@@ -256,6 +272,8 @@ namespace ElevenLabs
                 evaluationParams: evaluationParams,
                 dataCollectionParams: dataCollectionParams,
                 toolNames: toolNames,
+                toolNamesSuccessful: toolNamesSuccessful,
+                toolNamesErrored: toolNamesErrored,
                 mainLanguages: mainLanguages,
                 pageSize: pageSize,
                 summaryMode: summaryMode,

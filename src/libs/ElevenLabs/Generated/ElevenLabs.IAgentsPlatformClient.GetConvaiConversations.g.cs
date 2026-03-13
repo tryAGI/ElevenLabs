@@ -50,6 +50,12 @@ namespace ElevenLabs
         /// <param name="toolNames">
         /// Filter conversations by tool names used during the call.
         /// </param>
+        /// <param name="toolNamesSuccessful">
+        /// Filter conversations by tool names that had successful calls.
+        /// </param>
+        /// <param name="toolNamesErrored">
+        /// Filter conversations by tool names that had errored calls.
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
@@ -88,6 +94,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
+            global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
+            global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
             int? pageSize = default,
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,

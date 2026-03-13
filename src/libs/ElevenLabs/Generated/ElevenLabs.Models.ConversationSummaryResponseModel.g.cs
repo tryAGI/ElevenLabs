@@ -72,6 +72,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("termination_reason")]
+        public string? TerminationReason { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -137,6 +143,7 @@ namespace ElevenLabs
         /// <param name="callDurationSecs"></param>
         /// <param name="messageCount"></param>
         /// <param name="status"></param>
+        /// <param name="terminationReason"></param>
         /// <param name="callSuccessful"></param>
         /// <param name="transcriptSummary"></param>
         /// <param name="callSummaryTitle"></param>
@@ -159,6 +166,7 @@ namespace ElevenLabs
             string? branchId,
             string? versionId,
             string? agentName,
+            string? terminationReason,
             string? transcriptSummary,
             string? callSummaryTitle,
             string? mainLanguage,
@@ -177,6 +185,7 @@ namespace ElevenLabs
             this.BranchId = branchId;
             this.VersionId = versionId;
             this.AgentName = agentName;
+            this.TerminationReason = terminationReason;
             this.TranscriptSummary = transcriptSummary;
             this.CallSummaryTitle = callSummaryTitle;
             this.MainLanguage = mainLanguage;
