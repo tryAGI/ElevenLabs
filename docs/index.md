@@ -29,7 +29,7 @@ using var client = new ElevenLabsClient(apiKey);
 
 <!-- EXAMPLES:START -->
 ### List Available Voices
-Fetch all voices available to the authenticated account and print each voice name.
+Fetch all voices available to the authenticated account and print each voice name and ID so you can pick one for text-to-speech requests.
 
 ```csharp
 using var client = new ElevenLabsClient(apiKey);
@@ -37,27 +37,31 @@ using var client = new ElevenLabsClient(apiKey);
 // Fetch all voices for the authenticated workspace.
 GetVoicesResponseModel response = await client.Voices.GetVoicesAsync();
 
-// Print the voice names.
+// Print the voice names and IDs so you can reuse a voice in text-to-speech.
 foreach (var voice in response.Voices)
 {
-    Console.WriteLine(voice.Name);
+    Console.WriteLine($"{voice.Name} ({voice.VoiceId})");
 }
 ```
 
 ### Text to Speech
-Convert text to speech with the first available voice and save the generated audio to disk.
+Pick a voice from the available catalog, synthesize text with it, and save the generated audio to disk.
 
 ```csharp
 using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
 var voices = await client.Voices.GetVoicesAsync();
-var voiceId = voices.Voices[0].VoiceId;
+var voice = voices.Voices[0];
+const string text = "Hello, world! This is a test of the ElevenLabs text-to-speech API.";
+
+Console.WriteLine($"Using voice: {voice.Name} ({voice.VoiceId})");
+Console.WriteLine($"Input text: {text}");
 
 // Generate speech audio.
 byte[] audioBytes = await client.TextToSpeech.CreateTextToSpeechByVoiceIdAsync(
-    voiceId: voiceId,
-    text: "Hello, world! This is a test of the ElevenLabs text-to-speech API.");
+    voiceId: voice.VoiceId,
+    text: text);
 
 // Persist the result to a local file.
 await File.WriteAllBytesAsync("output.mp3", audioBytes);
@@ -65,19 +69,23 @@ Console.WriteLine($"Saved {audioBytes.Length} bytes to output.mp3");
 ```
 
 ### Streaming Text to Speech
-Request a streaming text-to-speech response for low-latency playback and save the returned audio stream.
+Pick a voice from the available catalog, request a streaming text-to-speech response for low-latency playback, and save the returned audio stream.
 
 ```csharp
 using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
 var voices = await client.Voices.GetVoicesAsync();
-var voiceId = voices.Voices[0].VoiceId;
+var voice = voices.Voices[0];
+const string text = "This audio is streamed for low-latency playback.";
+
+Console.WriteLine($"Using voice: {voice.Name} ({voice.VoiceId})");
+Console.WriteLine($"Input text: {text}");
 
 // Request streaming speech audio.
 using var streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
-    voiceId: voiceId,
-    text: "This audio is streamed for low-latency playback.",
+    voiceId: voice.VoiceId,
+    text: text,
     modelId: "eleven_multilingual_v2",
     outputFormat: TextToSpeechStreamOutputFormat.Mp32205032);
 
@@ -88,22 +96,26 @@ Console.WriteLine($"Saved {output.Length} bytes to streamed-output.mp3");
 ```
 
 ### Streaming Text to Speech with Timestamps
-Stream synthesized audio together with character-level timing information for subtitles, captions, or lip-sync.
+Pick a voice from the available catalog, then stream synthesized audio together with character-level timing information for subtitles, captions, or lip-sync.
 
 ```csharp
 using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
 var voices = await client.Voices.GetVoicesAsync();
-var voiceId = voices.Voices[0].VoiceId;
+var voice = voices.Voices[0];
+const string text = "Hello, this has timestamps.";
+
+Console.WriteLine($"Using voice: {voice.Name} ({voice.VoiceId})");
+Console.WriteLine($"Input text: {text}");
 
 // Request streamed speech audio with timing metadata.
 StreamingAudioChunkWithTimestampsResponseModel? firstChunk = null;
 int chunkCount = 0;
 
 await foreach (var chunk in client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
-                   voiceId: voiceId,
-                   text: "Hello, this has timestamps.",
+                   voiceId: voice.VoiceId,
+                   text: text,
                    modelId: "eleven_multilingual_v2",
                    outputFormat: TextToSpeechStreamWithTimestampsOutputFormat.Mp32205032))
 {

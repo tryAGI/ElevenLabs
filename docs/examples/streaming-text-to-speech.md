@@ -1,6 +1,6 @@
 # Streaming Text to Speech
 
-Request a streaming text-to-speech response for low-latency playback and save the returned audio stream.
+Pick a voice from the available catalog, request a streaming text-to-speech response for low-latency playback, and save the returned audio stream.
 
 This example assumes `using ElevenLabs;` is in scope and `apiKey` contains your ElevenLabs API key.
 
@@ -9,12 +9,16 @@ using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
 var voices = await client.Voices.GetVoicesAsync();
-var voiceId = voices.Voices[0].VoiceId;
+var voice = voices.Voices[0];
+const string text = "This audio is streamed for low-latency playback.";
+
+Console.WriteLine($"Using voice: {voice.Name} ({voice.VoiceId})");
+Console.WriteLine($"Input text: {text}");
 
 // Request streaming speech audio.
 using var streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
-    voiceId: voiceId,
-    text: "This audio is streamed for low-latency playback.",
+    voiceId: voice.VoiceId,
+    text: text,
     modelId: "eleven_multilingual_v2",
     outputFormat: TextToSpeechStreamOutputFormat.Mp32205032);
 

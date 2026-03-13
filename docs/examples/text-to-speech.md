@@ -1,6 +1,6 @@
 # Text to Speech
 
-Convert text to speech with the first available voice and save the generated audio to disk.
+Pick a voice from the available catalog, synthesize text with it, and save the generated audio to disk.
 
 This example assumes `using ElevenLabs;` is in scope and `apiKey` contains your ElevenLabs API key.
 
@@ -9,12 +9,16 @@ using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
 var voices = await client.Voices.GetVoicesAsync();
-var voiceId = voices.Voices[0].VoiceId;
+var voice = voices.Voices[0];
+const string text = "Hello, world! This is a test of the ElevenLabs text-to-speech API.";
+
+Console.WriteLine($"Using voice: {voice.Name} ({voice.VoiceId})");
+Console.WriteLine($"Input text: {text}");
 
 // Generate speech audio.
 byte[] audioBytes = await client.TextToSpeech.CreateTextToSpeechByVoiceIdAsync(
-    voiceId: voiceId,
-    text: "Hello, world! This is a test of the ElevenLabs text-to-speech API.");
+    voiceId: voice.VoiceId,
+    text: text);
 
 // Persist the result to a local file.
 await File.WriteAllBytesAsync("output.mp3", audioBytes);
