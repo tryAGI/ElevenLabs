@@ -57,25 +57,25 @@ public sealed partial class TextToSpeechClient
 
     partial void ProcessCreateTextToSpeechByVoiceIdResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
     {
-        CaptureResponseHeaders(httpClient, httpResponseMessage);
+        CaptureResponseHeaders(httpResponseMessage);
     }
 
     partial void ProcessCreateTextToSpeechByVoiceIdWithTimestampsResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
     {
-        CaptureResponseHeaders(httpClient, httpResponseMessage);
+        CaptureResponseHeaders(httpResponseMessage);
     }
 
     partial void ProcessCreateTextToSpeechByVoiceIdStreamResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
     {
-        CaptureResponseHeaders(httpClient, httpResponseMessage);
+        CaptureResponseHeaders(httpResponseMessage);
     }
 
     partial void ProcessCreateTextToSpeechByVoiceIdStreamWithTimestampsResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
     {
-        CaptureResponseHeaders(httpClient, httpResponseMessage);
+        CaptureResponseHeaders(httpResponseMessage);
     }
 
-    private static void CaptureResponseHeaders(HttpClient client, HttpResponseMessage response)
+    private void CaptureResponseHeaders(HttpResponseMessage response)
     {
         var headers = new Dictionary<string, IReadOnlyList<string>>(StringComparer.OrdinalIgnoreCase);
 
@@ -87,7 +87,7 @@ public sealed partial class TextToSpeechClient
         }
 
         LastResponseHeadersByClient
-            .GetValue(client, static _ => new ResponseHeaderState())
+            .GetValue(HttpClient, static _ => new ResponseHeaderState())
             .Value = headers;
     }
 

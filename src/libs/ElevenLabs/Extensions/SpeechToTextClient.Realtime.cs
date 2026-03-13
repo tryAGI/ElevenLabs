@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Net.WebSockets;
 
 namespace ElevenLabs;
@@ -59,11 +60,11 @@ public sealed partial class SpeechToTextClient
         var baseUrl = baseAddress.ToString();
         if (baseUrl.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
         {
-            baseUrl = "wss://" + baseUrl.Substring("https://".Length);
+            baseUrl = string.Concat("wss://", baseUrl.AsSpan("https://".Length));
         }
         else if (baseUrl.StartsWith("http://", StringComparison.OrdinalIgnoreCase))
         {
-            baseUrl = "ws://" + baseUrl.Substring("http://".Length);
+            baseUrl = string.Concat("ws://", baseUrl.AsSpan("http://".Length));
         }
 
         if (!Uri.TryCreate(baseUrl, UriKind.Absolute, out var baseUri))
@@ -104,13 +105,13 @@ public sealed partial class SpeechToTextClient
         if (options.MinSpeechDurationMs.HasValue)
         {
             AddQuery(query, "min_speech_duration_ms",
-                options.MinSpeechDurationMs.Value.ToString());
+                options.MinSpeechDurationMs.Value.ToString(CultureInfo.InvariantCulture));
         }
 
         if (options.MinSilenceDurationMs.HasValue)
         {
             AddQuery(query, "min_silence_duration_ms",
-                options.MinSilenceDurationMs.Value.ToString());
+                options.MinSilenceDurationMs.Value.ToString(CultureInfo.InvariantCulture));
         }
 
         if (options.EnableLogging.HasValue)

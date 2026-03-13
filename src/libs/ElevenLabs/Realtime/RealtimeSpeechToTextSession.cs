@@ -154,7 +154,7 @@ public class RealtimeSpeechToTextSession : IAsyncDisposable
                 continue;
             }
 
-            ms.Write(buffer, 0, result.Count);
+            await ms.WriteAsync(buffer.AsMemory(0, result.Count), cancellationToken).ConfigureAwait(false);
 
             if (result.EndOfMessage)
             {
