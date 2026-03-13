@@ -16,7 +16,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task GetConvaiConversationsByConversationIdAudioAsync(
+        global::System.Threading.Tasks.Task<byte[]> GetConvaiConversationsByConversationIdAudioAsync(
             string conversationId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

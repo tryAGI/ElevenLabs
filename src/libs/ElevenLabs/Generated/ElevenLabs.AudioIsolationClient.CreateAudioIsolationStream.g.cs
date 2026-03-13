@@ -18,6 +18,11 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessCreateAudioIsolationStreamResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref byte[] content);
+
         /// <summary>
         /// Audio Isolation Stream<br/>
         /// Removes background noise from audio and streams the result
@@ -28,7 +33,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task CreateAudioIsolationStreamAsync(
+        public async global::System.Threading.Tasks.Task<byte[]> CreateAudioIsolationStreamAsync(
 
             global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPost request,
             string? xiApiKey = default,
@@ -168,11 +173,16 @@ namespace ElevenLabs
 #endif
                 ).ConfigureAwait(false);
 
+                ProcessCreateAudioIsolationStreamResponseContent(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response,
+                    content: ref __content);
 
                 try
                 {
                     __response.EnsureSuccessStatusCode();
 
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -200,6 +210,7 @@ namespace ElevenLabs
 #endif
                     ).ConfigureAwait(false);
 
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -236,7 +247,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task CreateAudioIsolationStreamAsync(
+        public async global::System.Threading.Tasks.Task<byte[]> CreateAudioIsolationStreamAsync(
             byte[] audio,
             string audioname,
             string? xiApiKey = default,
@@ -250,7 +261,7 @@ namespace ElevenLabs
                 FileFormat = fileFormat,
             };
 
-            await CreateAudioIsolationStreamAsync(
+            return await CreateAudioIsolationStreamAsync(
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

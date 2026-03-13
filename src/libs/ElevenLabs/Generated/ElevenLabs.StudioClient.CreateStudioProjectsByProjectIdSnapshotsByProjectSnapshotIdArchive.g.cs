@@ -23,7 +23,7 @@ namespace ElevenLabs
         partial void ProcessCreateStudioProjectsByProjectIdSnapshotsByProjectSnapshotIdArchiveResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
+            ref byte[] content);
 
         /// <summary>
         /// Stream Archive With Studio Project Audio<br/>
@@ -149,16 +149,12 @@ namespace ElevenLabs
 
             if (ReadResponseAsString)
             {
-                var __content = await __response.Content.ReadAsStringAsync(
+                var __content = await __response.Content.ReadAsByteArrayAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                ProcessResponseContent(
-                    client: HttpClient,
-                    response: __response,
-                    content: ref __content);
                 ProcessCreateStudioProjectsByProjectIdSnapshotsByProjectSnapshotIdArchiveResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
@@ -168,18 +164,15 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(byte[]), JsonSerializerContext) as byte[] ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
                     throw new global::ElevenLabs.ApiException(
-                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                        message: __response.ReasonPhrase ?? string.Empty,
                         innerException: __ex,
                         statusCode: __response.StatusCode)
                     {
-                        ResponseBody = __content,
                         ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                             __response.Headers,
                             h => h.Key,
@@ -193,15 +186,13 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsByteArrayAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(byte[]), JsonSerializerContext).ConfigureAwait(false) as byte[] ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
