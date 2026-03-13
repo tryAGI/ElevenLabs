@@ -1,12 +1,13 @@
 using System.Net;
 using System.Net.Http;
+using System.IO;
 
 namespace ElevenLabs.IntegrationTests;
 
 public partial class Tests
 {
     [TestMethod]
-    public async Task ConversationAudio_ReturnsByteArray_ForBinaryResponse()
+    public async Task ConversationAudio_ReturnsStream_ForBinaryResponse()
     {
         HttpRequestMessage? capturedRequest = null;
 
@@ -26,9 +27,11 @@ public partial class Tests
 
         var client = new AgentsPlatformClient(httpClient, disposeHttpClient: false);
 
-        byte[] audio = await client.GetConvaiConversationsByConversationIdAudioAsync("conversation-id");
+        using Stream audio = await client.GetConvaiConversationsByConversationIdAudioAsync("conversation-id");
+        using var buffer = new MemoryStream();
+        await audio.CopyToAsync(buffer);
 
-        audio.Should().BeEquivalentTo([1, 2, 3, 4], options => options.WithStrictOrdering());
+        buffer.ToArray().Should().BeEquivalentTo([1, 2, 3, 4], options => options.WithStrictOrdering());
         capturedRequest.Should().NotBeNull();
         capturedRequest!.Method.Should().Be(HttpMethod.Get);
         capturedRequest.RequestUri.Should().NotBeNull();
@@ -36,9 +39,9 @@ public partial class Tests
     }
 
     [TestMethod]
-    public void BinaryAudioEndpoints_ExposeByteArrayReturnTypes()
+    public void BinaryAudioEndpoints_ExposeExpectedReturnTypes()
     {
-        AssertBinaryReturnType(
+        AssertBinaryStreamReturnType(
             typeof(IAgentsPlatformClient),
             nameof(IAgentsPlatformClient.GetConvaiConversationsByConversationIdAudioAsync),
             typeof(string),
@@ -52,7 +55,7 @@ public partial class Tests
             typeof(string),
             typeof(CancellationToken));
 
-        AssertBinaryReturnType(
+        AssertBinaryStreamReturnType(
             typeof(IAudioIsolationClient),
             nameof(IAudioIsolationClient.CreateAudioIsolationStreamAsync),
             typeof(BodyAudioIsolationStreamV1AudioIsolationStreamPost),
@@ -77,6 +80,17 @@ public partial class Tests
 
         method.Should().NotBeNull($"{clientType.Name}.{methodName} should exist");
         method!.ReturnType.Should().Be(typeof(Task<byte[]>));
+    }
+
+    private static void AssertBinaryStreamReturnType(
+        Type clientType,
+        string methodName,
+        params Type[] parameterTypes)
+    {
+        var method = clientType.GetMethod(methodName, parameterTypes);
+
+        method.Should().NotBeNull($"{clientType.Name}.{methodName} should exist");
+        method!.ReturnType.Should().Be(typeof(Task<Stream>));
     }
 
     private sealed class RecordingHttpMessageHandler(Func<HttpRequestMessage, HttpResponseMessage> responder) : HttpMessageHandler

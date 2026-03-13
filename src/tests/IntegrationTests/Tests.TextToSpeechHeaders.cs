@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http;
+using System.IO;
 using System.Text;
 
 namespace ElevenLabs.IntegrationTests;
@@ -86,11 +87,13 @@ public partial class Tests
 
         var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
 
-        byte[] audio = await client.CreateTextToSpeechByVoiceIdStreamAsync(
+        using Stream audio = await client.CreateTextToSpeechByVoiceIdStreamAsync(
             voiceId: "voice-id",
             text: "hello");
+        using var buffer = new MemoryStream();
+        await audio.CopyToAsync(buffer);
 
-        audio.Should().BeEquivalentTo([5, 6, 7, 8], options => options.WithStrictOrdering());
+        buffer.ToArray().Should().BeEquivalentTo([5, 6, 7, 8], options => options.WithStrictOrdering());
         client.LastRequestId.Should().Be("req-stream-binary-789");
     }
 
@@ -116,11 +119,18 @@ public partial class Tests
 
         var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
 
-        StreamingAudioChunkWithTimestampsResponseModel response = await client.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
-            voiceId: "voice-id",
-            text: "hello");
+        StreamingAudioChunkWithTimestampsResponseModel? response = null;
 
-        response.AudioBase64.Should().Be("BQYH");
+        await foreach (var chunk in client.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
+                           voiceId: "voice-id",
+                           text: "hello"))
+        {
+            response = chunk;
+            break;
+        }
+
+        response.Should().NotBeNull();
+        response!.AudioBase64.Should().Be("BQYH");
         client.LastRequestId.Should().Be("req-stream-json-012");
     }
 

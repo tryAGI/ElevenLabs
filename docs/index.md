@@ -65,7 +65,7 @@ Console.WriteLine($"Saved {audioBytes.Length} bytes to output.mp3");
 ```
 
 ### Streaming Text to Speech
-Request a streaming text-to-speech response for low-latency playback and save the returned audio bytes.
+Request a streaming text-to-speech response for low-latency playback and save the returned audio stream.
 
 ```csharp
 using var client = new ElevenLabsClient(apiKey);
@@ -75,15 +75,16 @@ var voices = await client.Voices.GetVoicesAsync();
 var voiceId = voices.Voices[0].VoiceId;
 
 // Request streaming speech audio.
-byte[] streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
+using var streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
     voiceId: voiceId,
     text: "This audio is streamed for low-latency playback.",
     modelId: "eleven_multilingual_v2",
     outputFormat: TextToSpeechStreamOutputFormat.Mp32205032);
 
 // Persist the result to a local file.
-await File.WriteAllBytesAsync("streamed-output.mp3", streamedAudio);
-Console.WriteLine($"Saved {streamedAudio.Length} bytes to streamed-output.mp3");
+await using var output = File.Create("streamed-output.mp3");
+await streamedAudio.CopyToAsync(output);
+Console.WriteLine($"Saved {output.Length} bytes to streamed-output.mp3");
 ```
 
 ### Streaming Text to Speech with Timestamps
@@ -97,21 +98,27 @@ var voices = await client.Voices.GetVoicesAsync();
 var voiceId = voices.Voices[0].VoiceId;
 
 // Request streamed speech audio with timing metadata.
-StreamingAudioChunkWithTimestampsResponseModel response =
-    await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
-        voiceId: voiceId,
-        text: "Hello, this has timestamps.",
-        modelId: "eleven_multilingual_v2",
-        outputFormat: TextToSpeechStreamWithTimestampsOutputFormat.Mp32205032);
+StreamingAudioChunkWithTimestampsResponseModel? firstChunk = null;
+int chunkCount = 0;
 
-// Inspect the alignment information when it is present.
-if (response.Alignment is { } alignment)
+await foreach (var chunk in client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
+                   voiceId: voiceId,
+                   text: "Hello, this has timestamps.",
+                   modelId: "eleven_multilingual_v2",
+                   outputFormat: TextToSpeechStreamWithTimestampsOutputFormat.Mp32205032))
 {
-    for (int i = 0; i < alignment.Characters?.Count; i++)
+    firstChunk ??= chunk;
+    chunkCount++;
+
+    // Inspect the alignment information when it is present.
+    if (chunkCount == 1 && chunk.Alignment is { } alignment)
     {
-        Console.WriteLine($"'{alignment.Characters[i]}' " +
-                          $"{alignment.CharacterStartTimesSeconds?[i]:F3}s - " +
-                          $"{alignment.CharacterEndTimesSeconds?[i]:F3}s");
+        for (int i = 0; i < alignment.Characters?.Count; i++)
+        {
+            Console.WriteLine($"'{alignment.Characters[i]}' " +
+                              $"{alignment.CharacterStartTimesSeconds?[i]:F3}s - " +
+                              $"{alignment.CharacterEndTimesSeconds?[i]:F3}s");
+        }
     }
 }
 ```

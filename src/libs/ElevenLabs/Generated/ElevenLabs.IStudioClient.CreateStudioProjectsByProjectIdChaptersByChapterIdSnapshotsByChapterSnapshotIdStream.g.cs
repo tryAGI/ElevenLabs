@@ -23,7 +23,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<byte[]> CreateStudioProjectsByProjectIdChaptersByChapterIdSnapshotsByChapterSnapshotIdStreamAsync(
+        global::System.Threading.Tasks.Task<global::System.IO.Stream> CreateStudioProjectsByProjectIdChaptersByChapterIdSnapshotsByChapterSnapshotIdStreamAsync(
             string projectId,
             string chapterId,
             string chapterSnapshotId,
@@ -54,7 +54,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<byte[]> CreateStudioProjectsByProjectIdChaptersByChapterIdSnapshotsByChapterSnapshotIdStreamAsync(
+        global::System.Threading.Tasks.Task<global::System.IO.Stream> CreateStudioProjectsByProjectIdChaptersByChapterIdSnapshotsByChapterSnapshotIdStreamAsync(
             string projectId,
             string chapterId,
             string chapterSnapshotId,

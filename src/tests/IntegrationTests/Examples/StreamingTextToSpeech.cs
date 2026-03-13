@@ -3,7 +3,7 @@ order: 30
 title: Streaming Text to Speech
 slug: streaming-text-to-speech
 
-Request a streaming text-to-speech response for low-latency playback and save the returned audio bytes.
+Request a streaming text-to-speech response for low-latency playback and save the returned audio stream.
 */
 namespace ElevenLabs.IntegrationTests;
 
@@ -19,17 +19,17 @@ public partial class Tests
         var voiceId = voices.Voices[0].VoiceId;
 
         //// Request streaming speech audio.
-        byte[] streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
+        using var streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
             voiceId: voiceId,
             text: "This audio is streamed for low-latency playback.",
             modelId: "eleven_multilingual_v2",
             outputFormat: TextToSpeechStreamOutputFormat.Mp32205032);
 
         //// Persist the result to a local file.
-        await File.WriteAllBytesAsync("streamed-output.mp3", streamedAudio);
-        Console.WriteLine($"Saved {streamedAudio.Length} bytes to streamed-output.mp3");
+        await using var output = File.Create("streamed-output.mp3");
+        await streamedAudio.CopyToAsync(output);
+        Console.WriteLine($"Saved {output.Length} bytes to streamed-output.mp3");
 
-        streamedAudio.Should().NotBeNull();
-        streamedAudio.Length.Should().BeGreaterThan(0);
+        output.Length.Should().BeGreaterThan(0);
     }
 }

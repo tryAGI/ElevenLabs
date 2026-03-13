@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel> CreateTextToDialogueStreamWithTimestampsAsync(
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel> CreateTextToDialogueStreamWithTimestampsAsync(
 
             global::ElevenLabs.BodyTextToDialogueStreamWithTimestamps request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
@@ -61,7 +61,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel> CreateTextToDialogueStreamWithTimestampsAsync(
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel> CreateTextToDialogueStreamWithTimestampsAsync(
             global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput> inputs,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,

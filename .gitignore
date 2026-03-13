@@ -217,6 +217,11 @@ docs/assets/copy-to-llm/
 myenv/
 .tmp-mkdocs-venv/
 
+# Local environment secrets
+.env
+.env.*
+!.env.example
+
 # Microsoft Azure Emulator
 ecf/
 rcf/
