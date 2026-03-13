@@ -12,43 +12,43 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sexual")]
-        public global::ElevenLabs.ThresholdGuardrail? Sexual { get; set; }
+        public global::ElevenLabs.ContentThresholdGuardrail? Sexual { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("violence")]
-        public global::ElevenLabs.ThresholdGuardrail? Violence { get; set; }
+        public global::ElevenLabs.ContentThresholdGuardrail? Violence { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("harassment")]
-        public global::ElevenLabs.ThresholdGuardrail? Harassment { get; set; }
+        public global::ElevenLabs.ContentThresholdGuardrail? Harassment { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("self_harm")]
-        public global::ElevenLabs.ThresholdGuardrail? SelfHarm { get; set; }
+        public global::ElevenLabs.ContentThresholdGuardrail? SelfHarm { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("profanity")]
-        public global::ElevenLabs.ThresholdGuardrail? Profanity { get; set; }
+        public global::ElevenLabs.ContentThresholdGuardrail? Profanity { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("religion_or_politics")]
-        public global::ElevenLabs.ThresholdGuardrail? ReligionOrPolitics { get; set; }
+        public global::ElevenLabs.ContentThresholdGuardrail? ReligionOrPolitics { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("medical_and_legal_information")]
-        public global::ElevenLabs.ThresholdGuardrail? MedicalAndLegalInformation { get; set; }
+        public global::ElevenLabs.ContentThresholdGuardrail? MedicalAndLegalInformation { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -70,13 +70,13 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ContentConfig(
-            global::ElevenLabs.ThresholdGuardrail? sexual,
-            global::ElevenLabs.ThresholdGuardrail? violence,
-            global::ElevenLabs.ThresholdGuardrail? harassment,
-            global::ElevenLabs.ThresholdGuardrail? selfHarm,
-            global::ElevenLabs.ThresholdGuardrail? profanity,
-            global::ElevenLabs.ThresholdGuardrail? religionOrPolitics,
-            global::ElevenLabs.ThresholdGuardrail? medicalAndLegalInformation)
+            global::ElevenLabs.ContentThresholdGuardrail? sexual,
+            global::ElevenLabs.ContentThresholdGuardrail? violence,
+            global::ElevenLabs.ContentThresholdGuardrail? harassment,
+            global::ElevenLabs.ContentThresholdGuardrail? selfHarm,
+            global::ElevenLabs.ContentThresholdGuardrail? profanity,
+            global::ElevenLabs.ContentThresholdGuardrail? religionOrPolitics,
+            global::ElevenLabs.ContentThresholdGuardrail? medicalAndLegalInformation)
         {
             this.Sexual = sexual;
             this.Violence = violence;
