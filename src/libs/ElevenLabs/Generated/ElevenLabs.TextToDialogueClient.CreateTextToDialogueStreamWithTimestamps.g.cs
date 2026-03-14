@@ -148,10 +148,6 @@ namespace ElevenLabs
                 {
                     continue;
                 }
-                if (global::System.String.IsNullOrWhiteSpace(__content))
-                {
-                    continue;
-                }
 
                 var __streamedResponse = global::ElevenLabs.StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
