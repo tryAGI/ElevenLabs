@@ -34,6 +34,12 @@ namespace ElevenLabs
         public int? RagRetentionPeriodDays { get; set; }
 
         /// <summary>
+        /// Days to retain conversation embeddings. None means use the system default (30 days).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_embedding_retention_days")]
+        public int? ConversationEmbeddingRetentionDays { get; set; }
+
+        /// <summary>
         /// Default Value: standard
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_livekit_stack")]
@@ -58,6 +64,9 @@ namespace ElevenLabs
         /// <param name="ragRetentionPeriodDays">
         /// Default Value: 10
         /// </param>
+        /// <param name="conversationEmbeddingRetentionDays">
+        /// Days to retain conversation embeddings. None means use the system default (30 days).
+        /// </param>
         /// <param name="defaultLivekitStack">
         /// Default Value: standard
         /// </param>
@@ -69,12 +78,14 @@ namespace ElevenLabs
             global::ElevenLabs.ConvAIWebhooks? webhooks,
             bool? canUseMcpServers,
             int? ragRetentionPeriodDays,
+            int? conversationEmbeddingRetentionDays,
             global::ElevenLabs.LivekitStackType? defaultLivekitStack)
         {
             this.ConversationInitiationClientDataWebhook = conversationInitiationClientDataWebhook;
             this.Webhooks = webhooks;
             this.CanUseMcpServers = canUseMcpServers;
             this.RagRetentionPeriodDays = ragRetentionPeriodDays;
+            this.ConversationEmbeddingRetentionDays = conversationEmbeddingRetentionDays;
             this.DefaultLivekitStack = defaultLivekitStack;
         }
 

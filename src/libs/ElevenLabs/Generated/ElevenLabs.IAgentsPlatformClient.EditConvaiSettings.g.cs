@@ -36,6 +36,9 @@ namespace ElevenLabs
         /// <param name="ragRetentionPeriodDays">
         /// Default Value: 10
         /// </param>
+        /// <param name="conversationEmbeddingRetentionDays">
+        /// Days to retain conversation embeddings. None means use the system default (30 days).
+        /// </param>
         /// <param name="defaultLivekitStack">
         /// Default Value: standard
         /// </param>
@@ -47,6 +50,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConvAIWebhooks? webhooks = default,
             bool? canUseMcpServers = default,
             int? ragRetentionPeriodDays = default,
+            int? conversationEmbeddingRetentionDays = default,
             global::ElevenLabs.LivekitStackType? defaultLivekitStack = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
