@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType? Type { get; }
+        public global::ElevenLabs.AuthConnectionDependenciesToolDiscriminatorType? Type { get; }
 
         /// <summary>
         /// 
@@ -88,7 +88,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public ToolsItem(
-            global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType? type,
+            global::ElevenLabs.AuthConnectionDependenciesToolDiscriminatorType? type,
             global::ElevenLabs.DependentAvailableToolIdentifier? available,
             global::ElevenLabs.DependentUnknownToolIdentifier? unknown
             )
