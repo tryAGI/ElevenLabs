@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeBytes { get; set; }
+        public required long SizeBytes { get; set; }
 
         /// <summary>
         /// The date of the file in Unix time.
@@ -74,7 +74,7 @@ namespace ElevenLabs
             string fileId,
             string fileName,
             string mimeType,
-            int sizeBytes,
+            long sizeBytes,
             int uploadDateUnix)
         {
             this.FileId = fileId ?? throw new global::System.ArgumentNullException(nameof(fileId));

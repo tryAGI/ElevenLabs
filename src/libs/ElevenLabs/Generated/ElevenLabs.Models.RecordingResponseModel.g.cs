@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeBytes { get; set; }
+        public required long SizeBytes { get; set; }
 
         /// <summary>
         /// The date of the recording in Unix time.
@@ -73,7 +73,7 @@ namespace ElevenLabs
         public RecordingResponseModel(
             string recordingId,
             string mimeType,
-            int sizeBytes,
+            long sizeBytes,
             int uploadDateUnix,
             string transcription)
         {
