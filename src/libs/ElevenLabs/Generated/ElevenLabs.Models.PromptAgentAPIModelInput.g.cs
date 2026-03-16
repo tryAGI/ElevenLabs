@@ -122,7 +122,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Obsolete("This property marked as deprecated.")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem3>? Tools { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

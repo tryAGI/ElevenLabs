@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem> Tools { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2> Tools { get; set; }
 
         /// <summary>
         /// 
@@ -52,7 +52,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConvAIStoredSecretDependencies(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem> tools,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2> tools,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem> agents,
             global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType> others,
             global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? phoneNumbers)
