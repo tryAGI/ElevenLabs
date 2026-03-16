@@ -21,7 +21,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("used_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int UsedBytes { get; set; }
+        public required long UsedBytes { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -39,7 +39,7 @@ namespace ElevenLabs
 #endif
         public RAGIndexOverviewEmbeddingModelResponseModel(
             global::ElevenLabs.EmbeddingModelEnum model,
-            int usedBytes)
+            long usedBytes)
         {
             this.Model = model;
             this.UsedBytes = usedBytes;

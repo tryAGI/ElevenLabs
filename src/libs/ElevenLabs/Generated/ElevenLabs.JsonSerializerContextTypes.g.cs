@@ -4748,19 +4748,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ManualVerificationResponseModel? Type1180 { get; set; }
+        public long? Type1180 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ManualVerificationFileResponseModel>? Type1181 { get; set; }
+        public global::ElevenLabs.ManualVerificationResponseModel? Type1181 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.ManualVerificationFileResponseModel? Type1182 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ManualVerificationFileResponseModel>? Type1182 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public long? Type1183 { get; set; }
+        public global::ElevenLabs.ManualVerificationFileResponseModel? Type1183 { get; set; }
         /// <summary>
         /// 
         /// </summary>
