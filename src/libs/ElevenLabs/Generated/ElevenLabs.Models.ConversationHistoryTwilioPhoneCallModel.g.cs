@@ -12,9 +12,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationHistoryTwilioPhoneCallModelDirectionJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyDirectionJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationHistoryTwilioPhoneCallModelDirection Direction { get; set; }
+        public required global::ElevenLabs.TelephonyDirection Direction { get; set; }
 
         /// <summary>
         /// 
@@ -78,7 +78,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationHistoryTwilioPhoneCallModel(
-            global::ElevenLabs.ConversationHistoryTwilioPhoneCallModelDirection direction,
+            global::ElevenLabs.TelephonyDirection direction,
             string phoneNumberId,
             string agentNumber,
             string externalNumber,

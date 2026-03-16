@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public enum ConversationHistorySIPTrunkingPhoneCallModelDirection
+    public enum TelephonyDirection
     {
         /// <summary>
         /// 
@@ -21,29 +21,29 @@ namespace ElevenLabs
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class ConversationHistorySIPTrunkingPhoneCallModelDirectionExtensions
+    public static class TelephonyDirectionExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this ConversationHistorySIPTrunkingPhoneCallModelDirection value)
+        public static string ToValueString(this TelephonyDirection value)
         {
             return value switch
             {
-                ConversationHistorySIPTrunkingPhoneCallModelDirection.Inbound => "inbound",
-                ConversationHistorySIPTrunkingPhoneCallModelDirection.Outbound => "outbound",
+                TelephonyDirection.Inbound => "inbound",
+                TelephonyDirection.Outbound => "outbound",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static ConversationHistorySIPTrunkingPhoneCallModelDirection? ToEnum(string value)
+        public static TelephonyDirection? ToEnum(string value)
         {
             return value switch
             {
-                "inbound" => ConversationHistorySIPTrunkingPhoneCallModelDirection.Inbound,
-                "outbound" => ConversationHistorySIPTrunkingPhoneCallModelDirection.Outbound,
+                "inbound" => TelephonyDirection.Inbound,
+                "outbound" => TelephonyDirection.Outbound,
                 _ => null,
             };
         }

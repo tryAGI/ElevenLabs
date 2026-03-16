@@ -41,7 +41,7 @@ namespace ElevenLabs
             string fromNumber,
             string toNumber,
             string? xiApiKey = default,
-            global::ElevenLabs.BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPostDirection? direction = default,
+            global::ElevenLabs.TelephonyDirection? direction = default,
             global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

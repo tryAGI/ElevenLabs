@@ -33,8 +33,8 @@ namespace ElevenLabs
         /// Default Value: inbound
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPostDirectionJsonConverter))]
-        public global::ElevenLabs.BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPostDirection? Direction { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyDirectionJsonConverter))]
+        public global::ElevenLabs.TelephonyDirection? Direction { get; set; }
 
         /// <summary>
         /// 
@@ -65,7 +65,7 @@ namespace ElevenLabs
             string agentId,
             string fromNumber,
             string toNumber,
-            global::ElevenLabs.BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPostDirection? direction,
+            global::ElevenLabs.TelephonyDirection? direction,
             global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
