@@ -117,7 +117,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
-        public global::ElevenLabs.ConversationSummaryResponseModelDirection2? Direction { get; set; }
+        public global::ElevenLabs.TelephonyDirection? Direction { get; set; }
 
         /// <summary>
         /// 
@@ -172,7 +172,7 @@ namespace ElevenLabs
             string? mainLanguage,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             global::System.Collections.Generic.IList<string>? toolNames,
-            global::ElevenLabs.ConversationSummaryResponseModelDirection2? direction,
+            global::ElevenLabs.TelephonyDirection? direction,
             double? rating)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
