@@ -66,7 +66,7 @@ namespace ElevenLabs
         public bool IsBooleanLiteral => BooleanLiteral != null;
 
         /// <summary>
-        /// Prompt evaluated by an LLM to a boolean value.
+        /// Value extracted by an LLM according to the given schema.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ASTLLMNodeOutput? Llm { get; init; }

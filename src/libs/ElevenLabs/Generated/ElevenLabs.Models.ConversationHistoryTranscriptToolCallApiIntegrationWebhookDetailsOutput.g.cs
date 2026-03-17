@@ -6,13 +6,14 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails
+    public sealed partial class ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput
     {
         /// <summary>
         /// Default Value: api_integration_webhook
         /// </summary>
+        /// <default>"api_integration_webhook"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; }
+        public string Type { get; set; } = "api_integration_webhook";
 
         /// <summary>
         /// 
@@ -49,7 +50,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails" /> class.
+        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput" /> class.
         /// </summary>
         /// <param name="type">
         /// Default Value: api_integration_webhook
@@ -61,12 +62,12 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails(
+        public ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput(
             string integrationId,
             string credentialId,
             string integrationConnectionId,
             global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails webhookDetails,
-            string? type)
+            string type = "api_integration_webhook")
         {
             this.IntegrationId = integrationId ?? throw new global::System.ArgumentNullException(nameof(integrationId));
             this.CredentialId = credentialId ?? throw new global::System.ArgumentNullException(nameof(credentialId));
@@ -76,9 +77,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails" /> class.
+        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput" /> class.
         /// </summary>
-        public ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails()
+        public ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput()
         {
         }
     }
