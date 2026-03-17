@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -66,7 +68,8 @@ namespace ElevenLabs
         /// Optional auth connection to use for authentication with this MCP server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
-        public global::ElevenLabs.AuthConnectionLocator? AuthConnection { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? AuthConnection { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -120,7 +123,7 @@ namespace ElevenLabs
             object? requestHeaders,
             bool? disableCompression,
             global::ElevenLabs.ConvAISecretLocator? secretToken,
-            global::ElevenLabs.AuthConnectionLocator? authConnection)
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection)
         {
             this.ApprovalPolicy = approvalPolicy;
             this.ForcePreToolSpeech = forcePreToolSpeech;

@@ -280,7 +280,7 @@ namespace ElevenLabs
             object? requestHeaders = default,
             bool? disableCompression = default,
             global::ElevenLabs.ConvAISecretLocator? secretToken = default,
-            global::ElevenLabs.AuthConnectionLocator? authConnection = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.MCPServerConfigUpdateRequestModel
