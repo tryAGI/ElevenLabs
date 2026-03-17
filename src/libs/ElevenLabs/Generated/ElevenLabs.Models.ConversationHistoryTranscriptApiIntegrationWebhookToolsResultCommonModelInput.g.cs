@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel
+    public sealed partial class ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput
     {
         /// <summary>
         /// 
@@ -78,22 +78,19 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string IntegrationId { get; set; }
+        public string? IntegrationId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credential_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CredentialId { get; set; }
+        public string? CredentialId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_connection_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string IntegrationConnectionId { get; set; }
+        public string? IntegrationConnectionId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -102,7 +99,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel" /> class.
+        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput" /> class.
         /// </summary>
         /// <param name="requestId"></param>
         /// <param name="toolName"></param>
@@ -122,19 +119,19 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel(
+        public ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput(
             string requestId,
             string toolName,
             string resultValue,
             bool isError,
             bool toolHasBeenCalled,
-            string integrationId,
-            string credentialId,
-            string integrationConnectionId,
             double? toolLatencySecs,
             string? errorType,
             string? rawErrorMessage,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableUpdateCommonModel>? dynamicVariableUpdates,
+            string? integrationId,
+            string? credentialId,
+            string? integrationConnectionId,
             string type = "api_integration_webhook")
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
@@ -142,20 +139,20 @@ namespace ElevenLabs
             this.ResultValue = resultValue ?? throw new global::System.ArgumentNullException(nameof(resultValue));
             this.IsError = isError;
             this.ToolHasBeenCalled = toolHasBeenCalled;
-            this.IntegrationId = integrationId ?? throw new global::System.ArgumentNullException(nameof(integrationId));
-            this.CredentialId = credentialId ?? throw new global::System.ArgumentNullException(nameof(credentialId));
-            this.IntegrationConnectionId = integrationConnectionId ?? throw new global::System.ArgumentNullException(nameof(integrationConnectionId));
             this.ToolLatencySecs = toolLatencySecs;
             this.ErrorType = errorType;
             this.RawErrorMessage = rawErrorMessage;
             this.DynamicVariableUpdates = dynamicVariableUpdates;
             this.Type = type;
+            this.IntegrationId = integrationId;
+            this.CredentialId = credentialId;
+            this.IntegrationConnectionId = integrationConnectionId;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel" /> class.
+        /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput" /> class.
         /// </summary>
-        public ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel()
+        public ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput()
         {
         }
     }

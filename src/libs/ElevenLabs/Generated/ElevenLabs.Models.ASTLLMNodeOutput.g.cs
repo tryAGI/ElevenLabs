@@ -16,7 +16,14 @@ namespace ElevenLabs
         public string Type { get; set; } = "llm";
 
         /// <summary>
-        /// The prompt to evaluate to a boolean value.
+        /// JSON schema describing the value that the LLM should extract.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("value_schema")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.LLMLiteralJsonSchemaProperty ValueSchema { get; set; }
+
+        /// <summary>
+        /// The prompt to evaluate to a boolean value. Deprecated. Use a boolean schema instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -34,16 +41,21 @@ namespace ElevenLabs
         /// <param name="type">
         /// Default Value: llm
         /// </param>
+        /// <param name="valueSchema">
+        /// JSON schema describing the value that the LLM should extract.
+        /// </param>
         /// <param name="prompt">
-        /// The prompt to evaluate to a boolean value.
+        /// The prompt to evaluate to a boolean value. Deprecated. Use a boolean schema instead.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ASTLLMNodeOutput(
+            global::ElevenLabs.LLMLiteralJsonSchemaProperty valueSchema,
             string prompt,
             string type = "llm")
         {
+            this.ValueSchema = valueSchema ?? throw new global::System.ArgumentNullException(nameof(valueSchema));
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Type = type;
         }

@@ -125,6 +125,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? Dialogue { get; set; }
 
         /// <summary>
+        /// The output format the audio was originally generated in.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
+        public string? OutputFormat { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -187,6 +193,9 @@ namespace ElevenLabs
         /// <param name="dialogue">
         /// The dialogue (voice and text pairs) used to generate the audio item. If this is set then the top level `text` and `voice_id` fields will be empty.
         /// </param>
+        /// <param name="outputFormat">
+        /// The output format the audio was originally generated in.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -208,7 +217,8 @@ namespace ElevenLabs
             string? shareLinkId,
             global::ElevenLabs.SpeechHistoryItemResponseModelSource2? source,
             global::ElevenLabs.HistoryAlignmentsResponseModel? alignments,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? dialogue)
+            global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? dialogue,
+            string? outputFormat)
         {
             this.HistoryItemId = historyItemId ?? throw new global::System.ArgumentNullException(nameof(historyItemId));
             this.DateUnix = dateUnix;
@@ -228,6 +238,7 @@ namespace ElevenLabs
             this.Source = source;
             this.Alignments = alignments;
             this.Dialogue = dialogue;
+            this.OutputFormat = outputFormat;
         }
 
         /// <summary>

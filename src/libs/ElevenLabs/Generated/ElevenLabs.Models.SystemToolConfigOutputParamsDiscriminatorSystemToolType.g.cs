@@ -11,31 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        AgentPromptChange,
-        /// <summary>
-        /// 
-        /// </summary>
         EndCall,
         /// <summary>
         /// 
         /// </summary>
         LanguageDetection,
-        /// <summary>
-        /// 
-        /// </summary>
-        MemoryEntryCreate,
-        /// <summary>
-        /// 
-        /// </summary>
-        MemoryEntryDelete,
-        /// <summary>
-        /// 
-        /// </summary>
-        MemoryEntrySearch,
-        /// <summary>
-        /// 
-        /// </summary>
-        MemoryEntryUpdate,
         /// <summary>
         /// 
         /// </summary>
@@ -70,13 +50,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                SystemToolConfigOutputParamsDiscriminatorSystemToolType.AgentPromptChange => "agent_prompt_change",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.EndCall => "end_call",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.LanguageDetection => "language_detection",
-                SystemToolConfigOutputParamsDiscriminatorSystemToolType.MemoryEntryCreate => "memory_entry_create",
-                SystemToolConfigOutputParamsDiscriminatorSystemToolType.MemoryEntryDelete => "memory_entry_delete",
-                SystemToolConfigOutputParamsDiscriminatorSystemToolType.MemoryEntrySearch => "memory_entry_search",
-                SystemToolConfigOutputParamsDiscriminatorSystemToolType.MemoryEntryUpdate => "memory_entry_update",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone => "play_keypad_touch_tone",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.SkipTurn => "skip_turn",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.TransferToAgent => "transfer_to_agent",
@@ -92,13 +67,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "agent_prompt_change" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.AgentPromptChange,
                 "end_call" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.EndCall,
                 "language_detection" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.LanguageDetection,
-                "memory_entry_create" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.MemoryEntryCreate,
-                "memory_entry_delete" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.MemoryEntryDelete,
-                "memory_entry_search" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.MemoryEntrySearch,
-                "memory_entry_update" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.MemoryEntryUpdate,
                 "play_keypad_touch_tone" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone,
                 "skip_turn" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.SkipTurn,
                 "transfer_to_agent" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.TransferToAgent,

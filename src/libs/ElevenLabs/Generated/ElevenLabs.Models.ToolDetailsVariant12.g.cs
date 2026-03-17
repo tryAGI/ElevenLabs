@@ -69,9 +69,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails? ApiIntegrationWebhook { get; init; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? ApiIntegrationWebhook { get; init; }
 #else
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails? ApiIntegrationWebhook { get; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? ApiIntegrationWebhook { get; }
 #endif
 
         /// <summary>
@@ -138,17 +138,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails value) => new ToolDetailsVariant12((global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails?)value);
+        public static implicit operator ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput value) => new ToolDetailsVariant12((global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails?(ToolDetailsVariant12 @this) => @this.ApiIntegrationWebhook;
+        public static implicit operator global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?(ToolDetailsVariant12 @this) => @this.ApiIntegrationWebhook;
 
         /// <summary>
         /// 
         /// </summary>
-        public ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails? value)
+        public ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? value)
         {
             ApiIntegrationWebhook = value;
         }
@@ -161,7 +161,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails? webhook,
             global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? client,
             global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? mcp,
-            global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails? apiIntegrationWebhook
+            global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? apiIntegrationWebhook
             )
         {
             Type = type;
@@ -207,7 +207,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?, TResult>? webhook = null,
             global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?, TResult>? client = null,
             global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?, TResult>? mcp = null,
-            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails?, TResult>? apiIntegrationWebhook = null,
+            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?, TResult>? apiIntegrationWebhook = null,
             bool validate = true)
         {
             if (validate)
@@ -242,7 +242,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?>? webhook = null,
             global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?>? client = null,
             global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?>? mcp = null,
-            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails?>? apiIntegrationWebhook = null,
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?>? apiIntegrationWebhook = null,
             bool validate = true)
         {
             if (validate)
@@ -282,7 +282,7 @@ namespace ElevenLabs
                 Mcp,
                 typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails),
                 ApiIntegrationWebhook,
-                typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails),
+                typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -302,7 +302,7 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?>.Default.Equals(Webhook, other.Webhook) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?>.Default.Equals(Client, other.Client) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?>.Default.Equals(Mcp, other.Mcp) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails?>.Default.Equals(ApiIntegrationWebhook, other.ApiIntegrationWebhook) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?>.Default.Equals(ApiIntegrationWebhook, other.ApiIntegrationWebhook) 
                 ;
         }
 

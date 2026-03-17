@@ -23982,7 +23982,7 @@
                 },
                 {
                   "$ref": "#/components/schemas/ASTLLMNode-Input",
-                  "description": "Prompt evaluated by an LLM to a boolean value."
+                  "description": "Value extracted by an LLM according to the given schema."
                 },
                 {
                   "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -24077,7 +24077,7 @@
                 },
                 {
                   "$ref": "#/components/schemas/ASTLLMNode-Output",
-                  "description": "Prompt evaluated by an LLM to a boolean value."
+                  "description": "Value extracted by an LLM according to the given schema."
                 },
                 {
                   "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -24254,7 +24254,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -24330,7 +24330,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -24422,7 +24422,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -24498,7 +24498,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -24591,7 +24591,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -24667,7 +24667,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -24759,7 +24759,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -24835,7 +24835,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -24928,7 +24928,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -25004,7 +25004,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -25096,7 +25096,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -25172,7 +25172,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -25242,28 +25242,57 @@
         "title": "ASTGreaterThanOrEqualsOperatorNode"
       },
       "ASTLLMNode-Input": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "llm",
-            "title": "Type",
-            "default": "llm"
+        "oneOf": [
+          {
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "llm",
+                "title": "Type",
+                "default": "llm"
+              },
+              "value_schema": {
+                "$ref": "#/components/schemas/LLMLiteralJsonSchemaProperty",
+                "description": "JSON schema describing the value that the LLM should extract.",
+                "examples": [
+                  {
+                    "description": "User's last message contains a question about our pricing.",
+                    "type": "boolean"
+                  },
+                  {
+                    "description": "User provided their email address.",
+                    "type": "boolean"
+                  }
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "value_schema"
+            ],
+            "title": "ASTLLMNode"
           },
-          "prompt": {
-            "type": "string",
-            "title": "Prompt",
-            "description": "The prompt to evaluate to a boolean value.",
-            "examples": [
-              "User's last message contains a question about our pricing.",
-              "User provided their email address."
-            ]
+          {
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "llm",
+                "title": "Type",
+                "default": "llm"
+              },
+              "prompt": {
+                "type": "string",
+                "description": "The prompt to evaluate to a boolean value. Deprecated. Use a boolean schema instead.",
+                "deprecated": true
+              }
+            },
+            "type": "object",
+            "required": [
+              "prompt"
+            ],
+            "title": "ASTLLMNode"
           }
-        },
-        "type": "object",
-        "required": [
-          "prompt"
-        ],
-        "title": "ASTLLMNode"
+        ]
       },
       "ASTLLMNode-Output": {
         "properties": {
@@ -25273,19 +25302,30 @@
             "title": "Type",
             "default": "llm"
           },
+          "value_schema": {
+            "$ref": "#/components/schemas/LLMLiteralJsonSchemaProperty",
+            "description": "JSON schema describing the value that the LLM should extract.",
+            "examples": [
+              {
+                "description": "User's last message contains a question about our pricing.",
+                "type": "boolean"
+              },
+              {
+                "description": "User provided their email address.",
+                "type": "boolean"
+              }
+            ]
+          },
           "prompt": {
             "type": "string",
-            "title": "Prompt",
-            "description": "The prompt to evaluate to a boolean value.",
-            "examples": [
-              "User's last message contains a question about our pricing.",
-              "User provided their email address."
-            ]
+            "description": "The prompt to evaluate to a boolean value. Deprecated. Use a boolean schema instead.",
+            "deprecated": true
           }
         },
         "type": "object",
         "required": [
           "type",
+          "value_schema",
           "prompt"
         ],
         "title": "ASTLLMNode"
@@ -25314,7 +25354,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -25390,7 +25430,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -25482,7 +25522,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -25558,7 +25598,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -25651,7 +25691,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -25727,7 +25767,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -25819,7 +25859,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -25895,7 +25935,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -25988,7 +26028,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -26064,7 +26104,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -26156,7 +26196,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -26232,7 +26272,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -26367,7 +26407,7 @@
                 },
                 {
                   "$ref": "#/components/schemas/ASTLLMNode-Input",
-                  "description": "Prompt evaluated by an LLM to a boolean value."
+                  "description": "Value extracted by an LLM according to the given schema."
                 },
                 {
                   "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -26462,7 +26502,7 @@
                 },
                 {
                   "$ref": "#/components/schemas/ASTLLMNode-Output",
-                  "description": "Prompt evaluated by an LLM to a boolean value."
+                  "description": "Value extracted by an LLM according to the given schema."
                 },
                 {
                   "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -27819,18 +27859,6 @@
         "type": "object",
         "title": "AgentPlatformSettingsResponseModel"
       },
-      "AgentPromptChangeToolConfig": {
-        "properties": {
-          "system_tool_type": {
-            "type": "string",
-            "const": "agent_prompt_change",
-            "title": "System Tool Type",
-            "default": "agent_prompt_change"
-          }
-        },
-        "type": "object",
-        "title": "AgentPromptChangeToolConfig"
-      },
       "AgentSimulatedChatTestResponseModel": {
         "properties": {
           "simulated_conversation": {
@@ -28294,7 +28322,11 @@
                       "name": "force_phone_transfer"
                     },
                     {
-                      "prompt": "Phone condition"
+                      "prompt": "Phone condition",
+                      "value_schema": {
+                        "description": "Phone condition",
+                        "type": "boolean"
+                      }
                     },
                     {
                       "left": {
@@ -28504,7 +28536,11 @@
                     },
                     {
                       "prompt": "Phone condition",
-                      "type": "llm"
+                      "type": "llm",
+                      "value_schema": {
+                        "description": "Phone condition",
+                        "type": "boolean"
+                      }
                     },
                     {
                       "left": {
@@ -40143,7 +40179,7 @@
         ],
         "title": "ConversationHistorySIPTrunkingPhoneCallModel"
       },
-      "ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel": {
+      "ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel-Input": {
         "properties": {
           "request_id": {
             "type": "string",
@@ -40194,15 +40230,18 @@
           },
           "integration_id": {
             "type": "string",
-            "title": "Integration Id"
+            "title": "Integration Id",
+            "default": ""
           },
           "credential_id": {
             "type": "string",
-            "title": "Credential Id"
+            "title": "Credential Id",
+            "default": ""
           },
           "integration_connection_id": {
             "type": "string",
-            "title": "Integration Connection Id"
+            "title": "Integration Connection Id",
+            "default": ""
           }
         },
         "type": "object",
@@ -40212,6 +40251,86 @@
           "result_value",
           "is_error",
           "tool_has_been_called",
+          "type"
+        ],
+        "title": "ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel"
+      },
+      "ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel-Output": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "title": "Request Id"
+          },
+          "tool_name": {
+            "type": "string",
+            "title": "Tool Name"
+          },
+          "result_value": {
+            "type": "string",
+            "title": "Result Value"
+          },
+          "is_error": {
+            "type": "boolean",
+            "title": "Is Error"
+          },
+          "tool_has_been_called": {
+            "type": "boolean",
+            "title": "Tool Has Been Called"
+          },
+          "tool_latency_secs": {
+            "type": "number",
+            "title": "Tool Latency Secs",
+            "default": 0
+          },
+          "error_type": {
+            "type": "string",
+            "title": "Error Type",
+            "default": ""
+          },
+          "raw_error_message": {
+            "type": "string",
+            "title": "Raw Error Message",
+            "default": ""
+          },
+          "dynamic_variable_updates": {
+            "items": {
+              "$ref": "#/components/schemas/DynamicVariableUpdateCommonModel"
+            },
+            "type": "array",
+            "title": "Dynamic Variable Updates"
+          },
+          "type": {
+            "type": "string",
+            "const": "api_integration_webhook",
+            "title": "Type"
+          },
+          "integration_id": {
+            "type": "string",
+            "title": "Integration Id",
+            "default": ""
+          },
+          "credential_id": {
+            "type": "string",
+            "title": "Credential Id",
+            "default": ""
+          },
+          "integration_connection_id": {
+            "type": "string",
+            "title": "Integration Connection Id",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "request_id",
+          "tool_name",
+          "result_value",
+          "is_error",
+          "tool_has_been_called",
+          "tool_latency_secs",
+          "error_type",
+          "raw_error_message",
+          "dynamic_variable_updates",
           "type",
           "integration_id",
           "credential_id",
@@ -40277,7 +40396,7 @@
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel-Input"
                 },
                 {
-                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel"
+                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel-Input"
                 },
                 {
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Input"
@@ -40434,7 +40553,7 @@
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel-Output"
                 },
                 {
-                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel"
+                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel-Output"
                 },
                 {
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Output"
@@ -40690,7 +40809,7 @@
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel-Output"
                 },
                 {
-                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel"
+                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel-Output"
                 },
                 {
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Output"
@@ -41051,7 +41170,7 @@
         ],
         "title": "ConversationHistoryTranscriptSystemToolResultCommonModel"
       },
-      "ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails": {
+      "ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails-Input": {
         "properties": {
           "type": {
             "type": "string",
@@ -41061,15 +41180,18 @@
           },
           "integration_id": {
             "type": "string",
-            "title": "Integration Id"
+            "title": "Integration Id",
+            "default": ""
           },
           "credential_id": {
             "type": "string",
-            "title": "Credential Id"
+            "title": "Credential Id",
+            "default": ""
           },
           "integration_connection_id": {
             "type": "string",
-            "title": "Integration Connection Id"
+            "title": "Integration Connection Id",
+            "default": ""
           },
           "webhook_details": {
             "$ref": "#/components/schemas/ConversationHistoryTranscriptToolCallWebhookDetails"
@@ -41077,6 +41199,40 @@
         },
         "type": "object",
         "required": [
+          "webhook_details"
+        ],
+        "title": "ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails"
+      },
+      "ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails-Output": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "api_integration_webhook",
+            "title": "Type",
+            "default": "api_integration_webhook"
+          },
+          "integration_id": {
+            "type": "string",
+            "title": "Integration Id",
+            "default": ""
+          },
+          "credential_id": {
+            "type": "string",
+            "title": "Credential Id",
+            "default": ""
+          },
+          "integration_connection_id": {
+            "type": "string",
+            "title": "Integration Connection Id",
+            "default": ""
+          },
+          "webhook_details": {
+            "$ref": "#/components/schemas/ConversationHistoryTranscriptToolCallWebhookDetails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
           "integration_id",
           "credential_id",
           "integration_connection_id",
@@ -41145,13 +41301,13 @@
                     "$ref": "#/components/schemas/ConversationHistoryTranscriptToolCallMCPDetails"
                   },
                   {
-                    "$ref": "#/components/schemas/ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails"
+                    "$ref": "#/components/schemas/ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails-Input"
                   }
                 ],
                 "discriminator": {
                   "propertyName": "type",
                   "mapping": {
-                    "api_integration_webhook": "#/components/schemas/ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails",
+                    "api_integration_webhook": "#/components/schemas/ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails-Input",
                     "client": "#/components/schemas/ConversationHistoryTranscriptToolCallClientDetails",
                     "mcp": "#/components/schemas/ConversationHistoryTranscriptToolCallMCPDetails",
                     "webhook": "#/components/schemas/ConversationHistoryTranscriptToolCallWebhookDetails"
@@ -41216,13 +41372,13 @@
                     "$ref": "#/components/schemas/ConversationHistoryTranscriptToolCallMCPDetails"
                   },
                   {
-                    "$ref": "#/components/schemas/ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails"
+                    "$ref": "#/components/schemas/ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails-Output"
                   }
                 ],
                 "discriminator": {
                   "propertyName": "type",
                   "mapping": {
-                    "api_integration_webhook": "#/components/schemas/ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails",
+                    "api_integration_webhook": "#/components/schemas/ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetails-Output",
                     "client": "#/components/schemas/ConversationHistoryTranscriptToolCallClientDetails",
                     "mcp": "#/components/schemas/ConversationHistoryTranscriptToolCallMCPDetails",
                     "webhook": "#/components/schemas/ConversationHistoryTranscriptToolCallWebhookDetails"
@@ -47560,7 +47716,11 @@
                       },
                       {
                         "prompt": "Phone condition",
-                        "type": "llm"
+                        "type": "llm",
+                        "value_schema": {
+                          "description": "Phone condition",
+                          "type": "boolean"
+                        }
                       },
                       {
                         "left": {
@@ -51539,6 +51699,46 @@
           ]
         }
       },
+      "LLMLiteralJsonSchemaProperty": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "boolean",
+              "string",
+              "integer",
+              "number"
+            ],
+            "title": "Type"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 0,
+            "title": "Description"
+          },
+          "enum": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enum",
+            "description": "List of allowed string values for string type parameters"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "description"
+        ],
+        "title": "LLMLiteralJsonSchemaProperty"
+      },
       "LLMParameterEvaluationStrategy": {
         "properties": {
           "type": {
@@ -54152,54 +54352,6 @@
           "type"
         ],
         "title": "MatchAnythingParameterEvaluationStrategy"
-      },
-      "MemoryEntryCreateToolConfig": {
-        "properties": {
-          "system_tool_type": {
-            "type": "string",
-            "const": "memory_entry_create",
-            "title": "System Tool Type",
-            "default": "memory_entry_create"
-          }
-        },
-        "type": "object",
-        "title": "MemoryEntryCreateToolConfig"
-      },
-      "MemoryEntryDeleteToolConfig": {
-        "properties": {
-          "system_tool_type": {
-            "type": "string",
-            "const": "memory_entry_delete",
-            "title": "System Tool Type",
-            "default": "memory_entry_delete"
-          }
-        },
-        "type": "object",
-        "title": "MemoryEntryDeleteToolConfig"
-      },
-      "MemoryEntrySearchToolConfig": {
-        "properties": {
-          "system_tool_type": {
-            "type": "string",
-            "const": "memory_entry_search",
-            "title": "System Tool Type",
-            "default": "memory_entry_search"
-          }
-        },
-        "type": "object",
-        "title": "MemoryEntrySearchToolConfig"
-      },
-      "MemoryEntryUpdateToolConfig": {
-        "properties": {
-          "system_tool_type": {
-            "type": "string",
-            "const": "memory_entry_update",
-            "title": "System Tool Type",
-            "default": "memory_entry_update"
-          }
-        },
-        "type": "object",
-        "title": "MemoryEntryUpdateToolConfig"
       },
       "MergingStrategy": {
         "type": "string",
@@ -64028,6 +64180,18 @@
             ],
             "title": "Dialogue",
             "description": "The dialogue (voice and text pairs) used to generate the audio item. If this is set then the top level `text` and `voice_id` fields will be empty."
+          },
+          "output_format": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Output Format",
+            "description": "The output format the audio was originally generated in."
           }
         },
         "type": "object",
@@ -65224,34 +65388,14 @@
               },
               {
                 "$ref": "#/components/schemas/VoicemailDetectionToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/MemoryEntrySearchToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/MemoryEntryCreateToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/MemoryEntryUpdateToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/MemoryEntryDeleteToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/AgentPromptChangeToolConfig"
               }
             ],
             "title": "Params",
             "discriminator": {
               "propertyName": "system_tool_type",
               "mapping": {
-                "agent_prompt_change": "#/components/schemas/AgentPromptChangeToolConfig",
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
-                "memory_entry_create": "#/components/schemas/MemoryEntryCreateToolConfig",
-                "memory_entry_delete": "#/components/schemas/MemoryEntryDeleteToolConfig",
-                "memory_entry_search": "#/components/schemas/MemoryEntrySearchToolConfig",
-                "memory_entry_update": "#/components/schemas/MemoryEntryUpdateToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
@@ -65380,34 +65524,14 @@
               },
               {
                 "$ref": "#/components/schemas/VoicemailDetectionToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/MemoryEntrySearchToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/MemoryEntryCreateToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/MemoryEntryUpdateToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/MemoryEntryDeleteToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/AgentPromptChangeToolConfig"
               }
             ],
             "title": "Params",
             "discriminator": {
               "propertyName": "system_tool_type",
               "mapping": {
-                "agent_prompt_change": "#/components/schemas/AgentPromptChangeToolConfig",
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
-                "memory_entry_create": "#/components/schemas/MemoryEntryCreateToolConfig",
-                "memory_entry_delete": "#/components/schemas/MemoryEntryDeleteToolConfig",
-                "memory_entry_search": "#/components/schemas/MemoryEntrySearchToolConfig",
-                "memory_entry_update": "#/components/schemas/MemoryEntryUpdateToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
@@ -74704,7 +74828,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Input",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
@@ -74807,7 +74931,7 @@
               },
               {
                 "$ref": "#/components/schemas/ASTLLMNode-Output",
-                "description": "Prompt evaluated by an LLM to a boolean value."
+                "description": "Value extracted by an LLM according to the given schema."
               },
               {
                 "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
@@ -75648,7 +75772,7 @@
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel-Input"
                 },
                 {
-                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel"
+                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel-Input"
                 },
                 {
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Input"
@@ -75706,7 +75830,7 @@
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptSystemToolResultCommonModel-Output"
                 },
                 {
-                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel"
+                  "$ref": "#/components/schemas/ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModel-Output"
                 },
                 {
                   "$ref": "#/components/schemas/ConversationHistoryTranscriptWorkflowToolsResultCommonModel-Output"

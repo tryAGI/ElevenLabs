@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public sealed partial class ASTLLMNodeInput
+    public readonly partial struct ASTLLMNodeInput
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -41,7 +41,7 @@ namespace ElevenLabs
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
                 typeof(global::ElevenLabs.ASTLLMNodeInput),
-                jsonSerializerContext) as global::ElevenLabs.ASTLLMNodeInput;
+                jsonSerializerContext) as global::ElevenLabs.ASTLLMNodeInput?;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace ElevenLabs
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
                 typeof(global::ElevenLabs.ASTLLMNodeInput),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.ASTLLMNodeInput;
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.ASTLLMNodeInput?;
         }
 
         /// <summary>

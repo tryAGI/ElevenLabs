@@ -1,3 +1,4 @@
+#pragma warning disable CS0618 // Type or member is obsolete
 
 #nullable enable
 
@@ -6,52 +7,215 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ASTLLMNodeInput
+    public readonly partial struct ASTLLMNodeInput : global::System.IEquatable<ASTLLMNodeInput>
     {
         /// <summary>
-        /// Default Value: llm
+        /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; }
-
-        /// <summary>
-        /// The prompt to evaluate to a boolean value.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
-
-        /// <summary>
-        /// Additional properties that are not explicitly defined in the schema
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonExtensionData]
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ASTLLMNodeInput" /> class.
-        /// </summary>
-        /// <param name="type">
-        /// Default Value: llm
-        /// </param>
-        /// <param name="prompt">
-        /// The prompt to evaluate to a boolean value.
-        /// </param>
-#if NET7_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode? ASTLLMNode1 { get; init; }
+#else
+        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode? ASTLLMNode1 { get; }
 #endif
-        public ASTLLMNodeInput(
-            string prompt,
-            string? type)
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ASTLLMNode1))]
+#endif
+        public bool IsASTLLMNode1 => ASTLLMNode1 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? ASTLLMNode2 { get; init; }
+#else
+        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? ASTLLMNode2 { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ASTLLMNode2))]
+#endif
+        public bool IsASTLLMNode2 => ASTLLMNode2 != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator ASTLLMNodeInput(global::ElevenLabs.ASTLLMNodeInputASTLLMNode value) => new ASTLLMNodeInput((global::ElevenLabs.ASTLLMNodeInputASTLLMNode?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTLLMNodeInputASTLLMNode?(ASTLLMNodeInput @this) => @this.ASTLLMNode1;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ASTLLMNodeInput(global::ElevenLabs.ASTLLMNodeInputASTLLMNode? value)
         {
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
-            this.Type = type;
+            ASTLLMNode1 = value;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ASTLLMNodeInput" /> class.
+        /// 
         /// </summary>
-        public ASTLLMNodeInput()
+        public static implicit operator ASTLLMNodeInput(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2 value) => new ASTLLMNodeInput((global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?(ASTLLMNodeInput @this) => @this.ASTLLMNode2;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ASTLLMNodeInput(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? value)
         {
+            ASTLLMNode2 = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ASTLLMNodeInput(
+            global::ElevenLabs.ASTLLMNodeInputASTLLMNode? aSTLLMNode1,
+            global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? aSTLLMNode2
+            )
+        {
+            ASTLLMNode1 = aSTLLMNode1;
+            ASTLLMNode2 = aSTLLMNode2;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public object? Object =>
+            ASTLLMNode2 as object ??
+            ASTLLMNode1 as object 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override string? ToString() =>
+            ASTLLMNode1?.ToString() ??
+            ASTLLMNode2?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Validate()
+        {
+            return IsASTLLMNode1 && !IsASTLLMNode2 || !IsASTLLMNode1 && IsASTLLMNode2;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TResult? Match<TResult>(
+            global::System.Func<global::ElevenLabs.ASTLLMNodeInputASTLLMNode?, TResult>? aSTLLMNode1 = null,
+            global::System.Func<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?, TResult>? aSTLLMNode2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsASTLLMNode1 && aSTLLMNode1 != null)
+            {
+                return aSTLLMNode1(ASTLLMNode1!);
+            }
+            else if (IsASTLLMNode2 && aSTLLMNode2 != null)
+            {
+                return aSTLLMNode2(ASTLLMNode2!);
+            }
+
+            return default(TResult);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Match(
+            global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode?>? aSTLLMNode1 = null,
+            global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?>? aSTLLMNode2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsASTLLMNode1)
+            {
+                aSTLLMNode1?.Invoke(ASTLLMNode1!);
+            }
+            else if (IsASTLLMNode2)
+            {
+                aSTLLMNode2?.Invoke(ASTLLMNode2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override int GetHashCode()
+        {
+            var fields = new object?[]
+            {
+                ASTLLMNode1,
+                typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode),
+                ASTLLMNode2,
+                typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2),
+            };
+            const int offset = unchecked((int)2166136261);
+            const int prime = 16777619;
+            static int HashCodeAggregator(int hashCode, object? value) => value == null
+                ? (hashCode ^ 0) * prime
+                : (hashCode ^ value.GetHashCode()) * prime;
+
+            return global::System.Linq.Enumerable.Aggregate(fields, offset, HashCodeAggregator);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Equals(ASTLLMNodeInput other)
+        {
+            return
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLLMNodeInputASTLLMNode?>.Default.Equals(ASTLLMNode1, other.ASTLLMNode1) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?>.Default.Equals(ASTLLMNode2, other.ASTLLMNode2) 
+                ;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator ==(ASTLLMNodeInput obj1, ASTLLMNodeInput obj2)
+        {
+            return global::System.Collections.Generic.EqualityComparer<ASTLLMNodeInput>.Default.Equals(obj1, obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator !=(ASTLLMNodeInput obj1, ASTLLMNodeInput obj2)
+        {
+            return !(obj1 == obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool Equals(object? obj)
+        {
+            return obj is ASTLLMNodeInput o && Equals(o);
         }
     }
 }

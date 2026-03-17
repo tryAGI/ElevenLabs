@@ -70,41 +70,6 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.VoicemailDetectionToolConfig)}");
                 voicemailDetection = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.MemoryEntrySearchToolConfig? memoryEntrySearch = default;
-            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType.MemoryEntrySearch)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MemoryEntrySearchToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MemoryEntrySearchToolConfig> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MemoryEntrySearchToolConfig)}");
-                memoryEntrySearch = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.MemoryEntryCreateToolConfig? memoryEntryCreate = default;
-            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType.MemoryEntryCreate)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MemoryEntryCreateToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MemoryEntryCreateToolConfig> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MemoryEntryCreateToolConfig)}");
-                memoryEntryCreate = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.MemoryEntryUpdateToolConfig? memoryEntryUpdate = default;
-            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType.MemoryEntryUpdate)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MemoryEntryUpdateToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MemoryEntryUpdateToolConfig> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MemoryEntryUpdateToolConfig)}");
-                memoryEntryUpdate = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.MemoryEntryDeleteToolConfig? memoryEntryDelete = default;
-            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType.MemoryEntryDelete)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MemoryEntryDeleteToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MemoryEntryDeleteToolConfig> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MemoryEntryDeleteToolConfig)}");
-                memoryEntryDelete = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.AgentPromptChangeToolConfig? agentPromptChange = default;
-            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType.AgentPromptChange)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.AgentPromptChangeToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.AgentPromptChangeToolConfig> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.AgentPromptChangeToolConfig)}");
-                agentPromptChange = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
 
             var __value = new global::ElevenLabs.Params2(
                 discriminator?.SystemToolType,
@@ -120,17 +85,7 @@ namespace ElevenLabs.JsonConverters
 
                 playKeypadTouchTone,
 
-                voicemailDetection,
-
-                memoryEntrySearch,
-
-                memoryEntryCreate,
-
-                memoryEntryUpdate,
-
-                memoryEntryDelete,
-
-                agentPromptChange
+                voicemailDetection
                 );
 
             return __value;
@@ -186,36 +141,6 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.VoicemailDetectionToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.VoicemailDetectionToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.VoicemailDetectionToolConfig).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.VoicemailDetection, typeInfo);
-            }
-            else if (value.IsMemoryEntrySearch)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MemoryEntrySearchToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MemoryEntrySearchToolConfig?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MemoryEntrySearchToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MemoryEntrySearch, typeInfo);
-            }
-            else if (value.IsMemoryEntryCreate)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MemoryEntryCreateToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MemoryEntryCreateToolConfig?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MemoryEntryCreateToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MemoryEntryCreate, typeInfo);
-            }
-            else if (value.IsMemoryEntryUpdate)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MemoryEntryUpdateToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MemoryEntryUpdateToolConfig?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MemoryEntryUpdateToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MemoryEntryUpdate, typeInfo);
-            }
-            else if (value.IsMemoryEntryDelete)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MemoryEntryDeleteToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MemoryEntryDeleteToolConfig?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MemoryEntryDeleteToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MemoryEntryDelete, typeInfo);
-            }
-            else if (value.IsAgentPromptChange)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.AgentPromptChangeToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.AgentPromptChangeToolConfig?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.AgentPromptChangeToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AgentPromptChange, typeInfo);
             }
         }
     }
