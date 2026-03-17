@@ -1,8 +1,9 @@
+set -e
 dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
-curl -o openapi.yaml https://api.elevenlabs.io/openapi.json
+curl --fail --silent --show-error https://api.elevenlabs.io/openapi.json | jq . > openapi.json
 
-autosdk generate openapi.yaml \
+autosdk generate openapi.json \
   --namespace ElevenLabs \
   --clientClassName ElevenLabsClient \
   --targetFramework net10.0 \
