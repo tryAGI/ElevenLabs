@@ -17,6 +17,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="environment">
+        /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -26,6 +29,7 @@ namespace ElevenLabs
             string agentId,
             string? participantName = default,
             string? branchId = default,
+            string? environment = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

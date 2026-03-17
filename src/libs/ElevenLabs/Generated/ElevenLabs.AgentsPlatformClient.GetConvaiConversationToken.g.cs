@@ -10,6 +10,7 @@ namespace ElevenLabs
             ref string agentId,
             ref string? participantName,
             ref string? branchId,
+            ref string? environment,
             ref string? xiApiKey);
         partial void PrepareGetConvaiConversationTokenRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -17,6 +18,7 @@ namespace ElevenLabs
             string agentId,
             string? participantName,
             string? branchId,
+            string? environment,
             string? xiApiKey);
         partial void ProcessGetConvaiConversationTokenResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -40,6 +42,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="environment">
+        /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -49,6 +54,7 @@ namespace ElevenLabs
             string agentId,
             string? participantName = default,
             string? branchId = default,
+            string? environment = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -59,6 +65,7 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 participantName: ref participantName,
                 branchId: ref branchId,
+                environment: ref environment,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -67,7 +74,8 @@ namespace ElevenLabs
             __pathBuilder
                 .AddRequiredParameter("agent_id", agentId)
                 .AddOptionalParameter("participant_name", participantName)
-                .AddOptionalParameter("branch_id", branchId) 
+                .AddOptionalParameter("branch_id", branchId)
+                .AddOptionalParameter("environment", environment) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -109,6 +117,7 @@ namespace ElevenLabs
                 agentId: agentId,
                 participantName: participantName,
                 branchId: branchId,
+                environment: environment,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

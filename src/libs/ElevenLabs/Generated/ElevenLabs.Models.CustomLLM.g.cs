@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -25,7 +27,8 @@ namespace ElevenLabs
         /// The API key for authentication. Either a workspace secret reference {'secret_id': '...'} or an environment variable reference {'env_var_label': '...'}.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_key")]
-        public global::ElevenLabs.ConvAISecretLocator? ApiKey { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIEnvVarLocator, object>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIEnvVarLocator, object>? ApiKey { get; set; }
 
         /// <summary>
         /// Headers that should be included in the request
@@ -81,7 +84,7 @@ namespace ElevenLabs
         public CustomLLM(
             string url,
             string? modelId,
-            global::ElevenLabs.ConvAISecretLocator? apiKey,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIEnvVarLocator, object>? apiKey,
             object? requestHeaders,
             string? apiVersion,
             global::ElevenLabs.CustomLLMAPIType? apiType)
