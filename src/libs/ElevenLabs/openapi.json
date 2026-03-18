@@ -17411,6 +17411,102 @@
         "x-fern-sdk-method-name": "rag_index_overview"
       }
     },
+    "/v1/convai/knowledge-base/{documentation_id}/refresh": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Refresh Url Document Content",
+        "description": "Manually refresh a URL document by re-fetching its content from the source URL.",
+        "operationId": "refresh_url_document_route",
+        "parameters": [
+          {
+            "name": "documentation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of a document from the knowledge base. This is returned on document addition.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "embed": true,
+              "title": "Documentation Id"
+            },
+            "description": "The id of a document from the knowledge base. This is returned on document addition."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GetKnowledgeBaseURLResponseModel"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GetKnowledgeBaseFileResponseModel"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GetKnowledgeBaseTextResponseModel"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GetKnowledgeBaseFolderResponseModel"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                      "url": "#/components/schemas/GetKnowledgeBaseURLResponseModel",
+                      "file": "#/components/schemas/GetKnowledgeBaseFileResponseModel",
+                      "text": "#/components/schemas/GetKnowledgeBaseTextResponseModel",
+                      "folder": "#/components/schemas/GetKnowledgeBaseFolderResponseModel"
+                    }
+                  },
+                  "title": "Response Refresh Url Document Content V1 Convai Knowledge Base  Documentation Id  Refresh Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base",
+          "document"
+        ],
+        "x-fern-sdk-method-name": "refresh_document"
+      }
+    },
     "/v1/convai/knowledge-base/{documentation_id}/rag-index": {
       "post": {
         "tags": [
@@ -17947,6 +18043,27 @@
               "title": "Chunk Id"
             },
             "description": "The id of a document RAG chunk from the knowledge base."
+          },
+          {
+            "name": "embedding_model",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/EmbeddingModelEnum"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The embedding model used to retrieve the chunk.",
+              "examples": [
+                "e5_mistral_7b_instruct"
+              ],
+              "title": "Embedding Model"
+            },
+            "description": "The embedding model used to retrieve the chunk."
           },
           {
             "name": "xi-api-key",
@@ -29987,6 +30104,45 @@
         ],
         "title": "AuthorizationMethod"
       },
+      "AutoSyncInfo": {
+        "properties": {
+          "minimum_frequency_days": {
+            "type": "integer",
+            "maximum": 180.0,
+            "minimum": 1.0,
+            "title": "Minimum Frequency Days",
+            "description": "Maximum number of days between automatic syncs",
+            "default": 7
+          },
+          "auto_remove": {
+            "type": "boolean",
+            "title": "Auto Remove",
+            "description": "Whether to remove the document if the URL becomes unavailable",
+            "default": false
+          },
+          "consec_failures": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Consec Failures",
+            "description": "Number of consecutive sync failures",
+            "default": 0
+          },
+          "next_refresh_by": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Refresh By",
+            "description": "Unix timestamp for the next scheduled sync or None (in case of folders)"
+          }
+        },
+        "type": "object",
+        "title": "AutoSyncInfo"
+      },
       "BackupLLMDefault": {
         "properties": {
           "preference": {
@@ -31854,6 +32010,18 @@
             ],
             "title": "Parent Folder Id",
             "description": "If set, the created document or folder will be placed inside the given folder."
+          },
+          "enable_auto_sync": {
+            "type": "boolean",
+            "title": "Enable Auto Sync",
+            "description": "Whether to enable auto-sync for this URL document.",
+            "default": false
+          },
+          "auto_remove": {
+            "type": "boolean",
+            "title": "Auto Remove",
+            "description": "Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.",
+            "default": false
           }
         },
         "type": "object",
@@ -32213,6 +32381,18 @@
             ],
             "title": "Parent Folder Id",
             "description": "If set, the created document or folder will be placed inside the given folder."
+          },
+          "enable_auto_sync": {
+            "type": "boolean",
+            "title": "Enable Auto Sync",
+            "description": "Whether to enable auto-sync for this URL document.",
+            "default": false
+          },
+          "auto_remove": {
+            "type": "boolean",
+            "title": "Auto Remove",
+            "description": "Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.",
+            "default": false
           }
         },
         "type": "object",
@@ -34449,6 +34629,30 @@
             "title": "No Verbatim",
             "description": "If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.",
             "default": false
+          },
+          "entity_redaction": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Entity Redaction",
+            "description": "Redact entities from the transcript text. Accepts the same format as entity_detection: 'all', a category ('pii', 'phi'), or specific entity types. Must be a subset of entity_detection. When redaction is enabled, the entities field will not be returned."
+          },
+          "entity_redaction_mode": {
+            "type": "string",
+            "title": "Entity Redaction Mode",
+            "description": "How to format redacted entities. 'redacted' replaces with {REDACTED}, 'entity_type' replaces with {ENTITY_TYPE}, 'enumerated_entity_type' replaces with {ENTITY_TYPE_N} where N enumerates each occurrence. Only used when entity_redaction is set.",
+            "default": "enumerated_entity_type"
           },
           "keyterms": {
             "items": {
@@ -46854,6 +47058,18 @@
             ],
             "title": "Pending Change",
             "description": "The pending change for the user."
+          },
+          "has_used_starter_coupon_on_account": {
+            "type": "boolean",
+            "title": "Has Used Starter Coupon On Account",
+            "description": "True if any workspace owned by this user's auth account has redeemed the starter first-month discount coupon.",
+            "default": false
+          },
+          "has_used_creator_coupon_on_account": {
+            "type": "boolean",
+            "title": "Has Used Creator Coupon On Account",
+            "description": "True if any workspace owned by this user's auth account has redeemed the creator first-month discount coupon.",
+            "default": false
           }
         },
         "type": "object",
@@ -46889,6 +47105,8 @@
           "character_refresh_period": "monthly_period",
           "currency": "usd",
           "has_open_invoices": true,
+          "has_used_creator_coupon_on_account": false,
+          "has_used_starter_coupon_on_account": false,
           "max_character_limit_extension": 10000,
           "next_character_count_reset_unix": 1738356858,
           "next_invoice": {
@@ -48461,6 +48679,16 @@
           "children_count": {
             "type": "integer",
             "title": "Children Count"
+          },
+          "auto_sync_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AutoSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -48687,6 +48915,16 @@
           "children_count": {
             "type": "integer",
             "title": "Children Count"
+          },
+          "auto_sync_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AutoSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -48995,6 +49233,16 @@
           "extracted_inner_html": {
             "type": "string",
             "title": "Extracted Inner Html"
+          },
+          "auto_sync_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AutoSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",

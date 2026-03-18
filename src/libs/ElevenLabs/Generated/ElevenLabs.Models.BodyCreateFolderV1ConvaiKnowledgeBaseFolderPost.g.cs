@@ -22,6 +22,20 @@ namespace ElevenLabs
         public string? ParentFolderId { get; set; }
 
         /// <summary>
+        /// Whether to enable auto-sync for this URL document.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_auto_sync")]
+        public bool? EnableAutoSync { get; set; }
+
+        /// <summary>
+        /// Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_remove")]
+        public bool? AutoRemove { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -36,15 +50,27 @@ namespace ElevenLabs
         /// <param name="parentFolderId">
         /// If set, the created document or folder will be placed inside the given folder.
         /// </param>
+        /// <param name="enableAutoSync">
+        /// Whether to enable auto-sync for this URL document.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="autoRemove">
+        /// Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyCreateFolderV1ConvaiKnowledgeBaseFolderPost(
             string name,
-            string? parentFolderId)
+            string? parentFolderId,
+            bool? enableAutoSync,
+            bool? autoRemove)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ParentFolderId = parentFolderId;
+            this.EnableAutoSync = enableAutoSync;
+            this.AutoRemove = autoRemove;
         }
 
         /// <summary>

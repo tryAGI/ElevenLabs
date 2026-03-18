@@ -242,6 +242,20 @@ namespace ElevenLabs
                     content: new global::System.Net.Http.StringContent($"{request.NoVerbatim}"),
                     name: "\"no_verbatim\"");
             } 
+            if (request.EntityRedaction != default)
+            {
+
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent(request.EntityRedaction?.ToString() ?? string.Empty),
+                    name: "\"entity_redaction\"");
+            } 
+            if (request.EntityRedactionMode != default)
+            {
+
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.EntityRedactionMode}"),
+                    name: "\"entity_redaction_mode\"");
+            } 
             if (request.Keyterms != default)
             {
 
@@ -475,6 +489,13 @@ namespace ElevenLabs
         /// If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="entityRedaction">
+        /// Redact entities from the transcript text. Accepts the same format as entity_detection: 'all', a category ('pii', 'phi'), or specific entity types. Must be a subset of entity_detection. When redaction is enabled, the entities field will not be returned.
+        /// </param>
+        /// <param name="entityRedactionMode">
+        /// How to format redacted entities. 'redacted' replaces with {REDACTED}, 'entity_type' replaces with {ENTITY_TYPE}, 'enumerated_entity_type' replaces with {ENTITY_TYPE_N} where N enumerates each occurrence. Only used when entity_redaction is set.<br/>
+        /// Default Value: enumerated_entity_type
+        /// </param>
         /// <param name="keyterms">
         /// A list of keyterms to bias the transcription towards.           The keyterms are words or phrases you want the model to recognise more accurately.           The number of keyterms cannot exceed 100.           The length of each keyterm must be less than 50 characters.           Keyterms can contain at most 5 words (after normalisation).           For example ["hello", "world", "technical term"].           Usage of this parameter will incur additional costs.  <br/>
         /// Default Value: []
@@ -504,6 +525,8 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<string, object, object>? webhookMetadata = default,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityDetection = default,
             bool? noVerbatim = default,
+            global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityRedaction = default,
+            string? entityRedactionMode = default,
             global::System.Collections.Generic.IList<string>? keyterms = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -529,6 +552,8 @@ namespace ElevenLabs
                 WebhookMetadata = webhookMetadata,
                 EntityDetection = entityDetection,
                 NoVerbatim = noVerbatim,
+                EntityRedaction = entityRedaction,
+                EntityRedactionMode = entityRedactionMode,
                 Keyterms = keyterms,
             };
 
