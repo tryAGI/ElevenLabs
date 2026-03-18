@@ -27,6 +27,21 @@ using ElevenLabs;
 using var client = new ElevenLabsClient(apiKey);
 ```
 
+### Microsoft.Extensions.AI
+
+The SDK implements [`ISpeechToTextClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ispeechtotextclient):
+```csharp
+using ElevenLabs;
+using Microsoft.Extensions.AI;
+
+ISpeechToTextClient speechClient = new ElevenLabsClient(apiKey);
+
+await using var audioStream = File.OpenRead("recording.wav");
+var response = await speechClient.GetTextAsync(audioStream);
+
+Console.WriteLine(response.Text);
+```
+
 <!-- EXAMPLES:START -->
 ### List Available Voices
 Fetch all voices available to the authenticated account and print each voice name and ID so you can pick one for text-to-speech requests.
