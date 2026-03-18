@@ -9,12 +9,14 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
             ref string chunkId,
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel,
             ref string? xiApiKey);
         partial void PrepareGetConvaiKnowledgeBaseByDocumentationIdChunkByChunkIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string documentationId,
             string chunkId,
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel,
             string? xiApiKey);
         partial void ProcessGetConvaiKnowledgeBaseByDocumentationIdChunkByChunkIdResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -35,6 +37,9 @@ namespace ElevenLabs
         /// <param name="chunkId">
         /// The id of a document RAG chunk from the knowledge base.
         /// </param>
+        /// <param name="embeddingModel">
+        /// The embedding model used to retrieve the chunk.
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
@@ -43,6 +48,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> GetConvaiKnowledgeBaseByDocumentationIdChunkByChunkIdAsync(
             string documentationId,
             string chunkId,
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -52,11 +58,15 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 documentationId: ref documentationId,
                 chunkId: ref chunkId,
+                embeddingModel: embeddingModel,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("embedding_model", embeddingModel?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -96,6 +106,7 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 documentationId: documentationId,
                 chunkId: chunkId,
+                embeddingModel: embeddingModel,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

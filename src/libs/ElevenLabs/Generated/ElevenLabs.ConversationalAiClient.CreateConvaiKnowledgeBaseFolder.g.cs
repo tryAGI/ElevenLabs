@@ -246,18 +246,30 @@ namespace ElevenLabs
         /// <param name="parentFolderId">
         /// If set, the created document or folder will be placed inside the given folder.
         /// </param>
+        /// <param name="enableAutoSync">
+        /// Whether to enable auto-sync for this URL document.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="autoRemove">
+        /// Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateConvaiKnowledgeBaseFolderAsync(
             string name,
             string? xiApiKey = default,
             string? parentFolderId = default,
+            bool? enableAutoSync = default,
+            bool? autoRemove = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyCreateFolderV1ConvaiKnowledgeBaseFolderPost
             {
                 Name = name,
                 ParentFolderId = parentFolderId,
+                EnableAutoSync = enableAutoSync,
+                AutoRemove = autoRemove,
             };
 
             return await CreateConvaiKnowledgeBaseFolderAsync(

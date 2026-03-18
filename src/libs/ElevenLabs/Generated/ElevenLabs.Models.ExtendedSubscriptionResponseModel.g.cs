@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"allowed_to_extend_character_limit":true,"billing_period":"monthly_period","can_extend_character_limit":true,"can_extend_voice_limit":true,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":1000,"character_limit":10000,"character_refresh_period":"monthly_period","currency":"usd","has_open_invoices":true,"max_character_limit_extension":10000,"next_character_count_reset_unix":1738356858,"next_invoice":{"amount_due_cents":1000,"discounts":[{"discount_percent_off":20.0}],"next_payment_attempt_unix":1738356858,"payment_intent_status":"processing","payment_intent_statusses":["processing","succeeded"],"subtotal_cents":900,"tax_cents":100},"open_invoices":[{"amount_due_cents":1000,"discounts":[{"discount_percent_off":20.0}],"next_payment_attempt_unix":1738356858,"payment_intent_status":"processing","payment_intent_statusses":["processing","succeeded"],"subtotal_cents":900,"tax_cents":100}],"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"active","tier":"starter","voice_add_edit_counter":0,"voice_limit":10,"voice_slots_used":1}
+    /// Example: {"allowed_to_extend_character_limit":true,"billing_period":"monthly_period","can_extend_character_limit":true,"can_extend_voice_limit":true,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":1000,"character_limit":10000,"character_refresh_period":"monthly_period","currency":"usd","has_open_invoices":true,"has_used_creator_coupon_on_account":false,"has_used_starter_coupon_on_account":false,"max_character_limit_extension":10000,"next_character_count_reset_unix":1738356858,"next_invoice":{"amount_due_cents":1000,"discounts":[{"discount_percent_off":20.0}],"next_payment_attempt_unix":1738356858,"payment_intent_status":"processing","payment_intent_statusses":["processing","succeeded"],"subtotal_cents":900,"tax_cents":100},"open_invoices":[{"amount_due_cents":1000,"discounts":[{"discount_percent_off":20.0}],"next_payment_attempt_unix":1738356858,"payment_intent_status":"processing","payment_intent_statusses":["processing","succeeded"],"subtotal_cents":900,"tax_cents":100}],"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"active","tier":"starter","voice_add_edit_counter":0,"voice_limit":10,"voice_slots_used":1}
     /// </summary>
     public sealed partial class ExtendedSubscriptionResponseModel
     {
@@ -173,6 +173,20 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel, object>? PendingChange { get; set; }
 
         /// <summary>
+        /// True if any workspace owned by this user's auth account has redeemed the starter first-month discount coupon.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_used_starter_coupon_on_account")]
+        public bool? HasUsedStarterCouponOnAccount { get; set; }
+
+        /// <summary>
+        /// True if any workspace owned by this user's auth account has redeemed the creator first-month discount coupon.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_used_creator_coupon_on_account")]
+        public bool? HasUsedCreatorCouponOnAccount { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -253,6 +267,14 @@ namespace ElevenLabs
         /// <param name="pendingChange">
         /// The pending change for the user.
         /// </param>
+        /// <param name="hasUsedStarterCouponOnAccount">
+        /// True if any workspace owned by this user's auth account has redeemed the starter first-month discount coupon.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="hasUsedCreatorCouponOnAccount">
+        /// True if any workspace owned by this user's auth account has redeemed the creator first-month discount coupon.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -280,7 +302,9 @@ namespace ElevenLabs
             global::ElevenLabs.BillingPeriod? billingPeriod,
             global::ElevenLabs.CharacterRefreshPeriod? characterRefreshPeriod,
             global::ElevenLabs.InvoiceResponseModel? nextInvoice,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel, object>? pendingChange)
+            global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel, object>? pendingChange,
+            bool? hasUsedStarterCouponOnAccount,
+            bool? hasUsedCreatorCouponOnAccount)
         {
             this.Tier = tier ?? throw new global::System.ArgumentNullException(nameof(tier));
             this.CharacterCount = characterCount;
@@ -306,6 +330,8 @@ namespace ElevenLabs
             this.CharacterRefreshPeriod = characterRefreshPeriod;
             this.NextInvoice = nextInvoice;
             this.PendingChange = pendingChange;
+            this.HasUsedStarterCouponOnAccount = hasUsedStarterCouponOnAccount;
+            this.HasUsedCreatorCouponOnAccount = hasUsedCreatorCouponOnAccount;
         }
 
         /// <summary>

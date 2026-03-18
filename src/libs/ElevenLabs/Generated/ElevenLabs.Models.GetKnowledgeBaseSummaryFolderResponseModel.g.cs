@@ -78,6 +78,12 @@ namespace ElevenLabs
         public required int ChildrenCount { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
+        public global::ElevenLabs.AutoSyncInfo? AutoSyncInfo { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -104,6 +110,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="type"></param>
         /// <param name="childrenCount"></param>
+        /// <param name="autoSyncInfo"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -117,6 +124,7 @@ namespace ElevenLabs
             int childrenCount,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentSummaryResponseModel>? folderPath,
+            global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
             string type = "folder")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -129,6 +137,7 @@ namespace ElevenLabs
             this.FolderParentId = folderParentId;
             this.FolderPath = folderPath;
             this.Type = type;
+            this.AutoSyncInfo = autoSyncInfo;
         }
 
         /// <summary>
