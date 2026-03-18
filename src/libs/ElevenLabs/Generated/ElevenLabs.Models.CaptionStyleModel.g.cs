@@ -53,6 +53,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_transform")]
+        public global::ElevenLabs.CaptionStyleModelTextTransform2? TextTransform { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_blend_mode")]
+        public global::ElevenLabs.CaptionStyleModelTextBlendMode2? TextBlendMode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_shadow")]
         public global::ElevenLabs.StudioTextStyleShadowModel? TextShadow { get; set; }
 
@@ -174,6 +186,8 @@ namespace ElevenLabs
         /// <param name="textAlign"></param>
         /// <param name="textStyle"></param>
         /// <param name="textWeight"></param>
+        /// <param name="textTransform"></param>
+        /// <param name="textBlendMode"></param>
         /// <param name="textShadow"></param>
         /// <param name="textOutline"></param>
         /// <param name="backgroundEnabled"></param>
@@ -203,6 +217,8 @@ namespace ElevenLabs
             global::ElevenLabs.CaptionStyleModelTextAlign2? textAlign,
             global::ElevenLabs.CaptionStyleModelTextStyle2? textStyle,
             global::ElevenLabs.CaptionStyleModelTextWeight2? textWeight,
+            global::ElevenLabs.CaptionStyleModelTextTransform2? textTransform,
+            global::ElevenLabs.CaptionStyleModelTextBlendMode2? textBlendMode,
             global::ElevenLabs.StudioTextStyleShadowModel? textShadow,
             global::ElevenLabs.StudioTextStyleOutlineModel? textOutline,
             bool? backgroundEnabled,
@@ -229,6 +245,8 @@ namespace ElevenLabs
             this.TextAlign = textAlign;
             this.TextStyle = textStyle;
             this.TextWeight = textWeight;
+            this.TextTransform = textTransform;
+            this.TextBlendMode = textBlendMode;
             this.TextShadow = textShadow;
             this.TextOutline = textOutline;
             this.BackgroundEnabled = backgroundEnabled;

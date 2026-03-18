@@ -37502,7 +37502,8 @@
                 "type": "string",
                 "enum": [
                   "normal",
-                  "bold"
+                  "bold",
+                  "900"
                 ]
               },
               {
@@ -37510,6 +37511,37 @@
               }
             ],
             "title": "Text Weight"
+          },
+          "text_transform": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "uppercase"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text Transform"
+          },
+          "text_blend_mode": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "normal",
+                  "difference",
+                  "multiply"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text Blend Mode"
           },
           "text_shadow": {
             "anyOf": [

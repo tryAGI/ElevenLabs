@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public enum CaptionStyleModelTextWeight2
+    public enum CaptionStyleModelTextBlendMode2
     {
         /// <summary>
         /// 
@@ -15,41 +15,41 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Bold,
+        Difference,
         /// <summary>
         /// 
         /// </summary>
-        x900,
+        Multiply,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class CaptionStyleModelTextWeight2Extensions
+    public static class CaptionStyleModelTextBlendMode2Extensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this CaptionStyleModelTextWeight2 value)
+        public static string ToValueString(this CaptionStyleModelTextBlendMode2 value)
         {
             return value switch
             {
-                CaptionStyleModelTextWeight2.Normal => "normal",
-                CaptionStyleModelTextWeight2.Bold => "bold",
-                CaptionStyleModelTextWeight2.x900 => "900",
+                CaptionStyleModelTextBlendMode2.Normal => "normal",
+                CaptionStyleModelTextBlendMode2.Difference => "difference",
+                CaptionStyleModelTextBlendMode2.Multiply => "multiply",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static CaptionStyleModelTextWeight2? ToEnum(string value)
+        public static CaptionStyleModelTextBlendMode2? ToEnum(string value)
         {
             return value switch
             {
-                "normal" => CaptionStyleModelTextWeight2.Normal,
-                "bold" => CaptionStyleModelTextWeight2.Bold,
-                "900" => CaptionStyleModelTextWeight2.x900,
+                "normal" => CaptionStyleModelTextBlendMode2.Normal,
+                "difference" => CaptionStyleModelTextBlendMode2.Difference,
+                "multiply" => CaptionStyleModelTextBlendMode2.Multiply,
                 _ => null,
             };
         }
