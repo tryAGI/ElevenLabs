@@ -56,7 +56,6 @@ autosdk generate openapi.yaml \
 | `src/libs/ElevenLabs/` | Main SDK library (`ElevenLabsClient`) |
 | `src/tests/IntegrationTests/` | Integration tests against real ElevenLabs API |
 | `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
-| `src/helpers/TrimmingHelper/` | NativeAOT/trimming compatibility validator |
 
 ### Hand-Written Extensions
 
