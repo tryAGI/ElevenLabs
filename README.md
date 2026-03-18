@@ -12,6 +12,7 @@
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
 - Support .Net Framework/.Net Standard 2.0
 - Realtime speech-to-text via WebSocket
+- Microsoft.Extensions.AI `ISpeechToTextClient` support
 
 ## Usage
 
