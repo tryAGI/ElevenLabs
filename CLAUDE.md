@@ -55,7 +55,6 @@ autosdk generate openapi.yaml \
 |---------|---------|
 | `src/libs/ElevenLabs/` | Main SDK library (`ElevenLabsClient`) |
 | `src/tests/IntegrationTests/` | Integration tests against real ElevenLabs API |
-| `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
 
 ### Hand-Written Extensions
 
