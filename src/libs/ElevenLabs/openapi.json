@@ -24057,7 +24057,8 @@
           "pcm_48000",
           "ulaw_8000"
         ],
-        "title": "ASRInputFormat"
+        "title": "ASRInputFormat",
+        "default": "pcm_16000"
       },
       "ASRProvider": {
         "type": "string",
@@ -24065,14 +24066,16 @@
           "elevenlabs",
           "scribe_realtime"
         ],
-        "title": "ASRProvider"
+        "title": "ASRProvider",
+        "default": "elevenlabs"
       },
       "ASRQuality": {
         "type": "string",
         "enum": [
           "high"
         ],
-        "title": "ASRQuality"
+        "title": "ASRQuality",
+        "default": "high"
       },
       "ASTAndOperatorNode-Input": {
         "properties": {
@@ -27636,7 +27639,8 @@
           "template",
           "unknown"
         ],
-        "title": "AgentDefinitionSource"
+        "title": "AgentDefinitionSource",
+        "default": "unknown"
       },
       "AgentDeploymentPercentageStrategy": {
         "properties": {
@@ -28124,7 +28128,8 @@
           "test",
           "folder"
         ],
-        "title": "AgentTestEntityType"
+        "title": "AgentTestEntityType",
+        "default": "test"
       },
       "AgentTestFolderPathSegmentResponseModel": {
         "properties": {
@@ -28163,6 +28168,7 @@
         "example": {
           "attached_tests": [
             {
+              "environment": "staging",
               "test_id": "test_123",
               "workflow_node_id": "node_abc"
             },
@@ -30102,7 +30108,8 @@
           "genesys_api_key",
           "whatsapp"
         ],
-        "title": "AuthorizationMethod"
+        "title": "AuthorizationMethod",
+        "default": "public"
       },
       "AutoSyncInfo": {
         "properties": {
@@ -34660,7 +34667,7 @@
             },
             "type": "array",
             "title": "Keyterms",
-            "description": "A list of keyterms to bias the transcription towards.           The keyterms are words or phrases you want the model to recognise more accurately.           The number of keyterms cannot exceed 100.           The length of each keyterm must be less than 50 characters.           Keyterms can contain at most 5 words (after normalisation).           For example [\"hello\", \"world\", \"technical term\"].           Usage of this parameter will incur additional costs.  ",
+            "description": "A list of keyterms to bias the transcription towards.           The keyterms are words or phrases you want the model to recognise more accurately.           The number of keyterms cannot exceed 1000.           The length of each keyterm must be less than 50 characters.           Keyterms can contain at most 5 words (after normalisation).           For example [\"hello\", \"world\", \"technical term\"].           Usage of this parameter will incur additional costs.           When more than 100 keyterms are provided, a minimum billable duration of 20 seconds applies per request.",
             "default": []
           }
         },
@@ -36947,7 +36954,8 @@
           "writer_perms_required",
           "admin_perms_required"
         ],
-        "title": "BranchProtectionStatus"
+        "title": "BranchProtectionStatus",
+        "default": "writer_perms_required"
       },
       "BreakdownTypes": {
         "type": "string",
@@ -42200,7 +42208,8 @@
           "template_preview"
         ],
         "title": "ConversationInitiationSource",
-        "description": "Enum representing the possible sources for conversation initiation."
+        "description": "Enum representing the possible sources for conversation initiation.",
+        "default": "unknown"
       },
       "ConversationInitiationSourceInfo": {
         "properties": {
@@ -42536,7 +42545,8 @@
           "signed_url",
           "shareable_link"
         ],
-        "title": "ConversationTokenPurpose"
+        "title": "ConversationTokenPurpose",
+        "default": "signed_url"
       },
       "ConversationTurnMetrics": {
         "properties": {
@@ -43814,6 +43824,18 @@
             "description": "Maximum number of conversation turns for simulation tests.",
             "default": 5
           },
+          "simulation_environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Simulation Environment",
+            "description": "The environment to use when running this simulation test. If not provided, defaults to 'production'."
+          },
           "name": {
             "type": "string",
             "title": "Name"
@@ -44253,7 +44275,8 @@
           "chat_completions",
           "responses"
         ],
-        "title": "CustomLLMAPIType"
+        "title": "CustomLLMAPIType",
+        "default": "chat_completions"
       },
       "CustomSIPHeader": {
         "properties": {
@@ -45740,7 +45763,8 @@
           "prompt",
           "auto"
         ],
-        "title": "DocumentUsageModeEnum"
+        "title": "DocumentUsageModeEnum",
+        "default": "auto"
       },
       "DocxExportOptions": {
         "properties": {
@@ -46589,7 +46613,8 @@
           "full",
           "expandable"
         ],
-        "title": "EmbedVariant"
+        "title": "EmbedVariant",
+        "default": "full"
       },
       "EmbeddingModelEnum": {
         "type": "string",
@@ -46598,7 +46623,8 @@
           "multilingual_e5_large_instruct",
           "qwen3_embedding_4b"
         ],
-        "title": "EmbeddingModelEnum"
+        "title": "EmbeddingModelEnum",
+        "default": "e5_mistral_7b_instruct"
       },
       "EndCallToolConfig": {
         "properties": {
@@ -50193,6 +50219,18 @@
             "description": "Maximum number of conversation turns for simulation tests.",
             "default": 5
           },
+          "simulation_environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Simulation Environment",
+            "description": "The environment to use when running this simulation test. If not provided, defaults to 'production'."
+          },
           "id": {
             "type": "string",
             "title": "Id"
@@ -50877,7 +50915,8 @@
           "streaming",
           "blocking"
         ],
-        "title": "GuardrailExecutionMode"
+        "title": "GuardrailExecutionMode",
+        "default": "streaming"
       },
       "GuardrailsV1-Input": {
         "properties": {
@@ -51569,7 +51608,8 @@
           "watt-tool-8b",
           "watt-tool-70b"
         ],
-        "title": "LLM"
+        "title": "LLM",
+        "default": "gemini-2.5-flash"
       },
       "LLMCategoryUsage": {
         "properties": {
@@ -53196,7 +53236,8 @@
           "standard",
           "static"
         ],
-        "title": "LivekitStackType"
+        "title": "LivekitStackType",
+        "default": "standard"
       },
       "MCPApprovalPolicy": {
         "type": "string",
@@ -53206,7 +53247,8 @@
           "require_approval_per_tool"
         ],
         "title": "MCPApprovalPolicy",
-        "description": "Defines the MCP server-level approval policy for tool execution."
+        "description": "Defines the MCP server-level approval policy for tool execution.",
+        "default": "require_approval_all"
       },
       "MCPApprovalPolicyUpdateRequestModel": {
         "properties": {
@@ -53756,7 +53798,8 @@
           "STREAMABLE_HTTP"
         ],
         "title": "MCPServerTransport",
-        "description": "Supported MCP server transport types."
+        "description": "Supported MCP server transport types.",
+        "default": "SSE"
       },
       "MCPServersResponseModel": {
         "properties": {
@@ -53840,7 +53883,8 @@
           "requires_approval"
         ],
         "title": "MCPToolApprovalPolicy",
-        "description": "Defines the tool-level approval policy."
+        "description": "Defines the tool-level approval policy.",
+        "default": "requires_approval"
       },
       "MCPToolConfig-Input": {
         "properties": {
@@ -54641,7 +54685,8 @@
           "weighted_interleave"
         ],
         "title": "MergingStrategy",
-        "description": "Strategy for merging results from multiple sources."
+        "description": "Strategy for merging results from multiple sources.",
+        "default": "rank_fusion"
       },
       "MessagesSearchResponse": {
         "properties": {
@@ -61812,7 +61857,8 @@
           "allow"
         ],
         "title": "ResponseFilterMode",
-        "description": "Controls how tool responses are filtered before being visible to the agent."
+        "description": "Controls how tool responses are filtered before being visible to the agent.",
+        "default": "all"
       },
       "ResponseUnitTestModel": {
         "properties": {
@@ -62083,7 +62129,8 @@
           "allowed",
           "required"
         ],
-        "title": "SIPMediaEncryptionEnum"
+        "title": "SIPMediaEncryptionEnum",
+        "default": "allowed"
       },
       "SIPTrunkCredentialsRequestModel": {
         "properties": {
@@ -62161,7 +62208,8 @@
           "tcp",
           "tls"
         ],
-        "title": "SIPTrunkTransportEnum"
+        "title": "SIPTrunkTransportEnum",
+        "default": "auto"
       },
       "SIPUriDynamicVariableTransferDestination": {
         "properties": {
@@ -63295,6 +63343,18 @@
             "title": "Simulation Max Turns",
             "description": "Maximum number of conversation turns for simulation tests.",
             "default": 5
+          },
+          "simulation_environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Simulation Environment",
+            "description": "The environment to use when running this simulation test. If not provided, defaults to 'production'."
           }
         },
         "type": "object",
@@ -64838,7 +64898,8 @@
           "off"
         ],
         "title": "SpellingPatience",
-        "description": "Controls if the agent should be more patient when user is spelling numbers and named entities."
+        "description": "Controls if the agent should be more patient when user is spelling numbers and named entities.",
+        "default": "auto"
       },
       "SrtExportOptions": {
         "properties": {
@@ -66509,7 +66570,8 @@
             "description": "Deprecated: Use eleven_flash_v2_5 instead.",
             "deprecated": true
           }
-        }
+        },
+        "default": "eleven_flash_v2"
       },
       "TTSModelFamily": {
         "type": "string",
@@ -66549,7 +66611,8 @@
           "pcm_48000",
           "ulaw_8000"
         ],
-        "title": "TTSOutputFormat"
+        "title": "TTSOutputFormat",
+        "default": "pcm_16000"
       },
       "TelephonyCallConfig": {
         "properties": {
@@ -66571,7 +66634,8 @@
           "inbound",
           "outbound"
         ],
-        "title": "TelephonyDirection"
+        "title": "TelephonyDirection",
+        "default": "inbound"
       },
       "TelephonyProvider": {
         "type": "string",
@@ -66908,7 +66972,8 @@
           "elevenlabs"
         ],
         "title": "TextNormalisationType",
-        "description": "Method for converting numbers to words before sending to TTS"
+        "description": "Method for converting numbers to words before sending to TTS",
+        "default": "system_prompt"
       },
       "ThresholdGuardrail": {
         "properties": {
@@ -67106,7 +67171,8 @@
           "always"
         ],
         "title": "ToolCallSoundBehavior",
-        "description": "Determines how the tool call sound should be played."
+        "description": "Determines how the tool call sound should be played.",
+        "default": "auto"
       },
       "ToolCallSoundType": {
         "type": "string",
@@ -67207,7 +67273,8 @@
           "hide"
         ],
         "title": "ToolErrorHandlingMode",
-        "description": "Controls how tool errors are processed before being shared with the agent."
+        "description": "Controls how tool errors are processed before being shared with the agent.",
+        "default": "auto"
       },
       "ToolExecutionMode": {
         "type": "string",
@@ -67216,7 +67283,8 @@
           "post_tool_speech",
           "async"
         ],
-        "title": "ToolExecutionMode"
+        "title": "ToolExecutionMode",
+        "default": "immediate"
       },
       "ToolMockConfig": {
         "properties": {
@@ -67802,7 +67870,8 @@
           "conference",
           "sip_refer"
         ],
-        "title": "TransferTypeEnum"
+        "title": "TransferTypeEnum",
+        "default": "conference"
       },
       "TurnConfig": {
         "properties": {
@@ -68024,7 +68093,8 @@
           "eager"
         ],
         "title": "TurnEagerness",
-        "description": "Agent's eagerness to respond. Higher values make agent wait for higher turn probability."
+        "description": "Agent's eagerness to respond. Higher values make agent wait for higher turn probability.",
+        "default": "normal"
       },
       "TurnMode": {
         "type": "string",
@@ -68032,7 +68102,8 @@
           "silence",
           "turn"
         ],
-        "title": "TurnMode"
+        "title": "TurnMode",
+        "default": "turn"
       },
       "TurnModel": {
         "type": "string",
@@ -68335,6 +68406,17 @@
               }
             ],
             "title": "Root Folder Name"
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment"
           }
         },
         "type": "object",
@@ -68901,6 +68983,18 @@
             "title": "Simulation Max Turns",
             "description": "Maximum number of conversation turns for simulation tests.",
             "default": 5
+          },
+          "simulation_environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Simulation Environment",
+            "description": "The environment to use when running this simulation test. If not provided, defaults to 'production'."
           },
           "name": {
             "type": "string",
@@ -73855,7 +73949,8 @@
         "enum": [
           "rating"
         ],
-        "title": "WidgetEndFeedbackType"
+        "title": "WidgetEndFeedbackType",
+        "default": "rating"
       },
       "WidgetExpandable": {
         "type": "string",
@@ -73865,7 +73960,8 @@
           "desktop",
           "always"
         ],
-        "title": "WidgetExpandable"
+        "title": "WidgetExpandable",
+        "default": "never"
       },
       "WidgetFeedbackMode": {
         "type": "string",
@@ -73874,7 +73970,8 @@
           "during",
           "end"
         ],
-        "title": "WidgetFeedbackMode"
+        "title": "WidgetFeedbackMode",
+        "default": "none"
       },
       "WidgetLanguagePreset": {
         "properties": {
@@ -74014,7 +74111,8 @@
           "bottom",
           "bottom-right"
         ],
-        "title": "WidgetPlacement"
+        "title": "WidgetPlacement",
+        "default": "bottom-right"
       },
       "WidgetStyles": {
         "properties": {

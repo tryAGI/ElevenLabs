@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: never
     /// </summary>
     public enum WidgetExpandable
     {

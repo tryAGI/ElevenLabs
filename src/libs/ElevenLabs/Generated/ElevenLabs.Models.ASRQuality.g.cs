@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: high
     /// </summary>
     public enum ASRQuality
     {

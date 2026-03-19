@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: bottom-right
     /// </summary>
     public enum WidgetPlacement
     {

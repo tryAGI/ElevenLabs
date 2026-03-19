@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: pcm_16000
     /// </summary>
     public enum ASRInputFormat
     {

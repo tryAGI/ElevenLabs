@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: immediate
     /// </summary>
     public enum ToolExecutionMode
     {

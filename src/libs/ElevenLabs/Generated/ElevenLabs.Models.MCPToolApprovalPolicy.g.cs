@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Defines the tool-level approval policy.
+    /// Defines the tool-level approval policy.<br/>
+    /// Default Value: requires_approval
     /// </summary>
     public enum MCPToolApprovalPolicy
     {

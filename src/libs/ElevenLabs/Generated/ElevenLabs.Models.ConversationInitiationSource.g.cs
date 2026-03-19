@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Enum representing the possible sources for conversation initiation.
+    /// Enum representing the possible sources for conversation initiation.<br/>
+    /// Default Value: unknown
     /// </summary>
     public enum ConversationInitiationSource
     {

@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Controls how tool responses are filtered before being visible to the agent.
+    /// Controls how tool responses are filtered before being visible to the agent.<br/>
+    /// Default Value: all
     /// </summary>
     public enum ResponseFilterMode
     {

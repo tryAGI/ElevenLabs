@@ -9,12 +9,13 @@ namespace ElevenLabs
     public sealed partial class ConversationHistoryTwilioPhoneCallModel
     {
         /// <summary>
-        /// 
+        /// Default Value: inbound
         /// </summary>
+        /// <default>global::ElevenLabs.TelephonyDirection.Inbound</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyDirectionJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.TelephonyDirection Direction { get; set; }
+        public required global::ElevenLabs.TelephonyDirection Direction { get; set; } = global::ElevenLabs.TelephonyDirection.Inbound;
 
         /// <summary>
         /// 
@@ -67,7 +68,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationHistoryTwilioPhoneCallModel" /> class.
         /// </summary>
-        /// <param name="direction"></param>
+        /// <param name="direction">
+        /// Default Value: inbound
+        /// </param>
         /// <param name="phoneNumberId"></param>
         /// <param name="agentNumber"></param>
         /// <param name="externalNumber"></param>

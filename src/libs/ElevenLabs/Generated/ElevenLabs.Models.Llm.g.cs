@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: gemini-2.5-flash
     /// </summary>
     public enum Llm
     {

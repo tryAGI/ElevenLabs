@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: none
     /// </summary>
     public enum WidgetFeedbackMode
     {

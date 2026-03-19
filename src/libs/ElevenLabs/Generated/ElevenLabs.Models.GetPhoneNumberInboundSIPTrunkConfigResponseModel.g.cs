@@ -22,12 +22,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? AllowedNumbers { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: allowed
         /// </summary>
+        /// <default>global::ElevenLabs.SIPMediaEncryptionEnum.Allowed</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_encryption")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPMediaEncryptionEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; }
+        public required global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; } = global::ElevenLabs.SIPMediaEncryptionEnum.Allowed;
 
         /// <summary>
         /// Whether authentication credentials are configured
@@ -63,7 +64,9 @@ namespace ElevenLabs
         /// <param name="allowedNumbers">
         /// List of phone numbers that are allowed to use the trunk.
         /// </param>
-        /// <param name="mediaEncryption"></param>
+        /// <param name="mediaEncryption">
+        /// Default Value: allowed
+        /// </param>
         /// <param name="hasAuthCredentials">
         /// Whether authentication credentials are configured
         /// </param>

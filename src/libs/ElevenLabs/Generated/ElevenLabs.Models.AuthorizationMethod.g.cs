@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: public
     /// </summary>
     public enum AuthorizationMethod
     {

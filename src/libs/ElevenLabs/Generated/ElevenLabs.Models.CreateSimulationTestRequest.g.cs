@@ -52,6 +52,12 @@ namespace ElevenLabs
         public int? SimulationMaxTurns { get; set; }
 
         /// <summary>
+        /// The environment to use when running this simulation test. If not provided, defaults to 'production'.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("simulation_environment")]
+        public string? SimulationEnvironment { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -93,6 +99,9 @@ namespace ElevenLabs
         /// Maximum number of conversation turns for simulation tests.<br/>
         /// Default Value: 5
         /// </param>
+        /// <param name="simulationEnvironment">
+        /// The environment to use when running this simulation test. If not provided, defaults to 'production'.
+        /// </param>
         /// <param name="name"></param>
         /// <param name="parentFolderId">
         /// The ID of the parent folder. If not provided, the test will be created at the root level.
@@ -109,6 +118,7 @@ namespace ElevenLabs
             string? successCondition,
             string? simulationScenario,
             int? simulationMaxTurns,
+            string? simulationEnvironment,
             string? parentFolderId)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -119,6 +129,7 @@ namespace ElevenLabs
             this.SuccessCondition = successCondition;
             this.SimulationScenario = simulationScenario;
             this.SimulationMaxTurns = simulationMaxTurns;
+            this.SimulationEnvironment = simulationEnvironment;
             this.ParentFolderId = parentFolderId;
         }
 

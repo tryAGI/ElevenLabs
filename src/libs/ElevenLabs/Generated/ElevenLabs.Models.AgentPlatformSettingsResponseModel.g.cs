@@ -44,9 +44,9 @@ namespace ElevenLabs
 
         /// <summary>
         /// Testing configuration for the agent<br/>
-        /// Example: {"attached_tests":[{"test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
+        /// Example: {"attached_tests":[{"environment":"staging","test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
         /// </summary>
-        /// <example>{"attached_tests":[{"test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}</example>
+        /// <example>{"attached_tests":[{"environment":"staging","test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("testing")]
         public global::ElevenLabs.AgentTestingSettings? Testing { get; set; }
 
@@ -127,7 +127,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="testing">
         /// Testing configuration for the agent<br/>
-        /// Example: {"attached_tests":[{"test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
+        /// Example: {"attached_tests":[{"environment":"staging","test_id":"test_123","workflow_node_id":"node_abc"},{"test_id":"test_456"}],"referenced_tests_ids":["test_123","test_456"]}
         /// </param>
         /// <param name="archived">
         /// Whether the agent is archived<br/>

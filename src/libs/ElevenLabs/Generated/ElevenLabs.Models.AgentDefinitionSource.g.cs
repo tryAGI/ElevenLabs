@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: unknown
     /// </summary>
     public enum AgentDefinitionSource
     {

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: elevenlabs
     /// </summary>
     public enum ASRProvider
     {

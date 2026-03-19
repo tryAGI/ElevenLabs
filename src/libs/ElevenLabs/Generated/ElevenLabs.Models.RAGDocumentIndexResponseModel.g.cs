@@ -16,12 +16,13 @@ namespace ElevenLabs
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: e5_mistral_7b_instruct
         /// </summary>
+        /// <default>global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; }
+        public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; } = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct;
 
         /// <summary>
         /// 
@@ -55,7 +56,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="RAGDocumentIndexResponseModel" /> class.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="model"></param>
+        /// <param name="model">
+        /// Default Value: e5_mistral_7b_instruct
+        /// </param>
         /// <param name="status"></param>
         /// <param name="progressPercentage"></param>
         /// <param name="documentModelIndexUsage"></param>

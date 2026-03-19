@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Controls how tool errors are processed before being shared with the agent.
+    /// Controls how tool errors are processed before being shared with the agent.<br/>
+    /// Default Value: auto
     /// </summary>
     public enum ToolErrorHandlingMode
     {

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: eleven_flash_v2
     /// </summary>
     public enum TTSConversationalModel
     {

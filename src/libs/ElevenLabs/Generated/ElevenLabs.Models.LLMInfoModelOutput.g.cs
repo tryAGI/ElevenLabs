@@ -9,12 +9,14 @@ namespace ElevenLabs
     public sealed partial class LLMInfoModelOutput
     {
         /// <summary>
-        /// The model identifier.
+        /// The model identifier.<br/>
+        /// Default Value: gemini-2.5-flash
         /// </summary>
+        /// <default>global::ElevenLabs.Llm.Gemini25Flash</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Llm Llm { get; set; }
+        public required global::ElevenLabs.Llm Llm { get; set; } = global::ElevenLabs.Llm.Gemini25Flash;
 
         /// <summary>
         /// Whether this is a pinned checkpoint version of a model rather than a top-level alias.
@@ -80,7 +82,8 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="LLMInfoModelOutput" /> class.
         /// </summary>
         /// <param name="llm">
-        /// The model identifier.
+        /// The model identifier.<br/>
+        /// Default Value: gemini-2.5-flash
         /// </param>
         /// <param name="isCheckpoint">
         /// Whether this is a pinned checkpoint version of a model rather than a top-level alias.

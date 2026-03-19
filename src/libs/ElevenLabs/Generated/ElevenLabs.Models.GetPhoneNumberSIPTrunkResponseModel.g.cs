@@ -78,12 +78,14 @@ namespace ElevenLabs
         public global::ElevenLabs.GetPhoneNumberInboundSIPTrunkConfigResponseModel? InboundTrunk { get; set; }
 
         /// <summary>
-        /// Type of Livekit stack used for this number.
+        /// Type of Livekit stack used for this number.<br/>
+        /// Default Value: standard
         /// </summary>
+        /// <default>global::ElevenLabs.LivekitStackType.Standard</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("livekit_stack")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LivekitStackTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.LivekitStackType LivekitStack { get; set; }
+        public required global::ElevenLabs.LivekitStackType LivekitStack { get; set; } = global::ElevenLabs.LivekitStackType.Standard;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -117,7 +119,8 @@ namespace ElevenLabs
         /// Configuration of the Inbound SIP trunk - if configured.
         /// </param>
         /// <param name="livekitStack">
-        /// Type of Livekit stack used for this number.
+        /// Type of Livekit stack used for this number.<br/>
+        /// Default Value: standard
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

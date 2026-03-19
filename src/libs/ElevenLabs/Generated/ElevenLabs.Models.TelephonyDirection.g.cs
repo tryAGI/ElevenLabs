@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: inbound
     /// </summary>
     public enum TelephonyDirection
     {

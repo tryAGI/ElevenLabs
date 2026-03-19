@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: writer_perms_required
     /// </summary>
     public enum BranchProtectionStatus
     {

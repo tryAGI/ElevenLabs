@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: auto
     /// </summary>
     public enum SIPTrunkTransportEnum
     {

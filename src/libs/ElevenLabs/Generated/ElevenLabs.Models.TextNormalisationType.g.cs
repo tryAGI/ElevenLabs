@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Method for converting numbers to words before sending to TTS
+    /// Method for converting numbers to words before sending to TTS<br/>
+    /// Default Value: system_prompt
     /// </summary>
     public enum TextNormalisationType
     {

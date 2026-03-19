@@ -105,6 +105,12 @@ namespace ElevenLabs
         public string? RootFolderName { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environment")]
+        public string? Environment { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -130,6 +136,7 @@ namespace ElevenLabs
         /// <param name="metadata"></param>
         /// <param name="rootFolderId"></param>
         /// <param name="rootFolderName"></param>
+        /// <param name="environment"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -148,7 +155,8 @@ namespace ElevenLabs
             int? lastUpdatedAtUnix,
             global::ElevenLabs.TestRunMetadata? metadata,
             string? rootFolderId,
-            string? rootFolderName)
+            string? rootFolderName,
+            string? environment)
         {
             this.TestRunId = testRunId ?? throw new global::System.ArgumentNullException(nameof(testRunId));
             this.TestInvocationId = testInvocationId ?? throw new global::System.ArgumentNullException(nameof(testInvocationId));
@@ -165,6 +173,7 @@ namespace ElevenLabs
             this.Metadata = metadata;
             this.RootFolderId = rootFolderId;
             this.RootFolderName = rootFolderName;
+            this.Environment = environment;
         }
 
         /// <summary>

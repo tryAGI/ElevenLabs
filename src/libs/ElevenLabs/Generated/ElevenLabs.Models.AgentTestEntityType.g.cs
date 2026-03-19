@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: test
     /// </summary>
     public enum AgentTestEntityType
     {

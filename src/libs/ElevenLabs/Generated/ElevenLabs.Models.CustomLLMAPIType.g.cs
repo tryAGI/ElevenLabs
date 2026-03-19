@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: chat_completions
     /// </summary>
     public enum CustomLLMAPIType
     {

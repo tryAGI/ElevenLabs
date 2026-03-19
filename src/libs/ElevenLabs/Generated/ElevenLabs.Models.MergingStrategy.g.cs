@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Strategy for merging results from multiple sources.
+    /// Strategy for merging results from multiple sources.<br/>
+    /// Default Value: rank_fusion
     /// </summary>
     public enum MergingStrategy
     {

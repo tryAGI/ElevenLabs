@@ -52,6 +52,12 @@ namespace ElevenLabs
         public int? SimulationMaxTurns { get; set; }
 
         /// <summary>
+        /// The environment to use when running this simulation test. If not provided, defaults to 'production'.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("simulation_environment")]
+        public string? SimulationEnvironment { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -80,6 +86,9 @@ namespace ElevenLabs
         /// Maximum number of conversation turns for simulation tests.<br/>
         /// Default Value: 5
         /// </param>
+        /// <param name="simulationEnvironment">
+        /// The environment to use when running this simulation test. If not provided, defaults to 'production'.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -90,7 +99,8 @@ namespace ElevenLabs
             string? type,
             string? successCondition,
             string? simulationScenario,
-            int? simulationMaxTurns)
+            int? simulationMaxTurns,
+            string? simulationEnvironment)
         {
             this.FromConversationMetadata = fromConversationMetadata;
             this.DynamicVariables = dynamicVariables;
@@ -99,6 +109,7 @@ namespace ElevenLabs
             this.SuccessCondition = successCondition;
             this.SimulationScenario = simulationScenario;
             this.SimulationMaxTurns = simulationMaxTurns;
+            this.SimulationEnvironment = simulationEnvironment;
         }
 
         /// <summary>

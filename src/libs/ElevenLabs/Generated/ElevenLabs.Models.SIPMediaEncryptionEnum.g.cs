@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: allowed
     /// </summary>
     public enum SIPMediaEncryptionEnum
     {

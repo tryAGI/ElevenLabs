@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: rating
     /// </summary>
     public enum WidgetEndFeedbackType
     {

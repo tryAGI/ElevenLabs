@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: e5_mistral_7b_instruct
     /// </summary>
     public enum EmbeddingModelEnum
     {

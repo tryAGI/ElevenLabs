@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: conference
     /// </summary>
     public enum TransferTypeEnum
     {
