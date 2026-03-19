@@ -22,6 +22,13 @@ namespace ElevenLabs
         public global::ElevenLabs.ContentConfig? Config { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("trigger_action")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TriggerAction2JsonConverter))]
+        public global::ElevenLabs.TriggerAction2? TriggerAction { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -34,15 +41,18 @@ namespace ElevenLabs
         /// Default Value: streaming
         /// </param>
         /// <param name="config"></param>
+        /// <param name="triggerAction"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ContentGuardrailOutput(
             global::ElevenLabs.GuardrailExecutionMode? executionMode,
-            global::ElevenLabs.ContentConfig? config)
+            global::ElevenLabs.ContentConfig? config,
+            global::ElevenLabs.TriggerAction2? triggerAction)
         {
             this.ExecutionMode = executionMode;
             this.Config = config;
+            this.TriggerAction = triggerAction;
         }
 
         /// <summary>

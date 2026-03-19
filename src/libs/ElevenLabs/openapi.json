@@ -17504,7 +17504,7 @@
           "knowledge_base",
           "document"
         ],
-        "x-fern-sdk-method-name": "refresh_document"
+        "x-fern-sdk-method-name": "refresh"
       }
     },
     "/v1/convai/knowledge-base/{documentation_id}/rag-index": {
@@ -24139,6 +24139,10 @@
                 {
                   "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                   "description": "Evaluates to true if the left value is less than or equal to the right."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                  "description": "Selects one of two expressions based on whether the given condition evaluates to true."
                 }
               ],
               "discriminator": {
@@ -24146,6 +24150,7 @@
                 "mapping": {
                   "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                   "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                  "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                   "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                   "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                   "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -24234,6 +24239,10 @@
                 {
                   "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                   "description": "Evaluates to true if the left value is less than or equal to the right."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                  "description": "Selects one of two expressions based on whether the given condition evaluates to true."
                 }
               ],
               "discriminator": {
@@ -24241,6 +24250,7 @@
                 "mapping": {
                   "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                   "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                  "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                   "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                   "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                   "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -24308,6 +24318,527 @@
           "value"
         ],
         "title": "ASTBooleanNode"
+      },
+      "ASTConditionalOperatorNode-Input": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "conditional_operator",
+            "title": "Type",
+            "default": "conditional_operator"
+          },
+          "condition": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Condition",
+            "description": "Condition deciding which expression should be selected.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input"
+              }
+            }
+          },
+          "trueExpression": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Trueexpression",
+            "description": "Expression selected if the condition is true.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input"
+              }
+            }
+          },
+          "falseExpression": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Falseexpression",
+            "description": "Expression selected if the condition is false.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "condition",
+          "trueExpression",
+          "falseExpression"
+        ],
+        "title": "ASTConditionalOperatorNode"
+      },
+      "ASTConditionalOperatorNode-Output": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "conditional_operator",
+            "title": "Type",
+            "default": "conditional_operator"
+          },
+          "condition": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Condition",
+            "description": "Condition deciding which expression should be selected.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output"
+              }
+            }
+          },
+          "trueExpression": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Trueexpression",
+            "description": "Expression selected if the condition is true.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output"
+              }
+            }
+          },
+          "falseExpression": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Falseexpression",
+            "description": "Expression selected if the condition is false.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "condition",
+          "trueExpression",
+          "falseExpression"
+        ],
+        "title": "ASTConditionalOperatorNode"
       },
       "ASTDynamicVariableNode-Input": {
         "properties": {
@@ -24411,6 +24942,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -24420,6 +24955,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -24487,6 +25023,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -24496,6 +25036,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -24579,6 +25120,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -24588,6 +25133,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -24655,6 +25201,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -24664,6 +25214,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -24748,6 +25299,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -24757,6 +25312,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -24824,6 +25380,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -24833,6 +25393,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -24916,6 +25477,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -24925,6 +25490,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -24992,6 +25558,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -25001,6 +25571,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -25085,6 +25656,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -25094,6 +25669,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25161,6 +25737,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -25170,6 +25750,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25253,6 +25834,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -25262,6 +25847,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -25329,6 +25915,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -25338,6 +25928,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -25511,6 +26102,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -25520,6 +26115,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25587,6 +26183,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -25596,6 +26196,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25679,6 +26280,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -25688,6 +26293,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -25755,6 +26361,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -25764,6 +26374,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -25848,6 +26459,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -25857,6 +26472,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25924,6 +26540,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -25933,6 +26553,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -26016,6 +26637,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -26025,6 +26650,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26092,6 +26718,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -26101,6 +26731,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26185,6 +26816,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -26194,6 +26829,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -26261,6 +26897,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -26270,6 +26910,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -26353,6 +26994,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Left",
@@ -26362,6 +27007,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26429,6 +27075,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Right",
@@ -26438,6 +27088,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26564,6 +27215,10 @@
                 {
                   "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                   "description": "Evaluates to true if the left value is less than or equal to the right."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                  "description": "Selects one of two expressions based on whether the given condition evaluates to true."
                 }
               ],
               "discriminator": {
@@ -26571,6 +27226,7 @@
                 "mapping": {
                   "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                   "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                  "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                   "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                   "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                   "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -26659,6 +27315,10 @@
                 {
                   "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                   "description": "Evaluates to true if the left value is less than or equal to the right."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                  "description": "Selects one of two expressions based on whether the given condition evaluates to true."
                 }
               ],
               "discriminator": {
@@ -26666,6 +27326,7 @@
                 "mapping": {
                   "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                   "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                  "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                   "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                   "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                   "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -39096,6 +39757,24 @@
           },
           "config": {
             "$ref": "#/components/schemas/ContentConfig"
+          },
+          "trigger_action": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EndCallTriggerAction"
+              },
+              {
+                "$ref": "#/components/schemas/RetryTriggerAction"
+              }
+            ],
+            "title": "Trigger Action",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "end_call": "#/components/schemas/EndCallTriggerAction",
+                "retry": "#/components/schemas/RetryTriggerAction"
+              }
+            }
           }
         },
         "type": "object",
@@ -39109,6 +39788,24 @@
           },
           "config": {
             "$ref": "#/components/schemas/ContentConfig"
+          },
+          "trigger_action": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EndCallTriggerAction"
+              },
+              {
+                "$ref": "#/components/schemas/RetryTriggerAction"
+              }
+            ],
+            "title": "Trigger Action",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "end_call": "#/components/schemas/EndCallTriggerAction",
+                "retry": "#/components/schemas/RetryTriggerAction"
+              }
+            }
           }
         },
         "type": "object",
@@ -44106,6 +44803,24 @@
           "execution_mode": {
             "$ref": "#/components/schemas/GuardrailExecutionMode",
             "default": "streaming"
+          },
+          "trigger_action": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EndCallTriggerAction"
+              },
+              {
+                "$ref": "#/components/schemas/RetryTriggerAction"
+              }
+            ],
+            "title": "Trigger Action",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "end_call": "#/components/schemas/EndCallTriggerAction",
+                "retry": "#/components/schemas/RetryTriggerAction"
+              }
+            }
           }
         },
         "type": "object",
@@ -46677,6 +47392,18 @@
         },
         "type": "object",
         "title": "EndCallToolResultModel"
+      },
+      "EndCallTriggerAction": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "end_call",
+            "title": "Type",
+            "default": "end_call"
+          }
+        },
+        "type": "object",
+        "title": "EndCallTriggerAction"
       },
       "EnvironmentAuthConnectionLocator": {
         "properties": {
@@ -61987,6 +62714,24 @@
         ],
         "title": "ResubmitTestsRequestModel"
       },
+      "RetryTriggerAction": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "retry",
+            "title": "Type",
+            "default": "retry"
+          },
+          "feedback": {
+            "type": "string",
+            "title": "Feedback",
+            "description": "Custom feedback to inject into the agent when retrying after guardrail trigger.",
+            "default": "Your response was blocked by a guardrail that blocks content that matches this condition/category: '{{trigger_reason}}' During your next turn you must tell the user \"I'm sorry but I can't answer that question, would you like to know something else?\"."
+          }
+        },
+        "type": "object",
+        "title": "RetryTriggerAction"
+      },
       "ReviewResponseModel": {
         "properties": {
           "review_status": {
@@ -75243,6 +75988,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Expression",
@@ -75252,6 +76001,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -75346,6 +76096,10 @@
               {
                 "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
                 "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
             ],
             "title": "Expression",
@@ -75355,6 +76109,7 @@
               "mapping": {
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",

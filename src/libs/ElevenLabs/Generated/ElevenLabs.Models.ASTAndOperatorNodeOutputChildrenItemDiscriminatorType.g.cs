@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConditionalOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         DynamicVariable,
         /// <summary>
         /// 
@@ -76,6 +80,7 @@ namespace ElevenLabs
             {
                 ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.AndOperator => "and_operator",
                 ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.BooleanLiteral => "boolean_literal",
+                ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.ConditionalOperator => "conditional_operator",
                 ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.DynamicVariable => "dynamic_variable",
                 ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.EqOperator => "eq_operator",
                 ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.GtOperator => "gt_operator",
@@ -99,6 +104,7 @@ namespace ElevenLabs
             {
                 "and_operator" => ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.AndOperator,
                 "boolean_literal" => ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.BooleanLiteral,
+                "conditional_operator" => ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.ConditionalOperator,
                 "dynamic_variable" => ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.DynamicVariable,
                 "eq_operator" => ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.EqOperator,
                 "gt_operator" => ASTAndOperatorNodeOutputChildrenItemDiscriminatorType.GtOperator,

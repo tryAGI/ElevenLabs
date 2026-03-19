@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConditionalOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         DynamicVariable,
         /// <summary>
         /// 
@@ -76,6 +80,7 @@ namespace ElevenLabs
             {
                 WorkflowExpressionConditionModelInputExpressionDiscriminatorType.AndOperator => "and_operator",
                 WorkflowExpressionConditionModelInputExpressionDiscriminatorType.BooleanLiteral => "boolean_literal",
+                WorkflowExpressionConditionModelInputExpressionDiscriminatorType.ConditionalOperator => "conditional_operator",
                 WorkflowExpressionConditionModelInputExpressionDiscriminatorType.DynamicVariable => "dynamic_variable",
                 WorkflowExpressionConditionModelInputExpressionDiscriminatorType.EqOperator => "eq_operator",
                 WorkflowExpressionConditionModelInputExpressionDiscriminatorType.GtOperator => "gt_operator",
@@ -99,6 +104,7 @@ namespace ElevenLabs
             {
                 "and_operator" => WorkflowExpressionConditionModelInputExpressionDiscriminatorType.AndOperator,
                 "boolean_literal" => WorkflowExpressionConditionModelInputExpressionDiscriminatorType.BooleanLiteral,
+                "conditional_operator" => WorkflowExpressionConditionModelInputExpressionDiscriminatorType.ConditionalOperator,
                 "dynamic_variable" => WorkflowExpressionConditionModelInputExpressionDiscriminatorType.DynamicVariable,
                 "eq_operator" => WorkflowExpressionConditionModelInputExpressionDiscriminatorType.EqOperator,
                 "gt_operator" => WorkflowExpressionConditionModelInputExpressionDiscriminatorType.GtOperator,
