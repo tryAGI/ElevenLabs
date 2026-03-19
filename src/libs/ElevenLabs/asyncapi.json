@@ -1,0 +1,402 @@
+{
+  "asyncapi": "3.0.0",
+  "info": {
+    "title": "ElevenLabs Realtime Speech-to-Text",
+    "version": "1.0.0",
+    "description": "ElevenLabs realtime speech-to-text WebSocket API for streaming audio transcription."
+  },
+  "servers": {
+    "production": {
+      "host": "api.elevenlabs.io",
+      "pathname": "/v1/speech-to-text/realtime",
+      "protocol": "wss",
+      "description": "ElevenLabs production WebSocket server"
+    }
+  },
+  "channels": {
+    "realtime": {
+      "address": "/v1/speech-to-text/realtime",
+      "messages": {
+        "inputAudioChunk": {
+          "$ref": "#/components/messages/InputAudioChunk"
+        },
+        "sessionStarted": {
+          "$ref": "#/components/messages/SessionStarted"
+        },
+        "partialTranscript": {
+          "$ref": "#/components/messages/PartialTranscript"
+        },
+        "committedTranscript": {
+          "$ref": "#/components/messages/CommittedTranscript"
+        },
+        "committedTranscriptWithTimestamps": {
+          "$ref": "#/components/messages/CommittedTranscriptWithTimestamps"
+        },
+        "error": {
+          "$ref": "#/components/messages/Error"
+        }
+      }
+    }
+  },
+  "operations": {
+    "sendAudioChunk": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/realtime"
+      },
+      "summary": "Send an audio chunk to the server for transcription.",
+      "messages": [
+        {
+          "$ref": "#/channels/realtime/messages/inputAudioChunk"
+        }
+      ]
+    },
+    "receiveSessionStarted": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/realtime"
+      },
+      "summary": "Receive session started event.",
+      "messages": [
+        {
+          "$ref": "#/channels/realtime/messages/sessionStarted"
+        }
+      ]
+    },
+    "receivePartialTranscript": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/realtime"
+      },
+      "summary": "Receive partial transcript event.",
+      "messages": [
+        {
+          "$ref": "#/channels/realtime/messages/partialTranscript"
+        }
+      ]
+    },
+    "receiveCommittedTranscript": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/realtime"
+      },
+      "summary": "Receive committed transcript event.",
+      "messages": [
+        {
+          "$ref": "#/channels/realtime/messages/committedTranscript"
+        }
+      ]
+    },
+    "receiveCommittedTranscriptWithTimestamps": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/realtime"
+      },
+      "summary": "Receive committed transcript with word-level timestamps.",
+      "messages": [
+        {
+          "$ref": "#/channels/realtime/messages/committedTranscriptWithTimestamps"
+        }
+      ]
+    },
+    "receiveError": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/realtime"
+      },
+      "summary": "Receive error event.",
+      "messages": [
+        {
+          "$ref": "#/channels/realtime/messages/error"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "InputAudioChunkPayload": {
+        "type": "object",
+        "description": "Audio chunk sent by the client for transcription.",
+        "required": ["message_type", "audio_base_64", "commit", "sample_rate"],
+        "properties": {
+          "message_type": {
+            "type": "string",
+            "description": "Must be 'input_audio_chunk'.",
+            "enum": ["input_audio_chunk"]
+          },
+          "audio_base_64": {
+            "type": "string",
+            "description": "Base64-encoded audio data in the configured format."
+          },
+          "commit": {
+            "type": "boolean",
+            "description": "Whether to commit the audio buffer and produce a final transcript."
+          },
+          "sample_rate": {
+            "type": "integer",
+            "description": "Audio sample rate in Hz."
+          },
+          "previous_text": {
+            "type": "string",
+            "description": "Optional previous text context for improved transcription accuracy. Can only be sent with the first audio chunk.",
+            "nullable": true
+          }
+        }
+      },
+      "SessionConfig": {
+        "type": "object",
+        "description": "Negotiated session configuration returned by the server.",
+        "properties": {
+          "model_id": {
+            "type": "string",
+            "description": "The model used for transcription."
+          },
+          "sample_rate": {
+            "type": "integer",
+            "description": "Audio sample rate in Hz."
+          },
+          "audio_format": {
+            "type": "string",
+            "description": "Audio format being used (e.g., pcm_16000, ulaw_8000)."
+          },
+          "language_code": {
+            "type": "string",
+            "description": "Language code in ISO 639-1 or ISO 639-3 format."
+          },
+          "commit_strategy": {
+            "type": "string",
+            "description": "Commit strategy (manual or vad)."
+          },
+          "vad_silence_threshold_secs": {
+            "type": "number",
+            "description": "VAD silence threshold in seconds."
+          },
+          "vad_threshold": {
+            "type": "number",
+            "description": "Voice activity detection threshold."
+          },
+          "min_speech_duration_ms": {
+            "type": "integer",
+            "description": "Minimum speech duration in milliseconds."
+          },
+          "min_silence_duration_ms": {
+            "type": "integer",
+            "description": "Minimum silence duration in milliseconds."
+          },
+          "enable_logging": {
+            "type": "boolean",
+            "description": "Whether logging is enabled."
+          },
+          "include_timestamps": {
+            "type": "boolean",
+            "description": "Whether word-level timestamps are included."
+          },
+          "include_language_detection": {
+            "type": "boolean",
+            "description": "Whether language detection is included."
+          }
+        }
+      },
+      "SessionStartedPayload": {
+        "type": "object",
+        "description": "Event sent when a realtime session is established.",
+        "required": ["message_type", "session_id"],
+        "properties": {
+          "message_type": {
+            "type": "string",
+            "description": "Must be 'session_started'.",
+            "enum": ["session_started"]
+          },
+          "session_id": {
+            "type": "string",
+            "description": "Unique session identifier."
+          },
+          "config": {
+            "$ref": "#/components/schemas/SessionConfig"
+          }
+        }
+      },
+      "PartialTranscriptPayload": {
+        "type": "object",
+        "description": "Event containing a partial (in-progress) transcript.",
+        "required": ["message_type", "text"],
+        "properties": {
+          "message_type": {
+            "type": "string",
+            "description": "Must be 'partial_transcript'.",
+            "enum": ["partial_transcript"]
+          },
+          "text": {
+            "type": "string",
+            "description": "The partial transcript text."
+          }
+        }
+      },
+      "CommittedTranscriptPayload": {
+        "type": "object",
+        "description": "Event containing a committed (final) transcript.",
+        "required": ["message_type", "text"],
+        "properties": {
+          "message_type": {
+            "type": "string",
+            "description": "Must be 'committed_transcript'.",
+            "enum": ["committed_transcript"]
+          },
+          "text": {
+            "type": "string",
+            "description": "The committed transcript text."
+          }
+        }
+      },
+      "TranscriptionWord": {
+        "type": "object",
+        "description": "A word with timing information from a transcription.",
+        "required": ["text", "start", "end", "type"],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The word text."
+          },
+          "start": {
+            "type": "number",
+            "description": "Start time in seconds."
+          },
+          "end": {
+            "type": "number",
+            "description": "End time in seconds."
+          },
+          "type": {
+            "type": "string",
+            "description": "Whether this element is a word or spacing.",
+            "enum": ["word", "spacing"]
+          },
+          "speaker_id": {
+            "type": "string",
+            "description": "Optional speaker identifier.",
+            "nullable": true
+          },
+          "logprob": {
+            "type": "number",
+            "description": "Optional log probability.",
+            "nullable": true
+          },
+          "characters": {
+            "type": "array",
+            "description": "Optional character-level breakdown.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CommittedTranscriptWithTimestampsPayload": {
+        "type": "object",
+        "description": "Event containing a committed transcript with word-level timestamps.",
+        "required": ["message_type", "text"],
+        "properties": {
+          "message_type": {
+            "type": "string",
+            "description": "Must be 'committed_transcript_with_timestamps'.",
+            "enum": ["committed_transcript_with_timestamps"]
+          },
+          "text": {
+            "type": "string",
+            "description": "The committed transcript text."
+          },
+          "language_code": {
+            "type": "string",
+            "description": "Detected language code, if language detection is enabled.",
+            "nullable": true
+          },
+          "words": {
+            "type": "array",
+            "description": "Word-level timing information.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/TranscriptionWord"
+            }
+          }
+        }
+      },
+      "ErrorPayload": {
+        "type": "object",
+        "description": "Error event from the ElevenLabs service.",
+        "required": ["message_type", "error_type", "error"],
+        "properties": {
+          "message_type": {
+            "type": "string",
+            "description": "The error type identifier.",
+            "enum": ["error"]
+          },
+          "error_type": {
+            "type": "string",
+            "description": "Type of error (e.g., auth_error, quota_exceeded, rate_limited, input_error)."
+          },
+          "error": {
+            "type": "string",
+            "description": "Human-readable error message."
+          }
+        }
+      }
+    },
+    "messages": {
+      "InputAudioChunk": {
+        "name": "InputAudioChunk",
+        "summary": "Audio chunk for transcription.",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/InputAudioChunkPayload"
+        }
+      },
+      "SessionStarted": {
+        "name": "SessionStarted",
+        "summary": "Session started event with configuration details.",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/SessionStartedPayload"
+        }
+      },
+      "PartialTranscript": {
+        "name": "PartialTranscript",
+        "summary": "Partial transcript event.",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/PartialTranscriptPayload"
+        }
+      },
+      "CommittedTranscript": {
+        "name": "CommittedTranscript",
+        "summary": "Committed transcript event.",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/CommittedTranscriptPayload"
+        }
+      },
+      "CommittedTranscriptWithTimestamps": {
+        "name": "CommittedTranscriptWithTimestamps",
+        "summary": "Committed transcript with word-level timestamps.",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/CommittedTranscriptWithTimestampsPayload"
+        }
+      },
+      "Error": {
+        "name": "Error",
+        "summary": "Error event.",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/ErrorPayload"
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKey": {
+        "type": "httpApiKey",
+        "name": "xi-api-key",
+        "in": "header",
+        "description": "ElevenLabs API key"
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+#nullable enable
+
+namespace ElevenLabs.Realtime.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class SessionStartedPayloadMessageTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.Realtime.SessionStartedPayloadMessageType?>
+    {
+        /// <inheritdoc />
+        public override global::ElevenLabs.Realtime.SessionStartedPayloadMessageType? Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::ElevenLabs.Realtime.SessionStartedPayloadMessageTypeExtensions.ToEnum(stringValue);
+                    }
+                    
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::ElevenLabs.Realtime.SessionStartedPayloadMessageType)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::ElevenLabs.Realtime.SessionStartedPayloadMessageType?);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::ElevenLabs.Realtime.SessionStartedPayloadMessageType? value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::ElevenLabs.Realtime.SessionStartedPayloadMessageTypeExtensions.ToValueString(value.Value));
+            }
+        }
+    }
+}

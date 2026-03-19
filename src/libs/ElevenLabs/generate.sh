@@ -12,3 +12,12 @@ autosdk generate openapi.json \
   --methodNamingConvention MethodAndPath \
   --security-scheme ApiKey:Header:xi-api-key \
   --base-url https://api.elevenlabs.io
+
+autosdk generate asyncapi.json \
+  --namespace ElevenLabs.Realtime \
+  --websocket-class-name ElevenLabsRealtimeClient \
+  --json-serializer-context RealtimeSourceGenerationContext \
+  --targetFramework net10.0 \
+  --output Generated \
+  --security-scheme ApiKey:Header:xi-api-key \
+  --base-url https://api.elevenlabs.io
