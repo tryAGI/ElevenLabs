@@ -12,6 +12,7 @@
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
 - Support .Net Framework/.Net Standard 2.0
 - Realtime speech-to-text via WebSocket
+- Microsoft.Extensions.AI `ISpeechToTextClient` support
 
 ## Usage
 
@@ -25,6 +26,21 @@ dotnet add package ElevenLabs
 using ElevenLabs;
 
 using var client = new ElevenLabsClient(apiKey);
+```
+
+### Microsoft.Extensions.AI
+
+The SDK implements [`ISpeechToTextClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ispeechtotextclient):
+```csharp
+using ElevenLabs;
+using Microsoft.Extensions.AI;
+
+ISpeechToTextClient speechClient = new ElevenLabsClient(apiKey);
+
+await using var audioStream = File.OpenRead("recording.wav");
+var response = await speechClient.GetTextAsync(audioStream);
+
+Console.WriteLine(response.Text);
 ```
 
 <!-- EXAMPLES:START -->
