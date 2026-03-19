@@ -6,6 +6,8 @@ repo_name: tryAGI/ElevenLabs
 edit_uri: edit/main/docs/
 nav:
 - Overview: index.md
+- Guides:
+  - Microsoft.Extensions.AI: guides/meai.md
 # EXAMPLES:START
 - Examples:
   - List Available Voices: examples/list-available-voices.md
