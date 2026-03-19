@@ -2,6 +2,7 @@ name: Opens a new PR if there are OpenAPI updates
 on:
   schedule:
     - cron: '0 */3 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
