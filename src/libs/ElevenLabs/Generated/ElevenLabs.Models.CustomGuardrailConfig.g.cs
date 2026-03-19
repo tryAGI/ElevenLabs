@@ -36,6 +36,13 @@ namespace ElevenLabs
         public global::ElevenLabs.GuardrailExecutionMode? ExecutionMode { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("trigger_action")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TriggerAction3JsonConverter))]
+        public global::ElevenLabs.TriggerAction3? TriggerAction { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -56,6 +63,7 @@ namespace ElevenLabs
         /// <param name="executionMode">
         /// Default Value: streaming
         /// </param>
+        /// <param name="triggerAction"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -63,12 +71,14 @@ namespace ElevenLabs
             string name,
             string prompt,
             bool? isEnabled,
-            global::ElevenLabs.GuardrailExecutionMode? executionMode)
+            global::ElevenLabs.GuardrailExecutionMode? executionMode,
+            global::ElevenLabs.TriggerAction3? triggerAction)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.IsEnabled = isEnabled;
             this.ExecutionMode = executionMode;
+            this.TriggerAction = triggerAction;
         }
 
         /// <summary>

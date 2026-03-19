@@ -69,6 +69,11 @@ namespace ElevenLabs.JsonConverters
             if (__jsonProps.Contains("type")) __score12++;
             if (__jsonProps.Contains("left")) __score12++;
             if (__jsonProps.Contains("right")) __score12++;
+            var __score13 = 0;
+            if (__jsonProps.Contains("type")) __score13++;
+            if (__jsonProps.Contains("condition")) __score13++;
+            if (__jsonProps.Contains("trueExpression")) __score13++;
+            if (__jsonProps.Contains("falseExpression")) __score13++;
             var __bestScore = 0;
             var __bestIndex = -1;
             if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
@@ -84,6 +89,7 @@ namespace ElevenLabs.JsonConverters
             if (__score10 > __bestScore) { __bestScore = __score10; __bestIndex = 10; }
             if (__score11 > __bestScore) { __bestScore = __score11; __bestIndex = 11; }
             if (__score12 > __bestScore) { __bestScore = __score12; __bestIndex = 12; }
+            if (__score13 > __bestScore) { __bestScore = __score13; __bestIndex = 13; }
 
             global::ElevenLabs.ASTStringNodeInput? stringLiteral = default;
             global::ElevenLabs.ASTNumberNodeInput? numberLiteral = default;
@@ -98,6 +104,7 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.ASTLessThanOperatorNodeInput? ltOperator = default;
             global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput? gteOperator = default;
             global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput? lteOperator = default;
+            global::ElevenLabs.ASTConditionalOperatorNodeInput? conditionalOperator = default;
             if (__bestIndex >= 0)
             {
                 if (__bestIndex == 0)
@@ -295,9 +302,24 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
+                else if (__bestIndex == 13)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTConditionalOperatorNodeInput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput).Name}");
+                        conditionalOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
             }
 
-            if (stringLiteral == null && numberLiteral == null && booleanLiteral == null && aSTLMNodeInput == null && dynamicVariable == null && orOperator == null && andOperator == null && eqOperator == null && neqOperator == null && gtOperator == null && ltOperator == null && gteOperator == null && lteOperator == null)
+            if (stringLiteral == null && numberLiteral == null && booleanLiteral == null && aSTLMNodeInput == null && dynamicVariable == null && orOperator == null && andOperator == null && eqOperator == null && neqOperator == null && gtOperator == null && ltOperator == null && gteOperator == null && lteOperator == null && conditionalOperator == null)
             {
                 try
                 {
@@ -467,6 +489,19 @@ namespace ElevenLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+
+                try
+                {
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTConditionalOperatorNodeInput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput).Name}");
+                    conditionalOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
             }
 
             var __value = new global::ElevenLabs.Right(
@@ -494,7 +529,9 @@ namespace ElevenLabs.JsonConverters
 
                 gteOperator,
 
-                lteOperator
+                lteOperator,
+
+                conditionalOperator
                 );
 
             return __value;
@@ -586,6 +623,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.LteOperator, typeInfo);
+            }
+            else if (value.IsConditionalOperator)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTConditionalOperatorNodeInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ConditionalOperator, typeInfo);
             }
         }
     }
