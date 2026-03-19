@@ -22,6 +22,7 @@ public partial class Tests
         var transcription = await client.SpeechToText.CreateSpeechToTextAsync(
             modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
             file: audioFile,
+            filename: "hello-in-russian-24k-pcm16.wav",
             languageCode: "ru");
 
         //// Print the transcript text when it is available.
