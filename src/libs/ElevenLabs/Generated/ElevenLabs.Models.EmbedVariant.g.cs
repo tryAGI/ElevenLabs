@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: full
     /// </summary>
     public enum EmbedVariant
     {

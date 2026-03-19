@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Determines how the tool call sound should be played.
+    /// Determines how the tool call sound should be played.<br/>
+    /// Default Value: auto
     /// </summary>
     public enum ToolCallSoundBehavior
     {

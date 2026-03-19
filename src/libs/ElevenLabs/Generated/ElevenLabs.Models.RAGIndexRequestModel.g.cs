@@ -9,12 +9,13 @@ namespace ElevenLabs
     public sealed partial class RAGIndexRequestModel
     {
         /// <summary>
-        /// 
+        /// Default Value: e5_mistral_7b_instruct
         /// </summary>
+        /// <default>global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; }
+        public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; } = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -25,7 +26,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="RAGIndexRequestModel" /> class.
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="model">
+        /// Default Value: e5_mistral_7b_instruct
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Defines the MCP server-level approval policy for tool execution.
+    /// Defines the MCP server-level approval policy for tool execution.<br/>
+    /// Default Value: require_approval_all
     /// </summary>
     public enum MCPApprovalPolicy
     {

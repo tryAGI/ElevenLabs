@@ -16,12 +16,13 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.RagChunkMetadata> Chunks { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: e5_mistral_7b_instruct
         /// </summary>
+        /// <default>global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EmbeddingModelEnum EmbeddingModel { get; set; }
+        public required global::ElevenLabs.EmbeddingModelEnum EmbeddingModel { get; set; } = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct;
 
         /// <summary>
         /// 
@@ -47,7 +48,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="RagRetrievalInfo" /> class.
         /// </summary>
         /// <param name="chunks"></param>
-        /// <param name="embeddingModel"></param>
+        /// <param name="embeddingModel">
+        /// Default Value: e5_mistral_7b_instruct
+        /// </param>
         /// <param name="retrievalQuery"></param>
         /// <param name="ragLatencySecs"></param>
 #if NET7_0_OR_GREATER

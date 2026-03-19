@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Supported MCP server transport types.
+    /// Supported MCP server transport types.<br/>
+    /// Default Value: SSE
     /// </summary>
     public enum MCPServerTransport
     {

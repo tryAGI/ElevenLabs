@@ -23,12 +23,14 @@ namespace ElevenLabs
         public required bool CreateIfMissing { get; set; }
 
         /// <summary>
-        /// Embedding model to use for the RAG index
+        /// Embedding model to use for the RAG index<br/>
+        /// Default Value: e5_mistral_7b_instruct
         /// </summary>
+        /// <default>global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EmbeddingModelEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; }
+        public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; } = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -46,7 +48,8 @@ namespace ElevenLabs
         /// Whether to create the RAG index if it does not exist
         /// </param>
         /// <param name="model">
-        /// Embedding model to use for the RAG index
+        /// Embedding model to use for the RAG index<br/>
+        /// Default Value: e5_mistral_7b_instruct
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Agent's eagerness to respond. Higher values make agent wait for higher turn probability.
+    /// Agent's eagerness to respond. Higher values make agent wait for higher turn probability.<br/>
+    /// Default Value: normal
     /// </summary>
     public enum TurnEagerness
     {

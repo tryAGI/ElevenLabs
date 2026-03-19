@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: standard
     /// </summary>
     public enum LivekitStackType
     {

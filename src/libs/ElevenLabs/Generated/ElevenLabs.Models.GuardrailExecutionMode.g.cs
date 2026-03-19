@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: streaming
     /// </summary>
     public enum GuardrailExecutionMode
     {

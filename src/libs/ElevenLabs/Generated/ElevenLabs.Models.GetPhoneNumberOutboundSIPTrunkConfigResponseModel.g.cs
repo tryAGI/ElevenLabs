@@ -16,20 +16,24 @@ namespace ElevenLabs
         public required string Address { get; set; }
 
         /// <summary>
-        /// Protocol to use for SIP transport
+        /// Protocol to use for SIP transport<br/>
+        /// Default Value: auto
         /// </summary>
+        /// <default>global::ElevenLabs.SIPTrunkTransportEnum.Auto</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("transport")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPTrunkTransportEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SIPTrunkTransportEnum Transport { get; set; }
+        public required global::ElevenLabs.SIPTrunkTransportEnum Transport { get; set; } = global::ElevenLabs.SIPTrunkTransportEnum.Auto;
 
         /// <summary>
-        /// Whether or not to encrypt media (data layer).
+        /// Whether or not to encrypt media (data layer).<br/>
+        /// Default Value: allowed
         /// </summary>
+        /// <default>global::ElevenLabs.SIPMediaEncryptionEnum.Allowed</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_encryption")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SIPMediaEncryptionEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; }
+        public required global::ElevenLabs.SIPMediaEncryptionEnum MediaEncryption { get; set; } = global::ElevenLabs.SIPMediaEncryptionEnum.Allowed;
 
         /// <summary>
         /// SIP headers for INVITE request
@@ -70,10 +74,12 @@ namespace ElevenLabs
         /// Hostname or IP the SIP INVITE is sent to
         /// </param>
         /// <param name="transport">
-        /// Protocol to use for SIP transport
+        /// Protocol to use for SIP transport<br/>
+        /// Default Value: auto
         /// </param>
         /// <param name="mediaEncryption">
-        /// Whether or not to encrypt media (data layer).
+        /// Whether or not to encrypt media (data layer).<br/>
+        /// Default Value: allowed
         /// </param>
         /// <param name="headers">
         /// SIP headers for INVITE request

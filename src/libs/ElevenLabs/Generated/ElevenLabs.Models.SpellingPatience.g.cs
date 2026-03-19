@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Controls if the agent should be more patient when user is spelling numbers and named entities.
+    /// Controls if the agent should be more patient when user is spelling numbers and named entities.<br/>
+    /// Default Value: auto
     /// </summary>
     public enum SpellingPatience
     {
