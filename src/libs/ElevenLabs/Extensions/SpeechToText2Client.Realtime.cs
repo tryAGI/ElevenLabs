@@ -3,7 +3,7 @@ using System.Net.WebSockets;
 
 namespace ElevenLabs;
 
-public sealed partial class SpeechToTextClient
+public sealed partial class SpeechToText2Client
 {
     private const string RealtimePath = "/v1/speech-to-text/realtime";
 
