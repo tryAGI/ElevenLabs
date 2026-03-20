@@ -16,8 +16,11 @@ namespace ElevenLabs
         /// If specified, the endpoint returns only such knowledge base documents whose names start with this string.
         /// </param>
         /// <param name="showOnlyOwnedDocuments">
-        /// If set to true, the endpoint will return only documents owned by you (and not shared from somebody else).<br/>
+        /// If set to true, the endpoint will return only documents owned by you (and not shared from somebody else). Deprecated: use created_by_user_id instead.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter documents by creator user ID. When set, only documents created by this user are returned. Takes precedence over show_only_owned_documents. Use '@me' to refer to the authenticated user.
         /// </param>
         /// <param name="types">
         /// If present, the endpoint will return only documents of the given types.
@@ -51,6 +54,7 @@ namespace ElevenLabs
             int? pageSize = default,
             string? search = default,
             bool? showOnlyOwnedDocuments = default,
+            string? createdByUserId = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types = default,
             string? parentFolderId = default,
             string? ancestorFolderId = default,

@@ -1,6 +1,8 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
@@ -10,6 +12,7 @@ namespace ElevenLabs
             ref string? search,
             int? pageSize,
             ref bool? showOnlyOwnedDocuments,
+            ref string? createdByUserId,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types,
             ref global::ElevenLabs.SortDirection? sortDirection,
             global::ElevenLabs.ToolSortBy? sortBy,
@@ -21,6 +24,7 @@ namespace ElevenLabs
             string? search,
             int? pageSize,
             bool? showOnlyOwnedDocuments,
+            string? createdByUserId,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types,
             global::ElevenLabs.SortDirection? sortDirection,
             global::ElevenLabs.ToolSortBy? sortBy,
@@ -46,8 +50,11 @@ namespace ElevenLabs
         /// How many documents to return at maximum. Can not exceed 100, defaults to 30.
         /// </param>
         /// <param name="showOnlyOwnedDocuments">
-        /// If set to true, the endpoint will return only tools owned by you (and not shared from somebody else).<br/>
+        /// If set to true, the endpoint will return only tools owned by you (and not shared from somebody else). Deprecated: use created_by_user_id instead.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter tools by creator user ID. When set, only tools created by this user are returned. Takes precedence over show_only_owned_documents. Use '@me' to refer to the authenticated user.
         /// </param>
         /// <param name="types">
         /// If present, the endpoint will return only tools of the given types.
@@ -71,6 +78,7 @@ namespace ElevenLabs
             string? search = default,
             int? pageSize = default,
             bool? showOnlyOwnedDocuments = default,
+            string? createdByUserId = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.ToolSortBy? sortBy = default,
@@ -85,6 +93,7 @@ namespace ElevenLabs
                 search: ref search,
                 pageSize: pageSize,
                 showOnlyOwnedDocuments: ref showOnlyOwnedDocuments,
+                createdByUserId: ref createdByUserId,
                 types: types,
                 sortDirection: ref sortDirection,
                 sortBy: sortBy,
@@ -98,6 +107,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("search", search)
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString())
+                .AddOptionalParameter("created_by_user_id", createdByUserId)
                 .AddOptionalParameter("types", types?.ToString())
                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                 .AddOptionalParameter("sort_by", sortBy?.ToString())
@@ -143,6 +153,7 @@ namespace ElevenLabs
                 search: search,
                 pageSize: pageSize,
                 showOnlyOwnedDocuments: showOnlyOwnedDocuments,
+                createdByUserId: createdByUserId,
                 types: types,
                 sortDirection: sortDirection,
                 sortBy: sortBy,
