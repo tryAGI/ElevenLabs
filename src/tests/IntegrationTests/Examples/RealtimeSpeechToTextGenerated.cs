@@ -6,7 +6,6 @@ slug: realtime-speech-to-text-generated
 Use the auto-generated ElevenLabsRealtimeClient to stream audio and receive typed ServerEvent events via the discriminated union pattern.
 */
 
-using System.Text;
 using ElevenLabs.Realtime;
 
 namespace ElevenLabs.IntegrationTests;
@@ -34,7 +33,7 @@ public partial class Tests
         //// Load a WAV file and extract raw PCM16 audio bytes.
         byte[] wavBytes = await File.ReadAllBytesAsync(
             Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
-        var (pcmSamples, sampleRate, _) = ReadWavPcm16Generated(wavBytes);
+        var (pcmSamples, sampleRate, _) = ReadWavPcm16(wavBytes);
 
         //// Send audio chunks using the typed SendInputAudioChunkAsync method.
         const int samplesPerChunk = 12000;
@@ -56,6 +55,7 @@ public partial class Tests
         //// Receive typed server events via the discriminated ServerEvent union.
         using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
         var receivedSessionStarted = false;
+        string? sessionId = null;
         string? transcript = null;
 
         await foreach (var serverEvent in client.ReceiveUpdatesAsync(cts.Token))
@@ -63,7 +63,8 @@ public partial class Tests
             if (serverEvent.IsSessionStarted)
             {
                 receivedSessionStarted = true;
-                Console.WriteLine($"Session started: {serverEvent.SessionStarted?.SessionId}");
+                sessionId = serverEvent.SessionStarted?.SessionId;
+                Console.WriteLine($"Session started: {sessionId}");
             }
             else if (serverEvent.IsPartialTranscript)
             {
@@ -88,52 +89,7 @@ public partial class Tests
         }
 
         receivedSessionStarted.Should().BeTrue();
+        sessionId.Should().NotBeNullOrWhiteSpace();
         transcript.Should().NotBeNullOrWhiteSpace();
-
-        static (short[] samples, int sampleRate, int channels) ReadWavPcm16Generated(ReadOnlySpan<byte> data)
-        {
-            using var ms = new MemoryStream(data.ToArray(), writable: false);
-            using var br = new BinaryReader(ms, Encoding.UTF8, leaveOpen: true);
-
-            var riff = new string(br.ReadChars(4));
-            if (riff != "RIFF") throw new InvalidDataException("Not RIFF");
-            br.ReadInt32();
-            var wave = new string(br.ReadChars(4));
-            if (wave != "WAVE") throw new InvalidDataException("Not WAVE");
-
-            ushort audioFormat = 1, localChannels = 1, bitsPerSample = 16;
-            int localSampleRate = 16000;
-
-            while (ms.Position < ms.Length)
-            {
-                if (ms.Length - ms.Position < 8) break;
-                var id = new string(br.ReadChars(4));
-                int size = br.ReadInt32();
-
-                if (id == "fmt ")
-                {
-                    if (size < 16) throw new InvalidDataException("Bad fmt chunk");
-                    audioFormat = br.ReadUInt16();
-                    localChannels = br.ReadUInt16();
-                    localSampleRate = br.ReadInt32();
-                    br.ReadInt32();
-                    br.ReadUInt16();
-                    bitsPerSample = br.ReadUInt16();
-                    var remaining = size - 16;
-                    if (remaining > 0) br.ReadBytes(remaining);
-                }
-                else if (id == "data")
-                {
-                    if (audioFormat != 1 || bitsPerSample != 16) throw new InvalidDataException("Expected PCM16");
-                    var dataSize = size == 0 ? (int)(ms.Length - ms.Position) : size;
-                    var dataBytes = br.ReadBytes(dataSize);
-                    var samples = new short[dataBytes.Length / 2];
-                    Buffer.BlockCopy(dataBytes, 0, samples, 0, dataBytes.Length);
-                    return (samples, localSampleRate, localChannels);
-                }
-                else if (size > 0) br.ReadBytes(size);
-            }
-            throw new InvalidDataException("WAV data chunk not found");
-        }
     }
 }
