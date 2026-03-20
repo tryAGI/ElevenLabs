@@ -83,6 +83,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("locale")]
+        public string? Locale { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_mode")]
         public global::ElevenLabs.DirectPublishingReadResponseModelDisplayMode2? DisplayMode { get; set; }
 
@@ -328,6 +334,7 @@ namespace ElevenLabs
         /// <param name="description"></param>
         /// <param name="articleImageUrl"></param>
         /// <param name="language"></param>
+        /// <param name="locale"></param>
         /// <param name="displayMode"></param>
         /// <param name="genre"></param>
         /// <param name="fiction"></param>
@@ -385,6 +392,7 @@ namespace ElevenLabs
             string? description,
             string? articleImageUrl,
             string? language,
+            string? locale,
             global::ElevenLabs.DirectPublishingReadResponseModelDisplayMode2? displayMode,
             global::System.Collections.Generic.IList<global::ElevenLabs.DirectPublishingReadResponseModelGenreVariant1Item>? genre,
             string? fiction,
@@ -435,6 +443,7 @@ namespace ElevenLabs
             this.Description = description;
             this.ArticleImageUrl = articleImageUrl;
             this.Language = language;
+            this.Locale = locale;
             this.DisplayMode = displayMode;
             this.Genre = genre;
             this.Fiction = fiction;
