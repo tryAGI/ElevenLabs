@@ -16,7 +16,7 @@ AddVoiceIVCResponseModel response = await client.Voices.CreateVoicesAddAsync(
     name: $"Test Cloned Voice {Guid.NewGuid():N}",
     files: [voiceSample],
     description: "A cloned voice from my audio sample",
-    removeBackgroundNoise: true);
+    removeBackgroundNoise: false);
 
 Console.WriteLine($"Cloned voice ID: {response.VoiceId}");
 

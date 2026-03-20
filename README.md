@@ -181,6 +181,7 @@ byte[] audioFile = await File.ReadAllBytesAsync(
 var transcription = await client.SpeechToText.CreateSpeechToTextAsync(
     modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
     file: audioFile,
+    filename: "hello-in-russian-24k-pcm16.wav",
     languageCode: "ru");
 
 // Print the transcript text when it is available.
@@ -209,7 +210,7 @@ AddVoiceIVCResponseModel response = await client.Voices.CreateVoicesAddAsync(
     name: $"Test Cloned Voice {Guid.NewGuid():N}",
     files: [voiceSample],
     description: "A cloned voice from my audio sample",
-    removeBackgroundNoise: true);
+    removeBackgroundNoise: false);
 
 Console.WriteLine($"Cloned voice ID: {response.VoiceId}");
 
