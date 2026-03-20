@@ -20,8 +20,11 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="showOnlyOwnedAgents">
-        /// If set to true, the endpoint will omit any agents that were shared with you by someone else and include only the ones you own<br/>
+        /// If set to true, the endpoint will omit any agents that were shared with you by someone else and include only the ones you own. Deprecated: use created_by_user_id instead.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter agents by creator user ID. When set, only agents created by this user are returned. Takes precedence over show_only_owned_agents. Use '@me' to refer to the authenticated user.
         /// </param>
         /// <param name="sortDirection">
         /// The direction to sort the results<br/>
@@ -43,6 +46,7 @@ namespace ElevenLabs
             string? search = default,
             bool? archived = default,
             bool? showOnlyOwnedAgents = default,
+            string? createdByUserId = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.AgentSortBy? sortBy = default,
             string? cursor = default,

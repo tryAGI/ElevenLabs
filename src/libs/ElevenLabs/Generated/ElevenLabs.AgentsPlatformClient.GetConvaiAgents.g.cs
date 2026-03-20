@@ -1,6 +1,8 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
@@ -11,6 +13,7 @@ namespace ElevenLabs
             ref string? search,
             bool? archived,
             ref bool? showOnlyOwnedAgents,
+            ref string? createdByUserId,
             ref global::ElevenLabs.SortDirection? sortDirection,
             global::ElevenLabs.AgentSortBy? sortBy,
             ref string? cursor,
@@ -22,6 +25,7 @@ namespace ElevenLabs
             string? search,
             bool? archived,
             bool? showOnlyOwnedAgents,
+            string? createdByUserId,
             global::ElevenLabs.SortDirection? sortDirection,
             global::ElevenLabs.AgentSortBy? sortBy,
             string? cursor,
@@ -51,8 +55,11 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="showOnlyOwnedAgents">
-        /// If set to true, the endpoint will omit any agents that were shared with you by someone else and include only the ones you own<br/>
+        /// If set to true, the endpoint will omit any agents that were shared with you by someone else and include only the ones you own. Deprecated: use created_by_user_id instead.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter agents by creator user ID. When set, only agents created by this user are returned. Takes precedence over show_only_owned_agents. Use '@me' to refer to the authenticated user.
         /// </param>
         /// <param name="sortDirection">
         /// The direction to sort the results<br/>
@@ -74,6 +81,7 @@ namespace ElevenLabs
             string? search = default,
             bool? archived = default,
             bool? showOnlyOwnedAgents = default,
+            string? createdByUserId = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.AgentSortBy? sortBy = default,
             string? cursor = default,
@@ -88,6 +96,7 @@ namespace ElevenLabs
                 search: ref search,
                 archived: archived,
                 showOnlyOwnedAgents: ref showOnlyOwnedAgents,
+                createdByUserId: ref createdByUserId,
                 sortDirection: ref sortDirection,
                 sortBy: sortBy,
                 cursor: ref cursor,
@@ -101,6 +110,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("search", search)
                 .AddOptionalParameter("archived", archived?.ToString())
                 .AddOptionalParameter("show_only_owned_agents", showOnlyOwnedAgents?.ToString())
+                .AddOptionalParameter("created_by_user_id", createdByUserId)
                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                 .AddOptionalParameter("sort_by", sortBy?.ToString())
                 .AddOptionalParameter("cursor", cursor) 
@@ -146,6 +156,7 @@ namespace ElevenLabs
                 search: search,
                 archived: archived,
                 showOnlyOwnedAgents: showOnlyOwnedAgents,
+                createdByUserId: createdByUserId,
                 sortDirection: sortDirection,
                 sortBy: sortBy,
                 cursor: cursor,

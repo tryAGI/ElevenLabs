@@ -1,6 +1,8 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
@@ -10,6 +12,7 @@ namespace ElevenLabs
             ref int? pageSize,
             ref string? search,
             ref bool? showOnlyOwnedDocuments,
+            ref string? createdByUserId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
             ref string? parentFolderId,
             ref string? ancestorFolderId,
@@ -24,6 +27,7 @@ namespace ElevenLabs
             int? pageSize,
             string? search,
             bool? showOnlyOwnedDocuments,
+            string? createdByUserId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
             string? parentFolderId,
             string? ancestorFolderId,
@@ -53,8 +57,11 @@ namespace ElevenLabs
         /// If specified, the endpoint returns only such knowledge base documents whose names start with this string.
         /// </param>
         /// <param name="showOnlyOwnedDocuments">
-        /// If set to true, the endpoint will return only documents owned by you (and not shared from somebody else).<br/>
+        /// If set to true, the endpoint will return only documents owned by you (and not shared from somebody else). Deprecated: use created_by_user_id instead.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter documents by creator user ID. When set, only documents created by this user are returned. Takes precedence over show_only_owned_documents. Use '@me' to refer to the authenticated user.
         /// </param>
         /// <param name="types">
         /// If present, the endpoint will return only documents of the given types.
@@ -88,6 +95,7 @@ namespace ElevenLabs
             int? pageSize = default,
             string? search = default,
             bool? showOnlyOwnedDocuments = default,
+            string? createdByUserId = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types = default,
             string? parentFolderId = default,
             string? ancestorFolderId = default,
@@ -105,6 +113,7 @@ namespace ElevenLabs
                 pageSize: ref pageSize,
                 search: ref search,
                 showOnlyOwnedDocuments: ref showOnlyOwnedDocuments,
+                createdByUserId: ref createdByUserId,
                 types: types,
                 parentFolderId: ref parentFolderId,
                 ancestorFolderId: ref ancestorFolderId,
@@ -121,6 +130,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("search", search)
                 .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString())
+                .AddOptionalParameter("created_by_user_id", createdByUserId)
                 .AddOptionalParameter("types", types?.ToString())
                 .AddOptionalParameter("parent_folder_id", parentFolderId)
                 .AddOptionalParameter("ancestor_folder_id", ancestorFolderId)
@@ -169,6 +179,7 @@ namespace ElevenLabs
                 pageSize: pageSize,
                 search: search,
                 showOnlyOwnedDocuments: showOnlyOwnedDocuments,
+                createdByUserId: createdByUserId,
                 types: types,
                 parentFolderId: parentFolderId,
                 ancestorFolderId: ancestorFolderId,

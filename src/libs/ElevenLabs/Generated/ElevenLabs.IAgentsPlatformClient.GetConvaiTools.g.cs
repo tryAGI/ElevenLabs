@@ -15,8 +15,11 @@ namespace ElevenLabs
         /// How many documents to return at maximum. Can not exceed 100, defaults to 30.
         /// </param>
         /// <param name="showOnlyOwnedDocuments">
-        /// If set to true, the endpoint will return only tools owned by you (and not shared from somebody else).<br/>
+        /// If set to true, the endpoint will return only tools owned by you (and not shared from somebody else). Deprecated: use created_by_user_id instead.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter tools by creator user ID. When set, only tools created by this user are returned. Takes precedence over show_only_owned_documents. Use '@me' to refer to the authenticated user.
         /// </param>
         /// <param name="types">
         /// If present, the endpoint will return only tools of the given types.
@@ -40,6 +43,7 @@ namespace ElevenLabs
             string? search = default,
             int? pageSize = default,
             bool? showOnlyOwnedDocuments = default,
+            string? createdByUserId = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.ToolSortBy? sortBy = default,
