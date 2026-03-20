@@ -41,24 +41,9 @@ namespace ElevenLabs
 
 
         /// <summary>
-        /// Convert text into lifelike speech using a voice of your choice.
-        /// </summary>
-        public TextToSpeechClient TextToSpeech { get; }
-
-        /// <summary>
-        /// Create speech by combining the style and content of an audio file you upload with a voice of your choice.
-        /// </summary>
-        public SpeechToSpeechClient SpeechToSpeech { get; }
-
-        /// <summary>
         /// Transcribe your audio files with detailed speaker annotations and precise timestamps using our cutting-edge model.
         /// </summary>
         public SpeechToTextClient SpeechToText { get; }
-
-        /// <summary>
-        /// Force align an audio file to a text transcript to get precise word-level and character level timing information. Response is a list of characters with their start and end times as milliseconds elapsed from the start of the recording.
-        /// </summary>
-        public ForcedAlignmentClient ForcedAlignment { get; }
 
         /// <summary>
         /// Access the different models of the platform.
@@ -76,16 +61,6 @@ namespace ElevenLabs
         public SamplesClient Samples { get; }
 
         /// <summary>
-        /// Accesses your speech history. Your speech history is a list of all your created audio including its metadata using our text-to-speech and speech-to-speech models.
-        /// </summary>
-        public SpeechHistoryClient SpeechHistory { get; }
-
-        /// <summary>
-        /// Access, create and convert Studio Projects programmatically, only specifically whitelisted accounts can access the Studio API. If you need access please contact our sales team.
-        /// </summary>
-        public StudiosClient Studios { get; }
-
-        /// <summary>
         /// Access to workspace related endpoints.
         /// </summary>
         public WorkspaceClient Workspace { get; }
@@ -93,22 +68,47 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public SoundGenerationClient SoundGeneration { get; }
+        public HistoryClient History { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public AudioIsolationClient AudioIsolation { get; }
+        public TextToSoundEffectsClient TextToSoundEffects { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public TextToDialogueClient TextToDialogue { get; }
+        public AudioIsolation2Client AudioIsolation2 { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TextToSpeech2Client TextToSpeech2 { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TextToDialogue2Client TextToDialogue2 { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SpeechToSpeech2Client SpeechToSpeech2 { get; }
 
         /// <summary>
         /// 
         /// </summary>
         public TextToVoiceClient TextToVoice { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TextToVoice2Client TextToVoice2 { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public UserClient User { get; }
 
         /// <summary>
         /// 
@@ -123,22 +123,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public ResourceClient Resource { get; }
+        public AudioNative2Client AudioNative2 { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SegmentClient Segment { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EnterpriseClient Enterprise { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public AudioNativeClient AudioNative { get; }
+        public UsageClient Usage { get; }
 
         /// <summary>
         /// 
@@ -148,7 +138,27 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public PronunciationDictionariesClient PronunciationDictionaries { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public WebhooksClient Webhooks { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SpeechToText2Client SpeechToText2 { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SingleUseTokenClient SingleUseToken { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ForcedAlignment2Client ForcedAlignment2 { get; }
 
         /// <summary>
         /// 
@@ -158,12 +168,27 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public ConversationalAi2Client ConversationalAi2 { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ConversationalAiClient ConversationalAi { get; }
 
         /// <summary>
         /// 
         /// </summary>
+        public EnvironmentVariablesClient EnvironmentVariables { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public MusicGenerationClient MusicGeneration { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public MusicClient Music { get; }
 
         /// <summary>
         /// 

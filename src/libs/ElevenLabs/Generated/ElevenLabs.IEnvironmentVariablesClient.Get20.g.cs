@@ -1,0 +1,22 @@
+#nullable enable
+
+namespace ElevenLabs
+{
+    public partial interface IEnvironmentVariablesClient
+    {
+        /// <summary>
+        /// Get Environment Variable<br/>
+        /// Get a specific environment variable by ID
+        /// </summary>
+        /// <param name="envVarId"></param>
+        /// <param name="xiApiKey">
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Get20Async(
+            string envVarId,
+            string? xiApiKey = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}
