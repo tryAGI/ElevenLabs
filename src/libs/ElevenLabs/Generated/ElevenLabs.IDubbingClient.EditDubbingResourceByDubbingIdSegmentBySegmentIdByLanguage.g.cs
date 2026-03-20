@@ -31,7 +31,6 @@ namespace ElevenLabs
             global::ElevenLabs.SegmentUpdatePayload request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Modify A Single Segment<br/>
         /// Modifies a single segment with new text and/or start/end times. Will update the values for only a specific language of a segment. Does not automatically regenerate the dub.

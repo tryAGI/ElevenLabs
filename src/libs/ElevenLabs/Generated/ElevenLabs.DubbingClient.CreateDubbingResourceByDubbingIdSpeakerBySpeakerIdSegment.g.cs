@@ -248,7 +248,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Create A Segment For The Speaker<br/>
         /// Creates a new segment in dubbing resource with a start and end time for the speaker in every available language. Does not automatically generate transcripts/translations/audio.

@@ -211,7 +211,6 @@ namespace ElevenLabs
                 throw;
             }
         }
-
         /// <summary>
         /// Audio Isolation Stream<br/>
         /// Removes background noise from audio and streams the result

@@ -27,7 +27,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Agent Branch<br/>
         /// Update agent branch properties such as archiving status and protection level

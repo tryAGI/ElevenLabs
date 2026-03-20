@@ -178,7 +178,6 @@ namespace ElevenLabs
                 yield return __streamedResponse;
             }
         }
-
         /// <summary>
         /// Text To Dialogue Streaming With Timestamps<br/>
         /// Converts a list of text and voice ID pairs into speech (dialogue) and returns a stream of JSON blobs containing audio as a base64 encoded string and timestamps

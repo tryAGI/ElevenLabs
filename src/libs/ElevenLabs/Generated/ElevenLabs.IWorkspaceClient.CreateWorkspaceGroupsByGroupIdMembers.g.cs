@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyAddMemberToUserGroupV1WorkspaceGroupsGroupIdMembersPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Add Member To User Group<br/>
         /// Adds a member of your workspace to the specified group. Requires `group_members_manage` permission.

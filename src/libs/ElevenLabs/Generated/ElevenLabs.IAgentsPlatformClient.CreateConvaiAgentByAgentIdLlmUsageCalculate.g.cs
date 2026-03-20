@@ -21,7 +21,6 @@ namespace ElevenLabs
             global::ElevenLabs.LLMUsageCalculatorRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Calculate Expected Llm Usage For An Agent<br/>
         /// Calculates expected number of LLM tokens needed for the specified agent.

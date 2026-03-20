@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Handle An Outbound Call Via Sip Trunk<br/>
         /// Handle an outbound call via SIP trunk

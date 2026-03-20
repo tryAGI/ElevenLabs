@@ -28,7 +28,6 @@ namespace ElevenLabs
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Remix A Voice.<br/>
         /// Remix an existing voice via a prompt. This method returns a list of voice previews. Each preview has a generated_voice_id and a sample of the voice as base64 encoded mp3 audio. To create a voice use the generated_voice_id of the preferred preview with the /v1/text-to-voice endpoint.

@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyDeleteMemberFromUserGroupV1WorkspaceGroupsGroupIdMembersRemovePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Delete Member From User Group<br/>
         /// Removes a member from the specified group. Requires `group_members_manage` permission.

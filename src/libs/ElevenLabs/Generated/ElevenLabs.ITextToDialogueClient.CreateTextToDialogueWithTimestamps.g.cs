@@ -24,7 +24,6 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Text To Dialogue With Timestamps<br/>
         /// Generate dialogue from text with precise character-level timing information for audio-text synchronization.

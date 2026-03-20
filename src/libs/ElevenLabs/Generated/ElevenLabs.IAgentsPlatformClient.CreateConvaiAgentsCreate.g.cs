@@ -24,7 +24,6 @@ namespace ElevenLabs
             bool? enableVersioning = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Agent<br/>
         /// Create an agent from a config object

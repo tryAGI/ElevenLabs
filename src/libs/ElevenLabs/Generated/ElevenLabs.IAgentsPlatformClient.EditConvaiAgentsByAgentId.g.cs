@@ -32,7 +32,6 @@ namespace ElevenLabs
             string? branchId = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Patches An Agent Settings<br/>
         /// Patches an Agent settings

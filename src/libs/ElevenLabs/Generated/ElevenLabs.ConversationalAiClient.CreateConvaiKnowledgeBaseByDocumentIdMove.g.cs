@@ -225,7 +225,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Move Entity To Folder<br/>
         /// Moves the entity from one folder to another.

@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Delete Member From User Group<br/>
         /// Removes a member from the specified group. Requires `group_members_manage` permission.

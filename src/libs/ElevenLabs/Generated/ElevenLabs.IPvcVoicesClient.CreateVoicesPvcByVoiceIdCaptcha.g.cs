@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Verify Pvc Voice Captcha<br/>
         /// Submit captcha verification for PVC voice.

@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Audio-Native Content From Url<br/>
         /// Finds an AudioNative project matching the provided URL, extracts content from the URL, updates the project content, and queues it for conversion and auto-publishing.

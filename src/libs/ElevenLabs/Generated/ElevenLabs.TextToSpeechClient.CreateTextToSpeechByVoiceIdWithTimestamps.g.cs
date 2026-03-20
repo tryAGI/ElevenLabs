@@ -279,7 +279,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Text To Speech With Timestamps<br/>
         /// Generate speech from text with precise character-level timing information for audio-text synchronization.

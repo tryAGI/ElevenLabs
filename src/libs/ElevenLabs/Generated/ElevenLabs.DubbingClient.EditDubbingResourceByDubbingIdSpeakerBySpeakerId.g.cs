@@ -248,7 +248,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Update Metadata For A Speaker<br/>
         /// Amend the metadata associated with a speaker, such as their voice. Both voice cloning and using voices from the ElevenLabs library are supported.

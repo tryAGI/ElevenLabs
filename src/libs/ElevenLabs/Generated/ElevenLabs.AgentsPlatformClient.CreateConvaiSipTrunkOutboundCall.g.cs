@@ -232,7 +232,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Handle An Outbound Call Via Sip Trunk<br/>
         /// Handle an outbound call via SIP trunk

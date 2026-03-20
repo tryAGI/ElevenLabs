@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Workspace Webhook<br/>
         /// Create a new webhook for the workspace with the specified authentication type.

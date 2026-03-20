@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodySetRulesOnThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdSetRulesPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Set Rules On The Pronunciation Dictionary<br/>
         /// Replaces all existing rules on the pronunciation dictionary with the provided ones.

@@ -24,7 +24,6 @@ namespace ElevenLabs
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Text To Dialogue (Multi-Voice) Streaming<br/>
         /// Converts a list of text and voice ID pairs into speech (dialogue) and returns an audio stream.

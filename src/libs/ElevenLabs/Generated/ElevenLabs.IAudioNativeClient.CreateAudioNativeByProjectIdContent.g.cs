@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Audio-Native Project Content<br/>
         /// Updates content for the specific AudioNative Project.

@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyMoveEntityToFolderV1ConvaiKnowledgeBaseDocumentIdMovePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Move Entity To Folder<br/>
         /// Moves the entity from one folder to another.

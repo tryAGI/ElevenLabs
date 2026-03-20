@@ -24,7 +24,6 @@ namespace ElevenLabs
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Stem Separation<br/>
         /// Separate an audio file into individual stems. This endpoint might have high latency, depending on the length of the audio file.

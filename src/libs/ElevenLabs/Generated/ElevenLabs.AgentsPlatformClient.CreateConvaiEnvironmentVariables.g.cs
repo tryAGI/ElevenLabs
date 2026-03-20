@@ -296,7 +296,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Create Environment Variable<br/>
         /// Create a new environment variable for the workspace

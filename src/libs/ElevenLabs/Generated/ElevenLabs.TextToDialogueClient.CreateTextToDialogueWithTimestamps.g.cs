@@ -244,7 +244,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Text To Dialogue With Timestamps<br/>
         /// Generate dialogue from text with precise character-level timing information for audio-text synchronization.

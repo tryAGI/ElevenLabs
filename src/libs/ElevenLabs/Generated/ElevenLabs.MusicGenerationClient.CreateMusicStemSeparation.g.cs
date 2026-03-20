@@ -268,7 +268,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Stem Separation<br/>
         /// Separate an audio file into individual stems. This endpoint might have high latency, depending on the length of the audio file.

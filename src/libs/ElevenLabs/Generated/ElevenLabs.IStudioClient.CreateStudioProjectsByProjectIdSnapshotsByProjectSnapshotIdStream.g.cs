@@ -27,7 +27,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyStreamStudioProjectAudioV1StudioProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Stream Studio Project Audio<br/>
         /// Stream the audio from a Studio project snapshot.

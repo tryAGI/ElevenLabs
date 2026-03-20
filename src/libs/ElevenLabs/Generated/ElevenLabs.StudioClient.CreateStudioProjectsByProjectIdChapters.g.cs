@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Create Chapter<br/>
         /// Creates a new chapter either as blank or from a URL.

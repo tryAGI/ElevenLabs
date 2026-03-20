@@ -248,7 +248,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Update Pvc Voice Sample<br/>
         /// Update a PVC voice sample - apply noise removal, select speaker, change trim times or file name.

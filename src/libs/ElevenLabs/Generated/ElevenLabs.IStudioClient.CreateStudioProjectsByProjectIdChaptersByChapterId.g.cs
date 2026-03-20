@@ -27,7 +27,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Chapter<br/>
         /// Updates a chapter.

@@ -43,7 +43,6 @@ namespace ElevenLabs
             global::ElevenLabs.TextToSpeechStreamOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Text To Speech Streaming<br/>
         /// Converts text into speech using a voice of your choice and returns audio as an audio stream.

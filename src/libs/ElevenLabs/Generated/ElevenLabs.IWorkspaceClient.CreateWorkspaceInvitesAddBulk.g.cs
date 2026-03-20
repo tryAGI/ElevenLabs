@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Invite Multiple Users<br/>
         /// Sends email invitations to join your workspace to the provided emails. Requires all email addresses to be part of a verified domain. If the users don't have an account they will be prompted to create one. If the users accept these invites they will be added as users to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission.

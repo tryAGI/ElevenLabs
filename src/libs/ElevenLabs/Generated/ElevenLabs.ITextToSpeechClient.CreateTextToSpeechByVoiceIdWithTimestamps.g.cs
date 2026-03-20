@@ -43,7 +43,6 @@ namespace ElevenLabs
             global::ElevenLabs.TextToSpeechFullWithTimestampsOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Text To Speech With Timestamps<br/>
         /// Generate speech from text with precise character-level timing information for audio-text synchronization.

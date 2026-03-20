@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.CreateEnvironmentVariableRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Environment Variable<br/>
         /// Create a new environment variable for the workspace

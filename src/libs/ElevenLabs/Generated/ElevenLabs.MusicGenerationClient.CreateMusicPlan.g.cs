@@ -232,7 +232,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Generate Composition Plan<br/>
         /// Generate a composition plan from a prompt.

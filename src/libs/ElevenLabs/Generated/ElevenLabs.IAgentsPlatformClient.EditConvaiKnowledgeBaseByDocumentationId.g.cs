@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Document<br/>
         /// Update the name of a document

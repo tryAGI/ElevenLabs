@@ -230,7 +230,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Create Workspace Auth Connection<br/>
         /// Create a new OAuth2 auth connection for the workspace

@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.UpdatePhoneNumberRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Phone Number<br/>
         /// Update assigned agent of a phone number

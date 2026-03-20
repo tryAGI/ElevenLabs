@@ -232,7 +232,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Add Tool<br/>
         /// Add a new tool to the available tools in the workspace.

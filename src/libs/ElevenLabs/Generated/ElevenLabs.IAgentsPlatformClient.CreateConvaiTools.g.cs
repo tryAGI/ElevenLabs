@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.ToolRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Add Tool<br/>
         /// Add a new tool to the available tools in the workspace.

@@ -21,7 +21,6 @@ namespace ElevenLabs
             global::ElevenLabs.UpdateEnvironmentVariableRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Environment Variable<br/>
         /// Replace an environment variable's values. Use null to remove an environment (except production).

@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreateFolderV1ConvaiKnowledgeBaseFolderPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Folder<br/>
         /// Create a folder used for grouping documents together.

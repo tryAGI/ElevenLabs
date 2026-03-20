@@ -232,7 +232,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Create Convai Workspace Secret<br/>
         /// Create a new secret for the workspace

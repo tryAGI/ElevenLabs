@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.MCPServerRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Mcp Server<br/>
         /// Create a new MCP server configuration in the workspace.

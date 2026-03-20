@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Studio Project<br/>
         /// Creates a new Studio project, it can be either initialized as blank, from a document or from a URL.

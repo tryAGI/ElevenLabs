@@ -24,7 +24,6 @@ namespace ElevenLabs
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Sound Generation<br/>
         /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects models in the world.

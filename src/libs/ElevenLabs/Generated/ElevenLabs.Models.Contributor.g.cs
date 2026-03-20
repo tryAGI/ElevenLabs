@@ -23,6 +23,18 @@ namespace ElevenLabs
         public required string Role { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("bio")]
+        public string? Bio { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("profile_id")]
+        public string? ProfileId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -33,15 +45,21 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="name"></param>
         /// <param name="role"></param>
+        /// <param name="bio"></param>
+        /// <param name="profileId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public Contributor(
             string name,
-            string role)
+            string role,
+            string? bio,
+            string? profileId)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Role = role ?? throw new global::System.ArgumentNullException(nameof(role));
+            this.Bio = bio;
+            this.ProfileId = profileId;
         }
 
         /// <summary>

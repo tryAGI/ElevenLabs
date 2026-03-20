@@ -232,7 +232,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Create Text Document<br/>
         /// Create a knowledge base document containing the provided text.

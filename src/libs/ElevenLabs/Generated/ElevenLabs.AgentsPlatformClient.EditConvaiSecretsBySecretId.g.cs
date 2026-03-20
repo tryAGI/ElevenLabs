@@ -238,7 +238,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Update Convai Workspace Secret<br/>
         /// Update an existing secret for the workspace

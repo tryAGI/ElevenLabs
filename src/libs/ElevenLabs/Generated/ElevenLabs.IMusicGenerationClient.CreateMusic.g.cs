@@ -24,7 +24,6 @@ namespace ElevenLabs
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Compose Music<br/>
         /// Compose a song from a prompt or a composition plan.

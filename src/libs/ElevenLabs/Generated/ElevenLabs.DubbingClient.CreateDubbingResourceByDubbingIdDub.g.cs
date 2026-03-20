@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Dubs All Or Some Segments And Languages<br/>
         /// Regenerate the dubs for either the entire resource or the specified segments/languages. Will automatically transcribe and translate any missing transcriptions and translations.

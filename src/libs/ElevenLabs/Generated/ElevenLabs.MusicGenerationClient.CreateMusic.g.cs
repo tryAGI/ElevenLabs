@@ -235,7 +235,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Compose Music<br/>
         /// Compose a song from a prompt or a composition plan.

@@ -208,7 +208,6 @@ namespace ElevenLabs
                 throw;
             }
         }
-
         /// <summary>
         /// Stream Studio Project Audio<br/>
         /// Stream the audio from a Studio project snapshot.

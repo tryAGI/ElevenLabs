@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyGetSimilarLibraryVoicesV1SimilarVoicesPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Get Similar Library Voices<br/>
         /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.

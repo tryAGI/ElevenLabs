@@ -31,7 +31,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Merge A Branch Into A Target Branch<br/>
         /// Merge a branch into a target branch

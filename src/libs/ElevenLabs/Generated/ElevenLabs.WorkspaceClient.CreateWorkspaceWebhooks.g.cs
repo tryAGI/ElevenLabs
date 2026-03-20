@@ -232,7 +232,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Create Workspace Webhook<br/>
         /// Create a new webhook for the workspace with the specified authentication type.

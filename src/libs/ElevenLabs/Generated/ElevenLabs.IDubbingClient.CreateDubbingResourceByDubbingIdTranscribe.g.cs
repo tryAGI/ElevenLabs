@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyTranscribesSegmentsV1DubbingResourceDubbingIdTranscribePost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Transcribes Segments<br/>
         /// Regenerate the transcriptions for the specified segments. Does not automatically regenerate translations or dubs.

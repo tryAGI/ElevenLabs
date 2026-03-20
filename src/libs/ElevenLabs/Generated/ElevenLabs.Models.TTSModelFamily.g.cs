@@ -9,7 +9,7 @@ namespace ElevenLabs
     public enum TTSModelFamily
     {
         /// <summary>
-        /// 
+        /// Deprecated: Use flash instead.
         /// </summary>
         Turbo,
         /// <summary>

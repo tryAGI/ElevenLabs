@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyRemoveRulesFromThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdRemoveRulesPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Remove Rules From The Pronunciation Dictionary<br/>
         /// Remove rules from the pronunciation dictionary

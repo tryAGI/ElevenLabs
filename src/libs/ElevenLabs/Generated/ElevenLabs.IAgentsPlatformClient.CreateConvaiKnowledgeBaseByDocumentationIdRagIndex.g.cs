@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.RAGIndexRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Compute Rag Index.<br/>
         /// In case the document is not RAG indexed, it triggers rag indexing task, otherwise it just returns the current status.

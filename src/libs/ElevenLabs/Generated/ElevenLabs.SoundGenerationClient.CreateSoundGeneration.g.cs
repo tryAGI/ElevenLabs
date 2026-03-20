@@ -235,7 +235,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Sound Generation<br/>
         /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects models in the world.

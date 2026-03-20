@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Generate Composition Plan<br/>
         /// Generate a composition plan from a prompt.
