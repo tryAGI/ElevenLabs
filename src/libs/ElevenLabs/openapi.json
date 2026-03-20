@@ -46005,6 +46005,17 @@
             ],
             "title": "Language"
           },
+          "locale": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Locale"
+          },
           "display_mode": {
             "anyOf": [
               {
