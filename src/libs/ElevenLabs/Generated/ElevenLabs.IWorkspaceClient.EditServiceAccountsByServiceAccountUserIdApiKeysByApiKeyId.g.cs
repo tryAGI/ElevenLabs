@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Edit Service Account Api Key<br/>
         /// Update an existing API key for a service account

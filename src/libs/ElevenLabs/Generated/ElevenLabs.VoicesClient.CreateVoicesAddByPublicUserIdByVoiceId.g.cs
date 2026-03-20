@@ -248,7 +248,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Add Shared Voice<br/>
         /// Add a shared voice to your collection of voices.

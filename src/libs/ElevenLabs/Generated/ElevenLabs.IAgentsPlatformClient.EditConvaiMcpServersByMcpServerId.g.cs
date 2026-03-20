@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.MCPServerConfigUpdateRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Mcp Server Configuration<br/>
         /// Update the configuration settings for an MCP server.

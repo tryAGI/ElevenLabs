@@ -251,7 +251,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Upload Music<br/>
         /// Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature.

@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Add Member To User Group<br/>
         /// Adds a member of your workspace to the specified group. Requires `group_members_manage` permission.

@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.VoiceSettingsResponseModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Edit Voice Settings<br/>
         /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.

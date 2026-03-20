@@ -15,7 +15,6 @@ namespace ElevenLabs
 
             global::ElevenLabs.LLMUsageCalculatorPublicRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Calculate Expected Llm Usage<br/>
         /// Returns a list of LLM models and the expected cost for using them based on the provided values.

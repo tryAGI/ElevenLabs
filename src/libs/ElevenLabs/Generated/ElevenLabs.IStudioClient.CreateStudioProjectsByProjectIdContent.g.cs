@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyUpdateStudioProjectContentV1StudioProjectsProjectIdContentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Studio Project Content<br/>
         /// Updates Studio project content.

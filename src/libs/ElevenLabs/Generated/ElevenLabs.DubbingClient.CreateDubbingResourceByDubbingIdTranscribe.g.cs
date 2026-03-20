@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Transcribes Segments<br/>
         /// Regenerate the transcriptions for the specified segments. Does not automatically regenerate translations or dubs.

@@ -21,7 +21,6 @@ namespace ElevenLabs
             global::ElevenLabs.UpdateWhatsAppAccountRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Whatsapp Account<br/>
         /// Update a WhatsApp account

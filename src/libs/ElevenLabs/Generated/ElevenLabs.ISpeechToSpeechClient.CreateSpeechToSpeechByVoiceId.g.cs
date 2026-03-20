@@ -43,7 +43,6 @@ namespace ElevenLabs
             global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Speech To Speech<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.

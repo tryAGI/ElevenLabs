@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyDownloadHistoryItemsV1HistoryDownloadPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Download History Items<br/>
         /// Download one or more history items. If one history item ID is provided, we will return a single audio file. If more than one history item IDs are provided, we will provide the history items packed into a .zip file.

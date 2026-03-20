@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Forced Alignment<br/>
         /// Force align an audio file to text. Use this endpoint to get the timing information for each character and word in an audio file based on a provided text transcript.

@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.PostWorkspaceSecretRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Convai Workspace Secret<br/>
         /// Create a new secret for the workspace

@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Submit A Batch Call Request.<br/>
         /// Submit a batch call request to schedule calls for multiple recipients.

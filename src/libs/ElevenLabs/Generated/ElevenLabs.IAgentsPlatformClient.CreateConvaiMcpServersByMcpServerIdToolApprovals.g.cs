@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.MCPToolAddApprovalRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Mcp Server Tool Approval<br/>
         /// Add approval for a specific MCP tool when using per-tool approval mode.

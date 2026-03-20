@@ -265,7 +265,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Request Manual Verification<br/>
         /// Request manual verification for a PVC voice.

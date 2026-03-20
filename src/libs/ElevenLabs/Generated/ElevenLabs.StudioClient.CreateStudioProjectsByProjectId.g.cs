@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Update Studio Project<br/>
         /// Updates the specified Studio project by setting the values of the parameters passed.

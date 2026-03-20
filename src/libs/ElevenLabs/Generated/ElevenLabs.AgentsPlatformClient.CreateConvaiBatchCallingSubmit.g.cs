@@ -232,7 +232,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Submit A Batch Call Request.<br/>
         /// Submit a batch call request to schedule calls for multiple recipients.

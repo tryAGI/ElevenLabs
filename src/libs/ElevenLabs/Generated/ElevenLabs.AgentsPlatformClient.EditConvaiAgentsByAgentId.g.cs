@@ -261,7 +261,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Patches An Agent Settings<br/>
         /// Patches an Agent settings

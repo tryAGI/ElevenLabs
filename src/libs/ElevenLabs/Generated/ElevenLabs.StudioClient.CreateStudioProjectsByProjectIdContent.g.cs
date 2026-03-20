@@ -280,7 +280,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Update Studio Project Content<br/>
         /// Updates Studio project content.

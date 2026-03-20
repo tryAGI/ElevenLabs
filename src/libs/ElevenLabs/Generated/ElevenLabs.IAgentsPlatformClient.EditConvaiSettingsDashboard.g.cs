@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.PatchConvAIDashboardSettingsRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Convai Dashboard Settings<br/>
         /// Update Convai dashboard settings for the workspace

@@ -217,7 +217,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Bulk Move Entities To Folder<br/>
         /// Moves multiple entities from one folder to another.

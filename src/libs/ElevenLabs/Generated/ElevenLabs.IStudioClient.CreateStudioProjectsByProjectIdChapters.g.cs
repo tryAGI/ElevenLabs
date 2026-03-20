@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreateChapterV1StudioProjectsProjectIdChaptersPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Chapter<br/>
         /// Creates a new chapter either as blank or from a URL.

@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyRequestManualVerificationV1VoicesPvcVoiceIdVerificationPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Request Manual Verification<br/>
         /// Request manual verification for a PVC voice.

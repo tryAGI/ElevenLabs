@@ -27,7 +27,6 @@ namespace ElevenLabs
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Mcp Tool Configuration Override<br/>
         /// Update configuration overrides for a specific MCP tool.

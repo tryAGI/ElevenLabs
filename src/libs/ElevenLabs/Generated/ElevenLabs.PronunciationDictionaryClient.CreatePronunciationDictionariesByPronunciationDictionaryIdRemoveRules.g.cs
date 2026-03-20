@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Remove Rules From The Pronunciation Dictionary<br/>
         /// Remove rules from the pronunciation dictionary

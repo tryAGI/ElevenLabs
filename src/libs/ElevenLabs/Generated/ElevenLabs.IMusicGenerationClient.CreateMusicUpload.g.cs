@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyUploadMusicV1MusicUploadPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Upload Music<br/>
         /// Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature.

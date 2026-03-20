@@ -255,7 +255,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Post Agent Avatar<br/>
         /// Sets the avatar for an agent displayed in the widget

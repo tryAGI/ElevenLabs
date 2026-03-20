@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Audio Isolation<br/>
         /// Removes background noise from audio

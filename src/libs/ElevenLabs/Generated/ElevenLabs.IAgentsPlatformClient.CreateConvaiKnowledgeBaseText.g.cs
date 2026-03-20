@@ -19,7 +19,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Text Document<br/>
         /// Create a knowledge base document containing the provided text.

@@ -270,7 +270,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Text To Speech<br/>
         /// Converts text into speech using a voice of your choice and returns audio.

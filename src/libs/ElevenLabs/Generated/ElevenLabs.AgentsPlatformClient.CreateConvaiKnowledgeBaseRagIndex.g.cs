@@ -228,7 +228,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Compute Rag Indexes In Batch<br/>
         /// Retrieves and/or creates RAG indexes for multiple knowledge base documents in a single request. Maximum 100 items per request.

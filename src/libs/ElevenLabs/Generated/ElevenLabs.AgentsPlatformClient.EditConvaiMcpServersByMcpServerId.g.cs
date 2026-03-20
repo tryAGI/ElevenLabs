@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Update Mcp Server Configuration<br/>
         /// Update the configuration settings for an MCP server.

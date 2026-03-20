@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Create Mcp Server Tool Approval<br/>
         /// Add approval for a specific MCP tool when using per-tool approval mode.

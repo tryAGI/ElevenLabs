@@ -43,7 +43,6 @@ namespace ElevenLabs
             global::ElevenLabs.TextToSpeechStreamWithTimestampsOutputFormat? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Text To Speech Streaming With Timestamps<br/>
         /// Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.

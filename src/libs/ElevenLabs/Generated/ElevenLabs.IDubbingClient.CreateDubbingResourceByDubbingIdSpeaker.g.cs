@@ -22,7 +22,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyCreateANewSpeakerV1DubbingResourceDubbingIdSpeakerPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create A New Speaker
         /// </summary>

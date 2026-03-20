@@ -19,7 +19,6 @@ namespace ElevenLabs
 
             global::ElevenLabs.ConversationFeedbackRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Send Conversation Feedback<br/>
         /// Send the feedback for the given conversation

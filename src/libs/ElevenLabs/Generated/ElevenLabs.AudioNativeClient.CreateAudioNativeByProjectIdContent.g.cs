@@ -273,7 +273,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Update Audio-Native Project Content<br/>
         /// Updates content for the specific AudioNative Project.

@@ -239,7 +239,6 @@ namespace ElevenLabs
                 throw;
             }
         }
-
         /// <summary>
         /// Text To Speech Streaming<br/>
         /// Converts text into speech using a voice of your choice and returns audio as an audio stream.

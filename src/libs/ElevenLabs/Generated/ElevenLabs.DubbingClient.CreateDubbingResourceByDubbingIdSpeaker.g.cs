@@ -239,7 +239,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Create A New Speaker
         /// </summary>

@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Post Agent Avatar<br/>
         /// Sets the avatar for an agent displayed in the widget

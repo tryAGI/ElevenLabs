@@ -232,7 +232,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Make An Outbound Call Via Whatsapp<br/>
         /// Make an outbound call via WhatsApp

@@ -232,7 +232,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Handle An Outbound Call Via Twilio<br/>
         /// Handle an outbound call via Twilio

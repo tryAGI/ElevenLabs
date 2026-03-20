@@ -23,7 +23,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Workspace Webhook<br/>
         /// Update the specified workspace webhook

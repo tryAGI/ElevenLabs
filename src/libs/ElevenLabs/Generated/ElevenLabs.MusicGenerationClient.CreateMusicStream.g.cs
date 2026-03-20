@@ -204,7 +204,6 @@ namespace ElevenLabs
                 throw;
             }
         }
-
         /// <summary>
         /// Stream Composed Music<br/>
         /// Stream a composed song from a prompt or a composition plan.

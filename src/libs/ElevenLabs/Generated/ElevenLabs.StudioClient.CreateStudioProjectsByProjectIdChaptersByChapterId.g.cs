@@ -248,7 +248,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Update Chapter<br/>
         /// Updates a chapter.

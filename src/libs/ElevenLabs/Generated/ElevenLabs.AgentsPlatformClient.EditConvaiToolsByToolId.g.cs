@@ -240,7 +240,6 @@ namespace ElevenLabs
                 }
             }
         }
-
         /// <summary>
         /// Update Tool<br/>
         /// Update tool that is available in the workspace.

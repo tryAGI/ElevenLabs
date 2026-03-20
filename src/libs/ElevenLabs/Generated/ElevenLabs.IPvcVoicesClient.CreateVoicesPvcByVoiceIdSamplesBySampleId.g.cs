@@ -27,7 +27,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Pvc Voice Sample<br/>
         /// Update a PVC voice sample - apply noise removal, select speaker, change trim times or file name.
