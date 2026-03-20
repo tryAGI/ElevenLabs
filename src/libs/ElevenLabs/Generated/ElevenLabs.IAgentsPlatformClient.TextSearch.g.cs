@@ -1,0 +1,108 @@
+#nullable enable
+
+namespace ElevenLabs
+{
+    public partial interface IAgentsPlatformClient
+    {
+        /// <summary>
+        /// Text Search Conversation Messages<br/>
+        /// Search through conversation transcript messages by full-text and fuzzy search
+        /// </summary>
+        /// <param name="textQuery">
+        /// The search query text for full-text and fuzzy matching
+        /// </param>
+        /// <param name="agentId">
+        /// The id of the agent you're taking the action on.
+        /// </param>
+        /// <param name="callSuccessful">
+        /// The result of the success evaluation
+        /// </param>
+        /// <param name="callStartBeforeUnix">
+        /// Unix timestamp (in seconds) to filter conversations up to this start date.
+        /// </param>
+        /// <param name="callStartAfterUnix">
+        /// Unix timestamp (in seconds) to filter conversations after to this start date.
+        /// </param>
+        /// <param name="callDurationMinSecs">
+        /// Minimum call duration in seconds.
+        /// </param>
+        /// <param name="callDurationMaxSecs">
+        /// Maximum call duration in seconds.
+        /// </param>
+        /// <param name="ratingMax">
+        /// Maximum overall rating (1-5).
+        /// </param>
+        /// <param name="ratingMin">
+        /// Minimum overall rating (1-5).
+        /// </param>
+        /// <param name="hasFeedbackComment">
+        /// Filter conversations with user feedback comments.
+        /// </param>
+        /// <param name="userId">
+        /// Filter conversations by the user ID who initiated them.
+        /// </param>
+        /// <param name="evaluationParams">
+        /// Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success
+        /// </param>
+        /// <param name="dataCollectionParams">
+        /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
+        /// </param>
+        /// <param name="toolNames">
+        /// Filter conversations by tool names used during the call.
+        /// </param>
+        /// <param name="toolNamesSuccessful">
+        /// Filter conversations by tool names that had successful calls.
+        /// </param>
+        /// <param name="toolNamesErrored">
+        /// Filter conversations by tool names that had errored calls.
+        /// </param>
+        /// <param name="mainLanguages">
+        /// Filter conversations by detected main language (language code).
+        /// </param>
+        /// <param name="pageSize">
+        /// Number of results per page. Max 50.<br/>
+        /// Default Value: 20
+        /// </param>
+        /// <param name="summaryMode">
+        /// Whether to include transcript summaries in the response.<br/>
+        /// Default Value: exclude
+        /// </param>
+        /// <param name="conversationInitiationSource"></param>
+        /// <param name="branchId">
+        /// Filter conversations by branch ID.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
+        /// <param name="xiApiKey">
+        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.MessagesSearchResponse> TextSearchAsync(
+            string textQuery,
+            string? agentId = default,
+            global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
+            int? callStartBeforeUnix = default,
+            int? callStartAfterUnix = default,
+            int? callDurationMinSecs = default,
+            int? callDurationMaxSecs = default,
+            int? ratingMax = default,
+            int? ratingMin = default,
+            bool? hasFeedbackComment = default,
+            string? userId = default,
+            global::System.Collections.Generic.IList<string>? evaluationParams = default,
+            global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
+            global::System.Collections.Generic.IList<string>? toolNames = default,
+            global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
+            global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            int? pageSize = default,
+            global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
+            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            string? branchId = default,
+            string? cursor = default,
+            string? xiApiKey = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}
