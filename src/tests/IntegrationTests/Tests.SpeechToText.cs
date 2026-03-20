@@ -28,13 +28,13 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new SpeechToTextClient(httpClient, disposeHttpClient: false);
+        var client = new SpeechToText2Client(httpClient, disposeHttpClient: false);
 
         var audioBytes = Encoding.UTF8.GetBytes("fake-audio");
         // Ignore deserialization result — we're testing request serialization
         try
         {
-            await client.CreateSpeechToTextAsync(
+            await client.ConvertAsync(
                 modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV2,
                 file: audioBytes,
                 filename: "sample.wav",
@@ -166,11 +166,11 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new SpeechToTextClient(httpClient, disposeHttpClient: false);
+        var client = new SpeechToText2Client(httpClient, disposeHttpClient: false);
 
         try
         {
-            await client.CreateSpeechToTextAsync(
+            await client.ConvertAsync(
                 modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
                 cloudStorageUrl: "https://example.com/audio.wav",
                 xiApiKey: "test-api-key");
@@ -191,7 +191,7 @@ public partial class Tests
         byte[] audioFile = await File.ReadAllBytesAsync(
             Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
 
-        var result = await client.SpeechToText.CreateSpeechToTextAsync(
+        var result = await client.SpeechToText2.ConvertAsync(
             modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV2,
             file: audioFile,
             filename: "hello-in-russian-24k-pcm16.wav",

@@ -24,9 +24,9 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeech2Client(httpClient, disposeHttpClient: false);
 
-        byte[] audio = await client.CreateTextToSpeechByVoiceIdAsync(
+        byte[] audio = await client.ConvertAsync(
             voiceId: "voice-id",
             text: "hello");
 
@@ -34,7 +34,7 @@ public partial class Tests
         client.LastRequestId.Should().Be("req-binary-123");
         client.GetLastResponseHeader("request-id").Should().Be("req-binary-123");
         client.GetLastResponseHeaderValues("request-id").Should().BeEquivalentTo(["req-binary-123"]);
-        new TextToSpeechClient(httpClient, disposeHttpClient: false).LastRequestId.Should().Be("req-binary-123");
+        new TextToSpeech2Client(httpClient, disposeHttpClient: false).LastRequestId.Should().Be("req-binary-123");
     }
 
     [TestMethod]
@@ -57,9 +57,9 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeech2Client(httpClient, disposeHttpClient: false);
 
-        AudioWithTimestampsResponseModel response = await client.CreateTextToSpeechByVoiceIdWithTimestampsAsync(
+        AudioWithTimestampsResponseModel response = await client.ConvertWithTimestampsAsync(
             voiceId: "voice-id",
             text: "hello");
 
@@ -85,9 +85,9 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeech2Client(httpClient, disposeHttpClient: false);
 
-        using Stream audio = await client.CreateTextToSpeechByVoiceIdStreamAsync(
+        using Stream audio = await client.StreamAsync(
             voiceId: "voice-id",
             text: "hello");
         using var buffer = new MemoryStream();
@@ -117,11 +117,11 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeech2Client(httpClient, disposeHttpClient: false);
 
         StreamingAudioChunkWithTimestampsResponseModel? response = null;
 
-        await foreach (var chunk in client.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
+        await foreach (var chunk in client.StreamWithTimestampsAsync(
                            voiceId: "voice-id",
                            text: "hello"))
         {

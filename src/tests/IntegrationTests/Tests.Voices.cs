@@ -44,7 +44,7 @@ public partial class Tests
 
         var client = new VoicesClient(httpClient, disposeHttpClient: false);
 
-        GetVoicesResponseModel response = await client.GetVoicesAsync();
+        GetVoicesResponseModel response = await client.GetAllAsync();
 
         response.Voices.Should().ContainSingle();
         response.Voices[0].FineTuning.Should().NotBeNull();

@@ -30,9 +30,9 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeech2Client(httpClient, disposeHttpClient: false);
 
-        var result = await client.CreateTextToSpeechByVoiceIdAsync(
+        var result = await client.ConvertAsync(
             voiceId: "voice_123",
             request: new BodyTextToSpeechFull
             {
@@ -131,9 +131,9 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeech2Client(httpClient, disposeHttpClient: false);
 
-        await client.CreateTextToSpeechByVoiceIdAsync(
+        await client.ConvertAsync(
             voiceId: "voice_123",
             text: "hello",
             xiApiKey: "override-key");
@@ -156,9 +156,9 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeech2Client(httpClient, disposeHttpClient: false);
 
-        var act = () => client.CreateTextToSpeechByVoiceIdAsync(
+        var act = () => client.ConvertAsync(
             voiceId: "voice_123",
             text: "hello");
 

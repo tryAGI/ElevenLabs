@@ -19,7 +19,7 @@ public partial class Tests
             Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
 
         //// Create the cloned voice.
-        AddVoiceIVCResponseModel response = await client.Voices.CreateVoicesAddAsync(
+        AddVoiceIVCResponseModel response = await client.Voices.CreateAsync(
             name: $"Test Cloned Voice {Guid.NewGuid():N}",
             files: [voiceSample],
             description: "A cloned voice from my audio sample",
@@ -28,7 +28,7 @@ public partial class Tests
         Console.WriteLine($"Cloned voice ID: {response.VoiceId}");
 
         //// Clean up the test voice once the example has succeeded.
-        await client.Voices.DeleteVoicesByVoiceIdAsync(response.VoiceId);
+        await client.Voices.DeleteAsync(response.VoiceId);
 
         response.Should().NotBeNull();
         response.VoiceId.Should().NotBeNullOrWhiteSpace();

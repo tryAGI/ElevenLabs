@@ -15,7 +15,7 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
 
         //// Choose a voice to synthesize with.
-        var voices = await client.Voices.GetVoicesAsync();
+        var voices = await client.Voices.GetAllAsync();
         var voice = voices.Voices[0];
         const string text = "Hello, world! This is a test of the ElevenLabs text-to-speech API.";
 
@@ -23,7 +23,7 @@ public partial class Tests
         Console.WriteLine($"Input text: {text}");
 
         //// Generate speech audio.
-        byte[] audioBytes = await client.TextToSpeech.CreateTextToSpeechByVoiceIdAsync(
+        byte[] audioBytes = await client.TextToSpeech2.ConvertAsync(
             voiceId: voice.VoiceId,
             text: text);
 

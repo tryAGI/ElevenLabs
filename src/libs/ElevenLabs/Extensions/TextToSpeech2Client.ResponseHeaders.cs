@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace ElevenLabs;
 
-public sealed partial class TextToSpeechClient
+public sealed partial class TextToSpeech2Client
 {
     private static readonly ConditionalWeakTable<HttpClient, ResponseHeaderState> LastResponseHeadersByClient = new();
 
@@ -55,22 +55,22 @@ public sealed partial class TextToSpeechClient
         return values;
     }
 
-    partial void ProcessCreateTextToSpeechByVoiceIdResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
+    partial void ProcessConvertResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
     {
         CaptureResponseHeaders(httpResponseMessage);
     }
 
-    partial void ProcessCreateTextToSpeechByVoiceIdWithTimestampsResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
+    partial void ProcessConvertWithTimestampsResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
     {
         CaptureResponseHeaders(httpResponseMessage);
     }
 
-    partial void ProcessCreateTextToSpeechByVoiceIdStreamResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
+    partial void ProcessStreamResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
     {
         CaptureResponseHeaders(httpResponseMessage);
     }
 
-    partial void ProcessCreateTextToSpeechByVoiceIdStreamWithTimestampsResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
+    partial void ProcessStreamWithTimestampsResponse(HttpClient httpClient, HttpResponseMessage httpResponseMessage)
     {
         CaptureResponseHeaders(httpResponseMessage);
     }

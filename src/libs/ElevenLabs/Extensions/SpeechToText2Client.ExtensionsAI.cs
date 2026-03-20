@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace ElevenLabs;
 
-public sealed partial class SpeechToTextClient : Microsoft.Extensions.AI.ISpeechToTextClient
+public sealed partial class SpeechToText2Client : Microsoft.Extensions.AI.ISpeechToTextClient
 {
     private const BodySpeechToTextV1SpeechToTextPostModelId DefaultModelId = BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1;
 
@@ -38,7 +38,7 @@ public sealed partial class SpeechToTextClient : Microsoft.Extensions.AI.ISpeech
 
         post.LanguageCode ??= options?.SpeechLanguage;
 
-        var result = await CreateSpeechToTextAsync(post, cancellationToken: cancellationToken).ConfigureAwait(false);
+        var result = await ConvertAsync(post, cancellationToken: cancellationToken).ConfigureAwait(false);
 
         string text;
         IList<SpeechToTextWordResponseModel>? words;

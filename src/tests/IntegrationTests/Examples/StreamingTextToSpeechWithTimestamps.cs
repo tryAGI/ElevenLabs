@@ -15,7 +15,7 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
 
         //// Choose a voice to synthesize with.
-        var voices = await client.Voices.GetVoicesAsync();
+        var voices = await client.Voices.GetAllAsync();
         var voice = voices.Voices[0];
         const string text = "Hello, this has timestamps.";
 
@@ -26,7 +26,7 @@ public partial class Tests
         StreamingAudioChunkWithTimestampsResponseModel? firstChunk = null;
         int chunkCount = 0;
 
-        await foreach (var chunk in client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
+        await foreach (var chunk in client.TextToSpeech2.StreamWithTimestampsAsync(
                            voiceId: voice.VoiceId,
                            text: text,
                            modelId: "eleven_multilingual_v2",

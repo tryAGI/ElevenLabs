@@ -15,7 +15,7 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
 
         //// Choose a voice to synthesize with.
-        var voices = await client.Voices.GetVoicesAsync();
+        var voices = await client.Voices.GetAllAsync();
         var voice = voices.Voices[0];
         const string text = "This audio is streamed for low-latency playback.";
 
@@ -23,7 +23,7 @@ public partial class Tests
         Console.WriteLine($"Input text: {text}");
 
         //// Request streaming speech audio.
-        using var streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
+        using var streamedAudio = await client.TextToSpeech2.StreamAsync(
             voiceId: voice.VoiceId,
             text: text,
             modelId: "eleven_multilingual_v2",

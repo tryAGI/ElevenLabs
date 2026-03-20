@@ -27,7 +27,7 @@ public partial class Tests
 
         var client = new AgentsPlatformClient(httpClient, disposeHttpClient: false);
 
-        using Stream audio = await client.GetConvaiConversationsByConversationIdAudioAsync("conversation-id");
+        using Stream audio = await client.Get6Async("conversation-id");
         using var buffer = new MemoryStream();
         await audio.CopyToAsync(buffer);
 
@@ -43,28 +43,28 @@ public partial class Tests
     {
         AssertBinaryStreamReturnType(
             typeof(IAgentsPlatformClient),
-            nameof(IAgentsPlatformClient.GetConvaiConversationsByConversationIdAudioAsync),
+            nameof(IAgentsPlatformClient.Get6Async),
             typeof(string),
             typeof(string),
             typeof(CancellationToken));
 
         AssertBinaryReturnType(
-            typeof(IAudioIsolationClient),
-            nameof(IAudioIsolationClient.CreateAudioIsolationAsync),
+            typeof(IAudioIsolation2Client),
+            nameof(IAudioIsolation2Client.ConvertAsync),
             typeof(BodyAudioIsolationV1AudioIsolationPost),
             typeof(string),
             typeof(CancellationToken));
 
         AssertBinaryStreamReturnType(
-            typeof(IAudioIsolationClient),
-            nameof(IAudioIsolationClient.CreateAudioIsolationStreamAsync),
+            typeof(IAudioIsolation2Client),
+            nameof(IAudioIsolation2Client.StreamAsync),
             typeof(BodyAudioIsolationStreamV1AudioIsolationStreamPost),
             typeof(string),
             typeof(CancellationToken));
 
         AssertBinaryReturnType(
             typeof(ISamplesClient),
-            nameof(ISamplesClient.GetVoicesByVoiceIdSamplesBySampleIdAudioAsync),
+            nameof(ISamplesClient.GetAsync),
             typeof(string),
             typeof(string),
             typeof(string),

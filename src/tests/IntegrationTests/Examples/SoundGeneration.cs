@@ -15,7 +15,7 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
 
         //// Generate a sound effect from a text description.
-        byte[] soundBytes = await client.SoundGeneration.CreateSoundGenerationAsync(
+        byte[] soundBytes = await client.TextToSoundEffects.ConvertAsync(
             text: "A gentle ocean wave crashing on a sandy beach",
             durationSeconds: 3.0);
 
