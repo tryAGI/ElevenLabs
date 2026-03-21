@@ -132,7 +132,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("category", category)
                 .AddOptionalParameter("fine_tuning_state", fineTuningState)
                 .AddOptionalParameter("collection_id", collectionId)
-                .AddOptionalParameter("include_total_count", includeTotalCount?.ToString())
+                .AddOptionalParameter("include_total_count", includeTotalCount?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("voice_ids", voiceIds?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
