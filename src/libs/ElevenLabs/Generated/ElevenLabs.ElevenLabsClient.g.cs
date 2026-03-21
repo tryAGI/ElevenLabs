@@ -38,63 +38,9 @@ namespace ElevenLabs
 
 
         /// <summary>
-        /// Transcribe your audio files with detailed speaker annotations and precise timestamps using our cutting-edge model.
-        /// </summary>
-        public SpeechToTextClient SpeechToText => new SpeechToTextClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// Access the different models of the platform.
-        /// </summary>
-        public ModelsClient Models => new ModelsClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// Access to voices created either by you or ElevenLabs.
-        /// </summary>
-        public VoicesClient Voices => new VoicesClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// Access to your samples. A sample is any audio file you attached to a voice. A voice can have one or more samples.
-        /// </summary>
-        public SamplesClient Samples => new SamplesClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// Access to workspace related endpoints.
-        /// </summary>
-        public WorkspaceClient Workspace => new WorkspaceClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
         /// 
         /// </summary>
-        public HistoryClient History => new HistoryClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public TextToSoundEffectsClient TextToSoundEffects => new TextToSoundEffectsClient(HttpClient, authorizations: Authorizations)
+        public AgentsPlatformClient AgentsPlatform => new AgentsPlatformClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -112,7 +58,169 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public TextToSpeech2Client TextToSpeech2 => new TextToSpeech2Client(HttpClient, authorizations: Authorizations)
+        public AudioNative2Client AudioNative2 => new AudioNative2Client(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ConversationalAiClient ConversationalAi => new ConversationalAiClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ConversationalAi2Client ConversationalAi2 => new ConversationalAi2Client(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DubbingClient Dubbing => new DubbingClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public EnvironmentVariablesClient EnvironmentVariables => new EnvironmentVariablesClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ForcedAlignment2Client ForcedAlignment2 => new ForcedAlignment2Client(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public HistoryClient History => new HistoryClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// Access the different models of the platform.
+        /// </summary>
+        public ModelsClient Models => new ModelsClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public MusicClient Music => new MusicClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public MusicGenerationClient MusicGeneration => new MusicGenerationClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PronunciationDictionariesClient PronunciationDictionaries => new PronunciationDictionariesClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PronunciationDictionaryClient PronunciationDictionary => new PronunciationDictionaryClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PvcVoicesClient PvcVoices => new PvcVoicesClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// Access to your samples. A sample is any audio file you attached to a voice. A voice can have one or more samples.
+        /// </summary>
+        public SamplesClient Samples => new SamplesClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SingleUseTokenClient SingleUseToken => new SingleUseTokenClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SpeechToSpeech2Client SpeechToSpeech2 => new SpeechToSpeech2Client(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// Transcribe your audio files with detailed speaker annotations and precise timestamps using our cutting-edge model.
+        /// </summary>
+        public SpeechToTextClient SpeechToText => new SpeechToTextClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SpeechToText2Client SpeechToText2 => new SpeechToText2Client(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public StudioClient Studio => new StudioClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -130,7 +238,16 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public SpeechToSpeech2Client SpeechToSpeech2 => new SpeechToSpeech2Client(HttpClient, authorizations: Authorizations)
+        public TextToSoundEffectsClient TextToSoundEffects => new TextToSoundEffectsClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TextToSpeech2Client TextToSpeech2 => new TextToSpeech2Client(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -157,42 +274,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public UserClient User => new UserClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public StudioClient Studio => new StudioClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public DubbingClient Dubbing => new DubbingClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public AudioNative2Client AudioNative2 => new AudioNative2Client(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
         public UsageClient Usage => new UsageClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -202,16 +283,16 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public PronunciationDictionaryClient PronunciationDictionary => new PronunciationDictionaryClient(HttpClient, authorizations: Authorizations)
+        public UserClient User => new UserClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
         };
 
         /// <summary>
-        /// 
+        /// Access to voices created either by you or ElevenLabs.
         /// </summary>
-        public PronunciationDictionariesClient PronunciationDictionaries => new PronunciationDictionariesClient(HttpClient, authorizations: Authorizations)
+        public VoicesClient Voices => new VoicesClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -227,90 +308,9 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Access to workspace related endpoints.
         /// </summary>
-        public SpeechToText2Client SpeechToText2 => new SpeechToText2Client(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SingleUseTokenClient SingleUseToken => new SingleUseTokenClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ForcedAlignment2Client ForcedAlignment2 => new ForcedAlignment2Client(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public AgentsPlatformClient AgentsPlatform => new AgentsPlatformClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ConversationalAi2Client ConversationalAi2 => new ConversationalAi2Client(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ConversationalAiClient ConversationalAi => new ConversationalAiClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EnvironmentVariablesClient EnvironmentVariables => new EnvironmentVariablesClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public MusicGenerationClient MusicGeneration => new MusicGenerationClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public MusicClient Music => new MusicClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public PvcVoicesClient PvcVoices => new PvcVoicesClient(HttpClient, authorizations: Authorizations)
+        public WorkspaceClient Workspace => new WorkspaceClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
