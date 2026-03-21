@@ -90,7 +90,7 @@ namespace ElevenLabs
                 path: $"/v1/text-to-speech/{voiceId}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddOptionalParameter("enable_logging", enableLogging?.ToString())
+                .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("optimize_streaming_latency", optimizeStreamingLatency?.ToString())
                 .AddOptionalParameter("output_format", outputFormat?.ToValueString()) 
                 ; 

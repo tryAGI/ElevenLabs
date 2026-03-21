@@ -108,8 +108,8 @@ namespace ElevenLabs
             __pathBuilder
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("search", search)
-                .AddOptionalParameter("archived", archived?.ToString())
-                .AddOptionalParameter("show_only_owned_agents", showOnlyOwnedAgents?.ToString())
+                .AddOptionalParameter("archived", archived?.ToString().ToLowerInvariant())
+                .AddOptionalParameter("show_only_owned_agents", showOnlyOwnedAgents?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("created_by_user_id", createdByUserId)
                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                 .AddOptionalParameter("sort_by", sortBy?.ToString())

@@ -106,7 +106,7 @@ namespace ElevenLabs
             __pathBuilder
                 .AddOptionalParameter("search", search)
                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString())
+                .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("created_by_user_id", createdByUserId)
                 .AddOptionalParameter("types", types?.ToString())
                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())

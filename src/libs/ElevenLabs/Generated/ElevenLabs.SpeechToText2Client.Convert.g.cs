@@ -60,7 +60,7 @@ namespace ElevenLabs
                 path: "/v1/speech-to-text",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddOptionalParameter("enable_logging", enableLogging?.ToString()) 
+                .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

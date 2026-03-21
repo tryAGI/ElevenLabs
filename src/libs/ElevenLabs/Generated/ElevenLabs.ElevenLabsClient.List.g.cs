@@ -102,7 +102,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("search", search)
                 .AddOptionalParameter("parent_folder_id", parentFolderId)
                 .AddOptionalParameter("types", types?.ToString())
-                .AddOptionalParameter("include_folders", includeFolders?.ToString())
+                .AddOptionalParameter("include_folders", includeFolders?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("sort_mode", sortMode?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();

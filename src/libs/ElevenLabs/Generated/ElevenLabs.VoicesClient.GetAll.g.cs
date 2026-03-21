@@ -52,7 +52,7 @@ namespace ElevenLabs
                 path: "/v1/voices",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddOptionalParameter("show_legacy", showLegacy?.ToString()) 
+                .AddOptionalParameter("show_legacy", showLegacy?.ToString().ToLowerInvariant()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
