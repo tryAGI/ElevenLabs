@@ -47188,9 +47188,16 @@
             "const": "unknown",
             "title": "Type",
             "default": "unknown"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
           }
         },
         "type": "object",
+        "required": [
+          "id"
+        ],
         "title": "DependentUnknownToolIdentifier",
         "description": "A model that represents an tool dependent on a knowledge base/tools\nto which the user has no direct access."
       },

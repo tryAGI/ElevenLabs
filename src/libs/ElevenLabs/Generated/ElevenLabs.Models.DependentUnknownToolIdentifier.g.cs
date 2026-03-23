@@ -16,6 +16,13 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Id { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -27,12 +34,15 @@ namespace ElevenLabs
         /// <param name="type">
         /// Default Value: unknown
         /// </param>
+        /// <param name="id"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DependentUnknownToolIdentifier(
+            string id,
             string? type)
         {
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Type = type;
         }
 
