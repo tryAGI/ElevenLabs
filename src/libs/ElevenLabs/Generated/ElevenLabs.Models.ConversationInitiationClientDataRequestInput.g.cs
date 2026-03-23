@@ -34,6 +34,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationInitiationSourceInfo? SourceInfo { get; set; }
 
         /// <summary>
+        /// ID of the agent branch to use for this conversation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
+        public string? BranchId { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
@@ -58,6 +64,9 @@ namespace ElevenLabs
         /// <param name="sourceInfo">
         /// Information about the source of conversation initiation
         /// </param>
+        /// <param name="branchId">
+        /// ID of the agent branch to use for this conversation
+        /// </param>
         /// <param name="dynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -67,12 +76,14 @@ namespace ElevenLabs
             object? customLlmExtraBody,
             string? userId,
             global::ElevenLabs.ConversationInitiationSourceInfo? sourceInfo,
+            string? branchId,
             object? dynamicVariables)
         {
             this.ConversationConfigOverride = conversationConfigOverride;
             this.CustomLlmExtraBody = customLlmExtraBody;
             this.UserId = userId;
             this.SourceInfo = sourceInfo;
+            this.BranchId = branchId;
             this.DynamicVariables = dynamicVariables;
         }
 

@@ -50,6 +50,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
+        public string? BranchId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CreatedAtUnix { get; set; }
@@ -133,6 +139,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branch_name")]
+        public string? BranchName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recipients")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel> Recipients { get; set; }
@@ -152,6 +164,7 @@ namespace ElevenLabs
         /// <param name="whatsappParams"></param>
         /// <param name="name"></param>
         /// <param name="agentId"></param>
+        /// <param name="branchId"></param>
         /// <param name="createdAtUnix"></param>
         /// <param name="scheduledTimeUnix"></param>
         /// <param name="timezone"></param>
@@ -174,6 +187,7 @@ namespace ElevenLabs
         /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
         /// </param>
         /// <param name="agentName"></param>
+        /// <param name="branchName"></param>
         /// <param name="recipients"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -196,8 +210,10 @@ namespace ElevenLabs
             string? phoneNumberId,
             global::ElevenLabs.TelephonyProvider? phoneProvider,
             global::ElevenLabs.BatchCallWhatsAppParams? whatsappParams,
+            string? branchId,
             string? timezone,
-            int? targetConcurrencyLimit)
+            int? targetConcurrencyLimit,
+            string? branchName)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -216,8 +232,10 @@ namespace ElevenLabs
             this.PhoneNumberId = phoneNumberId;
             this.PhoneProvider = phoneProvider;
             this.WhatsappParams = whatsappParams;
+            this.BranchId = branchId;
             this.Timezone = timezone;
             this.TargetConcurrencyLimit = targetConcurrencyLimit;
+            this.BranchName = branchName;
         }
 
         /// <summary>
