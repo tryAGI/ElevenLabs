@@ -256,6 +256,12 @@ namespace ElevenLabs
         public double? PlaybackSpeed { get; set; }
 
         /// <summary>
+        /// Default Value: 1F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("opacity")]
+        public double? Opacity { get; set; }
+
+        /// <summary>
         /// Default Value: v0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("track_id")]
@@ -337,6 +343,9 @@ namespace ElevenLabs
         /// <param name="playbackSpeed">
         /// Default Value: 1F
         /// </param>
+        /// <param name="opacity">
+        /// Default Value: 1F
+        /// </param>
         /// <param name="trackId">
         /// Default Value: v0
         /// </param>
@@ -388,6 +397,7 @@ namespace ElevenLabs
             global::ElevenLabs.CanvasPlacement? canvasPlacement,
             global::ElevenLabs.ClipAnimation? animation,
             double? playbackSpeed,
+            double? opacity,
             string? trackId,
             double? importSpeechProgress,
             double previewJobProgress = default!)
@@ -430,6 +440,7 @@ namespace ElevenLabs
             this.CanvasPlacement = canvasPlacement;
             this.Animation = animation;
             this.PlaybackSpeed = playbackSpeed;
+            this.Opacity = opacity;
             this.TrackId = trackId;
             this.PreviewJobProgress = previewJobProgress;
             this.ImportSpeechProgress = importSpeechProgress;

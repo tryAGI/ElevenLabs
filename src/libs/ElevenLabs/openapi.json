@@ -48856,8 +48856,7 @@
         "type": "string",
         "enum": [
           "e5_mistral_7b_instruct",
-          "multilingual_e5_large_instruct",
-          "qwen3_embedding_4b"
+          "multilingual_e5_large_instruct"
         ],
         "title": "EmbeddingModelEnum",
         "default": "e5_mistral_7b_instruct"
@@ -60938,6 +60937,13 @@
               "exit_duration_ms": 0
             }
           },
+          "opacity": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Opacity",
+            "default": 1.0
+          },
           "created_at_ms": {
             "type": "integer",
             "title": "Created At Ms"
@@ -61864,6 +61870,13 @@
           "playback_speed": {
             "type": "number",
             "title": "Playback Speed",
+            "default": 1.0
+          },
+          "opacity": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Opacity",
             "default": 1.0
           },
           "track_id": {
