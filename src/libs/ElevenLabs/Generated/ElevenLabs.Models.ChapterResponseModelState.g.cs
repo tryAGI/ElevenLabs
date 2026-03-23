@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Default,
+        Converting,
         /// <summary>
         /// 
         /// </summary>
-        Converting,
+        Default,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ChapterResponseModelState.Default => "default",
                 ChapterResponseModelState.Converting => "converting",
+                ChapterResponseModelState.Default => "default",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "default" => ChapterResponseModelState.Default,
                 "converting" => ChapterResponseModelState.Converting,
+                "default" => ChapterResponseModelState.Default,
                 _ => null,
             };
         }

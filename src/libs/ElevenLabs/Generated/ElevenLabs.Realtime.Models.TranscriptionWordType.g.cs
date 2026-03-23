@@ -11,11 +11,11 @@ namespace ElevenLabs.Realtime
         /// <summary>
         /// 
         /// </summary>
-        Word,
+        Spacing,
         /// <summary>
         /// 
         /// </summary>
-        Spacing,
+        Word,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs.Realtime
         {
             return value switch
             {
-                TranscriptionWordType.Word => "word",
                 TranscriptionWordType.Spacing => "spacing",
+                TranscriptionWordType.Word => "word",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs.Realtime
         {
             return value switch
             {
-                "word" => TranscriptionWordType.Word,
                 "spacing" => TranscriptionWordType.Spacing,
+                "word" => TranscriptionWordType.Word,
                 _ => null,
             };
         }

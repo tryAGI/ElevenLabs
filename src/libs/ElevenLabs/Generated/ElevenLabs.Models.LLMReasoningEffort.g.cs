@@ -11,11 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        None,
-        /// <summary>
-        /// 
-        /// </summary>
-        Minimal,
+        High,
         /// <summary>
         /// 
         /// </summary>
@@ -27,7 +23,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        High,
+        Minimal,
+        /// <summary>
+        /// 
+        /// </summary>
+        None,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                LLMReasoningEffort.None => "none",
-                LLMReasoningEffort.Minimal => "minimal",
+                LLMReasoningEffort.High => "high",
                 LLMReasoningEffort.Low => "low",
                 LLMReasoningEffort.Medium => "medium",
-                LLMReasoningEffort.High => "high",
+                LLMReasoningEffort.Minimal => "minimal",
+                LLMReasoningEffort.None => "none",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "none" => LLMReasoningEffort.None,
-                "minimal" => LLMReasoningEffort.Minimal,
+                "high" => LLMReasoningEffort.High,
                 "low" => LLMReasoningEffort.Low,
                 "medium" => LLMReasoningEffort.Medium,
-                "high" => LLMReasoningEffort.High,
+                "minimal" => LLMReasoningEffort.Minimal,
+                "none" => LLMReasoningEffort.None,
                 _ => null,
             };
         }

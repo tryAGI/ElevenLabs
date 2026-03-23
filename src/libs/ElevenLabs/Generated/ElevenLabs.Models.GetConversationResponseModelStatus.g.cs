@@ -11,7 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Initiated,
+        Done,
+        /// <summary>
+        /// 
+        /// </summary>
+        Failed,
         /// <summary>
         /// 
         /// </summary>
@@ -19,15 +23,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Initiated,
+        /// <summary>
+        /// 
+        /// </summary>
         Processing,
-        /// <summary>
-        /// 
-        /// </summary>
-        Done,
-        /// <summary>
-        /// 
-        /// </summary>
-        Failed,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                GetConversationResponseModelStatus.Initiated => "initiated",
-                GetConversationResponseModelStatus.InProgress => "in-progress",
-                GetConversationResponseModelStatus.Processing => "processing",
                 GetConversationResponseModelStatus.Done => "done",
                 GetConversationResponseModelStatus.Failed => "failed",
+                GetConversationResponseModelStatus.InProgress => "in-progress",
+                GetConversationResponseModelStatus.Initiated => "initiated",
+                GetConversationResponseModelStatus.Processing => "processing",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "initiated" => GetConversationResponseModelStatus.Initiated,
-                "in-progress" => GetConversationResponseModelStatus.InProgress,
-                "processing" => GetConversationResponseModelStatus.Processing,
                 "done" => GetConversationResponseModelStatus.Done,
                 "failed" => GetConversationResponseModelStatus.Failed,
+                "in-progress" => GetConversationResponseModelStatus.InProgress,
+                "initiated" => GetConversationResponseModelStatus.Initiated,
+                "processing" => GetConversationResponseModelStatus.Processing,
                 _ => null,
             };
         }

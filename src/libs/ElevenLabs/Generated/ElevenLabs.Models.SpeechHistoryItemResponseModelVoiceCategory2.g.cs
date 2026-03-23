@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Premade,
-        /// <summary>
-        /// 
-        /// </summary>
         Cloned,
         /// <summary>
         /// 
         /// </summary>
         Generated,
+        /// <summary>
+        /// 
+        /// </summary>
+        Premade,
         /// <summary>
         /// 
         /// </summary>
@@ -38,9 +38,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                SpeechHistoryItemResponseModelVoiceCategory2.Premade => "premade",
                 SpeechHistoryItemResponseModelVoiceCategory2.Cloned => "cloned",
                 SpeechHistoryItemResponseModelVoiceCategory2.Generated => "generated",
+                SpeechHistoryItemResponseModelVoiceCategory2.Premade => "premade",
                 SpeechHistoryItemResponseModelVoiceCategory2.Professional => "professional",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -52,9 +52,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "premade" => SpeechHistoryItemResponseModelVoiceCategory2.Premade,
                 "cloned" => SpeechHistoryItemResponseModelVoiceCategory2.Cloned,
                 "generated" => SpeechHistoryItemResponseModelVoiceCategory2.Generated,
+                "premade" => SpeechHistoryItemResponseModelVoiceCategory2.Premade,
                 "professional" => SpeechHistoryItemResponseModelVoiceCategory2.Professional,
                 _ => null,
             };

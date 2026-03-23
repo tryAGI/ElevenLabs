@@ -11,19 +11,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Name,
-        /// <summary>
-        /// 
-        /// </summary>
         CreatedAt,
         /// <summary>
         /// 
         /// </summary>
-        UpdatedAt,
+        Name,
         /// <summary>
         /// 
         /// </summary>
         Size,
+        /// <summary>
+        /// 
+        /// </summary>
+        UpdatedAt,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                KnowledgeBaseSortBy.Name => "name",
                 KnowledgeBaseSortBy.CreatedAt => "created_at",
-                KnowledgeBaseSortBy.UpdatedAt => "updated_at",
+                KnowledgeBaseSortBy.Name => "name",
                 KnowledgeBaseSortBy.Size => "size",
+                KnowledgeBaseSortBy.UpdatedAt => "updated_at",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "name" => KnowledgeBaseSortBy.Name,
                 "created_at" => KnowledgeBaseSortBy.CreatedAt,
-                "updated_at" => KnowledgeBaseSortBy.UpdatedAt,
+                "name" => KnowledgeBaseSortBy.Name,
                 "size" => KnowledgeBaseSortBy.Size,
+                "updated_at" => KnowledgeBaseSortBy.UpdatedAt,
                 _ => null,
             };
         }

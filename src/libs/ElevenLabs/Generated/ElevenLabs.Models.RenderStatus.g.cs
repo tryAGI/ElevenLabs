@@ -15,11 +15,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Processing,
+        Failed,
         /// <summary>
         /// 
         /// </summary>
-        Failed,
+        Processing,
     }
 
     /// <summary>
@@ -35,8 +35,8 @@ namespace ElevenLabs
             return value switch
             {
                 RenderStatus.Complete => "complete",
-                RenderStatus.Processing => "processing",
                 RenderStatus.Failed => "failed",
+                RenderStatus.Processing => "processing",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -48,8 +48,8 @@ namespace ElevenLabs
             return value switch
             {
                 "complete" => RenderStatus.Complete,
-                "processing" => RenderStatus.Processing,
                 "failed" => RenderStatus.Failed,
+                "processing" => RenderStatus.Processing,
                 _ => null,
             };
         }

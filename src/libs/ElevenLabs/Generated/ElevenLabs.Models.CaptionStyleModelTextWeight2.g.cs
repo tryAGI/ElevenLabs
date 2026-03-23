@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Normal,
+        x900,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        x900,
+        Normal,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                CaptionStyleModelTextWeight2.Normal => "normal",
-                CaptionStyleModelTextWeight2.Bold => "bold",
                 CaptionStyleModelTextWeight2.x900 => "900",
+                CaptionStyleModelTextWeight2.Bold => "bold",
+                CaptionStyleModelTextWeight2.Normal => "normal",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "normal" => CaptionStyleModelTextWeight2.Normal,
-                "bold" => CaptionStyleModelTextWeight2.Bold,
                 "900" => CaptionStyleModelTextWeight2.x900,
+                "bold" => CaptionStyleModelTextWeight2.Bold,
+                "normal" => CaptionStyleModelTextWeight2.Normal,
                 _ => null,
             };
         }

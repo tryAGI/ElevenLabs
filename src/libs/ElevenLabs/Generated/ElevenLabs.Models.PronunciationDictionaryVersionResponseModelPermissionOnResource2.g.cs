@@ -15,11 +15,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Editor,
+        Commenter,
         /// <summary>
         /// 
         /// </summary>
-        Commenter,
+        Editor,
         /// <summary>
         /// 
         /// </summary>
@@ -39,8 +39,8 @@ namespace ElevenLabs
             return value switch
             {
                 PronunciationDictionaryVersionResponseModelPermissionOnResource2.Admin => "admin",
-                PronunciationDictionaryVersionResponseModelPermissionOnResource2.Editor => "editor",
                 PronunciationDictionaryVersionResponseModelPermissionOnResource2.Commenter => "commenter",
+                PronunciationDictionaryVersionResponseModelPermissionOnResource2.Editor => "editor",
                 PronunciationDictionaryVersionResponseModelPermissionOnResource2.Viewer => "viewer",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -53,8 +53,8 @@ namespace ElevenLabs
             return value switch
             {
                 "admin" => PronunciationDictionaryVersionResponseModelPermissionOnResource2.Admin,
-                "editor" => PronunciationDictionaryVersionResponseModelPermissionOnResource2.Editor,
                 "commenter" => PronunciationDictionaryVersionResponseModelPermissionOnResource2.Commenter,
+                "editor" => PronunciationDictionaryVersionResponseModelPermissionOnResource2.Editor,
                 "viewer" => PronunciationDictionaryVersionResponseModelPermissionOnResource2.Viewer,
                 _ => null,
             };

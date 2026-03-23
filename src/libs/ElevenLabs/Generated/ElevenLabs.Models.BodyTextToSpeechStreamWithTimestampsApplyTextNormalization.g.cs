@@ -16,11 +16,11 @@ namespace ElevenLabs
         /// <summary>
         /// 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
         /// </summary>
-        On,
+        Off,
         /// <summary>
         /// 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
         /// </summary>
-        Off,
+        On,
     }
 
     /// <summary>
@@ -36,8 +36,8 @@ namespace ElevenLabs
             return value switch
             {
                 BodyTextToSpeechStreamWithTimestampsApplyTextNormalization.Auto => "auto",
-                BodyTextToSpeechStreamWithTimestampsApplyTextNormalization.On => "on",
                 BodyTextToSpeechStreamWithTimestampsApplyTextNormalization.Off => "off",
+                BodyTextToSpeechStreamWithTimestampsApplyTextNormalization.On => "on",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -49,8 +49,8 @@ namespace ElevenLabs
             return value switch
             {
                 "auto" => BodyTextToSpeechStreamWithTimestampsApplyTextNormalization.Auto,
-                "on" => BodyTextToSpeechStreamWithTimestampsApplyTextNormalization.On,
                 "off" => BodyTextToSpeechStreamWithTimestampsApplyTextNormalization.Off,
+                "on" => BodyTextToSpeechStreamWithTimestampsApplyTextNormalization.On,
                 _ => null,
             };
         }

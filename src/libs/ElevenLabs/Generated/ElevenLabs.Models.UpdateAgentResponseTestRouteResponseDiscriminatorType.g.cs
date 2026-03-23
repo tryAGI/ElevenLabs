@@ -15,11 +15,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Tool,
+        Simulation,
         /// <summary>
         /// 
         /// </summary>
-        Simulation,
+        Tool,
     }
 
     /// <summary>
@@ -35,8 +35,8 @@ namespace ElevenLabs
             return value switch
             {
                 UpdateAgentResponseTestRouteResponseDiscriminatorType.Llm => "llm",
-                UpdateAgentResponseTestRouteResponseDiscriminatorType.Tool => "tool",
                 UpdateAgentResponseTestRouteResponseDiscriminatorType.Simulation => "simulation",
+                UpdateAgentResponseTestRouteResponseDiscriminatorType.Tool => "tool",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -48,8 +48,8 @@ namespace ElevenLabs
             return value switch
             {
                 "llm" => UpdateAgentResponseTestRouteResponseDiscriminatorType.Llm,
-                "tool" => UpdateAgentResponseTestRouteResponseDiscriminatorType.Tool,
                 "simulation" => UpdateAgentResponseTestRouteResponseDiscriminatorType.Simulation,
+                "tool" => UpdateAgentResponseTestRouteResponseDiscriminatorType.Tool,
                 _ => null,
             };
         }

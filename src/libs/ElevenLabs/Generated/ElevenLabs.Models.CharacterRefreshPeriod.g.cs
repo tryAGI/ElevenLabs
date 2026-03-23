@@ -11,10 +11,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        MonthlyPeriod,
-        /// <summary>
-        /// 
-        /// </summary>
         x3MonthPeriod,
         /// <summary>
         /// 
@@ -24,6 +20,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         AnnualPeriod,
+        /// <summary>
+        /// 
+        /// </summary>
+        MonthlyPeriod,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                CharacterRefreshPeriod.MonthlyPeriod => "monthly_period",
                 CharacterRefreshPeriod.x3MonthPeriod => "3_month_period",
                 CharacterRefreshPeriod.x6MonthPeriod => "6_month_period",
                 CharacterRefreshPeriod.AnnualPeriod => "annual_period",
+                CharacterRefreshPeriod.MonthlyPeriod => "monthly_period",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "monthly_period" => CharacterRefreshPeriod.MonthlyPeriod,
                 "3_month_period" => CharacterRefreshPeriod.x3MonthPeriod,
                 "6_month_period" => CharacterRefreshPeriod.x6MonthPeriod,
                 "annual_period" => CharacterRefreshPeriod.AnnualPeriod,
+                "monthly_period" => CharacterRefreshPeriod.MonthlyPeriod,
                 _ => null,
             };
         }

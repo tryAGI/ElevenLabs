@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Url,
+        File,
         /// <summary>
         /// 
         /// </summary>
-        File,
+        Folder,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Folder,
+        Url,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                RefreshUrlDocumentRouteResponseDiscriminatorType.Url => "url",
                 RefreshUrlDocumentRouteResponseDiscriminatorType.File => "file",
-                RefreshUrlDocumentRouteResponseDiscriminatorType.Text => "text",
                 RefreshUrlDocumentRouteResponseDiscriminatorType.Folder => "folder",
+                RefreshUrlDocumentRouteResponseDiscriminatorType.Text => "text",
+                RefreshUrlDocumentRouteResponseDiscriminatorType.Url => "url",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "url" => RefreshUrlDocumentRouteResponseDiscriminatorType.Url,
                 "file" => RefreshUrlDocumentRouteResponseDiscriminatorType.File,
-                "text" => RefreshUrlDocumentRouteResponseDiscriminatorType.Text,
                 "folder" => RefreshUrlDocumentRouteResponseDiscriminatorType.Folder,
+                "text" => RefreshUrlDocumentRouteResponseDiscriminatorType.Text,
+                "url" => RefreshUrlDocumentRouteResponseDiscriminatorType.Url,
                 _ => null,
             };
         }

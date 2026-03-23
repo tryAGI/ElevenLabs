@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Article,
+        /// <summary>
+        /// 
+        /// </summary>
         Blank,
         /// <summary>
         /// 
@@ -19,19 +23,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Article,
-        /// <summary>
-        /// 
-        /// </summary>
         Genfm,
         /// <summary>
         /// 
         /// </summary>
-        Video,
+        Screenplay,
         /// <summary>
         /// 
         /// </summary>
-        Screenplay,
+        Video,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ProjectExtendedResponseModelSourceType2.Article => "article",
                 ProjectExtendedResponseModelSourceType2.Blank => "blank",
                 ProjectExtendedResponseModelSourceType2.Book => "book",
-                ProjectExtendedResponseModelSourceType2.Article => "article",
                 ProjectExtendedResponseModelSourceType2.Genfm => "genfm",
-                ProjectExtendedResponseModelSourceType2.Video => "video",
                 ProjectExtendedResponseModelSourceType2.Screenplay => "screenplay",
+                ProjectExtendedResponseModelSourceType2.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "article" => ProjectExtendedResponseModelSourceType2.Article,
                 "blank" => ProjectExtendedResponseModelSourceType2.Blank,
                 "book" => ProjectExtendedResponseModelSourceType2.Book,
-                "article" => ProjectExtendedResponseModelSourceType2.Article,
                 "genfm" => ProjectExtendedResponseModelSourceType2.Genfm,
-                "video" => ProjectExtendedResponseModelSourceType2.Video,
                 "screenplay" => ProjectExtendedResponseModelSourceType2.Screenplay,
+                "video" => ProjectExtendedResponseModelSourceType2.Video,
                 _ => null,
             };
         }

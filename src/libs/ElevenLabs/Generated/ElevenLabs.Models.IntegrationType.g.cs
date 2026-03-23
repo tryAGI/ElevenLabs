@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        McpServer,
+        McpIntegration,
         /// <summary>
         /// 
         /// </summary>
-        McpIntegration,
+        McpServer,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                IntegrationType.McpServer => "mcp_server",
                 IntegrationType.McpIntegration => "mcp_integration",
+                IntegrationType.McpServer => "mcp_server",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "mcp_server" => IntegrationType.McpServer,
                 "mcp_integration" => IntegrationType.McpIntegration,
+                "mcp_server" => IntegrationType.McpServer,
                 _ => null,
             };
         }

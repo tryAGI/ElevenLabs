@@ -15,11 +15,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Oauth2,
+        Mtls,
         /// <summary>
         /// 
         /// </summary>
-        Mtls,
+        Oauth2,
     }
 
     /// <summary>
@@ -35,8 +35,8 @@ namespace ElevenLabs
             return value switch
             {
                 WebhookAuthMethodType.Hmac => "hmac",
-                WebhookAuthMethodType.Oauth2 => "oauth2",
                 WebhookAuthMethodType.Mtls => "mtls",
+                WebhookAuthMethodType.Oauth2 => "oauth2",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -48,8 +48,8 @@ namespace ElevenLabs
             return value switch
             {
                 "hmac" => WebhookAuthMethodType.Hmac,
-                "oauth2" => WebhookAuthMethodType.Oauth2,
                 "mtls" => WebhookAuthMethodType.Mtls,
+                "oauth2" => WebhookAuthMethodType.Oauth2,
                 _ => null,
             };
         }

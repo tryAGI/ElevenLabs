@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Twilio,
+        SipTrunk,
         /// <summary>
         /// 
         /// </summary>
-        SipTrunk,
+        Twilio,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ListPhoneNumbersRouteResponseItemDiscriminatorProvider.Twilio => "twilio",
                 ListPhoneNumbersRouteResponseItemDiscriminatorProvider.SipTrunk => "sip_trunk",
+                ListPhoneNumbersRouteResponseItemDiscriminatorProvider.Twilio => "twilio",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "twilio" => ListPhoneNumbersRouteResponseItemDiscriminatorProvider.Twilio,
                 "sip_trunk" => ListPhoneNumbersRouteResponseItemDiscriminatorProvider.SipTrunk,
+                "twilio" => ListPhoneNumbersRouteResponseItemDiscriminatorProvider.Twilio,
                 _ => null,
             };
         }

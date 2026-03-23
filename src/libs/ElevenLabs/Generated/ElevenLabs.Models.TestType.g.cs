@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Llm,
+        Folder,
         /// <summary>
         /// 
         /// </summary>
-        Tool,
+        Llm,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Folder,
+        Tool,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                TestType.Llm => "llm",
-                TestType.Tool => "tool",
-                TestType.Simulation => "simulation",
                 TestType.Folder => "folder",
+                TestType.Llm => "llm",
+                TestType.Simulation => "simulation",
+                TestType.Tool => "tool",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "llm" => TestType.Llm,
-                "tool" => TestType.Tool,
-                "simulation" => TestType.Simulation,
                 "folder" => TestType.Folder,
+                "llm" => TestType.Llm,
+                "simulation" => TestType.Simulation,
+                "tool" => TestType.Tool,
                 _ => null,
             };
         }

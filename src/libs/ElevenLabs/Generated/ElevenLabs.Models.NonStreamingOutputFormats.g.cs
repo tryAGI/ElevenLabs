@@ -11,10 +11,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Wav8000,
-        /// <summary>
-        /// 
-        /// </summary>
         Wav16000,
         /// <summary>
         /// 
@@ -36,6 +32,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Wav48000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Wav8000,
     }
 
     /// <summary>
@@ -50,13 +50,13 @@ namespace ElevenLabs
         {
             return value switch
             {
-                NonStreamingOutputFormats.Wav8000 => "wav_8000",
                 NonStreamingOutputFormats.Wav16000 => "wav_16000",
                 NonStreamingOutputFormats.Wav22050 => "wav_22050",
                 NonStreamingOutputFormats.Wav24000 => "wav_24000",
                 NonStreamingOutputFormats.Wav32000 => "wav_32000",
                 NonStreamingOutputFormats.Wav44100 => "wav_44100",
                 NonStreamingOutputFormats.Wav48000 => "wav_48000",
+                NonStreamingOutputFormats.Wav8000 => "wav_8000",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -67,13 +67,13 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "wav_8000" => NonStreamingOutputFormats.Wav8000,
                 "wav_16000" => NonStreamingOutputFormats.Wav16000,
                 "wav_22050" => NonStreamingOutputFormats.Wav22050,
                 "wav_24000" => NonStreamingOutputFormats.Wav24000,
                 "wav_32000" => NonStreamingOutputFormats.Wav32000,
                 "wav_44100" => NonStreamingOutputFormats.Wav44100,
                 "wav_48000" => NonStreamingOutputFormats.Wav48000,
+                "wav_8000" => NonStreamingOutputFormats.Wav8000,
                 _ => null,
             };
         }

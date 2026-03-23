@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        All,
+        /// <summary>
+        /// 
+        /// </summary>
         Direct,
         /// <summary>
         /// 
         /// </summary>
         Transitive,
-        /// <summary>
-        /// 
-        /// </summary>
-        All,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                KnowledgeBaseDependentType.All => "all",
                 KnowledgeBaseDependentType.Direct => "direct",
                 KnowledgeBaseDependentType.Transitive => "transitive",
-                KnowledgeBaseDependentType.All => "all",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "all" => KnowledgeBaseDependentType.All,
                 "direct" => KnowledgeBaseDependentType.Direct,
                 "transitive" => KnowledgeBaseDependentType.Transitive,
-                "all" => KnowledgeBaseDependentType.All,
                 _ => null,
             };
         }

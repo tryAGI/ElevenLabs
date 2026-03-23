@@ -11,14 +11,6 @@ namespace ElevenLabs.Realtime
         /// <summary>
         /// 
         /// </summary>
-        SessionStarted,
-        /// <summary>
-        /// 
-        /// </summary>
-        PartialTranscript,
-        /// <summary>
-        /// 
-        /// </summary>
         CommittedTranscript,
         /// <summary>
         /// 
@@ -28,6 +20,14 @@ namespace ElevenLabs.Realtime
         /// 
         /// </summary>
         Error,
+        /// <summary>
+        /// 
+        /// </summary>
+        PartialTranscript,
+        /// <summary>
+        /// 
+        /// </summary>
+        SessionStarted,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace ElevenLabs.Realtime
         {
             return value switch
             {
-                ServerEventDiscriminatorMessageType.SessionStarted => "session_started",
-                ServerEventDiscriminatorMessageType.PartialTranscript => "partial_transcript",
                 ServerEventDiscriminatorMessageType.CommittedTranscript => "committed_transcript",
                 ServerEventDiscriminatorMessageType.CommittedTranscriptWithTimestamps => "committed_transcript_with_timestamps",
                 ServerEventDiscriminatorMessageType.Error => "error",
+                ServerEventDiscriminatorMessageType.PartialTranscript => "partial_transcript",
+                ServerEventDiscriminatorMessageType.SessionStarted => "session_started",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace ElevenLabs.Realtime
         {
             return value switch
             {
-                "session_started" => ServerEventDiscriminatorMessageType.SessionStarted,
-                "partial_transcript" => ServerEventDiscriminatorMessageType.PartialTranscript,
                 "committed_transcript" => ServerEventDiscriminatorMessageType.CommittedTranscript,
                 "committed_transcript_with_timestamps" => ServerEventDiscriminatorMessageType.CommittedTranscriptWithTimestamps,
                 "error" => ServerEventDiscriminatorMessageType.Error,
+                "partial_transcript" => ServerEventDiscriminatorMessageType.PartialTranscript,
+                "session_started" => ServerEventDiscriminatorMessageType.SessionStarted,
                 _ => null,
             };
         }

@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Auto,
+        ApplyEnglish,
         /// <summary>
         /// 
         /// </summary>
-        On,
+        Auto,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        ApplyEnglish,
+        On,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.Auto => "auto",
-                BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.On => "on",
-                BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.Off => "off",
                 BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.ApplyEnglish => "apply_english",
+                BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.Auto => "auto",
+                BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.Off => "off",
+                BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.On => "on",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "auto" => BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.Auto,
-                "on" => BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.On,
-                "off" => BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.Off,
                 "apply_english" => BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.ApplyEnglish,
+                "auto" => BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.Auto,
+                "off" => BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.Off,
+                "on" => BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2.On,
                 _ => null,
             };
         }

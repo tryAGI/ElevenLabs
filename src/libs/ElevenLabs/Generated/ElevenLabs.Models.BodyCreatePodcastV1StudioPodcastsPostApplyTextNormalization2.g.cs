@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Auto,
+        ApplyEnglish,
         /// <summary>
         /// 
         /// </summary>
-        On,
+        Auto,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        ApplyEnglish,
+        On,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.Auto => "auto",
-                BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.On => "on",
-                BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.Off => "off",
                 BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.ApplyEnglish => "apply_english",
+                BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.Auto => "auto",
+                BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.Off => "off",
+                BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.On => "on",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "auto" => BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.Auto,
-                "on" => BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.On,
-                "off" => BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.Off,
                 "apply_english" => BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.ApplyEnglish,
+                "auto" => BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.Auto,
+                "off" => BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.Off,
+                "on" => BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2.On,
                 _ => null,
             };
         }

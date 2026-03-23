@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        LastContactUnixSecs,
+        ConversationCount,
         /// <summary>
         /// 
         /// </summary>
-        ConversationCount,
+        LastContactUnixSecs,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                UsersSortBy.LastContactUnixSecs => "last_contact_unix_secs",
                 UsersSortBy.ConversationCount => "conversation_count",
+                UsersSortBy.LastContactUnixSecs => "last_contact_unix_secs",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "last_contact_unix_secs" => UsersSortBy.LastContactUnixSecs,
                 "conversation_count" => UsersSortBy.ConversationCount,
+                "last_contact_unix_secs" => UsersSortBy.LastContactUnixSecs,
                 _ => null,
             };
         }

@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Article,
+        /// <summary>
+        /// 
+        /// </summary>
         Blank,
         /// <summary>
         /// 
@@ -19,19 +23,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Article,
-        /// <summary>
-        /// 
-        /// </summary>
         Genfm,
         /// <summary>
         /// 
         /// </summary>
-        Video,
+        Screenplay,
         /// <summary>
         /// 
         /// </summary>
-        Screenplay,
+        Video,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Article => "article",
                 BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Blank => "blank",
                 BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Book => "book",
-                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Article => "article",
                 BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Genfm => "genfm",
-                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Video => "video",
                 BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Screenplay => "screenplay",
+                BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "article" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Article,
                 "blank" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Blank,
                 "book" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Book,
-                "article" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Article,
                 "genfm" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Genfm,
-                "video" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Video,
                 "screenplay" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Screenplay,
+                "video" => BodyCreateStudioProjectV1StudioProjectsPostSourceType2.Video,
                 _ => null,
             };
         }

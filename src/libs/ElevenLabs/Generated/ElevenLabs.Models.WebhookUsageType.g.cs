@@ -19,11 +19,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        VoiceLibraryRemovalNotices,
+        SpeechToText,
         /// <summary>
         /// 
         /// </summary>
-        SpeechToText,
+        VoiceLibraryRemovalNotices,
     }
 
     /// <summary>
@@ -40,8 +40,8 @@ namespace ElevenLabs
             {
                 WebhookUsageType.ConvAIAgentSettings => "ConvAI Agent Settings",
                 WebhookUsageType.ConvAISettings => "ConvAI Settings",
-                WebhookUsageType.VoiceLibraryRemovalNotices => "Voice Library Removal Notices",
                 WebhookUsageType.SpeechToText => "Speech to Text",
+                WebhookUsageType.VoiceLibraryRemovalNotices => "Voice Library Removal Notices",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -54,8 +54,8 @@ namespace ElevenLabs
             {
                 "ConvAI Agent Settings" => WebhookUsageType.ConvAIAgentSettings,
                 "ConvAI Settings" => WebhookUsageType.ConvAISettings,
-                "Voice Library Removal Notices" => WebhookUsageType.VoiceLibraryRemovalNotices,
                 "Speech to Text" => WebhookUsageType.SpeechToText,
+                "Voice Library Removal Notices" => WebhookUsageType.VoiceLibraryRemovalNotices,
                 _ => null,
             };
         }

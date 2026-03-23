@@ -12,7 +12,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Delete,
+        /// <summary>
+        /// 
+        /// </summary>
         Get,
+        /// <summary>
+        /// 
+        /// </summary>
+        Patch,
         /// <summary>
         /// 
         /// </summary>
@@ -21,14 +29,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Put,
-        /// <summary>
-        /// 
-        /// </summary>
-        Patch,
-        /// <summary>
-        /// 
-        /// </summary>
-        Delete,
     }
 
     /// <summary>
@@ -43,11 +43,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                WebhookToolApiSchemaConfigOutputMethod.Delete => "DELETE",
                 WebhookToolApiSchemaConfigOutputMethod.Get => "GET",
+                WebhookToolApiSchemaConfigOutputMethod.Patch => "PATCH",
                 WebhookToolApiSchemaConfigOutputMethod.Post => "POST",
                 WebhookToolApiSchemaConfigOutputMethod.Put => "PUT",
-                WebhookToolApiSchemaConfigOutputMethod.Patch => "PATCH",
-                WebhookToolApiSchemaConfigOutputMethod.Delete => "DELETE",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -58,11 +58,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "DELETE" => WebhookToolApiSchemaConfigOutputMethod.Delete,
                 "GET" => WebhookToolApiSchemaConfigOutputMethod.Get,
+                "PATCH" => WebhookToolApiSchemaConfigOutputMethod.Patch,
                 "POST" => WebhookToolApiSchemaConfigOutputMethod.Post,
                 "PUT" => WebhookToolApiSchemaConfigOutputMethod.Put,
-                "PATCH" => WebhookToolApiSchemaConfigOutputMethod.Patch,
-                "DELETE" => WebhookToolApiSchemaConfigOutputMethod.Delete,
                 _ => null,
             };
         }

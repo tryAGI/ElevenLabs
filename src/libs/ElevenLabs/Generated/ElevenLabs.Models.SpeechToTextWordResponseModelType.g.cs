@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Word,
+        AudioEvent,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        AudioEvent,
+        Word,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                SpeechToTextWordResponseModelType.Word => "word",
-                SpeechToTextWordResponseModelType.Spacing => "spacing",
                 SpeechToTextWordResponseModelType.AudioEvent => "audio_event",
+                SpeechToTextWordResponseModelType.Spacing => "spacing",
+                SpeechToTextWordResponseModelType.Word => "word",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "word" => SpeechToTextWordResponseModelType.Word,
-                "spacing" => SpeechToTextWordResponseModelType.Spacing,
                 "audio_event" => SpeechToTextWordResponseModelType.AudioEvent,
+                "spacing" => SpeechToTextWordResponseModelType.Spacing,
+                "word" => SpeechToTextWordResponseModelType.Word,
                 _ => null,
             };
         }

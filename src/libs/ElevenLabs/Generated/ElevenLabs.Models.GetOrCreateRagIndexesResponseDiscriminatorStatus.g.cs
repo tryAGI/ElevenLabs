@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Success,
+        Failure,
         /// <summary>
         /// 
         /// </summary>
-        Failure,
+        Success,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                GetOrCreateRagIndexesResponseDiscriminatorStatus.Success => "success",
                 GetOrCreateRagIndexesResponseDiscriminatorStatus.Failure => "failure",
+                GetOrCreateRagIndexesResponseDiscriminatorStatus.Success => "success",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "success" => GetOrCreateRagIndexesResponseDiscriminatorStatus.Success,
                 "failure" => GetOrCreateRagIndexesResponseDiscriminatorStatus.Failure,
+                "success" => GetOrCreateRagIndexesResponseDiscriminatorStatus.Success,
                 _ => null,
             };
         }

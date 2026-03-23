@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        None,
-        /// <summary>
-        /// 
-        /// </summary>
         EngagementBased,
         /// <summary>
         /// 
         /// </summary>
         FixedPayout,
+        /// <summary>
+        /// 
+        /// </summary>
+        None,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                DirectPublishingReadResponseModelPayoutType2.None => "none",
                 DirectPublishingReadResponseModelPayoutType2.EngagementBased => "engagement_based",
                 DirectPublishingReadResponseModelPayoutType2.FixedPayout => "fixed_payout",
+                DirectPublishingReadResponseModelPayoutType2.None => "none",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "none" => DirectPublishingReadResponseModelPayoutType2.None,
                 "engagement_based" => DirectPublishingReadResponseModelPayoutType2.EngagementBased,
                 "fixed_payout" => DirectPublishingReadResponseModelPayoutType2.FixedPayout,
+                "none" => DirectPublishingReadResponseModelPayoutType2.None,
                 _ => null,
             };
         }

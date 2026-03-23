@@ -15,15 +15,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        String,
-        /// <summary>
-        /// 
-        /// </summary>
         Integer,
         /// <summary>
         /// 
         /// </summary>
         Number,
+        /// <summary>
+        /// 
+        /// </summary>
+        String,
     }
 
     /// <summary>
@@ -39,9 +39,9 @@ namespace ElevenLabs
             return value switch
             {
                 LLMLiteralJsonSchemaPropertyType.Boolean => "boolean",
-                LLMLiteralJsonSchemaPropertyType.String => "string",
                 LLMLiteralJsonSchemaPropertyType.Integer => "integer",
                 LLMLiteralJsonSchemaPropertyType.Number => "number",
+                LLMLiteralJsonSchemaPropertyType.String => "string",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -53,9 +53,9 @@ namespace ElevenLabs
             return value switch
             {
                 "boolean" => LLMLiteralJsonSchemaPropertyType.Boolean,
-                "string" => LLMLiteralJsonSchemaPropertyType.String,
                 "integer" => LLMLiteralJsonSchemaPropertyType.Integer,
                 "number" => LLMLiteralJsonSchemaPropertyType.Number,
+                "string" => LLMLiteralJsonSchemaPropertyType.String,
                 _ => null,
             };
         }

@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Processing,
-        /// <summary>
-        /// 
-        /// </summary>
         Completed,
         /// <summary>
         /// 
         /// </summary>
         Failed,
+        /// <summary>
+        /// 
+        /// </summary>
+        Processing,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                VideoAnalysisStatus.Processing => "processing",
                 VideoAnalysisStatus.Completed => "completed",
                 VideoAnalysisStatus.Failed => "failed",
+                VideoAnalysisStatus.Processing => "processing",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "processing" => VideoAnalysisStatus.Processing,
                 "completed" => VideoAnalysisStatus.Completed,
                 "failed" => VideoAnalysisStatus.Failed,
+                "processing" => VideoAnalysisStatus.Processing,
                 _ => null,
             };
         }

@@ -11,11 +11,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Cloned,
+        /// <summary>
+        /// 
+        /// </summary>
+        Famous,
+        /// <summary>
+        /// 
+        /// </summary>
         Generated,
         /// <summary>
         /// 
         /// </summary>
-        Cloned,
+        HighQuality,
         /// <summary>
         /// 
         /// </summary>
@@ -24,14 +32,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Professional,
-        /// <summary>
-        /// 
-        /// </summary>
-        Famous,
-        /// <summary>
-        /// 
-        /// </summary>
-        HighQuality,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace ElevenLabs
         {
             return value switch
             {
-                LibraryVoiceResponseModelCategory.Generated => "generated",
                 LibraryVoiceResponseModelCategory.Cloned => "cloned",
+                LibraryVoiceResponseModelCategory.Famous => "famous",
+                LibraryVoiceResponseModelCategory.Generated => "generated",
+                LibraryVoiceResponseModelCategory.HighQuality => "high_quality",
                 LibraryVoiceResponseModelCategory.Premade => "premade",
                 LibraryVoiceResponseModelCategory.Professional => "professional",
-                LibraryVoiceResponseModelCategory.Famous => "famous",
-                LibraryVoiceResponseModelCategory.HighQuality => "high_quality",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "generated" => LibraryVoiceResponseModelCategory.Generated,
                 "cloned" => LibraryVoiceResponseModelCategory.Cloned,
+                "famous" => LibraryVoiceResponseModelCategory.Famous,
+                "generated" => LibraryVoiceResponseModelCategory.Generated,
+                "high_quality" => LibraryVoiceResponseModelCategory.HighQuality,
                 "premade" => LibraryVoiceResponseModelCategory.Premade,
                 "professional" => LibraryVoiceResponseModelCategory.Professional,
-                "famous" => LibraryVoiceResponseModelCategory.Famous,
-                "high_quality" => LibraryVoiceResponseModelCategory.HighQuality,
                 _ => null,
             };
         }

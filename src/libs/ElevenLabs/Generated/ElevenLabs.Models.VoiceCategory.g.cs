@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Premade,
+        Cloned,
         /// <summary>
         /// 
         /// </summary>
-        Cloned,
+        Famous,
         /// <summary>
         /// 
         /// </summary>
@@ -23,11 +23,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Professional,
+        Premade,
         /// <summary>
         /// 
         /// </summary>
-        Famous,
+        Professional,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                VoiceCategory.Premade => "premade",
                 VoiceCategory.Cloned => "cloned",
-                VoiceCategory.Generated => "generated",
-                VoiceCategory.Professional => "professional",
                 VoiceCategory.Famous => "famous",
+                VoiceCategory.Generated => "generated",
+                VoiceCategory.Premade => "premade",
+                VoiceCategory.Professional => "professional",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "premade" => VoiceCategory.Premade,
                 "cloned" => VoiceCategory.Cloned,
-                "generated" => VoiceCategory.Generated,
-                "professional" => VoiceCategory.Professional,
                 "famous" => VoiceCategory.Famous,
+                "generated" => VoiceCategory.Generated,
+                "premade" => VoiceCategory.Premade,
+                "professional" => VoiceCategory.Professional,
                 _ => null,
             };
         }

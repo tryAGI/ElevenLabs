@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        None,
+        Fade,
         /// <summary>
         /// 
         /// </summary>
-        Fade,
+        None,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                CaptionStyleCharacterAnimationModelExitType.None => "none",
                 CaptionStyleCharacterAnimationModelExitType.Fade => "fade",
+                CaptionStyleCharacterAnimationModelExitType.None => "none",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "none" => CaptionStyleCharacterAnimationModelExitType.None,
                 "fade" => CaptionStyleCharacterAnimationModelExitType.Fade,
+                "none" => CaptionStyleCharacterAnimationModelExitType.None,
                 _ => null,
             };
         }

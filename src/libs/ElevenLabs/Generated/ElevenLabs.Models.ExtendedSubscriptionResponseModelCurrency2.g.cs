@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Usd,
-        /// <summary>
-        /// 
-        /// </summary>
         Eur,
         /// <summary>
         /// 
         /// </summary>
         Inr,
+        /// <summary>
+        /// 
+        /// </summary>
+        Usd,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ExtendedSubscriptionResponseModelCurrency2.Usd => "usd",
                 ExtendedSubscriptionResponseModelCurrency2.Eur => "eur",
                 ExtendedSubscriptionResponseModelCurrency2.Inr => "inr",
+                ExtendedSubscriptionResponseModelCurrency2.Usd => "usd",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "usd" => ExtendedSubscriptionResponseModelCurrency2.Usd,
                 "eur" => ExtendedSubscriptionResponseModelCurrency2.Eur,
                 "inr" => ExtendedSubscriptionResponseModelCurrency2.Inr,
+                "usd" => ExtendedSubscriptionResponseModelCurrency2.Usd,
                 _ => null,
             };
         }

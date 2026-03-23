@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Hour,
+        Cumulative,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Week,
+        Hour,
         /// <summary>
         /// 
         /// </summary>
@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Cumulative,
+        Week,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                UsageAggregationInterval.Hour => "hour",
-                UsageAggregationInterval.Day => "day",
-                UsageAggregationInterval.Week => "week",
-                UsageAggregationInterval.Month => "month",
                 UsageAggregationInterval.Cumulative => "cumulative",
+                UsageAggregationInterval.Day => "day",
+                UsageAggregationInterval.Hour => "hour",
+                UsageAggregationInterval.Month => "month",
+                UsageAggregationInterval.Week => "week",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "hour" => UsageAggregationInterval.Hour,
-                "day" => UsageAggregationInterval.Day,
-                "week" => UsageAggregationInterval.Week,
-                "month" => UsageAggregationInterval.Month,
                 "cumulative" => UsageAggregationInterval.Cumulative,
+                "day" => UsageAggregationInterval.Day,
+                "hour" => UsageAggregationInterval.Hour,
+                "month" => UsageAggregationInterval.Month,
+                "week" => UsageAggregationInterval.Week,
                 _ => null,
             };
         }

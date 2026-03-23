@@ -15,15 +15,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Short,
-        /// <summary>
-        /// 
-        /// </summary>
         Default,
         /// <summary>
         /// 
         /// </summary>
         Long,
+        /// <summary>
+        /// 
+        /// </summary>
+        Short,
     }
 
     /// <summary>
@@ -38,9 +38,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                BodyCreatePodcastV1StudioPodcastsPostDurationScale.Short => "short",
                 BodyCreatePodcastV1StudioPodcastsPostDurationScale.Default => "default",
                 BodyCreatePodcastV1StudioPodcastsPostDurationScale.Long => "long",
+                BodyCreatePodcastV1StudioPodcastsPostDurationScale.Short => "short",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -51,9 +51,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "short" => BodyCreatePodcastV1StudioPodcastsPostDurationScale.Short,
                 "default" => BodyCreatePodcastV1StudioPodcastsPostDurationScale.Default,
                 "long" => BodyCreatePodcastV1StudioPodcastsPostDurationScale.Long,
+                "short" => BodyCreatePodcastV1StudioPodcastsPostDurationScale.Short,
                 _ => null,
             };
         }

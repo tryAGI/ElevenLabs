@@ -17,11 +17,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        WorkspaceMember,
+        WorkspaceLiteMember,
         /// <summary>
         /// 
         /// </summary>
-        WorkspaceLiteMember,
+        WorkspaceMember,
     }
 
     /// <summary>
@@ -37,8 +37,8 @@ namespace ElevenLabs
             return value switch
             {
                 SeatType.WorkspaceAdmin => "workspace_admin",
-                SeatType.WorkspaceMember => "workspace_member",
                 SeatType.WorkspaceLiteMember => "workspace_lite_member",
+                SeatType.WorkspaceMember => "workspace_member",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,8 +50,8 @@ namespace ElevenLabs
             return value switch
             {
                 "workspace_admin" => SeatType.WorkspaceAdmin,
-                "workspace_member" => SeatType.WorkspaceMember,
                 "workspace_lite_member" => SeatType.WorkspaceLiteMember,
+                "workspace_member" => SeatType.WorkspaceMember,
                 _ => null,
             };
         }

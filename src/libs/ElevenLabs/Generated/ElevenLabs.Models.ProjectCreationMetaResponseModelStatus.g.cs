@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Pending,
+        Creating,
         /// <summary>
         /// 
         /// </summary>
-        Creating,
+        Failed,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Failed,
+        Pending,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ProjectCreationMetaResponseModelStatus.Pending => "pending",
                 ProjectCreationMetaResponseModelStatus.Creating => "creating",
-                ProjectCreationMetaResponseModelStatus.Finished => "finished",
                 ProjectCreationMetaResponseModelStatus.Failed => "failed",
+                ProjectCreationMetaResponseModelStatus.Finished => "finished",
+                ProjectCreationMetaResponseModelStatus.Pending => "pending",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "pending" => ProjectCreationMetaResponseModelStatus.Pending,
                 "creating" => ProjectCreationMetaResponseModelStatus.Creating,
-                "finished" => ProjectCreationMetaResponseModelStatus.Finished,
                 "failed" => ProjectCreationMetaResponseModelStatus.Failed,
+                "finished" => ProjectCreationMetaResponseModelStatus.Finished,
+                "pending" => ProjectCreationMetaResponseModelStatus.Pending,
                 _ => null,
             };
         }
