@@ -110,6 +110,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ClipAnimation? Animation { get; set; }
 
         /// <summary>
+        /// Default Value: 1F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("opacity")]
+        public double? Opacity { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_ms")]
@@ -169,6 +175,9 @@ namespace ElevenLabs
         /// <param name="animation">
         /// Default Value: {"enter_effect":"none","enter_duration_ms":0,"exit_effect":"none","exit_duration_ms":0}
         /// </param>
+        /// <param name="opacity">
+        /// Default Value: 1F
+        /// </param>
         /// <param name="createdAtMs"></param>
         /// <param name="updatedAtMs"></param>
         /// <param name="currentSnapshotId"></param>
@@ -194,6 +203,7 @@ namespace ElevenLabs
             string? source,
             string? trackId,
             global::ElevenLabs.ClipAnimation? animation,
+            double? opacity,
             string? currentSnapshotId,
             string? sourceAssetId)
         {
@@ -214,6 +224,7 @@ namespace ElevenLabs
             this.Source = source;
             this.TrackId = trackId;
             this.Animation = animation;
+            this.Opacity = opacity;
             this.CurrentSnapshotId = currentSnapshotId;
             this.SourceAssetId = sourceAssetId;
         }
