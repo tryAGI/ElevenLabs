@@ -11,19 +11,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Children,
-        /// <summary>
-        /// 
-        /// </summary>
-        YoungAdult,
-        /// <summary>
-        /// 
-        /// </summary>
         Adult,
         /// <summary>
         /// 
         /// </summary>
         AllAges,
+        /// <summary>
+        /// 
+        /// </summary>
+        Children,
+        /// <summary>
+        /// 
+        /// </summary>
+        YoungAdult,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.Children => "children",
-                BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.YoungAdult => "young adult",
                 BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.Adult => "adult",
                 BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.AllAges => "all ages",
+                BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.Children => "children",
+                BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.YoungAdult => "young adult",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "children" => BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.Children,
-                "young adult" => BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.YoungAdult,
                 "adult" => BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.Adult,
                 "all ages" => BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.AllAges,
+                "children" => BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.Children,
+                "young adult" => BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2.YoungAdult,
                 _ => null,
             };
         }

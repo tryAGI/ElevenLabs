@@ -11,11 +11,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Cloned,
+        /// <summary>
+        /// 
+        /// </summary>
+        Famous,
+        /// <summary>
+        /// 
+        /// </summary>
         Generated,
         /// <summary>
         /// 
         /// </summary>
-        Cloned,
+        HighQuality,
         /// <summary>
         /// 
         /// </summary>
@@ -24,14 +32,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Professional,
-        /// <summary>
-        /// 
-        /// </summary>
-        Famous,
-        /// <summary>
-        /// 
-        /// </summary>
-        HighQuality,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace ElevenLabs
         {
             return value switch
             {
-                VoiceResponseModelCategory.Generated => "generated",
                 VoiceResponseModelCategory.Cloned => "cloned",
+                VoiceResponseModelCategory.Famous => "famous",
+                VoiceResponseModelCategory.Generated => "generated",
+                VoiceResponseModelCategory.HighQuality => "high_quality",
                 VoiceResponseModelCategory.Premade => "premade",
                 VoiceResponseModelCategory.Professional => "professional",
-                VoiceResponseModelCategory.Famous => "famous",
-                VoiceResponseModelCategory.HighQuality => "high_quality",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "generated" => VoiceResponseModelCategory.Generated,
                 "cloned" => VoiceResponseModelCategory.Cloned,
+                "famous" => VoiceResponseModelCategory.Famous,
+                "generated" => VoiceResponseModelCategory.Generated,
+                "high_quality" => VoiceResponseModelCategory.HighQuality,
                 "premade" => VoiceResponseModelCategory.Premade,
                 "professional" => VoiceResponseModelCategory.Professional,
-                "famous" => VoiceResponseModelCategory.Famous,
-                "high_quality" => VoiceResponseModelCategory.HighQuality,
                 _ => null,
             };
         }

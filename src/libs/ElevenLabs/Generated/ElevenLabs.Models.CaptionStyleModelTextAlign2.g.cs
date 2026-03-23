@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Start,
-        /// <summary>
-        /// 
-        /// </summary>
         Center,
         /// <summary>
         /// 
         /// </summary>
         End,
+        /// <summary>
+        /// 
+        /// </summary>
+        Start,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                CaptionStyleModelTextAlign2.Start => "start",
                 CaptionStyleModelTextAlign2.Center => "center",
                 CaptionStyleModelTextAlign2.End => "end",
+                CaptionStyleModelTextAlign2.Start => "start",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "start" => CaptionStyleModelTextAlign2.Start,
                 "center" => CaptionStyleModelTextAlign2.Center,
                 "end" => CaptionStyleModelTextAlign2.End,
+                "start" => CaptionStyleModelTextAlign2.Start,
                 _ => null,
             };
         }

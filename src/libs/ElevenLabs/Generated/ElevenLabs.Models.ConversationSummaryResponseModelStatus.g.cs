@@ -11,7 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Initiated,
+        Done,
+        /// <summary>
+        /// 
+        /// </summary>
+        Failed,
         /// <summary>
         /// 
         /// </summary>
@@ -19,15 +23,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Initiated,
+        /// <summary>
+        /// 
+        /// </summary>
         Processing,
-        /// <summary>
-        /// 
-        /// </summary>
-        Done,
-        /// <summary>
-        /// 
-        /// </summary>
-        Failed,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ConversationSummaryResponseModelStatus.Initiated => "initiated",
-                ConversationSummaryResponseModelStatus.InProgress => "in-progress",
-                ConversationSummaryResponseModelStatus.Processing => "processing",
                 ConversationSummaryResponseModelStatus.Done => "done",
                 ConversationSummaryResponseModelStatus.Failed => "failed",
+                ConversationSummaryResponseModelStatus.InProgress => "in-progress",
+                ConversationSummaryResponseModelStatus.Initiated => "initiated",
+                ConversationSummaryResponseModelStatus.Processing => "processing",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "initiated" => ConversationSummaryResponseModelStatus.Initiated,
-                "in-progress" => ConversationSummaryResponseModelStatus.InProgress,
-                "processing" => ConversationSummaryResponseModelStatus.Processing,
                 "done" => ConversationSummaryResponseModelStatus.Done,
                 "failed" => ConversationSummaryResponseModelStatus.Failed,
+                "in-progress" => ConversationSummaryResponseModelStatus.InProgress,
+                "initiated" => ConversationSummaryResponseModelStatus.Initiated,
+                "processing" => ConversationSummaryResponseModelStatus.Processing,
                 _ => null,
             };
         }

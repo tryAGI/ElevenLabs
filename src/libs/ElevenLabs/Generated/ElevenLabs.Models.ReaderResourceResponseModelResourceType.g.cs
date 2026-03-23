@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Read,
+        Collection,
         /// <summary>
         /// 
         /// </summary>
-        Collection,
+        Read,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ReaderResourceResponseModelResourceType.Read => "read",
                 ReaderResourceResponseModelResourceType.Collection => "collection",
+                ReaderResourceResponseModelResourceType.Read => "read",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "read" => ReaderResourceResponseModelResourceType.Read,
                 "collection" => ReaderResourceResponseModelResourceType.Collection,
+                "read" => ReaderResourceResponseModelResourceType.Read,
                 _ => null,
             };
         }

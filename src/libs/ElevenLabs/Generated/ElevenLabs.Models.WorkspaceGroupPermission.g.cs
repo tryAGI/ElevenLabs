@@ -11,35 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        TextToSpeech,
+        AddVoiceFromVoiceLibrary,
         /// <summary>
         /// 
         /// </summary>
-        SpeechToSpeech,
-        /// <summary>
-        /// 
-        /// </summary>
-        SpeechToText,
-        /// <summary>
-        /// 
-        /// </summary>
-        VoiceLab,
-        /// <summary>
-        /// 
-        /// </summary>
-        SoundEffects,
-        /// <summary>
-        /// 
-        /// </summary>
-        Projects,
-        /// <summary>
-        /// 
-        /// </summary>
-        VoiceoverStudio,
-        /// <summary>
-        /// 
-        /// </summary>
-        Dubbing,
+        AiSpeechClassifier,
         /// <summary>
         /// 
         /// </summary>
@@ -48,18 +24,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ConversationalAi,
-        /// <summary>
-        /// 
-        /// </summary>
-        VoiceIsolator,
-        /// <summary>
-        /// 
-        /// </summary>
-        AiSpeechClassifier,
-        /// <summary>
-        /// 
-        /// </summary>
-        AddVoiceFromVoiceLibrary,
         /// <summary>
         /// 
         /// </summary>
@@ -75,11 +39,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        PublishStudioProject,
+        Dubbing,
         /// <summary>
         /// 
         /// </summary>
-        Music,
+        GroupMembersManage,
         /// <summary>
         /// 
         /// </summary>
@@ -87,7 +51,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        ShareVoiceExternally,
+        Music,
+        /// <summary>
+        /// 
+        /// </summary>
+        Projects,
+        /// <summary>
+        /// 
+        /// </summary>
+        PublishStudioProject,
         /// <summary>
         /// 
         /// </summary>
@@ -95,15 +67,47 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ServiceAccountsManage,
+        /// <summary>
+        /// 
+        /// </summary>
+        ShareVoiceExternally,
+        /// <summary>
+        /// 
+        /// </summary>
+        SoundEffects,
+        /// <summary>
+        /// 
+        /// </summary>
+        SpeechToSpeech,
+        /// <summary>
+        /// 
+        /// </summary>
+        SpeechToText,
+        /// <summary>
+        /// 
+        /// </summary>
+        TermsOfServiceAccept,
+        /// <summary>
+        /// 
+        /// </summary>
+        TextToSpeech,
+        /// <summary>
+        /// 
+        /// </summary>
         ViewFiatBalance,
         /// <summary>
         /// 
         /// </summary>
-        WorkspaceAnalyticsFullRead,
+        VoiceIsolator,
         /// <summary>
         /// 
         /// </summary>
-        ServiceAccountsManage,
+        VoiceLab,
+        /// <summary>
+        /// 
+        /// </summary>
+        VoiceoverStudio,
         /// <summary>
         /// 
         /// </summary>
@@ -111,7 +115,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        GroupMembersManage,
+        WorkspaceAnalyticsFullRead,
         /// <summary>
         /// 
         /// </summary>
@@ -120,10 +124,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         WorkspaceMembersRemove,
-        /// <summary>
-        /// 
-        /// </summary>
-        TermsOfServiceAccept,
     }
 
     /// <summary>
@@ -138,35 +138,35 @@ namespace ElevenLabs
         {
             return value switch
             {
-                WorkspaceGroupPermission.TextToSpeech => "text_to_speech",
-                WorkspaceGroupPermission.SpeechToSpeech => "speech_to_speech",
-                WorkspaceGroupPermission.SpeechToText => "speech_to_text",
-                WorkspaceGroupPermission.VoiceLab => "voice_lab",
-                WorkspaceGroupPermission.SoundEffects => "sound_effects",
-                WorkspaceGroupPermission.Projects => "projects",
-                WorkspaceGroupPermission.VoiceoverStudio => "voiceover_studio",
-                WorkspaceGroupPermission.Dubbing => "dubbing",
+                WorkspaceGroupPermission.AddVoiceFromVoiceLibrary => "add_voice_from_voice_library",
+                WorkspaceGroupPermission.AiSpeechClassifier => "ai_speech_classifier",
                 WorkspaceGroupPermission.AudioNative => "audio_native",
                 WorkspaceGroupPermission.ConversationalAi => "conversational_ai",
-                WorkspaceGroupPermission.VoiceIsolator => "voice_isolator",
-                WorkspaceGroupPermission.AiSpeechClassifier => "ai_speech_classifier",
-                WorkspaceGroupPermission.AddVoiceFromVoiceLibrary => "add_voice_from_voice_library",
                 WorkspaceGroupPermission.CreateInstantVoiceClone => "create_instant_voice_clone",
                 WorkspaceGroupPermission.CreateProfessionalVoiceClone => "create_professional_voice_clone",
                 WorkspaceGroupPermission.CreateUserApiKey => "create_user_api_key",
-                WorkspaceGroupPermission.PublishStudioProject => "publish_studio_project",
-                WorkspaceGroupPermission.Music => "music",
-                WorkspaceGroupPermission.ImageVideoGeneration => "image_video_generation",
-                WorkspaceGroupPermission.ShareVoiceExternally => "share_voice_externally",
-                WorkspaceGroupPermission.PublishVoiceToVoiceLibrary => "publish_voice_to_voice_library",
-                WorkspaceGroupPermission.ViewFiatBalance => "view_fiat_balance",
-                WorkspaceGroupPermission.WorkspaceAnalyticsFullRead => "workspace_analytics_full_read",
-                WorkspaceGroupPermission.ServiceAccountsManage => "service_accounts_manage",
-                WorkspaceGroupPermission.WebhooksManage => "webhooks_manage",
+                WorkspaceGroupPermission.Dubbing => "dubbing",
                 WorkspaceGroupPermission.GroupMembersManage => "group_members_manage",
+                WorkspaceGroupPermission.ImageVideoGeneration => "image_video_generation",
+                WorkspaceGroupPermission.Music => "music",
+                WorkspaceGroupPermission.Projects => "projects",
+                WorkspaceGroupPermission.PublishStudioProject => "publish_studio_project",
+                WorkspaceGroupPermission.PublishVoiceToVoiceLibrary => "publish_voice_to_voice_library",
+                WorkspaceGroupPermission.ServiceAccountsManage => "service_accounts_manage",
+                WorkspaceGroupPermission.ShareVoiceExternally => "share_voice_externally",
+                WorkspaceGroupPermission.SoundEffects => "sound_effects",
+                WorkspaceGroupPermission.SpeechToSpeech => "speech_to_speech",
+                WorkspaceGroupPermission.SpeechToText => "speech_to_text",
+                WorkspaceGroupPermission.TermsOfServiceAccept => "terms_of_service_accept",
+                WorkspaceGroupPermission.TextToSpeech => "text_to_speech",
+                WorkspaceGroupPermission.ViewFiatBalance => "view_fiat_balance",
+                WorkspaceGroupPermission.VoiceIsolator => "voice_isolator",
+                WorkspaceGroupPermission.VoiceLab => "voice_lab",
+                WorkspaceGroupPermission.VoiceoverStudio => "voiceover_studio",
+                WorkspaceGroupPermission.WebhooksManage => "webhooks_manage",
+                WorkspaceGroupPermission.WorkspaceAnalyticsFullRead => "workspace_analytics_full_read",
                 WorkspaceGroupPermission.WorkspaceMembersInvite => "workspace_members_invite",
                 WorkspaceGroupPermission.WorkspaceMembersRemove => "workspace_members_remove",
-                WorkspaceGroupPermission.TermsOfServiceAccept => "terms_of_service_accept",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -177,35 +177,35 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "text_to_speech" => WorkspaceGroupPermission.TextToSpeech,
-                "speech_to_speech" => WorkspaceGroupPermission.SpeechToSpeech,
-                "speech_to_text" => WorkspaceGroupPermission.SpeechToText,
-                "voice_lab" => WorkspaceGroupPermission.VoiceLab,
-                "sound_effects" => WorkspaceGroupPermission.SoundEffects,
-                "projects" => WorkspaceGroupPermission.Projects,
-                "voiceover_studio" => WorkspaceGroupPermission.VoiceoverStudio,
-                "dubbing" => WorkspaceGroupPermission.Dubbing,
+                "add_voice_from_voice_library" => WorkspaceGroupPermission.AddVoiceFromVoiceLibrary,
+                "ai_speech_classifier" => WorkspaceGroupPermission.AiSpeechClassifier,
                 "audio_native" => WorkspaceGroupPermission.AudioNative,
                 "conversational_ai" => WorkspaceGroupPermission.ConversationalAi,
-                "voice_isolator" => WorkspaceGroupPermission.VoiceIsolator,
-                "ai_speech_classifier" => WorkspaceGroupPermission.AiSpeechClassifier,
-                "add_voice_from_voice_library" => WorkspaceGroupPermission.AddVoiceFromVoiceLibrary,
                 "create_instant_voice_clone" => WorkspaceGroupPermission.CreateInstantVoiceClone,
                 "create_professional_voice_clone" => WorkspaceGroupPermission.CreateProfessionalVoiceClone,
                 "create_user_api_key" => WorkspaceGroupPermission.CreateUserApiKey,
-                "publish_studio_project" => WorkspaceGroupPermission.PublishStudioProject,
-                "music" => WorkspaceGroupPermission.Music,
-                "image_video_generation" => WorkspaceGroupPermission.ImageVideoGeneration,
-                "share_voice_externally" => WorkspaceGroupPermission.ShareVoiceExternally,
-                "publish_voice_to_voice_library" => WorkspaceGroupPermission.PublishVoiceToVoiceLibrary,
-                "view_fiat_balance" => WorkspaceGroupPermission.ViewFiatBalance,
-                "workspace_analytics_full_read" => WorkspaceGroupPermission.WorkspaceAnalyticsFullRead,
-                "service_accounts_manage" => WorkspaceGroupPermission.ServiceAccountsManage,
-                "webhooks_manage" => WorkspaceGroupPermission.WebhooksManage,
+                "dubbing" => WorkspaceGroupPermission.Dubbing,
                 "group_members_manage" => WorkspaceGroupPermission.GroupMembersManage,
+                "image_video_generation" => WorkspaceGroupPermission.ImageVideoGeneration,
+                "music" => WorkspaceGroupPermission.Music,
+                "projects" => WorkspaceGroupPermission.Projects,
+                "publish_studio_project" => WorkspaceGroupPermission.PublishStudioProject,
+                "publish_voice_to_voice_library" => WorkspaceGroupPermission.PublishVoiceToVoiceLibrary,
+                "service_accounts_manage" => WorkspaceGroupPermission.ServiceAccountsManage,
+                "share_voice_externally" => WorkspaceGroupPermission.ShareVoiceExternally,
+                "sound_effects" => WorkspaceGroupPermission.SoundEffects,
+                "speech_to_speech" => WorkspaceGroupPermission.SpeechToSpeech,
+                "speech_to_text" => WorkspaceGroupPermission.SpeechToText,
+                "terms_of_service_accept" => WorkspaceGroupPermission.TermsOfServiceAccept,
+                "text_to_speech" => WorkspaceGroupPermission.TextToSpeech,
+                "view_fiat_balance" => WorkspaceGroupPermission.ViewFiatBalance,
+                "voice_isolator" => WorkspaceGroupPermission.VoiceIsolator,
+                "voice_lab" => WorkspaceGroupPermission.VoiceLab,
+                "voiceover_studio" => WorkspaceGroupPermission.VoiceoverStudio,
+                "webhooks_manage" => WorkspaceGroupPermission.WebhooksManage,
+                "workspace_analytics_full_read" => WorkspaceGroupPermission.WorkspaceAnalyticsFullRead,
                 "workspace_members_invite" => WorkspaceGroupPermission.WorkspaceMembersInvite,
                 "workspace_members_remove" => WorkspaceGroupPermission.WorkspaceMembersRemove,
-                "terms_of_service_accept" => WorkspaceGroupPermission.TermsOfServiceAccept,
                 _ => null,
             };
         }

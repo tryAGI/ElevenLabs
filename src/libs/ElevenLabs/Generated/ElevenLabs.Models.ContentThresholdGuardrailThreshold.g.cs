@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        High,
+        /// <summary>
+        /// 
+        /// </summary>
         Low,
         /// <summary>
         /// 
         /// </summary>
         Medium,
-        /// <summary>
-        /// 
-        /// </summary>
-        High,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ContentThresholdGuardrailThreshold.High => "high",
                 ContentThresholdGuardrailThreshold.Low => "low",
                 ContentThresholdGuardrailThreshold.Medium => "medium",
-                ContentThresholdGuardrailThreshold.High => "high",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "high" => ContentThresholdGuardrailThreshold.High,
                 "low" => ContentThresholdGuardrailThreshold.Low,
                 "medium" => ContentThresholdGuardrailThreshold.Medium,
-                "high" => ContentThresholdGuardrailThreshold.High,
                 _ => null,
             };
         }

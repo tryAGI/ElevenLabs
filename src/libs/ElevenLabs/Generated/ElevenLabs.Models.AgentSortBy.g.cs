@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Name,
+        CreatedAt,
         /// <summary>
         /// 
         /// </summary>
-        CreatedAt,
+        Name,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                AgentSortBy.Name => "name",
                 AgentSortBy.CreatedAt => "created_at",
+                AgentSortBy.Name => "name",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "name" => AgentSortBy.Name,
                 "created_at" => AgentSortBy.CreatedAt,
+                "name" => AgentSortBy.Name,
                 _ => null,
             };
         }

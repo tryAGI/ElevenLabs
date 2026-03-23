@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Prompt,
+        Auto,
         /// <summary>
         /// 
         /// </summary>
-        Auto,
+        Prompt,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                DocumentUsageModeEnum.Prompt => "prompt",
                 DocumentUsageModeEnum.Auto => "auto",
+                DocumentUsageModeEnum.Prompt => "prompt",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "prompt" => DocumentUsageModeEnum.Prompt,
                 "auto" => DocumentUsageModeEnum.Auto,
+                "prompt" => DocumentUsageModeEnum.Prompt,
                 _ => null,
             };
         }

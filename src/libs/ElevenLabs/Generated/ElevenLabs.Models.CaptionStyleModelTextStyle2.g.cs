@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Normal,
+        Italic,
         /// <summary>
         /// 
         /// </summary>
-        Italic,
+        Normal,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                CaptionStyleModelTextStyle2.Normal => "normal",
                 CaptionStyleModelTextStyle2.Italic => "italic",
+                CaptionStyleModelTextStyle2.Normal => "normal",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "normal" => CaptionStyleModelTextStyle2.Normal,
                 "italic" => CaptionStyleModelTextStyle2.Italic,
+                "normal" => CaptionStyleModelTextStyle2.Normal,
                 _ => null,
             };
         }

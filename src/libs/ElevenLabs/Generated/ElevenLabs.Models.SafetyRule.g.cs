@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        SexualMinors,
+        Extremism,
         /// <summary>
         /// 
         /// </summary>
@@ -19,11 +19,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Extremism,
-        /// <summary>
-        /// 
-        /// </summary>
-        ScamFraud,
+        IllegalDistributionMedical,
         /// <summary>
         /// 
         /// </summary>
@@ -31,15 +27,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ScamFraud,
+        /// <summary>
+        /// 
+        /// </summary>
         SelfHarm,
         /// <summary>
         /// 
         /// </summary>
-        IllegalDistributionMedical,
+        SexualAdults,
         /// <summary>
         /// 
         /// </summary>
-        SexualAdults,
+        SexualMinors,
         /// <summary>
         /// 
         /// </summary>
@@ -58,14 +58,14 @@ namespace ElevenLabs
         {
             return value switch
             {
-                SafetyRule.SexualMinors => "sexual_minors",
-                SafetyRule.ForgetModeration => "forget_moderation",
                 SafetyRule.Extremism => "extremism",
-                SafetyRule.ScamFraud => "scam_fraud",
-                SafetyRule.Political => "political",
-                SafetyRule.SelfHarm => "self_harm",
+                SafetyRule.ForgetModeration => "forget_moderation",
                 SafetyRule.IllegalDistributionMedical => "illegal_distribution_medical",
+                SafetyRule.Political => "political",
+                SafetyRule.ScamFraud => "scam_fraud",
+                SafetyRule.SelfHarm => "self_harm",
                 SafetyRule.SexualAdults => "sexual_adults",
+                SafetyRule.SexualMinors => "sexual_minors",
                 SafetyRule.Unknown => "unknown",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -77,14 +77,14 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "sexual_minors" => SafetyRule.SexualMinors,
-                "forget_moderation" => SafetyRule.ForgetModeration,
                 "extremism" => SafetyRule.Extremism,
-                "scam_fraud" => SafetyRule.ScamFraud,
-                "political" => SafetyRule.Political,
-                "self_harm" => SafetyRule.SelfHarm,
+                "forget_moderation" => SafetyRule.ForgetModeration,
                 "illegal_distribution_medical" => SafetyRule.IllegalDistributionMedical,
+                "political" => SafetyRule.Political,
+                "scam_fraud" => SafetyRule.ScamFraud,
+                "self_harm" => SafetyRule.SelfHarm,
                 "sexual_adults" => SafetyRule.SexualAdults,
+                "sexual_minors" => SafetyRule.SexualMinors,
                 "unknown" => SafetyRule.Unknown,
                 _ => null,
             };

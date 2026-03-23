@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Like,
+        Dislike,
         /// <summary>
         /// 
         /// </summary>
-        Dislike,
+        Like,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                UserFeedbackScore.Like => "like",
                 UserFeedbackScore.Dislike => "dislike",
+                UserFeedbackScore.Like => "like",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "like" => UserFeedbackScore.Like,
                 "dislike" => UserFeedbackScore.Dislike,
+                "like" => UserFeedbackScore.Like,
                 _ => null,
             };
         }

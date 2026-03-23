@@ -16,7 +16,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Summarized,
+        Hide,
         /// <summary>
         /// 
         /// </summary>
@@ -24,7 +24,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Hide,
+        Summarized,
     }
 
     /// <summary>
@@ -40,9 +40,9 @@ namespace ElevenLabs
             return value switch
             {
                 ToolErrorHandlingMode.Auto => "auto",
-                ToolErrorHandlingMode.Summarized => "summarized",
-                ToolErrorHandlingMode.Passthrough => "passthrough",
                 ToolErrorHandlingMode.Hide => "hide",
+                ToolErrorHandlingMode.Passthrough => "passthrough",
+                ToolErrorHandlingMode.Summarized => "summarized",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -54,9 +54,9 @@ namespace ElevenLabs
             return value switch
             {
                 "auto" => ToolErrorHandlingMode.Auto,
-                "summarized" => ToolErrorHandlingMode.Summarized,
-                "passthrough" => ToolErrorHandlingMode.Passthrough,
                 "hide" => ToolErrorHandlingMode.Hide,
+                "passthrough" => ToolErrorHandlingMode.Passthrough,
+                "summarized" => ToolErrorHandlingMode.Summarized,
                 _ => null,
             };
         }

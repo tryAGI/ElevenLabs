@@ -11,19 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        NotStarted,
-        /// <summary>
-        /// 
-        /// </summary>
-        Queued,
-        /// <summary>
-        /// 
-        /// </summary>
-        FineTuning,
-        /// <summary>
-        /// 
-        /// </summary>
-        FineTuned,
+        Delayed,
         /// <summary>
         /// 
         /// </summary>
@@ -31,7 +19,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Delayed,
+        FineTuned,
+        /// <summary>
+        /// 
+        /// </summary>
+        FineTuning,
+        /// <summary>
+        /// 
+        /// </summary>
+        NotStarted,
+        /// <summary>
+        /// 
+        /// </summary>
+        Queued,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                FineTuningResponseModelState2.Delayed => "delayed",
+                FineTuningResponseModelState2.Failed => "failed",
+                FineTuningResponseModelState2.FineTuned => "fine_tuned",
+                FineTuningResponseModelState2.FineTuning => "fine_tuning",
                 FineTuningResponseModelState2.NotStarted => "not_started",
                 FineTuningResponseModelState2.Queued => "queued",
-                FineTuningResponseModelState2.FineTuning => "fine_tuning",
-                FineTuningResponseModelState2.FineTuned => "fine_tuned",
-                FineTuningResponseModelState2.Failed => "failed",
-                FineTuningResponseModelState2.Delayed => "delayed",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "delayed" => FineTuningResponseModelState2.Delayed,
+                "failed" => FineTuningResponseModelState2.Failed,
+                "fine_tuned" => FineTuningResponseModelState2.FineTuned,
+                "fine_tuning" => FineTuningResponseModelState2.FineTuning,
                 "not_started" => FineTuningResponseModelState2.NotStarted,
                 "queued" => FineTuningResponseModelState2.Queued,
-                "fine_tuning" => FineTuningResponseModelState2.FineTuning,
-                "fine_tuned" => FineTuningResponseModelState2.FineTuned,
-                "failed" => FineTuningResponseModelState2.Failed,
-                "delayed" => FineTuningResponseModelState2.Delayed,
                 _ => null,
             };
         }

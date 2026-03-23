@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        PcmS16le16,
+        Other,
         /// <summary>
         /// 
         /// </summary>
-        Other,
+        PcmS16le16,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2.PcmS16le16 => "pcm_s16le_16",
                 BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2.Other => "other",
+                BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2.PcmS16le16 => "pcm_s16le_16",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "pcm_s16le_16" => BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2.PcmS16le16,
                 "other" => BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2.Other,
+                "pcm_s16le_16" => BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2.PcmS16le16,
                 _ => null,
             };
         }

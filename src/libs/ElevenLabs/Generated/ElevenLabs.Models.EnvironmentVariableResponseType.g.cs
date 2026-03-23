@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        String,
+        AuthConnection,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        AuthConnection,
+        String,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                EnvironmentVariableResponseType.String => "string",
-                EnvironmentVariableResponseType.Secret => "secret",
                 EnvironmentVariableResponseType.AuthConnection => "auth_connection",
+                EnvironmentVariableResponseType.Secret => "secret",
+                EnvironmentVariableResponseType.String => "string",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "string" => EnvironmentVariableResponseType.String,
-                "secret" => EnvironmentVariableResponseType.Secret,
                 "auth_connection" => EnvironmentVariableResponseType.AuthConnection,
+                "secret" => EnvironmentVariableResponseType.Secret,
+                "string" => EnvironmentVariableResponseType.String,
                 _ => null,
             };
         }

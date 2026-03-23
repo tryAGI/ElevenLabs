@@ -15,11 +15,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Editor,
+        Commenter,
         /// <summary>
         /// 
         /// </summary>
-        Commenter,
+        Editor,
         /// <summary>
         /// 
         /// </summary>
@@ -39,8 +39,8 @@ namespace ElevenLabs
             return value switch
             {
                 DependentAvailableToolIdentifierAccessLevel.Admin => "admin",
-                DependentAvailableToolIdentifierAccessLevel.Editor => "editor",
                 DependentAvailableToolIdentifierAccessLevel.Commenter => "commenter",
+                DependentAvailableToolIdentifierAccessLevel.Editor => "editor",
                 DependentAvailableToolIdentifierAccessLevel.Viewer => "viewer",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -53,8 +53,8 @@ namespace ElevenLabs
             return value switch
             {
                 "admin" => DependentAvailableToolIdentifierAccessLevel.Admin,
-                "editor" => DependentAvailableToolIdentifierAccessLevel.Editor,
                 "commenter" => DependentAvailableToolIdentifierAccessLevel.Commenter,
+                "editor" => DependentAvailableToolIdentifierAccessLevel.Editor,
                 "viewer" => DependentAvailableToolIdentifierAccessLevel.Viewer,
                 _ => null,
             };

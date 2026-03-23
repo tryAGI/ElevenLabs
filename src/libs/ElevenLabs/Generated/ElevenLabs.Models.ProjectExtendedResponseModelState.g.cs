@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Converting,
+        /// <summary>
+        /// 
+        /// </summary>
         Creating,
         /// <summary>
         /// 
         /// </summary>
         Default,
-        /// <summary>
-        /// 
-        /// </summary>
-        Converting,
         /// <summary>
         /// 
         /// </summary>
@@ -38,9 +38,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ProjectExtendedResponseModelState.Converting => "converting",
                 ProjectExtendedResponseModelState.Creating => "creating",
                 ProjectExtendedResponseModelState.Default => "default",
-                ProjectExtendedResponseModelState.Converting => "converting",
                 ProjectExtendedResponseModelState.InQueue => "in_queue",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -52,9 +52,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "converting" => ProjectExtendedResponseModelState.Converting,
                 "creating" => ProjectExtendedResponseModelState.Creating,
                 "default" => ProjectExtendedResponseModelState.Default,
-                "converting" => ProjectExtendedResponseModelState.Converting,
                 "in_queue" => ProjectExtendedResponseModelState.InQueue,
                 _ => null,
             };

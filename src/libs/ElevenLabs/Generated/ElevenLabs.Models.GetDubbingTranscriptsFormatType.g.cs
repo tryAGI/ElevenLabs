@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Json,
+        /// <summary>
+        /// 
+        /// </summary>
         Srt,
         /// <summary>
         /// 
         /// </summary>
         Webvtt,
-        /// <summary>
-        /// 
-        /// </summary>
-        Json,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                GetDubbingTranscriptsFormatType.Json => "json",
                 GetDubbingTranscriptsFormatType.Srt => "srt",
                 GetDubbingTranscriptsFormatType.Webvtt => "webvtt",
-                GetDubbingTranscriptsFormatType.Json => "json",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "json" => GetDubbingTranscriptsFormatType.Json,
                 "srt" => GetDubbingTranscriptsFormatType.Srt,
                 "webvtt" => GetDubbingTranscriptsFormatType.Webvtt,
-                "json" => GetDubbingTranscriptsFormatType.Json,
                 _ => null,
             };
         }

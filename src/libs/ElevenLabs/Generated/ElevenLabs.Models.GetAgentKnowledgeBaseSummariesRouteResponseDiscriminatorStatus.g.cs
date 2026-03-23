@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Success,
+        Failure,
         /// <summary>
         /// 
         /// </summary>
-        Failure,
+        Success,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus.Success => "success",
                 GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus.Failure => "failure",
+                GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus.Success => "success",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "success" => GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus.Success,
                 "failure" => GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus.Failure,
+                "success" => GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus.Success,
                 _ => null,
             };
         }

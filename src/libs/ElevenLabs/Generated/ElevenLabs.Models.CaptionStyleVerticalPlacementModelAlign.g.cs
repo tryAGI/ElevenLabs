@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Top,
+        Bottom,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Bottom,
+        Top,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                CaptionStyleVerticalPlacementModelAlign.Top => "top",
-                CaptionStyleVerticalPlacementModelAlign.Center => "center",
                 CaptionStyleVerticalPlacementModelAlign.Bottom => "bottom",
+                CaptionStyleVerticalPlacementModelAlign.Center => "center",
+                CaptionStyleVerticalPlacementModelAlign.Top => "top",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "top" => CaptionStyleVerticalPlacementModelAlign.Top,
-                "center" => CaptionStyleVerticalPlacementModelAlign.Center,
                 "bottom" => CaptionStyleVerticalPlacementModelAlign.Bottom,
+                "center" => CaptionStyleVerticalPlacementModelAlign.Center,
+                "top" => CaptionStyleVerticalPlacementModelAlign.Top,
                 _ => null,
             };
         }

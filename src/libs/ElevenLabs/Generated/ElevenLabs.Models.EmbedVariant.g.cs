@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Tiny,
+        Compact,
         /// <summary>
         /// 
         /// </summary>
-        Compact,
+        Expandable,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Expandable,
+        Tiny,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                EmbedVariant.Tiny => "tiny",
                 EmbedVariant.Compact => "compact",
-                EmbedVariant.Full => "full",
                 EmbedVariant.Expandable => "expandable",
+                EmbedVariant.Full => "full",
+                EmbedVariant.Tiny => "tiny",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "tiny" => EmbedVariant.Tiny,
                 "compact" => EmbedVariant.Compact,
-                "full" => EmbedVariant.Full,
                 "expandable" => EmbedVariant.Expandable,
+                "full" => EmbedVariant.Full,
+                "tiny" => EmbedVariant.Tiny,
                 _ => null,
             };
         }

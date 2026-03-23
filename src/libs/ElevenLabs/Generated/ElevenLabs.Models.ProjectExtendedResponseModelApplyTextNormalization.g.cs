@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Auto,
+        ApplyEnglish,
         /// <summary>
         /// 
         /// </summary>
-        On,
+        Auto,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        ApplyEnglish,
+        On,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ProjectExtendedResponseModelApplyTextNormalization.Auto => "auto",
-                ProjectExtendedResponseModelApplyTextNormalization.On => "on",
-                ProjectExtendedResponseModelApplyTextNormalization.Off => "off",
                 ProjectExtendedResponseModelApplyTextNormalization.ApplyEnglish => "apply_english",
+                ProjectExtendedResponseModelApplyTextNormalization.Auto => "auto",
+                ProjectExtendedResponseModelApplyTextNormalization.Off => "off",
+                ProjectExtendedResponseModelApplyTextNormalization.On => "on",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "auto" => ProjectExtendedResponseModelApplyTextNormalization.Auto,
-                "on" => ProjectExtendedResponseModelApplyTextNormalization.On,
-                "off" => ProjectExtendedResponseModelApplyTextNormalization.Off,
                 "apply_english" => ProjectExtendedResponseModelApplyTextNormalization.ApplyEnglish,
+                "auto" => ProjectExtendedResponseModelApplyTextNormalization.Auto,
+                "off" => ProjectExtendedResponseModelApplyTextNormalization.Off,
+                "on" => ProjectExtendedResponseModelApplyTextNormalization.On,
                 _ => null,
             };
         }

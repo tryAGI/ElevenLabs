@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        User,
+        Agent,
         /// <summary>
         /// 
         /// </summary>
-        Agent,
+        User,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ConversationHistoryTranscriptCommonModelInputRole.User => "user",
                 ConversationHistoryTranscriptCommonModelInputRole.Agent => "agent",
+                ConversationHistoryTranscriptCommonModelInputRole.User => "user",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "user" => ConversationHistoryTranscriptCommonModelInputRole.User,
                 "agent" => ConversationHistoryTranscriptCommonModelInputRole.Agent,
+                "user" => ConversationHistoryTranscriptCommonModelInputRole.User,
                 _ => null,
             };
         }

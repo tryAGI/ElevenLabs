@@ -15,7 +15,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Text,
+        File,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        File,
+        Text,
     }
 
     /// <summary>
@@ -39,9 +39,9 @@ namespace ElevenLabs
             return value switch
             {
                 ChatSourceMedium.Audio => "audio",
-                ChatSourceMedium.Text => "text",
-                ChatSourceMedium.Image => "image",
                 ChatSourceMedium.File => "file",
+                ChatSourceMedium.Image => "image",
+                ChatSourceMedium.Text => "text",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -53,9 +53,9 @@ namespace ElevenLabs
             return value switch
             {
                 "audio" => ChatSourceMedium.Audio,
-                "text" => ChatSourceMedium.Text,
-                "image" => ChatSourceMedium.Image,
                 "file" => ChatSourceMedium.File,
+                "image" => ChatSourceMedium.Image,
+                "text" => ChatSourceMedium.Text,
                 _ => null,
             };
         }

@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Pending,
+        Failed,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Failed,
+        Pending,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                TestRunStatus.Pending => "pending",
-                TestRunStatus.Passed => "passed",
                 TestRunStatus.Failed => "failed",
+                TestRunStatus.Passed => "passed",
+                TestRunStatus.Pending => "pending",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "pending" => TestRunStatus.Pending,
-                "passed" => TestRunStatus.Passed,
                 "failed" => TestRunStatus.Failed,
+                "passed" => TestRunStatus.Passed,
+                "pending" => TestRunStatus.Pending,
                 _ => null,
             };
         }

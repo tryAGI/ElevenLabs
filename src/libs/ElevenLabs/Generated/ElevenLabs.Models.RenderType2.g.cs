@@ -11,19 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Mp4,
-        /// <summary>
-        /// 
-        /// </summary>
         Aac,
-        /// <summary>
-        /// 
-        /// </summary>
-        Mp3,
-        /// <summary>
-        /// 
-        /// </summary>
-        Wav,
         /// <summary>
         /// 
         /// </summary>
@@ -31,11 +19,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ClipsZip,
+        /// <summary>
+        /// 
+        /// </summary>
+        Mp3,
+        /// <summary>
+        /// 
+        /// </summary>
+        Mp4,
+        /// <summary>
+        /// 
+        /// </summary>
         TracksZip,
         /// <summary>
         /// 
         /// </summary>
-        ClipsZip,
+        Wav,
     }
 
     /// <summary>
@@ -50,13 +50,13 @@ namespace ElevenLabs
         {
             return value switch
             {
-                RenderType2.Mp4 => "mp4",
                 RenderType2.Aac => "aac",
-                RenderType2.Mp3 => "mp3",
-                RenderType2.Wav => "wav",
                 RenderType2.Aaf => "aaf",
-                RenderType2.TracksZip => "tracks_zip",
                 RenderType2.ClipsZip => "clips_zip",
+                RenderType2.Mp3 => "mp3",
+                RenderType2.Mp4 => "mp4",
+                RenderType2.TracksZip => "tracks_zip",
+                RenderType2.Wav => "wav",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -67,13 +67,13 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "mp4" => RenderType2.Mp4,
                 "aac" => RenderType2.Aac,
-                "mp3" => RenderType2.Mp3,
-                "wav" => RenderType2.Wav,
                 "aaf" => RenderType2.Aaf,
-                "tracks_zip" => RenderType2.TracksZip,
                 "clips_zip" => RenderType2.ClipsZip,
+                "mp3" => RenderType2.Mp3,
+                "mp4" => RenderType2.Mp4,
+                "tracks_zip" => RenderType2.TracksZip,
+                "wav" => RenderType2.Wav,
                 _ => null,
             };
         }

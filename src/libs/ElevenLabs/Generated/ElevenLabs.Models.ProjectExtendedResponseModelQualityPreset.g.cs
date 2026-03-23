@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Standard,
-        /// <summary>
-        /// 
-        /// </summary>
         High,
         /// <summary>
         /// 
         /// </summary>
         Highest,
+        /// <summary>
+        /// 
+        /// </summary>
+        Standard,
         /// <summary>
         /// 
         /// </summary>
@@ -42,9 +42,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ProjectExtendedResponseModelQualityPreset.Standard => "standard",
                 ProjectExtendedResponseModelQualityPreset.High => "high",
                 ProjectExtendedResponseModelQualityPreset.Highest => "highest",
+                ProjectExtendedResponseModelQualityPreset.Standard => "standard",
                 ProjectExtendedResponseModelQualityPreset.Ultra => "ultra",
                 ProjectExtendedResponseModelQualityPreset.UltraLossless => "ultra_lossless",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -57,9 +57,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "standard" => ProjectExtendedResponseModelQualityPreset.Standard,
                 "high" => ProjectExtendedResponseModelQualityPreset.High,
                 "highest" => ProjectExtendedResponseModelQualityPreset.Highest,
+                "standard" => ProjectExtendedResponseModelQualityPreset.Standard,
                 "ultra" => ProjectExtendedResponseModelQualityPreset.Ultra,
                 "ultra_lossless" => ProjectExtendedResponseModelQualityPreset.UltraLossless,
                 _ => null,

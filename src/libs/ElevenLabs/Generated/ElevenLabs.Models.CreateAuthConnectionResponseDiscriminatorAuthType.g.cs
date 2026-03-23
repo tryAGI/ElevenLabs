@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Oauth2ClientCredentials,
+        ApiIntegrationOauth2AuthCode,
         /// <summary>
         /// 
         /// </summary>
@@ -23,19 +23,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        CustomHeaderAuth,
+        /// <summary>
+        /// 
+        /// </summary>
+        Oauth2ClientCredentials,
+        /// <summary>
+        /// 
+        /// </summary>
         Oauth2Jwt,
         /// <summary>
         /// 
         /// </summary>
         PrivateKeyJwt,
-        /// <summary>
-        /// 
-        /// </summary>
-        CustomHeaderAuth,
-        /// <summary>
-        /// 
-        /// </summary>
-        ApiIntegrationOauth2AuthCode,
         /// <summary>
         /// 
         /// </summary>
@@ -54,13 +54,13 @@ namespace ElevenLabs
         {
             return value switch
             {
-                CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2ClientCredentials => "oauth2_client_credentials",
+                CreateAuthConnectionResponseDiscriminatorAuthType.ApiIntegrationOauth2AuthCode => "api_integration_oauth2_auth_code",
                 CreateAuthConnectionResponseDiscriminatorAuthType.BasicAuth => "basic_auth",
                 CreateAuthConnectionResponseDiscriminatorAuthType.BearerAuth => "bearer_auth",
+                CreateAuthConnectionResponseDiscriminatorAuthType.CustomHeaderAuth => "custom_header_auth",
+                CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2ClientCredentials => "oauth2_client_credentials",
                 CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2Jwt => "oauth2_jwt",
                 CreateAuthConnectionResponseDiscriminatorAuthType.PrivateKeyJwt => "private_key_jwt",
-                CreateAuthConnectionResponseDiscriminatorAuthType.CustomHeaderAuth => "custom_header_auth",
-                CreateAuthConnectionResponseDiscriminatorAuthType.ApiIntegrationOauth2AuthCode => "api_integration_oauth2_auth_code",
                 CreateAuthConnectionResponseDiscriminatorAuthType.WhatsappAuth => "whatsapp_auth",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -72,13 +72,13 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "oauth2_client_credentials" => CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2ClientCredentials,
+                "api_integration_oauth2_auth_code" => CreateAuthConnectionResponseDiscriminatorAuthType.ApiIntegrationOauth2AuthCode,
                 "basic_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.BasicAuth,
                 "bearer_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.BearerAuth,
+                "custom_header_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.CustomHeaderAuth,
+                "oauth2_client_credentials" => CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2ClientCredentials,
                 "oauth2_jwt" => CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2Jwt,
                 "private_key_jwt" => CreateAuthConnectionResponseDiscriminatorAuthType.PrivateKeyJwt,
-                "custom_header_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.CustomHeaderAuth,
-                "api_integration_oauth2_auth_code" => CreateAuthConnectionResponseDiscriminatorAuthType.ApiIntegrationOauth2AuthCode,
                 "whatsapp_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.WhatsappAuth,
                 _ => null,
             };

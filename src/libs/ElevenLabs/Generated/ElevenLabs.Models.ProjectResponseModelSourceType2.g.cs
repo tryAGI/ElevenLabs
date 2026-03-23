@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Article,
+        /// <summary>
+        /// 
+        /// </summary>
         Blank,
         /// <summary>
         /// 
@@ -19,19 +23,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Article,
-        /// <summary>
-        /// 
-        /// </summary>
         Genfm,
         /// <summary>
         /// 
         /// </summary>
-        Video,
+        Screenplay,
         /// <summary>
         /// 
         /// </summary>
-        Screenplay,
+        Video,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ProjectResponseModelSourceType2.Article => "article",
                 ProjectResponseModelSourceType2.Blank => "blank",
                 ProjectResponseModelSourceType2.Book => "book",
-                ProjectResponseModelSourceType2.Article => "article",
                 ProjectResponseModelSourceType2.Genfm => "genfm",
-                ProjectResponseModelSourceType2.Video => "video",
                 ProjectResponseModelSourceType2.Screenplay => "screenplay",
+                ProjectResponseModelSourceType2.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "article" => ProjectResponseModelSourceType2.Article,
                 "blank" => ProjectResponseModelSourceType2.Blank,
                 "book" => ProjectResponseModelSourceType2.Book,
-                "article" => ProjectResponseModelSourceType2.Article,
                 "genfm" => ProjectResponseModelSourceType2.Genfm,
-                "video" => ProjectResponseModelSourceType2.Video,
                 "screenplay" => ProjectResponseModelSourceType2.Screenplay,
+                "video" => ProjectResponseModelSourceType2.Video,
                 _ => null,
             };
         }

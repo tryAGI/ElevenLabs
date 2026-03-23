@@ -11,27 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Free,
-        /// <summary>
-        /// 
-        /// </summary>
-        Starter,
-        /// <summary>
-        /// 
-        /// </summary>
         Creator,
         /// <summary>
         /// 
         /// </summary>
-        Pro,
+        Enterprise,
         /// <summary>
         /// 
         /// </summary>
-        GrowingBusiness,
-        /// <summary>
-        /// 
-        /// </summary>
-        Scale20240810,
+        Free,
         /// <summary>
         /// 
         /// </summary>
@@ -43,11 +31,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Trial,
+        GrowingBusiness,
         /// <summary>
         /// 
         /// </summary>
-        Enterprise,
+        Pro,
+        /// <summary>
+        /// 
+        /// </summary>
+        Scale20240810,
+        /// <summary>
+        /// 
+        /// </summary>
+        Starter,
+        /// <summary>
+        /// 
+        /// </summary>
+        Trial,
     }
 
     /// <summary>
@@ -62,16 +62,16 @@ namespace ElevenLabs
         {
             return value switch
             {
-                PendingSubscriptionSwitchResponseModelNextTier.Free => "free",
-                PendingSubscriptionSwitchResponseModelNextTier.Starter => "starter",
                 PendingSubscriptionSwitchResponseModelNextTier.Creator => "creator",
-                PendingSubscriptionSwitchResponseModelNextTier.Pro => "pro",
-                PendingSubscriptionSwitchResponseModelNextTier.GrowingBusiness => "growing_business",
-                PendingSubscriptionSwitchResponseModelNextTier.Scale20240810 => "scale_2024_08_10",
+                PendingSubscriptionSwitchResponseModelNextTier.Enterprise => "enterprise",
+                PendingSubscriptionSwitchResponseModelNextTier.Free => "free",
                 PendingSubscriptionSwitchResponseModelNextTier.GrantTier120250723 => "grant_tier_1_2025_07_23",
                 PendingSubscriptionSwitchResponseModelNextTier.GrantTier220250723 => "grant_tier_2_2025_07_23",
+                PendingSubscriptionSwitchResponseModelNextTier.GrowingBusiness => "growing_business",
+                PendingSubscriptionSwitchResponseModelNextTier.Pro => "pro",
+                PendingSubscriptionSwitchResponseModelNextTier.Scale20240810 => "scale_2024_08_10",
+                PendingSubscriptionSwitchResponseModelNextTier.Starter => "starter",
                 PendingSubscriptionSwitchResponseModelNextTier.Trial => "trial",
-                PendingSubscriptionSwitchResponseModelNextTier.Enterprise => "enterprise",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -82,16 +82,16 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "free" => PendingSubscriptionSwitchResponseModelNextTier.Free,
-                "starter" => PendingSubscriptionSwitchResponseModelNextTier.Starter,
                 "creator" => PendingSubscriptionSwitchResponseModelNextTier.Creator,
-                "pro" => PendingSubscriptionSwitchResponseModelNextTier.Pro,
-                "growing_business" => PendingSubscriptionSwitchResponseModelNextTier.GrowingBusiness,
-                "scale_2024_08_10" => PendingSubscriptionSwitchResponseModelNextTier.Scale20240810,
+                "enterprise" => PendingSubscriptionSwitchResponseModelNextTier.Enterprise,
+                "free" => PendingSubscriptionSwitchResponseModelNextTier.Free,
                 "grant_tier_1_2025_07_23" => PendingSubscriptionSwitchResponseModelNextTier.GrantTier120250723,
                 "grant_tier_2_2025_07_23" => PendingSubscriptionSwitchResponseModelNextTier.GrantTier220250723,
+                "growing_business" => PendingSubscriptionSwitchResponseModelNextTier.GrowingBusiness,
+                "pro" => PendingSubscriptionSwitchResponseModelNextTier.Pro,
+                "scale_2024_08_10" => PendingSubscriptionSwitchResponseModelNextTier.Scale20240810,
+                "starter" => PendingSubscriptionSwitchResponseModelNextTier.Starter,
                 "trial" => PendingSubscriptionSwitchResponseModelNextTier.Trial,
-                "enterprise" => PendingSubscriptionSwitchResponseModelNextTier.Enterprise,
                 _ => null,
             };
         }

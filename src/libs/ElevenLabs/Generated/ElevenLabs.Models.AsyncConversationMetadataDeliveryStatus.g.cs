@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Failed,
+        /// <summary>
+        /// 
+        /// </summary>
         Pending,
         /// <summary>
         /// 
         /// </summary>
         Success,
-        /// <summary>
-        /// 
-        /// </summary>
-        Failed,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                AsyncConversationMetadataDeliveryStatus.Failed => "failed",
                 AsyncConversationMetadataDeliveryStatus.Pending => "pending",
                 AsyncConversationMetadataDeliveryStatus.Success => "success",
-                AsyncConversationMetadataDeliveryStatus.Failed => "failed",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "failed" => AsyncConversationMetadataDeliveryStatus.Failed,
                 "pending" => AsyncConversationMetadataDeliveryStatus.Pending,
                 "success" => AsyncConversationMetadataDeliveryStatus.Success,
-                "failed" => AsyncConversationMetadataDeliveryStatus.Failed,
                 _ => null,
             };
         }

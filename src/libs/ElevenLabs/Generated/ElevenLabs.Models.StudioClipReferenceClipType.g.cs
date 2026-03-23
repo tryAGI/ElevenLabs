@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Video,
+        ExternalAudio,
         /// <summary>
         /// 
         /// </summary>
@@ -19,11 +19,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        ExternalAudio,
+        TtsNode,
         /// <summary>
         /// 
         /// </summary>
-        TtsNode,
+        Video,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                StudioClipReferenceClipType.Video => "video",
-                StudioClipReferenceClipType.Image => "image",
                 StudioClipReferenceClipType.ExternalAudio => "external_audio",
+                StudioClipReferenceClipType.Image => "image",
                 StudioClipReferenceClipType.TtsNode => "tts_node",
+                StudioClipReferenceClipType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "video" => StudioClipReferenceClipType.Video,
-                "image" => StudioClipReferenceClipType.Image,
                 "external_audio" => StudioClipReferenceClipType.ExternalAudio,
+                "image" => StudioClipReferenceClipType.Image,
                 "tts_node" => StudioClipReferenceClipType.TtsNode,
+                "video" => StudioClipReferenceClipType.Video,
                 _ => null,
             };
         }

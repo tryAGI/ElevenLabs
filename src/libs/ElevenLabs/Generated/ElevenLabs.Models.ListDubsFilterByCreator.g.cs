@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Personal,
+        All,
         /// <summary>
         /// 
         /// </summary>
@@ -20,7 +20,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        All,
+        Personal,
     }
 
     /// <summary>
@@ -35,9 +35,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ListDubsFilterByCreator.Personal => "personal",
-                ListDubsFilterByCreator.Others => "others",
                 ListDubsFilterByCreator.All => "all",
+                ListDubsFilterByCreator.Others => "others",
+                ListDubsFilterByCreator.Personal => "personal",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -48,9 +48,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "personal" => ListDubsFilterByCreator.Personal,
-                "others" => ListDubsFilterByCreator.Others,
                 "all" => ListDubsFilterByCreator.All,
+                "others" => ListDubsFilterByCreator.Others,
+                "personal" => ListDubsFilterByCreator.Personal,
                 _ => null,
             };
         }

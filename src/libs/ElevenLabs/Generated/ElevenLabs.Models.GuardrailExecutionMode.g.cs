@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Streaming,
+        Blocking,
         /// <summary>
         /// 
         /// </summary>
-        Blocking,
+        Streaming,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                GuardrailExecutionMode.Streaming => "streaming",
                 GuardrailExecutionMode.Blocking => "blocking",
+                GuardrailExecutionMode.Streaming => "streaming",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "streaming" => GuardrailExecutionMode.Streaming,
                 "blocking" => GuardrailExecutionMode.Blocking,
+                "streaming" => GuardrailExecutionMode.Streaming,
                 _ => null,
             };
         }

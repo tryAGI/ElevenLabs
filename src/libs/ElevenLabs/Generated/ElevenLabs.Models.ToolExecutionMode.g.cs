@@ -11,15 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Async,
+        /// <summary>
+        /// 
+        /// </summary>
         Immediate,
         /// <summary>
         /// 
         /// </summary>
         PostToolSpeech,
-        /// <summary>
-        /// 
-        /// </summary>
-        Async,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ToolExecutionMode.Async => "async",
                 ToolExecutionMode.Immediate => "immediate",
                 ToolExecutionMode.PostToolSpeech => "post_tool_speech",
-                ToolExecutionMode.Async => "async",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "async" => ToolExecutionMode.Async,
                 "immediate" => ToolExecutionMode.Immediate,
                 "post_tool_speech" => ToolExecutionMode.PostToolSpeech,
-                "async" => ToolExecutionMode.Async,
                 _ => null,
             };
         }

@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Webhook,
+        ApiIntegrationWebhook,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        ApiIntegrationWebhook,
+        Webhook,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ToolTypeFilter.Webhook => "webhook",
-                ToolTypeFilter.Client => "client",
                 ToolTypeFilter.ApiIntegrationWebhook => "api_integration_webhook",
+                ToolTypeFilter.Client => "client",
+                ToolTypeFilter.Webhook => "webhook",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "webhook" => ToolTypeFilter.Webhook,
-                "client" => ToolTypeFilter.Client,
                 "api_integration_webhook" => ToolTypeFilter.ApiIntegrationWebhook,
+                "client" => ToolTypeFilter.Client,
+                "webhook" => ToolTypeFilter.Webhook,
                 _ => null,
             };
         }

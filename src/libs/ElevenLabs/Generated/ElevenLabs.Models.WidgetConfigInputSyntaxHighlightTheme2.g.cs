@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Light,
+        Dark,
         /// <summary>
         /// 
         /// </summary>
-        Dark,
+        Light,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                WidgetConfigInputSyntaxHighlightTheme2.Light => "light",
                 WidgetConfigInputSyntaxHighlightTheme2.Dark => "dark",
+                WidgetConfigInputSyntaxHighlightTheme2.Light => "light",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "light" => WidgetConfigInputSyntaxHighlightTheme2.Light,
                 "dark" => WidgetConfigInputSyntaxHighlightTheme2.Dark,
+                "light" => WidgetConfigInputSyntaxHighlightTheme2.Light,
                 _ => null,
             };
         }

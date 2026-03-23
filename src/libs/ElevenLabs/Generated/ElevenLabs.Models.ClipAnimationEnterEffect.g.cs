@@ -11,7 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        None,
+        Bounce,
+        /// <summary>
+        /// 
+        /// </summary>
+        Drop,
         /// <summary>
         /// 
         /// </summary>
@@ -27,11 +31,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        ZoomIn,
+        None,
         /// <summary>
         /// 
         /// </summary>
-        Drop,
+        Pop,
+        /// <summary>
+        /// 
+        /// </summary>
+        SlideBounce,
+        /// <summary>
+        /// 
+        /// </summary>
+        SlideDown,
         /// <summary>
         /// 
         /// </summary>
@@ -47,23 +59,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        SlideDown,
-        /// <summary>
-        /// 
-        /// </summary>
-        Pop,
-        /// <summary>
-        /// 
-        /// </summary>
-        Bounce,
-        /// <summary>
-        /// 
-        /// </summary>
         Spin,
         /// <summary>
         /// 
         /// </summary>
-        SlideBounce,
+        ZoomIn,
     }
 
     /// <summary>
@@ -78,20 +78,20 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ClipAnimationEnterEffect.None => "none",
+                ClipAnimationEnterEffect.Bounce => "bounce",
+                ClipAnimationEnterEffect.Drop => "drop",
                 ClipAnimationEnterEffect.Fade => "fade",
                 ClipAnimationEnterEffect.Float => "float",
                 ClipAnimationEnterEffect.GentleFloat => "gentle_float",
-                ClipAnimationEnterEffect.ZoomIn => "zoom_in",
-                ClipAnimationEnterEffect.Drop => "drop",
+                ClipAnimationEnterEffect.None => "none",
+                ClipAnimationEnterEffect.Pop => "pop",
+                ClipAnimationEnterEffect.SlideBounce => "slide_bounce",
+                ClipAnimationEnterEffect.SlideDown => "slide_down",
                 ClipAnimationEnterEffect.SlideLeft => "slide_left",
                 ClipAnimationEnterEffect.SlideRight => "slide_right",
                 ClipAnimationEnterEffect.SlideUp => "slide_up",
-                ClipAnimationEnterEffect.SlideDown => "slide_down",
-                ClipAnimationEnterEffect.Pop => "pop",
-                ClipAnimationEnterEffect.Bounce => "bounce",
                 ClipAnimationEnterEffect.Spin => "spin",
-                ClipAnimationEnterEffect.SlideBounce => "slide_bounce",
+                ClipAnimationEnterEffect.ZoomIn => "zoom_in",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -102,20 +102,20 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "none" => ClipAnimationEnterEffect.None,
+                "bounce" => ClipAnimationEnterEffect.Bounce,
+                "drop" => ClipAnimationEnterEffect.Drop,
                 "fade" => ClipAnimationEnterEffect.Fade,
                 "float" => ClipAnimationEnterEffect.Float,
                 "gentle_float" => ClipAnimationEnterEffect.GentleFloat,
-                "zoom_in" => ClipAnimationEnterEffect.ZoomIn,
-                "drop" => ClipAnimationEnterEffect.Drop,
+                "none" => ClipAnimationEnterEffect.None,
+                "pop" => ClipAnimationEnterEffect.Pop,
+                "slide_bounce" => ClipAnimationEnterEffect.SlideBounce,
+                "slide_down" => ClipAnimationEnterEffect.SlideDown,
                 "slide_left" => ClipAnimationEnterEffect.SlideLeft,
                 "slide_right" => ClipAnimationEnterEffect.SlideRight,
                 "slide_up" => ClipAnimationEnterEffect.SlideUp,
-                "slide_down" => ClipAnimationEnterEffect.SlideDown,
-                "pop" => ClipAnimationEnterEffect.Pop,
-                "bounce" => ClipAnimationEnterEffect.Bounce,
                 "spin" => ClipAnimationEnterEffect.Spin,
-                "slide_bounce" => ClipAnimationEnterEffect.SlideBounce,
+                "zoom_in" => ClipAnimationEnterEffect.ZoomIn,
                 _ => null,
             };
         }

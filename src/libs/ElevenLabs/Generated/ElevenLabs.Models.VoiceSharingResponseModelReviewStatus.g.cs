@@ -11,11 +11,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        NotRequested,
+        Allowed,
         /// <summary>
         /// 
         /// </summary>
-        Pending,
+        AllowedWithChanges,
         /// <summary>
         /// 
         /// </summary>
@@ -23,11 +23,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Allowed,
+        NotRequested,
         /// <summary>
         /// 
         /// </summary>
-        AllowedWithChanges,
+        Pending,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                VoiceSharingResponseModelReviewStatus.NotRequested => "not_requested",
-                VoiceSharingResponseModelReviewStatus.Pending => "pending",
-                VoiceSharingResponseModelReviewStatus.Declined => "declined",
                 VoiceSharingResponseModelReviewStatus.Allowed => "allowed",
                 VoiceSharingResponseModelReviewStatus.AllowedWithChanges => "allowed_with_changes",
+                VoiceSharingResponseModelReviewStatus.Declined => "declined",
+                VoiceSharingResponseModelReviewStatus.NotRequested => "not_requested",
+                VoiceSharingResponseModelReviewStatus.Pending => "pending",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "not_requested" => VoiceSharingResponseModelReviewStatus.NotRequested,
-                "pending" => VoiceSharingResponseModelReviewStatus.Pending,
-                "declined" => VoiceSharingResponseModelReviewStatus.Declined,
                 "allowed" => VoiceSharingResponseModelReviewStatus.Allowed,
                 "allowed_with_changes" => VoiceSharingResponseModelReviewStatus.AllowedWithChanges,
+                "declined" => VoiceSharingResponseModelReviewStatus.Declined,
+                "not_requested" => VoiceSharingResponseModelReviewStatus.NotRequested,
+                "pending" => VoiceSharingResponseModelReviewStatus.Pending,
                 _ => null,
             };
         }
