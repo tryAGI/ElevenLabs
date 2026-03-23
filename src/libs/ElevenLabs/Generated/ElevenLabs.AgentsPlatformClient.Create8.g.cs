@@ -246,6 +246,7 @@ namespace ElevenLabs
         /// <param name="agentPhoneNumberId"></param>
         /// <param name="whatsappParams"></param>
         /// <param name="timezone"></param>
+        /// <param name="branchId"></param>
         /// <param name="telephonyCallConfig">
         /// Default Value: {"ringing_timeout_secs":60}
         /// </param>
@@ -263,6 +264,7 @@ namespace ElevenLabs
             string? agentPhoneNumberId = default,
             global::ElevenLabs.BatchCallWhatsAppParams? whatsappParams = default,
             string? timezone = default,
+            string? branchId = default,
             global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig = default,
             int? targetConcurrencyLimit = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -276,6 +278,7 @@ namespace ElevenLabs
                 AgentPhoneNumberId = agentPhoneNumberId,
                 WhatsappParams = whatsappParams,
                 Timezone = timezone,
+                BranchId = branchId,
                 TelephonyCallConfig = telephonyCallConfig,
                 TargetConcurrencyLimit = targetConcurrencyLimit,
             };

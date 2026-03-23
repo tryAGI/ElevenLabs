@@ -32143,6 +32143,17 @@
             "type": "string",
             "title": "Agent Id"
           },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id"
+          },
           "created_at_unix": {
             "type": "integer",
             "title": "Created At Unix"
@@ -32209,6 +32220,17 @@
             "type": "string",
             "title": "Agent Name"
           },
+          "branch_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Name"
+          },
           "recipients": {
             "items": {
               "$ref": "#/components/schemas/OutboundCallRecipientResponseModel"
@@ -32225,6 +32247,7 @@
           "whatsapp_params",
           "name",
           "agent_id",
+          "branch_id",
           "created_at_unix",
           "scheduled_time_unix",
           "timezone",
@@ -32237,6 +32260,7 @@
           "telephony_call_config",
           "target_concurrency_limit",
           "agent_name",
+          "branch_name",
           "recipients"
         ],
         "title": "BatchCallDetailedResponse",
@@ -32301,6 +32325,17 @@
             "type": "string",
             "title": "Agent Id"
           },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id"
+          },
           "created_at_unix": {
             "type": "integer",
             "title": "Created At Unix"
@@ -32366,6 +32401,17 @@
           "agent_name": {
             "type": "string",
             "title": "Agent Name"
+          },
+          "branch_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Name"
           }
         },
         "type": "object",
@@ -32376,6 +32422,7 @@
           "whatsapp_params",
           "name",
           "agent_id",
+          "branch_id",
           "created_at_unix",
           "scheduled_time_unix",
           "timezone",
@@ -32387,7 +32434,8 @@
           "retry_count",
           "telephony_call_config",
           "target_concurrency_limit",
-          "agent_name"
+          "agent_name",
+          "branch_name"
         ],
         "title": "BatchCallResponse"
       },
@@ -36762,6 +36810,17 @@
               }
             ],
             "title": "Timezone"
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id"
           },
           "telephony_call_config": {
             "$ref": "#/components/schemas/TelephonyCallConfig",
@@ -43934,6 +43993,18 @@
           "source_info": {
             "$ref": "#/components/schemas/ConversationInitiationSourceInfo"
           },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id",
+            "description": "ID of the agent branch to use for this conversation"
+          },
           "dynamic_variables": {
             "additionalProperties": {
               "anyOf": [
@@ -43986,6 +44057,18 @@
           "source_info": {
             "$ref": "#/components/schemas/ConversationInitiationSourceInfo"
           },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id",
+            "description": "ID of the agent branch to use for this conversation"
+          },
           "dynamic_variables": {
             "additionalProperties": {
               "anyOf": [
@@ -44037,6 +44120,18 @@
           },
           "source_info": {
             "$ref": "#/components/schemas/ConversationInitiationSourceInfo"
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id",
+            "description": "ID of the agent branch to use for this conversation"
           },
           "dynamic_variables": {
             "additionalProperties": {
