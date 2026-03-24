@@ -70,10 +70,26 @@ namespace ElevenLabs.JsonConverters
             if (__jsonProps.Contains("right")) __score12++;
             if (__jsonProps.Contains("type")) __score12++;
             var __score13 = 0;
-            if (__jsonProps.Contains("condition")) __score13++;
-            if (__jsonProps.Contains("falseExpression")) __score13++;
-            if (__jsonProps.Contains("trueExpression")) __score13++;
+            if (__jsonProps.Contains("left")) __score13++;
+            if (__jsonProps.Contains("right")) __score13++;
             if (__jsonProps.Contains("type")) __score13++;
+            var __score14 = 0;
+            if (__jsonProps.Contains("left")) __score14++;
+            if (__jsonProps.Contains("right")) __score14++;
+            if (__jsonProps.Contains("type")) __score14++;
+            var __score15 = 0;
+            if (__jsonProps.Contains("left")) __score15++;
+            if (__jsonProps.Contains("right")) __score15++;
+            if (__jsonProps.Contains("type")) __score15++;
+            var __score16 = 0;
+            if (__jsonProps.Contains("left")) __score16++;
+            if (__jsonProps.Contains("right")) __score16++;
+            if (__jsonProps.Contains("type")) __score16++;
+            var __score17 = 0;
+            if (__jsonProps.Contains("condition")) __score17++;
+            if (__jsonProps.Contains("falseExpression")) __score17++;
+            if (__jsonProps.Contains("trueExpression")) __score17++;
+            if (__jsonProps.Contains("type")) __score17++;
             var __bestScore = 0;
             var __bestIndex = -1;
             if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
@@ -90,6 +106,10 @@ namespace ElevenLabs.JsonConverters
             if (__score11 > __bestScore) { __bestScore = __score11; __bestIndex = 11; }
             if (__score12 > __bestScore) { __bestScore = __score12; __bestIndex = 12; }
             if (__score13 > __bestScore) { __bestScore = __score13; __bestIndex = 13; }
+            if (__score14 > __bestScore) { __bestScore = __score14; __bestIndex = 14; }
+            if (__score15 > __bestScore) { __bestScore = __score15; __bestIndex = 15; }
+            if (__score16 > __bestScore) { __bestScore = __score16; __bestIndex = 16; }
+            if (__score17 > __bestScore) { __bestScore = __score17; __bestIndex = 17; }
 
             global::ElevenLabs.ASTStringNodeInput? stringLiteral = default;
             global::ElevenLabs.ASTNumberNodeInput? numberLiteral = default;
@@ -104,6 +124,10 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.ASTLessThanOperatorNodeInput? ltOperator = default;
             global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput? gteOperator = default;
             global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput? lteOperator = default;
+            global::ElevenLabs.ASTAdditionOperatorNodeInput? addOperator = default;
+            global::ElevenLabs.ASTSubtractionOperatorNodeInput? subOperator = default;
+            global::ElevenLabs.ASTMultiplicationOperatorNodeInput? mulOperator = default;
+            global::ElevenLabs.ASTDivisionOperatorNodeInput? divOperator = default;
             global::ElevenLabs.ASTConditionalOperatorNodeInput? conditionalOperator = default;
             if (__bestIndex >= 0)
             {
@@ -306,6 +330,66 @@ namespace ElevenLabs.JsonConverters
                 {
                     try
                     {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTAdditionOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTAdditionOperatorNodeInput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTAdditionOperatorNodeInput).Name}");
+                        addOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 14)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTSubtractionOperatorNodeInput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInput).Name}");
+                        subOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 15)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTMultiplicationOperatorNodeInput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInput).Name}");
+                        mulOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 16)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTDivisionOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTDivisionOperatorNodeInput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTDivisionOperatorNodeInput).Name}");
+                        divOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 17)
+                {
+                    try
+                    {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTConditionalOperatorNodeInput> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput).Name}");
                         conditionalOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -319,7 +403,7 @@ namespace ElevenLabs.JsonConverters
                 }
             }
 
-            if (stringLiteral == null && numberLiteral == null && booleanLiteral == null && aSTLMNodeInput == null && dynamicVariable == null && orOperator == null && andOperator == null && eqOperator == null && neqOperator == null && gtOperator == null && ltOperator == null && gteOperator == null && lteOperator == null && conditionalOperator == null)
+            if (stringLiteral == null && numberLiteral == null && booleanLiteral == null && aSTLMNodeInput == null && dynamicVariable == null && orOperator == null && andOperator == null && eqOperator == null && neqOperator == null && gtOperator == null && ltOperator == null && gteOperator == null && lteOperator == null && addOperator == null && subOperator == null && mulOperator == null && divOperator == null && conditionalOperator == null)
             {
                 try
                 {
@@ -492,6 +576,58 @@ namespace ElevenLabs.JsonConverters
 
                 try
                 {
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTAdditionOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTAdditionOperatorNodeInput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTAdditionOperatorNodeInput).Name}");
+                    addOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+
+                try
+                {
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTSubtractionOperatorNodeInput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInput).Name}");
+                    subOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+
+                try
+                {
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTMultiplicationOperatorNodeInput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInput).Name}");
+                    mulOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+
+                try
+                {
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTDivisionOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTDivisionOperatorNodeInput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTDivisionOperatorNodeInput).Name}");
+                    divOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+
+                try
+                {
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTConditionalOperatorNodeInput> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput).Name}");
                     conditionalOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -530,6 +666,14 @@ namespace ElevenLabs.JsonConverters
                 gteOperator,
 
                 lteOperator,
+
+                addOperator,
+
+                subOperator,
+
+                mulOperator,
+
+                divOperator,
 
                 conditionalOperator
                 );
@@ -623,6 +767,30 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.LteOperator, typeInfo);
+            }
+            else if (value.IsAddOperator)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTAdditionOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTAdditionOperatorNodeInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTAdditionOperatorNodeInput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AddOperator, typeInfo);
+            }
+            else if (value.IsSubOperator)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTSubtractionOperatorNodeInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SubOperator, typeInfo);
+            }
+            else if (value.IsMulOperator)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTMultiplicationOperatorNodeInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MulOperator, typeInfo);
+            }
+            else if (value.IsDivOperator)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTDivisionOperatorNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTDivisionOperatorNodeInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTDivisionOperatorNodeInput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DivOperator, typeInfo);
             }
             else if (value.IsConditionalOperator)
             {

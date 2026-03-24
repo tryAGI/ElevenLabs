@@ -40,6 +40,12 @@ namespace ElevenLabs
         public string? BranchId { get; set; }
 
         /// <summary>
+        /// Environment to use for resolving environment variables
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environment")]
+        public string? Environment { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
@@ -67,6 +73,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// ID of the agent branch to use for this conversation
         /// </param>
+        /// <param name="environment">
+        /// Environment to use for resolving environment variables
+        /// </param>
         /// <param name="dynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -77,6 +86,7 @@ namespace ElevenLabs
             string? userId,
             global::ElevenLabs.ConversationInitiationSourceInfo? sourceInfo,
             string? branchId,
+            string? environment,
             object? dynamicVariables)
         {
             this.ConversationConfigOverride = conversationConfigOverride;
@@ -84,6 +94,7 @@ namespace ElevenLabs
             this.UserId = userId;
             this.SourceInfo = sourceInfo;
             this.BranchId = branchId;
+            this.Environment = environment;
             this.DynamicVariables = dynamicVariables;
         }
 

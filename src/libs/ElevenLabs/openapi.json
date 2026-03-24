@@ -24999,6 +24999,443 @@
         "title": "ASRQuality",
         "default": "high"
       },
+      "ASTAdditionOperatorNode-Input": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "add_operator",
+            "title": "Type",
+            "default": "add_operator"
+          },
+          "left": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Left",
+            "description": "Left operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
+              }
+            }
+          },
+          "right": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Right",
+            "description": "Right operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "left",
+          "right"
+        ],
+        "title": "ASTAdditionOperatorNode"
+      },
+      "ASTAdditionOperatorNode-Output": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "add_operator",
+            "title": "Type",
+            "default": "add_operator"
+          },
+          "left": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Left",
+            "description": "Left operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
+              }
+            }
+          },
+          "right": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Right",
+            "description": "Right operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "left",
+          "right"
+        ],
+        "title": "ASTAdditionOperatorNode"
+      },
       "ASTAndOperatorNode-Input": {
         "properties": {
           "type": {
@@ -25063,6 +25500,22 @@
                   "description": "Evaluates to true if the left value is less than or equal to the right."
                 },
                 {
+                  "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                  "description": "Adds the left and right values."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                  "description": "Subtracts the right value from the left."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                  "description": "Multiplies the left value times the right."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                  "description": "Divides the left value by the right."
+                },
+                {
                   "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                   "description": "Selects one of two expressions based on whether the given condition evaluates to true."
                 }
@@ -25070,9 +25523,11 @@
               "discriminator": {
                 "propertyName": "type",
                 "mapping": {
+                  "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                   "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                   "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                   "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                  "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                   "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                   "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                   "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25080,10 +25535,12 @@
                   "llm": "#/components/schemas/ASTLLMNode-Input",
                   "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                   "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                  "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                   "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                   "number_literal": "#/components/schemas/ASTNumberNode-Input",
                   "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                  "string_literal": "#/components/schemas/ASTStringNode-Input"
+                  "string_literal": "#/components/schemas/ASTStringNode-Input",
+                  "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
                 }
               }
             },
@@ -25163,6 +25620,22 @@
                   "description": "Evaluates to true if the left value is less than or equal to the right."
                 },
                 {
+                  "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                  "description": "Adds the left and right values."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                  "description": "Subtracts the right value from the left."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                  "description": "Multiplies the left value times the right."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                  "description": "Divides the left value by the right."
+                },
+                {
                   "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                   "description": "Selects one of two expressions based on whether the given condition evaluates to true."
                 }
@@ -25170,9 +25643,11 @@
               "discriminator": {
                 "propertyName": "type",
                 "mapping": {
+                  "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                   "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                   "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                   "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                  "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                   "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                   "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                   "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -25180,10 +25655,12 @@
                   "llm": "#/components/schemas/ASTLLMNode-Output",
                   "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                   "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                  "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                   "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                   "number_literal": "#/components/schemas/ASTNumberNode-Output",
                   "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                  "string_literal": "#/components/schemas/ASTStringNode-Output"
+                  "string_literal": "#/components/schemas/ASTStringNode-Output",
+                  "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
                 }
               }
             },
@@ -25304,6 +25781,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -25313,9 +25806,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25323,10 +25818,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           },
@@ -25385,6 +25882,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -25394,9 +25907,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25404,10 +25919,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           },
@@ -25466,6 +25983,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -25475,9 +26008,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25485,10 +26020,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           }
@@ -25564,6 +26101,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -25573,9 +26126,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -25583,10 +26138,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           },
@@ -25645,6 +26202,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -25654,9 +26227,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -25664,10 +26239,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           },
@@ -25726,6 +26303,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -25735,9 +26328,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -25745,10 +26340,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           }
@@ -25761,6 +26358,443 @@
           "falseExpression"
         ],
         "title": "ASTConditionalOperatorNode"
+      },
+      "ASTDivisionOperatorNode-Input": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "div_operator",
+            "title": "Type",
+            "default": "div_operator"
+          },
+          "left": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Left",
+            "description": "Left operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
+              }
+            }
+          },
+          "right": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Right",
+            "description": "Right operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "left",
+          "right"
+        ],
+        "title": "ASTDivisionOperatorNode"
+      },
+      "ASTDivisionOperatorNode-Output": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "div_operator",
+            "title": "Type",
+            "default": "div_operator"
+          },
+          "left": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Left",
+            "description": "Left operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
+              }
+            }
+          },
+          "right": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Right",
+            "description": "Right operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "left",
+          "right"
+        ],
+        "title": "ASTDivisionOperatorNode"
       },
       "ASTDynamicVariableNode-Input": {
         "properties": {
@@ -25866,6 +26900,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -25875,9 +26925,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25885,10 +26937,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           },
@@ -25947,6 +27001,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -25956,9 +27026,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -25966,10 +27038,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           }
@@ -26044,6 +27118,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26053,9 +27143,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26063,10 +27155,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           },
@@ -26125,6 +27219,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26134,9 +27244,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26144,10 +27256,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           }
@@ -26223,6 +27337,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26232,9 +27362,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -26242,10 +27374,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           },
@@ -26304,6 +27438,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26313,9 +27463,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -26323,10 +27475,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           }
@@ -26401,6 +27555,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26410,9 +27580,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26420,10 +27592,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           },
@@ -26482,6 +27656,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26491,9 +27681,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26501,10 +27693,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           }
@@ -26580,6 +27774,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26589,9 +27799,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -26599,10 +27811,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           },
@@ -26661,6 +27875,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26670,9 +27900,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -26680,10 +27912,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           }
@@ -26758,6 +27992,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26767,9 +28017,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26777,10 +28029,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           },
@@ -26839,6 +28093,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -26848,9 +28118,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -26858,10 +28130,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           }
@@ -27026,6 +28300,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27035,9 +28325,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -27045,10 +28337,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           },
@@ -27107,6 +28401,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27116,9 +28426,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -27126,10 +28438,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           }
@@ -27204,6 +28518,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27213,9 +28543,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -27223,10 +28555,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           },
@@ -27285,6 +28619,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27294,9 +28644,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -27304,10 +28656,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           }
@@ -27383,6 +28737,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27392,9 +28762,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -27402,10 +28774,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           },
@@ -27464,6 +28838,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27473,9 +28863,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -27483,10 +28875,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           }
@@ -27561,6 +28955,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27570,9 +28980,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -27580,10 +28992,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           },
@@ -27642,6 +29056,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27651,9 +29081,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -27661,10 +29093,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           }
@@ -27676,6 +29110,443 @@
           "right"
         ],
         "title": "ASTLessThanOrEqualsOperatorNode"
+      },
+      "ASTMultiplicationOperatorNode-Input": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "mul_operator",
+            "title": "Type",
+            "default": "mul_operator"
+          },
+          "left": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Left",
+            "description": "Left operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
+              }
+            }
+          },
+          "right": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Right",
+            "description": "Right operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "left",
+          "right"
+        ],
+        "title": "ASTMultiplicationOperatorNode"
+      },
+      "ASTMultiplicationOperatorNode-Output": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "mul_operator",
+            "title": "Type",
+            "default": "mul_operator"
+          },
+          "left": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Left",
+            "description": "Left operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
+              }
+            }
+          },
+          "right": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Right",
+            "description": "Right operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "left",
+          "right"
+        ],
+        "title": "ASTMultiplicationOperatorNode"
       },
       "ASTNotEqualsOperatorNode-Input": {
         "properties": {
@@ -27740,6 +29611,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27749,9 +29636,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -27759,10 +29648,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           },
@@ -27821,6 +29712,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27830,9 +29737,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -27840,10 +29749,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           }
@@ -27918,6 +29829,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -27927,9 +29854,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -27937,10 +29866,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           },
@@ -27999,6 +29930,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -28008,9 +29955,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -28018,10 +29967,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           }
@@ -28139,6 +30090,22 @@
                   "description": "Evaluates to true if the left value is less than or equal to the right."
                 },
                 {
+                  "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                  "description": "Adds the left and right values."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                  "description": "Subtracts the right value from the left."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                  "description": "Multiplies the left value times the right."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                  "description": "Divides the left value by the right."
+                },
+                {
                   "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                   "description": "Selects one of two expressions based on whether the given condition evaluates to true."
                 }
@@ -28146,9 +30113,11 @@
               "discriminator": {
                 "propertyName": "type",
                 "mapping": {
+                  "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                   "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                   "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                   "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                  "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                   "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                   "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                   "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -28156,10 +30125,12 @@
                   "llm": "#/components/schemas/ASTLLMNode-Input",
                   "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                   "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                  "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                   "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                   "number_literal": "#/components/schemas/ASTNumberNode-Input",
                   "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                  "string_literal": "#/components/schemas/ASTStringNode-Input"
+                  "string_literal": "#/components/schemas/ASTStringNode-Input",
+                  "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
                 }
               }
             },
@@ -28239,6 +30210,22 @@
                   "description": "Evaluates to true if the left value is less than or equal to the right."
                 },
                 {
+                  "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                  "description": "Adds the left and right values."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                  "description": "Subtracts the right value from the left."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                  "description": "Multiplies the left value times the right."
+                },
+                {
+                  "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                  "description": "Divides the left value by the right."
+                },
+                {
                   "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                   "description": "Selects one of two expressions based on whether the given condition evaluates to true."
                 }
@@ -28246,9 +30233,11 @@
               "discriminator": {
                 "propertyName": "type",
                 "mapping": {
+                  "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                   "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                   "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                   "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                  "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                   "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                   "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                   "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -28256,10 +30245,12 @@
                   "llm": "#/components/schemas/ASTLLMNode-Output",
                   "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                   "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                  "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                   "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                   "number_literal": "#/components/schemas/ASTNumberNode-Output",
                   "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                  "string_literal": "#/components/schemas/ASTStringNode-Output"
+                  "string_literal": "#/components/schemas/ASTStringNode-Output",
+                  "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
                 }
               }
             },
@@ -28316,6 +30307,443 @@
           "value"
         ],
         "title": "ASTStringNode"
+      },
+      "ASTSubtractionOperatorNode-Input": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "sub_operator",
+            "title": "Type",
+            "default": "sub_operator"
+          },
+          "left": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Left",
+            "description": "Left operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
+              }
+            }
+          },
+          "right": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Input",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Input",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Input",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Input",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Input",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Input",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Right",
+            "description": "Right operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Input",
+                "llm": "#/components/schemas/ASTLLMNode-Input",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+                "number_literal": "#/components/schemas/ASTNumberNode-Input",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "left",
+          "right"
+        ],
+        "title": "ASTSubtractionOperatorNode"
+      },
+      "ASTSubtractionOperatorNode-Output": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "sub_operator",
+            "title": "Type",
+            "default": "sub_operator"
+          },
+          "left": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Left",
+            "description": "Left operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
+              }
+            }
+          },
+          "right": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ASTStringNode-Output",
+                "description": "String literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNumberNode-Output",
+                "description": "Number literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTBooleanNode-Output",
+                "description": "Boolean literal."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLLMNode-Output",
+                "description": "Value extracted by an LLM according to the given schema."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "description": "Reference to a dynamic variable."
+              },
+              {
+                "$ref": "#/components/schemas/ASTOrOperatorNode-Output",
+                "description": "Evaluates to true if any child is true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAndOperatorNode-Output",
+                "description": "Evaluates to true if all children are true."
+              },
+              {
+                "$ref": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value equals the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value does not equal the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is greater than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "description": "Evaluates to true if the left value is less than or equal to the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "description": "Selects one of two expressions based on whether the given condition evaluates to true."
+              }
+            ],
+            "title": "Right",
+            "description": "Right operand of the binary operator.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
+                "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
+                "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
+                "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
+                "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
+                "gte_operator": "#/components/schemas/ASTGreaterThanOrEqualsOperatorNode-Output",
+                "llm": "#/components/schemas/ASTLLMNode-Output",
+                "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
+                "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+                "number_literal": "#/components/schemas/ASTNumberNode-Output",
+                "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "left",
+          "right"
+        ],
+        "title": "ASTSubtractionOperatorNode"
       },
       "AddChapterResponseModel": {
         "properties": {
@@ -32154,6 +34582,17 @@
             ],
             "title": "Branch Id"
           },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment"
+          },
           "created_at_unix": {
             "type": "integer",
             "title": "Created At Unix"
@@ -32248,6 +34687,7 @@
           "name",
           "agent_id",
           "branch_id",
+          "environment",
           "created_at_unix",
           "scheduled_time_unix",
           "timezone",
@@ -32336,6 +34776,17 @@
             ],
             "title": "Branch Id"
           },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment"
+          },
           "created_at_unix": {
             "type": "integer",
             "title": "Created At Unix"
@@ -32423,6 +34874,7 @@
           "name",
           "agent_id",
           "branch_id",
+          "environment",
           "created_at_unix",
           "scheduled_time_unix",
           "timezone",
@@ -36821,6 +39273,17 @@
               }
             ],
             "title": "Branch Id"
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment"
           },
           "telephony_call_config": {
             "$ref": "#/components/schemas/TelephonyCallConfig",
@@ -44005,6 +46468,18 @@
             "title": "Branch Id",
             "description": "ID of the agent branch to use for this conversation"
           },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "Environment to use for resolving environment variables"
+          },
           "dynamic_variables": {
             "additionalProperties": {
               "anyOf": [
@@ -44069,6 +46544,18 @@
             "title": "Branch Id",
             "description": "ID of the agent branch to use for this conversation"
           },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "Environment to use for resolving environment variables"
+          },
           "dynamic_variables": {
             "additionalProperties": {
               "anyOf": [
@@ -44132,6 +46619,18 @@
             ],
             "title": "Branch Id",
             "description": "ID of the agent branch to use for this conversation"
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "Environment to use for resolving environment variables"
           },
           "dynamic_variables": {
             "additionalProperties": {
@@ -78290,6 +80789,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Input",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Input",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Input",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Input",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -78299,9 +80814,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Input",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Input",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Input",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Input",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Input",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Input",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Input",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Input",
@@ -78309,10 +80826,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Input",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Input",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
                 "number_literal": "#/components/schemas/ASTNumberNode-Input",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
-                "string_literal": "#/components/schemas/ASTStringNode-Input"
+                "string_literal": "#/components/schemas/ASTStringNode-Input",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Input"
               }
             }
           }
@@ -78398,6 +80917,22 @@
                 "description": "Evaluates to true if the left value is less than or equal to the right."
               },
               {
+                "$ref": "#/components/schemas/ASTAdditionOperatorNode-Output",
+                "description": "Adds the left and right values."
+              },
+              {
+                "$ref": "#/components/schemas/ASTSubtractionOperatorNode-Output",
+                "description": "Subtracts the right value from the left."
+              },
+              {
+                "$ref": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
+                "description": "Multiplies the left value times the right."
+              },
+              {
+                "$ref": "#/components/schemas/ASTDivisionOperatorNode-Output",
+                "description": "Divides the left value by the right."
+              },
+              {
                 "$ref": "#/components/schemas/ASTConditionalOperatorNode-Output",
                 "description": "Selects one of two expressions based on whether the given condition evaluates to true."
               }
@@ -78407,9 +80942,11 @@
             "discriminator": {
               "propertyName": "type",
               "mapping": {
+                "add_operator": "#/components/schemas/ASTAdditionOperatorNode-Output",
                 "and_operator": "#/components/schemas/ASTAndOperatorNode-Output",
                 "boolean_literal": "#/components/schemas/ASTBooleanNode-Output",
                 "conditional_operator": "#/components/schemas/ASTConditionalOperatorNode-Output",
+                "div_operator": "#/components/schemas/ASTDivisionOperatorNode-Output",
                 "dynamic_variable": "#/components/schemas/ASTDynamicVariableNode-Output",
                 "eq_operator": "#/components/schemas/ASTEqualsOperatorNode-Output",
                 "gt_operator": "#/components/schemas/ASTGreaterThanOperatorNode-Output",
@@ -78417,10 +80954,12 @@
                 "llm": "#/components/schemas/ASTLLMNode-Output",
                 "lt_operator": "#/components/schemas/ASTLessThanOperatorNode-Output",
                 "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
+                "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
                 "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
                 "number_literal": "#/components/schemas/ASTNumberNode-Output",
                 "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
-                "string_literal": "#/components/schemas/ASTStringNode-Output"
+                "string_literal": "#/components/schemas/ASTStringNode-Output",
+                "sub_operator": "#/components/schemas/ASTSubtractionOperatorNode-Output"
               }
             }
           }

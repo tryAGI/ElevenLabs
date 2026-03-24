@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AddOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         AndOperator,
         /// <summary>
         /// 
@@ -20,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ConditionalOperator,
+        /// <summary>
+        /// 
+        /// </summary>
+        DivOperator,
         /// <summary>
         /// 
         /// </summary>
@@ -51,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        MulOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         NeqOperator,
         /// <summary>
         /// 
@@ -64,6 +76,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         StringLiteral,
+        /// <summary>
+        /// 
+        /// </summary>
+        SubOperator,
     }
 
     /// <summary>
@@ -78,9 +94,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.AddOperator => "add_operator",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.AndOperator => "and_operator",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.BooleanLiteral => "boolean_literal",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.ConditionalOperator => "conditional_operator",
+                ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.DivOperator => "div_operator",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.DynamicVariable => "dynamic_variable",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.EqOperator => "eq_operator",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.GtOperator => "gt_operator",
@@ -88,10 +106,12 @@ namespace ElevenLabs
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.Llm => "llm",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.LtOperator => "lt_operator",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.LteOperator => "lte_operator",
+                ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.MulOperator => "mul_operator",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.NeqOperator => "neq_operator",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.NumberLiteral => "number_literal",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.OrOperator => "or_operator",
                 ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.StringLiteral => "string_literal",
+                ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.SubOperator => "sub_operator",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -102,9 +122,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "add_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.AddOperator,
                 "and_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.AndOperator,
                 "boolean_literal" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.BooleanLiteral,
                 "conditional_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.ConditionalOperator,
+                "div_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.DivOperator,
                 "dynamic_variable" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.DynamicVariable,
                 "eq_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.EqOperator,
                 "gt_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.GtOperator,
@@ -112,10 +134,12 @@ namespace ElevenLabs
                 "llm" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.Llm,
                 "lt_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.LtOperator,
                 "lte_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.LteOperator,
+                "mul_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.MulOperator,
                 "neq_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.NeqOperator,
                 "number_literal" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.NumberLiteral,
                 "or_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.OrOperator,
                 "string_literal" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.StringLiteral,
+                "sub_operator" => ASTGreaterThanOperatorNodeOutputRightDiscriminatorType.SubOperator,
                 _ => null,
             };
         }

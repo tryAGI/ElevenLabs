@@ -56,6 +56,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environment")]
+        public string? Environment { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CreatedAtUnix { get; set; }
@@ -165,6 +171,7 @@ namespace ElevenLabs
         /// <param name="name"></param>
         /// <param name="agentId"></param>
         /// <param name="branchId"></param>
+        /// <param name="environment"></param>
         /// <param name="createdAtUnix"></param>
         /// <param name="scheduledTimeUnix"></param>
         /// <param name="timezone"></param>
@@ -211,6 +218,7 @@ namespace ElevenLabs
             global::ElevenLabs.TelephonyProvider? phoneProvider,
             global::ElevenLabs.BatchCallWhatsAppParams? whatsappParams,
             string? branchId,
+            string? environment,
             string? timezone,
             int? targetConcurrencyLimit,
             string? branchName)
@@ -233,6 +241,7 @@ namespace ElevenLabs
             this.PhoneProvider = phoneProvider;
             this.WhatsappParams = whatsappParams;
             this.BranchId = branchId;
+            this.Environment = environment;
             this.Timezone = timezone;
             this.TargetConcurrencyLimit = targetConcurrencyLimit;
             this.BranchName = branchName;

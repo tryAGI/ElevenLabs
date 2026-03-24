@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AddOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         AndOperator,
         /// <summary>
         /// 
@@ -20,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ConditionalOperator,
+        /// <summary>
+        /// 
+        /// </summary>
+        DivOperator,
         /// <summary>
         /// 
         /// </summary>
@@ -51,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        MulOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         NeqOperator,
         /// <summary>
         /// 
@@ -64,6 +76,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         StringLiteral,
+        /// <summary>
+        /// 
+        /// </summary>
+        SubOperator,
     }
 
     /// <summary>
@@ -78,9 +94,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.AddOperator => "add_operator",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.AndOperator => "and_operator",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.BooleanLiteral => "boolean_literal",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.ConditionalOperator => "conditional_operator",
+                ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.DivOperator => "div_operator",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.DynamicVariable => "dynamic_variable",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.EqOperator => "eq_operator",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.GtOperator => "gt_operator",
@@ -88,10 +106,12 @@ namespace ElevenLabs
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.Llm => "llm",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.LtOperator => "lt_operator",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.LteOperator => "lte_operator",
+                ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.MulOperator => "mul_operator",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.NeqOperator => "neq_operator",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.NumberLiteral => "number_literal",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.OrOperator => "or_operator",
                 ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.StringLiteral => "string_literal",
+                ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.SubOperator => "sub_operator",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -102,9 +122,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "add_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.AddOperator,
                 "and_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.AndOperator,
                 "boolean_literal" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.BooleanLiteral,
                 "conditional_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.ConditionalOperator,
+                "div_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.DivOperator,
                 "dynamic_variable" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.DynamicVariable,
                 "eq_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.EqOperator,
                 "gt_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.GtOperator,
@@ -112,10 +134,12 @@ namespace ElevenLabs
                 "llm" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.Llm,
                 "lt_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.LtOperator,
                 "lte_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.LteOperator,
+                "mul_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.MulOperator,
                 "neq_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.NeqOperator,
                 "number_literal" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.NumberLiteral,
                 "or_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.OrOperator,
                 "string_literal" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.StringLiteral,
+                "sub_operator" => ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType.SubOperator,
                 _ => null,
             };
         }
