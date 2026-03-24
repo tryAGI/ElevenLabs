@@ -18,17 +18,17 @@ namespace ElevenLabs
         /// Left operand of the binary operator.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("left")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LeftJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Left5JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Left Left { get; set; }
+        public required global::ElevenLabs.Left5 Left { get; set; }
 
         /// <summary>
         /// Right operand of the binary operator.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("right")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RightJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Right5JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Right Right { get; set; }
+        public required global::ElevenLabs.Right5 Right { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -52,8 +52,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ASTEqualsOperatorNodeInput(
-            global::ElevenLabs.Left left,
-            global::ElevenLabs.Right right,
+            global::ElevenLabs.Left5 left,
+            global::ElevenLabs.Right5 right,
             string? type)
         {
             this.Left = left;

@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AddOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         AndOperator,
         /// <summary>
         /// 
@@ -20,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ConditionalOperator,
+        /// <summary>
+        /// 
+        /// </summary>
+        DivOperator,
         /// <summary>
         /// 
         /// </summary>
@@ -51,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        MulOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         NeqOperator,
         /// <summary>
         /// 
@@ -64,6 +76,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         StringLiteral,
+        /// <summary>
+        /// 
+        /// </summary>
+        SubOperator,
     }
 
     /// <summary>
@@ -78,9 +94,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ASTEqualsOperatorNodeInputLeftDiscriminatorType.AddOperator => "add_operator",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.AndOperator => "and_operator",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.BooleanLiteral => "boolean_literal",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.ConditionalOperator => "conditional_operator",
+                ASTEqualsOperatorNodeInputLeftDiscriminatorType.DivOperator => "div_operator",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.DynamicVariable => "dynamic_variable",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.EqOperator => "eq_operator",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.GtOperator => "gt_operator",
@@ -88,10 +106,12 @@ namespace ElevenLabs
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.Llm => "llm",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.LtOperator => "lt_operator",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.LteOperator => "lte_operator",
+                ASTEqualsOperatorNodeInputLeftDiscriminatorType.MulOperator => "mul_operator",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.NeqOperator => "neq_operator",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.NumberLiteral => "number_literal",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.OrOperator => "or_operator",
                 ASTEqualsOperatorNodeInputLeftDiscriminatorType.StringLiteral => "string_literal",
+                ASTEqualsOperatorNodeInputLeftDiscriminatorType.SubOperator => "sub_operator",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -102,9 +122,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "add_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.AddOperator,
                 "and_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.AndOperator,
                 "boolean_literal" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.BooleanLiteral,
                 "conditional_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.ConditionalOperator,
+                "div_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.DivOperator,
                 "dynamic_variable" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.DynamicVariable,
                 "eq_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.EqOperator,
                 "gt_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.GtOperator,
@@ -112,10 +134,12 @@ namespace ElevenLabs
                 "llm" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.Llm,
                 "lt_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.LtOperator,
                 "lte_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.LteOperator,
+                "mul_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.MulOperator,
                 "neq_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.NeqOperator,
                 "number_literal" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.NumberLiteral,
                 "or_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.OrOperator,
                 "string_literal" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.StringLiteral,
+                "sub_operator" => ASTEqualsOperatorNodeInputLeftDiscriminatorType.SubOperator,
                 _ => null,
             };
         }

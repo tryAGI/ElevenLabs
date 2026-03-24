@@ -231,6 +231,74 @@ namespace ElevenLabs
         public bool IsLteOperator => LteOperator != null;
 
         /// <summary>
+        /// Adds the left and right values.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTAdditionOperatorNodeInput? AddOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTAdditionOperatorNodeInput? AddOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AddOperator))]
+#endif
+        public bool IsAddOperator => AddOperator != null;
+
+        /// <summary>
+        /// Subtracts the right value from the left.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTSubtractionOperatorNodeInput? SubOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTSubtractionOperatorNodeInput? SubOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SubOperator))]
+#endif
+        public bool IsSubOperator => SubOperator != null;
+
+        /// <summary>
+        /// Multiplies the left value times the right.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTMultiplicationOperatorNodeInput? MulOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTMultiplicationOperatorNodeInput? MulOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MulOperator))]
+#endif
+        public bool IsMulOperator => MulOperator != null;
+
+        /// <summary>
+        /// Divides the left value by the right.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTDivisionOperatorNodeInput? DivOperator { get; init; }
+#else
+        public global::ElevenLabs.ASTDivisionOperatorNodeInput? DivOperator { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DivOperator))]
+#endif
+        public bool IsDivOperator => DivOperator != null;
+
+        /// <summary>
         /// Selects one of two expressions based on whether the given condition evaluates to true.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -483,6 +551,78 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator Left5(global::ElevenLabs.ASTAdditionOperatorNodeInput value) => new Left5((global::ElevenLabs.ASTAdditionOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTAdditionOperatorNodeInput?(Left5 @this) => @this.AddOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Left5(global::ElevenLabs.ASTAdditionOperatorNodeInput? value)
+        {
+            AddOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Left5(global::ElevenLabs.ASTSubtractionOperatorNodeInput value) => new Left5((global::ElevenLabs.ASTSubtractionOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTSubtractionOperatorNodeInput?(Left5 @this) => @this.SubOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Left5(global::ElevenLabs.ASTSubtractionOperatorNodeInput? value)
+        {
+            SubOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Left5(global::ElevenLabs.ASTMultiplicationOperatorNodeInput value) => new Left5((global::ElevenLabs.ASTMultiplicationOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTMultiplicationOperatorNodeInput?(Left5 @this) => @this.MulOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Left5(global::ElevenLabs.ASTMultiplicationOperatorNodeInput? value)
+        {
+            MulOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Left5(global::ElevenLabs.ASTDivisionOperatorNodeInput value) => new Left5((global::ElevenLabs.ASTDivisionOperatorNodeInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTDivisionOperatorNodeInput?(Left5 @this) => @this.DivOperator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Left5(global::ElevenLabs.ASTDivisionOperatorNodeInput? value)
+        {
+            DivOperator = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Left5(global::ElevenLabs.ASTConditionalOperatorNodeInput value) => new Left5((global::ElevenLabs.ASTConditionalOperatorNodeInput?)value);
 
         /// <summary>
@@ -515,6 +655,10 @@ namespace ElevenLabs
             global::ElevenLabs.ASTLessThanOperatorNodeInput? ltOperator,
             global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput? gteOperator,
             global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput? lteOperator,
+            global::ElevenLabs.ASTAdditionOperatorNodeInput? addOperator,
+            global::ElevenLabs.ASTSubtractionOperatorNodeInput? subOperator,
+            global::ElevenLabs.ASTMultiplicationOperatorNodeInput? mulOperator,
+            global::ElevenLabs.ASTDivisionOperatorNodeInput? divOperator,
             global::ElevenLabs.ASTConditionalOperatorNodeInput? conditionalOperator
             )
         {
@@ -531,6 +675,10 @@ namespace ElevenLabs
             LtOperator = ltOperator;
             GteOperator = gteOperator;
             LteOperator = lteOperator;
+            AddOperator = addOperator;
+            SubOperator = subOperator;
+            MulOperator = mulOperator;
+            DivOperator = divOperator;
             ConditionalOperator = conditionalOperator;
         }
 
@@ -539,6 +687,10 @@ namespace ElevenLabs
         /// </summary>
         public object? Object =>
             ConditionalOperator as object ??
+            DivOperator as object ??
+            MulOperator as object ??
+            SubOperator as object ??
+            AddOperator as object ??
             LteOperator as object ??
             GteOperator as object ??
             LtOperator as object ??
@@ -571,6 +723,10 @@ namespace ElevenLabs
             LtOperator?.ToString() ??
             GteOperator?.ToString() ??
             LteOperator?.ToString() ??
+            AddOperator?.ToString() ??
+            SubOperator?.ToString() ??
+            MulOperator?.ToString() ??
+            DivOperator?.ToString() ??
             ConditionalOperator?.ToString() 
             ;
 
@@ -579,7 +735,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && IsLtOperator && !IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && IsGteOperator && !IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && IsLteOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && IsConditionalOperator;
+            return IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsASTLMNodeInput && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && IsConditionalOperator;
         }
 
         /// <summary>
@@ -599,6 +755,10 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.ASTLessThanOperatorNodeInput?, TResult>? ltOperator = null,
             global::System.Func<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?, TResult>? gteOperator = null,
             global::System.Func<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?, TResult>? lteOperator = null,
+            global::System.Func<global::ElevenLabs.ASTAdditionOperatorNodeInput?, TResult>? addOperator = null,
+            global::System.Func<global::ElevenLabs.ASTSubtractionOperatorNodeInput?, TResult>? subOperator = null,
+            global::System.Func<global::ElevenLabs.ASTMultiplicationOperatorNodeInput?, TResult>? mulOperator = null,
+            global::System.Func<global::ElevenLabs.ASTDivisionOperatorNodeInput?, TResult>? divOperator = null,
             global::System.Func<global::ElevenLabs.ASTConditionalOperatorNodeInput?, TResult>? conditionalOperator = null,
             bool validate = true)
         {
@@ -659,6 +819,22 @@ namespace ElevenLabs
             {
                 return lteOperator(LteOperator!);
             }
+            else if (IsAddOperator && addOperator != null)
+            {
+                return addOperator(AddOperator!);
+            }
+            else if (IsSubOperator && subOperator != null)
+            {
+                return subOperator(SubOperator!);
+            }
+            else if (IsMulOperator && mulOperator != null)
+            {
+                return mulOperator(MulOperator!);
+            }
+            else if (IsDivOperator && divOperator != null)
+            {
+                return divOperator(DivOperator!);
+            }
             else if (IsConditionalOperator && conditionalOperator != null)
             {
                 return conditionalOperator(ConditionalOperator!);
@@ -684,6 +860,10 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.ASTLessThanOperatorNodeInput?>? ltOperator = null,
             global::System.Action<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?>? gteOperator = null,
             global::System.Action<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?>? lteOperator = null,
+            global::System.Action<global::ElevenLabs.ASTAdditionOperatorNodeInput?>? addOperator = null,
+            global::System.Action<global::ElevenLabs.ASTSubtractionOperatorNodeInput?>? subOperator = null,
+            global::System.Action<global::ElevenLabs.ASTMultiplicationOperatorNodeInput?>? mulOperator = null,
+            global::System.Action<global::ElevenLabs.ASTDivisionOperatorNodeInput?>? divOperator = null,
             global::System.Action<global::ElevenLabs.ASTConditionalOperatorNodeInput?>? conditionalOperator = null,
             bool validate = true)
         {
@@ -744,6 +924,22 @@ namespace ElevenLabs
             {
                 lteOperator?.Invoke(LteOperator!);
             }
+            else if (IsAddOperator)
+            {
+                addOperator?.Invoke(AddOperator!);
+            }
+            else if (IsSubOperator)
+            {
+                subOperator?.Invoke(SubOperator!);
+            }
+            else if (IsMulOperator)
+            {
+                mulOperator?.Invoke(MulOperator!);
+            }
+            else if (IsDivOperator)
+            {
+                divOperator?.Invoke(DivOperator!);
+            }
             else if (IsConditionalOperator)
             {
                 conditionalOperator?.Invoke(ConditionalOperator!);
@@ -783,6 +979,14 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput),
                 LteOperator,
                 typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput),
+                AddOperator,
+                typeof(global::ElevenLabs.ASTAdditionOperatorNodeInput),
+                SubOperator,
+                typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInput),
+                MulOperator,
+                typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInput),
+                DivOperator,
+                typeof(global::ElevenLabs.ASTDivisionOperatorNodeInput),
                 ConditionalOperator,
                 typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput),
             };
@@ -814,6 +1018,10 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLessThanOperatorNodeInput?>.Default.Equals(LtOperator, other.LtOperator) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?>.Default.Equals(GteOperator, other.GteOperator) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?>.Default.Equals(LteOperator, other.LteOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTAdditionOperatorNodeInput?>.Default.Equals(AddOperator, other.AddOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTSubtractionOperatorNodeInput?>.Default.Equals(SubOperator, other.SubOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTMultiplicationOperatorNodeInput?>.Default.Equals(MulOperator, other.MulOperator) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTDivisionOperatorNodeInput?>.Default.Equals(DivOperator, other.DivOperator) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTConditionalOperatorNodeInput?>.Default.Equals(ConditionalOperator, other.ConditionalOperator) 
                 ;
         }

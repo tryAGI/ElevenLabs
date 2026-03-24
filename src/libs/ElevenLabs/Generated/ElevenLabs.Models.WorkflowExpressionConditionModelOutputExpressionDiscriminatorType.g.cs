@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AddOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         AndOperator,
         /// <summary>
         /// 
@@ -20,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ConditionalOperator,
+        /// <summary>
+        /// 
+        /// </summary>
+        DivOperator,
         /// <summary>
         /// 
         /// </summary>
@@ -51,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        MulOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         NeqOperator,
         /// <summary>
         /// 
@@ -64,6 +76,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         StringLiteral,
+        /// <summary>
+        /// 
+        /// </summary>
+        SubOperator,
     }
 
     /// <summary>
@@ -78,9 +94,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.AddOperator => "add_operator",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.AndOperator => "and_operator",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.BooleanLiteral => "boolean_literal",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.ConditionalOperator => "conditional_operator",
+                WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.DivOperator => "div_operator",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.DynamicVariable => "dynamic_variable",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.EqOperator => "eq_operator",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.GtOperator => "gt_operator",
@@ -88,10 +106,12 @@ namespace ElevenLabs
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.Llm => "llm",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.LtOperator => "lt_operator",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.LteOperator => "lte_operator",
+                WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.MulOperator => "mul_operator",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.NeqOperator => "neq_operator",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.NumberLiteral => "number_literal",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.OrOperator => "or_operator",
                 WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.StringLiteral => "string_literal",
+                WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.SubOperator => "sub_operator",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -102,9 +122,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "add_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.AddOperator,
                 "and_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.AndOperator,
                 "boolean_literal" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.BooleanLiteral,
                 "conditional_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.ConditionalOperator,
+                "div_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.DivOperator,
                 "dynamic_variable" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.DynamicVariable,
                 "eq_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.EqOperator,
                 "gt_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.GtOperator,
@@ -112,10 +134,12 @@ namespace ElevenLabs
                 "llm" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.Llm,
                 "lt_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.LtOperator,
                 "lte_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.LteOperator,
+                "mul_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.MulOperator,
                 "neq_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.NeqOperator,
                 "number_literal" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.NumberLiteral,
                 "or_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.OrOperator,
                 "string_literal" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.StringLiteral,
+                "sub_operator" => WorkflowExpressionConditionModelOutputExpressionDiscriminatorType.SubOperator,
                 _ => null,
             };
         }

@@ -25,6 +25,22 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.ASRQualityNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.ASTAdditionOperatorNodeInputLeftDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTAdditionOperatorNodeInputLeftDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTAdditionOperatorNodeInputRightDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTAdditionOperatorNodeInputRightDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTAdditionOperatorNodeOutputLeftDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTAdditionOperatorNodeOutputLeftDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTAdditionOperatorNodeOutputRightDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTAdditionOperatorNodeOutputRightDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.ASTAndOperatorNodeInputChildrenItemDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ASTAndOperatorNodeInputChildrenItemDiscriminatorTypeNullableJsonConverter),
@@ -56,6 +72,22 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.ASTConditionalOperatorNodeOutputFalseExpressionDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ASTConditionalOperatorNodeOutputFalseExpressionDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTDivisionOperatorNodeInputLeftDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTDivisionOperatorNodeInputLeftDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTDivisionOperatorNodeInputRightDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTDivisionOperatorNodeInputRightDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTDivisionOperatorNodeOutputLeftDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTDivisionOperatorNodeOutputLeftDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTDivisionOperatorNodeOutputRightDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTDivisionOperatorNodeOutputRightDiscriminatorTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ASTEqualsOperatorNodeInputLeftDiscriminatorTypeJsonConverter),
 
@@ -137,6 +169,22 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.ASTLessThanOrEqualsOperatorNodeOutputRightDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.ASTMultiplicationOperatorNodeInputLeftDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTMultiplicationOperatorNodeInputLeftDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTMultiplicationOperatorNodeInputRightDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTMultiplicationOperatorNodeInputRightDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTMultiplicationOperatorNodeOutputLeftDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTMultiplicationOperatorNodeOutputLeftDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTMultiplicationOperatorNodeOutputRightDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTMultiplicationOperatorNodeOutputRightDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.ASTNotEqualsOperatorNodeInputLeftDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ASTNotEqualsOperatorNodeInputLeftDiscriminatorTypeNullableJsonConverter),
@@ -160,6 +208,22 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.ASTOrOperatorNodeOutputChildrenItemDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ASTOrOperatorNodeOutputChildrenItemDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTSubtractionOperatorNodeInputLeftDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTSubtractionOperatorNodeInputLeftDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTSubtractionOperatorNodeInputRightDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTSubtractionOperatorNodeInputRightDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTSubtractionOperatorNodeOutputLeftDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTSubtractionOperatorNodeOutputLeftDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTSubtractionOperatorNodeOutputRightDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.ASTSubtractionOperatorNodeOutputRightDiscriminatorTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.AddPronunciationDictionaryResponseModelPermissionOnResource2JsonConverter),
 
@@ -1449,6 +1513,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.RefreshUrlDocumentRouteResponseDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.LeftJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.RightJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Left2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Right2JsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.ChildrenItemJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ChildrenItem2JsonConverter),
@@ -1464,14 +1536,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.TrueExpression2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.FalseExpression2JsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.LeftJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.RightJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.Left2JsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.Right2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.Left3JsonConverter),
 
@@ -1489,8 +1553,6 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.Right6JsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.ASTLLMNodeInputJsonConverter),
-
             typeof(global::ElevenLabs.JsonConverters.Left7JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.Right7JsonConverter),
@@ -1507,6 +1569,8 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.Right10JsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.ASTLLMNodeInputJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.Left11JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.Right11JsonConverter),
@@ -1515,9 +1579,41 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.Right12JsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.Left13JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Right13JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Left14JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Right14JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Left15JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Right15JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Left16JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Right16JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Left17JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Right17JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Left18JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Right18JsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.ChildrenItem3JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ChildrenItem4JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Left19JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Right19JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Left20JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.Right20JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.NodesJsonConverter),
 
@@ -1868,40 +1964,60 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASRConversationalConfigWorkflowOverride))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeInput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ChildrenItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ChildrenItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTStringNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNumberNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTBooleanNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLLMNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDynamicVariableNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTOrOperatorNodeInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTConditionalOperatorNodeInput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeInputChildrenItemDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeInputChildrenItemDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ChildrenItem2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ChildrenItem2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeInputLeftDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeInputLeftDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeInputRightDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeInputRightDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTStringNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNumberNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTBooleanNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLLMNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDynamicVariableNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTOrOperatorNodeOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTConditionalOperatorNodeOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeOutputLeftDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeOutputLeftDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeOutputRightDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeOutputRightDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ChildrenItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ChildrenItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeInputChildrenItemDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeInputChildrenItemDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ChildrenItem2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ChildrenItem2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeOutputChildrenItemDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAndOperatorNodeOutputChildrenItemDiscriminatorType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
@@ -1923,79 +2039,103 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FalseExpression2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTConditionalOperatorNodeOutputFalseExpressionDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTConditionalOperatorNodeOutputFalseExpressionDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeInputLeftDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeInputLeftDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeInputRightDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeInputRightDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeOutputLeftDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeOutputLeftDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeOutputRightDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTDivisionOperatorNodeOutputRightDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left5))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeInputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeInputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right5))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeInputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeInputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left6))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeOutputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeOutputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right6))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeOutputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTEqualsOperatorNodeOutputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left7))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeInputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeInputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right7))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeInputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeInputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeOutputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeOutputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeOutputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOperatorNodeOutputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right5))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left6))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left10))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right6))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right10))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutputRightDiscriminatorType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LLMLiteralJsonSchemaProperty))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left7))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeInputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeInputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right7))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeInputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeInputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left8))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left12))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeOutputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeOutputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right8))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right12))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeOutputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOperatorNodeOutputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left9))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left13))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right9))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right13))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left10))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left14))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right10))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right14))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left11))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left15))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInputLeftDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInputLeftDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right15))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInputRightDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeInputRightDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left16))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeOutputLeftDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeOutputLeftDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right16))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeOutputRightDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTMultiplicationOperatorNodeOutputRightDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left17))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeInputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeInputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right11))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right17))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeInputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeInputRightDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left12))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left18))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeOutputLeftDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeOutputLeftDiscriminatorType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right12))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right18))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeOutputRightDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTNotEqualsOperatorNodeOutputRightDiscriminatorType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
@@ -2007,6 +2147,18 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ChildrenItem4))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTOrOperatorNodeOutputChildrenItemDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTOrOperatorNodeOutputChildrenItemDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left19))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInputLeftDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInputLeftDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right19))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInputRightDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeInputRightDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Left20))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeOutputLeftDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeOutputLeftDiscriminatorType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Right20))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeOutputRightDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTSubtractionOperatorNodeOutputRightDiscriminatorType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AddChapterResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ChapterWithContentResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AddKnowledgeBaseResponseModel))]

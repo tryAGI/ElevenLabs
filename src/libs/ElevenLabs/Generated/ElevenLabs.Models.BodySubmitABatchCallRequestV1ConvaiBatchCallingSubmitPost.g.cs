@@ -60,6 +60,12 @@ namespace ElevenLabs
         public string? BranchId { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environment")]
+        public string? Environment { get; set; }
+
+        /// <summary>
         /// Default Value: {"ringing_timeout_secs":60}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("telephony_call_config")]
@@ -88,6 +94,7 @@ namespace ElevenLabs
         /// <param name="whatsappParams"></param>
         /// <param name="timezone"></param>
         /// <param name="branchId"></param>
+        /// <param name="environment"></param>
         /// <param name="telephonyCallConfig">
         /// Default Value: {"ringing_timeout_secs":60}
         /// </param>
@@ -106,6 +113,7 @@ namespace ElevenLabs
             global::ElevenLabs.BatchCallWhatsAppParams? whatsappParams,
             string? timezone,
             string? branchId,
+            string? environment,
             global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig,
             int? targetConcurrencyLimit)
         {
@@ -117,6 +125,7 @@ namespace ElevenLabs
             this.WhatsappParams = whatsappParams;
             this.Timezone = timezone;
             this.BranchId = branchId;
+            this.Environment = environment;
             this.TelephonyCallConfig = telephonyCallConfig;
             this.TargetConcurrencyLimit = targetConcurrencyLimit;
         }

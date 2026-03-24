@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AddOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         AndOperator,
         /// <summary>
         /// 
@@ -20,6 +24,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ConditionalOperator,
+        /// <summary>
+        /// 
+        /// </summary>
+        DivOperator,
         /// <summary>
         /// 
         /// </summary>
@@ -51,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        MulOperator,
+        /// <summary>
+        /// 
+        /// </summary>
         NeqOperator,
         /// <summary>
         /// 
@@ -64,6 +76,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         StringLiteral,
+        /// <summary>
+        /// 
+        /// </summary>
+        SubOperator,
     }
 
     /// <summary>
@@ -78,9 +94,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.AddOperator => "add_operator",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.AndOperator => "and_operator",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.BooleanLiteral => "boolean_literal",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.ConditionalOperator => "conditional_operator",
+                ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.DivOperator => "div_operator",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.DynamicVariable => "dynamic_variable",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.EqOperator => "eq_operator",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.GtOperator => "gt_operator",
@@ -88,10 +106,12 @@ namespace ElevenLabs
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.Llm => "llm",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.LtOperator => "lt_operator",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.LteOperator => "lte_operator",
+                ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.MulOperator => "mul_operator",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.NeqOperator => "neq_operator",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.NumberLiteral => "number_literal",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.OrOperator => "or_operator",
                 ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.StringLiteral => "string_literal",
+                ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.SubOperator => "sub_operator",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -102,9 +122,11 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "add_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.AddOperator,
                 "and_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.AndOperator,
                 "boolean_literal" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.BooleanLiteral,
                 "conditional_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.ConditionalOperator,
+                "div_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.DivOperator,
                 "dynamic_variable" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.DynamicVariable,
                 "eq_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.EqOperator,
                 "gt_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.GtOperator,
@@ -112,10 +134,12 @@ namespace ElevenLabs
                 "llm" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.Llm,
                 "lt_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.LtOperator,
                 "lte_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.LteOperator,
+                "mul_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.MulOperator,
                 "neq_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.NeqOperator,
                 "number_literal" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.NumberLiteral,
                 "or_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.OrOperator,
                 "string_literal" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.StringLiteral,
+                "sub_operator" => ASTOrOperatorNodeOutputChildrenItemDiscriminatorType.SubOperator,
                 _ => null,
             };
         }
