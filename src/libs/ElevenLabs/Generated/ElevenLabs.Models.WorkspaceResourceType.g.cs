@@ -15,6 +15,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AvatarVideoGenerations,
+        /// <summary>
+        /// 
+        /// </summary>
+        Avatars,
+        /// <summary>
+        /// 
+        /// </summary>
         ContentGenerations,
         /// <summary>
         /// 
@@ -159,6 +167,8 @@ namespace ElevenLabs
             return value switch
             {
                 WorkspaceResourceType.Assets => "assets",
+                WorkspaceResourceType.AvatarVideoGenerations => "avatar_video_generations",
+                WorkspaceResourceType.Avatars => "avatars",
                 WorkspaceResourceType.ContentGenerations => "content_generations",
                 WorkspaceResourceType.ContentTemplates => "content_templates",
                 WorkspaceResourceType.ConvaiAgentBranches => "convai_agent_branches",
@@ -203,6 +213,8 @@ namespace ElevenLabs
             return value switch
             {
                 "assets" => WorkspaceResourceType.Assets,
+                "avatar_video_generations" => WorkspaceResourceType.AvatarVideoGenerations,
+                "avatars" => WorkspaceResourceType.Avatars,
                 "content_generations" => WorkspaceResourceType.ContentGenerations,
                 "content_templates" => WorkspaceResourceType.ContentTemplates,
                 "convai_agent_branches" => WorkspaceResourceType.ConvaiAgentBranches,

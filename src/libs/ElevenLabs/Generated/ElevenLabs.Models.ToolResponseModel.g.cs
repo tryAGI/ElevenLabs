@@ -39,6 +39,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.ToolUsageStatsResponseModel UsageStats { get; set; }
 
         /// <summary>
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_mocks")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>? ResponseMocks { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -55,6 +61,9 @@ namespace ElevenLabs
         /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </param>
         /// <param name="usageStats"></param>
+        /// <param name="responseMocks">
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,12 +71,14 @@ namespace ElevenLabs
             string id,
             global::ElevenLabs.ToolConfig2 toolConfig,
             global::ElevenLabs.ResourceAccessInfo accessInfo,
-            global::ElevenLabs.ToolUsageStatsResponseModel usageStats)
+            global::ElevenLabs.ToolUsageStatsResponseModel usageStats,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>? responseMocks)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.ToolConfig = toolConfig;
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
             this.UsageStats = usageStats ?? throw new global::System.ArgumentNullException(nameof(usageStats));
+            this.ResponseMocks = responseMocks;
         }
 
         /// <summary>

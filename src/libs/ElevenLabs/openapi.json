@@ -3779,6 +3779,102 @@
         "x-fern-sdk-method-name": "create_podcast"
       }
     },
+    "/v1/music/video-to-music": {
+      "post": {
+        "tags": [
+          "video-to-music"
+        ],
+        "summary": "Video To Music",
+        "description": "Generate background music from one or more video files. Videos are combined in order. Optional description and style tags influence the generated music.",
+        "operationId": "video_to_music",
+        "parameters": [
+          {
+            "name": "output_format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/AllowedOutputFormats",
+              "title": "Output format of the generated audio.",
+              "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.",
+              "enum": [
+                "mp3_22050_32",
+                "mp3_24000_48",
+                "mp3_44100_32",
+                "mp3_44100_64",
+                "mp3_44100_96",
+                "mp3_44100_128",
+                "mp3_44100_192",
+                "pcm_8000",
+                "pcm_16000",
+                "pcm_22050",
+                "pcm_24000",
+                "pcm_32000",
+                "pcm_44100",
+                "pcm_48000",
+                "ulaw_8000",
+                "alaw_8000",
+                "opus_48000_32",
+                "opus_48000_64",
+                "opus_48000_96",
+                "opus_48000_128",
+                "opus_48000_192"
+              ],
+              "default": "mp3_44100_128"
+            },
+            "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Video_to_Music_v1_music_video_to_music_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generated audio file matching the video. Content-Type and file extension depend on the output_format parameter (default mp3).",
+            "content": {
+              "audio/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Subscription required."
+          },
+          "422": {
+            "description": "Validation error (e.g. invalid or missing videos)."
+          }
+        },
+        "x-fern-sdk-group-name": "music",
+        "x-fern-sdk-method-name": "video_to_music"
+      }
+    },
     "/v1/studio/projects/{project_id}/pronunciation-dictionaries": {
       "post": {
         "tags": [
@@ -11121,868 +11217,6 @@
           "transcripts"
         ],
         "x-fern-sdk-method-name": "delete"
-      }
-    },
-    "/v1/speech-to-text/evaluation/eval-criteria": {
-      "get": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "List Evaluation Criteria",
-        "operationId": "list_eval_criteria_route",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/EvalCriterionResponse"
-                  },
-                  "type": "array",
-                  "title": "Response List Evaluation Criteria V1 Speech To Text Evaluation Eval Criteria Get"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Create Evaluation Criterion",
-        "operationId": "create_eval_criterion_route",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateEvalCriterionRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EvalCriterionResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/speech-to-text/evaluation/eval-criteria/{criterion_id}": {
-      "get": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Get Evaluation Criterion",
-        "operationId": "get_eval_criterion_route",
-        "parameters": [
-          {
-            "name": "criterion_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Criterion Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EvalCriterionResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Update Evaluation Criterion",
-        "operationId": "update_eval_criterion_route",
-        "parameters": [
-          {
-            "name": "criterion_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Criterion Id"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateEvalCriterionRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EvalCriterionResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Delete Evaluation Criterion",
-        "operationId": "delete_eval_criterion_route",
-        "parameters": [
-          {
-            "name": "criterion_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Criterion Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": true,
-                  "title": "Response Delete Evaluation Criterion V1 Speech To Text Evaluation Eval Criteria  Criterion Id  Delete"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/speech-to-text/evaluation/evaluations": {
-      "post": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Trigger Evaluation",
-        "operationId": "trigger_evaluation_route",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TriggerEvaluationRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EvaluationResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "List Evaluations",
-        "operationId": "list_evaluations_route",
-        "parameters": [
-          {
-            "name": "agent_id",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Agent Id"
-            }
-          },
-          {
-            "name": "eval_criterion_id",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Eval Criterion Id"
-            }
-          },
-          {
-            "name": "status",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Status"
-            }
-          },
-          {
-            "name": "created_after",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Created After"
-            }
-          },
-          {
-            "name": "created_before",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Created Before"
-            }
-          },
-          {
-            "name": "search",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Search"
-            }
-          },
-          {
-            "name": "sort_by",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Sort By"
-            }
-          },
-          {
-            "name": "sort_dir",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Sort Dir"
-            }
-          },
-          {
-            "name": "page_size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 20,
-              "title": "Page Size"
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Cursor"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaginatedEvaluationResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/speech-to-text/evaluation/evaluations/{evaluation_id}": {
-      "get": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Get Evaluation",
-        "operationId": "get_evaluation_route",
-        "parameters": [
-          {
-            "name": "evaluation_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Evaluation Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EvaluationResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/speech-to-text/evaluation/human-agents": {
-      "get": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "List Human Agents",
-        "operationId": "list_human_agents_route",
-        "parameters": [
-          {
-            "name": "page_size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 20,
-              "title": "Page Size"
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Cursor"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaginatedHumanAgentResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/speech-to-text/evaluation/human-agents/{agent_id}": {
-      "get": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Get Human Agent",
-        "operationId": "get_human_agent_route",
-        "parameters": [
-          {
-            "name": "agent_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Agent Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HumanAgentResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Delete Human Agent",
-        "operationId": "delete_human_agent_route",
-        "parameters": [
-          {
-            "name": "agent_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Agent Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": true,
-                  "title": "Response Delete Human Agent V1 Speech To Text Evaluation Human Agents  Agent Id  Delete"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/speech-to-text/evaluation/analytics": {
-      "get": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Get Evaluation Analytics",
-        "operationId": "get_evaluation_analytics_route",
-        "parameters": [
-          {
-            "name": "days",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 30,
-              "title": "Days"
-            }
-          },
-          {
-            "name": "created_after",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Created After"
-            }
-          },
-          {
-            "name": "created_before",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Created Before"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EvaluationAnalyticsResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/speech-to-text/evaluation/eval-criteria/{criterion_id}/analytics": {
-      "get": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Get Criterion Analytics",
-        "operationId": "get_criterion_analytics_route",
-        "parameters": [
-          {
-            "name": "criterion_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Criterion Id"
-            }
-          },
-          {
-            "name": "days",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 30,
-              "title": "Days"
-            }
-          },
-          {
-            "name": "created_after",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Created After"
-            }
-          },
-          {
-            "name": "created_before",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Created Before"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CriterionAnalyticsResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/speech-to-text/evaluation/human-agents/{agent_id}/analytics": {
-      "get": {
-        "tags": [
-          "Speech To Text - Evaluation"
-        ],
-        "summary": "Get Agent Analytics",
-        "operationId": "get_agent_analytics_route",
-        "parameters": [
-          {
-            "name": "agent_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Agent Id"
-            }
-          },
-          {
-            "name": "days",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 30,
-              "title": "Days"
-            }
-          },
-          {
-            "name": "created_after",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Created After"
-            }
-          },
-          {
-            "name": "created_before",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Created Before"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AgentAnalyticsResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/v1/single-use-token/{token_type}": {
@@ -31027,117 +30261,6 @@
         ],
         "title": "AdhocAgentConfigOverrideForTestRequestModel"
       },
-      "AgentAnalyticsResponse": {
-        "properties": {
-          "total_evaluations": {
-            "type": "integer",
-            "title": "Total Evaluations"
-          },
-          "avg_score_pct": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Score Pct"
-          },
-          "avg_score_pct_delta": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Score Pct Delta"
-          },
-          "best_criterion": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/CriterionPerformance"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "worst_criterion": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/CriterionPerformance"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "criteria_breakdown": {
-            "items": {
-              "$ref": "#/components/schemas/CriterionPerformance"
-            },
-            "type": "array",
-            "title": "Criteria Breakdown"
-          },
-          "time_series": {
-            "items": {
-              "$ref": "#/components/schemas/TimeSeriesBucket"
-            },
-            "type": "array",
-            "title": "Time Series"
-          },
-          "avg_call_duration_seconds": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Call Duration Seconds"
-          },
-          "avg_agent_speaking_pct": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Agent Speaking Pct"
-          },
-          "avg_user_speaking_pct": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg User Speaking Pct"
-          }
-        },
-        "type": "object",
-        "required": [
-          "total_evaluations",
-          "avg_score_pct",
-          "avg_score_pct_delta",
-          "best_criterion",
-          "worst_criterion",
-          "criteria_breakdown",
-          "time_series",
-          "avg_call_duration_seconds",
-          "avg_agent_speaking_pct",
-          "avg_user_speaking_pct"
-        ],
-        "title": "AgentAnalyticsResponse"
-      },
       "AgentBranchBasicInfo": {
         "properties": {
           "id": {
@@ -31308,46 +30431,6 @@
           "is_archived"
         ],
         "title": "AgentBranchSummary"
-      },
-      "AgentBreakdown": {
-        "properties": {
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
-          },
-          "agent_name": {
-            "type": "string",
-            "title": "Agent Name"
-          },
-          "total": {
-            "type": "integer",
-            "title": "Total"
-          },
-          "completed": {
-            "type": "integer",
-            "title": "Completed"
-          },
-          "avg_score_pct": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Score Pct"
-          }
-        },
-        "type": "object",
-        "required": [
-          "agent_id",
-          "agent_name",
-          "total",
-          "completed",
-          "avg_score_pct"
-        ],
-        "title": "AgentBreakdown"
       },
       "AgentCallLimits": {
         "properties": {
@@ -31989,65 +31072,6 @@
         ],
         "title": "AgentMetadataResponseModel"
       },
-      "AgentPerformance": {
-        "properties": {
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
-          },
-          "agent_name": {
-            "type": "string",
-            "title": "Agent Name"
-          },
-          "pass_rate": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Pass Rate"
-          },
-          "evaluations": {
-            "type": "integer",
-            "title": "Evaluations"
-          },
-          "trend_delta": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Trend Delta"
-          },
-          "last_evaluated": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Last Evaluated"
-          }
-        },
-        "type": "object",
-        "required": [
-          "agent_id",
-          "agent_name",
-          "pass_rate",
-          "evaluations",
-          "trend_delta",
-          "last_evaluated"
-        ],
-        "title": "AgentPerformance"
-      },
       "AgentPlatformSettingsRequestModel": {
         "properties": {
           "evaluation": {
@@ -32200,70 +31224,6 @@
         },
         "type": "object",
         "title": "AgentPlatformSettingsResponseModel"
-      },
-      "AgentRanking": {
-        "properties": {
-          "rank": {
-            "type": "integer",
-            "title": "Rank"
-          },
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
-          },
-          "agent_name": {
-            "type": "string",
-            "title": "Agent Name"
-          },
-          "pass_rate": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Pass Rate"
-          },
-          "evaluations": {
-            "type": "integer",
-            "title": "Evaluations"
-          },
-          "trend_delta": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Trend Delta"
-          },
-          "last_evaluated": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Last Evaluated"
-          }
-        },
-        "type": "object",
-        "required": [
-          "rank",
-          "agent_id",
-          "agent_name",
-          "pass_rate",
-          "evaluations",
-          "trend_delta",
-          "last_evaluated"
-        ],
-        "title": "AgentRanking"
       },
       "AgentSimulatedChatTestResponseModel": {
         "properties": {
@@ -40260,6 +39220,57 @@
         ],
         "title": "Body_Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post"
       },
+      "Body_Video_to_Music_v1_music_video_to_music_post": {
+        "properties": {
+          "videos": {
+            "items": {
+              "type": "string",
+              "format": "binary"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "minItems": 1,
+            "title": "Videos",
+            "description": "\n            One or more video files sent via FormData array (multipart/form-data). They will be combined into one codec in order.\n            A maximum of 10 videos is allowed, where the total size of the combined video is limited to 200MB.\n            In total, the video can be up to 600 seconds long. Note that combining multiple videos may increase the request duration significantly. If possible, combine the videos beforehand.\n            "
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Optional text description of the music you want. A maximum of 1000 characters is allowed."
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "minItems": 0,
+            "title": "Tags",
+            "description": "Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.",
+            "default": []
+          },
+          "sign_with_c2pa": {
+            "type": "boolean",
+            "title": "Sign With C2Pa",
+            "description": "Whether to sign the generated song with C2PA. Applicable only for mp3 files.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "videos"
+        ],
+        "title": "Body_Video_to_Music_v1_music_video_to_music_post"
+      },
       "Body_create_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys_post": {
         "properties": {
           "name": {
@@ -47743,39 +46754,6 @@
         ],
         "title": "CreateCustomHeaderAuthRequest"
       },
-      "CreateEvalCriterionRequest": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "maxLength": 200,
-            "minLength": 1,
-            "title": "Name"
-          },
-          "criteria": {
-            "items": {
-              "$ref": "#/components/schemas/CriterionItemRequest"
-            },
-            "type": "array",
-            "title": "Criteria"
-          },
-          "data_extraction_config": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/DataExtractionConfigRequest-Input"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "criteria"
-        ],
-        "title": "CreateEvalCriterionRequest"
-      },
       "CreateOAuth2ClientCredsRequest": {
         "properties": {
           "name": {
@@ -48604,209 +47582,6 @@
         ],
         "title": "CreateTwilioPhoneNumberRequest"
       },
-      "CriterionAnalyticsResponse": {
-        "properties": {
-          "total_evaluations": {
-            "type": "integer",
-            "title": "Total Evaluations"
-          },
-          "avg_score_pct": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Score Pct"
-          },
-          "avg_score_pct_delta": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Score Pct Delta"
-          },
-          "best_agent": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AgentRanking"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "worst_agent": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AgentRanking"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "agent_ranking": {
-            "items": {
-              "$ref": "#/components/schemas/AgentRanking"
-            },
-            "type": "array",
-            "title": "Agent Ranking"
-          },
-          "time_series": {
-            "items": {
-              "$ref": "#/components/schemas/TimeSeriesBucket"
-            },
-            "type": "array",
-            "title": "Time Series"
-          }
-        },
-        "type": "object",
-        "required": [
-          "total_evaluations",
-          "avg_score_pct",
-          "avg_score_pct_delta",
-          "best_agent",
-          "worst_agent",
-          "agent_ranking",
-          "time_series"
-        ],
-        "title": "CriterionAnalyticsResponse"
-      },
-      "CriterionBreakdown": {
-        "properties": {
-          "criterion_id": {
-            "type": "string",
-            "title": "Criterion Id"
-          },
-          "criterion_name": {
-            "type": "string",
-            "title": "Criterion Name"
-          },
-          "total": {
-            "type": "integer",
-            "title": "Total"
-          },
-          "success": {
-            "type": "integer",
-            "title": "Success"
-          },
-          "failure": {
-            "type": "integer",
-            "title": "Failure"
-          },
-          "unknown": {
-            "type": "integer",
-            "title": "Unknown"
-          },
-          "avg_call_duration_seconds": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Call Duration Seconds"
-          }
-        },
-        "type": "object",
-        "required": [
-          "criterion_id",
-          "criterion_name",
-          "total",
-          "success",
-          "failure",
-          "unknown"
-        ],
-        "title": "CriterionBreakdown"
-      },
-      "CriterionItemRequest": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Id"
-          },
-          "name": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Name"
-          },
-          "conversation_goal_prompt": {
-            "type": "string",
-            "maxLength": 2000,
-            "minLength": 1,
-            "title": "Conversation Goal Prompt"
-          },
-          "use_knowledge_base": {
-            "type": "boolean",
-            "title": "Use Knowledge Base",
-            "default": false
-          }
-        },
-        "type": "object",
-        "required": [
-          "id",
-          "name",
-          "conversation_goal_prompt"
-        ],
-        "title": "CriterionItemRequest"
-      },
-      "CriterionPerformance": {
-        "properties": {
-          "criterion_id": {
-            "type": "string",
-            "title": "Criterion Id"
-          },
-          "criterion_name": {
-            "type": "string",
-            "title": "Criterion Name"
-          },
-          "pass_rate": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Pass Rate"
-          },
-          "evaluations": {
-            "type": "integer",
-            "title": "Evaluations"
-          },
-          "trend_delta": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Trend Delta"
-          }
-        },
-        "type": "object",
-        "required": [
-          "criterion_id",
-          "criterion_name",
-          "pass_rate",
-          "evaluations",
-          "trend_delta"
-        ],
-        "title": "CriterionPerformance"
-      },
       "CustomGuardrail-Input": {
         "properties": {
           "config": {
@@ -49202,62 +47977,6 @@
           "rationale"
         ],
         "title": "DataCollectionResultCommonModel"
-      },
-      "DataExtractionConfigRequest-Input": {
-        "properties": {
-          "fields": {
-            "items": {
-              "$ref": "#/components/schemas/DataExtractionFieldRequest"
-            },
-            "type": "array",
-            "title": "Fields"
-          }
-        },
-        "type": "object",
-        "required": [
-          "fields"
-        ],
-        "title": "DataExtractionConfigRequest"
-      },
-      "DataExtractionConfigRequest-Output": {
-        "properties": {
-          "fields": {
-            "items": {
-              "$ref": "#/components/schemas/DataExtractionFieldRequest"
-            },
-            "type": "array",
-            "title": "Fields"
-          }
-        },
-        "type": "object",
-        "required": [
-          "fields"
-        ],
-        "title": "DataExtractionConfigRequest"
-      },
-      "DataExtractionFieldRequest": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Name"
-          },
-          "type": {
-            "$ref": "#/components/schemas/JsonLiteralType"
-          },
-          "description": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Description"
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "type",
-          "description"
-        ],
-        "title": "DataExtractionFieldRequest"
       },
       "DefaultSharingGroupResponseModel": {
         "properties": {
@@ -51701,308 +50420,6 @@
           "has_more"
         ],
         "title": "EnvironmentVariablesListResponse"
-      },
-      "EvalCriterionResponse": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id"
-          },
-          "workspace_id": {
-            "type": "string",
-            "title": "Workspace Id"
-          },
-          "name": {
-            "type": "string",
-            "title": "Name"
-          },
-          "criteria": {
-            "items": {
-              "additionalProperties": true,
-              "type": "object"
-            },
-            "type": "array",
-            "title": "Criteria"
-          },
-          "data_extraction_config": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/DataExtractionConfigRequest-Output"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Created At"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Updated At"
-          }
-        },
-        "type": "object",
-        "required": [
-          "id",
-          "workspace_id",
-          "name",
-          "criteria",
-          "data_extraction_config",
-          "created_at",
-          "updated_at"
-        ],
-        "title": "EvalCriterionResponse"
-      },
-      "EvaluationAnalyticsResponse": {
-        "properties": {
-          "summary": {
-            "$ref": "#/components/schemas/SummaryStats"
-          },
-          "time_series": {
-            "items": {
-              "$ref": "#/components/schemas/TimeSeriesBucket"
-            },
-            "type": "array",
-            "title": "Time Series"
-          },
-          "top_criteria": {
-            "items": {
-              "$ref": "#/components/schemas/CriterionBreakdown"
-            },
-            "type": "array",
-            "title": "Top Criteria"
-          },
-          "top_agents": {
-            "items": {
-              "$ref": "#/components/schemas/AgentBreakdown"
-            },
-            "type": "array",
-            "title": "Top Agents"
-          },
-          "agents_performance": {
-            "items": {
-              "$ref": "#/components/schemas/AgentPerformance"
-            },
-            "type": "array",
-            "title": "Agents Performance"
-          },
-          "onboarding": {
-            "$ref": "#/components/schemas/OnboardingStatus"
-          },
-          "avg_score_pct_delta": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Score Pct Delta"
-          },
-          "total_evaluations_delta": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Total Evaluations Delta"
-          }
-        },
-        "type": "object",
-        "required": [
-          "summary",
-          "time_series",
-          "top_criteria",
-          "top_agents",
-          "agents_performance",
-          "onboarding",
-          "avg_score_pct_delta",
-          "total_evaluations_delta"
-        ],
-        "title": "EvaluationAnalyticsResponse"
-      },
-      "EvaluationResponse": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id"
-          },
-          "workspace_id": {
-            "type": "string",
-            "title": "Workspace Id"
-          },
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
-          },
-          "eval_criterion_id": {
-            "type": "string",
-            "title": "Eval Criterion Id"
-          },
-          "transcript_id": {
-            "type": "string",
-            "title": "Transcript Id"
-          },
-          "labels": {
-            "anyOf": [
-              {
-                "additionalProperties": true,
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Labels"
-          },
-          "status": {
-            "type": "string",
-            "title": "Status"
-          },
-          "criteria_scores": {
-            "anyOf": [
-              {
-                "items": {
-                  "additionalProperties": true,
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Criteria Scores"
-          },
-          "extracted_data": {
-            "anyOf": [
-              {
-                "items": {
-                  "additionalProperties": true,
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Extracted Data"
-          },
-          "call_summary": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Call Summary"
-          },
-          "call_duration_seconds": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Call Duration Seconds"
-          },
-          "agent_speaking_pct": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Agent Speaking Pct"
-          },
-          "user_speaking_pct": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "User Speaking Pct"
-          },
-          "call_timestamp": {
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "date-time"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Call Timestamp"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Created At"
-          },
-          "completed_at": {
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "date-time"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Completed At"
-          },
-          "error": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Error"
-          }
-        },
-        "type": "object",
-        "required": [
-          "id",
-          "workspace_id",
-          "agent_id",
-          "eval_criterion_id",
-          "transcript_id",
-          "labels",
-          "status",
-          "criteria_scores",
-          "extracted_data",
-          "call_summary",
-          "call_duration_seconds",
-          "agent_speaking_pct",
-          "user_speaking_pct",
-          "call_timestamp",
-          "created_at",
-          "completed_at",
-          "error"
-        ],
-        "title": "EvaluationResponse"
       },
       "EvaluationSettings": {
         "properties": {
@@ -56280,59 +54697,6 @@
         ],
         "title": "HtmlExportOptions"
       },
-      "HumanAgentResponse": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id"
-          },
-          "workspace_id": {
-            "type": "string",
-            "title": "Workspace Id"
-          },
-          "external_id": {
-            "type": "string",
-            "title": "External Id"
-          },
-          "name": {
-            "type": "string",
-            "title": "Name"
-          },
-          "metadata": {
-            "anyOf": [
-              {
-                "additionalProperties": true,
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Metadata"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Created At"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Updated At"
-          }
-        },
-        "type": "object",
-        "required": [
-          "id",
-          "workspace_id",
-          "external_id",
-          "name",
-          "metadata",
-          "created_at",
-          "updated_at"
-        ],
-        "title": "HumanAgentResponse"
-      },
       "ImageAvatar": {
         "properties": {
           "type": {
@@ -56559,17 +54923,6 @@
           "subtotal_cents": 900,
           "tax_cents": 100
         }
-      },
-      "JsonLiteralType": {
-        "type": "string",
-        "enum": [
-          "boolean",
-          "string",
-          "integer",
-          "number"
-        ],
-        "title": "JsonLiteralType",
-        "description": "JSON schema literal types. e.g. all Json types except nested objects and lists"
       },
       "KnowledgeBaseDependentType": {
         "type": "string",
@@ -61154,29 +59507,6 @@
         "type": "object",
         "title": "ObjectOverride"
       },
-      "OnboardingStatus": {
-        "properties": {
-          "has_criteria": {
-            "type": "boolean",
-            "title": "Has Criteria"
-          },
-          "has_agents": {
-            "type": "boolean",
-            "title": "Has Agents"
-          },
-          "has_evaluations": {
-            "type": "boolean",
-            "title": "Has Evaluations"
-          }
-        },
-        "type": "object",
-        "required": [
-          "has_criteria",
-          "has_agents",
-          "has_evaluations"
-        ],
-        "title": "OnboardingStatus"
-      },
       "OrbAvatar": {
         "properties": {
           "type": {
@@ -61369,62 +59699,6 @@
           "address"
         ],
         "title": "OutboundSIPTrunkConfigRequestModel"
-      },
-      "PaginatedEvaluationResponse": {
-        "properties": {
-          "evaluations": {
-            "items": {
-              "$ref": "#/components/schemas/EvaluationResponse"
-            },
-            "type": "array",
-            "title": "Evaluations"
-          },
-          "next_cursor": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Next Cursor"
-          }
-        },
-        "type": "object",
-        "required": [
-          "evaluations",
-          "next_cursor"
-        ],
-        "title": "PaginatedEvaluationResponse"
-      },
-      "PaginatedHumanAgentResponse": {
-        "properties": {
-          "agents": {
-            "items": {
-              "$ref": "#/components/schemas/HumanAgentResponse"
-            },
-            "type": "array",
-            "title": "Agents"
-          },
-          "next_cursor": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Next Cursor"
-          }
-        },
-        "type": "object",
-        "required": [
-          "agents",
-          "next_cursor"
-        ],
-        "title": "PaginatedHumanAgentResponse"
       },
       "PatchConvAIDashboardSettingsRequest": {
         "properties": {
@@ -70894,68 +69168,6 @@
         ],
         "title": "SuggestedAudioTag"
       },
-      "SummaryStats": {
-        "properties": {
-          "total_evaluations": {
-            "type": "integer",
-            "title": "Total Evaluations"
-          },
-          "completed": {
-            "type": "integer",
-            "title": "Completed"
-          },
-          "failed": {
-            "type": "integer",
-            "title": "Failed"
-          },
-          "pending_or_processing": {
-            "type": "integer",
-            "title": "Pending Or Processing"
-          },
-          "avg_score_pct": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Score Pct"
-          },
-          "avg_call_duration_seconds": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avg Call Duration Seconds"
-          },
-          "total_agents": {
-            "type": "integer",
-            "title": "Total Agents"
-          },
-          "total_criteria": {
-            "type": "integer",
-            "title": "Total Criteria"
-          }
-        },
-        "type": "object",
-        "required": [
-          "total_evaluations",
-          "completed",
-          "failed",
-          "pending_or_processing",
-          "avg_score_pct",
-          "avg_call_duration_seconds",
-          "total_agents",
-          "total_criteria"
-        ],
-        "title": "SummaryStats"
-      },
       "SupportedVoice": {
         "properties": {
           "label": {
@@ -72431,39 +70643,6 @@
         ],
         "title": "TimeRange"
       },
-      "TimeSeriesBucket": {
-        "properties": {
-          "dt": {
-            "type": "integer",
-            "title": "Dt"
-          },
-          "completed": {
-            "type": "integer",
-            "title": "Completed"
-          },
-          "failed": {
-            "type": "integer",
-            "title": "Failed"
-          },
-          "success_scores": {
-            "type": "integer",
-            "title": "Success Scores",
-            "default": 0
-          },
-          "total_scores": {
-            "type": "integer",
-            "title": "Total Scores",
-            "default": 0
-          }
-        },
-        "type": "object",
-        "required": [
-          "dt",
-          "completed",
-          "failed"
-        ],
-        "title": "TimeSeriesBucket"
-      },
       "TokenResponseModel": {
         "properties": {
           "token": {
@@ -72783,6 +70962,21 @@
                 "webhook": "#/components/schemas/WebhookToolConfig-Input"
               }
             }
+          },
+          "response_mocks": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ToolResponseMockConfig-Input"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Mocks",
+            "description": "Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins."
           }
         },
         "type": "object",
@@ -72790,6 +70984,50 @@
           "tool_config"
         ],
         "title": "ToolRequestModel"
+      },
+      "ToolResponseMockConfig-Input": {
+        "properties": {
+          "parameter_conditions": {
+            "items": {
+              "$ref": "#/components/schemas/UnitTestToolCallParameter"
+            },
+            "type": "array",
+            "title": "Parameter Conditions",
+            "description": "If the list is empty, the mock will always activate."
+          },
+          "mock_result": {
+            "type": "string",
+            "title": "Mock Result",
+            "description": "The return value the LLM sees when this mock is active."
+          }
+        },
+        "type": "object",
+        "required": [
+          "mock_result"
+        ],
+        "title": "ToolResponseMockConfig"
+      },
+      "ToolResponseMockConfig-Output": {
+        "properties": {
+          "parameter_conditions": {
+            "items": {
+              "$ref": "#/components/schemas/UnitTestToolCallParameter"
+            },
+            "type": "array",
+            "title": "Parameter Conditions",
+            "description": "If the list is empty, the mock will always activate."
+          },
+          "mock_result": {
+            "type": "string",
+            "title": "Mock Result",
+            "description": "The return value the LLM sees when this mock is active."
+          }
+        },
+        "type": "object",
+        "required": [
+          "mock_result"
+        ],
+        "title": "ToolResponseMockConfig"
       },
       "ToolResponseModel": {
         "properties": {
@@ -72829,6 +71067,21 @@
           },
           "usage_stats": {
             "$ref": "#/components/schemas/ToolUsageStatsResponseModel"
+          },
+          "response_mocks": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ToolResponseMockConfig-Output"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Mocks",
+            "description": "Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins."
           }
         },
         "type": "object",
@@ -73325,54 +71578,6 @@
         ],
         "title": "TransferTypeEnum",
         "default": "conference"
-      },
-      "TriggerEvaluationRequest": {
-        "properties": {
-          "transcript_id": {
-            "type": "string",
-            "title": "Transcript Id"
-          },
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
-          },
-          "eval_criterion_id": {
-            "type": "string",
-            "title": "Eval Criterion Id"
-          },
-          "labels": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Labels"
-          },
-          "agent_name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Agent Name"
-          }
-        },
-        "type": "object",
-        "required": [
-          "transcript_id",
-          "agent_id",
-          "eval_criterion_id"
-        ],
-        "title": "TriggerEvaluationRequest"
       },
       "TurnConfig": {
         "properties": {
@@ -74232,49 +72437,6 @@
           "values"
         ],
         "title": "UpdateEnvironmentVariableRequest"
-      },
-      "UpdateEvalCriterionRequest": {
-        "properties": {
-          "name": {
-            "anyOf": [
-              {
-                "type": "string",
-                "maxLength": 200,
-                "minLength": 1
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Name"
-          },
-          "criteria": {
-            "anyOf": [
-              {
-                "items": {
-                  "$ref": "#/components/schemas/CriterionItemRequest"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Criteria"
-          },
-          "data_extraction_config": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/DataExtractionConfigRequest-Input"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "type": "object",
-        "title": "UpdateEvalCriterionRequest"
       },
       "UpdatePhoneNumberRequest": {
         "properties": {
@@ -82376,7 +80538,9 @@
           "assets",
           "content_generations",
           "content_templates",
-          "songs"
+          "songs",
+          "avatars",
+          "avatar_video_generations"
         ],
         "title": "WorkspaceResourceType",
         "description": "Resource types that can be shared in the workspace. The name always need to match the collection names"

@@ -143,11 +143,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public SpeechToTextEvaluationClient SpeechToTextEvaluation { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public StudioClient Studio { get; }
 
         /// <summary>
