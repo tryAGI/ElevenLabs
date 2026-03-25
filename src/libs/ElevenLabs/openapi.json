@@ -32276,6 +32276,28 @@
             "type": "string",
             "title": "Credential Id"
           },
+          "status": {
+            "$ref": "#/components/schemas/OAuthConnectionStatus",
+            "description": "Current health status of the OAuth connection",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail",
+            "description": "Human-readable detail about the current status, e.g. the error message on refresh failure"
+          },
+          "status_updated_at": {
+            "type": "string",
+            "title": "Status Updated At",
+            "description": "ISO 8601 timestamp of the last status change"
+          },
           "id": {
             "type": "string",
             "title": "Id"
@@ -37938,7 +37960,7 @@
               "other"
             ]
           },
-          "cloud_storage_url": {
+          "source_url": {
             "anyOf": [
               {
                 "type": "string"
@@ -37947,13 +37969,12 @@
                 "type": "null"
               }
             ],
-            "title": "Cloud Storage Url",
-            "description": "The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.",
+            "title": "Source Url",
+            "description": "The URL of an audio or video file to transcribe. Supports hosted video or audio files, YouTube video URLs, TikTok video URLs, and other video hosting services.",
             "examples": [
               "https://storage.googleapis.com/my-bucket/folder/audio.mp3",
-              "https://my-bucket.s3.us-west-2.amazonaws.com/folder/audio.mp3",
-              "https://account123.r2.cloudflarestorage.com/my-bucket/audio.mp3",
-              "https://cdn.example.com/media/audio.wav"
+              "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              "https://www.tiktok.com/@barstoolsports/video/7285745795779939614"
             ]
           },
           "webhook": {
@@ -59418,6 +59439,16 @@
         "title": "OAuth2JWTResponse",
         "description": "Response model for OAuth2 JWT auth connections"
       },
+      "OAuthConnectionStatus": {
+        "type": "string",
+        "enum": [
+          "active",
+          "refresh_failed",
+          "revoked"
+        ],
+        "title": "OAuthConnectionStatus",
+        "default": "active"
+      },
       "ObjectJsonSchemaProperty-Input": {
         "properties": {
           "type": {
@@ -60145,7 +60176,8 @@
           "workspace_members_read",
           "workspace_members_invite",
           "workspace_members_remove",
-          "terms_of_service_accept"
+          "terms_of_service_accept",
+          "audit_log_read"
         ],
         "title": "PermissionType"
       },
@@ -80558,7 +80590,8 @@
           "group_members_manage",
           "workspace_members_invite",
           "workspace_members_remove",
-          "terms_of_service_accept"
+          "terms_of_service_accept",
+          "audit_log_read"
         ],
         "title": "WorkspaceGroupPermission"
       },
