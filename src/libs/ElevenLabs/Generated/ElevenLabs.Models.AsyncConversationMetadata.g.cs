@@ -56,6 +56,12 @@ namespace ElevenLabs
         public int? LastRetryTimestamp { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("last_processed_external_message_id")]
+        public string? LastProcessedExternalMessageId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -73,6 +79,7 @@ namespace ElevenLabs
         /// Default Value: 0
         /// </param>
         /// <param name="lastRetryTimestamp"></param>
+        /// <param name="lastProcessedExternalMessageId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -83,7 +90,8 @@ namespace ElevenLabs
             string externalId,
             string? deliveryError,
             int? retryCount,
-            int? lastRetryTimestamp)
+            int? lastRetryTimestamp,
+            string? lastProcessedExternalMessageId)
         {
             this.DeliveryStatus = deliveryStatus;
             this.DeliveryTimestamp = deliveryTimestamp;
@@ -92,6 +100,7 @@ namespace ElevenLabs
             this.DeliveryError = deliveryError;
             this.RetryCount = retryCount;
             this.LastRetryTimestamp = lastRetryTimestamp;
+            this.LastProcessedExternalMessageId = lastProcessedExternalMessageId;
         }
 
         /// <summary>

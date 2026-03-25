@@ -71,6 +71,10 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="sortBy">
+        /// Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.<br/>
+        /// Default Value: search_score
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -101,6 +105,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             string? branchId = default,
+            global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
