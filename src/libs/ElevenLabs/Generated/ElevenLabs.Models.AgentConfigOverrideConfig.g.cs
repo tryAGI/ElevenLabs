@@ -23,6 +23,13 @@ namespace ElevenLabs
         public bool? Language { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the max_conversation_duration_message field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_conversation_duration_message")]
+        public bool? MaxConversationDurationMessage { get; set; }
+
+        /// <summary>
         /// Configures overrides for nested fields.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
@@ -45,6 +52,10 @@ namespace ElevenLabs
         /// Whether to allow overriding the language field.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="maxConversationDurationMessage">
+        /// Whether to allow overriding the max_conversation_duration_message field.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="prompt">
         /// Configures overrides for nested fields.
         /// </param>
@@ -54,10 +65,12 @@ namespace ElevenLabs
         public AgentConfigOverrideConfig(
             bool? firstMessage,
             bool? language,
+            bool? maxConversationDurationMessage,
             global::ElevenLabs.PromptAgentAPIModelOverrideConfig? prompt)
         {
             this.FirstMessage = firstMessage;
             this.Language = language;
+            this.MaxConversationDurationMessage = maxConversationDurationMessage;
             this.Prompt = prompt;
         }
 

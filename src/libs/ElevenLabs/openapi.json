@@ -30505,6 +30505,14 @@
             "description": "If true, the user will not be able to interrupt the agent while the first message is being delivered.",
             "default": false
           },
+          "max_conversation_duration_message": {
+            "type": "string",
+            "title": "Max Conversation Duration Message",
+            "description": "If non-empty, the message the agent will send when max conversation duration is reached.",
+            "default": "",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
+          },
           "prompt": {
             "$ref": "#/components/schemas/PromptAgentAPIModel-Input",
             "description": "The prompt for the agent"
@@ -30550,6 +30558,14 @@
             "title": "Disable First Message Interruptions",
             "description": "If true, the user will not be able to interrupt the agent while the first message is being delivered.",
             "default": false
+          },
+          "max_conversation_duration_message": {
+            "type": "string",
+            "title": "Max Conversation Duration Message",
+            "description": "If non-empty, the message the agent will send when max conversation duration is reached.",
+            "default": "",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           },
           "prompt": {
             "$ref": "#/components/schemas/PromptAgentAPIModel-Output",
@@ -30627,6 +30643,20 @@
             ],
             "title": "Disable First Message Interruptions",
             "description": "If true, the user will not be able to interrupt the agent while the first message is being delivered."
+          },
+          "max_conversation_duration_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Conversation Duration Message",
+            "description": "If non-empty, the message the agent will send when max conversation duration is reached.",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           },
           "prompt": {
             "anyOf": [
@@ -30726,6 +30756,20 @@
             "title": "Disable First Message Interruptions",
             "description": "If true, the user will not be able to interrupt the agent while the first message is being delivered."
           },
+          "max_conversation_duration_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Conversation Duration Message",
+            "description": "If non-empty, the message the agent will send when max conversation duration is reached.",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
+          },
           "prompt": {
             "anyOf": [
               {
@@ -30789,6 +30833,20 @@
             "description": "Language of the agent - used for ASR and TTS",
             "x-convai-client-override": true
           },
+          "max_conversation_duration_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Conversation Duration Message",
+            "description": "If non-empty, the message the agent will send when max conversation duration is reached.",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
+          },
           "prompt": {
             "anyOf": [
               {
@@ -30841,6 +30899,20 @@
             "description": "Language of the agent - used for ASR and TTS",
             "x-convai-client-override": true
           },
+          "max_conversation_duration_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Conversation Duration Message",
+            "description": "If non-empty, the message the agent will send when max conversation duration is reached.",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
+          },
           "prompt": {
             "anyOf": [
               {
@@ -30876,6 +30948,12 @@
             "type": "boolean",
             "title": "Language",
             "description": "Whether to allow overriding the language field.",
+            "default": false
+          },
+          "max_conversation_duration_message": {
+            "type": "boolean",
+            "title": "Max Conversation Duration Message",
+            "description": "Whether to allow overriding the max_conversation_duration_message field.",
             "default": false
           },
           "prompt": {

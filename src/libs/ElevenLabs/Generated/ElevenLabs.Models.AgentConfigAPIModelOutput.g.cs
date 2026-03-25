@@ -44,6 +44,12 @@ namespace ElevenLabs
         public bool? DisableFirstMessageInterruptions { get; set; }
 
         /// <summary>
+        /// If non-empty, the message the agent will send when max conversation duration is reached.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_conversation_duration_message")]
+        public string? MaxConversationDurationMessage { get; set; }
+
+        /// <summary>
         /// The prompt for the agent<br/>
         /// Example: {"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}
         /// </summary>
@@ -79,6 +85,9 @@ namespace ElevenLabs
         /// If true, the user will not be able to interrupt the agent while the first message is being delivered.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="maxConversationDurationMessage">
+        /// If non-empty, the message the agent will send when max conversation duration is reached.
+        /// </param>
         /// <param name="prompt">
         /// The prompt for the agent<br/>
         /// Example: {"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}
@@ -92,6 +101,7 @@ namespace ElevenLabs
             bool? hinglishMode,
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables,
             bool? disableFirstMessageInterruptions,
+            string? maxConversationDurationMessage,
             global::ElevenLabs.PromptAgentAPIModelOutput? prompt)
         {
             this.FirstMessage = firstMessage;
@@ -99,6 +109,7 @@ namespace ElevenLabs
             this.HinglishMode = hinglishMode;
             this.DynamicVariables = dynamicVariables;
             this.DisableFirstMessageInterruptions = disableFirstMessageInterruptions;
+            this.MaxConversationDurationMessage = maxConversationDurationMessage;
             this.Prompt = prompt;
         }
 
