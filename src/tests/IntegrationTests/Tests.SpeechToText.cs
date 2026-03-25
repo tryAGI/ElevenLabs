@@ -172,7 +172,7 @@ public partial class Tests
         {
             await client.ConvertAsync(
                 modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
-                cloudStorageUrl: "https://example.com/audio.wav",
+                sourceUrl: "https://example.com/audio.wav",
                 xiApiKey: "test-api-key");
         }
         catch (InvalidOperationException)
