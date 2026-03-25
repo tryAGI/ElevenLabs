@@ -70,6 +70,26 @@ namespace ElevenLabs
         public required string CredentialId { get; set; }
 
         /// <summary>
+        /// Current health status of the OAuth connection<br/>
+        /// Default Value: active
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusJsonConverter))]
+        public global::ElevenLabs.OAuthConnectionStatus? Status { get; set; }
+
+        /// <summary>
+        /// Human-readable detail about the current status, e.g. the error message on refresh failure
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status_detail")]
+        public string? StatusDetail { get; set; }
+
+        /// <summary>
+        /// ISO 8601 timestamp of the last status change
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status_updated_at")]
+        public string? StatusUpdatedAt { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
@@ -106,6 +126,16 @@ namespace ElevenLabs
         /// </param>
         /// <param name="integrationId"></param>
         /// <param name="credentialId"></param>
+        /// <param name="status">
+        /// Current health status of the OAuth connection<br/>
+        /// Default Value: active
+        /// </param>
+        /// <param name="statusDetail">
+        /// Human-readable detail about the current status, e.g. the error message on refresh failure
+        /// </param>
+        /// <param name="statusUpdatedAt">
+        /// ISO 8601 timestamp of the last status change
+        /// </param>
         /// <param name="id"></param>
         /// <param name="usedBy"></param>
 #if NET7_0_OR_GREATER
@@ -122,6 +152,9 @@ namespace ElevenLabs
             string? authType,
             global::System.Collections.Generic.IList<string>? scopes,
             global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponseScopeSeparator? scopeSeparator,
+            global::ElevenLabs.OAuthConnectionStatus? status,
+            string? statusDetail,
+            string? statusUpdatedAt,
             global::ElevenLabs.AuthConnectionDependencies? usedBy)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -134,6 +167,9 @@ namespace ElevenLabs
             this.AuthType = authType;
             this.Scopes = scopes;
             this.ScopeSeparator = scopeSeparator;
+            this.Status = status;
+            this.StatusDetail = statusDetail;
+            this.StatusUpdatedAt = statusUpdatedAt;
             this.UsedBy = usedBy;
         }
 

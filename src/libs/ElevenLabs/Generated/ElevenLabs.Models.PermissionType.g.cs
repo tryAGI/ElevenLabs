@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AuditLogRead,
+        /// <summary>
+        /// 
+        /// </summary>
         ConvaiRead,
         /// <summary>
         /// 
@@ -198,6 +202,7 @@ namespace ElevenLabs
                 PermissionType.AudioIsolation => "audio_isolation",
                 PermissionType.AudioNativeRead => "audio_native_read",
                 PermissionType.AudioNativeWrite => "audio_native_write",
+                PermissionType.AuditLogRead => "audit_log_read",
                 PermissionType.ConvaiRead => "convai_read",
                 PermissionType.ConvaiWrite => "convai_write",
                 PermissionType.CreateInstantVoiceClone => "create_instant_voice_clone",
@@ -251,6 +256,7 @@ namespace ElevenLabs
                 "audio_isolation" => PermissionType.AudioIsolation,
                 "audio_native_read" => PermissionType.AudioNativeRead,
                 "audio_native_write" => PermissionType.AudioNativeWrite,
+                "audit_log_read" => PermissionType.AuditLogRead,
                 "convai_read" => PermissionType.ConvaiRead,
                 "convai_write" => PermissionType.ConvaiWrite,
                 "create_instant_voice_clone" => PermissionType.CreateInstantVoiceClone,

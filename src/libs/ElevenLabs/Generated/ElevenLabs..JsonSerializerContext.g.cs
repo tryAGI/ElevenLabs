@@ -857,6 +857,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseAlgorithmNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.PatchConvAIDashboardSettingsRequestChartDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PatchConvAIDashboardSettingsRequestChartDiscriminatorTypeNullableJsonConverter),
@@ -2278,6 +2282,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AllowlistItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponseScopeSeparator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OAuthConnectionStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AuthConnectionDependencies))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationWebhookOverridesInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SchemaOverridesVariant1))]

@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AuditLogRead,
+        /// <summary>
+        /// 
+        /// </summary>
         ConversationalAi,
         /// <summary>
         /// 
@@ -141,6 +145,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.AddVoiceFromVoiceLibrary => "add_voice_from_voice_library",
                 WorkspaceGroupPermission.AiSpeechClassifier => "ai_speech_classifier",
                 WorkspaceGroupPermission.AudioNative => "audio_native",
+                WorkspaceGroupPermission.AuditLogRead => "audit_log_read",
                 WorkspaceGroupPermission.ConversationalAi => "conversational_ai",
                 WorkspaceGroupPermission.CreateInstantVoiceClone => "create_instant_voice_clone",
                 WorkspaceGroupPermission.CreateProfessionalVoiceClone => "create_professional_voice_clone",
@@ -180,6 +185,7 @@ namespace ElevenLabs
                 "add_voice_from_voice_library" => WorkspaceGroupPermission.AddVoiceFromVoiceLibrary,
                 "ai_speech_classifier" => WorkspaceGroupPermission.AiSpeechClassifier,
                 "audio_native" => WorkspaceGroupPermission.AudioNative,
+                "audit_log_read" => WorkspaceGroupPermission.AuditLogRead,
                 "conversational_ai" => WorkspaceGroupPermission.ConversationalAi,
                 "create_instant_voice_clone" => WorkspaceGroupPermission.CreateInstantVoiceClone,
                 "create_professional_voice_clone" => WorkspaceGroupPermission.CreateProfessionalVoiceClone,
