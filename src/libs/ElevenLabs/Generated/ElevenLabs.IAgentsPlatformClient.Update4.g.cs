@@ -36,12 +36,16 @@ namespace ElevenLabs
         /// <param name="toolConfig">
         /// Configuration for the tool
         /// </param>
+        /// <param name="responseMocks">
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update4Async(
             string toolId,
             global::ElevenLabs.ToolConfig toolConfig,
             string? xiApiKey = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

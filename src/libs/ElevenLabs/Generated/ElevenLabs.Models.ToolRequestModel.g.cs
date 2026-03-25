@@ -17,6 +17,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.ToolConfig ToolConfig { get; set; }
 
         /// <summary>
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_mocks")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? ResponseMocks { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -28,13 +34,18 @@ namespace ElevenLabs
         /// <param name="toolConfig">
         /// Configuration for the tool
         /// </param>
+        /// <param name="responseMocks">
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ToolRequestModel(
-            global::ElevenLabs.ToolConfig toolConfig)
+            global::ElevenLabs.ToolConfig toolConfig,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks)
         {
             this.ToolConfig = toolConfig;
+            this.ResponseMocks = responseMocks;
         }
 
         /// <summary>
