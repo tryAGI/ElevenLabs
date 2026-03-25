@@ -21,6 +21,12 @@ namespace ElevenLabs
         public string? Language { get; set; }
 
         /// <summary>
+        /// If non-empty, the message the agent will send when max conversation duration is reached.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_conversation_duration_message")]
+        public string? MaxConversationDurationMessage { get; set; }
+
+        /// <summary>
         /// The prompt for the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
@@ -41,6 +47,9 @@ namespace ElevenLabs
         /// <param name="language">
         /// Language of the agent - used for ASR and TTS
         /// </param>
+        /// <param name="maxConversationDurationMessage">
+        /// If non-empty, the message the agent will send when max conversation duration is reached.
+        /// </param>
         /// <param name="prompt">
         /// The prompt for the agent
         /// </param>
@@ -50,10 +59,12 @@ namespace ElevenLabs
         public AgentConfigOverrideInput(
             string? firstMessage,
             string? language,
+            string? maxConversationDurationMessage,
             global::ElevenLabs.PromptAgentAPIModelOverride? prompt)
         {
             this.FirstMessage = firstMessage;
             this.Language = language;
+            this.MaxConversationDurationMessage = maxConversationDurationMessage;
             this.Prompt = prompt;
         }
 

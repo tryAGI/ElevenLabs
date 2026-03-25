@@ -39,6 +39,12 @@ namespace ElevenLabs
         public bool? DisableFirstMessageInterruptions { get; set; }
 
         /// <summary>
+        /// If non-empty, the message the agent will send when max conversation duration is reached.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_conversation_duration_message")]
+        public string? MaxConversationDurationMessage { get; set; }
+
+        /// <summary>
         /// The prompt for the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
@@ -68,6 +74,9 @@ namespace ElevenLabs
         /// <param name="disableFirstMessageInterruptions">
         /// If true, the user will not be able to interrupt the agent while the first message is being delivered.
         /// </param>
+        /// <param name="maxConversationDurationMessage">
+        /// If non-empty, the message the agent will send when max conversation duration is reached.
+        /// </param>
         /// <param name="prompt">
         /// The prompt for the agent
         /// </param>
@@ -80,6 +89,7 @@ namespace ElevenLabs
             bool? hinglishMode,
             global::ElevenLabs.DynamicVariablesConfigWorkflowOverride? dynamicVariables,
             bool? disableFirstMessageInterruptions,
+            string? maxConversationDurationMessage,
             global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideOutput? prompt)
         {
             this.FirstMessage = firstMessage;
@@ -87,6 +97,7 @@ namespace ElevenLabs
             this.HinglishMode = hinglishMode;
             this.DynamicVariables = dynamicVariables;
             this.DisableFirstMessageInterruptions = disableFirstMessageInterruptions;
+            this.MaxConversationDurationMessage = maxConversationDurationMessage;
             this.Prompt = prompt;
         }
 
