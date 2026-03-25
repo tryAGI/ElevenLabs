@@ -81,6 +81,18 @@ namespace ElevenLabs
         public double? CropLeft { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("flip_x")]
+        public bool? FlipX { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("flip_y")]
+        public bool? FlipY { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -125,6 +137,12 @@ namespace ElevenLabs
         /// <param name="cropLeft">
         /// Default Value: 0F
         /// </param>
+        /// <param name="flipX">
+        /// Default Value: false
+        /// </param>
+        /// <param name="flipY">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -140,7 +158,9 @@ namespace ElevenLabs
             double? cropTop,
             double? cropRight,
             double? cropBottom,
-            double? cropLeft)
+            double? cropLeft,
+            bool? flipX,
+            bool? flipY)
         {
             this.XRelative = xRelative;
             this.YRelative = yRelative;
@@ -154,6 +174,8 @@ namespace ElevenLabs
             this.CropRight = cropRight;
             this.CropBottom = cropBottom;
             this.CropLeft = cropLeft;
+            this.FlipX = flipX;
+            this.FlipY = flipY;
         }
 
         /// <summary>

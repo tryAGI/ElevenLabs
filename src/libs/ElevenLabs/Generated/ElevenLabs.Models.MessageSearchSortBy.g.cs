@@ -6,12 +6,8 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public enum AgentSortBy
+    public enum MessageSearchSortBy
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        CallCount7d,
         /// <summary>
         /// 
         /// </summary>
@@ -19,37 +15,35 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Name,
+        SearchScore,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class AgentSortByExtensions
+    public static class MessageSearchSortByExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this AgentSortBy value)
+        public static string ToValueString(this MessageSearchSortBy value)
         {
             return value switch
             {
-                AgentSortBy.CallCount7d => "call_count_7d",
-                AgentSortBy.CreatedAt => "created_at",
-                AgentSortBy.Name => "name",
+                MessageSearchSortBy.CreatedAt => "created_at",
+                MessageSearchSortBy.SearchScore => "search_score",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static AgentSortBy? ToEnum(string value)
+        public static MessageSearchSortBy? ToEnum(string value)
         {
             return value switch
             {
-                "call_count_7d" => AgentSortBy.CallCount7d,
-                "created_at" => AgentSortBy.CreatedAt,
-                "name" => AgentSortBy.Name,
+                "created_at" => MessageSearchSortBy.CreatedAt,
+                "search_score" => MessageSearchSortBy.SearchScore,
                 _ => null,
             };
         }

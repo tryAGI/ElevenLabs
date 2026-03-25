@@ -28,6 +28,7 @@ namespace ElevenLabs
             ref global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             ref string? branchId,
+            ref global::ElevenLabs.MessageSearchSortBy? sortBy,
             ref string? cursor,
             ref string? xiApiKey);
         partial void PrepareTextSearchRequest(
@@ -54,6 +55,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             string? branchId,
+            global::ElevenLabs.MessageSearchSortBy? sortBy,
             string? cursor,
             string? xiApiKey);
         partial void ProcessTextSearchResponse(
@@ -132,6 +134,10 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="sortBy">
+        /// Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.<br/>
+        /// Default Value: search_score
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -162,6 +168,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             string? branchId = default,
+            global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -191,6 +198,7 @@ namespace ElevenLabs
                 summaryMode: ref summaryMode,
                 conversationInitiationSource: conversationInitiationSource,
                 branchId: ref branchId,
+                sortBy: ref sortBy,
                 cursor: ref cursor,
                 xiApiKey: ref xiApiKey);
 
@@ -219,6 +227,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("summary_mode", summaryMode?.ToValueString())
                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
                 .AddOptionalParameter("branch_id", branchId)
+                .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                 .AddOptionalParameter("cursor", cursor) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -279,6 +288,7 @@ namespace ElevenLabs
                 summaryMode: summaryMode,
                 conversationInitiationSource: conversationInitiationSource,
                 branchId: branchId,
+                sortBy: sortBy,
                 cursor: cursor,
                 xiApiKey: xiApiKey);
 

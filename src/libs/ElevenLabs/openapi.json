@@ -15509,6 +15509,17 @@
             "description": "Filter conversations by branch ID."
           },
           {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/MessageSearchSortBy",
+              "description": "Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.",
+              "default": "search_score"
+            },
+            "description": "Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time."
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -31249,7 +31260,8 @@
         "type": "string",
         "enum": [
           "name",
-          "created_at"
+          "created_at",
+          "call_count_7d"
         ],
         "title": "AgentSortBy"
       },
@@ -32809,6 +32821,17 @@
               }
             ],
             "title": "Last Retry Timestamp"
+          },
+          "last_processed_external_message_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Processed External Message Id"
           }
         },
         "type": "object",
@@ -40763,6 +40786,16 @@
             "type": "number",
             "title": "Crop Left",
             "default": 0.0
+          },
+          "flip_x": {
+            "type": "boolean",
+            "title": "Flip X",
+            "default": false
+          },
+          "flip_y": {
+            "type": "boolean",
+            "title": "Flip Y",
+            "default": false
           }
         },
         "type": "object",
@@ -58288,6 +58321,14 @@
         "description": "Strategy for merging results from multiple sources.",
         "default": "rank_fusion"
       },
+      "MessageSearchSortBy": {
+        "type": "string",
+        "enum": [
+          "search_score",
+          "created_at"
+        ],
+        "title": "MessageSearchSortBy"
+      },
       "MessagesSearchResponse": {
         "properties": {
           "meta": {
@@ -60884,6 +60925,15 @@
         "title": "PrivateKeyJWTResponse",
         "description": "Response model for Private Key JWT auth connections"
       },
+      "ProcedureCompilerMode": {
+        "type": "string",
+        "enum": [
+          "llm",
+          "deterministic"
+        ],
+        "title": "ProcedureCompilerMode",
+        "default": "llm"
+      },
       "ProcedureRefResponseModel": {
         "properties": {
           "procedure_id": {
@@ -60920,6 +60970,16 @@
           "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3",
           "version_id": "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
         }
+      },
+      "ProcedureSettings": {
+        "properties": {
+          "compiler_mode": {
+            "$ref": "#/components/schemas/ProcedureCompilerMode",
+            "default": "llm"
+          }
+        },
+        "type": "object",
+        "title": "ProcedureSettings"
       },
       "ProjectCreationMetaResponseModel": {
         "properties": {

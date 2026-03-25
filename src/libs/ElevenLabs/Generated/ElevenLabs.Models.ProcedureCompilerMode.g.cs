@@ -4,52 +4,46 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: llm
     /// </summary>
-    public enum AgentSortBy
+    public enum ProcedureCompilerMode
     {
         /// <summary>
         /// 
         /// </summary>
-        CallCount7d,
+        Deterministic,
         /// <summary>
         /// 
         /// </summary>
-        CreatedAt,
-        /// <summary>
-        /// 
-        /// </summary>
-        Name,
+        Llm,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class AgentSortByExtensions
+    public static class ProcedureCompilerModeExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this AgentSortBy value)
+        public static string ToValueString(this ProcedureCompilerMode value)
         {
             return value switch
             {
-                AgentSortBy.CallCount7d => "call_count_7d",
-                AgentSortBy.CreatedAt => "created_at",
-                AgentSortBy.Name => "name",
+                ProcedureCompilerMode.Deterministic => "deterministic",
+                ProcedureCompilerMode.Llm => "llm",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static AgentSortBy? ToEnum(string value)
+        public static ProcedureCompilerMode? ToEnum(string value)
         {
             return value switch
             {
-                "call_count_7d" => AgentSortBy.CallCount7d,
-                "created_at" => AgentSortBy.CreatedAt,
-                "name" => AgentSortBy.Name,
+                "deterministic" => ProcedureCompilerMode.Deterministic,
+                "llm" => ProcedureCompilerMode.Llm,
                 _ => null,
             };
         }
