@@ -58,6 +58,12 @@ namespace ElevenLabs
         public string? SimulationEnvironment { get; set; }
 
         /// <summary>
+        /// Configuration for which tools to mock and fallback behavior.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_mock_config")]
+        public global::ElevenLabs.SimulationToolMockBehaviorConfig? ToolMockConfig { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -89,6 +95,9 @@ namespace ElevenLabs
         /// <param name="simulationEnvironment">
         /// The environment to use when running this simulation test. If not provided, defaults to 'production'.
         /// </param>
+        /// <param name="toolMockConfig">
+        /// Configuration for which tools to mock and fallback behavior.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -100,7 +109,8 @@ namespace ElevenLabs
             string? successCondition,
             string? simulationScenario,
             int? simulationMaxTurns,
-            string? simulationEnvironment)
+            string? simulationEnvironment,
+            global::ElevenLabs.SimulationToolMockBehaviorConfig? toolMockConfig)
         {
             this.FromConversationMetadata = fromConversationMetadata;
             this.DynamicVariables = dynamicVariables;
@@ -110,6 +120,7 @@ namespace ElevenLabs
             this.SimulationScenario = simulationScenario;
             this.SimulationMaxTurns = simulationMaxTurns;
             this.SimulationEnvironment = simulationEnvironment;
+            this.ToolMockConfig = toolMockConfig;
         }
 
         /// <summary>

@@ -47492,6 +47492,10 @@
             "title": "Simulation Environment",
             "description": "The environment to use when running this simulation test. If not provided, defaults to 'production'."
           },
+          "tool_mock_config": {
+            "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
+            "description": "Configuration for which tools to mock and fallback behavior."
+          },
           "name": {
             "type": "string",
             "title": "Name"
@@ -53966,6 +53970,10 @@
             ],
             "title": "Simulation Environment",
             "description": "The environment to use when running this simulation test. If not provided, defaults to 'production'."
+          },
+          "tool_mock_config": {
+            "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
+            "description": "Configuration for which tools to mock and fallback behavior."
           },
           "id": {
             "type": "string",
@@ -67219,10 +67227,39 @@
             ],
             "title": "Simulation Environment",
             "description": "The environment to use when running this simulation test. If not provided, defaults to 'production'."
+          },
+          "tool_mock_config": {
+            "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
+            "description": "Configuration for which tools to mock and fallback behavior."
           }
         },
         "type": "object",
         "title": "SimulationTestModel"
+      },
+      "SimulationToolMockBehaviorConfig": {
+        "properties": {
+          "mocking_strategy": {
+            "$ref": "#/components/schemas/MockingStrategy",
+            "description": "Which tools to mock: 'all' mocks every mockable tool, 'selected' mocks only those in mocked_tool_names/mocked_tool_ids, 'none' disables mocking.",
+            "default": "none"
+          },
+          "fallback_strategy": {
+            "$ref": "#/components/schemas/MockNoMatchBehavior",
+            "description": "Behavior when no mock matches a tool call.",
+            "default": "call_real_tool"
+          },
+          "mocked_tool_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Mocked Tool Ids",
+            "description": "Tool IDs to mock. Resolved to tool names before being passed to the orchestrator."
+          }
+        },
+        "type": "object",
+        "title": "SimulationToolMockBehaviorConfig",
+        "description": "Simulation/preview-side config: tools are identified by IDs, resolved to names at runtime."
       },
       "SingleTestRunRequestModel": {
         "properties": {
@@ -72933,6 +72970,10 @@
             ],
             "title": "Simulation Environment",
             "description": "The environment to use when running this simulation test. If not provided, defaults to 'production'."
+          },
+          "tool_mock_config": {
+            "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
+            "description": "Configuration for which tools to mock and fallback behavior."
           },
           "name": {
             "type": "string",
