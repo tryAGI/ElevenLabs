@@ -58,6 +58,12 @@ namespace ElevenLabs
         public string? SimulationEnvironment { get; set; }
 
         /// <summary>
+        /// Configuration for which tools to mock and fallback behavior.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_mock_config")]
+        public global::ElevenLabs.SimulationToolMockBehaviorConfig? ToolMockConfig { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -102,6 +108,9 @@ namespace ElevenLabs
         /// <param name="simulationEnvironment">
         /// The environment to use when running this simulation test. If not provided, defaults to 'production'.
         /// </param>
+        /// <param name="toolMockConfig">
+        /// Configuration for which tools to mock and fallback behavior.
+        /// </param>
         /// <param name="name"></param>
         /// <param name="parentFolderId">
         /// The ID of the parent folder. If not provided, the test will be moved to the root level.
@@ -119,6 +128,7 @@ namespace ElevenLabs
             string? simulationScenario,
             int? simulationMaxTurns,
             string? simulationEnvironment,
+            global::ElevenLabs.SimulationToolMockBehaviorConfig? toolMockConfig,
             string? parentFolderId)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -130,6 +140,7 @@ namespace ElevenLabs
             this.SimulationScenario = simulationScenario;
             this.SimulationMaxTurns = simulationMaxTurns;
             this.SimulationEnvironment = simulationEnvironment;
+            this.ToolMockConfig = toolMockConfig;
             this.ParentFolderId = parentFolderId;
         }
 
