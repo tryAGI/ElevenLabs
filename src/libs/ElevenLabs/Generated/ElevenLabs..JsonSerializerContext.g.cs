@@ -849,6 +849,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.MetricTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.MockNoMatchBehaviorJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MockNoMatchBehaviorNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MockingStrategyJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MockingStrategyNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.NonStreamingOutputFormatsJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.NonStreamingOutputFormatsNullableJsonConverter),
@@ -2765,6 +2773,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConversationInitiationClientDataInternal))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConversationInitiationSourceInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, double?, int?, bool?, object>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrchestratorToolMockBehaviorConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConversationInitiationClientDataRequestOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConversationSignedUrlResponseModel))]
@@ -3233,6 +3242,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.MessagesSearchResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MessagesSearchResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MetricType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MockNoMatchBehavior))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MockingStrategy))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ModelRatesResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ModelResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.LanguageResponseModel>))]

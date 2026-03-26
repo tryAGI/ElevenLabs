@@ -52,6 +52,12 @@ namespace ElevenLabs
         public object? DynamicVariables { get; set; }
 
         /// <summary>
+        /// Configuration for which tools to mock and fallback behavior
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_mock_config")]
+        public global::ElevenLabs.OrchestratorToolMockBehaviorConfig? ToolMockConfig { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -77,6 +83,9 @@ namespace ElevenLabs
         /// Environment to use for resolving environment variables
         /// </param>
         /// <param name="dynamicVariables"></param>
+        /// <param name="toolMockConfig">
+        /// Configuration for which tools to mock and fallback behavior
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -87,7 +96,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSourceInfo? sourceInfo,
             string? branchId,
             string? environment,
-            object? dynamicVariables)
+            object? dynamicVariables,
+            global::ElevenLabs.OrchestratorToolMockBehaviorConfig? toolMockConfig)
         {
             this.ConversationConfigOverride = conversationConfigOverride;
             this.CustomLlmExtraBody = customLlmExtraBody;
@@ -96,6 +106,7 @@ namespace ElevenLabs
             this.BranchId = branchId;
             this.Environment = environment;
             this.DynamicVariables = dynamicVariables;
+            this.ToolMockConfig = toolMockConfig;
         }
 
         /// <summary>

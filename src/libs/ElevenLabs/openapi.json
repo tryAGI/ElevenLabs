@@ -45645,6 +45645,10 @@
             },
             "type": "object",
             "title": "Dynamic Variables"
+          },
+          "tool_mock_config": {
+            "$ref": "#/components/schemas/OrchestratorToolMockBehaviorConfig",
+            "description": "Configuration for which tools to mock and fallback behavior"
           }
         },
         "type": "object",
@@ -54668,7 +54672,14 @@
             "$ref": "#/components/schemas/ContentGuardrail-Input"
           },
           "moderation": {
-            "$ref": "#/components/schemas/ModerationGuardrail-Input",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ModerationGuardrail-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "x-fern-ignore": true
           },
           "custom": {
@@ -54696,7 +54707,14 @@
             "$ref": "#/components/schemas/ContentGuardrail-Output"
           },
           "moderation": {
-            "$ref": "#/components/schemas/ModerationGuardrail-Output",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ModerationGuardrail-Output"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "x-fern-ignore": true
           },
           "custom": {
@@ -58544,6 +58562,25 @@
         ],
         "title": "MetricType"
       },
+      "MockNoMatchBehavior": {
+        "type": "string",
+        "enum": [
+          "call_real_tool",
+          "raise_error"
+        ],
+        "title": "MockNoMatchBehavior",
+        "default": "call_real_tool"
+      },
+      "MockingStrategy": {
+        "type": "string",
+        "enum": [
+          "all",
+          "selected",
+          "none"
+        ],
+        "title": "MockingStrategy",
+        "default": "none"
+      },
       "ModelRatesResponseModel": {
         "properties": {
           "character_cost_multiplier": {
@@ -59686,6 +59723,31 @@
           "color_2": "#9ce6e6",
           "type": "orb"
         }
+      },
+      "OrchestratorToolMockBehaviorConfig": {
+        "properties": {
+          "mocking_strategy": {
+            "$ref": "#/components/schemas/MockingStrategy",
+            "description": "Which tools to mock: 'all' mocks every mockable tool, 'selected' mocks only those in mocked_tool_names/mocked_tool_ids, 'none' disables mocking.",
+            "default": "none"
+          },
+          "fallback_strategy": {
+            "$ref": "#/components/schemas/MockNoMatchBehavior",
+            "description": "Behavior when no mock matches a tool call.",
+            "default": "call_real_tool"
+          },
+          "mocked_tool_names": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Mocked Tool Names",
+            "description": "Tool names to mock. Only used when mocking_strategy is 'selected'."
+          }
+        },
+        "type": "object",
+        "title": "OrchestratorToolMockBehaviorConfig",
+        "description": "Orchestrator-side config: tools are identified by resolved names."
       },
       "OutboundCallRecipient": {
         "properties": {
