@@ -106,6 +106,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_event_id")]
+        public int? SourceEventId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_input")]
         public global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? FileInput { get; set; }
 
@@ -135,6 +141,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="originalMessage"></param>
         /// <param name="sourceMedium"></param>
+        /// <param name="sourceEventId"></param>
         /// <param name="fileInput"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -155,6 +162,7 @@ namespace ElevenLabs
             bool? interrupted,
             string? originalMessage,
             global::ElevenLabs.ChatSourceMedium? sourceMedium,
+            int? sourceEventId,
             global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput)
         {
             this.Role = role;
@@ -172,6 +180,7 @@ namespace ElevenLabs
             this.Interrupted = interrupted;
             this.OriginalMessage = originalMessage;
             this.SourceMedium = sourceMedium;
+            this.SourceEventId = sourceEventId;
             this.FileInput = fileInput;
         }
 

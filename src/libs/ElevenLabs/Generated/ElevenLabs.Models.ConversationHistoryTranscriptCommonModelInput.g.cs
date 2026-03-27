@@ -104,6 +104,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ChatSourceMedium? SourceMedium { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_event_id")]
+        public int? SourceEventId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -129,6 +135,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="originalMessage"></param>
         /// <param name="sourceMedium"></param>
+        /// <param name="sourceEventId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -147,7 +154,8 @@ namespace ElevenLabs
             global::ElevenLabs.LLMUsageInput? llmUsage,
             bool? interrupted,
             string? originalMessage,
-            global::ElevenLabs.ChatSourceMedium? sourceMedium)
+            global::ElevenLabs.ChatSourceMedium? sourceMedium,
+            int? sourceEventId)
         {
             this.Role = role;
             this.TimeInCallSecs = timeInCallSecs;
@@ -164,6 +172,7 @@ namespace ElevenLabs
             this.Interrupted = interrupted;
             this.OriginalMessage = originalMessage;
             this.SourceMedium = sourceMedium;
+            this.SourceEventId = sourceEventId;
         }
 
         /// <summary>

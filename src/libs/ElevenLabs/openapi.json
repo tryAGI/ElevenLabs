@@ -44545,6 +44545,17 @@
                 "type": "null"
               }
             ]
+          },
+          "source_event_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Event Id"
           }
         },
         "type": "object",
@@ -44702,6 +44713,17 @@
                 "type": "null"
               }
             ]
+          },
+          "source_event_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Event Id"
           }
         },
         "type": "object",
@@ -44958,6 +44980,17 @@
                 "type": "null"
               }
             ]
+          },
+          "source_event_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Event Id"
           },
           "file_input": {
             "anyOf": [
