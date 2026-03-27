@@ -165,6 +165,12 @@ namespace ElevenLabs
         public global::ElevenLabs.SourceContextVariant1? SourceContext { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("analysis")]
+        public global::ElevenLabs.AudioAnalysis? Analysis { get; set; }
+
+        /// <summary>
         /// Default Value: audio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -219,6 +225,7 @@ namespace ElevenLabs
         /// <param name="error"></param>
         /// <param name="currentSnapshotId"></param>
         /// <param name="sourceContext"></param>
+        /// <param name="analysis"></param>
         /// <param name="type">
         /// Default Value: audio
         /// </param>
@@ -253,6 +260,7 @@ namespace ElevenLabs
             string? error,
             string? currentSnapshotId,
             global::ElevenLabs.SourceContextVariant1? sourceContext,
+            global::ElevenLabs.AudioAnalysis? analysis,
             string? type,
             double? importSpeechProgress)
         {
@@ -280,6 +288,7 @@ namespace ElevenLabs
             this.Error = error;
             this.CurrentSnapshotId = currentSnapshotId;
             this.SourceContext = sourceContext;
+            this.Analysis = analysis;
             this.Type = type;
             this.ImportSpeechProgress = importSpeechProgress;
         }

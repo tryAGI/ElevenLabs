@@ -32872,6 +32872,66 @@
         ],
         "title": "ArrayJsonSchemaProperty"
       },
+      "AssetTranscription": {
+        "properties": {
+          "language_code": {
+            "type": "string",
+            "title": "Language Code"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "words": {
+            "items": {
+              "$ref": "#/components/schemas/AssetTranscriptionWord"
+            },
+            "type": "array",
+            "title": "Words"
+          }
+        },
+        "type": "object",
+        "required": [
+          "language_code",
+          "text",
+          "words"
+        ],
+        "title": "AssetTranscription"
+      },
+      "AssetTranscriptionWord": {
+        "properties": {
+          "speaker_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Speaker Id"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "start_ms": {
+            "type": "integer",
+            "title": "Start Ms"
+          },
+          "end_ms": {
+            "type": "integer",
+            "title": "End Ms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "start_ms",
+          "end_ms"
+        ],
+        "title": "AssetTranscriptionWord"
+      },
       "AsyncConversationMetadata": {
         "properties": {
           "delivery_status": {
@@ -32967,6 +33027,126 @@
           "test_id"
         ],
         "title": "AttachedTestModel"
+      },
+      "AudioAnalysis": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "processing",
+              "completed",
+              "failed"
+            ],
+            "title": "Status"
+          },
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioAnalysisResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "updated_at_ms": {
+            "type": "integer",
+            "title": "Updated At Ms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data"
+        ],
+        "title": "AudioAnalysis"
+      },
+      "AudioAnalysisResult": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "content_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Type"
+          },
+          "overall_pacing": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Overall Pacing"
+          },
+          "segments": {
+            "items": {
+              "$ref": "#/components/schemas/AudioSegment"
+            },
+            "type": "array",
+            "title": "Segments"
+          },
+          "key_moments": {
+            "items": {
+              "$ref": "#/components/schemas/AudioKeyMoment"
+            },
+            "type": "array",
+            "title": "Key Moments"
+          },
+          "transcription": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AssetTranscription"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "description"
+        ],
+        "title": "AudioAnalysisResult"
+      },
+      "AudioKeyMoment": {
+        "properties": {
+          "timestamp_ms": {
+            "type": "integer",
+            "title": "Timestamp Ms"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "timestamp_ms",
+          "type",
+          "description"
+        ],
+        "title": "AudioKeyMoment"
       },
       "AudioNativeCreateProjectResponseModel": {
         "properties": {
@@ -33132,6 +33312,61 @@
           "text_color": "#000000",
           "title": "My Project"
         }
+      },
+      "AudioSegment": {
+        "properties": {
+          "start_ms": {
+            "type": "integer",
+            "title": "Start Ms"
+          },
+          "end_ms": {
+            "type": "integer",
+            "title": "End Ms"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "segment_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Segment Type"
+          },
+          "has_speech": {
+            "type": "boolean",
+            "title": "Has Speech",
+            "default": false
+          },
+          "has_music": {
+            "type": "boolean",
+            "title": "Has Music",
+            "default": false
+          },
+          "pacing": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pacing"
+          }
+        },
+        "type": "object",
+        "required": [
+          "start_ms",
+          "end_ms",
+          "description"
+        ],
+        "title": "AudioSegment"
       },
       "AudioWithTimestampsAndVoiceSegmentsResponseModel": {
         "properties": {
@@ -55568,6 +55803,18 @@
               }
             ],
             "description": "Deprecation information if this model is deprecated or scheduled for deprecation. Null if the model is not affected."
+          },
+          "model_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Score",
+            "description": "The model's benchmark score. Null if no score is available."
           }
         },
         "type": "object",
@@ -55586,6 +55833,7 @@
           "llm": "gemini-2.5-flash",
           "max_context_limit": 1048576,
           "max_tokens_limit": 8192,
+          "model_score": 72,
           "supports_document_input": true,
           "supports_image_input": true,
           "supports_parallel_tool_calls": true
@@ -55652,6 +55900,18 @@
               }
             ],
             "description": "Deprecation information if this model is deprecated or scheduled for deprecation. Null if the model is not affected."
+          },
+          "model_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Score",
+            "description": "The model's benchmark score. Null if no score is available."
           }
         },
         "type": "object",
@@ -55670,6 +55930,7 @@
           "llm": "gemini-2.5-flash",
           "max_context_limit": 1048576,
           "max_tokens_limit": 8192,
+          "model_score": 72,
           "supports_document_input": true,
           "supports_image_input": true,
           "supports_parallel_tool_calls": true
@@ -61965,6 +62226,16 @@
               }
             ],
             "title": "Source Context"
+          },
+          "analysis": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioAnalysis"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "type": {
             "type": "string",
@@ -73748,7 +74019,7 @@
           "transcription": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/VideoTranscription"
+                "$ref": "#/components/schemas/AssetTranscription"
               },
               {
                 "type": "null"
@@ -73887,66 +74158,6 @@
           "description"
         ],
         "title": "VideoSubject"
-      },
-      "VideoTranscription": {
-        "properties": {
-          "language_code": {
-            "type": "string",
-            "title": "Language Code"
-          },
-          "text": {
-            "type": "string",
-            "title": "Text"
-          },
-          "words": {
-            "items": {
-              "$ref": "#/components/schemas/VideoTranscriptionWord"
-            },
-            "type": "array",
-            "title": "Words"
-          }
-        },
-        "type": "object",
-        "required": [
-          "language_code",
-          "text",
-          "words"
-        ],
-        "title": "VideoTranscription"
-      },
-      "VideoTranscriptionWord": {
-        "properties": {
-          "speaker_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Speaker Id"
-          },
-          "text": {
-            "type": "string",
-            "title": "Text"
-          },
-          "start_ms": {
-            "type": "integer",
-            "title": "Start Ms"
-          },
-          "end_ms": {
-            "type": "integer",
-            "title": "End Ms"
-          }
-        },
-        "type": "object",
-        "required": [
-          "text",
-          "start_ms",
-          "end_ms"
-        ],
-        "title": "VideoTranscriptionWord"
       },
       "VoiceDesignRequestModel": {
         "properties": {

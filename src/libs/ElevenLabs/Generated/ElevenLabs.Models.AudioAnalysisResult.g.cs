@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class VideoAnalysisResult
+    public sealed partial class AudioAnalysisResult
     {
         /// <summary>
         /// 
@@ -37,20 +37,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("subjects")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoSubject>? Subjects { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoSegment>? Segments { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioSegment>? Segments { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key_moments")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoKeyMoment>? KeyMoments { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioKeyMoment>? KeyMoments { get; set; }
 
         /// <summary>
         /// 
@@ -65,43 +59,40 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VideoAnalysisResult" /> class.
+        /// Initializes a new instance of the <see cref="AudioAnalysisResult" /> class.
         /// </summary>
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="contentType"></param>
         /// <param name="overallPacing"></param>
-        /// <param name="subjects"></param>
         /// <param name="segments"></param>
         /// <param name="keyMoments"></param>
         /// <param name="transcription"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public VideoAnalysisResult(
+        public AudioAnalysisResult(
             string title,
             string description,
             string? contentType,
             string? overallPacing,
-            global::System.Collections.Generic.IList<global::ElevenLabs.VideoSubject>? subjects,
-            global::System.Collections.Generic.IList<global::ElevenLabs.VideoSegment>? segments,
-            global::System.Collections.Generic.IList<global::ElevenLabs.VideoKeyMoment>? keyMoments,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AudioSegment>? segments,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AudioKeyMoment>? keyMoments,
             global::ElevenLabs.AssetTranscription? transcription)
         {
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.ContentType = contentType;
             this.OverallPacing = overallPacing;
-            this.Subjects = subjects;
             this.Segments = segments;
             this.KeyMoments = keyMoments;
             this.Transcription = transcription;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VideoAnalysisResult" /> class.
+        /// Initializes a new instance of the <see cref="AudioAnalysisResult" /> class.
         /// </summary>
-        public VideoAnalysisResult()
+        public AudioAnalysisResult()
         {
         }
     }

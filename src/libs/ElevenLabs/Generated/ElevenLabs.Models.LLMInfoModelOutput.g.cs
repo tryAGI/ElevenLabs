@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"is_checkpoint":false,"llm":"gemini-2.5-flash","max_context_limit":1048576,"max_tokens_limit":8192,"supports_document_input":true,"supports_image_input":true,"supports_parallel_tool_calls":true}
+    /// Example: {"is_checkpoint":false,"llm":"gemini-2.5-flash","max_context_limit":1048576,"max_tokens_limit":8192,"model_score":72,"supports_document_input":true,"supports_image_input":true,"supports_parallel_tool_calls":true}
     /// </summary>
     public sealed partial class LLMInfoModelOutput
     {
@@ -73,6 +73,12 @@ namespace ElevenLabs
         public global::ElevenLabs.LLMDeprecationInfoModel? DeprecationInfo { get; set; }
 
         /// <summary>
+        /// The model's benchmark score. Null if no score is available.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_score")]
+        public double? ModelScore { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -109,6 +115,9 @@ namespace ElevenLabs
         /// <param name="deprecationInfo">
         /// Deprecation information if this model is deprecated or scheduled for deprecation. Null if the model is not affected.
         /// </param>
+        /// <param name="modelScore">
+        /// The model's benchmark score. Null if no score is available.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -121,7 +130,8 @@ namespace ElevenLabs
             bool supportsDocumentInput,
             bool supportsParallelToolCalls,
             global::System.Collections.Generic.IList<global::ElevenLabs.LLMReasoningEffort>? availableReasoningEfforts,
-            global::ElevenLabs.LLMDeprecationInfoModel? deprecationInfo)
+            global::ElevenLabs.LLMDeprecationInfoModel? deprecationInfo,
+            double? modelScore)
         {
             this.Llm = llm;
             this.IsCheckpoint = isCheckpoint;
@@ -132,6 +142,7 @@ namespace ElevenLabs
             this.SupportsParallelToolCalls = supportsParallelToolCalls;
             this.AvailableReasoningEfforts = availableReasoningEfforts;
             this.DeprecationInfo = deprecationInfo;
+            this.ModelScore = modelScore;
         }
 
         /// <summary>

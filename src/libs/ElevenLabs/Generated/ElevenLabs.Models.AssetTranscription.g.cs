@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class VideoTranscription
+    public sealed partial class AssetTranscription
     {
         /// <summary>
         /// 
@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("words")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.VideoTranscriptionWord> Words { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AssetTranscriptionWord> Words { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,7 +36,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VideoTranscription" /> class.
+        /// Initializes a new instance of the <see cref="AssetTranscription" /> class.
         /// </summary>
         /// <param name="languageCode"></param>
         /// <param name="text"></param>
@@ -44,10 +44,10 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public VideoTranscription(
+        public AssetTranscription(
             string languageCode,
             string text,
-            global::System.Collections.Generic.IList<global::ElevenLabs.VideoTranscriptionWord> words)
+            global::System.Collections.Generic.IList<global::ElevenLabs.AssetTranscriptionWord> words)
         {
             this.LanguageCode = languageCode ?? throw new global::System.ArgumentNullException(nameof(languageCode));
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
@@ -55,9 +55,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VideoTranscription" /> class.
+        /// Initializes a new instance of the <see cref="AssetTranscription" /> class.
         /// </summary>
-        public VideoTranscription()
+        public AssetTranscription()
         {
         }
     }

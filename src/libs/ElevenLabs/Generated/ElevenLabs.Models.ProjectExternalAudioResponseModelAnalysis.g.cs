@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class VideoTranscriptionWordSpeakerId
+    public sealed partial class ProjectExternalAudioResponseModelAnalysis
     {
 
         /// <summary>

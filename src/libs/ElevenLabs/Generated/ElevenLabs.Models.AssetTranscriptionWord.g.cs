@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class VideoTranscriptionWord
+    public sealed partial class AssetTranscriptionWord
     {
         /// <summary>
         /// 
@@ -42,7 +42,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VideoTranscriptionWord" /> class.
+        /// Initializes a new instance of the <see cref="AssetTranscriptionWord" /> class.
         /// </summary>
         /// <param name="speakerId"></param>
         /// <param name="text"></param>
@@ -51,7 +51,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public VideoTranscriptionWord(
+        public AssetTranscriptionWord(
             string text,
             int startMs,
             int endMs,
@@ -64,9 +64,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VideoTranscriptionWord" /> class.
+        /// Initializes a new instance of the <see cref="AssetTranscriptionWord" /> class.
         /// </summary>
-        public VideoTranscriptionWord()
+        public AssetTranscriptionWord()
         {
         }
     }
