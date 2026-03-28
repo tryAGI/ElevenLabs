@@ -27,6 +27,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? ClientEvents { get; set; }
 
         /// <summary>
+        /// Configuration for file input (image/PDF uploads) during conversations.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_input")]
+        public global::ElevenLabs.FileInputConfigWorkflowOverride? FileInput { get; set; }
+
+        /// <summary>
         /// Enable real-time monitoring of conversations via WebSocket
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("monitoring_enabled")]
@@ -56,6 +62,9 @@ namespace ElevenLabs
         /// <param name="clientEvents">
         /// The events that will be sent to the client
         /// </param>
+        /// <param name="fileInput">
+        /// Configuration for file input (image/PDF uploads) during conversations.
+        /// </param>
         /// <param name="monitoringEnabled">
         /// Enable real-time monitoring of conversations via WebSocket
         /// </param>
@@ -69,12 +78,14 @@ namespace ElevenLabs
             bool? textOnly,
             int? maxDurationSeconds,
             global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? clientEvents,
+            global::ElevenLabs.FileInputConfigWorkflowOverride? fileInput,
             bool? monitoringEnabled,
             global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? monitoringEvents)
         {
             this.TextOnly = textOnly;
             this.MaxDurationSeconds = maxDurationSeconds;
             this.ClientEvents = clientEvents;
+            this.FileInput = fileInput;
             this.MonitoringEnabled = monitoringEnabled;
             this.MonitoringEvents = monitoringEvents;
         }

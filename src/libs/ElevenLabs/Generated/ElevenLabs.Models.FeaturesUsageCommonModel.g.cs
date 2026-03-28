@@ -93,6 +93,12 @@ namespace ElevenLabs
         public global::ElevenLabs.FeatureStatusCommonModel? Versioning { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_input")]
+        public global::ElevenLabs.FeatureStatusCommonModel? FileInput { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -121,6 +127,7 @@ namespace ElevenLabs
         /// <param name="workflow"></param>
         /// <param name="agentTesting"></param>
         /// <param name="versioning"></param>
+        /// <param name="fileInput"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -138,7 +145,8 @@ namespace ElevenLabs
             global::ElevenLabs.FeatureStatusCommonModel? voicemailDetection,
             global::ElevenLabs.WorkflowFeaturesUsageCommonModel? workflow,
             global::ElevenLabs.TestsFeatureUsageCommonModel? agentTesting,
-            global::ElevenLabs.FeatureStatusCommonModel? versioning)
+            global::ElevenLabs.FeatureStatusCommonModel? versioning,
+            global::ElevenLabs.FeatureStatusCommonModel? fileInput)
         {
             this.LanguageDetection = languageDetection;
             this.TransferToAgent = transferToAgent;
@@ -154,6 +162,7 @@ namespace ElevenLabs
             this.Workflow = workflow;
             this.AgentTesting = agentTesting;
             this.Versioning = versioning;
+            this.FileInput = fileInput;
         }
 
         /// <summary>

@@ -16305,21 +16305,21 @@
         "operationId": "cancel_file_upload_route",
         "parameters": [
           {
-            "name": "conversation_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Conversation Id"
-            }
-          },
-          {
             "name": "file_id",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string",
               "title": "File Id"
+            }
+          },
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Conversation Id"
             }
           },
           {
@@ -32326,7 +32326,7 @@
         "title": "ApiIntegrationOAuth2AuthCodeResponse",
         "description": "Response model for integration-managed OAuth2 Auth Code auth connections"
       },
-      "ApiIntegrationWebhookOverrides-Input": {
+      "ApiIntegrationWebhookOverrides": {
         "properties": {
           "schema_overrides": {
             "anyOf": [
@@ -32359,158 +32359,6 @@
               }
             ],
             "title": "Schema Overrides"
-          },
-          "path_params_schema": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/LiteralOverride"
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Path Params Schema"
-          },
-          "query_params_schema": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/QueryOverride"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "request_body_schema": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ObjectOverride-Input"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "request_headers": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ConvAIDynamicVariable"
-                    }
-                  ]
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Request Headers"
-          },
-          "response_filter_mode": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ResponseFilterMode"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "response_filters": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Response Filters"
-          }
-        },
-        "type": "object",
-        "title": "ApiIntegrationWebhookOverrides",
-        "description": "A whitelist of fields that can be overridden by users when\nconfiguring an API Integration Webhook Tool."
-      },
-      "ApiIntegrationWebhookOverrides-Output": {
-        "properties": {
-          "schema_overrides": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/ConstantSchemaOverride"
-                    },
-                    {
-                      "$ref": "#/components/schemas/DynamicVariableSchemaOverride"
-                    },
-                    {
-                      "$ref": "#/components/schemas/LLMSchemaOverride"
-                    }
-                  ],
-                  "discriminator": {
-                    "propertyName": "source",
-                    "mapping": {
-                      "constant": "#/components/schemas/ConstantSchemaOverride",
-                      "dynamic_variable": "#/components/schemas/DynamicVariableSchemaOverride",
-                      "llm": "#/components/schemas/LLMSchemaOverride"
-                    }
-                  }
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Schema Overrides"
-          },
-          "path_params_schema": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/LiteralOverride"
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Path Params Schema"
-          },
-          "query_params_schema": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/QueryOverride"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "request_body_schema": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ObjectOverride-Output"
-              },
-              {
-                "type": "null"
-              }
-            ]
           },
           "request_headers": {
             "anyOf": [
@@ -32658,7 +32506,7 @@
           "api_schema_overrides": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ApiIntegrationWebhookOverrides-Input"
+                "$ref": "#/components/schemas/ApiIntegrationWebhookOverrides"
               },
               {
                 "type": "null"
@@ -32772,7 +32620,7 @@
           "api_schema_overrides": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ApiIntegrationWebhookOverrides-Output"
+                "$ref": "#/components/schemas/ApiIntegrationWebhookOverrides"
               },
               {
                 "type": "null"
@@ -43288,6 +43136,11 @@
             "title": "Client Events",
             "description": "The events that will be sent to the client"
           },
+          "file_input": {
+            "$ref": "#/components/schemas/FileInputConfig",
+            "description": "Configuration for file input (image/PDF uploads) during conversations.",
+            "x-convai-client-override": true
+          },
           "monitoring_enabled": {
             "type": "boolean",
             "title": "Monitoring Enabled",
@@ -43571,6 +43424,18 @@
             ],
             "title": "Client Events",
             "description": "The events that will be sent to the client"
+          },
+          "file_input": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FileInputConfigWorkflowOverride"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for file input (image/PDF uploads) during conversations.",
+            "x-convai-client-override": true
           },
           "monitoring_enabled": {
             "anyOf": [
@@ -51250,6 +51115,9 @@
           },
           "versioning": {
             "$ref": "#/components/schemas/FeatureStatusCommonModel"
+          },
+          "file_input": {
+            "$ref": "#/components/schemas/FeatureStatusCommonModel"
           }
         },
         "type": "object",
@@ -51320,6 +51188,56 @@
           "review_status": "not_reviewed",
           "thumbs_up": true
         }
+      },
+      "FileInputConfig": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled",
+            "description": "When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input.",
+            "default": true
+          },
+          "max_files_per_conversation": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "Max Files Per Conversation",
+            "description": "Maximum number of files that can be uploaded per conversation.",
+            "default": 10
+          }
+        },
+        "type": "object",
+        "title": "FileInputConfig"
+      },
+      "FileInputConfigWorkflowOverride": {
+        "properties": {
+          "enabled": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enabled",
+            "description": "When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input."
+          },
+          "max_files_per_conversation": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Files Per Conversation",
+            "description": "Maximum number of files that can be uploaded per conversation."
+          }
+        },
+        "type": "object",
+        "title": "FileInputConfigWorkflowOverride"
       },
       "FineTuningResponseModel": {
         "properties": {
@@ -57234,54 +57152,6 @@
           "type": "string"
         }
       },
-      "LiteralOverride": {
-        "properties": {
-          "description": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Description"
-          },
-          "dynamic_variable": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Dynamic Variable"
-          },
-          "constant_value": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "integer"
-              },
-              {
-                "type": "number"
-              },
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Constant Value"
-          }
-        },
-        "type": "object",
-        "title": "LiteralOverride"
-      },
       "LivekitStackType": {
         "type": "string",
         "enum": [
@@ -59891,110 +59761,6 @@
         "additionalProperties": false,
         "type": "object",
         "title": "ObjectJsonSchemaProperty"
-      },
-      "ObjectOverride-Input": {
-        "properties": {
-          "description": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Description"
-          },
-          "properties": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "anyOf": [
-                    {
-                      "$ref": "#/components/schemas/LiteralOverride"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ObjectOverride-Input"
-                    }
-                  ]
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Properties"
-          },
-          "required": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Required"
-          }
-        },
-        "type": "object",
-        "title": "ObjectOverride"
-      },
-      "ObjectOverride-Output": {
-        "properties": {
-          "description": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Description"
-          },
-          "properties": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "anyOf": [
-                    {
-                      "$ref": "#/components/schemas/LiteralOverride"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ObjectOverride-Output"
-                    }
-                  ]
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Properties"
-          },
-          "required": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Required"
-          }
-        },
-        "type": "object",
-        "title": "ObjectOverride"
       },
       "OrbAvatar": {
         "properties": {
@@ -64950,40 +64716,6 @@
         ],
         "title": "PydanticPronunciationDictionaryVersionLocator",
         "description": "A locator for other documents to be able to reference a specific dictionary and it's version.\nThis is a pydantic version of PronunciationDictionaryVersionLocatorDBModel.\nRequired to ensure compat with the rest of the agent data models."
-      },
-      "QueryOverride": {
-        "properties": {
-          "properties": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/LiteralOverride"
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Properties"
-          },
-          "required": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Required"
-          }
-        },
-        "type": "object",
-        "title": "QueryOverride"
       },
       "QueryParamsJsonSchema": {
         "properties": {
