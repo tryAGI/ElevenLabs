@@ -7,14 +7,14 @@ namespace ElevenLabs
     {
         partial void PrepareDelete4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string conversationId,
             ref string fileId,
+            ref string conversationId,
             ref string? xiApiKey);
         partial void PrepareDelete4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string conversationId,
             string fileId,
+            string conversationId,
             string? xiApiKey);
         partial void ProcessDelete4Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -29,16 +29,16 @@ namespace ElevenLabs
         /// Delete File Upload<br/>
         /// Remove a file upload from a conversation. Only possible if the file hasn't already been used in the conversation.
         /// </summary>
-        /// <param name="conversationId"></param>
         /// <param name="fileId"></param>
+        /// <param name="conversationId"></param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Delete4Async(
-            string conversationId,
             string fileId,
+            string conversationId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -46,8 +46,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete4Arguments(
                 httpClient: HttpClient,
-                conversationId: ref conversationId,
                 fileId: ref fileId,
+                conversationId: ref conversationId,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -90,8 +90,8 @@ namespace ElevenLabs
             PrepareDelete4Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                conversationId: conversationId,
                 fileId: fileId,
+                conversationId: conversationId,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(

@@ -118,7 +118,7 @@ namespace ElevenLabs
         /// User overrides applied on top of the base api_schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_schema_overrides")]
-        public global::ElevenLabs.ApiIntegrationWebhookOverridesInput? ApiSchemaOverrides { get; set; }
+        public global::ElevenLabs.ApiIntegrationWebhookOverrides? ApiSchemaOverrides { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -198,7 +198,7 @@ namespace ElevenLabs
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables,
             global::ElevenLabs.ToolExecutionMode? executionMode,
             string? toolVersion,
-            global::ElevenLabs.ApiIntegrationWebhookOverridesInput? apiSchemaOverrides)
+            global::ElevenLabs.ApiIntegrationWebhookOverrides? apiSchemaOverrides)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
