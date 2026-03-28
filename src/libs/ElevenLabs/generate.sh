@@ -2,7 +2,7 @@
 set -euo pipefail
 dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
-curl --fail --silent --show-error https://api.elevenlabs.io/openapi.json | jq . > openapi.json
+curl --fail --silent --show-error -L https://api.elevenlabs.io/openapi.json | jq . > openapi.json
 
 autosdk generate openapi.json \
   --namespace ElevenLabs \
