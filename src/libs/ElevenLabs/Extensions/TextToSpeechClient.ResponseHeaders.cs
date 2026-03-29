@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace ElevenLabs;
 
-public sealed partial class TextToSpeech2Client
+public sealed partial class TextToSpeechClient
 {
     private static readonly ConditionalWeakTable<HttpClient, ResponseHeaderState> LastResponseHeadersByClient = new();
 

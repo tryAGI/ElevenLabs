@@ -23,7 +23,7 @@ public partial class Tests
         Console.WriteLine($"Input text: {text}");
 
         //// Generate speech audio.
-        byte[] audioBytes = await client.TextToSpeech2.ConvertAsync(
+        byte[] audioBytes = await client.TextToSpeech.ConvertAsync(
             voiceId: voice.VoiceId,
             text: text);
 

@@ -26,7 +26,7 @@ public partial class Tests
         StreamingAudioChunkWithTimestampsResponseModel? firstChunk = null;
         int chunkCount = 0;
 
-        await foreach (var chunk in client.TextToSpeech2.StreamWithTimestampsAsync(
+        await foreach (var chunk in client.TextToSpeech.StreamWithTimestampsAsync(
                            voiceId: voice.VoiceId,
                            text: text,
                            modelId: "eleven_multilingual_v2",

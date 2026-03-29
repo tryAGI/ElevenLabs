@@ -49,15 +49,15 @@ public partial class Tests
             typeof(CancellationToken));
 
         AssertBinaryReturnType(
-            typeof(IAudioIsolation2Client),
-            nameof(IAudioIsolation2Client.ConvertAsync),
+            typeof(IAudioIsolationClient),
+            nameof(IAudioIsolationClient.ConvertAsync),
             typeof(BodyAudioIsolationV1AudioIsolationPost),
             typeof(string),
             typeof(CancellationToken));
 
         AssertBinaryStreamReturnType(
-            typeof(IAudioIsolation2Client),
-            nameof(IAudioIsolation2Client.StreamAsync),
+            typeof(IAudioIsolationClient),
+            nameof(IAudioIsolationClient.StreamAsync),
             typeof(BodyAudioIsolationStreamV1AudioIsolationStreamPost),
             typeof(string),
             typeof(CancellationToken));

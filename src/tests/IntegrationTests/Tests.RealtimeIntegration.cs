@@ -69,7 +69,7 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
         using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
 
-        var audioBytes = await client.TextToSpeech2.ConvertAsync(
+        var audioBytes = await client.TextToSpeech.ConvertAsync(
             voiceId: voiceId,
             request: new BodyTextToSpeechFull
             {

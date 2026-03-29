@@ -23,7 +23,7 @@ public partial class Tests
         Console.WriteLine($"Input text: {text}");
 
         //// Request streaming speech audio.
-        using var streamedAudio = await client.TextToSpeech2.StreamAsync(
+        using var streamedAudio = await client.TextToSpeech.StreamAsync(
             voiceId: voice.VoiceId,
             text: text,
             modelId: "eleven_multilingual_v2",
