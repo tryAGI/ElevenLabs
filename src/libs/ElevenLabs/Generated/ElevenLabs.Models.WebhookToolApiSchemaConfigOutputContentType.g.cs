@@ -12,11 +12,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        ApplicationDividejson,
+        ApplicationJson,
         /// <summary>
         /// 
         /// </summary>
-        ApplicationDividexWwwFormUrlencoded,
+        ApplicationXWwwFormUrlencoded,
     }
 
     /// <summary>
@@ -31,8 +31,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                WebhookToolApiSchemaConfigOutputContentType.ApplicationDividejson => "application/json",
-                WebhookToolApiSchemaConfigOutputContentType.ApplicationDividexWwwFormUrlencoded => "application/x-www-form-urlencoded",
+                WebhookToolApiSchemaConfigOutputContentType.ApplicationJson => "application/json",
+                WebhookToolApiSchemaConfigOutputContentType.ApplicationXWwwFormUrlencoded => "application/x-www-form-urlencoded",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,8 +43,8 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "application/json" => WebhookToolApiSchemaConfigOutputContentType.ApplicationDividejson,
-                "application/x-www-form-urlencoded" => WebhookToolApiSchemaConfigOutputContentType.ApplicationDividexWwwFormUrlencoded,
+                "application/json" => WebhookToolApiSchemaConfigOutputContentType.ApplicationJson,
+                "application/x-www-form-urlencoded" => WebhookToolApiSchemaConfigOutputContentType.ApplicationXWwwFormUrlencoded,
                 _ => null,
             };
         }
