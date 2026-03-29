@@ -30,10 +30,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupLLMOverride" /> class.
         /// </summary>
+        /// <param name="order"></param>
         /// <param name="preference">
         /// Default Value: override
         /// </param>
-        /// <param name="order"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -41,8 +41,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.Llm> order,
             string? preference)
         {
-            this.Order = order ?? throw new global::System.ArgumentNullException(nameof(order));
             this.Preference = preference;
+            this.Order = order ?? throw new global::System.ArgumentNullException(nameof(order));
         }
 
         /// <summary>

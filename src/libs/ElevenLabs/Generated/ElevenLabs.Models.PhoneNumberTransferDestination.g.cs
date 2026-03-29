@@ -30,10 +30,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PhoneNumberTransferDestination" /> class.
         /// </summary>
+        /// <param name="phoneNumber"></param>
         /// <param name="type">
         /// Default Value: phone
         /// </param>
-        /// <param name="phoneNumber"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -41,8 +41,8 @@ namespace ElevenLabs
             string phoneNumber,
             string? type)
         {
-            this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Type = type;
+            this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
         }
 
         /// <summary>

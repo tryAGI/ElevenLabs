@@ -112,17 +112,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="OAuth2JWTResponse" /> class.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="authType">
-        /// Default Value: oauth2_jwt
-        /// </param>
         /// <param name="provider"></param>
-        /// <param name="algorithm">
-        /// JWT signing algorithm<br/>
-        /// Default Value: HS256
-        /// </param>
-        /// <param name="keyId">
-        /// Key ID (kid) for JWT header - useful for key rotation
-        /// </param>
         /// <param name="issuer">
         /// JWT issuer (iss claim)
         /// </param>
@@ -132,6 +122,20 @@ namespace ElevenLabs
         /// <param name="subject">
         /// JWT subject (sub claim)
         /// </param>
+        /// <param name="tokenUrl">
+        /// Token endpoint URL for exchanging JWT for access token
+        /// </param>
+        /// <param name="id"></param>
+        /// <param name="authType">
+        /// Default Value: oauth2_jwt
+        /// </param>
+        /// <param name="algorithm">
+        /// JWT signing algorithm<br/>
+        /// Default Value: HS256
+        /// </param>
+        /// <param name="keyId">
+        /// Key ID (kid) for JWT header - useful for key rotation
+        /// </param>
         /// <param name="expirationSeconds">
         /// Token expiration time in seconds<br/>
         /// Default Value: 3600
@@ -139,13 +143,9 @@ namespace ElevenLabs
         /// <param name="extraParams">
         /// Additional custom claims to include in the JWT
         /// </param>
-        /// <param name="tokenUrl">
-        /// Token endpoint URL for exchanging JWT for access token
-        /// </param>
         /// <param name="scopes">
         /// OAuth2 scopes to request when exchanging JWT for access token
         /// </param>
-        /// <param name="id"></param>
         /// <param name="usedBy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -167,18 +167,18 @@ namespace ElevenLabs
             global::ElevenLabs.AuthConnectionDependencies? usedBy)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.AuthType = authType;
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
+            this.Algorithm = algorithm;
+            this.KeyId = keyId;
             this.Issuer = issuer ?? throw new global::System.ArgumentNullException(nameof(issuer));
             this.Audience = audience ?? throw new global::System.ArgumentNullException(nameof(audience));
             this.Subject = subject ?? throw new global::System.ArgumentNullException(nameof(subject));
-            this.TokenUrl = tokenUrl ?? throw new global::System.ArgumentNullException(nameof(tokenUrl));
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.AuthType = authType;
-            this.Algorithm = algorithm;
-            this.KeyId = keyId;
             this.ExpirationSeconds = expirationSeconds;
             this.ExtraParams = extraParams;
+            this.TokenUrl = tokenUrl ?? throw new global::System.ArgumentNullException(nameof(tokenUrl));
             this.Scopes = scopes;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
         }
 

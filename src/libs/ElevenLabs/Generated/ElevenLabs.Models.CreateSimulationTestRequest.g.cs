@@ -85,6 +85,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSimulationTestRequest" /> class.
         /// </summary>
+        /// <param name="name"></param>
         /// <param name="fromConversationMetadata">
         /// Metadata of a conversation this test was created from (if applicable).
         /// </param>
@@ -111,7 +112,6 @@ namespace ElevenLabs
         /// <param name="toolMockConfig">
         /// Configuration for which tools to mock and fallback behavior.
         /// </param>
-        /// <param name="name"></param>
         /// <param name="parentFolderId">
         /// The ID of the parent folder. If not provided, the test will be created at the root level.
         /// </param>
@@ -131,7 +131,6 @@ namespace ElevenLabs
             global::ElevenLabs.SimulationToolMockBehaviorConfig? toolMockConfig,
             string? parentFolderId)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.FromConversationMetadata = fromConversationMetadata;
             this.DynamicVariables = dynamicVariables;
             this.ChatHistory = chatHistory;
@@ -141,6 +140,7 @@ namespace ElevenLabs
             this.SimulationMaxTurns = simulationMaxTurns;
             this.SimulationEnvironment = simulationEnvironment;
             this.ToolMockConfig = toolMockConfig;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ParentFolderId = parentFolderId;
         }
 

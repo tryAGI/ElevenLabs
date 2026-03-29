@@ -119,10 +119,10 @@ namespace ElevenLabs
         /// <param name="errorType"></param>
         /// <param name="rawErrorMessage"></param>
         /// <param name="dynamicVariableUpdates"></param>
-        /// <param name="type"></param>
         /// <param name="integrationId"></param>
         /// <param name="credentialId"></param>
         /// <param name="integrationConnectionId"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -150,10 +150,10 @@ namespace ElevenLabs
             this.ErrorType = errorType ?? throw new global::System.ArgumentNullException(nameof(errorType));
             this.RawErrorMessage = rawErrorMessage ?? throw new global::System.ArgumentNullException(nameof(rawErrorMessage));
             this.DynamicVariableUpdates = dynamicVariableUpdates ?? throw new global::System.ArgumentNullException(nameof(dynamicVariableUpdates));
+            this.Type = type;
             this.IntegrationId = integrationId ?? throw new global::System.ArgumentNullException(nameof(integrationId));
             this.CredentialId = credentialId ?? throw new global::System.ArgumentNullException(nameof(credentialId));
             this.IntegrationConnectionId = integrationConnectionId ?? throw new global::System.ArgumentNullException(nameof(integrationConnectionId));
-            this.Type = type;
         }
 
         /// <summary>

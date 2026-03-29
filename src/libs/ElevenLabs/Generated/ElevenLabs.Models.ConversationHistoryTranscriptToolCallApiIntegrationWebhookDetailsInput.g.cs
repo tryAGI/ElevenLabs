@@ -48,13 +48,13 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput" /> class.
         /// </summary>
+        /// <param name="webhookDetails"></param>
         /// <param name="type">
         /// Default Value: api_integration_webhook
         /// </param>
         /// <param name="integrationId"></param>
         /// <param name="credentialId"></param>
         /// <param name="integrationConnectionId"></param>
-        /// <param name="webhookDetails"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -65,11 +65,11 @@ namespace ElevenLabs
             string? credentialId,
             string? integrationConnectionId)
         {
-            this.WebhookDetails = webhookDetails ?? throw new global::System.ArgumentNullException(nameof(webhookDetails));
             this.Type = type;
             this.IntegrationId = integrationId;
             this.CredentialId = credentialId;
             this.IntegrationConnectionId = integrationConnectionId;
+            this.WebhookDetails = webhookDetails ?? throw new global::System.ArgumentNullException(nameof(webhookDetails));
         }
 
         /// <summary>

@@ -135,16 +135,16 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationSummaryResponseModel" /> class.
         /// </summary>
         /// <param name="agentId"></param>
-        /// <param name="branchId"></param>
-        /// <param name="versionId"></param>
-        /// <param name="agentName"></param>
         /// <param name="conversationId"></param>
         /// <param name="startTimeUnixSecs"></param>
         /// <param name="callDurationSecs"></param>
         /// <param name="messageCount"></param>
         /// <param name="status"></param>
-        /// <param name="terminationReason"></param>
         /// <param name="callSuccessful"></param>
+        /// <param name="branchId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="agentName"></param>
+        /// <param name="terminationReason"></param>
         /// <param name="transcriptSummary"></param>
         /// <param name="callSummaryTitle"></param>
         /// <param name="mainLanguage"></param>
@@ -176,16 +176,16 @@ namespace ElevenLabs
             double? rating)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
+            this.BranchId = branchId;
+            this.VersionId = versionId;
+            this.AgentName = agentName;
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
             this.MessageCount = messageCount;
             this.Status = status;
-            this.CallSuccessful = callSuccessful;
-            this.BranchId = branchId;
-            this.VersionId = versionId;
-            this.AgentName = agentName;
             this.TerminationReason = terminationReason;
+            this.CallSuccessful = callSuccessful;
             this.TranscriptSummary = transcriptSummary;
             this.CallSummaryTitle = callSummaryTitle;
             this.MainLanguage = mainLanguage;

@@ -90,11 +90,11 @@ namespace ElevenLabs
         /// <param name="sourceLanguage"></param>
         /// <param name="targetLanguages"></param>
         /// <param name="input"></param>
-        /// <param name="background"></param>
-        /// <param name="foreground"></param>
         /// <param name="speakerTracks"></param>
         /// <param name="speakerSegments"></param>
         /// <param name="renders"></param>
+        /// <param name="background"></param>
+        /// <param name="foreground"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -115,11 +115,11 @@ namespace ElevenLabs
             this.SourceLanguage = sourceLanguage ?? throw new global::System.ArgumentNullException(nameof(sourceLanguage));
             this.TargetLanguages = targetLanguages ?? throw new global::System.ArgumentNullException(nameof(targetLanguages));
             this.Input = input ?? throw new global::System.ArgumentNullException(nameof(input));
+            this.Background = background;
+            this.Foreground = foreground;
             this.SpeakerTracks = speakerTracks ?? throw new global::System.ArgumentNullException(nameof(speakerTracks));
             this.SpeakerSegments = speakerSegments ?? throw new global::System.ArgumentNullException(nameof(speakerSegments));
             this.Renders = renders ?? throw new global::System.ArgumentNullException(nameof(renders));
-            this.Background = background;
-            this.Foreground = foreground;
         }
 
         /// <summary>

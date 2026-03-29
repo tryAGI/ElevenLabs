@@ -91,9 +91,6 @@ namespace ElevenLabs
         /// <param name="name">
         /// Name of the test
         /// </param>
-        /// <param name="accessInfo">
-        /// The access information of the test
-        /// </param>
         /// <param name="createdAtUnixSecs">
         /// Creation time of the test in unix seconds
         /// </param>
@@ -102,6 +99,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="type">
         /// Type of the test or entity
+        /// </param>
+        /// <param name="accessInfo">
+        /// The access information of the test
         /// </param>
         /// <param name="entityType">
         /// The type of entity (test or folder)<br/>
@@ -133,10 +133,10 @@ namespace ElevenLabs
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.AccessInfo = accessInfo;
             this.CreatedAtUnixSecs = createdAtUnixSecs;
             this.LastUpdatedAtUnixSecs = lastUpdatedAtUnixSecs;
             this.Type = type;
-            this.AccessInfo = accessInfo;
             this.EntityType = entityType;
             this.FolderParentId = folderParentId;
             this.FolderPath = folderPath;

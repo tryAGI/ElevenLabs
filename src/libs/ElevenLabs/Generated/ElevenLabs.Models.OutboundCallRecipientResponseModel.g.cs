@@ -71,11 +71,11 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="OutboundCallRecipientResponseModel" /> class.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="phoneNumber"></param>
-        /// <param name="whatsappUserId"></param>
         /// <param name="status"></param>
         /// <param name="createdAtUnix"></param>
         /// <param name="updatedAtUnix"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="whatsappUserId"></param>
         /// <param name="conversationId"></param>
         /// <param name="conversationInitiationClientData"></param>
 #if NET7_0_OR_GREATER
@@ -92,11 +92,11 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationClientDataInternal? conversationInitiationClientData)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.PhoneNumber = phoneNumber;
+            this.WhatsappUserId = whatsappUserId;
             this.Status = status;
             this.CreatedAtUnix = createdAtUnix;
             this.UpdatedAtUnix = updatedAtUnix;
-            this.PhoneNumber = phoneNumber;
-            this.WhatsappUserId = whatsappUserId;
             this.ConversationId = conversationId;
             this.ConversationInitiationClientData = conversationInitiationClientData;
         }

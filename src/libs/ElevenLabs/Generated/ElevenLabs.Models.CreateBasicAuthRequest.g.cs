@@ -52,12 +52,12 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="CreateBasicAuthRequest" /> class.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="authType">
-        /// Default Value: basic_auth
-        /// </param>
         /// <param name="provider"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
+        /// <param name="authType">
+        /// Default Value: basic_auth
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -69,10 +69,10 @@ namespace ElevenLabs
             string? authType)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.AuthType = authType;
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
             this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
             this.Password = password ?? throw new global::System.ArgumentNullException(nameof(password));
-            this.AuthType = authType;
         }
 
         /// <summary>

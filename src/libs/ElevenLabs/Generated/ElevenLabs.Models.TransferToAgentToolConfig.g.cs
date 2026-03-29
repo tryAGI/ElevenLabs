@@ -30,10 +30,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="TransferToAgentToolConfig" /> class.
         /// </summary>
+        /// <param name="transfers"></param>
         /// <param name="systemToolType">
         /// Default Value: transfer_to_agent
         /// </param>
-        /// <param name="transfers"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -41,8 +41,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransfer> transfers,
             string? systemToolType)
         {
-            this.Transfers = transfers ?? throw new global::System.ArgumentNullException(nameof(transfers));
             this.SystemToolType = systemToolType;
+            this.Transfers = transfers ?? throw new global::System.ArgumentNullException(nameof(transfers));
         }
 
         /// <summary>

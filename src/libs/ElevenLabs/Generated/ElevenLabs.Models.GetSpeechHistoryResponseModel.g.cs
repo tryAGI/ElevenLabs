@@ -46,11 +46,11 @@ namespace ElevenLabs
         /// <param name="history">
         /// A list of speech history items.
         /// </param>
-        /// <param name="lastHistoryItemId">
-        /// The ID of the last history item.
-        /// </param>
         /// <param name="hasMore">
         /// Whether there are more history items to fetch.
+        /// </param>
+        /// <param name="lastHistoryItemId">
+        /// The ID of the last history item.
         /// </param>
         /// <param name="scannedUntil">
         /// The timestamp of the last history item.
@@ -65,8 +65,8 @@ namespace ElevenLabs
             int? scannedUntil)
         {
             this.History = history ?? throw new global::System.ArgumentNullException(nameof(history));
-            this.HasMore = hasMore;
             this.LastHistoryItemId = lastHistoryItemId;
+            this.HasMore = hasMore;
             this.ScannedUntil = scannedUntil;
         }
 

@@ -40,13 +40,13 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomSIPHeaderWithDynamicVariable" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="key">
         /// The SIP header name (e.g., 'X-Customer-ID')
         /// </param>
         /// <param name="value">
         /// The dynamic variable name to resolve
         /// </param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -55,9 +55,9 @@ namespace ElevenLabs
             string value,
             string type = "dynamic")
         {
+            this.Type = type;
             this.Key = key ?? throw new global::System.ArgumentNullException(nameof(key));
             this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
-            this.Type = type;
         }
 
         /// <summary>

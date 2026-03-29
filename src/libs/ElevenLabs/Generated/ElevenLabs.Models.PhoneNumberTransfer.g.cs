@@ -58,11 +58,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PhoneNumberTransfer" /> class.
         /// </summary>
+        /// <param name="condition"></param>
         /// <param name="customSipHeaders">
         /// Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference.
         /// </param>
         /// <param name="transferDestination"></param>
-        /// <param name="condition"></param>
         /// <param name="transferType">
         /// Default Value: conference
         /// </param>
@@ -79,9 +79,9 @@ namespace ElevenLabs
             global::ElevenLabs.TransferTypeEnum? transferType,
             global::ElevenLabs.PostDialDigitsVariant1? postDialDigits)
         {
-            this.Condition = condition ?? throw new global::System.ArgumentNullException(nameof(condition));
             this.CustomSipHeaders = customSipHeaders;
             this.TransferDestination = transferDestination;
+            this.Condition = condition ?? throw new global::System.ArgumentNullException(nameof(condition));
             this.TransferType = transferType;
             this.PostDialDigits = postDialDigits;
         }

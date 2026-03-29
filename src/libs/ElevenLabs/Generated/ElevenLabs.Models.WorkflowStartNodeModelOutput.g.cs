@@ -38,14 +38,14 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkflowStartNodeModelOutput" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: start
-        /// </param>
         /// <param name="position">
         /// Position of the node in the workflow.
         /// </param>
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
+        /// </param>
+        /// <param name="type">
+        /// Default Value: start
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -55,9 +55,9 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string> edgeOrder,
             string type = "start")
         {
+            this.Type = type;
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
             this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
-            this.Type = type;
         }
 
         /// <summary>

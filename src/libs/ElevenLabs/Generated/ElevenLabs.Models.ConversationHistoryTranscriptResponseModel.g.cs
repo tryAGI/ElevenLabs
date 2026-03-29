@@ -123,6 +123,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ConversationHistoryTranscriptResponseModel" /> class.
         /// </summary>
         /// <param name="role"></param>
+        /// <param name="timeInCallSecs"></param>
         /// <param name="agentMetadata"></param>
         /// <param name="message"></param>
         /// <param name="multivoiceMessage"></param>
@@ -130,7 +131,6 @@ namespace ElevenLabs
         /// <param name="toolResults"></param>
         /// <param name="feedback"></param>
         /// <param name="llmOverride"></param>
-        /// <param name="timeInCallSecs"></param>
         /// <param name="conversationTurnMetrics"></param>
         /// <param name="ragRetrievalInfo"></param>
         /// <param name="llmUsage"></param>
@@ -164,7 +164,6 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput)
         {
             this.Role = role;
-            this.TimeInCallSecs = timeInCallSecs;
             this.AgentMetadata = agentMetadata;
             this.Message = message;
             this.MultivoiceMessage = multivoiceMessage;
@@ -172,6 +171,7 @@ namespace ElevenLabs
             this.ToolResults = toolResults;
             this.Feedback = feedback;
             this.LlmOverride = llmOverride;
+            this.TimeInCallSecs = timeInCallSecs;
             this.ConversationTurnMetrics = conversationTurnMetrics;
             this.RagRetrievalInfo = ragRetrievalInfo;
             this.LlmUsage = llmUsage;

@@ -30,11 +30,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ToolResponseMockConfigOutput" /> class.
         /// </summary>
-        /// <param name="parameterConditions">
-        /// If the list is empty, the mock will always activate.
-        /// </param>
         /// <param name="mockResult">
         /// The return value the LLM sees when this mock is active.
+        /// </param>
+        /// <param name="parameterConditions">
+        /// If the list is empty, the mock will always activate.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -43,8 +43,8 @@ namespace ElevenLabs
             string mockResult,
             global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>? parameterConditions)
         {
-            this.MockResult = mockResult ?? throw new global::System.ArgumentNullException(nameof(mockResult));
             this.ParameterConditions = parameterConditions;
+            this.MockResult = mockResult ?? throw new global::System.ArgumentNullException(nameof(mockResult));
         }
 
         /// <summary>

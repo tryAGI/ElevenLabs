@@ -38,14 +38,14 @@ namespace ElevenLabs.Realtime
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorPayload" /> class.
         /// </summary>
-        /// <param name="messageType">
-        /// The error type identifier.
-        /// </param>
         /// <param name="errorType">
         /// Type of error (e.g., auth_error, quota_exceeded, rate_limited, input_error).
         /// </param>
         /// <param name="error">
         /// Human-readable error message.
+        /// </param>
+        /// <param name="messageType">
+        /// The error type identifier.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -55,9 +55,9 @@ namespace ElevenLabs.Realtime
             string error,
             global::ElevenLabs.Realtime.ErrorPayloadMessageType messageType)
         {
+            this.MessageType = messageType;
             this.ErrorType = errorType ?? throw new global::System.ArgumentNullException(nameof(errorType));
             this.Error = error ?? throw new global::System.ArgumentNullException(nameof(error));
-            this.MessageType = messageType;
         }
 
         /// <summary>

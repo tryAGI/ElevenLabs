@@ -30,11 +30,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ASTLLMNodeInputASTLLMNode" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: llm
-        /// </param>
         /// <param name="valueSchema">
         /// JSON schema describing the value that the LLM should extract.
+        /// </param>
+        /// <param name="type">
+        /// Default Value: llm
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -43,8 +43,8 @@ namespace ElevenLabs
             global::ElevenLabs.LLMLiteralJsonSchemaProperty valueSchema,
             string? type)
         {
-            this.ValueSchema = valueSchema ?? throw new global::System.ArgumentNullException(nameof(valueSchema));
             this.Type = type;
+            this.ValueSchema = valueSchema ?? throw new global::System.ArgumentNullException(nameof(valueSchema));
         }
 
         /// <summary>

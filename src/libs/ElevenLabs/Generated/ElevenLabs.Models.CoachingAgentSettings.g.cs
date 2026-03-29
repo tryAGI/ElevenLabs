@@ -36,10 +36,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CoachingAgentSettings" /> class.
         /// </summary>
+        /// <param name="coachedAgentId"></param>
         /// <param name="type">
         /// Default Value: coaching
         /// </param>
-        /// <param name="coachedAgentId"></param>
         /// <param name="memoryBaseId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -49,8 +49,8 @@ namespace ElevenLabs
             string? type,
             string? memoryBaseId)
         {
-            this.CoachedAgentId = coachedAgentId ?? throw new global::System.ArgumentNullException(nameof(coachedAgentId));
             this.Type = type;
+            this.CoachedAgentId = coachedAgentId ?? throw new global::System.ArgumentNullException(nameof(coachedAgentId));
             this.MemoryBaseId = memoryBaseId;
         }
 

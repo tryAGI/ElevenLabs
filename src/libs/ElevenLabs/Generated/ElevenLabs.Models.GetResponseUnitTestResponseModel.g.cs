@@ -73,6 +73,8 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="GetResponseUnitTestResponseModel" /> class.
         /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
         /// <param name="fromConversationMetadata">
         /// Metadata of a conversation this test was created from (if applicable).
         /// </param>
@@ -92,8 +94,6 @@ namespace ElevenLabs
         /// <param name="failureExamples">
         /// Non-empty list of example responses that should be considered failures
         /// </param>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -108,8 +108,6 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentSuccessfulResponseExample>? successExamples,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentFailureResponseExample>? failureExamples)
         {
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.FromConversationMetadata = fromConversationMetadata;
             this.DynamicVariables = dynamicVariables;
             this.ChatHistory = chatHistory;
@@ -117,6 +115,8 @@ namespace ElevenLabs
             this.SuccessCondition = successCondition;
             this.SuccessExamples = successExamples;
             this.FailureExamples = failureExamples;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
         }
 
         /// <summary>

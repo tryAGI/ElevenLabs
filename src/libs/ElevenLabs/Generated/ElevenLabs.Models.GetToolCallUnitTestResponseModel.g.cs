@@ -67,6 +67,8 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="GetToolCallUnitTestResponseModel" /> class.
         /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
         /// <param name="fromConversationMetadata">
         /// Metadata of a conversation this test was created from (if applicable).
         /// </param>
@@ -83,8 +85,6 @@ namespace ElevenLabs
         /// <param name="checkAnyToolMatches">
         /// If set to True this test will pass if any tool call returned by the LLM matches the criteria. Otherwise it will fail if more than one tool is returned by the agent.
         /// </param>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -98,14 +98,14 @@ namespace ElevenLabs
             global::ElevenLabs.UnitTestToolCallEvaluationModelOutput? toolCallParameters,
             bool? checkAnyToolMatches)
         {
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.FromConversationMetadata = fromConversationMetadata;
             this.DynamicVariables = dynamicVariables;
             this.ChatHistory = chatHistory;
             this.Type = type;
             this.ToolCallParameters = toolCallParameters;
             this.CheckAnyToolMatches = checkAnyToolMatches;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
         }
 
         /// <summary>

@@ -161,17 +161,11 @@ namespace ElevenLabs
         /// <param name="characterLimit">
         /// The maximum number of characters allowed in the current billing period.
         /// </param>
-        /// <param name="maxCharacterLimitExtension">
-        /// Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
-        /// </param>
         /// <param name="canExtendCharacterLimit">
         /// Whether the user can extend their character limit.
         /// </param>
         /// <param name="allowedToExtendCharacterLimit">
         /// Whether the user is allowed to extend their character limit.
-        /// </param>
-        /// <param name="nextCharacterCountResetUnix">
-        /// The Unix timestamp of the next character count reset.
         /// </param>
         /// <param name="voiceSlotsUsed">
         /// The number of voice slots used by the user.
@@ -181,9 +175,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="voiceLimit">
         /// The maximum number of voice slots allowed for the user.
-        /// </param>
-        /// <param name="maxVoiceAddEdits">
-        /// The maximum number of voice add/edits allowed for the user.
         /// </param>
         /// <param name="voiceAddEditCounter">
         /// The number of voice add/edits used by the user.
@@ -200,11 +191,20 @@ namespace ElevenLabs
         /// <param name="canUseProfessionalVoiceCloning">
         /// Whether the user can use professional voice cloning.
         /// </param>
-        /// <param name="currency">
-        /// The currency of the user's subscription.
-        /// </param>
         /// <param name="status">
         /// The status of the user's subscription.
+        /// </param>
+        /// <param name="maxCharacterLimitExtension">
+        /// Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
+        /// </param>
+        /// <param name="nextCharacterCountResetUnix">
+        /// The Unix timestamp of the next character count reset.
+        /// </param>
+        /// <param name="maxVoiceAddEdits">
+        /// The maximum number of voice add/edits allowed for the user.
+        /// </param>
+        /// <param name="currency">
+        /// The currency of the user's subscription.
         /// </param>
         /// <param name="billingPeriod">
         /// The billing period of the user's subscription.
@@ -240,21 +240,21 @@ namespace ElevenLabs
             this.Tier = tier ?? throw new global::System.ArgumentNullException(nameof(tier));
             this.CharacterCount = characterCount;
             this.CharacterLimit = characterLimit;
+            this.MaxCharacterLimitExtension = maxCharacterLimitExtension;
             this.CanExtendCharacterLimit = canExtendCharacterLimit;
             this.AllowedToExtendCharacterLimit = allowedToExtendCharacterLimit;
+            this.NextCharacterCountResetUnix = nextCharacterCountResetUnix;
             this.VoiceSlotsUsed = voiceSlotsUsed;
             this.ProfessionalVoiceSlotsUsed = professionalVoiceSlotsUsed;
             this.VoiceLimit = voiceLimit;
+            this.MaxVoiceAddEdits = maxVoiceAddEdits;
             this.VoiceAddEditCounter = voiceAddEditCounter;
             this.ProfessionalVoiceLimit = professionalVoiceLimit;
             this.CanExtendVoiceLimit = canExtendVoiceLimit;
             this.CanUseInstantVoiceCloning = canUseInstantVoiceCloning;
             this.CanUseProfessionalVoiceCloning = canUseProfessionalVoiceCloning;
-            this.Status = status;
-            this.MaxCharacterLimitExtension = maxCharacterLimitExtension;
-            this.NextCharacterCountResetUnix = nextCharacterCountResetUnix;
-            this.MaxVoiceAddEdits = maxVoiceAddEdits;
             this.Currency = currency;
+            this.Status = status;
             this.BillingPeriod = billingPeriod;
             this.CharacterRefreshPeriod = characterRefreshPeriod;
         }

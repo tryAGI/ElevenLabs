@@ -44,10 +44,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AssetTranscriptionWord" /> class.
         /// </summary>
-        /// <param name="speakerId"></param>
         /// <param name="text"></param>
         /// <param name="startMs"></param>
         /// <param name="endMs"></param>
+        /// <param name="speakerId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -57,10 +57,10 @@ namespace ElevenLabs
             int endMs,
             string? speakerId)
         {
+            this.SpeakerId = speakerId;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.StartMs = startMs;
             this.EndMs = endMs;
-            this.SpeakerId = speakerId;
         }
 
         /// <summary>

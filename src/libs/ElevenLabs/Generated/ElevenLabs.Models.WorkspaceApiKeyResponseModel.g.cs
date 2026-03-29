@@ -86,6 +86,7 @@ namespace ElevenLabs
         /// <param name="hint"></param>
         /// <param name="keyId"></param>
         /// <param name="serviceAccountUserId"></param>
+        /// <param name="hashedXiApiKey"></param>
         /// <param name="createdAtUnix"></param>
         /// <param name="isDisabled">
         /// Default Value: false
@@ -93,7 +94,6 @@ namespace ElevenLabs
         /// <param name="permissions"></param>
         /// <param name="characterLimit"></param>
         /// <param name="characterCount"></param>
-        /// <param name="hashedXiApiKey"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -113,12 +113,12 @@ namespace ElevenLabs
             this.Hint = hint ?? throw new global::System.ArgumentNullException(nameof(hint));
             this.KeyId = keyId ?? throw new global::System.ArgumentNullException(nameof(keyId));
             this.ServiceAccountUserId = serviceAccountUserId ?? throw new global::System.ArgumentNullException(nameof(serviceAccountUserId));
-            this.HashedXiApiKey = hashedXiApiKey ?? throw new global::System.ArgumentNullException(nameof(hashedXiApiKey));
             this.CreatedAtUnix = createdAtUnix;
             this.IsDisabled = isDisabled;
             this.Permissions = permissions;
             this.CharacterLimit = characterLimit;
             this.CharacterCount = characterCount;
+            this.HashedXiApiKey = hashedXiApiKey ?? throw new global::System.ArgumentNullException(nameof(hashedXiApiKey));
         }
 
         /// <summary>

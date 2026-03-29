@@ -62,6 +62,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkflowPhoneNumberNodeModelInput" /> class.
         /// </summary>
+        /// <param name="transferDestination"></param>
         /// <param name="customSipHeaders">
         /// Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference.
         /// </param>
@@ -74,7 +75,6 @@ namespace ElevenLabs
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </param>
-        /// <param name="transferDestination"></param>
         /// <param name="transferType">
         /// Default Value: conference
         /// </param>
@@ -93,11 +93,11 @@ namespace ElevenLabs
             global::ElevenLabs.TransferTypeEnum? transferType,
             global::ElevenLabs.PostDialDigitsVariant12? postDialDigits)
         {
-            this.TransferDestination = transferDestination;
             this.CustomSipHeaders = customSipHeaders;
             this.Type = type;
             this.Position = position;
             this.EdgeOrder = edgeOrder;
+            this.TransferDestination = transferDestination;
             this.TransferType = transferType;
             this.PostDialDigits = postDialDigits;
         }

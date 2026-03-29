@@ -38,8 +38,8 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="EnvironmentVariablesListResponse" /> class.
         /// </summary>
         /// <param name="environmentVariables"></param>
-        /// <param name="nextCursor"></param>
         /// <param name="hasMore"></param>
+        /// <param name="nextCursor"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -49,8 +49,8 @@ namespace ElevenLabs
             string? nextCursor)
         {
             this.EnvironmentVariables = environmentVariables ?? throw new global::System.ArgumentNullException(nameof(environmentVariables));
-            this.HasMore = hasMore;
             this.NextCursor = nextCursor;
+            this.HasMore = hasMore;
         }
 
         /// <summary>

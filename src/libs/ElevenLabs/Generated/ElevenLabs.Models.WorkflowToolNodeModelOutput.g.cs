@@ -45,9 +45,6 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkflowToolNodeModelOutput" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: tool
-        /// </param>
         /// <param name="position">
         /// Position of the node in the workflow.
         /// </param>
@@ -56,6 +53,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="tools">
         /// List of tools to execute in parallel. The entire node is considered successful if all tools are executed successfully.
+        /// </param>
+        /// <param name="type">
+        /// Default Value: tool
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -66,10 +66,10 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.WorkflowToolLocator> tools,
             string type = "tool")
         {
+            this.Type = type;
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
             this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
             this.Tools = tools ?? throw new global::System.ArgumentNullException(nameof(tools));
-            this.Type = type;
         }
 
         /// <summary>

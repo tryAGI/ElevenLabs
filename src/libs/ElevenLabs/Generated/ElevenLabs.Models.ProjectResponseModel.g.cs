@@ -254,9 +254,6 @@ namespace ElevenLabs
         /// <param name="createDateUnix">
         /// The creation date of the project.
         /// </param>
-        /// <param name="createdByUserId">
-        /// The user ID who created the project.
-        /// </param>
         /// <param name="defaultTitleVoiceId">
         /// The default title voice ID.
         /// </param>
@@ -266,11 +263,29 @@ namespace ElevenLabs
         /// <param name="defaultModelId">
         /// The default model ID.
         /// </param>
-        /// <param name="lastConversionDateUnix">
-        /// The last conversion date of the project.
-        /// </param>
         /// <param name="canBeDownloaded">
         /// Whether the project can be downloaded.
+        /// </param>
+        /// <param name="volumeNormalization">
+        /// Whether the project uses volume normalization.
+        /// </param>
+        /// <param name="state">
+        /// The state of the project.
+        /// </param>
+        /// <param name="accessLevel">
+        /// The access level of the project.
+        /// </param>
+        /// <param name="qualityCheckOn">
+        /// Whether quality check is enabled for this project.
+        /// </param>
+        /// <param name="qualityCheckOnWhenBulkConvert">
+        /// Whether quality check is enabled on the project when bulk converting.
+        /// </param>
+        /// <param name="createdByUserId">
+        /// The user ID who created the project.
+        /// </param>
+        /// <param name="lastConversionDateUnix">
+        /// The last conversion date of the project.
         /// </param>
         /// <param name="title">
         /// The title of the project.
@@ -305,23 +320,8 @@ namespace ElevenLabs
         /// <param name="isbnNumber">
         /// The ISBN number of the project.
         /// </param>
-        /// <param name="volumeNormalization">
-        /// Whether the project uses volume normalization.
-        /// </param>
-        /// <param name="state">
-        /// The state of the project.
-        /// </param>
-        /// <param name="accessLevel">
-        /// The access level of the project.
-        /// </param>
         /// <param name="fiction">
         /// Whether the project is fiction.
-        /// </param>
-        /// <param name="qualityCheckOn">
-        /// Whether quality check is enabled for this project.
-        /// </param>
-        /// <param name="qualityCheckOnWhenBulkConvert">
-        /// Whether quality check is enabled on the project when bulk converting.
         /// </param>
         /// <param name="creationMeta">
         /// The creation meta of the project.
@@ -395,17 +395,12 @@ namespace ElevenLabs
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.CreateDateUnix = createDateUnix;
+            this.CreatedByUserId = createdByUserId;
             this.DefaultTitleVoiceId = defaultTitleVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultTitleVoiceId));
             this.DefaultParagraphVoiceId = defaultParagraphVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultParagraphVoiceId));
             this.DefaultModelId = defaultModelId ?? throw new global::System.ArgumentNullException(nameof(defaultModelId));
-            this.CanBeDownloaded = canBeDownloaded;
-            this.VolumeNormalization = volumeNormalization;
-            this.State = state;
-            this.AccessLevel = accessLevel;
-            this.QualityCheckOn = qualityCheckOn;
-            this.QualityCheckOnWhenBulkConvert = qualityCheckOnWhenBulkConvert;
-            this.CreatedByUserId = createdByUserId;
             this.LastConversionDateUnix = lastConversionDateUnix;
+            this.CanBeDownloaded = canBeDownloaded;
             this.Title = title;
             this.Author = author;
             this.Description = description;
@@ -417,7 +412,12 @@ namespace ElevenLabs
             this.OriginalPublicationDate = originalPublicationDate;
             this.MatureContent = matureContent;
             this.IsbnNumber = isbnNumber;
+            this.VolumeNormalization = volumeNormalization;
+            this.State = state;
+            this.AccessLevel = accessLevel;
             this.Fiction = fiction;
+            this.QualityCheckOn = qualityCheckOn;
+            this.QualityCheckOnWhenBulkConvert = qualityCheckOnWhenBulkConvert;
             this.CreationMeta = creationMeta;
             this.SourceType = sourceType;
             this.ChaptersEnabled = chaptersEnabled;

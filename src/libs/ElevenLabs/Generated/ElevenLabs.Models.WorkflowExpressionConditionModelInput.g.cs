@@ -37,14 +37,14 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkflowExpressionConditionModelInput" /> class.
         /// </summary>
+        /// <param name="expression">
+        /// Expression to evaluate.
+        /// </param>
         /// <param name="label">
         /// Optional human-readable label for the condition used throughout the UI.
         /// </param>
         /// <param name="type">
         /// Default Value: expression
-        /// </param>
-        /// <param name="expression">
-        /// Expression to evaluate.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -54,9 +54,9 @@ namespace ElevenLabs
             string? label,
             string? type)
         {
-            this.Expression = expression;
             this.Label = label;
             this.Type = type;
+            this.Expression = expression;
         }
 
         /// <summary>

@@ -84,12 +84,13 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="OAuth2ClientCredsResponse" /> class.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="authType">
-        /// Default Value: oauth2_client_credentials
-        /// </param>
         /// <param name="provider"></param>
         /// <param name="clientId"></param>
         /// <param name="tokenUrl"></param>
+        /// <param name="id"></param>
+        /// <param name="authType">
+        /// Default Value: oauth2_client_credentials
+        /// </param>
         /// <param name="scopes">
         /// Default Value: []
         /// </param>
@@ -100,7 +101,6 @@ namespace ElevenLabs
         /// If True, send client credentials in Authorization header as Basic Auth instead of request body<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="id"></param>
         /// <param name="usedBy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -118,14 +118,14 @@ namespace ElevenLabs
             global::ElevenLabs.AuthConnectionDependencies? usedBy)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.AuthType = authType;
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
             this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
             this.TokenUrl = tokenUrl ?? throw new global::System.ArgumentNullException(nameof(tokenUrl));
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.AuthType = authType;
             this.Scopes = scopes;
             this.ExtraParams = extraParams;
             this.BasicAuthInHeader = basicAuthInHeader;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
         }
 

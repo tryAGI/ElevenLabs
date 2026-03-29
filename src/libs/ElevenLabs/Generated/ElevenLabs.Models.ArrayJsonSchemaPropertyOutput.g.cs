@@ -37,11 +37,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ArrayJsonSchemaPropertyOutput" /> class.
         /// </summary>
+        /// <param name="items"></param>
         /// <param name="type">
         /// Default Value: array
         /// </param>
         /// <param name="description"></param>
-        /// <param name="items"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -50,9 +50,9 @@ namespace ElevenLabs
             string? type,
             string? description)
         {
-            this.Items = items;
             this.Type = type;
             this.Description = description;
+            this.Items = items;
         }
 
         /// <summary>

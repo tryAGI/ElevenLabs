@@ -57,14 +57,14 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="WhatsAppAuthResponse" /> class.
         /// </summary>
         /// <param name="name"></param>
+        /// <param name="phoneNumberId"></param>
+        /// <param name="id"></param>
         /// <param name="authType">
         /// Default Value: whatsapp_auth
         /// </param>
         /// <param name="provider">
         /// Default Value: whatsapp
         /// </param>
-        /// <param name="phoneNumberId"></param>
-        /// <param name="id"></param>
         /// <param name="usedBy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -78,10 +78,10 @@ namespace ElevenLabs
             global::ElevenLabs.AuthConnectionDependencies? usedBy)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.AuthType = authType;
             this.Provider = provider;
+            this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
         }
 

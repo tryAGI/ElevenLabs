@@ -37,9 +37,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchCallWhatsAppParams" /> class.
         /// </summary>
-        /// <param name="whatsappPhoneNumberId"></param>
         /// <param name="whatsappCallPermissionRequestTemplateName"></param>
         /// <param name="whatsappCallPermissionRequestTemplateLanguageCode"></param>
+        /// <param name="whatsappPhoneNumberId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -48,9 +48,9 @@ namespace ElevenLabs
             string whatsappCallPermissionRequestTemplateLanguageCode,
             string? whatsappPhoneNumberId)
         {
+            this.WhatsappPhoneNumberId = whatsappPhoneNumberId;
             this.WhatsappCallPermissionRequestTemplateName = whatsappCallPermissionRequestTemplateName ?? throw new global::System.ArgumentNullException(nameof(whatsappCallPermissionRequestTemplateName));
             this.WhatsappCallPermissionRequestTemplateLanguageCode = whatsappCallPermissionRequestTemplateLanguageCode ?? throw new global::System.ArgumentNullException(nameof(whatsappCallPermissionRequestTemplateLanguageCode));
-            this.WhatsappPhoneNumberId = whatsappPhoneNumberId;
         }
 
         /// <summary>

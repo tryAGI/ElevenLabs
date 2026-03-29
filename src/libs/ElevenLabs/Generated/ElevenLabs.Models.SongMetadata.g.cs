@@ -49,17 +49,17 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="SongMetadata" /> class.
         /// </summary>
-        /// <param name="title">
-        /// The title of the song
-        /// </param>
-        /// <param name="description">
-        /// The description of the song
-        /// </param>
         /// <param name="genres">
         /// The genres of the song
         /// </param>
         /// <param name="languages">
         /// The languages of the song
+        /// </param>
+        /// <param name="title">
+        /// The title of the song
+        /// </param>
+        /// <param name="description">
+        /// The description of the song
         /// </param>
         /// <param name="isExplicit">
         /// Whether the song is explicit
@@ -74,10 +74,10 @@ namespace ElevenLabs
             string? description,
             bool? isExplicit)
         {
-            this.Genres = genres ?? throw new global::System.ArgumentNullException(nameof(genres));
-            this.Languages = languages ?? throw new global::System.ArgumentNullException(nameof(languages));
             this.Title = title;
             this.Description = description;
+            this.Genres = genres ?? throw new global::System.ArgumentNullException(nameof(genres));
+            this.Languages = languages ?? throw new global::System.ArgumentNullException(nameof(languages));
             this.IsExplicit = isExplicit;
         }
 

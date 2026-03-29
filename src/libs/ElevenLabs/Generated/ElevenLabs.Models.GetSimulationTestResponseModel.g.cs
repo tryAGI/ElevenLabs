@@ -86,6 +86,8 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="GetSimulationTestResponseModel" /> class.
         /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
         /// <param name="fromConversationMetadata">
         /// Metadata of a conversation this test was created from (if applicable).
         /// </param>
@@ -112,8 +114,6 @@ namespace ElevenLabs
         /// <param name="toolMockConfig">
         /// Configuration for which tools to mock and fallback behavior.
         /// </param>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -130,8 +130,6 @@ namespace ElevenLabs
             string? simulationEnvironment,
             global::ElevenLabs.SimulationToolMockBehaviorConfig? toolMockConfig)
         {
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.FromConversationMetadata = fromConversationMetadata;
             this.DynamicVariables = dynamicVariables;
             this.ChatHistory = chatHistory;
@@ -141,6 +139,8 @@ namespace ElevenLabs
             this.SimulationMaxTurns = simulationMaxTurns;
             this.SimulationEnvironment = simulationEnvironment;
             this.ToolMockConfig = toolMockConfig;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
         }
 
         /// <summary>

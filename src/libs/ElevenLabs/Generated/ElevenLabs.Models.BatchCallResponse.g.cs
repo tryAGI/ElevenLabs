@@ -158,16 +158,10 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BatchCallResponse" /> class.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="phoneNumberId"></param>
-        /// <param name="phoneProvider"></param>
-        /// <param name="whatsappParams"></param>
         /// <param name="name"></param>
         /// <param name="agentId"></param>
-        /// <param name="branchId"></param>
-        /// <param name="environment"></param>
         /// <param name="createdAtUnix"></param>
         /// <param name="scheduledTimeUnix"></param>
-        /// <param name="timezone"></param>
         /// <param name="totalCallsDispatched">
         /// Default Value: 0
         /// </param>
@@ -183,10 +177,16 @@ namespace ElevenLabs
         /// Default Value: 0
         /// </param>
         /// <param name="telephonyCallConfig"></param>
+        /// <param name="agentName"></param>
+        /// <param name="phoneNumberId"></param>
+        /// <param name="phoneProvider"></param>
+        /// <param name="whatsappParams"></param>
+        /// <param name="branchId"></param>
+        /// <param name="environment"></param>
+        /// <param name="timezone"></param>
         /// <param name="targetConcurrencyLimit">
         /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
         /// </param>
-        /// <param name="agentName"></param>
         /// <param name="branchName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -215,10 +215,16 @@ namespace ElevenLabs
             string? branchName)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.PhoneNumberId = phoneNumberId;
+            this.PhoneProvider = phoneProvider;
+            this.WhatsappParams = whatsappParams;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
+            this.BranchId = branchId;
+            this.Environment = environment;
             this.CreatedAtUnix = createdAtUnix;
             this.ScheduledTimeUnix = scheduledTimeUnix;
+            this.Timezone = timezone;
             this.TotalCallsDispatched = totalCallsDispatched;
             this.TotalCallsScheduled = totalCallsScheduled;
             this.TotalCallsFinished = totalCallsFinished;
@@ -226,14 +232,8 @@ namespace ElevenLabs
             this.Status = status;
             this.RetryCount = retryCount;
             this.TelephonyCallConfig = telephonyCallConfig ?? throw new global::System.ArgumentNullException(nameof(telephonyCallConfig));
-            this.AgentName = agentName ?? throw new global::System.ArgumentNullException(nameof(agentName));
-            this.PhoneNumberId = phoneNumberId;
-            this.PhoneProvider = phoneProvider;
-            this.WhatsappParams = whatsappParams;
-            this.BranchId = branchId;
-            this.Environment = environment;
-            this.Timezone = timezone;
             this.TargetConcurrencyLimit = targetConcurrencyLimit;
+            this.AgentName = agentName ?? throw new global::System.ArgumentNullException(nameof(agentName));
             this.BranchName = branchName;
         }
 

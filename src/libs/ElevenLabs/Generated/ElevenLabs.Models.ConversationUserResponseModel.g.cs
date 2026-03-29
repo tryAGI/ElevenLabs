@@ -68,8 +68,8 @@ namespace ElevenLabs
         /// <param name="lastContactUnixSecs"></param>
         /// <param name="firstContactUnixSecs"></param>
         /// <param name="conversationCount"></param>
-        /// <param name="lastContactAgentId"></param>
         /// <param name="lastContactConversationId"></param>
+        /// <param name="lastContactAgentId"></param>
         /// <param name="lastContactAgentName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -87,8 +87,8 @@ namespace ElevenLabs
             this.LastContactUnixSecs = lastContactUnixSecs;
             this.FirstContactUnixSecs = firstContactUnixSecs;
             this.ConversationCount = conversationCount;
-            this.LastContactConversationId = lastContactConversationId ?? throw new global::System.ArgumentNullException(nameof(lastContactConversationId));
             this.LastContactAgentId = lastContactAgentId;
+            this.LastContactConversationId = lastContactConversationId ?? throw new global::System.ArgumentNullException(nameof(lastContactConversationId));
             this.LastContactAgentName = lastContactAgentName;
         }
 

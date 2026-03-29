@@ -36,14 +36,14 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkflowResultConditionModelInput" /> class.
         /// </summary>
+        /// <param name="successful">
+        /// Whether all tools in the previously executed tool node were executed successfully.
+        /// </param>
         /// <param name="label">
         /// Optional human-readable label for the condition used throughout the UI.
         /// </param>
         /// <param name="type">
         /// Default Value: result
-        /// </param>
-        /// <param name="successful">
-        /// Whether all tools in the previously executed tool node were executed successfully.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -53,9 +53,9 @@ namespace ElevenLabs
             string? label,
             string? type)
         {
-            this.Successful = successful;
             this.Label = label;
             this.Type = type;
+            this.Successful = successful;
         }
 
         /// <summary>
