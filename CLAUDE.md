@@ -85,7 +85,7 @@ The realtime STT API has two layers:
 |------|---------|
 | `Extensions/SpeechToText2Client.ExtensionsAI.cs` | Microsoft.Extensions.AI speech-to-text integration (`ISpeechToTextClient` on `SpeechToText2Client`) |
 | `Extensions/SpeechToText2Client.Realtime.cs` | `ConnectRealtimeAsync()` — opens a realtime STT WebSocket session |
-| `Extensions/TextToSpeech2Client.ResponseHeaders.cs` | Captures response headers (e.g. `request-id`) from TTS requests |
+| `Extensions/TextToSpeechClient.ResponseHeaders.cs` | Captures response headers (e.g. `request-id`) from TTS requests |
 | `Extensions/ElevenLabsClient.Realtime.cs` | Convenience delegate to `SpeechToText2.ConnectRealtimeAsync()` |
 | `Realtime/RealtimeAudioFormat.cs` | Enum for supported PCM/μ-law audio formats |
 | `Realtime/RealtimeCommitStrategy.cs` | Enum for Manual/VAD commit strategies |
