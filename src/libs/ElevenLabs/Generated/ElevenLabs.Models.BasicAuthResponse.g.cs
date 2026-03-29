@@ -58,12 +58,12 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BasicAuthResponse" /> class.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="authType">
-        /// Default Value: basic_auth
-        /// </param>
         /// <param name="provider"></param>
         /// <param name="username"></param>
         /// <param name="id"></param>
+        /// <param name="authType">
+        /// Default Value: basic_auth
+        /// </param>
         /// <param name="usedBy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -77,10 +77,10 @@ namespace ElevenLabs
             global::ElevenLabs.AuthConnectionDependencies? usedBy)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.AuthType = authType;
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
             this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.AuthType = authType;
             this.UsedBy = usedBy;
         }
 

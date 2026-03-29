@@ -30,10 +30,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WhatsAppTemplateLocationParam" /> class.
         /// </summary>
+        /// <param name="location"></param>
         /// <param name="type">
         /// Default Value: location
         /// </param>
-        /// <param name="location"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -41,8 +41,8 @@ namespace ElevenLabs
             global::ElevenLabs.WhatsAppTemplateLocationParamDetails location,
             string? type)
         {
-            this.Location = location ?? throw new global::System.ArgumentNullException(nameof(location));
             this.Type = type;
+            this.Location = location ?? throw new global::System.ArgumentNullException(nameof(location));
         }
 
         /// <summary>

@@ -92,15 +92,15 @@ namespace ElevenLabs
         /// <param name="accessInfo">
         /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </param>
+        /// <param name="childrenCount"></param>
         /// <param name="folderParentId">
         /// The ID of the parent folder, or null if the document is at the root level.
         /// </param>
         /// <param name="folderPath">
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </param>
-        /// <param name="type"></param>
-        /// <param name="childrenCount"></param>
         /// <param name="autoSyncInfo"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -121,10 +121,10 @@ namespace ElevenLabs
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.SupportedUsages = supportedUsages ?? throw new global::System.ArgumentNullException(nameof(supportedUsages));
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
-            this.ChildrenCount = childrenCount;
             this.FolderParentId = folderParentId;
             this.FolderPath = folderPath;
             this.Type = type;
+            this.ChildrenCount = childrenCount;
             this.AutoSyncInfo = autoSyncInfo;
         }
 

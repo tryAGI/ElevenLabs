@@ -61,14 +61,14 @@ namespace ElevenLabs
         /// <param name="allowedAddresses">
         /// List of IP addresses that are allowed to use the trunk. Each item in the list can be an individual IP address or a Classless Inter-Domain Routing notation representing a CIDR block.
         /// </param>
-        /// <param name="allowedNumbers">
-        /// List of phone numbers that are allowed to use the trunk.
-        /// </param>
         /// <param name="mediaEncryption">
         /// Default Value: allowed
         /// </param>
         /// <param name="hasAuthCredentials">
         /// Whether authentication credentials are configured
+        /// </param>
+        /// <param name="allowedNumbers">
+        /// List of phone numbers that are allowed to use the trunk.
         /// </param>
         /// <param name="username">
         /// SIP trunk username (if available)
@@ -88,9 +88,9 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? remoteDomains)
         {
             this.AllowedAddresses = allowedAddresses ?? throw new global::System.ArgumentNullException(nameof(allowedAddresses));
+            this.AllowedNumbers = allowedNumbers;
             this.MediaEncryption = mediaEncryption;
             this.HasAuthCredentials = hasAuthCredentials;
-            this.AllowedNumbers = allowedNumbers;
             this.Username = username;
             this.RemoteDomains = remoteDomains;
         }

@@ -60,6 +60,8 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="PronunciationDictionaryPhonemeRuleResponseModel" /> class.
         /// </summary>
         /// <param name="stringToReplace"></param>
+        /// <param name="phoneme"></param>
+        /// <param name="alphabet"></param>
         /// <param name="caseSensitive">
         /// Whether the rule matches case-sensitively.<br/>
         /// Default Value: true
@@ -69,8 +71,6 @@ namespace ElevenLabs
         /// Default Value: true
         /// </param>
         /// <param name="type"></param>
-        /// <param name="phoneme"></param>
-        /// <param name="alphabet"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -83,11 +83,11 @@ namespace ElevenLabs
             string type = "phoneme")
         {
             this.StringToReplace = stringToReplace ?? throw new global::System.ArgumentNullException(nameof(stringToReplace));
-            this.Phoneme = phoneme ?? throw new global::System.ArgumentNullException(nameof(phoneme));
-            this.Alphabet = alphabet ?? throw new global::System.ArgumentNullException(nameof(alphabet));
             this.CaseSensitive = caseSensitive;
             this.WordBoundaries = wordBoundaries;
             this.Type = type;
+            this.Phoneme = phoneme ?? throw new global::System.ArgumentNullException(nameof(phoneme));
+            this.Alphabet = alphabet ?? throw new global::System.ArgumentNullException(nameof(alphabet));
         }
 
         /// <summary>

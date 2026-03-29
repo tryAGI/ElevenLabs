@@ -30,10 +30,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WhatsAppTemplateDocumentParam" /> class.
         /// </summary>
+        /// <param name="document"></param>
         /// <param name="type">
         /// Default Value: document
         /// </param>
-        /// <param name="document"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -41,8 +41,8 @@ namespace ElevenLabs
             global::ElevenLabs.WhatsAppTemplateDocumentParamDetails document,
             string? type)
         {
-            this.Document = document ?? throw new global::System.ArgumentNullException(nameof(document));
             this.Type = type;
+            this.Document = document ?? throw new global::System.ArgumentNullException(nameof(document));
         }
 
         /// <summary>

@@ -72,10 +72,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="SongSourceContext" /> class.
         /// </summary>
+        /// <param name="songId"></param>
         /// <param name="sourceType">
         /// Default Value: song
         /// </param>
-        /// <param name="songId"></param>
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="genres"></param>
@@ -97,8 +97,8 @@ namespace ElevenLabs
             int? bpm,
             object? generationSettings)
         {
-            this.SongId = songId ?? throw new global::System.ArgumentNullException(nameof(songId));
             this.SourceType = sourceType;
+            this.SongId = songId ?? throw new global::System.ArgumentNullException(nameof(songId));
             this.Title = title;
             this.Description = description;
             this.Genres = genres;

@@ -37,14 +37,14 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="UnitTestWorkflowNodeTransitionEvaluationNodeId" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: node_id
-        /// </param>
         /// <param name="agentId">
         /// The ID of the agent whose workflow contains the target node.
         /// </param>
         /// <param name="targetNodeId">
         /// The ID of the workflow node that the agent should transition to.
+        /// </param>
+        /// <param name="type">
+        /// Default Value: node_id
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -54,9 +54,9 @@ namespace ElevenLabs
             string targetNodeId,
             string? type)
         {
+            this.Type = type;
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.TargetNodeId = targetNodeId ?? throw new global::System.ArgumentNullException(nameof(targetNodeId));
-            this.Type = type;
         }
 
         /// <summary>

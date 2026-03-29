@@ -55,6 +55,9 @@ namespace ElevenLabs
         /// <param name="stringToReplace">
         /// The string to replace. Must be a non-empty string.
         /// </param>
+        /// <param name="alias">
+        /// The alias for the string to be replaced.
+        /// </param>
         /// <param name="caseSensitive">
         /// Whether the rule should match case-sensitively.<br/>
         /// Default Value: true
@@ -65,9 +68,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="type">
         /// The type of the rule.
-        /// </param>
-        /// <param name="alias">
-        /// The alias for the string to be replaced.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -80,10 +80,10 @@ namespace ElevenLabs
             string type = "alias")
         {
             this.StringToReplace = stringToReplace ?? throw new global::System.ArgumentNullException(nameof(stringToReplace));
-            this.Alias = alias ?? throw new global::System.ArgumentNullException(nameof(alias));
             this.CaseSensitive = caseSensitive;
             this.WordBoundaries = wordBoundaries;
             this.Type = type;
+            this.Alias = alias ?? throw new global::System.ArgumentNullException(nameof(alias));
         }
 
         /// <summary>

@@ -44,12 +44,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WhatsAppTemplateButtonComponentParams" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: button
-        /// </param>
         /// <param name="parameters"></param>
         /// <param name="index"></param>
         /// <param name="subType"></param>
+        /// <param name="type">
+        /// Default Value: button
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -59,10 +59,10 @@ namespace ElevenLabs
             string subType,
             string? type)
         {
+            this.Type = type;
             this.Parameters = parameters ?? throw new global::System.ArgumentNullException(nameof(parameters));
             this.Index = index;
             this.SubType = subType ?? throw new global::System.ArgumentNullException(nameof(subType));
-            this.Type = type;
         }
 
         /// <summary>

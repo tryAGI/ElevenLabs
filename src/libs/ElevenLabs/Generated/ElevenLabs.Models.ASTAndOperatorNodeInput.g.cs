@@ -30,11 +30,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ASTAndOperatorNodeInput" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: and_operator
-        /// </param>
         /// <param name="children">
         /// Child nodes of the logical operator.
+        /// </param>
+        /// <param name="type">
+        /// Default Value: and_operator
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -43,8 +43,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ChildrenItem> children,
             string? type)
         {
-            this.Children = children ?? throw new global::System.ArgumentNullException(nameof(children));
             this.Type = type;
+            this.Children = children ?? throw new global::System.ArgumentNullException(nameof(children));
         }
 
         /// <summary>

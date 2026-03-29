@@ -193,7 +193,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="externalAudioId"></param>
         /// <param name="filename"></param>
-        /// <param name="signedUrl"></param>
         /// <param name="offsetMs"></param>
         /// <param name="durationMs"></param>
         /// <param name="startTimeMs"></param>
@@ -202,6 +201,9 @@ namespace ElevenLabs
         /// <param name="trackId"></param>
         /// <param name="createdAtMs"></param>
         /// <param name="updatedAtMs"></param>
+        /// <param name="pendingBlockIds"></param>
+        /// <param name="pendingExternalAudioIds"></param>
+        /// <param name="signedUrl"></param>
         /// <param name="volumeGainDb">
         /// Default Value: 0F
         /// </param>
@@ -216,8 +218,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="sourceExternalAudioId"></param>
         /// <param name="sourceAssetId"></param>
-        /// <param name="pendingBlockIds"></param>
-        /// <param name="pendingExternalAudioIds"></param>
         /// <param name="speechImported">
         /// Default Value: false
         /// </param>
@@ -266,6 +266,7 @@ namespace ElevenLabs
         {
             this.ExternalAudioId = externalAudioId ?? throw new global::System.ArgumentNullException(nameof(externalAudioId));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
+            this.SignedUrl = signedUrl;
             this.OffsetMs = offsetMs;
             this.DurationMs = durationMs;
             this.StartTimeMs = startTimeMs;
@@ -274,15 +275,14 @@ namespace ElevenLabs
             this.TrackId = trackId ?? throw new global::System.ArgumentNullException(nameof(trackId));
             this.CreatedAtMs = createdAtMs;
             this.UpdatedAtMs = updatedAtMs;
-            this.PendingBlockIds = pendingBlockIds ?? throw new global::System.ArgumentNullException(nameof(pendingBlockIds));
-            this.PendingExternalAudioIds = pendingExternalAudioIds ?? throw new global::System.ArgumentNullException(nameof(pendingExternalAudioIds));
-            this.SignedUrl = signedUrl;
             this.VolumeGainDb = volumeGainDb;
             this.Muted = muted;
             this.FadeInMs = fadeInMs;
             this.FadeOutMs = fadeOutMs;
             this.SourceExternalAudioId = sourceExternalAudioId;
             this.SourceAssetId = sourceAssetId;
+            this.PendingBlockIds = pendingBlockIds ?? throw new global::System.ArgumentNullException(nameof(pendingBlockIds));
+            this.PendingExternalAudioIds = pendingExternalAudioIds ?? throw new global::System.ArgumentNullException(nameof(pendingExternalAudioIds));
             this.SpeechImported = speechImported;
             this.PendingTask = pendingTask;
             this.Error = error;

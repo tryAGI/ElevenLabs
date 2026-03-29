@@ -53,6 +53,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="PronunciationDictionaryAliasRuleResponseModel" /> class.
         /// </summary>
         /// <param name="stringToReplace"></param>
+        /// <param name="alias"></param>
         /// <param name="caseSensitive">
         /// Whether the rule matches case-sensitively.<br/>
         /// Default Value: true
@@ -62,7 +63,6 @@ namespace ElevenLabs
         /// Default Value: true
         /// </param>
         /// <param name="type"></param>
-        /// <param name="alias"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -74,10 +74,10 @@ namespace ElevenLabs
             string type = "alias")
         {
             this.StringToReplace = stringToReplace ?? throw new global::System.ArgumentNullException(nameof(stringToReplace));
-            this.Alias = alias ?? throw new global::System.ArgumentNullException(nameof(alias));
             this.CaseSensitive = caseSensitive;
             this.WordBoundaries = wordBoundaries;
             this.Type = type;
+            this.Alias = alias ?? throw new global::System.ArgumentNullException(nameof(alias));
         }
 
         /// <summary>

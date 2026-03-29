@@ -36,8 +36,8 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ChapterContentBlockInputModel" /> class.
         /// </summary>
-        /// <param name="subType"></param>
         /// <param name="nodes"></param>
+        /// <param name="subType"></param>
         /// <param name="blockId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -47,8 +47,8 @@ namespace ElevenLabs
             global::ElevenLabs.ChapterContentBlockInputModelSubType2? subType,
             string? blockId)
         {
-            this.Nodes = nodes ?? throw new global::System.ArgumentNullException(nameof(nodes));
             this.SubType = subType;
+            this.Nodes = nodes ?? throw new global::System.ArgumentNullException(nameof(nodes));
             this.BlockId = blockId;
         }
 

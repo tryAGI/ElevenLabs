@@ -71,11 +71,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookToolApiSchemaConfigInput" /> class.
         /// </summary>
-        /// <param name="requestHeaders">
-        /// Headers that should be included in the request
-        /// </param>
         /// <param name="url">
         /// The URL that the webhook will be sent to. May include path parameters, e.g. https://example.com/agents/{agent_id}
+        /// </param>
+        /// <param name="requestHeaders">
+        /// Headers that should be included in the request
         /// </param>
         /// <param name="method">
         /// The HTTP method to use for the webhook<br/>
@@ -110,8 +110,8 @@ namespace ElevenLabs
             global::ElevenLabs.WebhookToolApiSchemaConfigInputContentType? contentType,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection)
         {
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.RequestHeaders = requestHeaders;
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.Method = method;
             this.PathParamsSchema = pathParamsSchema;
             this.QueryParamsSchema = queryParamsSchema;

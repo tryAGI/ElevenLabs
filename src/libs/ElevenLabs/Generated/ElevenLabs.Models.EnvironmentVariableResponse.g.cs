@@ -77,11 +77,11 @@ namespace ElevenLabs
         /// <param name="label"></param>
         /// <param name="createdAtUnixSecs"></param>
         /// <param name="updatedAtUnixSecs"></param>
-        /// <param name="createdByUserId"></param>
         /// <param name="type"></param>
         /// <param name="id"></param>
         /// <param name="workspaceId"></param>
         /// <param name="values"></param>
+        /// <param name="createdByUserId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -98,11 +98,11 @@ namespace ElevenLabs
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.CreatedAtUnixSecs = createdAtUnixSecs;
             this.UpdatedAtUnixSecs = updatedAtUnixSecs;
+            this.CreatedByUserId = createdByUserId;
             this.Type = type;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.WorkspaceId = workspaceId ?? throw new global::System.ArgumentNullException(nameof(workspaceId));
             this.Values = values;
-            this.CreatedByUserId = createdByUserId;
         }
 
         /// <summary>

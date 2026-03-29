@@ -112,20 +112,21 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ApiIntegrationOAuth2AuthCodeResponse" /> class.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="authType">
-        /// Default Value: api_integration_oauth2_auth_code
-        /// </param>
         /// <param name="provider"></param>
         /// <param name="tokenUrl"></param>
-        /// <param name="scopes"></param>
-        /// <param name="scopeSeparator">
-        /// Separator for scopes
-        /// </param>
         /// <param name="expiresAt">
         /// ISO 8601 timestamp of when the access token expires
         /// </param>
         /// <param name="integrationId"></param>
         /// <param name="credentialId"></param>
+        /// <param name="id"></param>
+        /// <param name="authType">
+        /// Default Value: api_integration_oauth2_auth_code
+        /// </param>
+        /// <param name="scopes"></param>
+        /// <param name="scopeSeparator">
+        /// Separator for scopes
+        /// </param>
         /// <param name="status">
         /// Current health status of the OAuth connection<br/>
         /// Default Value: active
@@ -136,7 +137,6 @@ namespace ElevenLabs
         /// <param name="statusUpdatedAt">
         /// ISO 8601 timestamp of the last status change
         /// </param>
-        /// <param name="id"></param>
         /// <param name="usedBy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -158,18 +158,18 @@ namespace ElevenLabs
             global::ElevenLabs.AuthConnectionDependencies? usedBy)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.AuthType = authType;
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
             this.TokenUrl = tokenUrl ?? throw new global::System.ArgumentNullException(nameof(tokenUrl));
+            this.Scopes = scopes;
+            this.ScopeSeparator = scopeSeparator;
             this.ExpiresAt = expiresAt ?? throw new global::System.ArgumentNullException(nameof(expiresAt));
             this.IntegrationId = integrationId ?? throw new global::System.ArgumentNullException(nameof(integrationId));
             this.CredentialId = credentialId ?? throw new global::System.ArgumentNullException(nameof(credentialId));
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.AuthType = authType;
-            this.Scopes = scopes;
-            this.ScopeSeparator = scopeSeparator;
             this.Status = status;
             this.StatusDetail = statusDetail;
             this.StatusUpdatedAt = statusUpdatedAt;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
         }
 

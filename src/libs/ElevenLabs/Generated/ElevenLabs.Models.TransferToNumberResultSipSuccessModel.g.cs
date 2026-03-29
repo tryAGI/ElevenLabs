@@ -48,13 +48,13 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="TransferToNumberResultSipSuccessModel" /> class.
         /// </summary>
+        /// <param name="transferNumber"></param>
         /// <param name="resultType">
         /// Default Value: transfer_to_number_sip_success
         /// </param>
         /// <param name="status">
         /// Default Value: success
         /// </param>
-        /// <param name="transferNumber"></param>
         /// <param name="reason"></param>
         /// <param name="note"></param>
 #if NET7_0_OR_GREATER
@@ -67,9 +67,9 @@ namespace ElevenLabs
             string? reason,
             string? note)
         {
-            this.TransferNumber = transferNumber ?? throw new global::System.ArgumentNullException(nameof(transferNumber));
             this.ResultType = resultType;
             this.Status = status;
+            this.TransferNumber = transferNumber ?? throw new global::System.ArgumentNullException(nameof(transferNumber));
             this.Reason = reason;
             this.Note = note;
         }

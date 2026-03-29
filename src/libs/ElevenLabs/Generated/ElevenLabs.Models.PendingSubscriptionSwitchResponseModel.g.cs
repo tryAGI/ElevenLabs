@@ -46,9 +46,6 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="PendingSubscriptionSwitchResponseModel" /> class.
         /// </summary>
-        /// <param name="kind">
-        /// Default Value: change
-        /// </param>
         /// <param name="nextTier">
         /// The tier to change to.
         /// </param>
@@ -57,6 +54,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="timestampSeconds">
         /// The timestamp of the change.
+        /// </param>
+        /// <param name="kind">
+        /// Default Value: change
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -67,10 +67,10 @@ namespace ElevenLabs
             int timestampSeconds,
             string? kind)
         {
+            this.Kind = kind;
             this.NextTier = nextTier;
             this.NextBillingPeriod = nextBillingPeriod;
             this.TimestampSeconds = timestampSeconds;
-            this.Kind = kind;
         }
 
         /// <summary>

@@ -73,9 +73,9 @@ namespace ElevenLabs
         /// <param name="phoneNumberId"></param>
         /// <param name="agentNumber"></param>
         /// <param name="externalNumber"></param>
-        /// <param name="type"></param>
         /// <param name="callSid"></param>
         /// <param name="sipHeaderDynamicVariables"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -92,8 +92,8 @@ namespace ElevenLabs
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
             this.AgentNumber = agentNumber ?? throw new global::System.ArgumentNullException(nameof(agentNumber));
             this.ExternalNumber = externalNumber ?? throw new global::System.ArgumentNullException(nameof(externalNumber));
-            this.CallSid = callSid ?? throw new global::System.ArgumentNullException(nameof(callSid));
             this.Type = type;
+            this.CallSid = callSid ?? throw new global::System.ArgumentNullException(nameof(callSid));
             this.SipHeaderDynamicVariables = sipHeaderDynamicVariables;
         }
 

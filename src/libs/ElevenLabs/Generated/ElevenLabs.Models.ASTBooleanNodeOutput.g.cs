@@ -31,11 +31,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ASTBooleanNodeOutput" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: boolean_literal
-        /// </param>
         /// <param name="value">
         /// Value of this literal.
+        /// </param>
+        /// <param name="type">
+        /// Default Value: boolean_literal
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -44,8 +44,8 @@ namespace ElevenLabs
             bool value,
             string type = "boolean_literal")
         {
-            this.Value = value;
             this.Type = type;
+            this.Value = value;
         }
 
         /// <summary>

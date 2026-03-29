@@ -69,7 +69,6 @@ namespace ElevenLabs
         /// <param name="includeTimestamps">
         /// Default Value: true
         /// </param>
-        /// <param name="format"></param>
         /// <param name="segmentOnSilenceLongerThanS">
         /// Default Value: 0.8F
         /// </param>
@@ -79,6 +78,7 @@ namespace ElevenLabs
         /// <param name="maxSegmentChars">
         /// Default Value: 84
         /// </param>
+        /// <param name="format"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

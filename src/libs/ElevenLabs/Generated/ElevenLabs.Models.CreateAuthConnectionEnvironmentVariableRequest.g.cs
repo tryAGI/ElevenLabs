@@ -38,13 +38,13 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateAuthConnectionEnvironmentVariableRequest" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="label">
         /// Unique label for the environment variable.
         /// </param>
         /// <param name="values">
         /// Environment-specific auth connection references. Must include 'production' key.
         /// </param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -53,9 +53,9 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest> values,
             string type = "auth_connection")
         {
+            this.Type = type;
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.Values = values ?? throw new global::System.ArgumentNullException(nameof(values));
-            this.Type = type;
         }
 
         /// <summary>

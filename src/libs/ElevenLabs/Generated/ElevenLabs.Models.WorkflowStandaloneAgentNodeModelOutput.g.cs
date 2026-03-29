@@ -67,9 +67,6 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkflowStandaloneAgentNodeModelOutput" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: standalone_agent
-        /// </param>
         /// <param name="position">
         /// Position of the node in the workflow.
         /// </param>
@@ -83,12 +80,15 @@ namespace ElevenLabs
         /// Artificial delay in milliseconds applied before transferring the conversation.<br/>
         /// Default Value: 0
         /// </param>
-        /// <param name="transferMessage">
-        /// Optional message sent to the user before the transfer is initiated.
-        /// </param>
         /// <param name="enableTransferredAgentFirstMessage">
         /// Whether to enable the transferred agent to send its configured first message after the transfer.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="transferMessage">
+        /// Optional message sent to the user before the transfer is initiated.
+        /// </param>
+        /// <param name="type">
+        /// Default Value: standalone_agent
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -102,13 +102,13 @@ namespace ElevenLabs
             string? transferMessage,
             string type = "standalone_agent")
         {
+            this.Type = type;
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
             this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.DelayMs = delayMs;
-            this.EnableTransferredAgentFirstMessage = enableTransferredAgentFirstMessage;
-            this.Type = type;
             this.TransferMessage = transferMessage;
+            this.EnableTransferredAgentFirstMessage = enableTransferredAgentFirstMessage;
         }
 
         /// <summary>

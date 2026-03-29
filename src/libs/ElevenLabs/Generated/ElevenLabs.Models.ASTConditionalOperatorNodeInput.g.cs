@@ -47,9 +47,6 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ASTConditionalOperatorNodeInput" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: conditional_operator
-        /// </param>
         /// <param name="condition">
         /// Condition deciding which expression should be selected.
         /// </param>
@@ -58,6 +55,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="falseExpression">
         /// Expression selected if the condition is false.
+        /// </param>
+        /// <param name="type">
+        /// Default Value: conditional_operator
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -68,10 +68,10 @@ namespace ElevenLabs
             global::ElevenLabs.FalseExpression falseExpression,
             string? type)
         {
+            this.Type = type;
             this.Condition = condition;
             this.TrueExpression = trueExpression;
             this.FalseExpression = falseExpression;
-            this.Type = type;
         }
 
         /// <summary>

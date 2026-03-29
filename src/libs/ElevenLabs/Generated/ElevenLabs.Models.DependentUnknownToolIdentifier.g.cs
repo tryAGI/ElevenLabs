@@ -31,10 +31,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="DependentUnknownToolIdentifier" /> class.
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="type">
         /// Default Value: unknown
         /// </param>
-        /// <param name="id"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -42,8 +42,8 @@ namespace ElevenLabs
             string id,
             string? type)
         {
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Type = type;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
         }
 
         /// <summary>

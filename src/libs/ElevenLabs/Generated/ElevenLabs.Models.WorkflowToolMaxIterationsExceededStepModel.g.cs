@@ -38,10 +38,10 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="WorkflowToolMaxIterationsExceededStepModel" /> class.
         /// </summary>
         /// <param name="stepLatencySecs"></param>
+        /// <param name="maxIterations"></param>
         /// <param name="type">
         /// Default Value: max_iterations_exceeded
         /// </param>
-        /// <param name="maxIterations"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -51,8 +51,8 @@ namespace ElevenLabs
             string? type)
         {
             this.StepLatencySecs = stepLatencySecs;
-            this.MaxIterations = maxIterations;
             this.Type = type;
+            this.MaxIterations = maxIterations;
         }
 
         /// <summary>

@@ -43,11 +43,11 @@ namespace ElevenLabs.Realtime
         /// <summary>
         /// Initializes a new instance of the <see cref="CommittedTranscriptWithTimestampsPayload" /> class.
         /// </summary>
-        /// <param name="messageType">
-        /// Must be 'committed_transcript_with_timestamps'.
-        /// </param>
         /// <param name="text">
         /// The committed transcript text.
+        /// </param>
+        /// <param name="messageType">
+        /// Must be 'committed_transcript_with_timestamps'.
         /// </param>
         /// <param name="languageCode">
         /// Detected language code, if language detection is enabled.
@@ -64,8 +64,8 @@ namespace ElevenLabs.Realtime
             string? languageCode,
             global::System.Collections.Generic.IList<global::ElevenLabs.Realtime.TranscriptionWord>? words)
         {
-            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.MessageType = messageType;
+            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.LanguageCode = languageCode;
             this.Words = words;
         }

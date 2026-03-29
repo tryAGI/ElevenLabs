@@ -40,11 +40,11 @@ namespace ElevenLabs
         /// <param name="agents">
         /// A list of agents and their metadata
         /// </param>
-        /// <param name="nextCursor">
-        /// The next cursor to paginate through the agents
-        /// </param>
         /// <param name="hasMore">
         /// Whether there are more agents to paginate through
+        /// </param>
+        /// <param name="nextCursor">
+        /// The next cursor to paginate through the agents
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -55,8 +55,8 @@ namespace ElevenLabs
             string? nextCursor)
         {
             this.Agents = agents ?? throw new global::System.ArgumentNullException(nameof(agents));
-            this.HasMore = hasMore;
             this.NextCursor = nextCursor;
+            this.HasMore = hasMore;
         }
 
         /// <summary>

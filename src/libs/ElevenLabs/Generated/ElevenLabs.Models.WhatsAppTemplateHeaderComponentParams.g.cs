@@ -30,10 +30,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WhatsAppTemplateHeaderComponentParams" /> class.
         /// </summary>
+        /// <param name="parameters"></param>
         /// <param name="type">
         /// Default Value: header
         /// </param>
-        /// <param name="parameters"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -41,8 +41,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ParametersItem> parameters,
             string? type)
         {
-            this.Parameters = parameters ?? throw new global::System.ArgumentNullException(nameof(parameters));
             this.Type = type;
+            this.Parameters = parameters ?? throw new global::System.ArgumentNullException(nameof(parameters));
         }
 
         /// <summary>

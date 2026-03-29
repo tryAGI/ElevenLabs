@@ -52,14 +52,14 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="CreateCustomHeaderAuthRequest" /> class.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="authType">
-        /// Default Value: custom_header_auth
-        /// </param>
         /// <param name="provider"></param>
         /// <param name="headerName">
         /// The name of the header to use for authentication (e.g., 'x-api-key')
         /// </param>
         /// <param name="token"></param>
+        /// <param name="authType">
+        /// Default Value: custom_header_auth
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -71,10 +71,10 @@ namespace ElevenLabs
             string? authType)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.AuthType = authType;
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
             this.HeaderName = headerName ?? throw new global::System.ArgumentNullException(nameof(headerName));
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
-            this.AuthType = authType;
         }
 
         /// <summary>

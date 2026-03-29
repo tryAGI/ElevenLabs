@@ -45,10 +45,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConvAIWorkspaceStoredSecretConfig" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="secretId"></param>
         /// <param name="name"></param>
         /// <param name="usedBy"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -58,10 +58,10 @@ namespace ElevenLabs
             global::ElevenLabs.ConvAIStoredSecretDependencies usedBy,
             string type = "stored")
         {
+            this.Type = type;
             this.SecretId = secretId ?? throw new global::System.ArgumentNullException(nameof(secretId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.UsedBy = usedBy ?? throw new global::System.ArgumentNullException(nameof(usedBy));
-            this.Type = type;
         }
 
         /// <summary>

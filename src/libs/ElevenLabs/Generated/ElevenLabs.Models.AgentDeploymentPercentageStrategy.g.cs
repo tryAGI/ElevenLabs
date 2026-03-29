@@ -30,11 +30,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentDeploymentPercentageStrategy" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: percentage
-        /// </param>
         /// <param name="trafficPercentage">
         /// Traffic percentage to deploy
+        /// </param>
+        /// <param name="type">
+        /// Default Value: percentage
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -43,8 +43,8 @@ namespace ElevenLabs
             double trafficPercentage,
             string? type)
         {
-            this.TrafficPercentage = trafficPercentage;
             this.Type = type;
+            this.TrafficPercentage = trafficPercentage;
         }
 
         /// <summary>
