@@ -9551,6 +9551,9 @@
                   },
                   {
                     "$ref": "#/components/schemas/CreatePrivateKeyJWTRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateMTLSAuthRequest"
                   }
                 ],
                 "description": "Auth connection to create",
@@ -9582,6 +9585,9 @@
                       "$ref": "#/components/schemas/PrivateKeyJWTResponse"
                     },
                     {
+                      "$ref": "#/components/schemas/MTLSAuthResponse"
+                    },
+                    {
                       "$ref": "#/components/schemas/CustomHeaderAuthResponse"
                     },
                     {
@@ -9599,6 +9605,7 @@
                       "bearer_auth": "#/components/schemas/BearerAuthResponse",
                       "oauth2_jwt": "#/components/schemas/OAuth2JWTResponse",
                       "private_key_jwt": "#/components/schemas/PrivateKeyJWTResponse",
+                      "mtls": "#/components/schemas/MTLSAuthResponse",
                       "custom_header_auth": "#/components/schemas/CustomHeaderAuthResponse",
                       "api_integration_oauth2_auth_code": "#/components/schemas/ApiIntegrationOAuth2AuthCodeResponse",
                       "whatsapp_auth": "#/components/schemas/WhatsAppAuthResponse"
@@ -47023,6 +47030,63 @@
         ],
         "title": "CreateCustomHeaderAuthRequest"
       },
+      "CreateMTLSAuthRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "auth_type": {
+            "type": "string",
+            "const": "mtls",
+            "title": "Auth Type",
+            "default": "mtls"
+          },
+          "provider": {
+            "type": "string",
+            "title": "Provider"
+          },
+          "client_certificate": {
+            "type": "string",
+            "title": "Client Certificate"
+          },
+          "client_key": {
+            "type": "string",
+            "title": "Client Key"
+          },
+          "ca_certificate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ca Certificate"
+          },
+          "key_passphrase": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Key Passphrase"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "provider",
+          "client_certificate",
+          "client_key"
+        ],
+        "title": "CreateMTLSAuthRequest",
+        "description": "Request model for creating mTLS auth connections."
+      },
       "CreateOAuth2ClientCredsRequest": {
         "properties": {
           "name": {
@@ -56781,6 +56845,9 @@
                   "$ref": "#/components/schemas/PrivateKeyJWTResponse"
                 },
                 {
+                  "$ref": "#/components/schemas/MTLSAuthResponse"
+                },
+                {
                   "$ref": "#/components/schemas/CustomHeaderAuthResponse"
                 },
                 {
@@ -56798,6 +56865,7 @@
                   "basic_auth": "#/components/schemas/BasicAuthResponse",
                   "bearer_auth": "#/components/schemas/BearerAuthResponse",
                   "custom_header_auth": "#/components/schemas/CustomHeaderAuthResponse",
+                  "mtls": "#/components/schemas/MTLSAuthResponse",
                   "oauth2_client_credentials": "#/components/schemas/OAuth2ClientCredsResponse",
                   "oauth2_jwt": "#/components/schemas/OAuth2JWTResponse",
                   "private_key_jwt": "#/components/schemas/PrivateKeyJWTResponse",
@@ -58497,6 +58565,46 @@
         },
         "type": "object",
         "title": "MCPToolConfigOverrideUpdateRequestModel"
+      },
+      "MTLSAuthResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "auth_type": {
+            "type": "string",
+            "const": "mtls",
+            "title": "Auth Type",
+            "default": "mtls"
+          },
+          "provider": {
+            "type": "string",
+            "title": "Provider"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "used_by": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AuthConnectionDependencies"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "provider",
+          "id"
+        ],
+        "title": "MTLSAuthResponse",
+        "description": "Response model for mTLS auth connections."
       },
       "ManualVerificationFileResponseModel": {
         "properties": {

@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Mtls,
+        /// <summary>
+        /// 
+        /// </summary>
         Oauth2ClientCredentials,
         /// <summary>
         /// 
@@ -58,6 +62,7 @@ namespace ElevenLabs
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.BasicAuth => "basic_auth",
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.BearerAuth => "bearer_auth",
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.CustomHeaderAuth => "custom_header_auth",
+                ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Mtls => "mtls",
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Oauth2ClientCredentials => "oauth2_client_credentials",
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Oauth2Jwt => "oauth2_jwt",
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.PrivateKeyJwt => "private_key_jwt",
@@ -76,6 +81,7 @@ namespace ElevenLabs
                 "basic_auth" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.BasicAuth,
                 "bearer_auth" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.BearerAuth,
                 "custom_header_auth" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.CustomHeaderAuth,
+                "mtls" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Mtls,
                 "oauth2_client_credentials" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Oauth2ClientCredentials,
                 "oauth2_jwt" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Oauth2Jwt,
                 "private_key_jwt" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.PrivateKeyJwt,

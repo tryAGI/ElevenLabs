@@ -56,6 +56,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PrivateKeyJWTResponse)}");
                 privateKeyJwt = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.MTLSAuthResponse? mtls = default;
+            if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.Mtls)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MTLSAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MTLSAuthResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MTLSAuthResponse)}");
+                mtls = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.CustomHeaderAuthResponse? customHeaderAuth = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.CustomHeaderAuth)
             {
@@ -89,6 +96,8 @@ namespace ElevenLabs.JsonConverters
                 oauth2Jwt,
 
                 privateKeyJwt,
+
+                mtls,
 
                 customHeaderAuth,
 
@@ -138,6 +147,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PrivateKeyJWTResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PrivateKeyJWTResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PrivateKeyJWTResponse).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PrivateKeyJwt, typeInfo);
+            }
+            else if (value.IsMtls)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MTLSAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MTLSAuthResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MTLSAuthResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mtls, typeInfo);
             }
             else if (value.IsCustomHeaderAuth)
             {
