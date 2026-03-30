@@ -21971,6 +21971,75 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/convai/conversations/{conversation_id}/analysis/run": {
+      "post": {
+        "tags": [
+          "Agents Workspace Analytics"
+        ],
+        "summary": "Run Conversation Analysis",
+        "description": "Run the analysis for a conversation using the agent's current evaluation criteria and data collection settings.",
+        "operationId": "run_conversation_analysis",
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "ID of the conversation",
+              "title": "Conversation Id"
+            },
+            "description": "ID of the conversation"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConversationResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "conversations",
+          "analysis"
+        ],
+        "x-fern-sdk-method-name": "run"
+      }
+    },
     "/v1/convai/environment-variables": {
       "post": {
         "tags": [
@@ -35950,12 +36019,6 @@
             "type": "string",
             "title": "Text",
             "description": "The text to align with the audio. The input text can be in any format, however diarization is not supported at this time."
-          },
-          "enabled_spooled_file": {
-            "type": "boolean",
-            "title": "Enabled Spooled File",
-            "description": "If true, the file will be streamed to the server and processed in chunks. This is useful for large files that cannot be loaded into memory. The default is false.",
-            "default": false
           }
         },
         "type": "object",
@@ -53321,6 +53384,12 @@
             "title": "Has More",
             "description": "Whether there are more shared voices in subsequent pages."
           },
+          "total_count": {
+            "type": "integer",
+            "title": "Total Count",
+            "description": "The total number of shared voices matching the query.",
+            "default": 0
+          },
           "last_sort_id": {
             "anyOf": [
               {
@@ -53341,6 +53410,7 @@
         "title": "GetLibraryVoicesResponseModel",
         "example": {
           "has_more": false,
+          "total_count": 0,
           "voices": [
             {
               "accent": "american",

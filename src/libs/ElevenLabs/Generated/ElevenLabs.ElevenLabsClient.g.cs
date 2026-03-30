@@ -49,6 +49,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public AgentsWorkspaceAnalyticsClient AgentsWorkspaceAnalytics => new AgentsWorkspaceAnalyticsClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AudioIsolationClient AudioIsolation => new AudioIsolationClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,

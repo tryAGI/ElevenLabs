@@ -48,6 +48,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public AgentsWorkspaceAnalyticsClient AgentsWorkspaceAnalytics { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AudioIsolationClient AudioIsolation { get; }
 
         /// <summary>

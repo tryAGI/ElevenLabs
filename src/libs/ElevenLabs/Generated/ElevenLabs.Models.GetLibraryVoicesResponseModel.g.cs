@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"has_more":false,"voices":[{"accent":"american","age":"young","category":"professional","cloned_by_count":11,"date_unix":1714423232,"description":"Perfectly calm, neutral and strong voice. Great for a young female protagonist.","descriptive":"calm","featured":false,"free_users_allowed":true,"gender":"Female","language":"en","live_moderation_enabled":false,"name":"Alita","play_api_usage_character_count_1y":12852,"preview_url":"https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3","public_owner_id":"63e84100a6bf7874ba37a1bab9a31828a379ec94b891b401653b655c5110880f","rate":1,"usage_character_count_1y":12852,"usage_character_count_7d":12852,"use_case":"characters_animation","verified_languages":[{"accent":"american","language":"en","locale":"en-US","model_id":"eleven_multilingual_v2","preview_url":"https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3"}],"voice_id":"sB1b5zUrxQVAFl2PhZFp"}]}
+    /// Example: {"has_more":false,"total_count":0,"voices":[{"accent":"american","age":"young","category":"professional","cloned_by_count":11,"date_unix":1714423232,"description":"Perfectly calm, neutral and strong voice. Great for a young female protagonist.","descriptive":"calm","featured":false,"free_users_allowed":true,"gender":"Female","language":"en","live_moderation_enabled":false,"name":"Alita","play_api_usage_character_count_1y":12852,"preview_url":"https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3","public_owner_id":"63e84100a6bf7874ba37a1bab9a31828a379ec94b891b401653b655c5110880f","rate":1,"usage_character_count_1y":12852,"usage_character_count_7d":12852,"use_case":"characters_animation","verified_languages":[{"accent":"american","language":"en","locale":"en-US","model_id":"eleven_multilingual_v2","preview_url":"https://storage.googleapis.com/eleven-public-prod/wqkMCd9huxXHX1dy5mLJn4QEQHj1/voices/sB1b5zUrxQVAFl2PhZFp/55e71aac-5cb7-4b3d-8241-429388160509.mp3"}],"voice_id":"sB1b5zUrxQVAFl2PhZFp"}]}
     /// </summary>
     public sealed partial class GetLibraryVoicesResponseModel
     {
@@ -21,6 +21,13 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool HasMore { get; set; }
+
+        /// <summary>
+        /// The total number of shared voices matching the query.<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("total_count")]
+        public int? TotalCount { get; set; }
 
         /// <summary>
         /// 
@@ -43,6 +50,10 @@ namespace ElevenLabs
         /// <param name="hasMore">
         /// Whether there are more shared voices in subsequent pages.
         /// </param>
+        /// <param name="totalCount">
+        /// The total number of shared voices matching the query.<br/>
+        /// Default Value: 0
+        /// </param>
         /// <param name="lastSortId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -50,10 +61,12 @@ namespace ElevenLabs
         public GetLibraryVoicesResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.LibraryVoiceResponseModel> voices,
             bool hasMore,
+            int? totalCount,
             string? lastSortId)
         {
             this.Voices = voices ?? throw new global::System.ArgumentNullException(nameof(voices));
             this.HasMore = hasMore;
+            this.TotalCount = totalCount;
             this.LastSortId = lastSortId;
         }
 
