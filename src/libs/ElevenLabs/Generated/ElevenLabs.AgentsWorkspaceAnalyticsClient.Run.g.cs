@@ -3,53 +3,52 @@
 
 namespace ElevenLabs
 {
-    public partial class ForcedAlignmentClient
+    public partial class AgentsWorkspaceAnalyticsClient
     {
-        partial void PrepareCreateArguments(
+        partial void PrepareRunArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey,
-            global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost request);
-        partial void PrepareCreateRequest(
+            ref string conversationId,
+            ref string? xiApiKey);
+        partial void PrepareRunRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey,
-            global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost request);
-        partial void ProcessCreateResponse(
+            string conversationId,
+            string? xiApiKey);
+        partial void ProcessRunResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateResponseContent(
+        partial void ProcessRunResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Forced Alignment<br/>
-        /// Force align an audio file to text. Use this endpoint to get the timing information for each character and word in an audio file based on a provided text transcript.
+        /// Run Conversation Analysis<br/>
+        /// Run the analysis for a conversation using the agent's current evaluation criteria and data collection settings.
         /// </summary>
+        /// <param name="conversationId">
+        /// ID of the conversation
+        /// </param>
         /// <param name="xiApiKey">
         /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
-        /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ForcedAlignmentResponseModel> CreateAsync(
-
-            global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConversationResponseModel> RunAsync(
+            string conversationId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateArguments(
+            PrepareRunArguments(
                 httpClient: HttpClient,
-                xiApiKey: ref xiApiKey,
-                request: request);
+                conversationId: ref conversationId,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/forced-alignment",
+                path: $"/v1/convai/conversations/{conversationId}/analysis/run",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -81,36 +80,15 @@ namespace ElevenLabs
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
-            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            if (xiApiKey != default)
-            {
-
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "\"xi-api-key\"");
-            }
-            var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
-            __httpRequestContent.Add(
-                content: __contentFile,
-                name: "\"file\"",
-                fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
-            if (__contentFile.Headers.ContentDisposition != null)
-            {
-                __contentFile.Headers.ContentDisposition.FileNameStar = null;
-            }
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"{request.Text}"),
-                name: "\"text\"");
-            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateRequest(
+            PrepareRunRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey,
-                request: request);
+                conversationId: conversationId,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -120,7 +98,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateResponse(
+            ProcessRunResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -174,7 +152,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateResponseContent(
+                ProcessRunResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -184,7 +162,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.ForcedAlignmentResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        global::ElevenLabs.GetConversationResponseModel.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -215,7 +193,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.ForcedAlignmentResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetConversationResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -246,43 +224,6 @@ namespace ElevenLabs
                     };
                 }
             }
-        }
-        /// <summary>
-        /// Create Forced Alignment<br/>
-        /// Force align an audio file to text. Use this endpoint to get the timing information for each character and word in an audio file based on a provided text transcript.
-        /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
-        /// <param name="file">
-        /// The file to align. All major audio formats are supported. The file size must be less than 1GB.
-        /// </param>
-        /// <param name="filename">
-        /// The file to align. All major audio formats are supported. The file size must be less than 1GB.
-        /// </param>
-        /// <param name="text">
-        /// The text to align with the audio. The input text can be in any format, however diarization is not supported at this time.
-        /// </param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ForcedAlignmentResponseModel> CreateAsync(
-            byte[] file,
-            string filename,
-            string text,
-            string? xiApiKey = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost
-            {
-                File = file,
-                Filename = filename,
-                Text = text,
-            };
-
-            return await CreateAsync(
-                xiApiKey: xiApiKey,
-                request: __request,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
