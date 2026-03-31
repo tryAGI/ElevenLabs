@@ -70418,6 +70418,51 @@
             ],
             "title": "Is Bookmarked",
             "description": "Whether the voice is bookmarked by the current user. Only relevant for community (library-copied) voices."
+          },
+          "recording_quality": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "studio",
+                  "ok",
+                  "bad"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recording Quality",
+            "description": "The recording quality of the voice as determined by the review pipeline."
+          },
+          "labelling_status": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "in_review",
+                  "review_complete"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Labelling Status",
+            "description": "The review pipeline status of the voice."
+          },
+          "recording_quality_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recording Quality Reason",
+            "description": "The reason for the recording quality assessment, as determined by the review pipeline."
           }
         },
         "type": "object",

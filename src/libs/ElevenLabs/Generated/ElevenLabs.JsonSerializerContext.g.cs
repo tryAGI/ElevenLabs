@@ -1073,6 +1073,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelSafetyControl2NullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelRecordingQuality2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelRecordingQuality2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelLabellingStatus2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.VoiceResponseModelLabellingStatus2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.VoiceSharingResponseModelStatusJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.VoiceSharingResponseModelStatusNullableJsonConverter),
@@ -3163,6 +3171,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSharingResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelSafetyControl2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceVerificationResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelRecordingQuality2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelLabellingStatus2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSamplePreviewResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSampleVisualWaveformResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSharingModerationCheckResponseModel))]
