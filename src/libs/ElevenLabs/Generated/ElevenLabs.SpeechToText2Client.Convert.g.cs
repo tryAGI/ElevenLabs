@@ -1,6 +1,8 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class SpeechToText2Client
@@ -178,6 +180,13 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.FileFormat?.ToValueString()}"),
                     name: "\"file_format\"");
+            } 
+            if (request.CloudStorageUrl != default)
+            {
+
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.CloudStorageUrl}"),
+                    name: "\"cloud_storage_url\"");
             } 
             if (request.SourceUrl != default)
             {
@@ -425,10 +434,10 @@ namespace ElevenLabs
         /// The ID of the model to use for transcription.
         /// </param>
         /// <param name="file">
-        /// The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
         /// </param>
         /// <param name="filename">
-        /// The file to transcribe. All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
         /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.

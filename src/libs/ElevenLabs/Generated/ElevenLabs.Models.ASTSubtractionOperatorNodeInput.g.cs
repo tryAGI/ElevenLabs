@@ -18,17 +18,17 @@ namespace ElevenLabs
         /// Left operand of the binary operator.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("left")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Left19JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASTNodeInputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Left19 Left { get; set; }
+        public required global::ElevenLabs.ASTNodeInput Left { get; set; }
 
         /// <summary>
         /// Right operand of the binary operator.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("right")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Right19JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASTNodeInputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Right19 Right { get; set; }
+        public required global::ElevenLabs.ASTNodeInput Right { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -52,8 +52,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ASTSubtractionOperatorNodeInput(
-            global::ElevenLabs.Left19 left,
-            global::ElevenLabs.Right19 right,
+            global::ElevenLabs.ASTNodeInput left,
+            global::ElevenLabs.ASTNodeInput right,
             string? type)
         {
             this.Type = type;

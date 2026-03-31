@@ -24,9 +24,9 @@ namespace ElevenLabs
         /// Expression to evaluate.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expression")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ExpressionJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASTNodeInputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Expression Expression { get; set; }
+        public required global::ElevenLabs.ASTNodeInput Expression { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -50,7 +50,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WorkflowExpressionConditionModelInput(
-            global::ElevenLabs.Expression expression,
+            global::ElevenLabs.ASTNodeInput expression,
             string? label,
             string? type)
         {

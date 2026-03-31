@@ -19,17 +19,17 @@ namespace ElevenLabs
         /// Left operand of the binary operator.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("left")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Left8JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASTNodeOutputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Left8 Left { get; set; }
+        public required global::ElevenLabs.ASTNodeOutput Left { get; set; }
 
         /// <summary>
         /// Right operand of the binary operator.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("right")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Right8JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASTNodeOutputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Right8 Right { get; set; }
+        public required global::ElevenLabs.ASTNodeOutput Right { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -53,8 +53,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ASTGreaterThanOperatorNodeOutput(
-            global::ElevenLabs.Left8 left,
-            global::ElevenLabs.Right8 right,
+            global::ElevenLabs.ASTNodeOutput left,
+            global::ElevenLabs.ASTNodeOutput right,
             string type = "gt_operator")
         {
             this.Type = type;
