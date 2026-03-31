@@ -36,7 +36,7 @@ namespace ElevenLabs
         public int? MaxCharacterLimitExtension { get; set; }
 
         /// <summary>
-        /// Whether the user can extend their character limit.
+        /// Whether the workspace is entitled to enter overages (usage-based billing).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_extend_character_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -162,7 +162,7 @@ namespace ElevenLabs
         /// The maximum number of characters allowed in the current billing period.
         /// </param>
         /// <param name="canExtendCharacterLimit">
-        /// Whether the user can extend their character limit.
+        /// Whether the workspace is entitled to enter overages (usage-based billing).
         /// </param>
         /// <param name="allowedToExtendCharacterLimit">
         /// Whether the user is allowed to extend their character limit.

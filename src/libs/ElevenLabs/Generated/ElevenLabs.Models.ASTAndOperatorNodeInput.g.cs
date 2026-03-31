@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("children")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ChildrenItem> Children { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ASTNodeInput> Children { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +40,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ASTAndOperatorNodeInput(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ChildrenItem> children,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ASTNodeInput> children,
             string? type)
         {
             this.Type = type;

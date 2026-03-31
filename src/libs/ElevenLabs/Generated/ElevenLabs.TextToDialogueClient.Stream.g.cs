@@ -238,6 +238,9 @@ namespace ElevenLabs
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
         /// Default Value: auto
         /// </param>
+        /// <param name="avatarContext">
+        /// Avatar context when this generation is made from the Avatars video editor.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> StreamAsync(
@@ -250,6 +253,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? pronunciationDictionaryLocators = default,
             int? seed = default,
             global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? applyTextNormalization = default,
+            global::ElevenLabs.AvatarContextRequestModel? avatarContext = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost
@@ -261,6 +265,7 @@ namespace ElevenLabs
                 PronunciationDictionaryLocators = pronunciationDictionaryLocators,
                 Seed = seed,
                 ApplyTextNormalization = applyTextNormalization,
+                AvatarContext = avatarContext,
             };
 
             return await StreamAsync(

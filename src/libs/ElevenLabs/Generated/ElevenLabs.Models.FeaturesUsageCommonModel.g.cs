@@ -77,6 +77,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dtmf_input")]
+        public global::ElevenLabs.FeatureStatusCommonModel? DtmfInput { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workflow")]
         public global::ElevenLabs.WorkflowFeaturesUsageCommonModel? Workflow { get; set; }
 
@@ -124,6 +130,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="voicemailDetection"></param>
+        /// <param name="dtmfInput"></param>
         /// <param name="workflow"></param>
         /// <param name="agentTesting"></param>
         /// <param name="versioning"></param>
@@ -143,6 +150,7 @@ namespace ElevenLabs
             global::ElevenLabs.FeatureStatusCommonModel? toolDynamicVariableUpdates,
             bool? isLivekit,
             global::ElevenLabs.FeatureStatusCommonModel? voicemailDetection,
+            global::ElevenLabs.FeatureStatusCommonModel? dtmfInput,
             global::ElevenLabs.WorkflowFeaturesUsageCommonModel? workflow,
             global::ElevenLabs.TestsFeatureUsageCommonModel? agentTesting,
             global::ElevenLabs.FeatureStatusCommonModel? versioning,
@@ -159,6 +167,7 @@ namespace ElevenLabs
             this.ToolDynamicVariableUpdates = toolDynamicVariableUpdates;
             this.IsLivekit = isLivekit;
             this.VoicemailDetection = voicemailDetection;
+            this.DtmfInput = dtmfInput;
             this.Workflow = workflow;
             this.AgentTesting = agentTesting;
             this.Versioning = versioning;

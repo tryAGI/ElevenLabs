@@ -19,25 +19,25 @@ namespace ElevenLabs
         /// Condition deciding which expression should be selected.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Condition2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASTNodeOutputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Condition2 Condition { get; set; }
+        public required global::ElevenLabs.ASTNodeOutput Condition { get; set; }
 
         /// <summary>
         /// Expression selected if the condition is true.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trueExpression")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TrueExpression2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASTNodeOutputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.TrueExpression2 TrueExpression { get; set; }
+        public required global::ElevenLabs.ASTNodeOutput TrueExpression { get; set; }
 
         /// <summary>
         /// Expression selected if the condition is false.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("falseExpression")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.FalseExpression2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASTNodeOutputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.FalseExpression2 FalseExpression { get; set; }
+        public required global::ElevenLabs.ASTNodeOutput FalseExpression { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -64,9 +64,9 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ASTConditionalOperatorNodeOutput(
-            global::ElevenLabs.Condition2 condition,
-            global::ElevenLabs.TrueExpression2 trueExpression,
-            global::ElevenLabs.FalseExpression2 falseExpression,
+            global::ElevenLabs.ASTNodeOutput condition,
+            global::ElevenLabs.ASTNodeOutput trueExpression,
+            global::ElevenLabs.ASTNodeOutput falseExpression,
             string type = "conditional_operator")
         {
             this.Type = type;

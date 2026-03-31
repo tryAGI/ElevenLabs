@@ -131,6 +131,12 @@ namespace ElevenLabs
         public string? OutputFormat { get; set; }
 
         /// <summary>
+        /// Avatar context if this generation was created from the Avatars video editor.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("avatar_context")]
+        public global::ElevenLabs.AvatarContextResponseModel? AvatarContext { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -196,6 +202,9 @@ namespace ElevenLabs
         /// <param name="outputFormat">
         /// The output format the audio was originally generated in.
         /// </param>
+        /// <param name="avatarContext">
+        /// Avatar context if this generation was created from the Avatars video editor.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -218,7 +227,8 @@ namespace ElevenLabs
             global::ElevenLabs.SpeechHistoryItemResponseModelSource2? source,
             global::ElevenLabs.HistoryAlignmentsResponseModel? alignments,
             global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? dialogue,
-            string? outputFormat)
+            string? outputFormat,
+            global::ElevenLabs.AvatarContextResponseModel? avatarContext)
         {
             this.HistoryItemId = historyItemId ?? throw new global::System.ArgumentNullException(nameof(historyItemId));
             this.RequestId = requestId;
@@ -239,6 +249,7 @@ namespace ElevenLabs
             this.Alignments = alignments;
             this.Dialogue = dialogue;
             this.OutputFormat = outputFormat;
+            this.AvatarContext = avatarContext;
         }
 
         /// <summary>
