@@ -156,6 +156,24 @@ namespace ElevenLabs
         public bool? IsBookmarked { get; set; }
 
         /// <summary>
+        /// The recording quality of the voice as determined by the review pipeline.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recording_quality")]
+        public global::ElevenLabs.VoiceResponseModelRecordingQuality2? RecordingQuality { get; set; }
+
+        /// <summary>
+        /// The review pipeline status of the voice.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("labelling_status")]
+        public global::ElevenLabs.VoiceResponseModelLabellingStatus2? LabellingStatus { get; set; }
+
+        /// <summary>
+        /// The reason for the recording quality assessment, as determined by the review pipeline.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recording_quality_reason")]
+        public string? RecordingQualityReason { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -235,6 +253,15 @@ namespace ElevenLabs
         /// <param name="isBookmarked">
         /// Whether the voice is bookmarked by the current user. Only relevant for community (library-copied) voices.
         /// </param>
+        /// <param name="recordingQuality">
+        /// The recording quality of the voice as determined by the review pipeline.
+        /// </param>
+        /// <param name="labellingStatus">
+        /// The review pipeline status of the voice.
+        /// </param>
+        /// <param name="recordingQualityReason">
+        /// The reason for the recording quality assessment, as determined by the review pipeline.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -261,7 +288,10 @@ namespace ElevenLabs
             bool? isMixed,
             int? favoritedAtUnix,
             int? createdAtUnix,
-            bool? isBookmarked)
+            bool? isBookmarked,
+            global::ElevenLabs.VoiceResponseModelRecordingQuality2? recordingQuality,
+            global::ElevenLabs.VoiceResponseModelLabellingStatus2? labellingStatus,
+            string? recordingQualityReason)
         {
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -286,6 +316,9 @@ namespace ElevenLabs
             this.FavoritedAtUnix = favoritedAtUnix;
             this.CreatedAtUnix = createdAtUnix;
             this.IsBookmarked = isBookmarked;
+            this.RecordingQuality = recordingQuality;
+            this.LabellingStatus = labellingStatus;
+            this.RecordingQualityReason = recordingQualityReason;
         }
 
         /// <summary>
