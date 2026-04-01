@@ -8,7 +8,7 @@ This example assumes `using ElevenLabs;` is in scope and `apiKey` contains your 
 using var client = new ElevenLabsClient(apiKey);
 
 // Fetch all voices for the authenticated workspace.
-GetVoicesResponseModel response = await client.Voices.GetVoicesAsync();
+GetVoicesResponseModel response = await client.Voices.GetAllAsync();
 
 // Print the voice names and IDs so you can reuse a voice in text-to-speech.
 foreach (var voice in response.Voices)

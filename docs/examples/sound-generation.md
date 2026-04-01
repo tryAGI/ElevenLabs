@@ -8,7 +8,7 @@ This example assumes `using ElevenLabs;` is in scope and `apiKey` contains your 
 using var client = new ElevenLabsClient(apiKey);
 
 // Generate a sound effect from a text description.
-byte[] soundBytes = await client.SoundGeneration.CreateSoundGenerationAsync(
+byte[] soundBytes = await client.TextToSoundEffects.ConvertAsync(
     text: "A gentle ocean wave crashing on a sandy beach",
     durationSeconds: 3.0);
 

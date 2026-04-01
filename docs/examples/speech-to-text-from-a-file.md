@@ -12,7 +12,7 @@ byte[] audioFile = await File.ReadAllBytesAsync(
     Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
 
 // Submit the file for transcription.
-var transcription = await client.SpeechToText.CreateSpeechToTextAsync(
+var transcription = await client.SpeechToText2.ConvertAsync(
     modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
     file: audioFile,
     filename: "hello-in-russian-24k-pcm16.wav",

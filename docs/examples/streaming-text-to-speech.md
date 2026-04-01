@@ -8,7 +8,7 @@ This example assumes `using ElevenLabs;` is in scope and `apiKey` contains your 
 using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
-var voices = await client.Voices.GetVoicesAsync();
+var voices = await client.Voices.GetAllAsync();
 var voice = voices.Voices[0];
 const string text = "This audio is streamed for low-latency playback.";
 
@@ -16,7 +16,7 @@ Console.WriteLine($"Using voice: {voice.Name} ({voice.VoiceId})");
 Console.WriteLine($"Input text: {text}");
 
 // Request streaming speech audio.
-using var streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
+using var streamedAudio = await client.TextToSpeech.StreamAsync(
     voiceId: voice.VoiceId,
     text: text,
     modelId: "eleven_multilingual_v2",

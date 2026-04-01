@@ -412,3 +412,6 @@ FodyWeavers.xsd
 
 # AutoSDK trimming check temp directory
 .autosdk-trim/
+
+# MkDocs local build outputs
+site/

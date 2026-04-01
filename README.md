@@ -1,18 +1,36 @@
-# ElevenLabs
+<div class="docs-hero">
+  <h1>ElevenLabs</h1>
+  <p class="docs-hero-lead">.NET SDK for ElevenLabs text to speech, speech to text, voice cloning, sound generation, and realtime transcription.</p>
+  <div class="docs-badge-row">
+    <a href="https://www.nuget.org/packages/ElevenLabs/"><img alt="Nuget package" src="https://img.shields.io/nuget/vpre/ElevenLabs"></a>
+    <a href="https://github.com/tryAGI/ElevenLabs/actions/workflows/dotnet.yml"><img alt="dotnet" src="https://github.com/tryAGI/ElevenLabs/actions/workflows/dotnet.yml/badge.svg?branch=main"></a>
+    <a href="https://github.com/tryAGI/ElevenLabs/blob/main/LICENSE.txt"><img alt="License: MIT" src="https://img.shields.io/github/license/tryAGI/ElevenLabs"></a>
+    <a href="https://discord.gg/Ca2xhfBf3v"><img alt="Discord" src="https://img.shields.io/discord/1115206893015662663?label=Discord&amp;logo=discord&amp;logoColor=white&amp;color=d82679"></a>
+  </div>
+  <div class="docs-hero-actions">
+    <a href="#usage">Get started</a>
+    <a href="#list-available-voices">Open examples</a>
+  </div>
+</div>
 
-[![Nuget package](https://img.shields.io/nuget/vpre/ElevenLabs)](https://www.nuget.org/packages/ElevenLabs/)
-[![dotnet](https://github.com/tryAGI/ElevenLabs/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/tryAGI/ElevenLabs/actions/workflows/dotnet.yml)
-[![License: MIT](https://img.shields.io/github/license/tryAGI/ElevenLabs)](https://github.com/tryAGI/ElevenLabs/blob/main/LICENSE.txt)
-[![Discord](https://img.shields.io/discord/1115206893015662663?label=Discord&logo=discord&logoColor=white&color=d82679)](https://discord.gg/Ca2xhfBf3v)
-
-## Features 🔥
-- Fully generated C# SDK based on [official ElevenLabs OpenAPI specification](https://api.elevenlabs.io/openapi.json) using [AutoSDK](https://github.com/tryAGI/AutoSDK)
-- Same day update to support new features
-- Updated and supported automatically if there are no breaking changes
-- All modern .NET features - nullability, trimming, NativeAOT, etc.
-- Support .Net Framework/.Net Standard 2.0
-- Realtime speech-to-text via WebSocket
-- Microsoft.Extensions.AI `ISpeechToTextClient` support
+<div class="docs-feature-grid">
+  <div class="docs-feature-card">
+    <h3>Speech and audio coverage</h3>
+    <p>Use one client for text to speech, speech to text, sound generation, and voice cloning workflows.</p>
+  </div>
+  <div class="docs-feature-card">
+    <h3>Realtime transcription</h3>
+    <p>Stream PCM audio over WebSocket and consume transcript events as they arrive from the realtime API.</p>
+  </div>
+  <div class="docs-feature-card">
+    <h3>Modern .NET</h3>
+    <p>Generated with AutoSDK and shaped for current .NET practices including nullability, trimming, and NativeAOT awareness.</p>
+  </div>
+  <div class="docs-feature-card">
+    <h3>MEAI integration</h3>
+    <p>Implements <code>ISpeechToTextClient</code> so the SDK plugs into <code>Microsoft.Extensions.AI</code> abstractions directly.</p>
+  </div>
+</div>
 
 ## Usage
 
@@ -43,6 +61,10 @@ var response = await speechClient.GetTextAsync(audioStream);
 Console.WriteLine(response.Text);
 ```
 
+<div class="docs-callout">
+  <strong>Examples stay source-of-truth driven.</strong> The examples below are generated from the integration test suite, so the README, docs site, and executable samples stay aligned.
+</div>
+
 <!-- EXAMPLES:START -->
 ### List Available Voices
 Fetch all voices available to the authenticated account and print each voice name and ID so you can pick one for text-to-speech requests.
@@ -51,7 +73,7 @@ Fetch all voices available to the authenticated account and print each voice nam
 using var client = new ElevenLabsClient(apiKey);
 
 // Fetch all voices for the authenticated workspace.
-GetVoicesResponseModel response = await client.Voices.GetVoicesAsync();
+GetVoicesResponseModel response = await client.Voices.GetAllAsync();
 
 // Print the voice names and IDs so you can reuse a voice in text-to-speech.
 foreach (var voice in response.Voices)
@@ -67,7 +89,7 @@ Pick a voice from the available catalog, synthesize text with it, and save the g
 using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
-var voices = await client.Voices.GetVoicesAsync();
+var voices = await client.Voices.GetAllAsync();
 var voice = voices.Voices[0];
 const string text = "Hello, world! This is a test of the ElevenLabs text-to-speech API.";
 
@@ -75,7 +97,7 @@ Console.WriteLine($"Using voice: {voice.Name} ({voice.VoiceId})");
 Console.WriteLine($"Input text: {text}");
 
 // Generate speech audio.
-byte[] audioBytes = await client.TextToSpeech.CreateTextToSpeechByVoiceIdAsync(
+byte[] audioBytes = await client.TextToSpeech.ConvertAsync(
     voiceId: voice.VoiceId,
     text: text);
 
@@ -91,7 +113,7 @@ Pick a voice from the available catalog, request a streaming text-to-speech resp
 using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
-var voices = await client.Voices.GetVoicesAsync();
+var voices = await client.Voices.GetAllAsync();
 var voice = voices.Voices[0];
 const string text = "This audio is streamed for low-latency playback.";
 
@@ -99,7 +121,7 @@ Console.WriteLine($"Using voice: {voice.Name} ({voice.VoiceId})");
 Console.WriteLine($"Input text: {text}");
 
 // Request streaming speech audio.
-using var streamedAudio = await client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamAsync(
+using var streamedAudio = await client.TextToSpeech.StreamAsync(
     voiceId: voice.VoiceId,
     text: text,
     modelId: "eleven_multilingual_v2",
@@ -118,7 +140,7 @@ Pick a voice from the available catalog, then stream synthesized audio together 
 using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
-var voices = await client.Voices.GetVoicesAsync();
+var voices = await client.Voices.GetAllAsync();
 var voice = voices.Voices[0];
 const string text = "Hello, this has timestamps.";
 
@@ -129,7 +151,7 @@ Console.WriteLine($"Input text: {text}");
 StreamingAudioChunkWithTimestampsResponseModel? firstChunk = null;
 int chunkCount = 0;
 
-await foreach (var chunk in client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
+await foreach (var chunk in client.TextToSpeech.StreamWithTimestampsAsync(
                    voiceId: voice.VoiceId,
                    text: text,
                    modelId: "eleven_multilingual_v2",
@@ -158,7 +180,7 @@ Generate a short sound effect from a text prompt and save the returned audio byt
 using var client = new ElevenLabsClient(apiKey);
 
 // Generate a sound effect from a text description.
-byte[] soundBytes = await client.SoundGeneration.CreateSoundGenerationAsync(
+byte[] soundBytes = await client.TextToSoundEffects.ConvertAsync(
     text: "A gentle ocean wave crashing on a sandy beach",
     durationSeconds: 3.0);
 
@@ -178,7 +200,7 @@ byte[] audioFile = await File.ReadAllBytesAsync(
     Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
 
 // Submit the file for transcription.
-var transcription = await client.SpeechToText.CreateSpeechToTextAsync(
+var transcription = await client.SpeechToText2.ConvertAsync(
     modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
     file: audioFile,
     filename: "hello-in-russian-24k-pcm16.wav",
@@ -206,7 +228,7 @@ byte[] voiceSample = await File.ReadAllBytesAsync(
     Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
 
 // Create the cloned voice.
-AddVoiceIVCResponseModel response = await client.Voices.CreateVoicesAddAsync(
+AddVoiceIVCResponseModel response = await client.Voices.CreateAsync(
     name: $"Test Cloned Voice {Guid.NewGuid():N}",
     files: [voiceSample],
     description: "A cloned voice from my audio sample",
@@ -215,7 +237,7 @@ AddVoiceIVCResponseModel response = await client.Voices.CreateVoicesAddAsync(
 Console.WriteLine($"Cloned voice ID: {response.VoiceId}");
 
 // Clean up the test voice once the example has succeeded.
-await client.Voices.DeleteVoicesByVoiceIdAsync(response.VoiceId);
+await client.Voices.DeleteAsync(response.VoiceId);
 ```
 
 ### Realtime Speech to Text
@@ -281,89 +303,97 @@ await foreach (var evt in session.ReadEventsAsync(cts.Token))
         break;
     }
 }
+```
 
-static (short[] samples, int sampleRate, int channels) ReadWavPcm16(ReadOnlySpan<byte> data)
+### Realtime STT (Generated Client)
+Use the auto-generated ElevenLabsRealtimeClient to stream audio and receive typed ServerEvent events via the discriminated union pattern.
+
+```csharp
+var apiKey =
+    Environment.GetEnvironmentVariable("ELEVENLABS_API_KEY") is { Length: > 0 } apiKeyValue
+        ? apiKeyValue
+        : throw new AssertInconclusiveException("ELEVENLABS_API_KEY environment variable is not found.");
+
+// Create the generated realtime client and connect with the API key in the URL.
+using var client = new ElevenLabsRealtimeClient();
+await client.ConnectAsync(
+    new Uri($"wss://api.elevenlabs.io/v1/speech-to-text/realtime?xi_api_key={apiKey}"));
+
+// Load a WAV file and extract raw PCM16 audio bytes.
+byte[] wavBytes = await File.ReadAllBytesAsync(
+    Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
+var (pcmSamples, sampleRate, _) = ReadWavPcm16(wavBytes);
+
+// Send audio chunks using the typed SendInputAudioChunkAsync method.
+const int samplesPerChunk = 12000;
+for (var offset = 0; offset < pcmSamples.Length; offset += samplesPerChunk)
 {
-    using var ms = new MemoryStream(data.ToArray(), writable: false);
-    using var br = new BinaryReader(ms, Encoding.UTF8, leaveOpen: true);
+    var count = Math.Min(samplesPerChunk, pcmSamples.Length - offset);
+    var bytes = new byte[count * 2];
+    Buffer.BlockCopy(pcmSamples, offset * 2, bytes, 0, bytes.Length);
 
-    var riff = new string(br.ReadChars(4));
-    if (riff != "RIFF")
+    var isLastChunk = offset + count >= pcmSamples.Length;
+    await client.SendInputAudioChunkAsync(new InputAudioChunkPayload
     {
-        throw new InvalidDataException("Not RIFF");
-    }
+        AudioBase64 = Convert.ToBase64String(bytes),
+        SampleRate = sampleRate,
+        Commit = isLastChunk,
+    });
+}
 
-    br.ReadInt32();
-    var wave = new string(br.ReadChars(4));
-    if (wave != "WAVE")
+// Receive typed server events via the discriminated ServerEvent union.
+using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+var receivedSessionStarted = false;
+string? sessionId = null;
+string? transcript = null;
+
+await foreach (var serverEvent in client.ReceiveUpdatesAsync(cts.Token))
+{
+    if (serverEvent.IsSessionStarted)
     {
-        throw new InvalidDataException("Not WAVE");
+        receivedSessionStarted = true;
+        sessionId = serverEvent.SessionStarted?.SessionId;
+        Console.WriteLine($"Session started: {sessionId}");
     }
-
-    ushort audioFormat = 1;
-    ushort localChannels = 1;
-    int localSampleRate = 16000;
-    ushort bitsPerSample = 16;
-
-    while (ms.Position < ms.Length)
+    else if (serverEvent.IsPartialTranscript)
     {
-        if (ms.Length - ms.Position < 8)
-        {
-            break;
-        }
-
-        var id = new string(br.ReadChars(4));
-        int size = br.ReadInt32();
-        long next = ms.Position + size;
-
-        if (id == "fmt ")
-        {
-            if (size < 16)
-            {
-                throw new InvalidDataException("Bad fmt chunk");
-            }
-
-            audioFormat = br.ReadUInt16();
-            localChannels = br.ReadUInt16();
-            localSampleRate = br.ReadInt32();
-            br.ReadInt32();
-            br.ReadUInt16();
-            bitsPerSample = br.ReadUInt16();
-
-            if (next > ms.Position)
-            {
-                br.ReadBytes((int)(next - ms.Position));
-            }
-        }
-        else if (id == "data")
-        {
-            if (audioFormat != 1 || bitsPerSample != 16)
-            {
-                throw new InvalidDataException("Expected PCM16");
-            }
-
-            var dataSize = size == 0 ? (int)(ms.Length - ms.Position) : size;
-            var dataBytes = br.ReadBytes(dataSize);
-            var samples = new short[dataBytes.Length / 2];
-            Buffer.BlockCopy(dataBytes, 0, samples, 0, dataBytes.Length);
-            return (samples, localSampleRate, localChannels);
-        }
-        else if (size > 0)
-        {
-            br.ReadBytes(size);
-        }
+        Console.WriteLine($"Partial: {serverEvent.PartialTranscript?.Text}");
     }
-
-    throw new InvalidDataException("WAV data chunk not found");
+    else if (serverEvent.IsCommittedTranscript)
+    {
+        transcript = serverEvent.CommittedTranscript?.Text;
+        Console.WriteLine($"Final: {transcript}");
+        break;
+    }
+    else if (serverEvent.IsCommittedTranscriptWithTimestamps)
+    {
+        transcript = serverEvent.CommittedTranscriptWithTimestamps?.Text;
+        Console.WriteLine($"Final (with timestamps): {transcript}");
+        break;
+    }
+    else if (serverEvent.IsError)
+    {
+    }
 }
 ```
 <!-- EXAMPLES:END -->
 
 ## Support
 
-Priority place for bugs: https://github.com/tryAGI/ElevenLabs/issues
-Priority place for ideas and general questions: https://github.com/tryAGI/ElevenLabs/discussions
-Discord: https://discord.gg/Ca2xhfBf3v
+<div class="docs-card-grid">
+  <div class="docs-card">
+    <h3>Bugs</h3>
+    <p>Open an issue in <a href="https://github.com/tryAGI/ElevenLabs/issues">tryAGI/ElevenLabs</a>.</p>
+  </div>
+  <div class="docs-card">
+    <h3>Ideas and questions</h3>
+    <p>Use <a href="https://github.com/tryAGI/ElevenLabs/discussions">GitHub Discussions</a> for usage questions and design discussion.</p>
+  </div>
+  <div class="docs-card">
+    <h3>Community</h3>
+    <p>Join the <a href="https://discord.gg/Ca2xhfBf3v">tryAGI Discord</a> for broader SDK discussion.</p>
+  </div>
+</div>
 
 ## Acknowledgments
 

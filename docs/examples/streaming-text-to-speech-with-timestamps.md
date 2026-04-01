@@ -8,7 +8,7 @@ This example assumes `using ElevenLabs;` is in scope and `apiKey` contains your 
 using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
-var voices = await client.Voices.GetVoicesAsync();
+var voices = await client.Voices.GetAllAsync();
 var voice = voices.Voices[0];
 const string text = "Hello, this has timestamps.";
 
@@ -19,7 +19,7 @@ Console.WriteLine($"Input text: {text}");
 StreamingAudioChunkWithTimestampsResponseModel? firstChunk = null;
 int chunkCount = 0;
 
-await foreach (var chunk in client.TextToSpeech.CreateTextToSpeechByVoiceIdStreamWithTimestampsAsync(
+await foreach (var chunk in client.TextToSpeech.StreamWithTimestampsAsync(
                    voiceId: voice.VoiceId,
                    text: text,
                    modelId: "eleven_multilingual_v2",

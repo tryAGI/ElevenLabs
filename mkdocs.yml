@@ -1,5 +1,5 @@
 site_name: ElevenLabs .NET Documentation
-site_description: Official .NET SDK documentation for ElevenLabs text to speech, speech to text, voice cloning, and realtime APIs.
+site_description: Documentation for the tryAGI .NET SDK for ElevenLabs text to speech, speech to text, voice cloning, sound generation, and realtime APIs.
 site_url: https://tryagi.github.io/ElevenLabs/
 repo_url: https://github.com/tryAGI/ElevenLabs
 repo_name: tryAGI/ElevenLabs
@@ -18,58 +18,18 @@ nav:
   - Speech to Text from a File: examples/speech-to-text-from-a-file.md
   - Voice Cloning: examples/voice-cloning.md
   - Realtime Speech to Text: examples/realtime-speech-to-text.md
+  - Realtime STT (Generated Client): examples/realtime-speech-to-text-generated.md
 # EXAMPLES:END
-        
+
 theme:
-  name: material
-  logo: media/elevenlabs-symbol-white.svg
-  static_templates:
-    - 404.html
-  language: 'en'
-  palette:
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: black
-      accent: green
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: green
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
-  include_search_page: false
-  search_index_only: true
+  name: tryagi
   favicon: 'media/elevenlabs-symbol-black.svg'
-  features:
-    - content.action.edit
-    - content.code.copy
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.sections
-    - navigation.tabs
-    - navigation.top
-    - search.highlight
-    - search.suggest
-    - toc.follow
-  font:
-    text: 'Space Grotesk'
-    code: 'IBM Plex Mono'
-  icon:
-    repo: 'fontawesome/brands/github'
 
-extra_css:
-  - 'css/extra.css?v=31'
-
-extra_javascript:
-  - 'js/site.js?v=1'
-
+extra:
+  tryagi:
+    logo:
+      light: media/elevenlabs-symbol-black.svg
+      dark: media/elevenlabs-symbol-white.svg
 plugins:
   - search
   - copy-to-llm
@@ -83,10 +43,7 @@ markdown_extensions:
   - meta
   - toc:
       permalink: ""
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
-          percent_encode: true
+      slugify: !!python/name:pymdownx.slugs.uslugify
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.caret

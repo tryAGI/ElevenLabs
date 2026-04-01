@@ -8,7 +8,7 @@ This example assumes `using ElevenLabs;` is in scope and `apiKey` contains your 
 using var client = new ElevenLabsClient(apiKey);
 
 // Choose a voice to synthesize with.
-var voices = await client.Voices.GetVoicesAsync();
+var voices = await client.Voices.GetAllAsync();
 var voice = voices.Voices[0];
 const string text = "Hello, world! This is a test of the ElevenLabs text-to-speech API.";
 
@@ -16,7 +16,7 @@ Console.WriteLine($"Using voice: {voice.Name} ({voice.VoiceId})");
 Console.WriteLine($"Input text: {text}");
 
 // Generate speech audio.
-byte[] audioBytes = await client.TextToSpeech.CreateTextToSpeechByVoiceIdAsync(
+byte[] audioBytes = await client.TextToSpeech.ConvertAsync(
     voiceId: voice.VoiceId,
     text: text);
 
