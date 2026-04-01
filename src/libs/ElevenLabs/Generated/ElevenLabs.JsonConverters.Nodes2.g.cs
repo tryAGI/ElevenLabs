@@ -95,37 +95,37 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowStartNodeModelOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowStartNodeModelOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowStartNodeModelOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Start, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Start!, typeInfo);
             }
             else if (value.IsEnd)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowEndNodeModelOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowEndNodeModelOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowEndNodeModelOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.End, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.End!, typeInfo);
             }
             else if (value.IsPhoneNumber)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowPhoneNumberNodeModelOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PhoneNumber, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PhoneNumber!, typeInfo);
             }
             else if (value.IsOverrideAgent)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.OverrideAgent, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.OverrideAgent!, typeInfo);
             }
             else if (value.IsStandaloneAgent)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StandaloneAgent, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StandaloneAgent!, typeInfo);
             }
             else if (value.IsTool)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowToolNodeModelOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowToolNodeModelOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowToolNodeModelOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Tool, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Tool!, typeInfo);
             }
         }
     }

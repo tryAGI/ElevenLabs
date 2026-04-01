@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Header, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Header!, typeInfo);
             }
             else if (value.IsBody)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppTemplateBodyComponentParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppTemplateBodyComponentParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WhatsAppTemplateBodyComponentParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Body, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Body!, typeInfo);
             }
             else if (value.IsButton)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppTemplateButtonComponentParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppTemplateButtonComponentParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WhatsAppTemplateButtonComponentParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Button, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Button!, typeInfo);
             }
         }
     }

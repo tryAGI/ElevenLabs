@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BackupLLMDefault), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BackupLLMDefault?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BackupLLMDefault).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Default, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Default!, typeInfo);
             }
             else if (value.IsDisabled)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BackupLLMDisabled), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BackupLLMDisabled?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BackupLLMDisabled).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Disabled, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Disabled!, typeInfo);
             }
             else if (value.IsOverride)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BackupLLMOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BackupLLMOverride?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BackupLLMOverride).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Override, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Override!, typeInfo);
             }
         }
     }

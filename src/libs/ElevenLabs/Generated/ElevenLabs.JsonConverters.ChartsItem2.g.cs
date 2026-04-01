@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DashboardCallSuccessChartModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DashboardCallSuccessChartModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DashboardCallSuccessChartModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CallSuccess, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CallSuccess!, typeInfo);
             }
             else if (value.IsCriteria)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DashboardCriteriaChartModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DashboardCriteriaChartModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DashboardCriteriaChartModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Criteria, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Criteria!, typeInfo);
             }
             else if (value.IsDataCollection)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DashboardDataCollectionChartModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DashboardDataCollectionChartModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DashboardDataCollectionChartModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DataCollection, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DataCollection!, typeInfo);
             }
         }
     }

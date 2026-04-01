@@ -265,6 +265,7 @@ namespace ElevenLabs
             string? fromUrl = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyCreateChapterV1StudioProjectsProjectIdChaptersPost
             {
                 Name = name,

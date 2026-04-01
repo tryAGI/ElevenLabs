@@ -259,6 +259,7 @@ namespace ElevenLabs
             string type = "update",
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.PatchWorkspaceSecretRequest
             {
                 Type = type,

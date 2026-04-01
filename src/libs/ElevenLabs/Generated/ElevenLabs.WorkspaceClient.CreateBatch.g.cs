@@ -257,6 +257,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? groupIds = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost
             {
                 Emails = emails,

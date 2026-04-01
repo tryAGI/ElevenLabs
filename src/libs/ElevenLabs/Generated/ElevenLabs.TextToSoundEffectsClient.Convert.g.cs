@@ -276,6 +276,7 @@ namespace ElevenLabs
             string? modelId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost
             {
                 Text = text,

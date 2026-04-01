@@ -538,6 +538,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? keyterms = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost
             {
                 ModelId = modelId,

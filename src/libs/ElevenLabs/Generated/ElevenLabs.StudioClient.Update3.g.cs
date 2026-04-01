@@ -277,6 +277,7 @@ namespace ElevenLabs
             global::ElevenLabs.ChapterContentInputModel? content = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost
             {
                 Name = name,

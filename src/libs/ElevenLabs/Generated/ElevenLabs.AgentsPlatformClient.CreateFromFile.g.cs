@@ -287,6 +287,7 @@ namespace ElevenLabs
             string? parentFolderId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost
             {
                 File = file,

@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateStringEnvironmentVariableRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateStringEnvironmentVariableRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateStringEnvironmentVariableRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.String, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.String!, typeInfo);
             }
             else if (value.IsSecret)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateSecretEnvironmentVariableRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateSecretEnvironmentVariableRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateSecretEnvironmentVariableRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Secret, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Secret!, typeInfo);
             }
             else if (value.IsAuthConnection)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AuthConnection, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AuthConnection!, typeInfo);
             }
         }
     }

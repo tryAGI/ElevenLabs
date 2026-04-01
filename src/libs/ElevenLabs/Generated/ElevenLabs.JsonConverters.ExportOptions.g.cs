@@ -95,37 +95,37 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SegmentedJsonExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SegmentedJsonExportOptions?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SegmentedJsonExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SegmentedJson, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SegmentedJson!, typeInfo);
             }
             else if (value.IsDocx)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DocxExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DocxExportOptions?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DocxExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Docx, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Docx!, typeInfo);
             }
             else if (value.IsPdf)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PdfExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PdfExportOptions?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PdfExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Pdf, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Pdf!, typeInfo);
             }
             else if (value.IsTxt)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TxtExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TxtExportOptions?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TxtExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Txt, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Txt!, typeInfo);
             }
             else if (value.IsHtml)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.HtmlExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.HtmlExportOptions?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.HtmlExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Html, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Html!, typeInfo);
             }
             else if (value.IsSrt)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SrtExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SrtExportOptions?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SrtExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Srt, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Srt!, typeInfo);
             }
         }
     }

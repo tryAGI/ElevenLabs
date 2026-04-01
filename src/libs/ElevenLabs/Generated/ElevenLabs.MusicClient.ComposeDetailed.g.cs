@@ -310,6 +310,7 @@ namespace ElevenLabs
             bool? signWithC2pa = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost
             {
                 Prompt = prompt,

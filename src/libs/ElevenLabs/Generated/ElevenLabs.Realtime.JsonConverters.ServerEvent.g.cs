@@ -86,31 +86,31 @@ namespace ElevenLabs.Realtime.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Realtime.SessionStartedPayload), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Realtime.SessionStartedPayload?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Realtime.SessionStartedPayload).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SessionStarted, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SessionStarted!, typeInfo);
             }
             else if (value.IsPartialTranscript)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Realtime.PartialTranscriptPayload), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Realtime.PartialTranscriptPayload?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Realtime.PartialTranscriptPayload).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PartialTranscript, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PartialTranscript!, typeInfo);
             }
             else if (value.IsCommittedTranscript)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Realtime.CommittedTranscriptPayload), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Realtime.CommittedTranscriptPayload?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Realtime.CommittedTranscriptPayload).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CommittedTranscript, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CommittedTranscript!, typeInfo);
             }
             else if (value.IsCommittedTranscriptWithTimestamps)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CommittedTranscriptWithTimestamps, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CommittedTranscriptWithTimestamps!, typeInfo);
             }
             else if (value.IsError)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Realtime.ErrorPayload), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Realtime.ErrorPayload?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Realtime.ErrorPayload).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Error, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Error!, typeInfo);
             }
         }
     }

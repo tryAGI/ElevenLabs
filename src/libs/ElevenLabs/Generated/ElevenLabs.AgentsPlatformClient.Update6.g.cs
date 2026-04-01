@@ -247,6 +247,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? charts = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.PatchConvAIDashboardSettingsRequest
             {
                 Charts = charts,

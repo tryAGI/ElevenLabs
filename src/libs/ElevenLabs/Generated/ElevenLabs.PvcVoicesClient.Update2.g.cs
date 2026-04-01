@@ -290,6 +290,7 @@ namespace ElevenLabs
             string? fileName = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost
             {
                 RemoveBackgroundNoise = removeBackgroundNoise,
