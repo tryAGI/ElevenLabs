@@ -251,7 +251,6 @@ namespace ElevenLabs
             string type = "new",
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.PostWorkspaceSecretRequest
             {
                 Type = type,

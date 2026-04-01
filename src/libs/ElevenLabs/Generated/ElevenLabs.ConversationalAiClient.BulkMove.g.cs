@@ -238,7 +238,6 @@ namespace ElevenLabs
             string? moveTo = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.BodyBulkMoveEntitiesToFolderV1ConvaiKnowledgeBaseBulkMovePost
             {
                 DocumentIds = documentIds,

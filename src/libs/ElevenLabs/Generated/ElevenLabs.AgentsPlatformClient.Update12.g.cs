@@ -281,7 +281,6 @@ namespace ElevenLabs
             global::ElevenLabs.BranchProtectionStatus? protectionStatus = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch
             {
                 Name = name,

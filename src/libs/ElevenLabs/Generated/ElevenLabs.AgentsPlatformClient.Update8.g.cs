@@ -297,7 +297,6 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.MCPServerConfigUpdateRequestModel
             {
                 ApprovalPolicy = approvalPolicy,

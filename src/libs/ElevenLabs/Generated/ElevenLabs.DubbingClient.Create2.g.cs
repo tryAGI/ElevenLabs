@@ -275,7 +275,6 @@ namespace ElevenLabs
             double? voiceStyle = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.BodyCreateANewSpeakerV1DubbingResourceDubbingIdSpeakerPost
             {
                 SpeakerName = speakerName,
