@@ -59,13 +59,13 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PostDialDigitsStatic), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PostDialDigitsStatic?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PostDialDigitsStatic).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Static, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Static!, typeInfo);
             }
             else if (value.IsDynamic)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PostDialDigitsDynamicVariable), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PostDialDigitsDynamicVariable?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PostDialDigitsDynamicVariable).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Dynamic, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Dynamic!, typeInfo);
             }
         }
     }

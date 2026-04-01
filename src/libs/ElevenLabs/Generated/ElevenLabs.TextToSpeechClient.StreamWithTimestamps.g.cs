@@ -301,6 +301,7 @@ namespace ElevenLabs
             bool? applyLanguageTextNormalization = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyTextToSpeechStreamWithTimestamps
             {
                 Text = text,

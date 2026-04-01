@@ -646,6 +646,7 @@ namespace ElevenLabs
             bool? createPublishingRead = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost
             {
                 Name = name,

@@ -299,6 +299,7 @@ namespace ElevenLabs
             bool? shouldEnhance = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.VoicePreviewsRequestModel
             {
                 VoiceDescription = voiceDescription,

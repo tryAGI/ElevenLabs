@@ -291,6 +291,7 @@ namespace ElevenLabs
             bool? removeBackgroundNoise = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyAddSamplesToPvcVoiceV1VoicesPvcVoiceIdSamplesPost
             {
                 Files = files,

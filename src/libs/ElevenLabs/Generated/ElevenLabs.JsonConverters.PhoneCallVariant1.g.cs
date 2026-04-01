@@ -59,13 +59,13 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Twilio, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Twilio!, typeInfo);
             }
             else if (value.IsSipTrunking)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SipTrunking, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SipTrunking!, typeInfo);
             }
         }
     }

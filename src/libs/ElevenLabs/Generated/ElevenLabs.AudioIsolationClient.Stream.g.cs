@@ -237,6 +237,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat2? fileFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPost
             {
                 Audio = audio,

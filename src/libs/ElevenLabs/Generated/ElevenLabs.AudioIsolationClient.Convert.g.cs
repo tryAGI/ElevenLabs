@@ -279,6 +279,7 @@ namespace ElevenLabs
             string? previewB64 = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost
             {
                 Audio = audio,

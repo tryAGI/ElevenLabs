@@ -77,25 +77,25 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WebhookToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WebhookToolConfigInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WebhookToolConfigInput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Webhook, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Webhook!, typeInfo);
             }
             else if (value.IsClient)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ClientToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ClientToolConfigInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ClientToolConfigInput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Client, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Client!, typeInfo);
             }
             else if (value.IsSystem)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SystemToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SystemToolConfigInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SystemToolConfigInput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.System, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.System!, typeInfo);
             }
             else if (value.IsMcp)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MCPToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MCPToolConfigInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MCPToolConfigInput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mcp, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mcp!, typeInfo);
             }
         }
     }

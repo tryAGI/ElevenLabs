@@ -287,6 +287,7 @@ namespace ElevenLabs
             string? text = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.SegmentUpdatePayload
             {
                 StartTime = startTime,

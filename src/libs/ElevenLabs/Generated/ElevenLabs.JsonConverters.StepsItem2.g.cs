@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowToolEdgeStepModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowToolEdgeStepModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowToolEdgeStepModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Edge, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Edge!, typeInfo);
             }
             else if (value.IsNestedTools)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.NestedTools, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.NestedTools!, typeInfo);
             }
             else if (value.IsMaxIterationsExceeded)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MaxIterationsExceeded, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MaxIterationsExceeded!, typeInfo);
             }
         }
     }

@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetResponseUnitTestResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetResponseUnitTestResponseModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetResponseUnitTestResponseModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Llm, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Llm!, typeInfo);
             }
             else if (value.IsTool)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetToolCallUnitTestResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetToolCallUnitTestResponseModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetToolCallUnitTestResponseModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Tool, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Tool!, typeInfo);
             }
             else if (value.IsSimulation)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetSimulationTestResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetSimulationTestResponseModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetSimulationTestResponseModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Simulation, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Simulation!, typeInfo);
             }
         }
     }

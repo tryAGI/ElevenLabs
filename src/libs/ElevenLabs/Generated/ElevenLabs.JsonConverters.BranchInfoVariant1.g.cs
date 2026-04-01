@@ -59,13 +59,13 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferBranchInfoTrafficSplit), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferBranchInfoTrafficSplit?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferBranchInfoTrafficSplit).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TrafficSplit, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TrafficSplit!, typeInfo);
             }
             else if (value.IsDefaultingToMain)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferBranchInfoDefaultingToMain), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferBranchInfoDefaultingToMain?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferBranchInfoDefaultingToMain).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DefaultingToMain, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DefaultingToMain!, typeInfo);
             }
         }
     }

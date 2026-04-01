@@ -273,6 +273,7 @@ namespace ElevenLabs
             string? workspaceApiKeyId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost
             {
                 Role = role,

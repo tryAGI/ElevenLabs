@@ -308,6 +308,7 @@ namespace ElevenLabs
             bool? autoPublish = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost
             {
                 File = file,

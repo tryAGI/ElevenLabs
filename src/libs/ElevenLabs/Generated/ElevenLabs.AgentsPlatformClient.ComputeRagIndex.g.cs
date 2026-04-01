@@ -261,6 +261,7 @@ namespace ElevenLabs
             global::ElevenLabs.EmbeddingModelEnum model = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.RAGIndexRequestModel
             {
                 Model = model,

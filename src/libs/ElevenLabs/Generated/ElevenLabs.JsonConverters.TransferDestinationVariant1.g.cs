@@ -77,25 +77,25 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PhoneNumberTransferDestination), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PhoneNumberTransferDestination?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PhoneNumberTransferDestination).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Phone, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Phone!, typeInfo);
             }
             else if (value.IsSipUri)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SIPUriTransferDestination), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SIPUriTransferDestination?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SIPUriTransferDestination).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SipUri, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SipUri!, typeInfo);
             }
             else if (value.IsPhoneDynamicVariable)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PhoneDynamicVariable, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PhoneDynamicVariable!, typeInfo);
             }
             else if (value.IsSipUriDynamicVariable)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SIPUriDynamicVariableTransferDestination), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SIPUriDynamicVariableTransferDestination?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SIPUriDynamicVariableTransferDestination).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SipUriDynamicVariable, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SipUriDynamicVariable!, typeInfo);
             }
         }
     }

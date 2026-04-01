@@ -274,6 +274,7 @@ namespace ElevenLabs
             global::ElevenLabs.MCPToolApprovalPolicy? approvalPolicy = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.MCPToolAddApprovalRequestModel
             {
                 ToolName = toolName,

@@ -239,6 +239,7 @@ namespace ElevenLabs
             global::ElevenLabs.UserFeedbackScore? feedback = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.ConversationFeedbackRequestModel
             {
                 Feedback = feedback,

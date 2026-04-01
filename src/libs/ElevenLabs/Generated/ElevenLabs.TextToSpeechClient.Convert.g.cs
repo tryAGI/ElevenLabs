@@ -362,6 +362,7 @@ namespace ElevenLabs
             global::ElevenLabs.AvatarContextRequestModel? avatarContext = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::ElevenLabs.BodyTextToSpeechFull
             {
                 Text = text,
