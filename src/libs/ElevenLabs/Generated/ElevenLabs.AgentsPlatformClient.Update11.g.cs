@@ -255,7 +255,6 @@ namespace ElevenLabs
             bool? enableAudioMessageResponse = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.UpdateWhatsAppAccountRequest
             {
                 AssignedAgentId = assignedAgentId,

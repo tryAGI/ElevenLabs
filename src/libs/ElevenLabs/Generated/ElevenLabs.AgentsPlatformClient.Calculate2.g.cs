@@ -239,7 +239,6 @@ namespace ElevenLabs
             bool ragEnabled,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.LLMUsageCalculatorPublicRequestModel
             {
                 PromptLength = promptLength,

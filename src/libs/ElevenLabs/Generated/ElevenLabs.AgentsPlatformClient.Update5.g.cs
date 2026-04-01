@@ -266,7 +266,6 @@ namespace ElevenLabs
             global::ElevenLabs.LivekitStackType? defaultLivekitStack = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.PatchConvAISettingsRequest
             {
                 ConversationInitiationClientDataWebhook = conversationInitiationClientDataWebhook,

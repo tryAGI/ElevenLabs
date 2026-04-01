@@ -278,7 +278,6 @@ namespace ElevenLabs
             bool? normalizeVolume = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost
             {
                 RenderType = renderType,

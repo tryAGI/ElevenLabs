@@ -292,7 +292,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyTextToDialogueFullWithTimestampsApplyTextNormalization? applyTextNormalization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.BodyTextToDialogueFullWithTimestamps
             {
                 Inputs = inputs,

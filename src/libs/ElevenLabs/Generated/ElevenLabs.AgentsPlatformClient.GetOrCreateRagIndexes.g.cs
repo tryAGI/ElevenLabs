@@ -245,7 +245,6 @@ namespace ElevenLabs
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.BodyComputeRagIndexesInBatchV1ConvaiKnowledgeBaseRagIndexPost
             {
                 Items = items,

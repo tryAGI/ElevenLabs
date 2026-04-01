@@ -263,7 +263,6 @@ namespace ElevenLabs
             bool? autoRemove = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::ElevenLabs.BodyCreateFolderV1ConvaiKnowledgeBaseFolderPost
             {
                 Name = name,
