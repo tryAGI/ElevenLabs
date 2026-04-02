@@ -40,6 +40,32 @@ namespace ElevenLabs
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await SeparateStemsAsResponseAsync(
+
+                request: request,
+                outputFormat: outputFormat,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Stem Separation<br/>
+        /// Separate an audio file into individual stems. This endpoint might have high latency, depending on the length of the audio file.
+        /// </summary>
+        /// <param name="outputFormat">
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+        /// Default Value: mp3_44100_128
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> SeparateStemsAsResponseAsync(
+
+            global::ElevenLabs.BodyStemSeparationV1MusicStemSeparationPost request,
+            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -188,7 +214,10 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return new global::ElevenLabs.AutoSDKHttpResponse<byte[]>(
+                        statusCode: __response.StatusCode,
+                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                        body: __content);
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -216,7 +245,10 @@ namespace ElevenLabs
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return new global::ElevenLabs.AutoSDKHttpResponse<byte[]>(
+                        statusCode: __response.StatusCode,
+                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                        body: __content);
                 }
                 catch (global::System.Exception __ex)
                 {

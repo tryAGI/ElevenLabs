@@ -15,7 +15,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Good,
+        /// <summary>
+        /// 
+        /// </summary>
         Ok,
+        /// <summary>
+        /// 
+        /// </summary>
+        Poor,
         /// <summary>
         /// 
         /// </summary>
@@ -35,7 +43,9 @@ namespace ElevenLabs
             return value switch
             {
                 VoiceResponseModelRecordingQuality2.Bad => "bad",
+                VoiceResponseModelRecordingQuality2.Good => "good",
                 VoiceResponseModelRecordingQuality2.Ok => "ok",
+                VoiceResponseModelRecordingQuality2.Poor => "poor",
                 VoiceResponseModelRecordingQuality2.Studio => "studio",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -48,7 +58,9 @@ namespace ElevenLabs
             return value switch
             {
                 "bad" => VoiceResponseModelRecordingQuality2.Bad,
+                "good" => VoiceResponseModelRecordingQuality2.Good,
                 "ok" => VoiceResponseModelRecordingQuality2.Ok,
+                "poor" => VoiceResponseModelRecordingQuality2.Poor,
                 "studio" => VoiceResponseModelRecordingQuality2.Studio,
                 _ => null,
             };

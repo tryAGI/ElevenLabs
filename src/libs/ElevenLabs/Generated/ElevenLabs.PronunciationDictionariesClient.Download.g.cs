@@ -40,6 +40,31 @@ namespace ElevenLabs
             string versionId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await DownloadAsResponseAsync(
+                dictionaryId: dictionaryId,
+                versionId: versionId,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Get A Pls File With A Pronunciation Dictionary Version Rules<br/>
+        /// Get a PLS file with a pronunciation dictionary version rules
+        /// </summary>
+        /// <param name="dictionaryId">
+        /// The id of the pronunciation dictionary
+        /// </param>
+        /// <param name="versionId">
+        /// The id of the pronunciation dictionary version
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> DownloadAsResponseAsync(
+            string dictionaryId,
+            string versionId,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareDownloadArguments(
@@ -151,7 +176,10 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return new global::ElevenLabs.AutoSDKHttpResponse<byte[]>(
+                        statusCode: __response.StatusCode,
+                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                        body: __content);
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -179,7 +207,10 @@ namespace ElevenLabs
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return new global::ElevenLabs.AutoSDKHttpResponse<byte[]>(
+                        statusCode: __response.StatusCode,
+                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                        body: __content);
                 }
                 catch (global::System.Exception __ex)
                 {
