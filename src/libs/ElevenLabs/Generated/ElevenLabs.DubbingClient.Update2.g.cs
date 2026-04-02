@@ -9,14 +9,12 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string dubbingId,
             ref string speakerId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch request);
         partial void PrepareUpdate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string dubbingId,
             string speakerId,
-            string? xiApiKey,
             global::ElevenLabs.BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch request);
         partial void ProcessUpdate2Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -37,9 +35,6 @@ namespace ElevenLabs
         /// <param name="speakerId">
         /// ID of the speaker.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -48,7 +43,6 @@ namespace ElevenLabs
             string speakerId,
 
             global::ElevenLabs.BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -59,7 +53,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 dubbingId: ref dubbingId,
                 speakerId: ref speakerId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -89,12 +82,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -110,7 +97,6 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 dubbingId: dubbingId,
                 speakerId: speakerId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -258,9 +244,6 @@ namespace ElevenLabs
         /// <param name="speakerId">
         /// ID of the speaker.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="speakerName">
         /// Name to attribute to this speaker.
         /// </param>
@@ -284,7 +267,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeakerUpdatedResponse> Update2Async(
             string dubbingId,
             string speakerId,
-            string? xiApiKey = default,
             string? speakerName = default,
             string? voiceId = default,
             double? voiceStability = default,
@@ -306,7 +288,6 @@ namespace ElevenLabs
             return await Update2Async(
                 dubbingId: dubbingId,
                 speakerId: speakerId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

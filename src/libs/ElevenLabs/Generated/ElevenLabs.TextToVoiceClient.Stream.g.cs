@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string generatedVoiceId,
-            ref string? xiApiKey);
+            ref string generatedVoiceId);
         partial void PrepareStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string generatedVoiceId,
-            string? xiApiKey);
+            string generatedVoiceId);
         partial void ProcessStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,22 +23,17 @@ namespace ElevenLabs
         /// <param name="generatedVoiceId">
         /// The generated_voice_id to stream.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> StreamAsync(
             string generatedVoiceId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareStreamArguments(
                 httpClient: HttpClient,
-                generatedVoiceId: ref generatedVoiceId,
-                xiApiKey: ref xiApiKey);
+                generatedVoiceId: ref generatedVoiceId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/text-to-voice/{generatedVoiceId}/stream",
@@ -70,20 +63,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareStreamRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                generatedVoiceId: generatedVoiceId,
-                xiApiKey: xiApiKey);
+                generatedVoiceId: generatedVoiceId);
 
             var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

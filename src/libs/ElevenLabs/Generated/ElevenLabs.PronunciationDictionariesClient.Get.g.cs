@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string pronunciationDictionaryId,
-            ref string? xiApiKey);
+            ref string pronunciationDictionaryId);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string pronunciationDictionaryId,
-            string? xiApiKey);
+            string pronunciationDictionaryId);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="pronunciationDictionaryId">
         /// The id of the pronunciation dictionary
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPronunciationDictionaryWithRulesResponseModel> GetAsync(
             string pronunciationDictionaryId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetArguments(
                 httpClient: HttpClient,
-                pronunciationDictionaryId: ref pronunciationDictionaryId,
-                xiApiKey: ref xiApiKey);
+                pronunciationDictionaryId: ref pronunciationDictionaryId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/pronunciation-dictionaries/{pronunciationDictionaryId}",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                pronunciationDictionaryId: pronunciationDictionaryId,
-                xiApiKey: xiApiKey);
+                pronunciationDictionaryId: pronunciationDictionaryId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

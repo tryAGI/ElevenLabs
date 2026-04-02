@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Update Convai Settings<br/>
         /// Update Convai settings for the workspace
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> Update5Async(
 
             global::ElevenLabs.PatchConvAISettingsRequest request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Convai Settings<br/>
         /// Update Convai settings for the workspace
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="conversationInitiationClientDataWebhook"></param>
         /// <param name="webhooks"></param>
         /// <param name="canUseMcpServers">
@@ -44,7 +37,6 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> Update5Async(
-            string? xiApiKey = default,
             global::ElevenLabs.ConversationInitiationClientDataWebhook? conversationInitiationClientDataWebhook = default,
             global::ElevenLabs.ConvAIWebhooks? webhooks = default,
             bool? canUseMcpServers = default,

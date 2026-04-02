@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareSimulateConversationStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request);
         partial void PrepareSimulateConversationStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string? xiApiKey,
             global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request);
         partial void ProcessSimulateConversationStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,9 +25,6 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -37,7 +32,6 @@ namespace ElevenLabs
             string agentId,
 
             global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -47,7 +41,6 @@ namespace ElevenLabs
             PrepareSimulateConversationStreamArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -77,12 +70,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -97,7 +84,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -232,9 +218,6 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="simulationSpecification">
         /// A specification detailing how the conversation should be simulated
         /// </param>
@@ -250,7 +233,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task SimulateConversationStreamAsync(
             string agentId,
             global::ElevenLabs.ConversationSimulationSpecification simulationSpecification,
-            string? xiApiKey = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? extraEvaluationCriteria = default,
             int? newTurnsLimit = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -264,7 +246,6 @@ namespace ElevenLabs
 
             await SimulateConversationStreamAsync(
                 agentId: agentId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

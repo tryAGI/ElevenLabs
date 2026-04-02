@@ -43,9 +43,6 @@ namespace ElevenLabs
         /// <param name="voiceIds">
         /// Voice IDs to lookup by. Maximum 100 voice IDs.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetVoicesV2ResponseModel> SearchAsync(
@@ -60,7 +57,6 @@ namespace ElevenLabs
             string? collectionId = default,
             bool? includeTotalCount = default,
             global::System.Collections.Generic.IList<string>? voiceIds = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

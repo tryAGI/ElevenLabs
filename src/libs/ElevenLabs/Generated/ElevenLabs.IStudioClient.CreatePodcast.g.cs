@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="safetyIdentifier">
         /// Used for moderation. Your workspace must be allowlisted to use this feature.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
 
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost request,
             string? safetyIdentifier = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Podcast<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="safetyIdentifier">
         /// Used for moderation. Your workspace must be allowlisted to use this feature.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="modelId">
         /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
@@ -141,7 +134,6 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> mode,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> source,
             string? safetyIdentifier = default,
-            string? xiApiKey = default,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? qualityPreset = default,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? durationScale = default,
             string? language = default,

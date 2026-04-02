@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Get Similar Library Voices<br/>
         /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetLibraryVoicesResponseModel> FindSimilarVoicesAsync(
 
             global::ElevenLabs.BodyGetSimilarLibraryVoicesV1SimilarVoicesPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Similar Library Voices<br/>
         /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="audioFile"></param>
         /// <param name="audioFilename"></param>
         /// <param name="similarityThreshold">
@@ -37,7 +30,6 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetLibraryVoicesResponseModel> FindSimilarVoicesAsync(
-            string? xiApiKey = default,
             byte[]? audioFile = default,
             string? audioFilename = default,
             double? similarityThreshold = default,

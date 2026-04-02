@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareConvert2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string projectId,
-            ref string chapterId,
-            ref string? xiApiKey);
+            ref string chapterId);
         partial void PrepareConvert2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string projectId,
-            string chapterId,
-            string? xiApiKey);
+            string chapterId);
         partial void ProcessConvert2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="chapterId">
         /// The ID of the chapter.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvertChapterResponseModel> Convert2Async(
             string projectId,
             string chapterId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareConvert2Arguments(
                 httpClient: HttpClient,
                 projectId: ref projectId,
-                chapterId: ref chapterId,
-                xiApiKey: ref xiApiKey);
+                chapterId: ref chapterId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/studio/projects/{projectId}/chapters/{chapterId}/convert",
@@ -82,12 +75,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -95,8 +82,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 projectId: projectId,
-                chapterId: chapterId,
-                xiApiKey: xiApiKey);
+                chapterId: chapterId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

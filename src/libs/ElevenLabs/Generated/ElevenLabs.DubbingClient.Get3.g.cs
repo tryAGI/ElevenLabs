@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareGet3Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string dubbingId,
-            ref string languageCode,
-            ref string? xiApiKey);
+            ref string languageCode);
         partial void PrepareGet3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string dubbingId,
-            string languageCode,
-            string? xiApiKey);
+            string languageCode);
         partial void ProcessGet3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="languageCode">
         /// ID of the language.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> Get3Async(
             string dubbingId,
             string languageCode,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareGet3Arguments(
                 httpClient: HttpClient,
                 dubbingId: ref dubbingId,
-                languageCode: ref languageCode,
-                xiApiKey: ref xiApiKey);
+                languageCode: ref languageCode);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/dubbing/{dubbingId}/audio/{languageCode}",
@@ -82,12 +75,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -95,8 +82,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 dubbingId: dubbingId,
-                languageCode: languageCode,
-                xiApiKey: xiApiKey);
+                languageCode: languageCode);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

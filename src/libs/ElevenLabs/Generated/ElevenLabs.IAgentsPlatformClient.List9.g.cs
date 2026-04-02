@@ -12,15 +12,11 @@ namespace ElevenLabs
         /// Default Value: 100
         /// </param>
         /// <param name="lastDoc"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceBatchCallsResponse> List9Async(
             int? limit = default,
             string? lastDoc = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

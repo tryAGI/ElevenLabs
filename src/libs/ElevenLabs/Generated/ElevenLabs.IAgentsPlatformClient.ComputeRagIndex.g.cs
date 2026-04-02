@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="documentationId">
         /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string documentationId,
 
             global::ElevenLabs.RAGIndexRequestModel request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Compute Rag Index.<br/>
@@ -30,9 +26,6 @@ namespace ElevenLabs
         /// <param name="documentationId">
         /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="model">
         /// Default Value: e5_mistral_7b_instruct
         /// </param>
@@ -40,7 +33,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.RAGDocumentIndexResponseModel> ComputeRagIndexAsync(
             string documentationId,
-            string? xiApiKey = default,
             global::ElevenLabs.EmbeddingModelEnum model = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

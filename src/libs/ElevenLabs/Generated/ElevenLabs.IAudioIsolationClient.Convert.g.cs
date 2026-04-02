@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Audio Isolation<br/>
         /// Removes background noise from audio
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
 
             global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Audio Isolation<br/>
         /// Removes background noise from audio
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="audio">
         /// The audio file from which vocals/speech will be isolated from.
         /// </param>
@@ -44,7 +37,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
             byte[] audio,
             string audioname,
-            string? xiApiKey = default,
             global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat2? fileFormat = default,
             string? previewB64 = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Collections.Generic.IList<string> agentIds,
-            ref string? xiApiKey);
+            global::System.Collections.Generic.IList<string> agentIds);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.Collections.Generic.IList<string> agentIds,
-            string? xiApiKey);
+            global::System.Collections.Generic.IList<string> agentIds);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="agentIds">
         /// List of agent IDs to fetch summaries for
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> GetAsync(
             global::System.Collections.Generic.IList<string> agentIds,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetArguments(
                 httpClient: HttpClient,
-                agentIds: agentIds,
-                xiApiKey: ref xiApiKey);
+                agentIds: agentIds);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/agents/summaries",
@@ -78,20 +71,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                agentIds: agentIds,
-                xiApiKey: xiApiKey);
+                agentIds: agentIds);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

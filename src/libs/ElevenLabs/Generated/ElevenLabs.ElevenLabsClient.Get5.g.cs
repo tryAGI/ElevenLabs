@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string testInvocationId,
-            ref string? xiApiKey);
+            ref string testInvocationId);
         partial void PrepareGet5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string testInvocationId,
-            string? xiApiKey);
+            string testInvocationId);
         partial void ProcessGet5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="testInvocationId">
         /// The id of a test invocation. This is returned when tests are run.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestSuiteInvocationResponseModel> Get5Async(
             string testInvocationId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet5Arguments(
                 httpClient: HttpClient,
-                testInvocationId: ref testInvocationId,
-                xiApiKey: ref xiApiKey);
+                testInvocationId: ref testInvocationId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/test-invocations/{testInvocationId}",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGet5Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                testInvocationId: testInvocationId,
-                xiApiKey: xiApiKey);
+                testInvocationId: testInvocationId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

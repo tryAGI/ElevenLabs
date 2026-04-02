@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="projectId">
         /// The ID of the Studio project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string projectId,
 
             global::ElevenLabs.BodyCreateChapterV1StudioProjectsProjectIdChaptersPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Chapter<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="projectId">
         /// The ID of the Studio project.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
         /// The name of the chapter, used for identification only.
@@ -44,7 +37,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddChapterResponseModel> Create3Async(
             string projectId,
             string name,
-            string? xiApiKey = default,
             string? fromUrl = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

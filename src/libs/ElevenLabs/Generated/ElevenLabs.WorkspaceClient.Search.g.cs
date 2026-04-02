@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string name,
-            ref string? xiApiKey);
+            ref string name);
         partial void PrepareSearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string name,
-            string? xiApiKey);
+            string name);
         partial void ProcessSearchResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="name">
         /// Name of the target group.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupByNameResponseModel>> SearchAsync(
             string name,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareSearchArguments(
                 httpClient: HttpClient,
-                name: ref name,
-                xiApiKey: ref xiApiKey);
+                name: ref name);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/workspace/groups/search",
@@ -78,20 +71,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareSearchRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                name: name,
-                xiApiKey: xiApiKey);
+                name: name);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

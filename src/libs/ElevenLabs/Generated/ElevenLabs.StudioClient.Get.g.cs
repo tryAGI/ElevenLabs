@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string projectId,
-            ref string? shareId,
-            ref string? xiApiKey);
+            ref string? shareId);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string projectId,
-            string? shareId,
-            string? xiApiKey);
+            string? shareId);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="shareId">
         /// The share ID of the project
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProjectExtendedResponseModel> GetAsync(
             string projectId,
             string? shareId = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareGetArguments(
                 httpClient: HttpClient,
                 projectId: ref projectId,
-                shareId: ref shareId,
-                xiApiKey: ref xiApiKey);
+                shareId: ref shareId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/studio/projects/{projectId}",
@@ -85,12 +78,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -98,8 +85,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 projectId: projectId,
-                shareId: shareId,
-                xiApiKey: xiApiKey);
+                shareId: shareId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

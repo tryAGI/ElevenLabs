@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareDelete13Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string branchId,
-            ref string? xiApiKey);
+            ref string branchId);
         partial void PrepareDelete13Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string branchId,
-            string? xiApiKey);
+            string branchId);
         partial void ProcessDelete13Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the agent branch to use
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete13Async(
             string agentId,
             string branchId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareDelete13Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                branchId: ref branchId,
-                xiApiKey: ref xiApiKey);
+                branchId: ref branchId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/drafts",
@@ -85,12 +78,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -98,8 +85,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
-                branchId: branchId,
-                xiApiKey: xiApiKey);
+                branchId: branchId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

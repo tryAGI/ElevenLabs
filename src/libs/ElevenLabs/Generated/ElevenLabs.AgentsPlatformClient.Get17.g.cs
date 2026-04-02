@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareGet17Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string mcpServerId,
-            ref string toolName,
-            ref string? xiApiKey);
+            ref string toolName);
         partial void PrepareGet17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string mcpServerId,
-            string toolName,
-            string? xiApiKey);
+            string toolName);
         partial void ProcessGet17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// Name of the MCP tool to retrieve config overrides for.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPToolConfigOverride> Get17Async(
             string mcpServerId,
             string toolName,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareGet17Arguments(
                 httpClient: HttpClient,
                 mcpServerId: ref mcpServerId,
-                toolName: ref toolName,
-                xiApiKey: ref xiApiKey);
+                toolName: ref toolName);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
@@ -82,12 +75,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -95,8 +82,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 mcpServerId: mcpServerId,
-                toolName: toolName,
-                xiApiKey: xiApiKey);
+                toolName: toolName);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

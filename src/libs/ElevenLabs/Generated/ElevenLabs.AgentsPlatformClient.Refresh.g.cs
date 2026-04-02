@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareRefreshArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string documentationId,
-            ref string? xiApiKey);
+            ref string documentationId);
         partial void PrepareRefreshRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string documentationId,
-            string? xiApiKey);
+            string documentationId);
         partial void ProcessRefreshResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="documentationId">
         /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.RefreshUrlDocumentRouteResponse> RefreshAsync(
             string documentationId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareRefreshArguments(
                 httpClient: HttpClient,
-                documentationId: ref documentationId,
-                xiApiKey: ref xiApiKey);
+                documentationId: ref documentationId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}/refresh",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareRefreshRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                documentationId: documentationId,
-                xiApiKey: xiApiKey);
+                documentationId: documentationId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

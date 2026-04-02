@@ -9,15 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref bool? includeArchived,
-            ref int? limit,
-            ref string? xiApiKey);
+            ref int? limit);
         partial void PrepareList13Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             bool? includeArchived,
-            int? limit,
-            string? xiApiKey);
+            int? limit);
         partial void ProcessList13Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,16 +40,12 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListResponseAgentBranchSummary> List13Async(
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -60,8 +54,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 includeArchived: ref includeArchived,
-                limit: ref limit,
-                xiApiKey: ref xiApiKey);
+                limit: ref limit);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/branches",
@@ -95,12 +88,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -109,8 +96,7 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
                 includeArchived: includeArchived,
-                limit: limit,
-                xiApiKey: xiApiKey);
+                limit: limit);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

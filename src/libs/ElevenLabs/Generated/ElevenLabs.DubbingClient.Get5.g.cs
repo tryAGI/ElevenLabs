@@ -9,15 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string dubbingId,
             ref string languageCode,
-            ref global::ElevenLabs.GetDubbingTranscriptsFormatType formatType,
-            ref string? xiApiKey);
+            ref global::ElevenLabs.GetDubbingTranscriptsFormatType formatType);
         partial void PrepareGet5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string dubbingId,
             string languageCode,
-            global::ElevenLabs.GetDubbingTranscriptsFormatType formatType,
-            string? xiApiKey);
+            global::ElevenLabs.GetDubbingTranscriptsFormatType formatType);
         partial void ProcessGet5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,16 +38,12 @@ namespace ElevenLabs
         /// <param name="formatType">
         /// Format to return transcript in. For subtitles use either 'srt' or 'webvtt', and for a full transcript use 'json'. The 'json' format is not yet supported for Dubbing Studio.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingTranscriptsResponseModel> Get5Async(
             string dubbingId,
             string languageCode,
             global::ElevenLabs.GetDubbingTranscriptsFormatType formatType,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -58,8 +52,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 dubbingId: ref dubbingId,
                 languageCode: ref languageCode,
-                formatType: ref formatType,
-                xiApiKey: ref xiApiKey);
+                formatType: ref formatType);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{formatType}",
@@ -89,12 +82,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -103,8 +90,7 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 dubbingId: dubbingId,
                 languageCode: languageCode,
-                formatType: formatType,
-                xiApiKey: xiApiKey);
+                formatType: formatType);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

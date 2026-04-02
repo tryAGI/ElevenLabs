@@ -11,8 +11,7 @@ namespace ElevenLabs
             ref int? pageSize,
             ref string? label,
             ref string? environment,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type,
-            ref string? xiApiKey);
+            global::ElevenLabs.ListEnvironmentVariablesType2? type);
         partial void PrepareList14Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -20,8 +19,7 @@ namespace ElevenLabs
             int? pageSize,
             string? label,
             string? environment,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type,
-            string? xiApiKey);
+            global::ElevenLabs.ListEnvironmentVariablesType2? type);
         partial void ProcessList14Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,9 +49,6 @@ namespace ElevenLabs
         /// <param name="type">
         /// Filter by variable type
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariablesListResponse> List14Async(
@@ -62,7 +57,6 @@ namespace ElevenLabs
             string? label = default,
             string? environment = default,
             global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -73,8 +67,7 @@ namespace ElevenLabs
                 pageSize: ref pageSize,
                 label: ref label,
                 environment: ref environment,
-                type: type,
-                xiApiKey: ref xiApiKey);
+                type: type);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/environment-variables",
@@ -111,12 +104,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -127,8 +114,7 @@ namespace ElevenLabs
                 pageSize: pageSize,
                 label: label,
                 environment: environment,
-                type: type,
-                xiApiKey: xiApiKey);
+                type: type);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref bool? enableVersioning,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             bool? enableVersioning,
-            string? xiApiKey,
             global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -33,9 +31,6 @@ namespace ElevenLabs
         /// Enable versioning for the agent<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -43,7 +38,6 @@ namespace ElevenLabs
 
             global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost request,
             bool? enableVersioning = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -53,7 +47,6 @@ namespace ElevenLabs
             PrepareCreateArguments(
                 httpClient: HttpClient,
                 enableVersioning: ref enableVersioning,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -86,12 +79,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -106,7 +93,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 enableVersioning: enableVersioning,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -252,9 +238,6 @@ namespace ElevenLabs
         /// Enable versioning for the agent<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="conversationConfig">
         /// Conversation configuration for an agent
         /// </param>
@@ -276,7 +259,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentResponseModel> CreateAsync(
             global::ElevenLabs.ConversationalConfigAPIModelInput conversationConfig,
             bool? enableVersioning = default,
-            string? xiApiKey = default,
             global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings = default,
             global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
             string? name = default,
@@ -294,7 +276,6 @@ namespace ElevenLabs
 
             return await CreateAsync(
                 enableVersioning: enableVersioning,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

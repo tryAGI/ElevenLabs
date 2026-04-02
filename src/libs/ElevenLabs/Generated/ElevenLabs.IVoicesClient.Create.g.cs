@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Add Voice<br/>
         /// Add a new voice to your collection of voices in VoiceLab.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceIVCResponseModel> CreateAsync(
 
             global::ElevenLabs.BodyAddVoiceV1VoicesAddPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Voice<br/>
         /// Add a new voice to your collection of voices in VoiceLab.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="name">
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.
         /// </param>
@@ -47,7 +40,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceIVCResponseModel> CreateAsync(
             string name,
             global::System.Collections.Generic.IList<byte[]> files,
-            string? xiApiKey = default,
             bool? removeBackgroundNoise = default,
             string? description = default,
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels = default,

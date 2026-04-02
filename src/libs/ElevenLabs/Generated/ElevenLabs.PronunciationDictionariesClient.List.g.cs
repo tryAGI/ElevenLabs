@@ -10,16 +10,14 @@ namespace ElevenLabs
             ref string? cursor,
             ref int? pageSize,
             global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
-            ref string? sortDirection,
-            ref string? xiApiKey);
+            ref string? sortDirection);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
             int? pageSize,
             global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
-            string? sortDirection,
-            string? xiApiKey);
+            string? sortDirection);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,9 +46,6 @@ namespace ElevenLabs
         /// Which direction to sort the voices in. 'ascending' or 'descending'.<br/>
         /// Default Value: DESCENDING
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPronunciationDictionariesMetadataResponseModel> ListAsync(
@@ -58,7 +53,6 @@ namespace ElevenLabs
             int? pageSize = default,
             global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
             string? sortDirection = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -68,8 +62,7 @@ namespace ElevenLabs
                 cursor: ref cursor,
                 pageSize: ref pageSize,
                 sort: sort,
-                sortDirection: ref sortDirection,
-                xiApiKey: ref xiApiKey);
+                sortDirection: ref sortDirection);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/pronunciation-dictionaries",
@@ -105,12 +98,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -120,8 +107,7 @@ namespace ElevenLabs
                 cursor: cursor,
                 pageSize: pageSize,
                 sort: sort,
-                sortDirection: sortDirection,
-                xiApiKey: xiApiKey);
+                sortDirection: sortDirection);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

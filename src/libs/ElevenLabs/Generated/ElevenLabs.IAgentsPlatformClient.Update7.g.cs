@@ -9,9 +9,6 @@ namespace ElevenLabs
         /// Update an existing secret for the workspace
         /// </summary>
         /// <param name="secretId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -19,16 +16,12 @@ namespace ElevenLabs
             string secretId,
 
             global::ElevenLabs.PatchWorkspaceSecretRequest request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Convai Workspace Secret<br/>
         /// Update an existing secret for the workspace
         /// </summary>
         /// <param name="secretId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="type"></param>
         /// <param name="name"></param>
         /// <param name="value"></param>
@@ -38,7 +31,6 @@ namespace ElevenLabs
             string secretId,
             string name,
             string value,
-            string? xiApiKey = default,
             string type = "update",
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -29,8 +29,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             ref string? branchId,
             ref global::ElevenLabs.MessageSearchSortBy? sortBy,
-            ref string? cursor,
-            ref string? xiApiKey);
+            ref string? cursor);
         partial void PrepareTextSearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -56,8 +55,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             string? branchId,
             global::ElevenLabs.MessageSearchSortBy? sortBy,
-            string? cursor,
-            string? xiApiKey);
+            string? cursor);
         partial void ProcessTextSearchResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -141,9 +139,6 @@ namespace ElevenLabs
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MessagesSearchResponse> TextSearchAsync(
@@ -170,7 +165,6 @@ namespace ElevenLabs
             string? branchId = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -199,8 +193,7 @@ namespace ElevenLabs
                 conversationInitiationSource: conversationInitiationSource,
                 branchId: ref branchId,
                 sortBy: ref sortBy,
-                cursor: ref cursor,
-                xiApiKey: ref xiApiKey);
+                cursor: ref cursor);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/conversations/messages/text-search",
@@ -255,12 +248,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -289,8 +276,7 @@ namespace ElevenLabs
                 conversationInitiationSource: conversationInitiationSource,
                 branchId: branchId,
                 sortBy: sortBy,
-                cursor: cursor,
-                xiApiKey: xiApiKey);
+                cursor: cursor);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

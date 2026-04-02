@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="dubbingId">
         /// ID of the dubbing project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string dubbingId,
 
             global::ElevenLabs.BodyTranscribesSegmentsV1DubbingResourceDubbingIdTranscribePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Transcribes Segments<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="dubbingId">
         /// ID of the dubbing project.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="segments">
         /// Transcribe this specific list of segments.
@@ -41,7 +34,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentTranscriptionResponse> TranscribeAsync(
             string dubbingId,
             global::System.Collections.Generic.IList<string> segments,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

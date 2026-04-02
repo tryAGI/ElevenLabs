@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Make An Outbound Call Via Whatsapp<br/>
         /// Make an outbound call via WhatsApp
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.WhatsAppOutboundCallResponse> OutboundCall2Async(
 
             global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Make An Outbound Call Via Whatsapp<br/>
         /// Make an outbound call via WhatsApp
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="whatsappPhoneNumberId"></param>
         /// <param name="whatsappUserId"></param>
         /// <param name="whatsappCallPermissionRequestTemplateName"></param>
@@ -40,7 +33,6 @@ namespace ElevenLabs
             string whatsappCallPermissionRequestTemplateName,
             string whatsappCallPermissionRequestTemplateLanguageCode,
             string agentId,
-            string? xiApiKey = default,
             global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

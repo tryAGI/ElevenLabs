@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::ElevenLabs.SingleUseTokenType tokenType,
-            ref string? xiApiKey);
+            ref global::ElevenLabs.SingleUseTokenType tokenType);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.SingleUseTokenType tokenType,
-            string? xiApiKey);
+            global::ElevenLabs.SingleUseTokenType tokenType);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,22 +26,17 @@ namespace ElevenLabs
         /// Generate a time limited single-use token with embedded authentication for frontend clients.
         /// </summary>
         /// <param name="tokenType"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SingleUseTokenResponseModel> CreateAsync(
             global::ElevenLabs.SingleUseTokenType tokenType,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareCreateArguments(
                 httpClient: HttpClient,
-                tokenType: ref tokenType,
-                xiApiKey: ref xiApiKey);
+                tokenType: ref tokenType);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/single-use-token/{tokenType}",
@@ -73,20 +66,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareCreateRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                tokenType: tokenType,
-                xiApiKey: xiApiKey);
+                tokenType: tokenType);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

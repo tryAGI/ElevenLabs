@@ -10,7 +10,6 @@ namespace ElevenLabs
             ref string projectId,
             ref string chapterId,
             ref string chapterSnapshotId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost request);
         partial void PrepareStream2Request(
             global::System.Net.Http.HttpClient httpClient,
@@ -18,7 +17,6 @@ namespace ElevenLabs
             string projectId,
             string chapterId,
             string chapterSnapshotId,
-            string? xiApiKey,
             global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost request);
         partial void ProcessStream2Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -37,9 +35,6 @@ namespace ElevenLabs
         /// <param name="chapterSnapshotId">
         /// The ID of the chapter snapshot.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -49,7 +44,6 @@ namespace ElevenLabs
             string chapterSnapshotId,
 
             global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -61,7 +55,6 @@ namespace ElevenLabs
                 projectId: ref projectId,
                 chapterId: ref chapterId,
                 chapterSnapshotId: ref chapterSnapshotId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -91,12 +84,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -113,7 +100,6 @@ namespace ElevenLabs
                 projectId: projectId,
                 chapterId: chapterId,
                 chapterSnapshotId: chapterSnapshotId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             var __response = await HttpClient.SendAsync(
@@ -229,9 +215,6 @@ namespace ElevenLabs
         /// <param name="chapterSnapshotId">
         /// The ID of the chapter snapshot.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="convertToMpeg">
         /// Whether to convert the audio to mpeg format.<br/>
         /// Default Value: false
@@ -242,7 +225,6 @@ namespace ElevenLabs
             string projectId,
             string chapterId,
             string chapterSnapshotId,
-            string? xiApiKey = default,
             bool? convertToMpeg = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -255,7 +237,6 @@ namespace ElevenLabs
                 projectId: projectId,
                 chapterId: chapterId,
                 chapterSnapshotId: chapterSnapshotId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

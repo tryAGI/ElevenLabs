@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// <param name="chapterId">
         /// The ID of the chapter.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -25,7 +22,6 @@ namespace ElevenLabs
             string chapterId,
 
             global::ElevenLabs.BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Chapter<br/>
@@ -36,9 +32,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="chapterId">
         /// The ID of the chapter.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
         /// The name of the chapter, used for identification only.
@@ -51,7 +44,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditChapterResponseModel> Update3Async(
             string projectId,
             string chapterId,
-            string? xiApiKey = default,
             string? name = default,
             global::ElevenLabs.ChapterContentInputModel? content = default,
             global::System.Threading.CancellationToken cancellationToken = default);

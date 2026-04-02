@@ -17,9 +17,6 @@ namespace ElevenLabs
         /// <param name="targetBranchId">
         /// The ID of the target branch to merge into (must be the main branch).
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -29,7 +26,6 @@ namespace ElevenLabs
             string targetBranchId,
 
             global::ElevenLabs.BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Merge A Branch Into A Target Branch<br/>
@@ -44,9 +40,6 @@ namespace ElevenLabs
         /// <param name="targetBranchId">
         /// The ID of the target branch to merge into (must be the main branch).
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="archiveSourceBranch">
         /// Whether to archive the source branch after merging<br/>
         /// Default Value: true
@@ -57,7 +50,6 @@ namespace ElevenLabs
             string agentId,
             string sourceBranchId,
             string targetBranchId,
-            string? xiApiKey = default,
             bool? archiveSourceBranch = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

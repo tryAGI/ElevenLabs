@@ -17,9 +17,6 @@ namespace ElevenLabs
         /// <param name="chapterSnapshotId">
         /// The ID of the chapter snapshot.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -29,7 +26,6 @@ namespace ElevenLabs
             string chapterSnapshotId,
 
             global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Stream Chapter Audio<br/>
@@ -44,9 +40,6 @@ namespace ElevenLabs
         /// <param name="chapterSnapshotId">
         /// The ID of the chapter snapshot.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="convertToMpeg">
         /// Whether to convert the audio to mpeg format.<br/>
         /// Default Value: false
@@ -57,7 +50,6 @@ namespace ElevenLabs
             string projectId,
             string chapterId,
             string chapterSnapshotId,
-            string? xiApiKey = default,
             bool? convertToMpeg = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

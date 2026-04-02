@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareUpdate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string toolId,
-            ref string? xiApiKey,
             global::ElevenLabs.ToolRequestModel request);
         partial void PrepareUpdate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string toolId,
-            string? xiApiKey,
             global::ElevenLabs.ToolRequestModel request);
         partial void ProcessUpdate4Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -32,9 +30,6 @@ namespace ElevenLabs
         /// <param name="toolId">
         /// ID of the requested tool.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -42,7 +37,6 @@ namespace ElevenLabs
             string toolId,
 
             global::ElevenLabs.ToolRequestModel request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -52,7 +46,6 @@ namespace ElevenLabs
             PrepareUpdate4Arguments(
                 httpClient: HttpClient,
                 toolId: ref toolId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -82,12 +75,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -102,7 +89,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 toolId: toolId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -247,9 +233,6 @@ namespace ElevenLabs
         /// <param name="toolId">
         /// ID of the requested tool.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="toolConfig">
         /// Configuration for the tool
         /// </param>
@@ -261,7 +244,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update4Async(
             string toolId,
             global::ElevenLabs.ToolConfig toolConfig,
-            string? xiApiKey = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -273,7 +255,6 @@ namespace ElevenLabs
 
             return await Update4Async(
                 toolId: toolId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

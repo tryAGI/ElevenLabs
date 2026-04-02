@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareDelete9Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId,
-            ref string? xiApiKey);
+            ref string mcpServerId);
         partial void PrepareDelete9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId,
-            string? xiApiKey);
+            string mcpServerId);
         partial void ProcessDelete9Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete9Async(
             string mcpServerId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete9Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId,
-                xiApiKey: ref xiApiKey);
+                mcpServerId: ref mcpServerId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/mcp-servers/{mcpServerId}",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareDelete9Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                mcpServerId: mcpServerId,
-                xiApiKey: xiApiKey);
+                mcpServerId: mcpServerId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

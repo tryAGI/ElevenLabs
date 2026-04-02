@@ -17,15 +17,11 @@ namespace ElevenLabs
         /// This parameter is now deprecated. It is ignored and will be removed in a future version.<br/>
         /// Default Value: true
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceResponseModel> Get2Async(
             string voiceId,
             bool? withSettings = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

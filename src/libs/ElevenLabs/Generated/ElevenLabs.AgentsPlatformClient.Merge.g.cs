@@ -10,7 +10,6 @@ namespace ElevenLabs
             ref string agentId,
             ref string sourceBranchId,
             ref string targetBranchId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost request);
         partial void PrepareMergeRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -18,7 +17,6 @@ namespace ElevenLabs
             string agentId,
             string sourceBranchId,
             string targetBranchId,
-            string? xiApiKey,
             global::ElevenLabs.BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost request);
         partial void ProcessMergeResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -42,9 +40,6 @@ namespace ElevenLabs
         /// <param name="targetBranchId">
         /// The ID of the target branch to merge into (must be the main branch).
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -54,7 +49,6 @@ namespace ElevenLabs
             string targetBranchId,
 
             global::ElevenLabs.BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -66,7 +60,6 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 sourceBranchId: ref sourceBranchId,
                 targetBranchId: ref targetBranchId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -99,12 +92,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -121,7 +108,6 @@ namespace ElevenLabs
                 agentId: agentId,
                 sourceBranchId: sourceBranchId,
                 targetBranchId: targetBranchId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -268,9 +254,6 @@ namespace ElevenLabs
         /// <param name="targetBranchId">
         /// The ID of the target branch to merge into (must be the main branch).
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="archiveSourceBranch">
         /// Whether to archive the source branch after merging<br/>
         /// Default Value: true
@@ -281,7 +264,6 @@ namespace ElevenLabs
             string agentId,
             string sourceBranchId,
             string targetBranchId,
-            string? xiApiKey = default,
             bool? archiveSourceBranch = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -294,7 +276,6 @@ namespace ElevenLabs
                 agentId: agentId,
                 sourceBranchId: sourceBranchId,
                 targetBranchId: targetBranchId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

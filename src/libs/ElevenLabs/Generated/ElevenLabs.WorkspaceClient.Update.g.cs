@@ -9,14 +9,12 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string serviceAccountUserId,
             ref string apiKeyId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string serviceAccountUserId,
             string apiKeyId,
-            string? xiApiKey,
             global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -33,9 +31,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="serviceAccountUserId"></param>
         /// <param name="apiKeyId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -44,7 +39,6 @@ namespace ElevenLabs
             string apiKeyId,
 
             global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -55,7 +49,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 serviceAccountUserId: ref serviceAccountUserId,
                 apiKeyId: ref apiKeyId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -85,12 +78,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -106,7 +93,6 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 serviceAccountUserId: serviceAccountUserId,
                 apiKeyId: apiKeyId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -246,9 +232,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="serviceAccountUserId"></param>
         /// <param name="apiKeyId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="isEnabled">
         /// Whether to enable or disable the API key.
         /// </param>
@@ -269,7 +252,6 @@ namespace ElevenLabs
             bool isEnabled,
             string name,
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string> permissions,
-            string? xiApiKey = default,
             int? characterLimit = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -284,7 +266,6 @@ namespace ElevenLabs
             return await UpdateAsync(
                 serviceAccountUserId: serviceAccountUserId,
                 apiKeyId: apiKeyId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

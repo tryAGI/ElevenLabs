@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string? xiApiKey);
+            ref string agentId);
         partial void PrepareGet4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string? xiApiKey);
+            string agentId);
         partial void ProcessGet4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentLinkResponseModel> Get4Async(
             string agentId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet4Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                xiApiKey: ref xiApiKey);
+                agentId: ref agentId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/link",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGet4Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                agentId: agentId,
-                xiApiKey: xiApiKey);
+                agentId: agentId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

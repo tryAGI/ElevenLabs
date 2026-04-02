@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareDelete5Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
-            ref bool? force,
-            ref string? xiApiKey);
+            ref bool? force);
         partial void PrepareDelete5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string documentationId,
-            bool? force,
-            string? xiApiKey);
+            bool? force);
         partial void ProcessDelete5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -36,15 +34,11 @@ namespace ElevenLabs
         /// If set to true, the document or folder will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents. For non-empty folders, this will also delete all child documents and folders.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete5Async(
             string documentationId,
             bool? force = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -52,8 +46,7 @@ namespace ElevenLabs
             PrepareDelete5Arguments(
                 httpClient: HttpClient,
                 documentationId: ref documentationId,
-                force: ref force,
-                xiApiKey: ref xiApiKey);
+                force: ref force);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}",
@@ -86,12 +79,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -99,8 +86,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 documentationId: documentationId,
-                force: force,
-                xiApiKey: xiApiKey);
+                force: force);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

@@ -15,8 +15,7 @@ namespace ElevenLabs
             int? dateAfterUnix,
             global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
             ref string? search,
-            global::ElevenLabs.GetSpeechHistorySource2? source,
-            ref string? xiApiKey);
+            global::ElevenLabs.GetSpeechHistorySource2? source);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -28,8 +27,7 @@ namespace ElevenLabs
             int? dateAfterUnix,
             global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
             string? search,
-            global::ElevenLabs.GetSpeechHistorySource2? source,
-            string? xiApiKey);
+            global::ElevenLabs.GetSpeechHistorySource2? source);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -72,9 +70,6 @@ namespace ElevenLabs
         /// <param name="source">
         /// Source of the generated history item
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetSpeechHistoryResponseModel> ListAsync(
@@ -87,7 +82,6 @@ namespace ElevenLabs
             global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection = default,
             string? search = default,
             global::ElevenLabs.GetSpeechHistorySource2? source = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -102,8 +96,7 @@ namespace ElevenLabs
                 dateAfterUnix: dateAfterUnix,
                 sortDirection: sortDirection,
                 search: ref search,
-                source: source,
-                xiApiKey: ref xiApiKey);
+                source: source);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/history",
@@ -144,12 +137,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -164,8 +151,7 @@ namespace ElevenLabs
                 dateAfterUnix: dateAfterUnix,
                 sortDirection: sortDirection,
                 search: search,
-                source: source,
-                xiApiKey: xiApiKey);
+                source: source);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

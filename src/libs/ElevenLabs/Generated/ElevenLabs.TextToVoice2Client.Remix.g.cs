@@ -9,14 +9,12 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref global::ElevenLabs.AllowedOutputFormats? outputFormat,
-            ref string? xiApiKey,
             global::ElevenLabs.VoiceRemixRequestModel request);
         partial void PrepareRemixRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             global::ElevenLabs.AllowedOutputFormats? outputFormat,
-            string? xiApiKey,
             global::ElevenLabs.VoiceRemixRequestModel request);
         partial void ProcessRemixResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -38,9 +36,6 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_192
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -49,7 +44,6 @@ namespace ElevenLabs
 
             global::ElevenLabs.VoiceRemixRequestModel request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -60,7 +54,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 voiceId: ref voiceId,
                 outputFormat: ref outputFormat,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -93,12 +86,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -114,7 +101,6 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 voiceId: voiceId,
                 outputFormat: outputFormat,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -263,9 +249,6 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_192
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="voiceDescription">
         /// Description of the changes to make to the voice.
         /// </param>
@@ -306,7 +289,6 @@ namespace ElevenLabs
             string voiceId,
             string voiceDescription,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
-            string? xiApiKey = default,
             string? text = default,
             bool? autoGenerateText = default,
             double? loudness = default,
@@ -335,7 +317,6 @@ namespace ElevenLabs
             return await RemixAsync(
                 voiceId: voiceId,
                 outputFormat: outputFormat,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="webhookId">
         /// The unique ID for the webhook
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string webhookId,
 
             global::ElevenLabs.BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Workspace Webhook<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="webhookId">
         /// The unique ID for the webhook
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="isDisabled">
         /// Whether to disable or enable the webhook
@@ -48,7 +41,6 @@ namespace ElevenLabs
             string webhookId,
             bool isDisabled,
             string name,
-            string? xiApiKey = default,
             bool? retryEnabled = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

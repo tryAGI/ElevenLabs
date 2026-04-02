@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareCreatePodcastArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? safetyIdentifier,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost request);
         partial void PrepareCreatePodcastRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? safetyIdentifier,
-            string? xiApiKey,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost request);
         partial void ProcessCreatePodcastResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -32,9 +30,6 @@ namespace ElevenLabs
         /// <param name="safetyIdentifier">
         /// Used for moderation. Your workspace must be allowlisted to use this feature.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -42,7 +37,6 @@ namespace ElevenLabs
 
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost request,
             string? safetyIdentifier = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -52,7 +46,6 @@ namespace ElevenLabs
             PrepareCreatePodcastArguments(
                 httpClient: HttpClient,
                 safetyIdentifier: ref safetyIdentifier,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -87,10 +80,6 @@ namespace ElevenLabs
             {
                 __httpRequest.Headers.TryAddWithoutValidation("safety-identifier", safetyIdentifier.ToString());
             }
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -106,7 +95,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 safetyIdentifier: safetyIdentifier,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -251,9 +239,6 @@ namespace ElevenLabs
         /// <param name="safetyIdentifier">
         /// Used for moderation. Your workspace must be allowlisted to use this feature.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="modelId">
         /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
         /// </param>
@@ -362,7 +347,6 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> mode,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> source,
             string? safetyIdentifier = default,
-            string? xiApiKey = default,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? qualityPreset = default,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? durationScale = default,
             string? language = default,
@@ -392,7 +376,6 @@ namespace ElevenLabs
 
             return await CreatePodcastAsync(
                 safetyIdentifier: safetyIdentifier,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

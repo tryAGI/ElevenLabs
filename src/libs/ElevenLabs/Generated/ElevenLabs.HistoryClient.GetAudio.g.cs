@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGetAudioArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string historyItemId,
-            ref string? xiApiKey);
+            ref string historyItemId);
         partial void PrepareGetAudioRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string historyItemId,
-            string? xiApiKey);
+            string historyItemId);
         partial void ProcessGetAudioResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="historyItemId">
         /// History item ID to be used, you can use GET https://api.elevenlabs.io/v1/history to receive a list of history items and their IDs.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> GetAudioAsync(
             string historyItemId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetAudioArguments(
                 httpClient: HttpClient,
-                historyItemId: ref historyItemId,
-                xiApiKey: ref xiApiKey);
+                historyItemId: ref historyItemId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/history/{historyItemId}/audio",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGetAudioRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                historyItemId: historyItemId,
-                xiApiKey: xiApiKey);
+                historyItemId: historyItemId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

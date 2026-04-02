@@ -14,15 +14,11 @@ namespace ElevenLabs
         /// <param name="ragIndexId">
         /// The id of RAG index of document from the knowledge base.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.RAGDocumentIndexResponseModel> DeleteDocumentRagIndexAsync(
             string documentationId,
             string ragIndexId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

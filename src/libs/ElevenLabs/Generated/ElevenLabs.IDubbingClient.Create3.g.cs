@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Dub A Video Or An Audio File<br/>
         /// Dubs a provided audio or video file into given language.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> Create3Async(
 
             global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Dub A Video Or An Audio File<br/>
         /// Dubs a provided audio or video file into given language.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="file">
         /// A list of file paths to audio recordings intended for voice cloning
         /// </param>
@@ -109,7 +102,6 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> Create3Async(
-            string? xiApiKey = default,
             byte[]? file = default,
             string? filename = default,
             byte[]? csvFile = default,

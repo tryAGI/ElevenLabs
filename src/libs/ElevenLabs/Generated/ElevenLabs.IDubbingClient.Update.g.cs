@@ -17,9 +17,6 @@ namespace ElevenLabs
         /// <param name="language">
         /// ID of the language.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -29,7 +26,6 @@ namespace ElevenLabs
             string language,
 
             global::ElevenLabs.SegmentUpdatePayload request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Modify A Single Segment<br/>
@@ -44,9 +40,6 @@ namespace ElevenLabs
         /// <param name="language">
         /// ID of the language.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="startTime"></param>
         /// <param name="endTime"></param>
         /// <param name="text"></param>
@@ -56,7 +49,6 @@ namespace ElevenLabs
             string dubbingId,
             string segmentId,
             string language,
-            string? xiApiKey = default,
             double? startTime = default,
             double? endTime = default,
             string? text = default,

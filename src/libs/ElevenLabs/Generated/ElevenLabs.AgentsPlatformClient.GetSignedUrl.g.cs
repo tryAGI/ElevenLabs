@@ -10,16 +10,14 @@ namespace ElevenLabs
             ref string agentId,
             ref bool? includeConversationId,
             ref string? branchId,
-            ref string? environment,
-            ref string? xiApiKey);
+            ref string? environment);
         partial void PrepareGetSignedUrlRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             bool? includeConversationId,
             string? branchId,
-            string? environment,
-            string? xiApiKey);
+            string? environment);
         partial void ProcessGetSignedUrlResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,9 +44,6 @@ namespace ElevenLabs
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConversationSignedUrlResponseModel> GetSignedUrlAsync(
@@ -56,7 +51,6 @@ namespace ElevenLabs
             bool? includeConversationId = default,
             string? branchId = default,
             string? environment = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -66,8 +60,7 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 includeConversationId: ref includeConversationId,
                 branchId: ref branchId,
-                environment: ref environment,
-                xiApiKey: ref xiApiKey);
+                environment: ref environment);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/conversation/get-signed-url",
@@ -103,12 +96,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -118,8 +105,7 @@ namespace ElevenLabs
                 agentId: agentId,
                 includeConversationId: includeConversationId,
                 branchId: branchId,
-                environment: environment,
-                xiApiKey: xiApiKey);
+                environment: environment);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

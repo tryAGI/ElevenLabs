@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareSizeArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string? xiApiKey);
+            ref string agentId);
         partial void PrepareSizeRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string? xiApiKey);
+            string agentId);
         partial void ProcessSizeResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,22 +26,17 @@ namespace ElevenLabs
         /// Returns the number of pages in the agent's knowledge base.
         /// </summary>
         /// <param name="agentId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentKnowledgebaseSizeResponseModel> SizeAsync(
             string agentId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareSizeArguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                xiApiKey: ref xiApiKey);
+                agentId: ref agentId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agent/{agentId}/knowledge-base/size",
@@ -73,20 +66,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareSizeRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                agentId: agentId,
-                xiApiKey: xiApiKey);
+                agentId: agentId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

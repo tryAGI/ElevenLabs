@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the agent branch to use
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -25,7 +22,6 @@ namespace ElevenLabs
             string branchId,
 
             global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Agent Draft<br/>
@@ -36,9 +32,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// The ID of the agent branch to use
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="conversationConfig">
         /// Conversation config for the draft
@@ -65,7 +58,6 @@ namespace ElevenLabs
             object platformSettings,
             global::ElevenLabs.AgentWorkflowRequestModel workflow,
             string name,
-            string? xiApiKey = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

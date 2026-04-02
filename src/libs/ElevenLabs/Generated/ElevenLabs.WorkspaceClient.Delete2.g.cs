@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareDelete2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string authConnectionId,
-            ref string? xiApiKey);
+            ref string authConnectionId);
         partial void PrepareDelete2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string authConnectionId,
-            string? xiApiKey);
+            string authConnectionId);
         partial void ProcessDelete2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,22 +26,17 @@ namespace ElevenLabs
         /// Delete an auth connection
         /// </summary>
         /// <param name="authConnectionId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete2Async(
             string authConnectionId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete2Arguments(
                 httpClient: HttpClient,
-                authConnectionId: ref authConnectionId,
-                xiApiKey: ref xiApiKey);
+                authConnectionId: ref authConnectionId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/workspace/auth-connections/{authConnectionId}",
@@ -73,20 +66,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareDelete2Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                authConnectionId: authConnectionId,
-                xiApiKey: xiApiKey);
+                authConnectionId: authConnectionId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

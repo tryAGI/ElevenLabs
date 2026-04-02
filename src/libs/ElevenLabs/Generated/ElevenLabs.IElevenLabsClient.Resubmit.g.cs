@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="testInvocationId">
         /// The id of a test invocation. This is returned when tests are run.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string testInvocationId,
 
             global::ElevenLabs.ResubmitTestsRequestModel request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Resubmit Tests<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="testInvocationId">
         /// The id of a test invocation. This is returned when tests are run.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="testRunIds">
         /// List of test run IDs to resubmit
@@ -51,7 +44,6 @@ namespace ElevenLabs
             string testInvocationId,
             global::System.Collections.Generic.IList<string> testRunIds,
             string agentId,
-            string? xiApiKey = default,
             global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? agentConfigOverride = default,
             string? branchId = default,
             global::System.Threading.CancellationToken cancellationToken = default);

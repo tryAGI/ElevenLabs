@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareCalculateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string? xiApiKey,
             global::ElevenLabs.LLMUsageCalculatorRequestModel request);
         partial void PrepareCalculateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string? xiApiKey,
             global::ElevenLabs.LLMUsageCalculatorRequestModel request);
         partial void ProcessCalculateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,9 +28,6 @@ namespace ElevenLabs
         /// Calculates expected number of LLM tokens needed for the specified agent.
         /// </summary>
         /// <param name="agentId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -40,7 +35,6 @@ namespace ElevenLabs
             string agentId,
 
             global::ElevenLabs.LLMUsageCalculatorRequestModel request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -50,7 +44,6 @@ namespace ElevenLabs
             PrepareCalculateArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -80,12 +73,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -100,7 +87,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -243,9 +229,6 @@ namespace ElevenLabs
         /// Calculates expected number of LLM tokens needed for the specified agent.
         /// </summary>
         /// <param name="agentId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="promptLength">
         /// Length of the prompt in characters.
         /// </param>
@@ -259,7 +242,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.LLMUsageCalculatorResponseModel> CalculateAsync(
             string agentId,
-            string? xiApiKey = default,
             int? promptLength = default,
             int? numberOfPages = default,
             bool? ragEnabled = default,
@@ -274,7 +256,6 @@ namespace ElevenLabs
 
             return await CalculateAsync(
                 agentId: agentId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
