@@ -114,7 +114,7 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.ASTStringNodeInput? stringLiteral = default;
             global::ElevenLabs.ASTNumberNodeInput? numberLiteral = default;
             global::ElevenLabs.ASTBooleanNodeInput? booleanLiteral = default;
-            global::ElevenLabs.ASTLLMNodeInput? lM = default;
+            global::ElevenLabs.ASTLLMNodeInput? lm = default;
             global::ElevenLabs.ASTDynamicVariableNodeInput? dynamicVariable = default;
             global::ElevenLabs.ASTOrOperatorNodeInput? orOperator = default;
             global::ElevenLabs.ASTAndOperatorNodeInput? andOperator = default;
@@ -182,7 +182,7 @@ namespace ElevenLabs.JsonConverters
                     {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInput> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInput).Name}");
-                        lM = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        lm = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -403,7 +403,7 @@ namespace ElevenLabs.JsonConverters
                 }
             }
 
-            if (stringLiteral == null && numberLiteral == null && booleanLiteral == null && lM == null && dynamicVariable == null && orOperator == null && andOperator == null && eqOperator == null && neqOperator == null && gtOperator == null && ltOperator == null && gteOperator == null && lteOperator == null && addOperator == null && subOperator == null && mulOperator == null && divOperator == null && conditionalOperator == null)
+            if (stringLiteral == null && numberLiteral == null && booleanLiteral == null && lm == null && dynamicVariable == null && orOperator == null && andOperator == null && eqOperator == null && neqOperator == null && gtOperator == null && ltOperator == null && gteOperator == null && lteOperator == null && addOperator == null && subOperator == null && mulOperator == null && divOperator == null && conditionalOperator == null)
             {
                 try
                 {
@@ -448,7 +448,7 @@ namespace ElevenLabs.JsonConverters
                 {
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInput> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInput).Name}");
-                    lM = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    lm = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -647,7 +647,7 @@ namespace ElevenLabs.JsonConverters
 
                 booleanLiteral,
 
-                lM,
+                lm,
 
                 dynamicVariable,
 
@@ -708,11 +708,11 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTBooleanNodeInput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.BooleanLiteral!, typeInfo);
             }
-            else if (value.IsLM)
+            else if (value.IsLm)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInput> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LM!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Lm!.Value, typeInfo);
             }
             else if (value.IsDynamicVariable)
             {
