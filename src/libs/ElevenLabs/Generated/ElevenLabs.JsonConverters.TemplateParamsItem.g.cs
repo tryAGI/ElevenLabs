@@ -12,35 +12,26 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminator>(ref readerCopy, options);
 
             global::ElevenLabs.WhatsAppTemplateHeaderComponentParams? header = default;
             if (discriminator?.Type == global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminatorType.Header)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams)}");
-                header = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                header = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams>(ref reader, options);
             }
             global::ElevenLabs.WhatsAppTemplateBodyComponentParams? body = default;
             if (discriminator?.Type == global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminatorType.Body)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppTemplateBodyComponentParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppTemplateBodyComponentParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WhatsAppTemplateBodyComponentParams)}");
-                body = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                body = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.WhatsAppTemplateBodyComponentParams>(ref reader, options);
             }
             global::ElevenLabs.WhatsAppTemplateButtonComponentParams? button = default;
             if (discriminator?.Type == global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminatorType.Button)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppTemplateButtonComponentParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppTemplateButtonComponentParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WhatsAppTemplateButtonComponentParams)}");
-                button = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                button = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.WhatsAppTemplateButtonComponentParams>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.TemplateParamsItem(
@@ -61,26 +52,19 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.TemplateParamsItem value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsHeader)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Header!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Header, typeof(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams), options);
             }
             else if (value.IsBody)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppTemplateBodyComponentParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppTemplateBodyComponentParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WhatsAppTemplateBodyComponentParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Body!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Body, typeof(global::ElevenLabs.WhatsAppTemplateBodyComponentParams), options);
             }
             else if (value.IsButton)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppTemplateButtonComponentParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppTemplateButtonComponentParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WhatsAppTemplateButtonComponentParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Button!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Button, typeof(global::ElevenLabs.WhatsAppTemplateButtonComponentParams), options);
             }
         }
     }

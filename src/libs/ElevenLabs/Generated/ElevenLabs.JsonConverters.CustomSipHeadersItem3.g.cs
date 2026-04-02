@@ -12,28 +12,21 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminator>(ref readerCopy, options);
 
             global::ElevenLabs.CustomSIPHeader? dynamic1 = default;
             if (discriminator?.Type == global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminatorType.Dynamic)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CustomSIPHeader), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CustomSIPHeader> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CustomSIPHeader)}");
-                dynamic1 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                dynamic1 = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CustomSIPHeader>(ref reader, options);
             }
             global::ElevenLabs.CustomSIPHeaderWithDynamicVariable? dynamic2 = default;
             if (discriminator?.Type == global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminatorType.Dynamic)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable)}");
-                dynamic2 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                dynamic2 = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.CustomSipHeadersItem3(
@@ -52,20 +45,15 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.CustomSipHeadersItem3 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsDynamic1)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CustomSIPHeader), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CustomSIPHeader?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CustomSIPHeader).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Dynamic1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Dynamic1, typeof(global::ElevenLabs.CustomSIPHeader), options);
             }
             else if (value.IsDynamic2)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Dynamic2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Dynamic2, typeof(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable), options);
             }
         }
     }

@@ -12,28 +12,21 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminator>(ref readerCopy, options);
 
             global::ElevenLabs.DependentAvailableMCPServerIdentifier? available = default;
             if (discriminator?.Type == global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminatorType.Available)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentAvailableMCPServerIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentAvailableMCPServerIdentifier> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DependentAvailableMCPServerIdentifier)}");
-                available = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                available = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.DependentAvailableMCPServerIdentifier>(ref reader, options);
             }
             global::ElevenLabs.DependentUnknownMCPServerIdentifier? unknown = default;
             if (discriminator?.Type == global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminatorType.Unknown)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentUnknownMCPServerIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentUnknownMCPServerIdentifier> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DependentUnknownMCPServerIdentifier)}");
-                unknown = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                unknown = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.DependentUnknownMCPServerIdentifier>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.McpServersItem(
@@ -52,20 +45,15 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.McpServersItem value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsAvailable)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentAvailableMCPServerIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentAvailableMCPServerIdentifier?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DependentAvailableMCPServerIdentifier).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Available!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Available, typeof(global::ElevenLabs.DependentAvailableMCPServerIdentifier), options);
             }
             else if (value.IsUnknown)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentUnknownMCPServerIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentUnknownMCPServerIdentifier?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DependentUnknownMCPServerIdentifier).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Unknown!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Unknown, typeof(global::ElevenLabs.DependentUnknownMCPServerIdentifier), options);
             }
         }
     }

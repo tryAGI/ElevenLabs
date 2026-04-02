@@ -12,35 +12,26 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminator>(ref readerCopy, options);
 
             global::ElevenLabs.ConstantSchemaOverride? constant = default;
             if (discriminator?.Source == global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminatorSource.Constant)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConstantSchemaOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConstantSchemaOverride> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ConstantSchemaOverride)}");
-                constant = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                constant = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ConstantSchemaOverride>(ref reader, options);
             }
             global::ElevenLabs.DynamicVariableSchemaOverride? dynamicVariable = default;
             if (discriminator?.Source == global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminatorSource.DynamicVariable)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DynamicVariableSchemaOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DynamicVariableSchemaOverride> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DynamicVariableSchemaOverride)}");
-                dynamicVariable = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                dynamicVariable = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.DynamicVariableSchemaOverride>(ref reader, options);
             }
             global::ElevenLabs.LLMSchemaOverride? llm = default;
             if (discriminator?.Source == global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminatorSource.Llm)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LLMSchemaOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LLMSchemaOverride> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.LLMSchemaOverride)}");
-                llm = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                llm = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.LLMSchemaOverride>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.InputOverridesVariant13(
@@ -61,26 +52,19 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.InputOverridesVariant13 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsConstant)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConstantSchemaOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConstantSchemaOverride?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ConstantSchemaOverride).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Constant!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Constant, typeof(global::ElevenLabs.ConstantSchemaOverride), options);
             }
             else if (value.IsDynamicVariable)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DynamicVariableSchemaOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DynamicVariableSchemaOverride?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DynamicVariableSchemaOverride).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DynamicVariable!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DynamicVariable, typeof(global::ElevenLabs.DynamicVariableSchemaOverride), options);
             }
             else if (value.IsLlm)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LLMSchemaOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LLMSchemaOverride?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.LLMSchemaOverride).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Llm!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Llm, typeof(global::ElevenLabs.LLMSchemaOverride), options);
             }
         }
     }

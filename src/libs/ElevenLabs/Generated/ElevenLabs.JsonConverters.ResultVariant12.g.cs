@@ -12,98 +12,71 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1Discriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1Discriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1Discriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1Discriminator>(ref readerCopy, options);
 
             global::ElevenLabs.EndCallToolResultModel? endCallSuccess = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.EndCallSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndCallToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndCallToolResultModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.EndCallToolResultModel)}");
-                endCallSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                endCallSuccess = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.EndCallToolResultModel>(ref reader, options);
             }
             global::ElevenLabs.LanguageDetectionToolResultModel? languageDetectionSuccess = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.LanguageDetectionSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LanguageDetectionToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LanguageDetectionToolResultModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.LanguageDetectionToolResultModel)}");
-                languageDetectionSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                languageDetectionSuccess = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.LanguageDetectionToolResultModel>(ref reader, options);
             }
             global::ElevenLabs.TransferToAgentToolResultSuccessModel? transferToAgentSuccess = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToAgentToolResultSuccessModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToAgentToolResultSuccessModel)}");
-                transferToAgentSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                transferToAgentSuccess = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TransferToAgentToolResultSuccessModel>(ref reader, options);
             }
             global::ElevenLabs.TransferToAgentToolResultErrorModel? transferToAgentError = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentError)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToAgentToolResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToAgentToolResultErrorModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToAgentToolResultErrorModel)}");
-                transferToAgentError = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                transferToAgentError = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TransferToAgentToolResultErrorModel>(ref reader, options);
             }
             global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? transferToNumberTwilioSuccess = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberTwilioSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel)}");
-                transferToNumberTwilioSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                transferToNumberTwilioSuccess = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel>(ref reader, options);
             }
             global::ElevenLabs.TransferToNumberResultSipSuccessModel? transferToNumberSipSuccess = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberSipSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultSipSuccessModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberResultSipSuccessModel)}");
-                transferToNumberSipSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                transferToNumberSipSuccess = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TransferToNumberResultSipSuccessModel>(ref reader, options);
             }
             global::ElevenLabs.TransferToNumberResultErrorModel? transferToNumberError = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberError)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultErrorModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberResultErrorModel)}");
-                transferToNumberError = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                transferToNumberError = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TransferToNumberResultErrorModel>(ref reader, options);
             }
             global::ElevenLabs.SkipTurnToolResponseModel? skipTurnSuccess = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.SkipTurnSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SkipTurnToolResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SkipTurnToolResponseModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SkipTurnToolResponseModel)}");
-                skipTurnSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                skipTurnSuccess = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.SkipTurnToolResponseModel>(ref reader, options);
             }
             global::ElevenLabs.PlayDTMFResultSuccessModel? playDtmfSuccess = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.PlayDtmfSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PlayDTMFResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PlayDTMFResultSuccessModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PlayDTMFResultSuccessModel)}");
-                playDtmfSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                playDtmfSuccess = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.PlayDTMFResultSuccessModel>(ref reader, options);
             }
             global::ElevenLabs.PlayDTMFResultErrorModel? playDtmfError = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.PlayDtmfError)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PlayDTMFResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PlayDTMFResultErrorModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PlayDTMFResultErrorModel)}");
-                playDtmfError = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                playDtmfError = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.PlayDTMFResultErrorModel>(ref reader, options);
             }
             global::ElevenLabs.VoiceMailDetectionResultSuccessModel? voicemailDetectionSuccess = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.VoicemailDetectionSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.VoiceMailDetectionResultSuccessModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel)}");
-                voicemailDetectionSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                voicemailDetectionSuccess = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.VoiceMailDetectionResultSuccessModel>(ref reader, options);
             }
             global::ElevenLabs.TestToolResultModel? testingToolResult = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TestingToolResult)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TestToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TestToolResultModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TestToolResultModel)}");
-                testingToolResult = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                testingToolResult = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TestToolResultModel>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.ResultVariant12(
@@ -142,80 +115,55 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.ResultVariant12 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsEndCallSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndCallToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndCallToolResultModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.EndCallToolResultModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndCallSuccess!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndCallSuccess, typeof(global::ElevenLabs.EndCallToolResultModel), options);
             }
             else if (value.IsLanguageDetectionSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LanguageDetectionToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LanguageDetectionToolResultModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.LanguageDetectionToolResultModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LanguageDetectionSuccess!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LanguageDetectionSuccess, typeof(global::ElevenLabs.LanguageDetectionToolResultModel), options);
             }
             else if (value.IsTransferToAgentSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToAgentToolResultSuccessModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToAgentSuccess!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToAgentSuccess, typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModel), options);
             }
             else if (value.IsTransferToAgentError)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToAgentToolResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToAgentToolResultErrorModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToAgentToolResultErrorModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToAgentError!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToAgentError, typeof(global::ElevenLabs.TransferToAgentToolResultErrorModel), options);
             }
             else if (value.IsTransferToNumberTwilioSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberTwilioSuccess!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberTwilioSuccess, typeof(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel), options);
             }
             else if (value.IsTransferToNumberSipSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultSipSuccessModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberSipSuccess!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberSipSuccess, typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel), options);
             }
             else if (value.IsTransferToNumberError)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultErrorModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberResultErrorModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberError!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberError, typeof(global::ElevenLabs.TransferToNumberResultErrorModel), options);
             }
             else if (value.IsSkipTurnSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SkipTurnToolResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SkipTurnToolResponseModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SkipTurnToolResponseModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SkipTurnSuccess!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SkipTurnSuccess, typeof(global::ElevenLabs.SkipTurnToolResponseModel), options);
             }
             else if (value.IsPlayDtmfSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PlayDTMFResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PlayDTMFResultSuccessModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PlayDTMFResultSuccessModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PlayDtmfSuccess!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PlayDtmfSuccess, typeof(global::ElevenLabs.PlayDTMFResultSuccessModel), options);
             }
             else if (value.IsPlayDtmfError)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PlayDTMFResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PlayDTMFResultErrorModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PlayDTMFResultErrorModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PlayDtmfError!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PlayDtmfError, typeof(global::ElevenLabs.PlayDTMFResultErrorModel), options);
             }
             else if (value.IsVoicemailDetectionSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.VoiceMailDetectionResultSuccessModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VoicemailDetectionSuccess!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VoicemailDetectionSuccess, typeof(global::ElevenLabs.VoiceMailDetectionResultSuccessModel), options);
             }
             else if (value.IsTestingToolResult)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TestToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TestToolResultModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TestToolResultModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TestingToolResult!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TestingToolResult, typeof(global::ElevenLabs.TestToolResultModel), options);
             }
         }
     }

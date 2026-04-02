@@ -12,35 +12,26 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminator>(ref readerCopy, options);
 
             global::ElevenLabs.CreateStringEnvironmentVariableRequest? @string = default;
             if (discriminator?.Type == global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType.String)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateStringEnvironmentVariableRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateStringEnvironmentVariableRequest> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateStringEnvironmentVariableRequest)}");
-                @string = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                @string = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateStringEnvironmentVariableRequest>(ref reader, options);
             }
             global::ElevenLabs.CreateSecretEnvironmentVariableRequest? secret = default;
             if (discriminator?.Type == global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType.Secret)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateSecretEnvironmentVariableRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateSecretEnvironmentVariableRequest> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateSecretEnvironmentVariableRequest)}");
-                secret = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                secret = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateSecretEnvironmentVariableRequest>(ref reader, options);
             }
             global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? authConnection = default;
             if (discriminator?.Type == global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType.AuthConnection)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest)}");
-                authConnection = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                authConnection = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.CreateEnvironmentVariableRequest(
@@ -61,26 +52,19 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.CreateEnvironmentVariableRequest value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsString)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateStringEnvironmentVariableRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateStringEnvironmentVariableRequest?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateStringEnvironmentVariableRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.String!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.String, typeof(global::ElevenLabs.CreateStringEnvironmentVariableRequest), options);
             }
             else if (value.IsSecret)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateSecretEnvironmentVariableRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateSecretEnvironmentVariableRequest?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateSecretEnvironmentVariableRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Secret!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Secret, typeof(global::ElevenLabs.CreateSecretEnvironmentVariableRequest), options);
             }
             else if (value.IsAuthConnection)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AuthConnection!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AuthConnection, typeof(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest), options);
             }
         }
     }

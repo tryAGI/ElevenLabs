@@ -12,42 +12,31 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminator>(ref readerCopy, options);
 
             global::ElevenLabs.GetKnowledgeBaseURLResponseModel? url = default;
             if (discriminator?.Type == global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminatorType.Url)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseURLResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseURLResponseModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetKnowledgeBaseURLResponseModel)}");
-                url = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                url = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetKnowledgeBaseURLResponseModel>(ref reader, options);
             }
             global::ElevenLabs.GetKnowledgeBaseFileResponseModel? file = default;
             if (discriminator?.Type == global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminatorType.File)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseFileResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseFileResponseModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetKnowledgeBaseFileResponseModel)}");
-                file = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                file = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetKnowledgeBaseFileResponseModel>(ref reader, options);
             }
             global::ElevenLabs.GetKnowledgeBaseTextResponseModel? text = default;
             if (discriminator?.Type == global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminatorType.Text)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseTextResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseTextResponseModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetKnowledgeBaseTextResponseModel)}");
-                text = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                text = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetKnowledgeBaseTextResponseModel>(ref reader, options);
             }
             global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? folder = default;
             if (discriminator?.Type == global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminatorType.Folder)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseFolderResponseModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel)}");
-                folder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                folder = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetKnowledgeBaseFolderResponseModel>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.RefreshUrlDocumentRouteResponse(
@@ -70,32 +59,23 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.RefreshUrlDocumentRouteResponse value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsUrl)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseURLResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseURLResponseModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetKnowledgeBaseURLResponseModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Url!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Url, typeof(global::ElevenLabs.GetKnowledgeBaseURLResponseModel), options);
             }
             else if (value.IsFile)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseFileResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseFileResponseModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetKnowledgeBaseFileResponseModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.File!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.File, typeof(global::ElevenLabs.GetKnowledgeBaseFileResponseModel), options);
             }
             else if (value.IsText)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseTextResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseTextResponseModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetKnowledgeBaseTextResponseModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text, typeof(global::ElevenLabs.GetKnowledgeBaseTextResponseModel), options);
             }
             else if (value.IsFolder)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Folder!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Folder, typeof(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel), options);
             }
         }
     }
