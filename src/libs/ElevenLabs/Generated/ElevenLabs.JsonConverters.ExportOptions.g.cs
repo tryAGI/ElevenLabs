@@ -12,56 +12,41 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ExportOptionsDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ExportOptionsDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ExportOptionsDiscriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ExportOptionsDiscriminator>(ref readerCopy, options);
 
             global::ElevenLabs.SegmentedJsonExportOptions? segmentedJson = default;
             if (discriminator?.Format == global::ElevenLabs.ExportOptionsDiscriminatorFormat.SegmentedJson)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SegmentedJsonExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SegmentedJsonExportOptions> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SegmentedJsonExportOptions)}");
-                segmentedJson = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                segmentedJson = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.SegmentedJsonExportOptions>(ref reader, options);
             }
             global::ElevenLabs.DocxExportOptions? docx = default;
             if (discriminator?.Format == global::ElevenLabs.ExportOptionsDiscriminatorFormat.Docx)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DocxExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DocxExportOptions> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DocxExportOptions)}");
-                docx = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                docx = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.DocxExportOptions>(ref reader, options);
             }
             global::ElevenLabs.PdfExportOptions? pdf = default;
             if (discriminator?.Format == global::ElevenLabs.ExportOptionsDiscriminatorFormat.Pdf)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PdfExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PdfExportOptions> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PdfExportOptions)}");
-                pdf = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                pdf = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.PdfExportOptions>(ref reader, options);
             }
             global::ElevenLabs.TxtExportOptions? txt = default;
             if (discriminator?.Format == global::ElevenLabs.ExportOptionsDiscriminatorFormat.Txt)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TxtExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TxtExportOptions> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TxtExportOptions)}");
-                txt = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                txt = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TxtExportOptions>(ref reader, options);
             }
             global::ElevenLabs.HtmlExportOptions? html = default;
             if (discriminator?.Format == global::ElevenLabs.ExportOptionsDiscriminatorFormat.Html)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.HtmlExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.HtmlExportOptions> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.HtmlExportOptions)}");
-                html = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                html = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.HtmlExportOptions>(ref reader, options);
             }
             global::ElevenLabs.SrtExportOptions? srt = default;
             if (discriminator?.Format == global::ElevenLabs.ExportOptionsDiscriminatorFormat.Srt)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SrtExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SrtExportOptions> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SrtExportOptions)}");
-                srt = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                srt = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.SrtExportOptions>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.ExportOptions(
@@ -88,44 +73,31 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.ExportOptions value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsSegmentedJson)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SegmentedJsonExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SegmentedJsonExportOptions?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SegmentedJsonExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SegmentedJson!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SegmentedJson, typeof(global::ElevenLabs.SegmentedJsonExportOptions), options);
             }
             else if (value.IsDocx)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DocxExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DocxExportOptions?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DocxExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Docx!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Docx, typeof(global::ElevenLabs.DocxExportOptions), options);
             }
             else if (value.IsPdf)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PdfExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PdfExportOptions?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PdfExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Pdf!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Pdf, typeof(global::ElevenLabs.PdfExportOptions), options);
             }
             else if (value.IsTxt)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TxtExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TxtExportOptions?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TxtExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Txt!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Txt, typeof(global::ElevenLabs.TxtExportOptions), options);
             }
             else if (value.IsHtml)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.HtmlExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.HtmlExportOptions?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.HtmlExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Html!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Html, typeof(global::ElevenLabs.HtmlExportOptions), options);
             }
             else if (value.IsSrt)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SrtExportOptions), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SrtExportOptions?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SrtExportOptions).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Srt!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Srt, typeof(global::ElevenLabs.SrtExportOptions), options);
             }
         }
     }

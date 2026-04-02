@@ -12,8 +12,7 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             using var __jsonDocument = global::System.Text.Json.JsonDocument.ParseValue(ref reader);
             var __rawJson = __jsonDocument.RootElement.GetRawText();
@@ -45,9 +44,7 @@ namespace ElevenLabs.JsonConverters
                 {
                     try
                     {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInputASTLLMNode> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode).Name}");
-                        aSTLLMNode1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        aSTLLMNode1 = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ASTLLMNodeInputASTLLMNode>(__rawJson, options);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -60,9 +57,7 @@ namespace ElevenLabs.JsonConverters
                 {
                     try
                     {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2).Name}");
-                        aSTLLMNode2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        aSTLLMNode2 = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2>(__rawJson, options);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -77,9 +72,7 @@ namespace ElevenLabs.JsonConverters
             {
                 try
                 {
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInputASTLLMNode> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode).Name}");
-                    aSTLLMNode1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    aSTLLMNode1 = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ASTLLMNodeInputASTLLMNode>(__rawJson, options);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -90,9 +83,7 @@ namespace ElevenLabs.JsonConverters
 
                 try
                 {
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2).Name}");
-                    aSTLLMNode2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    aSTLLMNode2 = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2>(__rawJson, options);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -117,20 +108,15 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.ASTLLMNodeInput value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsASTLLMNode1)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInputASTLLMNode?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ASTLLMNode1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ASTLLMNode1, typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode), options);
             }
             else if (value.IsASTLLMNode2)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ASTLLMNode2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ASTLLMNode2, typeof(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2), options);
             }
         }
     }

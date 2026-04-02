@@ -12,35 +12,26 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1Discriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1Discriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1Discriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1Discriminator>(ref readerCopy, options);
 
             global::ElevenLabs.SongSourceContext? musicExploreSong1 = default;
             if (discriminator?.SourceType == global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceType.MusicExploreSong)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SongSourceContext), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SongSourceContext> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SongSourceContext)}");
-                musicExploreSong1 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                musicExploreSong1 = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.SongSourceContext>(ref reader, options);
             }
             global::ElevenLabs.MusicExploreSongSourceContext? musicExploreSong2 = default;
             if (discriminator?.SourceType == global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceType.MusicExploreSong)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MusicExploreSongSourceContext), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MusicExploreSongSourceContext> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MusicExploreSongSourceContext)}");
-                musicExploreSong2 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                musicExploreSong2 = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.MusicExploreSongSourceContext>(ref reader, options);
             }
             global::ElevenLabs.SfxSourceContext? sfx = default;
             if (discriminator?.SourceType == global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceType.Sfx)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SfxSourceContext), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SfxSourceContext> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SfxSourceContext)}");
-                sfx = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                sfx = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.SfxSourceContext>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.SourceContextVariant1(
@@ -61,26 +52,19 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.SourceContextVariant1 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsMusicExploreSong1)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SongSourceContext), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SongSourceContext?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SongSourceContext).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MusicExploreSong1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MusicExploreSong1, typeof(global::ElevenLabs.SongSourceContext), options);
             }
             else if (value.IsMusicExploreSong2)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MusicExploreSongSourceContext), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MusicExploreSongSourceContext?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MusicExploreSongSourceContext).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MusicExploreSong2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MusicExploreSong2, typeof(global::ElevenLabs.MusicExploreSongSourceContext), options);
             }
             else if (value.IsSfx)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SfxSourceContext), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SfxSourceContext?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SfxSourceContext).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Sfx!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Sfx, typeof(global::ElevenLabs.SfxSourceContext), options);
             }
         }
     }
