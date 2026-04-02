@@ -34073,6 +34073,7 @@
                 "type": "null"
               }
             ],
+            "title": "Settings",
             "description": "Settings controlling the dialogue generation.",
             "examples": [
               {
@@ -34199,6 +34200,7 @@
                 "type": "null"
               }
             ],
+            "title": "Settings",
             "description": "Settings controlling the dialogue generation.",
             "examples": [
               {
@@ -35187,6 +35189,7 @@
                 "type": "null"
               }
             ],
+            "title": "Settings",
             "description": "Settings controlling the dialogue generation.",
             "examples": [
               {
@@ -35302,6 +35305,7 @@
                 "type": "null"
               }
             ],
+            "title": "Settings",
             "description": "Settings controlling the dialogue generation.",
             "examples": [
               {
@@ -41958,6 +41962,17 @@
               }
             ],
             "title": "Convai Tts Model"
+          },
+          "convai_tts_cascade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Convai Tts Cascade"
           }
         },
         "type": "object",
@@ -66656,6 +66671,43 @@
         ],
         "title": "TimeRange"
       },
+      "ToDialogueSettingsResponseModel": {
+        "properties": {
+          "stability": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stability",
+            "description": "Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.",
+            "default": 0.5
+          },
+          "speed": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 2.0,
+                "minimum": 0.5
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Speed"
+          }
+        },
+        "type": "object",
+        "title": "ToDialogueSettingsResponseModel",
+        "example": {
+          "stability": 0.5
+        }
+      },
       "TokenResponseModel": {
         "properties": {
           "token": {
@@ -70425,7 +70477,9 @@
                 "type": "string",
                 "enum": [
                   "studio",
+                  "good",
                   "ok",
+                  "poor",
                   "bad"
                 ]
               },

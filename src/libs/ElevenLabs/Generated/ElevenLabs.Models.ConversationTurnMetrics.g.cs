@@ -27,6 +27,12 @@ namespace ElevenLabs
         public string? ConvaiTtsModel { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("convai_tts_cascade")]
+        public string? ConvaiTtsCascade { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -38,17 +44,20 @@ namespace ElevenLabs
         /// <param name="metrics"></param>
         /// <param name="convaiAsrProvider"></param>
         /// <param name="convaiTtsModel"></param>
+        /// <param name="convaiTtsCascade"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationTurnMetrics(
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.MetricRecord>? metrics,
             string? convaiAsrProvider,
-            string? convaiTtsModel)
+            string? convaiTtsModel,
+            string? convaiTtsCascade)
         {
             this.Metrics = metrics;
             this.ConvaiAsrProvider = convaiAsrProvider;
             this.ConvaiTtsModel = convaiTtsModel;
+            this.ConvaiTtsCascade = convaiTtsCascade;
         }
 
         /// <summary>
