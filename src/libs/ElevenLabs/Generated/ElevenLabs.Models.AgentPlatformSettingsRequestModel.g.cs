@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// Settings for evaluation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation")]
-        public global::ElevenLabs.EvaluationSettings? Evaluation { get; set; }
+        public global::ElevenLabs.EvaluationSettingsInput? Evaluation { get; set; }
 
         /// <summary>
         /// Configuration for the widget<br/>
@@ -27,6 +27,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? DataCollection { get; set; }
+
+        /// <summary>
+        /// Scope per data collection item ID. Missing keys default to conversation scope.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_scopes")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisScope>? DataCollectionScopes { get; set; }
 
         /// <summary>
         /// Additional overrides for the agent during conversation initiation<br/>
@@ -112,6 +118,9 @@ namespace ElevenLabs
         /// <param name="dataCollection">
         /// Data collection settings
         /// </param>
+        /// <param name="dataCollectionScopes">
+        /// Scope per data collection item ID. Missing keys default to conversation scope.
+        /// </param>
         /// <param name="overrides">
         /// Additional overrides for the agent during conversation initiation<br/>
         /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}
@@ -149,9 +158,10 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentPlatformSettingsRequestModel(
-            global::ElevenLabs.EvaluationSettings? evaluation,
+            global::ElevenLabs.EvaluationSettingsInput? evaluation,
             global::ElevenLabs.WidgetConfigInput? widget,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisScope>? dataCollectionScopes,
             global::ElevenLabs.ConversationInitiationClientDataConfigInput? overrides,
             global::ElevenLabs.AgentWorkspaceOverridesInput? workspaceOverrides,
             global::ElevenLabs.AgentTestingSettings? testing,
@@ -165,6 +175,7 @@ namespace ElevenLabs
             this.Evaluation = evaluation;
             this.Widget = widget;
             this.DataCollection = dataCollection;
+            this.DataCollectionScopes = dataCollectionScopes;
             this.Overrides = overrides;
             this.WorkspaceOverrides = workspaceOverrides;
             this.Testing = testing;

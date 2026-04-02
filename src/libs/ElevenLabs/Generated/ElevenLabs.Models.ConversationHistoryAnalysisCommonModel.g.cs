@@ -54,6 +54,12 @@ namespace ElevenLabs
         public string? CallSummaryTitle { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scoped")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ScopedAnalysisResult>? Scoped { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -69,6 +75,7 @@ namespace ElevenLabs
         /// <param name="evaluationCriteriaResultsList"></param>
         /// <param name="dataCollectionResultsList"></param>
         /// <param name="callSummaryTitle"></param>
+        /// <param name="scoped"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -79,7 +86,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResults,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? evaluationCriteriaResultsList,
             global::System.Collections.Generic.IList<global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResultsList,
-            string? callSummaryTitle)
+            string? callSummaryTitle,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ScopedAnalysisResult>? scoped)
         {
             this.EvaluationCriteriaResults = evaluationCriteriaResults;
             this.DataCollectionResults = dataCollectionResults;
@@ -88,6 +96,7 @@ namespace ElevenLabs
             this.CallSuccessful = callSuccessful;
             this.TranscriptSummary = transcriptSummary ?? throw new global::System.ArgumentNullException(nameof(transcriptSummary));
             this.CallSummaryTitle = callSummaryTitle;
+            this.Scoped = scoped;
         }
 
         /// <summary>

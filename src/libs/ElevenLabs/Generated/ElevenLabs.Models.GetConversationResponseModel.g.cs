@@ -63,6 +63,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("visited_agents")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VisitedAgentRef>? VisitedAgents { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_client_data")]
         public global::ElevenLabs.ConversationInitiationClientDataRequestOutput? ConversationInitiationClientData { get; set; }
 
@@ -131,6 +137,7 @@ namespace ElevenLabs
         /// The ID of the agent version used for this conversation
         /// </param>
         /// <param name="analysis"></param>
+        /// <param name="visitedAgents"></param>
         /// <param name="conversationInitiationClientData"></param>
         /// <param name="environment">
         /// Default Value: production
@@ -152,6 +159,7 @@ namespace ElevenLabs
             string? branchId,
             string? versionId,
             global::ElevenLabs.ConversationHistoryAnalysisCommonModel? analysis,
+            global::System.Collections.Generic.IList<global::ElevenLabs.VisitedAgentRef>? visitedAgents,
             global::ElevenLabs.ConversationInitiationClientDataRequestOutput? conversationInitiationClientData,
             string? environment)
         {
@@ -163,6 +171,7 @@ namespace ElevenLabs
             this.VersionId = versionId;
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.Analysis = analysis;
+            this.VisitedAgents = visitedAgents;
             this.ConversationInitiationClientData = conversationInitiationClientData;
             this.Environment = environment;
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));

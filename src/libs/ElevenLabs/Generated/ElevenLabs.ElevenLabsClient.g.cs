@@ -65,6 +65,8 @@ namespace ElevenLabs
                     new global::ElevenLabs.JsonConverters.AgentWorkflowResponseModelNodesDiscriminatorTypeNullableJsonConverter(),
                     new global::ElevenLabs.JsonConverters.AllowedOutputFormatsJsonConverter(),
                     new global::ElevenLabs.JsonConverters.AllowedOutputFormatsNullableJsonConverter(),
+                    new global::ElevenLabs.JsonConverters.AnalysisScopeJsonConverter(),
+                    new global::ElevenLabs.JsonConverters.AnalysisScopeNullableJsonConverter(),
                     new global::ElevenLabs.JsonConverters.ApiIntegrationOAuth2AuthCodeResponseScopeSeparatorJsonConverter(),
                     new global::ElevenLabs.JsonConverters.ApiIntegrationOAuth2AuthCodeResponseScopeSeparatorNullableJsonConverter(),
                     new global::ElevenLabs.JsonConverters.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSourceJsonConverter(),

@@ -5,7 +5,7 @@ namespace ElevenLabs
 {
     /// <summary>
     /// An evaluation using the transcript and a prompt for a yes/no achieved answer<br/>
-    /// Example: {"conversation_goal_prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","id":"1234567890","name":"Customer satisfaction check","use_knowledge_base":false}
+    /// Example: {"conversation_goal_prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","id":"1234567890","name":"Customer satisfaction check","scope":"conversation","use_knowledge_base":false}
     /// </summary>
     public sealed partial class PromptEvaluationCriteria
     {
@@ -45,6 +45,14 @@ namespace ElevenLabs
         public bool? UseKnowledgeBase { get; set; }
 
         /// <summary>
+        /// The scope of transcript context used when evaluating this criterion. 'conversation' uses the full transcript; 'agent' uses only the portion where the defining agent was active.<br/>
+        /// Default Value: conversation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scope")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnalysisScopeJsonConverter))]
+        public global::ElevenLabs.AnalysisScope? Scope { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -68,6 +76,10 @@ namespace ElevenLabs
         /// When evaluating the prompt, should the agent's knowledge base be used.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="scope">
+        /// The scope of transcript context used when evaluating this criterion. 'conversation' uses the full transcript; 'agent' uses only the portion where the defining agent was active.<br/>
+        /// Default Value: conversation
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -76,13 +88,15 @@ namespace ElevenLabs
             string name,
             string conversationGoalPrompt,
             string? type,
-            bool? useKnowledgeBase)
+            bool? useKnowledgeBase,
+            global::ElevenLabs.AnalysisScope? scope)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
             this.ConversationGoalPrompt = conversationGoalPrompt ?? throw new global::System.ArgumentNullException(nameof(conversationGoalPrompt));
             this.UseKnowledgeBase = useKnowledgeBase;
+            this.Scope = scope;
         }
 
         /// <summary>

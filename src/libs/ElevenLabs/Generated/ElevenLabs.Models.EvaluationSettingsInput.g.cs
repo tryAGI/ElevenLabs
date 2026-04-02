@@ -7,7 +7,7 @@ namespace ElevenLabs
     /// Settings to evaluate an agent's performance.<br/>
     /// Agents are evaluated against a set of criteria, with success being defined as meeting some combination of those criteria.
     /// </summary>
-    public sealed partial class EvaluationSettings
+    public sealed partial class EvaluationSettingsInput
     {
         /// <summary>
         /// Individual criteria that the agent should be evaluated against
@@ -22,7 +22,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EvaluationSettings" /> class.
+        /// Initializes a new instance of the <see cref="EvaluationSettingsInput" /> class.
         /// </summary>
         /// <param name="criteria">
         /// Individual criteria that the agent should be evaluated against
@@ -30,16 +30,16 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public EvaluationSettings(
+        public EvaluationSettingsInput(
             global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? criteria)
         {
             this.Criteria = criteria;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EvaluationSettings" /> class.
+        /// Initializes a new instance of the <see cref="EvaluationSettingsInput" /> class.
         /// </summary>
-        public EvaluationSettings()
+        public EvaluationSettingsInput()
         {
         }
     }
