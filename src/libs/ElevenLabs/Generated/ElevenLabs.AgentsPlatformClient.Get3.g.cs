@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareGet3Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string? conversationSignature,
-            ref string? xiApiKey);
+            ref string? conversationSignature);
         partial void PrepareGet3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string? conversationSignature,
-            string? xiApiKey);
+            string? conversationSignature);
         partial void ProcessGet3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="conversationSignature">
         /// An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get-signed-url endpoint
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentEmbedResponseModel> Get3Async(
             string agentId,
             string? conversationSignature = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareGet3Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                conversationSignature: ref conversationSignature,
-                xiApiKey: ref xiApiKey);
+                conversationSignature: ref conversationSignature);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/widget",
@@ -85,12 +78,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -98,8 +85,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
-                conversationSignature: conversationSignature,
-                xiApiKey: xiApiKey);
+                conversationSignature: conversationSignature);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

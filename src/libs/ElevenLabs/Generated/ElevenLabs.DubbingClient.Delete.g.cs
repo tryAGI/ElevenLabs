@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string dubbingId,
-            ref string segmentId,
-            ref string? xiApiKey);
+            ref string segmentId);
         partial void PrepareDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string dubbingId,
-            string segmentId,
-            string? xiApiKey);
+            string segmentId);
         partial void ProcessDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="segmentId">
         /// ID of the segment
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentDeleteResponse> DeleteAsync(
             string dubbingId,
             string segmentId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareDeleteArguments(
                 httpClient: HttpClient,
                 dubbingId: ref dubbingId,
-                segmentId: ref segmentId,
-                xiApiKey: ref xiApiKey);
+                segmentId: ref segmentId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/dubbing/resource/{dubbingId}/segment/{segmentId}",
@@ -82,12 +75,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -95,8 +82,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 dubbingId: dubbingId,
-                segmentId: segmentId,
-                xiApiKey: xiApiKey);
+                segmentId: segmentId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

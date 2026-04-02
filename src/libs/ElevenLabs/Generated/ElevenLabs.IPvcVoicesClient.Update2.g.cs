@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// <param name="sampleId">
         /// Sample ID to be used
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -25,7 +22,6 @@ namespace ElevenLabs
             string sampleId,
 
             global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Pvc Voice Sample<br/>
@@ -36,9 +32,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="sampleId">
         /// Sample ID to be used
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
@@ -61,7 +54,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> Update2Async(
             string voiceId,
             string sampleId,
-            string? xiApiKey = default,
             bool? removeBackgroundNoise = default,
             global::System.Collections.Generic.IList<string>? selectedSpeakerIds = default,
             int? trimStartTime = default,

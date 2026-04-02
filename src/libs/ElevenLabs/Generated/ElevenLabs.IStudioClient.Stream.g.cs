@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// <param name="projectSnapshotId">
         /// The ID of the Studio project snapshot.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -25,7 +22,6 @@ namespace ElevenLabs
             string projectSnapshotId,
 
             global::ElevenLabs.BodyStreamStudioProjectAudioV1StudioProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Stream Studio Project Audio<br/>
@@ -37,9 +33,6 @@ namespace ElevenLabs
         /// <param name="projectSnapshotId">
         /// The ID of the Studio project snapshot.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="convertToMpeg">
         /// Whether to convert the audio to mpeg format.<br/>
         /// Default Value: false
@@ -49,7 +42,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::System.IO.Stream> StreamAsync(
             string projectId,
             string projectSnapshotId,
-            string? xiApiKey = default,
             bool? convertToMpeg = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

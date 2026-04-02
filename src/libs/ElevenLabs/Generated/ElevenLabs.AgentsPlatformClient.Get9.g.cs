@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet9Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Collections.Generic.IList<string> documentIds,
-            ref string? xiApiKey);
+            global::System.Collections.Generic.IList<string> documentIds);
         partial void PrepareGet9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.Collections.Generic.IList<string> documentIds,
-            string? xiApiKey);
+            global::System.Collections.Generic.IList<string> documentIds);
         partial void ProcessGet9Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="documentIds">
         /// The ids of knowledge base documents.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Get9Async(
             global::System.Collections.Generic.IList<string> documentIds,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet9Arguments(
                 httpClient: HttpClient,
-                documentIds: documentIds,
-                xiApiKey: ref xiApiKey);
+                documentIds: documentIds);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/knowledge-base/summaries",
@@ -78,20 +71,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGet9Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                documentIds: documentIds,
-                xiApiKey: xiApiKey);
+                documentIds: documentIds);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

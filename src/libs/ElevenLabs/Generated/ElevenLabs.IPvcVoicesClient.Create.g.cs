@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Create Pvc Voice<br/>
         /// Creates a new PVC voice with metadata but no samples
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> CreateAsync(
 
             global::ElevenLabs.BodyCreatePvcVoiceV1VoicesPvcPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Pvc Voice<br/>
         /// Creates a new PVC voice with metadata but no samples
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="name">
         /// The name that identifies this voice. This will be displayed in the dropdown of the website.
         /// </param>
@@ -43,7 +36,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> CreateAsync(
             string name,
             string language,
-            string? xiApiKey = default,
             string? description = default,
             global::System.Collections.Generic.Dictionary<string, string>? labels = default,
             global::System.Threading.CancellationToken cancellationToken = default);

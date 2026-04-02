@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareDelete4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string webhookId,
-            ref string? xiApiKey);
+            ref string webhookId);
         partial void PrepareDelete4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string webhookId,
-            string? xiApiKey);
+            string webhookId);
         partial void ProcessDelete4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="webhookId">
         /// The unique ID for the webhook
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteWorkspaceWebhookResponseModel> Delete4Async(
             string webhookId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete4Arguments(
                 httpClient: HttpClient,
-                webhookId: ref webhookId,
-                xiApiKey: ref xiApiKey);
+                webhookId: ref webhookId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/workspace/webhooks/{webhookId}",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareDelete4Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                webhookId: webhookId,
-                xiApiKey: xiApiKey);
+                webhookId: webhookId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

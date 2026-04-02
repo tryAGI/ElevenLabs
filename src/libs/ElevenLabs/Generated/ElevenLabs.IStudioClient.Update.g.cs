@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="projectId">
         /// The ID of the Studio project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string projectId,
 
             global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Studio Project<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="projectId">
         /// The ID of the Studio project.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
         /// The name of the Studio project, used for identification only.
@@ -62,7 +55,6 @@ namespace ElevenLabs
             string name,
             string defaultTitleVoiceId,
             string defaultParagraphVoiceId,
-            string? xiApiKey = default,
             string? title = default,
             string? author = default,
             string? isbnNumber = default,

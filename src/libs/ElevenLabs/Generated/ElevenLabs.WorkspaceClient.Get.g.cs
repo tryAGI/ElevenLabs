@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string resourceId,
-            ref global::ElevenLabs.WorkspaceResourceType resourceType,
-            ref string? xiApiKey);
+            ref global::ElevenLabs.WorkspaceResourceType resourceType);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string resourceId,
-            global::ElevenLabs.WorkspaceResourceType resourceType,
-            string? xiApiKey);
+            global::ElevenLabs.WorkspaceResourceType resourceType);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="resourceType">
         /// Resource type of the target resource.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ResourceMetadataResponseModel> GetAsync(
             string resourceId,
             global::ElevenLabs.WorkspaceResourceType resourceType,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareGetArguments(
                 httpClient: HttpClient,
                 resourceId: ref resourceId,
-                resourceType: ref resourceType,
-                xiApiKey: ref xiApiKey);
+                resourceType: ref resourceType);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/workspace/resources/{resourceId}",
@@ -85,12 +78,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -98,8 +85,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 resourceId: resourceId,
-                resourceType: resourceType,
-                xiApiKey: xiApiKey);
+                resourceType: resourceType);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

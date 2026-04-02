@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Update Audio-Native Content From Url<br/>
         /// Finds an AudioNative project matching the provided URL, extracts content from the URL, updates the project content, and queues it for conversion and auto-publishing.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeEditContentResponseModel> UpdateContentFromUrlAsync(
 
             global::ElevenLabs.BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Audio-Native Content From Url<br/>
         /// Finds an AudioNative project matching the provided URL, extracts content from the URL, updates the project content, and queues it for conversion and auto-publishing.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="url">
         /// URL of the page to extract content from.
         /// </param>
@@ -39,7 +32,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeEditContentResponseModel> UpdateContentFromUrlAsync(
             string url,
-            string? xiApiKey = default,
             string? author = default,
             string? title = default,
             global::System.Threading.CancellationToken cancellationToken = default);

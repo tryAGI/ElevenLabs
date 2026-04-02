@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareDelete4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string fileId,
-            ref string conversationId,
-            ref string? xiApiKey);
+            ref string conversationId);
         partial void PrepareDelete4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string fileId,
-            string conversationId,
-            string? xiApiKey);
+            string conversationId);
         partial void ProcessDelete4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -31,15 +29,11 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="fileId"></param>
         /// <param name="conversationId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Delete4Async(
             string fileId,
             string conversationId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -47,8 +41,7 @@ namespace ElevenLabs
             PrepareDelete4Arguments(
                 httpClient: HttpClient,
                 fileId: ref fileId,
-                conversationId: ref conversationId,
-                xiApiKey: ref xiApiKey);
+                conversationId: ref conversationId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/conversations/{conversationId}/files/{fileId}",
@@ -78,12 +71,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -91,8 +78,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 fileId: fileId,
-                conversationId: conversationId,
-                xiApiKey: xiApiKey);
+                conversationId: conversationId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

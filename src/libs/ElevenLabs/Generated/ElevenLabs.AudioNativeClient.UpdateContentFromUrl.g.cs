@@ -7,12 +7,10 @@ namespace ElevenLabs
     {
         partial void PrepareUpdateContentFromUrlArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPost request);
         partial void PrepareUpdateContentFromUrlRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey,
             global::ElevenLabs.BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPost request);
         partial void ProcessUpdateContentFromUrlResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,16 +25,12 @@ namespace ElevenLabs
         /// Update Audio-Native Content From Url<br/>
         /// Finds an AudioNative project matching the provided URL, extracts content from the URL, updates the project content, and queues it for conversion and auto-publishing.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeEditContentResponseModel> UpdateContentFromUrlAsync(
 
             global::ElevenLabs.BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,7 +39,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdateContentFromUrlArguments(
                 httpClient: HttpClient,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -75,12 +68,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -94,7 +81,6 @@ namespace ElevenLabs
             PrepareUpdateContentFromUrlRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -236,9 +222,6 @@ namespace ElevenLabs
         /// Update Audio-Native Content From Url<br/>
         /// Finds an AudioNative project matching the provided URL, extracts content from the URL, updates the project content, and queues it for conversion and auto-publishing.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="url">
         /// URL of the page to extract content from.
         /// </param>
@@ -252,7 +235,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeEditContentResponseModel> UpdateContentFromUrlAsync(
             string url,
-            string? xiApiKey = default,
             string? author = default,
             string? title = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -265,7 +247,6 @@ namespace ElevenLabs
             };
 
             return await UpdateContentFromUrlAsync(
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

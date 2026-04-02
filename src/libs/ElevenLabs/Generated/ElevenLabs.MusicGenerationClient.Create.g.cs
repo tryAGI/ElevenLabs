@@ -7,12 +7,10 @@ namespace ElevenLabs
     {
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey,
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,16 +25,12 @@ namespace ElevenLabs
         /// Generate Composition Plan<br/>
         /// Generate a composition plan from a prompt.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MusicPrompt> CreateAsync(
 
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,7 +39,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreateArguments(
                 httpClient: HttpClient,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -75,12 +68,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -94,7 +81,6 @@ namespace ElevenLabs
             PrepareCreateRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -236,9 +222,6 @@ namespace ElevenLabs
         /// Generate Composition Plan<br/>
         /// Generate a composition plan from a prompt.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="prompt">
         /// A simple text prompt to compose a plan from.
         /// </param>
@@ -256,7 +239,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MusicPrompt> CreateAsync(
             string prompt,
-            string? xiApiKey = default,
             int? musicLengthMs = default,
             global::ElevenLabs.MusicPrompt? sourceCompositionPlan = default,
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPostModelId? modelId = default,
@@ -271,7 +253,6 @@ namespace ElevenLabs
             };
 
             return await CreateAsync(
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

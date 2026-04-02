@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareList8Arguments(
             global::System.Net.Http.HttpClient httpClient,
             int? pageSize,
-            ref string? cursor,
-            ref string? xiApiKey);
+            ref string? cursor);
         partial void PrepareList8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? pageSize,
-            string? cursor,
-            string? xiApiKey);
+            string? cursor);
         partial void ProcessList8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWorkspaceSecretsResponseModel> List8Async(
             int? pageSize = default,
             string? cursor = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareList8Arguments(
                 httpClient: HttpClient,
                 pageSize: pageSize,
-                cursor: ref cursor,
-                xiApiKey: ref xiApiKey);
+                cursor: ref cursor);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/secrets",
@@ -86,12 +79,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -99,8 +86,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 pageSize: pageSize,
-                cursor: cursor,
-                xiApiKey: xiApiKey);
+                cursor: cursor);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

@@ -18,9 +18,6 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -30,7 +27,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request,
             bool? enableVersioningIfNotEnabled = default,
             string? branchId = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Patches An Agent Settings<br/>
@@ -45,9 +41,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// The ID of the branch to use
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="conversationConfig">
         /// Conversation configuration for an agent
@@ -74,7 +67,6 @@ namespace ElevenLabs
             string agentId,
             bool? enableVersioningIfNotEnabled = default,
             string? branchId = default,
-            string? xiApiKey = default,
             object? conversationConfig = default,
             object? platformSettings = default,
             global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,

@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string dubbingId,
-            ref string? xiApiKey);
+            ref string dubbingId);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string dubbingId,
-            string? xiApiKey);
+            string dubbingId);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="dubbingId">
         /// ID of the dubbing project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingResource> GetAsync(
             string dubbingId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetArguments(
                 httpClient: HttpClient,
-                dubbingId: ref dubbingId,
-                xiApiKey: ref xiApiKey);
+                dubbingId: ref dubbingId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/dubbing/resource/{dubbingId}",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                dubbingId: dubbingId,
-                xiApiKey: xiApiKey);
+                dubbingId: dubbingId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

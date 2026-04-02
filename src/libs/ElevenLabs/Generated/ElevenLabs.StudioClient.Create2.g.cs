@@ -7,12 +7,10 @@ namespace ElevenLabs
     {
         partial void PrepareCreate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost request);
         partial void PrepareCreate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey,
             global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost request);
         partial void ProcessCreate2Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,16 +25,12 @@ namespace ElevenLabs
         /// Create Studio Project<br/>
         /// Creates a new Studio project, it can be either initialized as blank, from a document or from a URL.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddProjectResponseModel> Create2Async(
 
             global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,7 +39,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate2Arguments(
                 httpClient: HttpClient,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -75,20 +68,7 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            if (xiApiKey != default)
-            {
-
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "\"xi-api-key\"");
-            }
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Name}"),
                 name: "\"name\"");
@@ -302,7 +282,6 @@ namespace ElevenLabs
             PrepareCreate2Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -444,9 +423,6 @@ namespace ElevenLabs
         /// Create Studio Project<br/>
         /// Creates a new Studio project, it can be either initialized as blank, from a document or from a URL.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="name">
         /// The name of the Studio project, used for identification only.
         /// </param>
@@ -614,7 +590,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddProjectResponseModel> Create2Async(
             string name,
-            string? xiApiKey = default,
             string? defaultTitleVoiceId = default,
             string? defaultParagraphVoiceId = default,
             string? defaultModelId = default,
@@ -681,7 +656,6 @@ namespace ElevenLabs
             };
 
             return await Create2Async(
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

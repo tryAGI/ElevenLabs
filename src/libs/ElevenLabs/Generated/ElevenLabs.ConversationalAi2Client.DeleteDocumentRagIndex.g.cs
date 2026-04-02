@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareDeleteDocumentRagIndexArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
-            ref string ragIndexId,
-            ref string? xiApiKey);
+            ref string ragIndexId);
         partial void PrepareDeleteDocumentRagIndexRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string documentationId,
-            string ragIndexId,
-            string? xiApiKey);
+            string ragIndexId);
         partial void ProcessDeleteDocumentRagIndexResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="ragIndexId">
         /// The id of RAG index of document from the knowledge base.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.RAGDocumentIndexResponseModel> DeleteDocumentRagIndexAsync(
             string documentationId,
             string ragIndexId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareDeleteDocumentRagIndexArguments(
                 httpClient: HttpClient,
                 documentationId: ref documentationId,
-                ragIndexId: ref ragIndexId,
-                xiApiKey: ref xiApiKey);
+                ragIndexId: ref ragIndexId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}/rag-index/{ragIndexId}",
@@ -82,12 +75,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -95,8 +82,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 documentationId: documentationId,
-                ragIndexId: ragIndexId,
-                xiApiKey: xiApiKey);
+                ragIndexId: ragIndexId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

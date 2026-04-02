@@ -7,12 +7,10 @@ namespace ElevenLabs
     {
         partial void PrepareCreate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost request);
         partial void PrepareCreate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey,
             global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost request);
         partial void ProcessCreate4Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,16 +25,12 @@ namespace ElevenLabs
         /// Create Workspace Webhook<br/>
         /// Create a new webhook for the workspace with the specified authentication type.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceCreateWebhookResponseModel> Create4Async(
 
             global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,7 +39,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate4Arguments(
                 httpClient: HttpClient,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -75,12 +68,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -94,7 +81,6 @@ namespace ElevenLabs
             PrepareCreate4Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -236,9 +222,6 @@ namespace ElevenLabs
         /// Create Workspace Webhook<br/>
         /// Create a new webhook for the workspace with the specified authentication type.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="settings">
         /// Webhook settings object containing auth_type and corresponding configuration
         /// </param>
@@ -246,7 +229,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceCreateWebhookResponseModel> Create4Async(
             global::ElevenLabs.WebhookHMACSettings settings,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost
@@ -255,7 +237,6 @@ namespace ElevenLabs
             };
 
             return await Create4Async(
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

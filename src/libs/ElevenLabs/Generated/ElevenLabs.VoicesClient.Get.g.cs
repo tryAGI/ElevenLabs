@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string voiceId,
-            ref string? xiApiKey);
+            ref string voiceId);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string voiceId,
-            string? xiApiKey);
+            string voiceId);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceSettingsResponseModel> GetAsync(
             string voiceId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetArguments(
                 httpClient: HttpClient,
-                voiceId: ref voiceId,
-                xiApiKey: ref xiApiKey);
+                voiceId: ref voiceId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/voices/{voiceId}/settings",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                voiceId: voiceId,
-                xiApiKey: xiApiKey);
+                voiceId: voiceId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

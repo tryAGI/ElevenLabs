@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// <param name="language">
         /// The target language code to render, eg. 'es'. To render the source track use 'original'.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -25,7 +22,6 @@ namespace ElevenLabs
             string language,
 
             global::ElevenLabs.BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Render Audio Or Video For The Given Language<br/>
@@ -36,9 +32,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="language">
         /// The target language code to render, eg. 'es'. To render the source track use 'original'.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="renderType">
         /// The type of the render. One of ['mp4', 'aac', 'mp3', 'wav', 'aaf', 'tracks_zip', 'clips_zip']
@@ -53,7 +46,6 @@ namespace ElevenLabs
             string dubbingId,
             string language,
             global::ElevenLabs.RenderType2 renderType,
-            string? xiApiKey = default,
             bool? normalizeVolume = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

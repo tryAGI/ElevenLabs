@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareShareArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string resourceId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost request);
         partial void PrepareShareRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string resourceId,
-            string? xiApiKey,
             global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost request);
         partial void ProcessShareResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -32,9 +30,6 @@ namespace ElevenLabs
         /// <param name="resourceId">
         /// The ID of the target resource.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -42,7 +37,6 @@ namespace ElevenLabs
             string resourceId,
 
             global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -52,7 +46,6 @@ namespace ElevenLabs
             PrepareShareArguments(
                 httpClient: HttpClient,
                 resourceId: ref resourceId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -82,12 +75,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -102,7 +89,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 resourceId: resourceId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -243,9 +229,6 @@ namespace ElevenLabs
         /// <param name="resourceId">
         /// The ID of the target resource.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="role">
         /// Role to update the target principal with.
         /// </param>
@@ -267,7 +250,6 @@ namespace ElevenLabs
             string resourceId,
             global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRole role,
             global::ElevenLabs.WorkspaceResourceType resourceType,
-            string? xiApiKey = default,
             string? userEmail = default,
             string? groupId = default,
             string? workspaceApiKeyId = default,
@@ -284,7 +266,6 @@ namespace ElevenLabs
 
             return await ShareAsync(
                 resourceId: resourceId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

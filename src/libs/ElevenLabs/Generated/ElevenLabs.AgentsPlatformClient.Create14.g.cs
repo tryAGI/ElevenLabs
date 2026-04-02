@@ -9,14 +9,12 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref string branchId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request);
         partial void PrepareCreate14Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string branchId,
-            string? xiApiKey,
             global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request);
         partial void ProcessCreate14Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -37,9 +35,6 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the agent branch to use
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -48,7 +43,6 @@ namespace ElevenLabs
             string branchId,
 
             global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -59,7 +53,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 branchId: ref branchId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -92,12 +85,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -113,7 +100,6 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 agentId: agentId,
                 branchId: branchId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -257,9 +243,6 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the agent branch to use
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="conversationConfig">
         /// Conversation config for the draft
         /// </param>
@@ -285,7 +268,6 @@ namespace ElevenLabs
             object platformSettings,
             global::ElevenLabs.AgentWorkflowRequestModel workflow,
             string name,
-            string? xiApiKey = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -301,7 +283,6 @@ namespace ElevenLabs
             return await Create14Async(
                 agentId: agentId,
                 branchId: branchId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

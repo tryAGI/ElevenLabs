@@ -7,12 +7,10 @@ namespace ElevenLabs
     {
         partial void PrepareUpdate6Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey,
             global::ElevenLabs.PatchConvAIDashboardSettingsRequest request);
         partial void PrepareUpdate6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey,
             global::ElevenLabs.PatchConvAIDashboardSettingsRequest request);
         partial void ProcessUpdate6Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,16 +25,12 @@ namespace ElevenLabs
         /// Update Convai Dashboard Settings<br/>
         /// Update Convai dashboard settings for the workspace
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Update6Async(
 
             global::ElevenLabs.PatchConvAIDashboardSettingsRequest request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,7 +39,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate6Arguments(
                 httpClient: HttpClient,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -75,12 +68,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -94,7 +81,6 @@ namespace ElevenLabs
             PrepareUpdate6Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -236,14 +222,10 @@ namespace ElevenLabs
         /// Update Convai Dashboard Settings<br/>
         /// Update Convai dashboard settings for the workspace
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="charts"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Update6Async(
-            string? xiApiKey = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? charts = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -253,7 +235,6 @@ namespace ElevenLabs
             };
 
             return await Update6Async(
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

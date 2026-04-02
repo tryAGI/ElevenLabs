@@ -10,14 +10,12 @@ namespace ElevenLabs
         partial void PrepareGet2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
-            ref bool? withSettings,
-            ref string? xiApiKey);
+            ref bool? withSettings);
         partial void PrepareGet2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
-            bool? withSettings,
-            string? xiApiKey);
+            bool? withSettings);
         partial void ProcessGet2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -38,15 +36,11 @@ namespace ElevenLabs
         /// This parameter is now deprecated. It is ignored and will be removed in a future version.<br/>
         /// Default Value: true
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceResponseModel> Get2Async(
             string voiceId,
             bool? withSettings = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -54,8 +48,7 @@ namespace ElevenLabs
             PrepareGet2Arguments(
                 httpClient: HttpClient,
                 voiceId: ref voiceId,
-                withSettings: ref withSettings,
-                xiApiKey: ref xiApiKey);
+                withSettings: ref withSettings);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/voices/{voiceId}",
@@ -88,12 +81,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -101,8 +88,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 voiceId: voiceId,
-                withSettings: withSettings,
-                xiApiKey: xiApiKey);
+                withSettings: withSettings);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

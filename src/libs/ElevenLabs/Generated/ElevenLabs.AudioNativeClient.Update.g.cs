@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string projectId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string projectId,
-            string? xiApiKey,
             global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -32,9 +30,6 @@ namespace ElevenLabs
         /// <param name="projectId">
         /// The ID of the Studio project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -42,7 +37,6 @@ namespace ElevenLabs
             string projectId,
 
             global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -52,7 +46,6 @@ namespace ElevenLabs
             PrepareUpdateArguments(
                 httpClient: HttpClient,
                 projectId: ref projectId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -82,23 +75,10 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{projectId}"),
                 name: "\"project_id\"");
-            if (xiApiKey != default)
-            {
-
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "\"xi-api-key\"");
-            } 
             if (request.File != default)
             {
 
@@ -135,7 +115,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 projectId: projectId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -280,9 +259,6 @@ namespace ElevenLabs
         /// <param name="projectId">
         /// The ID of the Studio project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="file">
         /// Either txt or HTML input file containing the article content. HTML should be formatted as follows '&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div&amp;gt;&amp;lt;p&amp;gt;Your content&amp;lt;/p&amp;gt;&amp;lt;h5&amp;gt;More of your content&amp;lt;/h5&amp;gt;&amp;lt;p&amp;gt;Some more of your content&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;'
         /// </param>
@@ -301,7 +277,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeEditContentResponseModel> UpdateAsync(
             string projectId,
-            string? xiApiKey = default,
             byte[]? file = default,
             string? filename = default,
             bool? autoConvert = default,
@@ -318,7 +293,6 @@ namespace ElevenLabs
 
             return await UpdateAsync(
                 projectId: projectId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

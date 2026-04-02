@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.<br/>
         /// Default Value: true
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -24,7 +21,6 @@ namespace ElevenLabs
 
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request,
             bool? enableLogging = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Speech To Text<br/>
@@ -33,9 +29,6 @@ namespace ElevenLabs
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.<br/>
         /// Default Value: true
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="modelId">
         /// The ID of the model to use for transcription.
@@ -120,7 +113,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>> ConvertAsync(
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostModelId modelId,
             bool? enableLogging = default,
-            string? xiApiKey = default,
             byte[]? file = default,
             string? filename = default,
             string? languageCode = default,

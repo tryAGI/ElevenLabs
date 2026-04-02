@@ -19,16 +19,12 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.ListResponseAgentBranchSummary> List13Async(
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

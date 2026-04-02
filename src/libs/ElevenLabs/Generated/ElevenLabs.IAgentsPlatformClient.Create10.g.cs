@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string mcpServerId,
 
             global::ElevenLabs.MCPToolAddApprovalRequestModel request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Mcp Server Tool Approval<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="toolName">
         /// The name of the MCP tool
@@ -52,7 +45,6 @@ namespace ElevenLabs
             string mcpServerId,
             string toolName,
             string toolDescription,
-            string? xiApiKey = default,
             object? inputSchema = default,
             global::ElevenLabs.MCPToolApprovalPolicy? approvalPolicy = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Create A New Voice From Voice Preview<br/>
         /// Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/design or POST /v1/text-to-voice/:voice_id/remix.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceResponseModel> CreateAsync(
 
             global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create A New Voice From Voice Preview<br/>
         /// Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/design or POST /v1/text-to-voice/:voice_id/remix.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="voiceName">
         /// Name to use for the created voice.
         /// </param>
@@ -47,7 +40,6 @@ namespace ElevenLabs
             string voiceName,
             string voiceDescription,
             string generatedVoiceId,
-            string? xiApiKey = default,
             global::System.Collections.Generic.Dictionary<string, string>? labels = default,
             global::System.Collections.Generic.IList<string>? playedNotSelectedVoiceIds = default,
             global::System.Threading.CancellationToken cancellationToken = default);

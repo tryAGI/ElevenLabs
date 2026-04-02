@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// <param name="speakerId">
         /// ID of the speaker.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -25,7 +22,6 @@ namespace ElevenLabs
             string speakerId,
 
             global::ElevenLabs.SegmentCreatePayload request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create A Segment For The Speaker<br/>
@@ -36,9 +32,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="speakerId">
         /// ID of the speaker.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="startTime"></param>
         /// <param name="endTime"></param>
@@ -51,7 +44,6 @@ namespace ElevenLabs
             string speakerId,
             double startTime,
             double endTime,
-            string? xiApiKey = default,
             string? text = default,
             global::System.Collections.Generic.Dictionary<string, string>? translations = default,
             global::System.Threading.CancellationToken cancellationToken = default);

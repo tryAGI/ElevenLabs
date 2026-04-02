@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Upload Music<br/>
         /// Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MusicUploadResponse> UploadAsync(
 
             global::ElevenLabs.BodyUploadMusicV1MusicUploadPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload Music<br/>
         /// Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="file">
         /// The audio file to upload.
         /// </param>
@@ -41,7 +34,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MusicUploadResponse> UploadAsync(
             byte[] file,
             string filename,
-            string? xiApiKey = default,
             bool? extractCompositionPlan = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

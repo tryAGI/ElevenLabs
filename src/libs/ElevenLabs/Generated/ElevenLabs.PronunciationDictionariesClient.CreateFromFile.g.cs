@@ -7,12 +7,10 @@ namespace ElevenLabs
     {
         partial void PrepareCreateFromFileArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePost request);
         partial void PrepareCreateFromFileRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey,
             global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePost request);
         partial void ProcessCreateFromFileResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,16 +25,12 @@ namespace ElevenLabs
         /// Add A Pronunciation Dictionary<br/>
         /// Creates a new pronunciation dictionary from a lexicon .PLS file
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddPronunciationDictionaryResponseModel> CreateFromFileAsync(
 
             global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,7 +39,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreateFromFileArguments(
                 httpClient: HttpClient,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -75,20 +68,7 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            if (xiApiKey != default)
-            {
-
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "\"xi-api-key\"");
-            }
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Name}"),
                 name: "\"name\"");
@@ -127,7 +107,6 @@ namespace ElevenLabs
             PrepareCreateFromFileRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -269,9 +248,6 @@ namespace ElevenLabs
         /// Add A Pronunciation Dictionary<br/>
         /// Creates a new pronunciation dictionary from a lexicon .PLS file
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="name">
         /// The name of the pronunciation dictionary, used for identification only.
         /// </param>
@@ -291,7 +267,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddPronunciationDictionaryResponseModel> CreateFromFileAsync(
             string name,
-            string? xiApiKey = default,
             byte[]? file = default,
             string? filename = default,
             string? description = default,
@@ -308,7 +283,6 @@ namespace ElevenLabs
             };
 
             return await CreateFromFileAsync(
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

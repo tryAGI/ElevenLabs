@@ -9,15 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string toolId,
             ref string? cursor,
-            ref int? pageSize,
-            ref string? xiApiKey);
+            ref int? pageSize);
         partial void PrepareGetDependentAgentsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string toolId,
             string? cursor,
-            int? pageSize,
-            string? xiApiKey);
+            int? pageSize);
         partial void ProcessGetDependentAgentsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -41,16 +39,12 @@ namespace ElevenLabs
         /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetToolDependentAgentsResponseModel> GetDependentAgentsAsync(
             string toolId,
             string? cursor = default,
             int? pageSize = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -59,8 +53,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 toolId: ref toolId,
                 cursor: ref cursor,
-                pageSize: ref pageSize,
-                xiApiKey: ref xiApiKey);
+                pageSize: ref pageSize);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/tools/{toolId}/dependent-agents",
@@ -94,12 +87,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -108,8 +95,7 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 toolId: toolId,
                 cursor: cursor,
-                pageSize: pageSize,
-                xiApiKey: xiApiKey);
+                pageSize: pageSize);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

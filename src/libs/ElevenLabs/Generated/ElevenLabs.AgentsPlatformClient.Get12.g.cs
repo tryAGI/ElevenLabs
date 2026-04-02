@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet12Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
-            ref string? xiApiKey);
+            ref string toolId);
         partial void PrepareGet12Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
-            string? xiApiKey);
+            string toolId);
         partial void ProcessGet12Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,22 +28,17 @@ namespace ElevenLabs
         /// <param name="toolId">
         /// ID of the requested tool.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Get12Async(
             string toolId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet12Arguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
-                xiApiKey: ref xiApiKey);
+                toolId: ref toolId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/tools/{toolId}",
@@ -75,20 +68,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGet12Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                toolId: toolId,
-                xiApiKey: xiApiKey);
+                toolId: toolId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

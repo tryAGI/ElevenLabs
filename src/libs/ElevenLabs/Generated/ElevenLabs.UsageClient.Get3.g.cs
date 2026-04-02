@@ -13,8 +13,7 @@ namespace ElevenLabs
             ref global::ElevenLabs.BreakdownTypes? breakdownType,
             ref global::ElevenLabs.UsageAggregationInterval? aggregationInterval,
             int? aggregationBucketSize,
-            ref global::ElevenLabs.MetricType? metric,
-            ref string? xiApiKey);
+            ref global::ElevenLabs.MetricType? metric);
         partial void PrepareGet3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -24,8 +23,7 @@ namespace ElevenLabs
             global::ElevenLabs.BreakdownTypes? breakdownType,
             global::ElevenLabs.UsageAggregationInterval? aggregationInterval,
             int? aggregationBucketSize,
-            global::ElevenLabs.MetricType? metric,
-            string? xiApiKey);
+            global::ElevenLabs.MetricType? metric);
         partial void ProcessGet3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -64,9 +62,6 @@ namespace ElevenLabs
         /// Which metric to aggregate.<br/>
         /// Default Value: credits
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.UsageCharactersResponseModel> Get3Async(
@@ -77,7 +72,6 @@ namespace ElevenLabs
             global::ElevenLabs.UsageAggregationInterval? aggregationInterval = default,
             int? aggregationBucketSize = default,
             global::ElevenLabs.MetricType? metric = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -90,8 +84,7 @@ namespace ElevenLabs
                 breakdownType: ref breakdownType,
                 aggregationInterval: ref aggregationInterval,
                 aggregationBucketSize: aggregationBucketSize,
-                metric: ref metric,
-                xiApiKey: ref xiApiKey);
+                metric: ref metric);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/usage/character-stats",
@@ -130,12 +123,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -148,8 +135,7 @@ namespace ElevenLabs
                 breakdownType: breakdownType,
                 aggregationInterval: aggregationInterval,
                 aggregationBucketSize: aggregationBucketSize,
-                metric: metric,
-                xiApiKey: xiApiKey);
+                metric: metric);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

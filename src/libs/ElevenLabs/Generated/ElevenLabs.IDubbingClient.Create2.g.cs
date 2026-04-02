@@ -10,9 +10,6 @@ namespace ElevenLabs
         /// <param name="dubbingId">
         /// ID of the dubbing project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -20,16 +17,12 @@ namespace ElevenLabs
             string dubbingId,
 
             global::ElevenLabs.BodyCreateANewSpeakerV1DubbingResourceDubbingIdSpeakerPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create A New Speaker
         /// </summary>
         /// <param name="dubbingId">
         /// ID of the dubbing project.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="speakerName">
         /// Name to attribute to this speaker.
@@ -50,7 +43,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SpeakerCreatedResponse> Create2Async(
             string dubbingId,
-            string? xiApiKey = default,
             string? speakerName = default,
             string? voiceId = default,
             double? voiceStability = default,

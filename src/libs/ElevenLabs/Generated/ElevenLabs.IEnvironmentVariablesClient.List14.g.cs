@@ -24,9 +24,6 @@ namespace ElevenLabs
         /// <param name="type">
         /// Filter by variable type
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariablesListResponse> List14Async(
@@ -35,7 +32,6 @@ namespace ElevenLabs
             string? label = default,
             string? environment = default,
             global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

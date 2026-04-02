@@ -30,9 +30,6 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -43,7 +40,6 @@ namespace ElevenLabs
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Speech To Speech Streaming<br/>
@@ -68,9 +64,6 @@ namespace ElevenLabs
         /// <param name="outputFormat">
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="audio">
         /// The audio file which holds the content and emotion that will control the generated speech.
@@ -105,7 +98,6 @@ namespace ElevenLabs
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat = default,
-            string? xiApiKey = default,
             string? modelId = default,
             string? voiceSettings = default,
             int? seed = default,

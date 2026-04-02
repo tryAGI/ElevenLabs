@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareVerifyArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost request);
         partial void PrepareVerifyRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
-            string? xiApiKey,
             global::ElevenLabs.BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost request);
         partial void ProcessVerifyResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -32,9 +30,6 @@ namespace ElevenLabs
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -42,7 +37,6 @@ namespace ElevenLabs
             string voiceId,
 
             global::ElevenLabs.BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -52,7 +46,6 @@ namespace ElevenLabs
             PrepareVerifyArguments(
                 httpClient: HttpClient,
                 voiceId: ref voiceId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -82,23 +75,10 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{voiceId}"),
                 name: "\"voice_id\"");
-            if (xiApiKey != default)
-            {
-
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "\"xi-api-key\"");
-            }
             var __contentRecording = new global::System.Net.Http.ByteArrayContent(request.Recording ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
                 content: __contentRecording,
@@ -117,7 +97,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 voiceId: voiceId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -262,9 +241,6 @@ namespace ElevenLabs
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="recording">
         /// Audio recording of the user
         /// </param>
@@ -277,7 +253,6 @@ namespace ElevenLabs
             string voiceId,
             byte[] recording,
             string recordingname,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost
@@ -288,7 +263,6 @@ namespace ElevenLabs
 
             return await VerifyAsync(
                 voiceId: voiceId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

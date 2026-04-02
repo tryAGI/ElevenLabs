@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// <param name="speakerId">
         /// ID of the speaker.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -25,7 +22,6 @@ namespace ElevenLabs
             string speakerId,
 
             global::ElevenLabs.BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Metadata For A Speaker<br/>
@@ -36,9 +32,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="speakerId">
         /// ID of the speaker.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="speakerName">
         /// Name to attribute to this speaker.
@@ -63,7 +56,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.SpeakerUpdatedResponse> Update2Async(
             string dubbingId,
             string speakerId,
-            string? xiApiKey = default,
             string? speakerName = default,
             string? voiceId = default,
             double? voiceStability = default,

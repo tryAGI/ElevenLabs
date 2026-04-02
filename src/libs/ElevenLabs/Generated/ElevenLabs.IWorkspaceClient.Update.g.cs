@@ -10,9 +10,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="serviceAccountUserId"></param>
         /// <param name="apiKeyId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string apiKeyId,
 
             global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Edit Service Account Api Key<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="serviceAccountUserId"></param>
         /// <param name="apiKeyId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="isEnabled">
         /// Whether to enable or disable the API key.
         /// </param>
@@ -52,7 +45,6 @@ namespace ElevenLabs
             bool isEnabled,
             string name,
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string> permissions,
-            string? xiApiKey = default,
             int? characterLimit = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

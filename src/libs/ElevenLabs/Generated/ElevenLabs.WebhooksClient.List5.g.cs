@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareList5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref bool? includeUsages,
-            ref string? xiApiKey);
+            ref bool? includeUsages);
         partial void PrepareList5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            bool? includeUsages,
-            string? xiApiKey);
+            bool? includeUsages);
         partial void ProcessList5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -31,22 +29,17 @@ namespace ElevenLabs
         /// Whether to include active usages of the webhook, only usable by admins<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceWebhookListResponseModel> List5Async(
             bool? includeUsages = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList5Arguments(
                 httpClient: HttpClient,
-                includeUsages: ref includeUsages,
-                xiApiKey: ref xiApiKey);
+                includeUsages: ref includeUsages);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/workspace/webhooks",
@@ -79,20 +72,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareList5Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                includeUsages: includeUsages,
-                xiApiKey: xiApiKey);
+                includeUsages: includeUsages);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

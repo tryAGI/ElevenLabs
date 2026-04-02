@@ -7,12 +7,10 @@ namespace ElevenLabs
     {
         partial void PrepareCreate8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey,
             global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
         partial void PrepareCreate8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey,
             global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
         partial void ProcessCreate8Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,16 +25,12 @@ namespace ElevenLabs
         /// Submit A Batch Call Request.<br/>
         /// Submit a batch call request to schedule calls for multiple recipients.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> Create8Async(
 
             global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,7 +39,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate8Arguments(
                 httpClient: HttpClient,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -75,12 +68,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -94,7 +81,6 @@ namespace ElevenLabs
             PrepareCreate8Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -236,9 +222,6 @@ namespace ElevenLabs
         /// Submit A Batch Call Request.<br/>
         /// Submit a batch call request to schedule calls for multiple recipients.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="callName"></param>
         /// <param name="agentId"></param>
         /// <param name="recipients"></param>
@@ -260,7 +243,6 @@ namespace ElevenLabs
             string callName,
             string agentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient> recipients,
-            string? xiApiKey = default,
             int? scheduledTimeUnix = default,
             string? agentPhoneNumberId = default,
             global::ElevenLabs.BatchCallWhatsAppParams? whatsappParams = default,
@@ -287,7 +269,6 @@ namespace ElevenLabs
             };
 
             return await Create8Async(
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

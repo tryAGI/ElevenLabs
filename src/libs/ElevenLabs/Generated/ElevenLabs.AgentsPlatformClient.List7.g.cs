@@ -16,8 +16,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types,
             ref global::ElevenLabs.SortDirection? sortDirection,
             global::ElevenLabs.ToolSortBy? sortBy,
-            ref string? cursor,
-            ref string? xiApiKey);
+            ref string? cursor);
         partial void PrepareList7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -28,8 +27,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types,
             global::ElevenLabs.SortDirection? sortDirection,
             global::ElevenLabs.ToolSortBy? sortBy,
-            string? cursor,
-            string? xiApiKey);
+            string? cursor);
         partial void ProcessList7Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -69,9 +67,6 @@ namespace ElevenLabs
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolsResponseModel> List7Async(
@@ -83,7 +78,6 @@ namespace ElevenLabs
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.ToolSortBy? sortBy = default,
             string? cursor = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -97,8 +91,7 @@ namespace ElevenLabs
                 types: types,
                 sortDirection: ref sortDirection,
                 sortBy: sortBy,
-                cursor: ref cursor,
-                xiApiKey: ref xiApiKey);
+                cursor: ref cursor);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/tools",
@@ -138,12 +131,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -157,8 +144,7 @@ namespace ElevenLabs
                 types: types,
                 sortDirection: sortDirection,
                 sortBy: sortBy,
-                cursor: cursor,
-                xiApiKey: xiApiKey);
+                cursor: cursor);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

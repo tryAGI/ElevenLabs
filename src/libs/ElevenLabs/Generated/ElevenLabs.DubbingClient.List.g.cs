@@ -12,8 +12,7 @@ namespace ElevenLabs
             ref global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus,
             ref global::ElevenLabs.ListDubsFilterByCreator? filterByCreator,
             ref string? orderBy,
-            ref global::ElevenLabs.ListDubsOrderDirection? orderDirection,
-            ref string? xiApiKey);
+            ref global::ElevenLabs.ListDubsOrderDirection? orderDirection);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -22,8 +21,7 @@ namespace ElevenLabs
             global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus,
             global::ElevenLabs.ListDubsFilterByCreator? filterByCreator,
             string? orderBy,
-            global::ElevenLabs.ListDubsOrderDirection? orderDirection,
-            string? xiApiKey);
+            global::ElevenLabs.ListDubsOrderDirection? orderDirection);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -59,9 +57,6 @@ namespace ElevenLabs
         /// The order direction to use for results from this query.<br/>
         /// Default Value: DESCENDING
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingMetadataPageResponseModel> ListAsync(
@@ -71,7 +66,6 @@ namespace ElevenLabs
             global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
             string? orderBy = default,
             global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -83,8 +77,7 @@ namespace ElevenLabs
                 dubbingStatus: ref dubbingStatus,
                 filterByCreator: ref filterByCreator,
                 orderBy: ref orderBy,
-                orderDirection: ref orderDirection,
-                xiApiKey: ref xiApiKey);
+                orderDirection: ref orderDirection);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/dubbing",
@@ -122,12 +115,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -139,8 +126,7 @@ namespace ElevenLabs
                 dubbingStatus: dubbingStatus,
                 filterByCreator: filterByCreator,
                 orderBy: orderBy,
-                orderDirection: orderDirection,
-                xiApiKey: xiApiKey);
+                orderDirection: orderDirection);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

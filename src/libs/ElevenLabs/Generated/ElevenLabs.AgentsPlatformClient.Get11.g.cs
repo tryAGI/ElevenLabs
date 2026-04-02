@@ -9,15 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
             ref string chunkId,
-            global::ElevenLabs.EmbeddingModelEnum? embeddingModel,
-            ref string? xiApiKey);
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
         partial void PrepareGet11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string documentationId,
             string chunkId,
-            global::ElevenLabs.EmbeddingModelEnum? embeddingModel,
-            string? xiApiKey);
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
         partial void ProcessGet11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,16 +38,12 @@ namespace ElevenLabs
         /// <param name="embeddingModel">
         /// The embedding model used to retrieve the chunk.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> Get11Async(
             string documentationId,
             string chunkId,
             global::ElevenLabs.EmbeddingModelEnum? embeddingModel = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -58,8 +52,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 documentationId: ref documentationId,
                 chunkId: ref chunkId,
-                embeddingModel: embeddingModel,
-                xiApiKey: ref xiApiKey);
+                embeddingModel: embeddingModel);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}",
@@ -92,12 +85,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -106,8 +93,7 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 documentationId: documentationId,
                 chunkId: chunkId,
-                embeddingModel: embeddingModel,
-                xiApiKey: xiApiKey);
+                embeddingModel: embeddingModel);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

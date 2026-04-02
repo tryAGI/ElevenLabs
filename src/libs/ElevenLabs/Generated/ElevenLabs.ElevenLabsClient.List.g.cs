@@ -15,8 +15,7 @@ namespace ElevenLabs
             ref string? parentFolderId,
             global::System.Collections.Generic.IList<global::ElevenLabs.TestType>? types,
             bool? includeFolders,
-            ref global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode,
-            ref string? xiApiKey);
+            ref global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -26,8 +25,7 @@ namespace ElevenLabs
             string? parentFolderId,
             global::System.Collections.Generic.IList<global::ElevenLabs.TestType>? types,
             bool? includeFolders,
-            global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode,
-            string? xiApiKey);
+            global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -64,9 +62,6 @@ namespace ElevenLabs
         /// Sort mode for listing tests. Use 'folders_first' to place folders before tests.<br/>
         /// Default Value: default
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestsPageResponseModel> ListAsync(
@@ -77,7 +72,6 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.TestType>? types = default,
             bool? includeFolders = default,
             global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -90,8 +84,7 @@ namespace ElevenLabs
                 parentFolderId: ref parentFolderId,
                 types: types,
                 includeFolders: includeFolders,
-                sortMode: ref sortMode,
-                xiApiKey: ref xiApiKey);
+                sortMode: ref sortMode);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/agent-testing",
@@ -130,12 +123,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -148,8 +135,7 @@ namespace ElevenLabs
                 parentFolderId: parentFolderId,
                 types: types,
                 includeFolders: includeFolders,
-                sortMode: sortMode,
-                xiApiKey: xiApiKey);
+                sortMode: sortMode);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

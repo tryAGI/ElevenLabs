@@ -6,12 +6,10 @@ namespace ElevenLabs
     public partial class AgentsPlatformClient
     {
         partial void PrepareList10Arguments(
-            global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey);
+            global::System.Net.Http.HttpClient httpClient);
         partial void PrepareList10Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
         partial void ProcessList10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,20 +23,15 @@ namespace ElevenLabs
         /// List Mcp Servers<br/>
         /// Retrieve all MCP server configurations available in the workspace.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServersResponseModel> List10Async(
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList10Arguments(
-                httpClient: HttpClient,
-                xiApiKey: ref xiApiKey);
+                httpClient: HttpClient);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/mcp-servers",
@@ -68,19 +61,12 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareList10Request(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey);
+                httpRequestMessage: __httpRequest);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

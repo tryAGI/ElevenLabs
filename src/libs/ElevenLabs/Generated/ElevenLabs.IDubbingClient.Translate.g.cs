@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="dubbingId">
         /// ID of the dubbing project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string dubbingId,
 
             global::ElevenLabs.BodyTranslatesAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdTranslatePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Translates All Or Some Segments And Languages<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="dubbingId">
         /// ID of the dubbing project.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="segments">
         /// Translate only this list of segments.
@@ -44,7 +37,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.SegmentTranslationResponse> TranslateAsync(
             string dubbingId,
             global::System.Collections.Generic.IList<string> segments,
-            string? xiApiKey = default,
             global::System.Collections.Generic.IList<string>? languages = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

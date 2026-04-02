@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// Name of the MCP tool to update config overrides for.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -25,7 +22,6 @@ namespace ElevenLabs
             string toolName,
 
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Mcp Tool Configuration Override<br/>
@@ -36,9 +32,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="toolName">
         /// Name of the MCP tool to update config overrides for.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="forcePreToolSpeech">
         /// If set, overrides the server's force_pre_tool_speech setting for this tool
@@ -66,7 +59,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update10Async(
             string mcpServerId,
             string toolName,
-            string? xiApiKey = default,
             bool? forcePreToolSpeech = default,
             bool? disableInterruptions = default,
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,

@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareGet2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
-            ref string sampleId,
-            ref string? xiApiKey);
+            ref string sampleId);
         partial void PrepareGet2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
-            string sampleId,
-            string? xiApiKey);
+            string sampleId);
         partial void ProcessGet2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="sampleId">
         /// Sample ID to be used
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceSampleVisualWaveformResponseModel> Get2Async(
             string voiceId,
             string sampleId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareGet2Arguments(
                 httpClient: HttpClient,
                 voiceId: ref voiceId,
-                sampleId: ref sampleId,
-                xiApiKey: ref xiApiKey);
+                sampleId: ref sampleId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/voices/pvc/{voiceId}/samples/{sampleId}/waveform",
@@ -82,12 +75,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -95,8 +82,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 voiceId: voiceId,
-                sampleId: sampleId,
-                xiApiKey: xiApiKey);
+                sampleId: sampleId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

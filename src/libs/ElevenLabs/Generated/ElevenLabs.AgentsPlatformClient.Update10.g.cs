@@ -9,14 +9,12 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string mcpServerId,
             ref string toolName,
-            ref string? xiApiKey,
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request);
         partial void PrepareUpdate10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string mcpServerId,
             string toolName,
-            string? xiApiKey,
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request);
         partial void ProcessUpdate10Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -37,9 +35,6 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// Name of the MCP tool to update config overrides for.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -48,7 +43,6 @@ namespace ElevenLabs
             string toolName,
 
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -59,7 +53,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 mcpServerId: ref mcpServerId,
                 toolName: ref toolName,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -89,12 +82,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -110,7 +97,6 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 mcpServerId: mcpServerId,
                 toolName: toolName,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -291,9 +277,6 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// Name of the MCP tool to update config overrides for.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="forcePreToolSpeech">
         /// If set, overrides the server's force_pre_tool_speech setting for this tool
         /// </param>
@@ -320,7 +303,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update10Async(
             string mcpServerId,
             string toolName,
-            string? xiApiKey = default,
             bool? forcePreToolSpeech = default,
             bool? disableInterruptions = default,
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
@@ -344,7 +326,6 @@ namespace ElevenLabs
             return await Update10Async(
                 mcpServerId: mcpServerId,
                 toolName: toolName,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

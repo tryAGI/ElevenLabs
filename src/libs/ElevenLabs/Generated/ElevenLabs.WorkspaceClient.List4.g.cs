@@ -6,12 +6,10 @@ namespace ElevenLabs
     public partial class WorkspaceClient
     {
         partial void PrepareList4Arguments(
-            global::System.Net.Http.HttpClient httpClient,
-            ref string? xiApiKey);
+            global::System.Net.Http.HttpClient httpClient);
         partial void PrepareList4Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiApiKey);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
         partial void ProcessList4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,20 +23,15 @@ namespace ElevenLabs
         /// Get All Groups<br/>
         /// Get all groups in the workspace
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkspaceGroupResponseModel>> List4Async(
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList4Arguments(
-                httpClient: HttpClient,
-                xiApiKey: ref xiApiKey);
+                httpClient: HttpClient);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/workspace/groups",
@@ -68,19 +61,12 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareList4Request(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest,
-                xiApiKey: xiApiKey);
+                httpRequestMessage: __httpRequest);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

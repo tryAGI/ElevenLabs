@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareCreate5Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string conversationId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request);
         partial void PrepareCreate5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string conversationId,
-            string? xiApiKey,
             global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request);
         partial void ProcessCreate5Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,9 +28,6 @@ namespace ElevenLabs
         /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
         /// <param name="conversationId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -40,7 +35,6 @@ namespace ElevenLabs
             string conversationId,
 
             global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -50,7 +44,6 @@ namespace ElevenLabs
             PrepareCreate5Arguments(
                 httpClient: HttpClient,
                 conversationId: ref conversationId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -80,23 +73,10 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{conversationId}"),
                 name: "\"conversation_id\"");
-            if (xiApiKey != default)
-            {
-
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "\"xi-api-key\"");
-            }
             var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
                 content: __contentFile,
@@ -115,7 +95,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 conversationId: conversationId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -258,9 +237,6 @@ namespace ElevenLabs
         /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
         /// <param name="conversationId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="file">
         /// Image or PDF file to upload
         /// </param>
@@ -273,7 +249,6 @@ namespace ElevenLabs
             string conversationId,
             byte[] file,
             string filename,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost
@@ -284,7 +259,6 @@ namespace ElevenLabs
 
             return await Create5Async(
                 conversationId: conversationId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

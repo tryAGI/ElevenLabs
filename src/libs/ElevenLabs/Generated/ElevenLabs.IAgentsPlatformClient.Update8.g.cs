@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string mcpServerId,
 
             global::ElevenLabs.MCPServerConfigUpdateRequestModel request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Mcp Server Configuration<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="approvalPolicy">
         /// The approval mode to set for the MCP server
@@ -67,7 +60,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update8Async(
             string mcpServerId,
-            string? xiApiKey = default,
             global::ElevenLabs.MCPApprovalPolicy? approvalPolicy = default,
             bool? forcePreToolSpeech = default,
             bool? disableInterruptions = default,

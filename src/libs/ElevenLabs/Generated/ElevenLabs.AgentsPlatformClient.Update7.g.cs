@@ -8,13 +8,11 @@ namespace ElevenLabs
         partial void PrepareUpdate7Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string secretId,
-            ref string? xiApiKey,
             global::ElevenLabs.PatchWorkspaceSecretRequest request);
         partial void PrepareUpdate7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string secretId,
-            string? xiApiKey,
             global::ElevenLabs.PatchWorkspaceSecretRequest request);
         partial void ProcessUpdate7Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,9 +28,6 @@ namespace ElevenLabs
         /// Update an existing secret for the workspace
         /// </summary>
         /// <param name="secretId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -40,7 +35,6 @@ namespace ElevenLabs
             string secretId,
 
             global::ElevenLabs.PatchWorkspaceSecretRequest request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -50,7 +44,6 @@ namespace ElevenLabs
             PrepareUpdate7Arguments(
                 httpClient: HttpClient,
                 secretId: ref secretId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -80,12 +73,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -100,7 +87,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 secretId: secretId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -243,9 +229,6 @@ namespace ElevenLabs
         /// Update an existing secret for the workspace
         /// </summary>
         /// <param name="secretId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="type"></param>
         /// <param name="name"></param>
         /// <param name="value"></param>
@@ -255,7 +238,6 @@ namespace ElevenLabs
             string secretId,
             string name,
             string value,
-            string? xiApiKey = default,
             string type = "update",
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -268,7 +250,6 @@ namespace ElevenLabs
 
             return await Update7Async(
                 secretId: secretId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

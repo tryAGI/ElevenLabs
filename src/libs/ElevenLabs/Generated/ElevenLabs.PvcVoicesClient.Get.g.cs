@@ -9,15 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref string sampleId,
-            ref bool? removeBackgroundNoise,
-            ref string? xiApiKey);
+            ref bool? removeBackgroundNoise);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             string sampleId,
-            bool? removeBackgroundNoise,
-            string? xiApiKey);
+            bool? removeBackgroundNoise);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -41,16 +39,12 @@ namespace ElevenLabs
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceSamplePreviewResponseModel> GetAsync(
             string voiceId,
             string sampleId,
             bool? removeBackgroundNoise = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -59,8 +53,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 voiceId: ref voiceId,
                 sampleId: ref sampleId,
-                removeBackgroundNoise: ref removeBackgroundNoise,
-                xiApiKey: ref xiApiKey);
+                removeBackgroundNoise: ref removeBackgroundNoise);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/voices/pvc/{voiceId}/samples/{sampleId}/audio",
@@ -93,12 +86,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -107,8 +94,7 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 voiceId: voiceId,
                 sampleId: sampleId,
-                removeBackgroundNoise: removeBackgroundNoise,
-                xiApiKey: xiApiKey);
+                removeBackgroundNoise: removeBackgroundNoise);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

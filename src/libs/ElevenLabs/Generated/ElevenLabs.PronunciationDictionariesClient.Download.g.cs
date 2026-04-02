@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareDownloadArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string dictionaryId,
-            ref string versionId,
-            ref string? xiApiKey);
+            ref string versionId);
         partial void PrepareDownloadRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string dictionaryId,
-            string versionId,
-            string? xiApiKey);
+            string versionId);
         partial void ProcessDownloadResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="versionId">
         /// The id of the pronunciation dictionary version
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> DownloadAsync(
             string dictionaryId,
             string versionId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareDownloadArguments(
                 httpClient: HttpClient,
                 dictionaryId: ref dictionaryId,
-                versionId: ref versionId,
-                xiApiKey: ref xiApiKey);
+                versionId: ref versionId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/pronunciation-dictionaries/{dictionaryId}/{versionId}/download",
@@ -82,12 +75,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -95,8 +82,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 dictionaryId: dictionaryId,
-                versionId: versionId,
-                xiApiKey: xiApiKey);
+                versionId: versionId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

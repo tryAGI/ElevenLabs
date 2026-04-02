@@ -9,15 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref string sampleId,
-            ref string speakerId,
-            ref string? xiApiKey);
+            ref string speakerId);
         partial void PrepareGet4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             string sampleId,
-            string speakerId,
-            string? xiApiKey);
+            string speakerId);
         partial void ProcessGet4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,16 +38,12 @@ namespace ElevenLabs
         /// <param name="speakerId">
         /// Speaker ID to be used, you can use GET https://api.elevenlabs.io/v1/voices/{voice_id}/samples/{sample_id}/speakers to list all the available speakers for a sample.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeakerAudioResponseModel> Get4Async(
             string voiceId,
             string sampleId,
             string speakerId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -58,8 +52,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 voiceId: ref voiceId,
                 sampleId: ref sampleId,
-                speakerId: ref speakerId,
-                xiApiKey: ref xiApiKey);
+                speakerId: ref speakerId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/voices/pvc/{voiceId}/samples/{sampleId}/speakers/{speakerId}/audio",
@@ -89,12 +82,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -103,8 +90,7 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 voiceId: voiceId,
                 sampleId: sampleId,
-                speakerId: speakerId,
-                xiApiKey: xiApiKey);
+                speakerId: speakerId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

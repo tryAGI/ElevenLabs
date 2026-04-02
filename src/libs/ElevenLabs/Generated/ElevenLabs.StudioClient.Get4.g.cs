@@ -9,15 +9,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string projectId,
             ref string chapterId,
-            ref string chapterSnapshotId,
-            ref string? xiApiKey);
+            ref string chapterSnapshotId);
         partial void PrepareGet4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string projectId,
             string chapterId,
-            string chapterSnapshotId,
-            string? xiApiKey);
+            string chapterSnapshotId);
         partial void ProcessGet4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,16 +38,12 @@ namespace ElevenLabs
         /// <param name="chapterSnapshotId">
         /// The ID of the chapter snapshot.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ChapterSnapshotExtendedResponseModel> Get4Async(
             string projectId,
             string chapterId,
             string chapterSnapshotId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -58,8 +52,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 projectId: ref projectId,
                 chapterId: ref chapterId,
-                chapterSnapshotId: ref chapterSnapshotId,
-                xiApiKey: ref xiApiKey);
+                chapterSnapshotId: ref chapterSnapshotId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/studio/projects/{projectId}/chapters/{chapterId}/snapshots/{chapterSnapshotId}",
@@ -89,12 +82,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -103,8 +90,7 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 projectId: projectId,
                 chapterId: chapterId,
-                chapterSnapshotId: chapterSnapshotId,
-                xiApiKey: xiApiKey);
+                chapterSnapshotId: chapterSnapshotId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

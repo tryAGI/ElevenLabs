@@ -9,14 +9,12 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref string sampleId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost request);
         partial void PrepareUpdate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             string sampleId,
-            string? xiApiKey,
             global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost request);
         partial void ProcessUpdate2Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -37,9 +35,6 @@ namespace ElevenLabs
         /// <param name="sampleId">
         /// Sample ID to be used
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -48,7 +43,6 @@ namespace ElevenLabs
             string sampleId,
 
             global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -59,7 +53,6 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 voiceId: ref voiceId,
                 sampleId: ref sampleId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -89,12 +82,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -110,7 +97,6 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 voiceId: voiceId,
                 sampleId: sampleId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -258,9 +244,6 @@ namespace ElevenLabs
         /// <param name="sampleId">
         /// Sample ID to be used
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
         /// Default Value: false
@@ -282,7 +265,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> Update2Async(
             string voiceId,
             string sampleId,
-            string? xiApiKey = default,
             bool? removeBackgroundNoise = default,
             global::System.Collections.Generic.IList<string>? selectedSpeakerIds = default,
             int? trimStartTime = default,
@@ -302,7 +284,6 @@ namespace ElevenLabs
             return await Update2Async(
                 voiceId: voiceId,
                 sampleId: sampleId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

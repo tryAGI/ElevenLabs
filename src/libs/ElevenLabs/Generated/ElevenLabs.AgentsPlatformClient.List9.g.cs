@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareList9Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? limit,
-            ref string? lastDoc,
-            ref string? xiApiKey);
+            ref string? lastDoc);
         partial void PrepareList9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? limit,
-            string? lastDoc,
-            string? xiApiKey);
+            string? lastDoc);
         partial void ProcessList9Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -33,15 +31,11 @@ namespace ElevenLabs
         /// Default Value: 100
         /// </param>
         /// <param name="lastDoc"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceBatchCallsResponse> List9Async(
             int? limit = default,
             string? lastDoc = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -49,8 +43,7 @@ namespace ElevenLabs
             PrepareList9Arguments(
                 httpClient: HttpClient,
                 limit: ref limit,
-                lastDoc: ref lastDoc,
-                xiApiKey: ref xiApiKey);
+                lastDoc: ref lastDoc);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/convai/batch-calling/workspace",
@@ -84,12 +77,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -97,8 +84,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 limit: limit,
-                lastDoc: lastDoc,
-                xiApiKey: xiApiKey);
+                lastDoc: lastDoc);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

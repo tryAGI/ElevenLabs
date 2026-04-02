@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Add Tool<br/>
         /// Add a new tool to the available tools in the workspace.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create6Async(
 
             global::ElevenLabs.ToolRequestModel request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Tool<br/>
         /// Add a new tool to the available tools in the workspace.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="toolConfig">
         /// Configuration for the tool
         /// </param>
@@ -36,7 +29,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create6Async(
             global::ElevenLabs.ToolConfig toolConfig,
-            string? xiApiKey = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

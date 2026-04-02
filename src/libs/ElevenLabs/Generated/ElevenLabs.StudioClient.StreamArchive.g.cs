@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareStreamArchiveArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string projectId,
-            ref string projectSnapshotId,
-            ref string? xiApiKey);
+            ref string projectSnapshotId);
         partial void PrepareStreamArchiveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string projectId,
-            string projectSnapshotId,
-            string? xiApiKey);
+            string projectSnapshotId);
         partial void ProcessStreamArchiveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="projectSnapshotId">
         /// The ID of the Studio project snapshot.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> StreamArchiveAsync(
             string projectId,
             string projectSnapshotId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareStreamArchiveArguments(
                 httpClient: HttpClient,
                 projectId: ref projectId,
-                projectSnapshotId: ref projectSnapshotId,
-                xiApiKey: ref xiApiKey);
+                projectSnapshotId: ref projectSnapshotId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/studio/projects/{projectId}/snapshots/{projectSnapshotId}/archive",
@@ -82,12 +75,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -95,8 +82,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 projectId: projectId,
-                projectSnapshotId: projectSnapshotId,
-                xiApiKey: xiApiKey);
+                projectSnapshotId: projectSnapshotId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

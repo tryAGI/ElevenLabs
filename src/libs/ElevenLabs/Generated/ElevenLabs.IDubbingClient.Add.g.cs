@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="dubbingId">
         /// ID of the dubbing project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string dubbingId,
 
             global::ElevenLabs.BodyAddALanguageToTheResourceV1DubbingResourceDubbingIdLanguagePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add A Language To The Resource<br/>
@@ -30,9 +26,6 @@ namespace ElevenLabs
         /// <param name="dubbingId">
         /// ID of the dubbing project.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="language">
         /// The Target language.
         /// </param>
@@ -40,7 +33,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.LanguageAddedResponse> AddAsync(
             string dubbingId,
-            string? xiApiKey = default,
             string? language = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

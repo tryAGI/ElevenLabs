@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Create File Document<br/>
         /// Create a knowledge base document generated form the uploaded file.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateFromFileAsync(
 
             global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create File Document<br/>
         /// Create a knowledge base document generated form the uploaded file.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="file">
         /// Documentation that the agent will have access to in order to interact with users.
         /// </param>
@@ -43,7 +36,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateFromFileAsync(
             byte[] file,
             string filename,
-            string? xiApiKey = default,
             string? name = default,
             string? parentFolderId = default,
             global::System.Threading.CancellationToken cancellationToken = default);

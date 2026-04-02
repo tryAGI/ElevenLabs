@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareDelete12Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId,
-            ref string? xiApiKey);
+            ref string phoneNumberId);
         partial void PrepareDelete12Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId,
-            string? xiApiKey);
+            string phoneNumberId);
         partial void ProcessDelete12Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,22 +26,17 @@ namespace ElevenLabs
         /// Delete a WhatsApp account
         /// </summary>
         /// <param name="phoneNumberId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete12Async(
             string phoneNumberId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete12Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId,
-                xiApiKey: ref xiApiKey);
+                phoneNumberId: ref phoneNumberId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
@@ -73,20 +66,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareDelete12Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                phoneNumberId: phoneNumberId,
-                xiApiKey: xiApiKey);
+                phoneNumberId: phoneNumberId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

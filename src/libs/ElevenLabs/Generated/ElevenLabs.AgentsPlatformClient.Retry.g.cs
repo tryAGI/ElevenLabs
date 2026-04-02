@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareRetryArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string batchId,
-            ref string? xiApiKey);
+            ref string batchId);
         partial void PrepareRetryRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string batchId,
-            string? xiApiKey);
+            string batchId);
         partial void ProcessRetryResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,22 +26,17 @@ namespace ElevenLabs
         /// Retry a batch call, calling failed and no-response recipients again.
         /// </summary>
         /// <param name="batchId"></param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> RetryAsync(
             string batchId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareRetryArguments(
                 httpClient: HttpClient,
-                batchId: ref batchId,
-                xiApiKey: ref xiApiKey);
+                batchId: ref batchId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/batch-calling/{batchId}/retry",
@@ -73,20 +66,13 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareRetryRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                batchId: batchId,
-                xiApiKey: xiApiKey);
+                batchId: batchId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

@@ -13,7 +13,6 @@ namespace ElevenLabs
             ref bool? enableLogging,
             int? optimizeStreamingLatency,
             ref global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat,
-            ref string? xiApiKey,
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request);
         partial void PrepareStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -22,7 +21,6 @@ namespace ElevenLabs
             bool? enableLogging,
             int? optimizeStreamingLatency,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat,
-            string? xiApiKey,
             global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request);
         partial void ProcessStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -52,9 +50,6 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -65,7 +60,6 @@ namespace ElevenLabs
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -78,7 +72,6 @@ namespace ElevenLabs
                 enableLogging: ref enableLogging,
                 optimizeStreamingLatency: optimizeStreamingLatency,
                 outputFormat: ref outputFormat,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -113,12 +106,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{voiceId}"),
@@ -143,13 +130,6 @@ namespace ElevenLabs
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{outputFormat?.ToValueString()}"),
                     name: "\"output_format\"");
-            } 
-            if (xiApiKey != default)
-            {
-
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "\"xi-api-key\"");
             }
             var __contentAudio = new global::System.Net.Http.ByteArrayContent(request.Audio ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
@@ -207,7 +187,6 @@ namespace ElevenLabs
                 enableLogging: enableLogging,
                 optimizeStreamingLatency: optimizeStreamingLatency,
                 outputFormat: outputFormat,
-                xiApiKey: xiApiKey,
                 request: request);
 
             var __response = await HttpClient.SendAsync(
@@ -334,9 +313,6 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="audio">
         /// The audio file which holds the content and emotion that will control the generated speech.
         /// </param>
@@ -370,7 +346,6 @@ namespace ElevenLabs
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat = default,
-            string? xiApiKey = default,
             string? modelId = default,
             string? voiceSettings = default,
             int? seed = default,
@@ -394,7 +369,6 @@ namespace ElevenLabs
                 enableLogging: enableLogging,
                 optimizeStreamingLatency: optimizeStreamingLatency,
                 outputFormat: outputFormat,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

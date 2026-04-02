@@ -14,9 +14,6 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Unique identifier for the branch.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -25,7 +22,6 @@ namespace ElevenLabs
             string branchId,
 
             global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Agent Branch<br/>
@@ -36,9 +32,6 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// Unique identifier for the branch.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="name">
         /// New name for the branch. Must be unique within the agent.
@@ -54,7 +47,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Update12Async(
             string agentId,
             string branchId,
-            string? xiApiKey = default,
             string? name = default,
             bool? isArchived = default,
             global::ElevenLabs.BranchProtectionStatus? protectionStatus = default,

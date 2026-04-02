@@ -10,24 +10,17 @@ namespace ElevenLabs
         /// Creates Audio Native Enabled Project.<br/>
         /// Creates Audio Native enabled project, optionally starts conversion and returns project ID and embeddable HTML snippet.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeCreateProjectResponseModel> CreateAsync(
 
             global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Creates Audio Native Enabled Project.<br/>
         /// Creates Audio Native enabled project, optionally starts conversion and returns project ID and embeddable HTML snippet.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="name">
         /// Project name.
         /// </param>
@@ -73,7 +66,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeCreateProjectResponseModel> CreateAsync(
             string name,
-            string? xiApiKey = default,
             string? author = default,
             string? title = default,
             string? textColor = default,

@@ -11,9 +11,6 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -21,7 +18,6 @@ namespace ElevenLabs
             string agentId,
 
             global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create A New Branch<br/>
@@ -29,9 +25,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
         /// </param>
         /// <param name="parentVersionId">
         /// ID of the version to branch from
@@ -58,7 +51,6 @@ namespace ElevenLabs
             string parentVersionId,
             string name,
             string description,
-            string? xiApiKey = default,
             object? conversationConfig = default,
             object? platformSettings = default,
             global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,

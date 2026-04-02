@@ -10,7 +10,6 @@ namespace ElevenLabs
             ref string agentId,
             ref bool? enableVersioningIfNotEnabled,
             ref string? branchId,
-            ref string? xiApiKey,
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -18,7 +17,6 @@ namespace ElevenLabs
             string agentId,
             bool? enableVersioningIfNotEnabled,
             string? branchId,
-            string? xiApiKey,
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -43,9 +41,6 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -55,7 +50,6 @@ namespace ElevenLabs
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request,
             bool? enableVersioningIfNotEnabled = default,
             string? branchId = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -67,7 +61,6 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 enableVersioningIfNotEnabled: ref enableVersioningIfNotEnabled,
                 branchId: ref branchId,
-                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
@@ -101,12 +94,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -123,7 +110,6 @@ namespace ElevenLabs
                 agentId: agentId,
                 enableVersioningIfNotEnabled: enableVersioningIfNotEnabled,
                 branchId: branchId,
-                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -275,9 +261,6 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="conversationConfig">
         /// Conversation configuration for an agent
         /// </param>
@@ -303,7 +286,6 @@ namespace ElevenLabs
             string agentId,
             bool? enableVersioningIfNotEnabled = default,
             string? branchId = default,
-            string? xiApiKey = default,
             object? conversationConfig = default,
             object? platformSettings = default,
             global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
@@ -326,7 +308,6 @@ namespace ElevenLabs
                 agentId: agentId,
                 enableVersioningIfNotEnabled: enableVersioningIfNotEnabled,
                 branchId: branchId,
-                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

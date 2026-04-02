@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareFindSimilarVoicesArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string dubbingId,
-            ref string speakerId,
-            ref string? xiApiKey);
+            ref string speakerId);
         partial void PrepareFindSimilarVoicesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string dubbingId,
-            string speakerId,
-            string? xiApiKey);
+            string speakerId);
         partial void ProcessFindSimilarVoicesResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,15 +33,11 @@ namespace ElevenLabs
         /// <param name="speakerId">
         /// ID of the speaker.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.SimilarVoicesForSpeakerResponse> FindSimilarVoicesAsync(
             string dubbingId,
             string speakerId,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,8 +45,7 @@ namespace ElevenLabs
             PrepareFindSimilarVoicesArguments(
                 httpClient: HttpClient,
                 dubbingId: ref dubbingId,
-                speakerId: ref speakerId,
-                xiApiKey: ref xiApiKey);
+                speakerId: ref speakerId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/dubbing/resource/{dubbingId}/speaker/{speakerId}/similar-voices",
@@ -82,12 +75,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -95,8 +82,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 dubbingId: dubbingId,
-                speakerId: speakerId,
-                xiApiKey: xiApiKey);
+                speakerId: speakerId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

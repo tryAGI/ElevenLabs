@@ -17,8 +17,7 @@ namespace ElevenLabs
             ref string? fineTuningState,
             ref string? collectionId,
             ref bool? includeTotalCount,
-            global::System.Collections.Generic.IList<string>? voiceIds,
-            ref string? xiApiKey);
+            global::System.Collections.Generic.IList<string>? voiceIds);
         partial void PrepareSearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -32,8 +31,7 @@ namespace ElevenLabs
             string? fineTuningState,
             string? collectionId,
             bool? includeTotalCount,
-            global::System.Collections.Generic.IList<string>? voiceIds,
-            string? xiApiKey);
+            global::System.Collections.Generic.IList<string>? voiceIds);
         partial void ProcessSearchResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -82,9 +80,6 @@ namespace ElevenLabs
         /// <param name="voiceIds">
         /// Voice IDs to lookup by. Maximum 100 voice IDs.
         /// </param>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetVoicesV2ResponseModel> SearchAsync(
@@ -99,7 +94,6 @@ namespace ElevenLabs
             string? collectionId = default,
             bool? includeTotalCount = default,
             global::System.Collections.Generic.IList<string>? voiceIds = default,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -116,8 +110,7 @@ namespace ElevenLabs
                 fineTuningState: ref fineTuningState,
                 collectionId: ref collectionId,
                 includeTotalCount: ref includeTotalCount,
-                voiceIds: voiceIds,
-                xiApiKey: ref xiApiKey);
+                voiceIds: voiceIds);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v2/voices",
@@ -160,12 +153,6 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-
-
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -182,8 +169,7 @@ namespace ElevenLabs
                 fineTuningState: fineTuningState,
                 collectionId: collectionId,
                 includeTotalCount: includeTotalCount,
-                voiceIds: voiceIds,
-                xiApiKey: xiApiKey);
+                voiceIds: voiceIds);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

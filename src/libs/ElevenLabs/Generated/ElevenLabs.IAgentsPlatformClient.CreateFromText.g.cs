@@ -8,24 +8,17 @@ namespace ElevenLabs
         /// Create Text Document<br/>
         /// Create a knowledge base document containing the provided text.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateFromTextAsync(
 
             global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost request,
-            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Text Document<br/>
         /// Create a knowledge base document containing the provided text.
         /// </summary>
-        /// <param name="xiApiKey">
-        /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-        /// </param>
         /// <param name="text">
         /// Text content to be added to the knowledge base.
         /// </param>
@@ -39,7 +32,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddKnowledgeBaseResponseModel> CreateFromTextAsync(
             string text,
-            string? xiApiKey = default,
             string? name = default,
             string? parentFolderId = default,
             global::System.Threading.CancellationToken cancellationToken = default);
