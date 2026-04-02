@@ -26592,7 +26592,7 @@
       "AgentPlatformSettingsRequestModel": {
         "properties": {
           "evaluation": {
-            "$ref": "#/components/schemas/EvaluationSettings",
+            "$ref": "#/components/schemas/EvaluationSettings-Input",
             "description": "Settings for evaluation"
           },
           "widget": {
@@ -26606,6 +26606,14 @@
             "type": "object",
             "title": "Data Collection",
             "description": "Data collection settings"
+          },
+          "data_collection_scopes": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AnalysisScope"
+            },
+            "type": "object",
+            "title": "Data Collection Scopes",
+            "description": "Scope per data collection item ID. Missing keys default to conversation scope."
           },
           "overrides": {
             "$ref": "#/components/schemas/ConversationInitiationClientDataConfig-Input",
@@ -26667,7 +26675,7 @@
       "AgentPlatformSettingsResponseModel": {
         "properties": {
           "evaluation": {
-            "$ref": "#/components/schemas/EvaluationSettings",
+            "$ref": "#/components/schemas/EvaluationSettings-Output",
             "description": "Settings for evaluation"
           },
           "widget": {
@@ -26681,6 +26689,14 @@
             "type": "object",
             "title": "Data Collection",
             "description": "Data collection settings"
+          },
+          "data_collection_scopes": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AnalysisScope"
+            },
+            "type": "object",
+            "title": "Data Collection Scopes",
+            "description": "Scope per data collection item ID. Missing keys default to conversation scope."
           },
           "overrides": {
             "$ref": "#/components/schemas/ConversationInitiationClientDataConfig-Output",
@@ -27653,6 +27669,15 @@
           "hostname"
         ],
         "title": "AllowlistItem"
+      },
+      "AnalysisScope": {
+        "type": "string",
+        "enum": [
+          "conversation",
+          "agent"
+        ],
+        "title": "AnalysisScope",
+        "default": "conversation"
       },
       "ApiIntegrationOAuth2AuthCodeResponse": {
         "properties": {
@@ -39210,6 +39235,13 @@
               }
             ],
             "title": "Call Summary Title"
+          },
+          "scoped": {
+            "items": {
+              "$ref": "#/components/schemas/ScopedAnalysisResult"
+            },
+            "type": "array",
+            "title": "Scoped"
           }
         },
         "type": "object",
@@ -46378,7 +46410,22 @@
         ],
         "title": "EnvironmentVariablesListResponse"
       },
-      "EvaluationSettings": {
+      "EvaluationSettings-Input": {
+        "properties": {
+          "criteria": {
+            "items": {
+              "$ref": "#/components/schemas/PromptEvaluationCriteria"
+            },
+            "type": "array",
+            "title": "Criteria",
+            "description": "Individual criteria that the agent should be evaluated against"
+          }
+        },
+        "type": "object",
+        "title": "EvaluationSettings",
+        "description": "Settings to evaluate an agent's performance.\nAgents are evaluated against a set of criteria, with success being defined as meeting some combination of those criteria."
+      },
+      "EvaluationSettings-Output": {
         "properties": {
           "criteria": {
             "items": {
@@ -48056,6 +48103,13 @@
                 "type": "null"
               }
             ]
+          },
+          "visited_agents": {
+            "items": {
+              "$ref": "#/components/schemas/VisitedAgentRef"
+            },
+            "type": "array",
+            "title": "Visited Agents"
           },
           "conversation_initiation_client_data": {
             "$ref": "#/components/schemas/ConversationInitiationClientDataRequest-Output"
@@ -60018,6 +60072,11 @@
             "title": "Use Knowledge Base",
             "description": "When evaluating the prompt, should the agent's knowledge base be used.",
             "default": false
+          },
+          "scope": {
+            "$ref": "#/components/schemas/AnalysisScope",
+            "description": "The scope of transcript context used when evaluating this criterion. 'conversation' uses the full transcript; 'agent' uses only the portion where the defining agent was active.",
+            "default": "conversation"
           }
         },
         "type": "object",
@@ -60032,6 +60091,7 @@
           "conversation_goal_prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
           "id": "1234567890",
           "name": "Customer satisfaction check",
+          "scope": "conversation",
           "use_knowledge_base": false
         }
       },
@@ -62433,6 +62493,54 @@
           "prompt"
         ],
         "title": "SayNodePromptMessage"
+      },
+      "ScopedAnalysisResult": {
+        "properties": {
+          "scope": {
+            "$ref": "#/components/schemas/AnalysisScope",
+            "description": "The scope of the analysis. 'conversation' uses the full transcript; 'agent' uses only the portion where the defining agent was active."
+          },
+          "source_agent_id": {
+            "type": "string",
+            "title": "Source Agent Id"
+          },
+          "source_branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Branch Id",
+            "description": "Branch of the agent for this scoped block; disambiguates repeated agent_id."
+          },
+          "evaluation_criteria_results": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ConversationHistoryEvaluationCriteriaResultCommonModel"
+            },
+            "type": "object",
+            "title": "Evaluation Criteria Results"
+          },
+          "data_collection_results": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DataCollectionResultCommonModel"
+            },
+            "type": "object",
+            "title": "Data Collection Results"
+          },
+          "successful": {
+            "$ref": "#/components/schemas/EvaluationSuccessResult"
+          }
+        },
+        "type": "object",
+        "required": [
+          "scope",
+          "source_agent_id",
+          "successful"
+        ],
+        "title": "ScopedAnalysisResult"
       },
       "SearchClientsParams": {
         "properties": {
@@ -69683,6 +69791,31 @@
           "description"
         ],
         "title": "VideoSubject"
+      },
+      "VisitedAgentRef": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id"
+        ],
+        "title": "VisitedAgentRef",
+        "description": "An agent (and optional branch) that participated in the call, in first-seen transcript order."
       },
       "VoiceDesignRequestModel": {
         "properties": {
