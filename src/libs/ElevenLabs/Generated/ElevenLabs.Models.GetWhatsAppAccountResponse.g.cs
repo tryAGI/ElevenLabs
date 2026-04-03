@@ -68,6 +68,12 @@ namespace ElevenLabs
         public string? AssignedAgentName { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_token_expired")]
+        public bool? IsTokenExpired { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -89,6 +95,9 @@ namespace ElevenLabs
         /// Default Value: true
         /// </param>
         /// <param name="assignedAgentName"></param>
+        /// <param name="isTokenExpired">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -101,7 +110,8 @@ namespace ElevenLabs
             string? assignedAgentId,
             bool? enableMessaging,
             bool? enableAudioMessageResponse,
-            string? assignedAgentName)
+            string? assignedAgentName,
+            bool? isTokenExpired)
         {
             this.BusinessAccountId = businessAccountId ?? throw new global::System.ArgumentNullException(nameof(businessAccountId));
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
@@ -112,6 +122,7 @@ namespace ElevenLabs
             this.EnableMessaging = enableMessaging;
             this.EnableAudioMessageResponse = enableAudioMessageResponse;
             this.AssignedAgentName = assignedAgentName;
+            this.IsTokenExpired = isTokenExpired;
         }
 
         /// <summary>

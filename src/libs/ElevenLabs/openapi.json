@@ -38285,6 +38285,7 @@
           "agent_chat_response_part",
           "client_error",
           "guardrail_triggered",
+          "dtmf_request",
           "internal_turn_probability",
           "internal_tentative_agent_response"
         ],
@@ -51021,6 +51022,11 @@
               }
             ],
             "title": "Assigned Agent Name"
+          },
+          "is_token_expired": {
+            "type": "boolean",
+            "title": "Is Token Expired",
+            "default": false
           }
         },
         "type": "object",
