@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareDelete10Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId,
-            ref string toolName);
+            ref string mcpServerId);
         partial void PrepareDelete10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId,
-            string toolName);
+            string mcpServerId);
         partial void ProcessDelete10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,31 +22,26 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Mcp Server Tool Approval<br/>
-        /// Remove approval for a specific MCP tool when using per-tool approval mode.
+        /// Delete Mcp Server<br/>
+        /// Delete a specific MCP server configuration from the workspace.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="toolName">
-        /// Name of the MCP tool to remove approval for.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Delete10Async(
+        public async global::System.Threading.Tasks.Task<string> Delete10Async(
             string mcpServerId,
-            string toolName,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete10Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId,
-                toolName: ref toolName);
+                mcpServerId: ref mcpServerId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}",
+                path: $"/v1/convai/mcp-servers/{mcpServerId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -81,8 +74,7 @@ namespace ElevenLabs
             PrepareDelete10Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                mcpServerId: mcpServerId,
-                toolName: toolName);
+                mcpServerId: mcpServerId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -155,9 +147,7 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerOptions) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -179,15 +169,13 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {

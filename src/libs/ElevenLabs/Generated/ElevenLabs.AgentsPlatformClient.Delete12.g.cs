@@ -7,11 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareDelete12Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId);
+            ref string mcpServerId,
+            ref string toolName);
         partial void PrepareDelete12Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId);
+            string mcpServerId,
+            string toolName);
         partial void ProcessDelete12Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,24 +24,31 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Whatsapp Account<br/>
-        /// Delete a WhatsApp account
+        /// Delete Mcp Tool Configuration Override<br/>
+        /// Remove configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="phoneNumberId"></param>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to remove config overrides for.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Delete12Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Delete12Async(
+            string mcpServerId,
+            string toolName,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete12Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId);
+                mcpServerId: ref mcpServerId,
+                toolName: ref toolName);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
+                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -72,7 +81,8 @@ namespace ElevenLabs
             PrepareDelete12Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                phoneNumberId: phoneNumberId);
+                mcpServerId: mcpServerId,
+                toolName: toolName);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -145,7 +155,9 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return
+                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -167,13 +179,15 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                    var __content = await __response.Content.ReadAsStringAsync(
+                    using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return
+                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
                 {

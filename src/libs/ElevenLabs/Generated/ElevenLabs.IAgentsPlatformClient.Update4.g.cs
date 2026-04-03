@@ -5,39 +5,35 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Update Document<br/>
+        /// Update the name of a document
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update4Async(
-            string toolId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> Update4Async(
+            string documentationId,
 
-            global::ElevenLabs.ToolRequestModel request,
+            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Update Document<br/>
+        /// Update the name of a document
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
-        /// </param>
-        /// <param name="responseMocks">
-        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// <param name="name">
+        /// A custom, human-readable name for the document.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update4Async(
-            string toolId,
-            global::ElevenLabs.ToolConfig toolConfig,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> Update4Async(
+            string documentationId,
+            string name,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

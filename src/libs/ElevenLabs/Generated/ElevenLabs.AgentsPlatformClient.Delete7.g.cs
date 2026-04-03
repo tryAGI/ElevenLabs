@@ -7,35 +7,53 @@ namespace ElevenLabs
     {
         partial void PrepareDelete7Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string secretId);
+            ref string toolId,
+            ref bool? force);
         partial void PrepareDelete7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string secretId);
+            string toolId,
+            bool? force);
         partial void ProcessDelete7Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessDelete7ResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Delete Convai Workspace Secret<br/>
-        /// Delete a workspace secret if it's not in use
+        /// Delete Tool<br/>
+        /// Delete tool from the workspace.
         /// </summary>
-        /// <param name="secretId"></param>
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
+        /// <param name="force">
+        /// If set to true, the tool will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents and branches.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task Delete7Async(
-            string secretId,
+        public async global::System.Threading.Tasks.Task<string> Delete7Async(
+            string toolId,
+            bool? force = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete7Arguments(
                 httpClient: HttpClient,
-                secretId: ref secretId);
+                toolId: ref toolId,
+                force: ref force);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/secrets/{secretId}",
+                path: $"/v1/convai/tools/{toolId}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -67,7 +85,8 @@ namespace ElevenLabs
             PrepareDelete7Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                secretId: secretId);
+                toolId: toolId,
+                force: force);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -131,11 +150,16 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
+                ProcessDelete7ResponseContent(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response,
+                    content: ref __content);
 
                 try
                 {
                     __response.EnsureSuccessStatusCode();
 
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -157,6 +181,13 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
+                    var __content = await __response.Content.ReadAsStringAsync(
+#if NET5_0_OR_GREATER
+                        cancellationToken
+#endif
+                    ).ConfigureAwait(false);
+
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {

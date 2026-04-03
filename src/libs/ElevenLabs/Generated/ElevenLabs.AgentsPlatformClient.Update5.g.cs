@@ -7,11 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareUpdate5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.PatchConvAISettingsRequest request);
+            ref string toolId,
+            global::ElevenLabs.ToolRequestModel request);
         partial void PrepareUpdate5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.PatchConvAISettingsRequest request);
+            string toolId,
+            global::ElevenLabs.ToolRequestModel request);
         partial void ProcessUpdate5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,15 +24,19 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Convai Settings<br/>
-        /// Update Convai settings for the workspace
+        /// Update Tool<br/>
+        /// Update tool that is available in the workspace.
         /// </summary>
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> Update5Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update5Async(
+            string toolId,
 
-            global::ElevenLabs.PatchConvAISettingsRequest request,
+            global::ElevenLabs.ToolRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -39,10 +45,11 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate5Arguments(
                 httpClient: HttpClient,
+                toolId: ref toolId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/settings",
+                path: $"/v1/convai/tools/{toolId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -81,6 +88,7 @@ namespace ElevenLabs
             PrepareUpdate5Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                toolId: toolId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -155,7 +163,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.GetConvAISettingsResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -185,7 +193,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.GetConvAISettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -218,46 +226,34 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Convai Settings<br/>
-        /// Update Convai settings for the workspace
+        /// Update Tool<br/>
+        /// Update tool that is available in the workspace.
         /// </summary>
-        /// <param name="conversationInitiationClientDataWebhook"></param>
-        /// <param name="webhooks"></param>
-        /// <param name="canUseMcpServers">
-        /// Whether the workspace can use MCP servers<br/>
-        /// Default Value: false
+        /// <param name="toolId">
+        /// ID of the requested tool.
         /// </param>
-        /// <param name="ragRetentionPeriodDays">
-        /// Default Value: 10
+        /// <param name="toolConfig">
+        /// Configuration for the tool
         /// </param>
-        /// <param name="conversationEmbeddingRetentionDays">
-        /// Days to retain conversation embeddings. None means use the system default (30 days).
-        /// </param>
-        /// <param name="defaultLivekitStack">
-        /// Default Value: standard
+        /// <param name="responseMocks">
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> Update5Async(
-            global::ElevenLabs.ConversationInitiationClientDataWebhook? conversationInitiationClientDataWebhook = default,
-            global::ElevenLabs.ConvAIWebhooks? webhooks = default,
-            bool? canUseMcpServers = default,
-            int? ragRetentionPeriodDays = default,
-            int? conversationEmbeddingRetentionDays = default,
-            global::ElevenLabs.LivekitStackType? defaultLivekitStack = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update5Async(
+            string toolId,
+            global::ElevenLabs.ToolConfig toolConfig,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.PatchConvAISettingsRequest
+            var __request = new global::ElevenLabs.ToolRequestModel
             {
-                ConversationInitiationClientDataWebhook = conversationInitiationClientDataWebhook,
-                Webhooks = webhooks,
-                CanUseMcpServers = canUseMcpServers,
-                RagRetentionPeriodDays = ragRetentionPeriodDays,
-                ConversationEmbeddingRetentionDays = conversationEmbeddingRetentionDays,
-                DefaultLivekitStack = defaultLivekitStack,
+                ToolConfig = toolConfig,
+                ResponseMocks = responseMocks,
             };
 
             return await Update5Async(
+                toolId: toolId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -5,48 +5,27 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Create Mcp Server Tool Approval<br/>
-        /// Add approval for a specific MCP tool when using per-tool approval mode.
+        /// Create Mcp Server<br/>
+        /// Create a new MCP server configuration in the workspace.
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create10Async(
-            string mcpServerId,
 
-            global::ElevenLabs.MCPToolAddApprovalRequestModel request,
+            global::ElevenLabs.MCPServerRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create Mcp Server Tool Approval<br/>
-        /// Add approval for a specific MCP tool when using per-tool approval mode.
+        /// Create Mcp Server<br/>
+        /// Create a new MCP server configuration in the workspace.
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
-        /// <param name="toolName">
-        /// The name of the MCP tool
-        /// </param>
-        /// <param name="toolDescription">
-        /// The description of the MCP tool
-        /// </param>
-        /// <param name="inputSchema">
-        /// The input schema of the MCP tool (the schema defined on the MCP server before ElevenLabs does any extra processing)
-        /// </param>
-        /// <param name="approvalPolicy">
-        /// The tool-level approval policy<br/>
-        /// Default Value: requires_approval
+        /// <param name="config">
+        /// Configuration details for the MCP Server.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create10Async(
-            string mcpServerId,
-            string toolName,
-            string toolDescription,
-            object? inputSchema = default,
-            global::ElevenLabs.MCPToolApprovalPolicy? approvalPolicy = default,
+            global::ElevenLabs.MCPServerConfigInput config,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -7,34 +7,34 @@ namespace ElevenLabs
     {
         partial void PrepareDelete8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string batchId);
+            ref string secretId);
         partial void PrepareDelete8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string batchId);
+            string secretId);
         partial void ProcessDelete8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
         /// <summary>
-        /// Delete A Batch Call.<br/>
-        /// Permanently delete a batch call and all recipient records. Conversations remain in history.
+        /// Delete Convai Workspace Secret<br/>
+        /// Delete a workspace secret if it's not in use
         /// </summary>
-        /// <param name="batchId"></param>
+        /// <param name="secretId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task Delete8Async(
-            string batchId,
+            string secretId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete8Arguments(
                 httpClient: HttpClient,
-                batchId: ref batchId);
+                secretId: ref secretId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/batch-calling/{batchId}",
+                path: $"/v1/convai/secrets/{secretId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -67,7 +67,7 @@ namespace ElevenLabs
             PrepareDelete8Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                batchId: batchId);
+                secretId: secretId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

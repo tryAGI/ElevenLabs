@@ -5,16 +5,16 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Get Phone Number<br/>
-        /// Retrieve Phone Number details by ID
+        /// Get Conversation Audio<br/>
+        /// Get the audio recording of a particular conversation
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberRouteResponse> Get7Async(
-            string phoneNumberId,
+        global::System.Threading.Tasks.Task<global::System.IO.Stream> Get7Async(
+            string conversationId,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

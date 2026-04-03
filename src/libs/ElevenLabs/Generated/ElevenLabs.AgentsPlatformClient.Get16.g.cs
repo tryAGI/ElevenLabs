@@ -7,11 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet16Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId);
+            ref string batchId);
         partial void PrepareGet16Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId);
+            string batchId);
         partial void ProcessGet16Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,26 +22,24 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Mcp Server<br/>
-        /// Retrieve a specific MCP server configuration from the workspace.
+        /// Get A Batch Call By Id.<br/>
+        /// Get detailed information about a batch call including all recipients.
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
+        /// <param name="batchId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Get16Async(
-            string mcpServerId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallDetailedResponse> Get16Async(
+            string batchId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet16Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId);
+                batchId: ref batchId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/mcp-servers/{mcpServerId}",
+                path: $"/v1/convai/batch-calling/{batchId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -74,7 +72,7 @@ namespace ElevenLabs
             PrepareGet16Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                mcpServerId: mcpServerId);
+                batchId: batchId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -148,7 +146,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.BatchCallDetailedResponse.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -178,7 +176,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.BatchCallDetailedResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

@@ -7,11 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareCreate7Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.PostWorkspaceSecretRequest request);
+            global::ElevenLabs.ToolRequestModel request);
         partial void PrepareCreate7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.PostWorkspaceSecretRequest request);
+            global::ElevenLabs.ToolRequestModel request);
         partial void ProcessCreate7Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,15 +22,15 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Add Tool<br/>
+        /// Add a new tool to the available tools in the workspace.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create7Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create7Async(
 
-            global::ElevenLabs.PostWorkspaceSecretRequest request,
+            global::ElevenLabs.ToolRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -42,7 +42,7 @@ namespace ElevenLabs
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/secrets",
+                path: "/v1/convai/tools",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -155,7 +155,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -185,7 +185,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -218,25 +218,26 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Add Tool<br/>
+        /// Add a new tool to the available tools in the workspace.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
+        /// <param name="toolConfig">
+        /// Configuration for the tool
+        /// </param>
+        /// <param name="responseMocks">
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create7Async(
-            string name,
-            string value,
-            string type = "new",
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create7Async(
+            global::ElevenLabs.ToolConfig toolConfig,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.PostWorkspaceSecretRequest
+            var __request = new global::ElevenLabs.ToolRequestModel
             {
-                Type = type,
-                Name = name,
-                Value = value,
+                ToolConfig = toolConfig,
+                ResponseMocks = responseMocks,
             };
 
             return await Create7Async(

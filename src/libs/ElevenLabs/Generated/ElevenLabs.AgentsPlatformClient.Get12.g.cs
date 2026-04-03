@@ -7,11 +7,15 @@ namespace ElevenLabs
     {
         partial void PrepareGet12Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId);
+            ref string documentationId,
+            ref string chunkId,
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
         partial void PrepareGet12Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId);
+            string documentationId,
+            string chunkId,
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
         partial void ProcessGet12Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,27 +26,40 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Tool<br/>
-        /// Get tool that is available in the workspace.
+        /// Get Documentation Chunk From Knowledge Base<br/>
+        /// Get details about a specific documentation part used by RAG.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// </param>
+        /// <param name="chunkId">
+        /// The id of a document RAG chunk from the knowledge base.
+        /// </param>
+        /// <param name="embeddingModel">
+        /// The embedding model used to retrieve the chunk.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Get12Async(
-            string toolId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> Get12Async(
+            string documentationId,
+            string chunkId,
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet12Arguments(
                 httpClient: HttpClient,
-                toolId: ref toolId);
+                documentationId: ref documentationId,
+                chunkId: ref chunkId,
+                embeddingModel: embeddingModel);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/tools/{toolId}",
+                path: $"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("embedding_model", embeddingModel?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -74,7 +91,9 @@ namespace ElevenLabs
             PrepareGet12Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                toolId: toolId);
+                documentationId: documentationId,
+                chunkId: chunkId,
+                embeddingModel: embeddingModel);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -148,7 +167,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -178,7 +197,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

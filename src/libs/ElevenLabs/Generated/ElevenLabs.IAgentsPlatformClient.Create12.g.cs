@@ -5,55 +5,63 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Create A New Branch<br/>
-        /// Create a new branch from a given version of main branch
+        /// Create Mcp Tool Configuration Override<br/>
+        /// Create configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create12Async(
-            string agentId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create12Async(
+            string mcpServerId,
 
-            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request,
+            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create A New Branch<br/>
-        /// Create a new branch from a given version of main branch
+        /// Create Mcp Tool Configuration Override<br/>
+        /// Create configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
         /// </param>
-        /// <param name="parentVersionId">
-        /// ID of the version to branch from
+        /// <param name="forcePreToolSpeech">
+        /// If set, overrides the server's force_pre_tool_speech setting for this tool
         /// </param>
-        /// <param name="name">
-        /// Name of the branch. It is unique within the agent.
+        /// <param name="disableInterruptions">
+        /// If set, overrides the server's disable_interruptions setting for this tool
         /// </param>
-        /// <param name="description">
-        /// Description for the branch
+        /// <param name="toolCallSound">
+        /// If set, overrides the server's tool_call_sound setting for this tool
         /// </param>
-        /// <param name="conversationConfig">
-        /// Changes to apply to conversation config
+        /// <param name="toolCallSoundBehavior">
+        /// If set, overrides the server's tool_call_sound_behavior setting for this tool
         /// </param>
-        /// <param name="platformSettings">
-        /// Changes to apply to platform settings
+        /// <param name="executionMode">
+        /// If set, overrides the server's execution_mode setting for this tool
         /// </param>
-        /// <param name="workflow">
-        /// Updated workflow definition
+        /// <param name="assignments">
+        /// Dynamic variable assignments for this MCP tool
+        /// </param>
+        /// <param name="inputOverrides">
+        /// Mapping of json path to input override configuration
+        /// </param>
+        /// <param name="toolName">
+        /// The name of the MCP tool
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create12Async(
-            string agentId,
-            string parentVersionId,
-            string name,
-            string description,
-            object? conversationConfig = default,
-            object? platformSettings = default,
-            global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create12Async(
+            string mcpServerId,
+            string toolName,
+            bool? forcePreToolSpeech = default,
+            bool? disableInterruptions = default,
+            global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
+            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
+            global::ElevenLabs.ToolExecutionMode? executionMode = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
+            object? inputOverrides = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

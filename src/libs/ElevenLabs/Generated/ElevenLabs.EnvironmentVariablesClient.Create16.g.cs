@@ -5,18 +5,18 @@ namespace ElevenLabs
 {
     public partial class EnvironmentVariablesClient
     {
-        partial void PrepareCreate15Arguments(
+        partial void PrepareCreate16Arguments(
             global::System.Net.Http.HttpClient httpClient,
             global::ElevenLabs.CreateEnvironmentVariableRequest request);
-        partial void PrepareCreate15Request(
+        partial void PrepareCreate16Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::ElevenLabs.CreateEnvironmentVariableRequest request);
-        partial void ProcessCreate15Response(
+        partial void ProcessCreate16Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreate15ResponseContent(
+        partial void ProcessCreate16ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -28,14 +28,14 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create15Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create16Async(
 
             global::ElevenLabs.CreateEnvironmentVariableRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreate15Arguments(
+            PrepareCreate16Arguments(
                 httpClient: HttpClient,
                 request: request);
 
@@ -76,7 +76,7 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreate15Request(
+            PrepareCreate16Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 request: request);
@@ -89,7 +89,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreate15Response(
+            ProcessCreate16Response(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // 
@@ -209,7 +209,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreate15ResponseContent(
+                ProcessCreate16ResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -287,14 +287,14 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create15Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create16Async(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.CreateEnvironmentVariableRequest
             {
             };
 
-            return await Create15Async(
+            return await Create16Async(
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

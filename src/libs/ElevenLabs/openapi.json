@@ -13345,6 +13345,366 @@
         "x-fern-sdk-method-name": "create"
       }
     },
+    "/v1/convai/agent-testing/folders": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Create Agent Test Folder",
+        "description": "Creates a folder for organizing agent tests.",
+        "operationId": "create_agent_test_folder_route",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Create_agent_test_folder_v1_convai_agent_testing_folders_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAgentTestFolderResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "tests",
+          "folders"
+        ],
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/convai/agent-testing/folders/{folder_id}": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Agent Test Folder By Id",
+        "description": "Gets an agent test folder by ID, including its folder path.",
+        "operationId": "get_agent_test_folder_route",
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The folder ID.",
+              "examples": [
+                "tfld_7301khxdkycse5f88fzjdtrterzm"
+              ],
+              "title": "Folder Id"
+            },
+            "description": "The folder ID."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Folder details retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAgentTestFolderResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "tests",
+          "folders"
+        ],
+        "x-fern-sdk-method-name": "get"
+      },
+      "patch": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Update Agent Test Folder",
+        "description": "Updates an agent test folder. Currently only supports updating the folder name.",
+        "operationId": "update_agent_test_folder_route",
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The folder ID.",
+              "examples": [
+                "tfld_7301khxdkycse5f88fzjdtrterzm"
+              ],
+              "title": "Folder Id"
+            },
+            "description": "The folder ID."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Update_agent_test_folder_v1_convai_agent_testing_folders__folder_id__patch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder successfully updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAgentTestFolderResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "tests",
+          "folders"
+        ],
+        "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Delete Agent Test Folder",
+        "description": "Deletes an agent test folder by ID. Use force=true to delete a non-empty folder and all its contents.",
+        "operationId": "delete_agent_test_folder_route",
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The folder ID.",
+              "examples": [
+                "tfld_7301khxdkycse5f88fzjdtrterzm"
+              ],
+              "title": "Folder Id"
+            },
+            "description": "The folder ID."
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Force delete. Required for deleting non-empty folders.",
+              "default": false,
+              "title": "Force"
+            },
+            "description": "Force delete. Required for deleting non-empty folders."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Folder successfully deleted"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "tests",
+          "folders"
+        ],
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
+    "/v1/convai/agent-testing/bulk-move": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Bulk Move Tests To Folder",
+        "description": "Moves multiple tests or folders from one folder to another.",
+        "operationId": "agent_testing_bulk_move_route",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Bulk_move_tests_to_folder_v1_convai_agent_testing_bulk_move_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tests or folders successfully moved to another folder",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "tests"
+        ],
+        "x-fern-sdk-method-name": "move"
+      }
+    },
     "/v1/convai/agent-testing/{test_id}": {
       "get": {
         "summary": "Get Agent Response Test By Id",
@@ -30207,6 +30567,37 @@
         ],
         "title": "Body_Bulk_move_entities_to_folder_v1_convai_knowledge_base_bulk_move_post"
       },
+      "Body_Bulk_move_tests_to_folder_v1_convai_agent_testing_bulk_move_post": {
+        "properties": {
+          "entity_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "title": "Entity Ids",
+            "description": "The IDs of tests or folders to move."
+          },
+          "move_to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Move To",
+            "description": "The folder to move the entities to. If not set, the entities will be moved to the root folder."
+          }
+        },
+        "type": "object",
+        "required": [
+          "entity_ids"
+        ],
+        "title": "Body_Bulk_move_tests_to_folder_v1_convai_agent_testing_bulk_move_post"
+      },
       "Body_Compose_Music_with_a_detailed_response_v1_music_detailed_post": {
         "properties": {
           "prompt": {
@@ -31376,6 +31767,32 @@
           "name"
         ],
         "title": "Body_Create_agent_draft_v1_convai_agents__agent_id__drafts_post"
+      },
+      "Body_Create_agent_test_folder_v1_convai_agent_testing_folders_post": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the folder to create"
+          },
+          "parent_folder_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Folder Id",
+            "description": "The ID of the parent folder. If not provided, the folder will be created at the root level."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "Body_Create_agent_test_folder_v1_convai_agent_testing_folders_post"
       },
       "Body_Create_chapter_v1_studio_projects__project_id__chapters_post": {
         "properties": {
@@ -34659,6 +35076,20 @@
         },
         "type": "object",
         "title": "Body_Update_agent_branch_v1_convai_agents__agent_id__branches__branch_id__patch"
+      },
+      "Body_Update_agent_test_folder_v1_convai_agent_testing_folders__folder_id__patch": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The new name for the folder"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "Body_Update_agent_test_folder_v1_convai_agent_testing_folders__folder_id__patch"
       },
       "Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post": {
         "properties": {
@@ -42512,6 +42943,24 @@
           "agent_id": "J3Pbu5gP6NNKBscdCdwB"
         }
       },
+      "CreateAgentTestFolderResponseModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "CreateAgentTestFolderResponseModel"
+      },
       "CreateAgentTestResponseModel": {
         "properties": {
           "id": {
@@ -47794,6 +48243,38 @@
             "prevent_subagent_loops": false
           }
         }
+      },
+      "GetAgentTestFolderResponseModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "folder_path": {
+            "items": {
+              "$ref": "#/components/schemas/AgentTestFolderPathSegmentResponseModel"
+            },
+            "type": "array",
+            "title": "Folder Path",
+            "description": "The path from the root folder to the current folder."
+          },
+          "children_count": {
+            "type": "integer",
+            "title": "Children Count",
+            "description": "The number of direct children (tests and subfolders) in this folder",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "GetAgentTestFolderResponseModel"
       },
       "GetAgentsPageResponseModel": {
         "properties": {

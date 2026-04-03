@@ -8,12 +8,12 @@ namespace ElevenLabs
         partial void PrepareCreate13Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
         partial void PrepareCreate13Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
         partial void ProcessCreate13Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,8 +24,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create A New Branch<br/>
+        /// Create a new branch from a given version of main branch
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -33,10 +33,10 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create13Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create13Async(
             string agentId,
 
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -49,7 +49,7 @@ namespace ElevenLabs
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/agents/{agentId}/deployments",
+                path: $"/v1/convai/agents/{agentId}/branches",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -163,7 +163,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.AgentDeploymentResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.CreateAgentBranchResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -193,7 +193,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.AgentDeploymentResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.CreateAgentBranchResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -226,25 +226,50 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create A New Branch<br/>
+        /// Create a new branch from a given version of main branch
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="deploymentRequest">
-        /// Request to create a new deployment
+        /// <param name="parentVersionId">
+        /// ID of the version to branch from
+        /// </param>
+        /// <param name="name">
+        /// Name of the branch. It is unique within the agent.
+        /// </param>
+        /// <param name="description">
+        /// Description for the branch
+        /// </param>
+        /// <param name="conversationConfig">
+        /// Changes to apply to conversation config
+        /// </param>
+        /// <param name="platformSettings">
+        /// Changes to apply to platform settings
+        /// </param>
+        /// <param name="workflow">
+        /// Updated workflow definition
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create13Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create13Async(
             string agentId,
-            global::ElevenLabs.AgentDeploymentRequest deploymentRequest,
+            string parentVersionId,
+            string name,
+            string description,
+            object? conversationConfig = default,
+            object? platformSettings = default,
+            global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost
+            var __request = new global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost
             {
-                DeploymentRequest = deploymentRequest,
+                ParentVersionId = parentVersionId,
+                Name = name,
+                Description = description,
+                ConversationConfig = conversationConfig,
+                PlatformSettings = platformSettings,
+                Workflow = workflow,
             };
 
             return await Create13Async(

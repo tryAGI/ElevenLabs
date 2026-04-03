@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet10Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string documentationId,
-            ref string? agentId);
+            global::System.Collections.Generic.IList<string> documentIds);
         partial void PrepareGet10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string documentationId,
-            string? agentId);
+            global::System.Collections.Generic.IList<string> documentIds);
         partial void ProcessGet10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,32 +22,29 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Documentation From Knowledge Base<br/>
-        /// Get details about a specific documentation making up the agent's knowledge base
+        /// Get Knowledge Base Summaries By Ids<br/>
+        /// Gets multiple knowledge base document summaries by their IDs.
         /// </summary>
-        /// <param name="documentationId">
-        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// <param name="documentIds">
+        /// The ids of knowledge base documents.
         /// </param>
-        /// <param name="agentId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse> Get10Async(
-            string documentationId,
-            string? agentId = default,
+        public async global::System.Threading.Tasks.Task<string> Get10Async(
+            global::System.Collections.Generic.IList<string> documentIds,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet10Arguments(
                 httpClient: HttpClient,
-                documentationId: ref documentationId,
-                agentId: ref agentId);
+                documentIds: documentIds);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/knowledge-base/{documentationId}",
+                path: "/v1/convai/knowledge-base/summaries",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddOptionalParameter("agent_id", agentId) 
+                .AddRequiredParameter("document_ids", documentIds, delimiter: ",", explode: true) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -82,8 +77,7 @@ namespace ElevenLabs
             PrepareGet10Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                documentationId: documentationId,
-                agentId: agentId);
+                documentIds: documentIds);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -156,9 +150,7 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJson(__content, JsonSerializerOptions) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -180,15 +172,13 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {

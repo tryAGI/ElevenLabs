@@ -8,14 +8,12 @@ namespace ElevenLabs
         partial void PrepareGet11Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
-            ref string chunkId,
-            global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
+            ref string? agentId);
         partial void PrepareGet11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string documentationId,
-            string chunkId,
-            global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
+            string? agentId);
         partial void ProcessGet11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -26,24 +24,18 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Documentation Chunk From Knowledge Base<br/>
-        /// Get details about a specific documentation part used by RAG.
+        /// Get Documentation From Knowledge Base<br/>
+        /// Get details about a specific documentation making up the agent's knowledge base
         /// </summary>
         /// <param name="documentationId">
         /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="chunkId">
-        /// The id of a document RAG chunk from the knowledge base.
-        /// </param>
-        /// <param name="embeddingModel">
-        /// The embedding model used to retrieve the chunk.
-        /// </param>
+        /// <param name="agentId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> Get11Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse> Get11Async(
             string documentationId,
-            string chunkId,
-            global::ElevenLabs.EmbeddingModelEnum? embeddingModel = default,
+            string? agentId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,14 +43,13 @@ namespace ElevenLabs
             PrepareGet11Arguments(
                 httpClient: HttpClient,
                 documentationId: ref documentationId,
-                chunkId: ref chunkId,
-                embeddingModel: embeddingModel);
+                agentId: ref agentId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}",
+                path: $"/v1/convai/knowledge-base/{documentationId}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddOptionalParameter("embedding_model", embeddingModel?.ToString()) 
+                .AddOptionalParameter("agent_id", agentId) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -92,8 +83,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 documentationId: documentationId,
-                chunkId: chunkId,
-                embeddingModel: embeddingModel);
+                agentId: agentId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -167,7 +157,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -197,7 +187,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

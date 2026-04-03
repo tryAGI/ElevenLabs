@@ -24,14 +24,14 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Mcp Tool Configuration Override<br/>
-        /// Remove configuration overrides for a specific MCP tool.
+        /// Delete Mcp Server Tool Approval<br/>
+        /// Remove approval for a specific MCP tool when using per-tool approval mode.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
         /// <param name="toolName">
-        /// Name of the MCP tool to remove config overrides for.
+        /// Name of the MCP tool to remove approval for.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -48,7 +48,7 @@ namespace ElevenLabs
                 toolName: ref toolName);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
+                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

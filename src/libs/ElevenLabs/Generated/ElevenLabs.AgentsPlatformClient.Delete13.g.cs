@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareDelete13Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string branchId);
+            ref string phoneNumberId);
         partial void PrepareDelete13Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string branchId);
+            string phoneNumberId);
         partial void ProcessDelete13Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,35 +22,25 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Agent Draft<br/>
-        /// Delete a draft for an agent
+        /// Delete Whatsapp Account<br/>
+        /// Delete a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// The ID of the agent branch to use
-        /// </param>
+        /// <param name="phoneNumberId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete13Async(
-            string agentId,
-            string branchId,
+            string phoneNumberId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete13Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                branchId: ref branchId);
+                phoneNumberId: ref phoneNumberId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/agents/{agentId}/drafts",
+                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder
-                .AddRequiredParameter("branch_id", branchId) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -84,8 +72,7 @@ namespace ElevenLabs
             PrepareDelete13Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                agentId: agentId,
-                branchId: branchId);
+                phoneNumberId: phoneNumberId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

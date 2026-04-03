@@ -7,11 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareCreate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request);
+            ref string conversationId,
+            global::ElevenLabs.ConversationFeedbackRequestModel request);
         partial void PrepareCreate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request);
+            string conversationId,
+            global::ElevenLabs.ConversationFeedbackRequestModel request);
         partial void ProcessCreate4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,25 +24,32 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Import Phone Number<br/>
-        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
+        /// Send Conversation Feedback<br/>
+        /// Send the feedback for the given conversation
         /// </summary>
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create4Async(
+        public async global::System.Threading.Tasks.Task<string> Create4Async(
+            string conversationId,
 
-            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request,
+            global::ElevenLabs.ConversationFeedbackRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareCreate4Arguments(
                 httpClient: HttpClient,
+                conversationId: ref conversationId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/phone-numbers",
+                path: $"/v1/convai/conversations/{conversationId}/feedback",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -79,6 +88,7 @@ namespace ElevenLabs
             PrepareCreate4Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                conversationId: conversationId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -152,9 +162,7 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::ElevenLabs.CreatePhoneNumberResponseModel.FromJson(__content, JsonSerializerOptions) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -176,15 +184,13 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::ElevenLabs.CreatePhoneNumberResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -216,19 +222,29 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Import Phone Number<br/>
-        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
+        /// Send Conversation Feedback<br/>
+        /// Send the feedback for the given conversation
         /// </summary>
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
+        /// </param>
+        /// <param name="feedback">
+        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create4Async(
+        public async global::System.Threading.Tasks.Task<string> Create4Async(
+            string conversationId,
+            global::ElevenLabs.UserFeedbackScore? feedback = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>
+            var __request = new global::ElevenLabs.ConversationFeedbackRequestModel
             {
+                Feedback = feedback,
             };
 
             return await Create4Async(
+                conversationId: conversationId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

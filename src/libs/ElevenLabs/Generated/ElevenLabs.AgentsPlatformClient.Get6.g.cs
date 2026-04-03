@@ -16,16 +16,21 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessGet6ResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Get Conversation Audio<br/>
-        /// Get the audio recording of a particular conversation
+        /// Get Conversation Details<br/>
+        /// Get the details of a particular conversation
         /// </summary>
         /// <param name="conversationId">
         /// The id of the conversation you're taking the action on.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.IO.Stream> Get6Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConversationResponseModel> Get6Async(
             string conversationId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -36,7 +41,7 @@ namespace ElevenLabs
                 conversationId: ref conversationId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/conversations/{conversationId}/audio",
+                path: $"/v1/convai/conversations/{conversationId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -71,13 +76,10 @@ namespace ElevenLabs
                 httpRequestMessage: __httpRequest,
                 conversationId: conversationId);
 
-            var __response = await HttpClient.SendAsync(
+            using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
-                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseHeadersRead,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
-
-            try
-            {
 
             ProcessResponse(
                 client: HttpClient,
@@ -124,51 +126,88 @@ namespace ElevenLabs
                 };
             }
 
-            try
+            if (ReadResponseAsString)
             {
-                __response.EnsureSuccessStatusCode();
-
-                var __content = await __response.Content.ReadAsStreamAsync(
+                var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                return new global::ElevenLabs.ResponseStream(__response, __content);
-            }
-            catch (global::System.Exception __ex)
-            {
-                string? __content = null;
+                ProcessResponseContent(
+                    client: HttpClient,
+                    response: __response,
+                    content: ref __content);
+                ProcessGet6ResponseContent(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response,
+                    content: ref __content);
+
                 try
                 {
-                    __content = await __response.Content.ReadAsStringAsync(
+                    __response.EnsureSuccessStatusCode();
+
+                    return
+                        global::ElevenLabs.GetConversationResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                }
+                catch (global::System.Exception __ex)
+                {
+                    throw new global::ElevenLabs.ApiException(
+                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                        innerException: __ex,
+                        statusCode: __response.StatusCode)
+                    {
+                        ResponseBody = __content,
+                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                            __response.Headers,
+                            h => h.Key,
+                            h => h.Value),
+                    };
+                }
+            }
+            else
+            {
+                try
+                {
+                    __response.EnsureSuccessStatusCode();
+                    using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
-                }
-                catch (global::System.Exception)
-                {
-                }
 
-                throw new global::ElevenLabs.ApiException(
-                    message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                    innerException: __ex,
-                    statusCode: __response.StatusCode)
+                    return
+                        await global::ElevenLabs.GetConversationResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                }
+                catch (global::System.Exception __ex)
                 {
-                    ResponseBody = __content,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
+                    string? __content = null;
+                    try
+                    {
+                        __content = await __response.Content.ReadAsStringAsync(
+#if NET5_0_OR_GREATER
+                            cancellationToken
+#endif
+                        ).ConfigureAwait(false);
+                    }
+                    catch (global::System.Exception)
+                    {
+                    }
 
-            }
-            catch
-            {
-                __response.Dispose();
-                throw;
+                    throw new global::ElevenLabs.ApiException(
+                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                        innerException: __ex,
+                        statusCode: __response.StatusCode)
+                    {
+                        ResponseBody = __content,
+                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                            __response.Headers,
+                            h => h.Key,
+                            h => h.Value),
+                    };
+                }
             }
         }
     }

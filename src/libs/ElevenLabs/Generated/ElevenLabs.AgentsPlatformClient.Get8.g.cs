@@ -7,11 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? agentId);
+            ref string phoneNumberId);
         partial void PrepareGet8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? agentId);
+            string phoneNumberId);
         partial void ProcessGet8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,30 +22,27 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Live Count<br/>
-        /// Get the live count of the ongoing conversations.
+        /// Get Phone Number<br/>
+        /// Retrieve Phone Number details by ID
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent to restrict the analytics to.
+        /// <param name="phoneNumberId">
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetLiveCountResponse> Get8Async(
-            string? agentId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberRouteResponse> Get8Async(
+            string phoneNumberId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet8Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId);
+                phoneNumberId: ref phoneNumberId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/analytics/live-count",
+                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder
-                .AddOptionalParameter("agent_id", agentId) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -77,7 +74,7 @@ namespace ElevenLabs
             PrepareGet8Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                agentId: agentId);
+                phoneNumberId: phoneNumberId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -151,7 +148,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.GetLiveCountResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.GetPhoneNumberRouteResponse.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -181,7 +178,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.GetLiveCountResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetPhoneNumberRouteResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

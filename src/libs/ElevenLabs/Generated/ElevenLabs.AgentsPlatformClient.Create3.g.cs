@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareCreate3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string conversationId,
-            global::ElevenLabs.ConversationFeedbackRequestModel request);
+            global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost request);
         partial void PrepareCreate3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string conversationId,
-            global::ElevenLabs.ConversationFeedbackRequestModel request);
+            global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost request);
         partial void ProcessCreate3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,19 +22,15 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Send Conversation Feedback<br/>
-        /// Send the feedback for the given conversation
+        /// Create Agent Test Folder<br/>
+        /// Creates a folder for organizing agent tests.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Create3Async(
-            string conversationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentTestFolderResponseModel> Create3Async(
 
-            global::ElevenLabs.ConversationFeedbackRequestModel request,
+            global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,11 +39,10 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate3Arguments(
                 httpClient: HttpClient,
-                conversationId: ref conversationId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/conversations/{conversationId}/feedback",
+                path: "/v1/convai/agent-testing/folders",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -88,7 +81,6 @@ namespace ElevenLabs
             PrepareCreate3Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                conversationId: conversationId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -162,7 +154,9 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return
+                        global::ElevenLabs.CreateAgentTestFolderResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -184,13 +178,15 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                    var __content = await __response.Content.ReadAsStringAsync(
+                    using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return
+                        await global::ElevenLabs.CreateAgentTestFolderResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -222,29 +218,29 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Send Conversation Feedback<br/>
-        /// Send the feedback for the given conversation
+        /// Create Agent Test Folder<br/>
+        /// Creates a folder for organizing agent tests.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
+        /// <param name="name">
+        /// The name of the folder to create
         /// </param>
-        /// <param name="feedback">
-        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.
+        /// <param name="parentFolderId">
+        /// The ID of the parent folder. If not provided, the folder will be created at the root level.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Create3Async(
-            string conversationId,
-            global::ElevenLabs.UserFeedbackScore? feedback = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentTestFolderResponseModel> Create3Async(
+            string name,
+            string? parentFolderId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ConversationFeedbackRequestModel
+            var __request = new global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost
             {
-                Feedback = feedback,
+                Name = name,
+                ParentFolderId = parentFolderId,
             };
 
             return await Create3Async(
-                conversationId: conversationId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

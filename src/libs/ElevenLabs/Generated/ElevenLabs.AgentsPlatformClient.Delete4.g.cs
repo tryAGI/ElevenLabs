@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareDelete4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string fileId,
-            ref string conversationId);
+            ref string phoneNumberId);
         partial void PrepareDelete4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string fileId,
-            string conversationId);
+            string phoneNumberId);
         partial void ProcessDelete4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,27 +22,26 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete File Upload<br/>
-        /// Remove a file upload from a conversation. Only possible if the file hasn't already been used in the conversation.
+        /// Delete Phone Number<br/>
+        /// Delete Phone Number by ID
         /// </summary>
-        /// <param name="fileId"></param>
-        /// <param name="conversationId"></param>
+        /// <param name="phoneNumberId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Delete4Async(
-            string fileId,
-            string conversationId,
+        public async global::System.Threading.Tasks.Task<string> Delete4Async(
+            string phoneNumberId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete4Arguments(
                 httpClient: HttpClient,
-                fileId: ref fileId,
-                conversationId: ref conversationId);
+                phoneNumberId: ref phoneNumberId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/conversations/{conversationId}/files/{fileId}",
+                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -77,8 +74,7 @@ namespace ElevenLabs
             PrepareDelete4Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                fileId: fileId,
-                conversationId: conversationId);
+                phoneNumberId: phoneNumberId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -151,9 +147,7 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::ElevenLabs.ConvAIFileUploadResponseModel.FromJson(__content, JsonSerializerOptions) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -175,15 +169,13 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::ElevenLabs.ConvAIFileUploadResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
