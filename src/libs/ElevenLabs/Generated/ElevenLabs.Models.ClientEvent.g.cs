@@ -55,6 +55,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        DtmfRequest,
+        /// <summary>
+        /// 
+        /// </summary>
         GuardrailTriggered,
         /// <summary>
         /// 
@@ -117,6 +121,7 @@ namespace ElevenLabs
                 ClientEvent.ClientError => "client_error",
                 ClientEvent.ClientToolCall => "client_tool_call",
                 ClientEvent.ConversationInitiationMetadata => "conversation_initiation_metadata",
+                ClientEvent.DtmfRequest => "dtmf_request",
                 ClientEvent.GuardrailTriggered => "guardrail_triggered",
                 ClientEvent.InternalTentativeAgentResponse => "internal_tentative_agent_response",
                 ClientEvent.InternalTurnProbability => "internal_turn_probability",
@@ -148,6 +153,7 @@ namespace ElevenLabs
                 "client_error" => ClientEvent.ClientError,
                 "client_tool_call" => ClientEvent.ClientToolCall,
                 "conversation_initiation_metadata" => ClientEvent.ConversationInitiationMetadata,
+                "dtmf_request" => ClientEvent.DtmfRequest,
                 "guardrail_triggered" => ClientEvent.GuardrailTriggered,
                 "internal_tentative_agent_response" => ClientEvent.InternalTentativeAgentResponse,
                 "internal_turn_probability" => ClientEvent.InternalTurnProbability,
