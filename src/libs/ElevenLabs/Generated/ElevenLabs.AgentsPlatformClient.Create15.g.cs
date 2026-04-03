@@ -3,55 +3,67 @@
 
 namespace ElevenLabs
 {
-    public partial class EnvironmentVariablesClient
+    public partial class AgentsPlatformClient
     {
-        partial void PrepareUpdate13Arguments(
+        partial void PrepareCreate15Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string envVarId,
-            global::ElevenLabs.UpdateEnvironmentVariableRequest request);
-        partial void PrepareUpdate13Request(
+            ref string agentId,
+            ref string branchId,
+            global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request);
+        partial void PrepareCreate15Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string envVarId,
-            global::ElevenLabs.UpdateEnvironmentVariableRequest request);
-        partial void ProcessUpdate13Response(
+            string agentId,
+            string branchId,
+            global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request);
+        partial void ProcessCreate15Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdate13ResponseContent(
+        partial void ProcessCreate15ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Environment Variable<br/>
-        /// Replace an environment variable's values. Use null to remove an environment (except production).
+        /// Create Agent Draft<br/>
+        /// Create a new draft for an agent
         /// </summary>
-        /// <param name="envVarId"></param>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="branchId">
+        /// The ID of the agent branch to use
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Update13Async(
-            string envVarId,
+        public async global::System.Threading.Tasks.Task<string> Create15Async(
+            string agentId,
+            string branchId,
 
-            global::ElevenLabs.UpdateEnvironmentVariableRequest request,
+            global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdate13Arguments(
+            PrepareCreate15Arguments(
                 httpClient: HttpClient,
-                envVarId: ref envVarId,
+                agentId: ref agentId,
+                branchId: ref branchId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/environment-variables/{envVarId}",
+                path: $"/v1/convai/agents/{agentId}/drafts",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddRequiredParameter("branch_id", branchId) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: new global::System.Net.Http.HttpMethod("PATCH"),
+                method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -83,10 +95,11 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareUpdate13Request(
+            PrepareCreate15Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                envVarId: envVarId,
+                agentId: agentId,
+                branchId: branchId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -97,75 +110,9 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessUpdate13Response(
+            ProcessCreate15Response(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            // 
-            if ((int)__response.StatusCode == 400)
-            {
-                string? __content_400 = null;
-                global::System.Exception? __exception_400 = null;
-                try
-                {
-                    if (ReadResponseAsString)
-                    {
-                        __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                    else
-                    {
-                        __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                }
-                catch (global::System.Exception __ex)
-                {
-                    __exception_400 = __ex;
-                }
-
-                throw new global::ElevenLabs.ApiException(
-                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
-                    innerException: __exception_400,
-                    statusCode: __response.StatusCode)
-                {
-                    ResponseBody = __content_400,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
-            // 
-            if ((int)__response.StatusCode == 404)
-            {
-                string? __content_404 = null;
-                global::System.Exception? __exception_404 = null;
-                try
-                {
-                    if (ReadResponseAsString)
-                    {
-                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                    else
-                    {
-                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                }
-                catch (global::System.Exception __ex)
-                {
-                    __exception_404 = __ex;
-                }
-
-                throw new global::ElevenLabs.ApiException(
-                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                    innerException: __exception_404,
-                    statusCode: __response.StatusCode)
-                {
-                    ResponseBody = __content_404,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
             // Validation Error
             if ((int)__response.StatusCode == 422)
             {
@@ -217,7 +164,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessUpdate13ResponseContent(
+                ProcessCreate15ResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -226,9 +173,7 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::ElevenLabs.EnvironmentVariableResponse.FromJson(__content, JsonSerializerOptions) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -250,15 +195,13 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::ElevenLabs.EnvironmentVariableResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -290,27 +233,55 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Environment Variable<br/>
-        /// Replace an environment variable's values. Use null to remove an environment (except production).
+        /// Create Agent Draft<br/>
+        /// Create a new draft for an agent
         /// </summary>
-        /// <param name="envVarId"></param>
-        /// <param name="values">
-        /// Values to replace. Set to null to remove an environment (except 'production').
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="branchId">
+        /// The ID of the agent branch to use
+        /// </param>
+        /// <param name="conversationConfig">
+        /// Conversation config for the draft
+        /// </param>
+        /// <param name="platformSettings">
+        /// Platform settings for the draft
+        /// </param>
+        /// <param name="workflow">
+        /// Workflow for the draft<br/>
+        /// Example: {"edges":{"entry_to_tool_a":{"forward_condition":{"condition":"Tool A condition"},"source":"entry_node","target":"tool_node_a"},"start_to_entry":{"forward_condition":{},"source":"start_node","target":"entry_node"},"tool_a_to_failure":{"forward_condition":{"successful":false},"source":"tool_node_a","target":"failure_node"},"tool_a_to_tool_b":{"forward_condition":{"successful":true},"source":"tool_node_a","target":"tool_node_b"},"tool_b_to_agent_transfer":{"forward_condition":{},"source":"tool_node_b","target":"success_transfer"},"tool_b_to_conversation":{"forward_condition":{"condition":"Conversation condition"},"source":"tool_node_b","target":"success_conversation"},"tool_b_to_end":{"forward_condition":{"condition":"End condition"},"source":"tool_node_b","target":"success_end"},"tool_b_to_phone":{"forward_condition":{"expression":{"children":[{"name":"force_phone_transfer"},{"prompt":"Phone condition","value_schema":{"description":"Phone condition","type":"boolean"}},{"left":{"name":"mode"},"right":{"value":"dev"}}]}},"source":"tool_node_b","target":"success_phone"}},"nodes":{"entry_node":{"conversation_config":{},"edge_order":["entry_to_tool_a"],"label":"Entry"},"failure_node":{"conversation_config":{},"label":"Failure"},"start_node":{"edge_order":["start_to_entry"]},"success_conversation":{"conversation_config":{},"label":"Success A"},"success_end":{},"success_phone":{"transfer_destination":{"phone_number":"\u002B1234567890"}},"success_transfer":{"agent_id":"success_transfer_agent"},"tool_node_a":{"edge_order":["tool_a_to_failure","tool_a_to_tool_b"],"tools":[{"tool_id":"tool_a"},{"tool_id":"tool_b"}]},"tool_node_b":{"edge_order":["tool_b_to_conversation","tool_b_to_end","tool_b_to_phone","tool_b_to_agent_transfer"],"tools":[{"tool_id":"tool_a"}]}}}
+        /// </param>
+        /// <param name="name">
+        /// Name for the draft
+        /// </param>
+        /// <param name="tags">
+        /// Tags to help classify and filter the agent
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Update13Async(
-            string envVarId,
-            object values,
+        public async global::System.Threading.Tasks.Task<string> Create15Async(
+            string agentId,
+            string branchId,
+            object conversationConfig,
+            object platformSettings,
+            global::ElevenLabs.AgentWorkflowRequestModel workflow,
+            string name,
+            global::System.Collections.Generic.IList<string>? tags = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.UpdateEnvironmentVariableRequest
+            var __request = new global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost
             {
-                Values = values,
+                ConversationConfig = conversationConfig,
+                PlatformSettings = platformSettings,
+                Workflow = workflow,
+                Name = name,
+                Tags = tags,
             };
 
-            return await Update13Async(
-                envVarId: envVarId,
+            return await Create15Async(
+                agentId: agentId,
+                branchId: branchId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

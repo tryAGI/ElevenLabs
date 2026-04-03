@@ -5,58 +5,51 @@ namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
     {
-        partial void PrepareUpdate10Arguments(
+        partial void PrepareUpdate9Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string mcpServerId,
-            ref string toolName,
-            global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request);
-        partial void PrepareUpdate10Request(
+            global::ElevenLabs.MCPServerConfigUpdateRequestModel request);
+        partial void PrepareUpdate9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string mcpServerId,
-            string toolName,
-            global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request);
-        partial void ProcessUpdate10Response(
+            global::ElevenLabs.MCPServerConfigUpdateRequestModel request);
+        partial void ProcessUpdate9Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdate10ResponseContent(
+        partial void ProcessUpdate9ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Mcp Tool Configuration Override<br/>
-        /// Update configuration overrides for a specific MCP tool.
+        /// Update Mcp Server Configuration<br/>
+        /// Update the configuration settings for an MCP server.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="toolName">
-        /// Name of the MCP tool to update config overrides for.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update10Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update9Async(
             string mcpServerId,
-            string toolName,
 
-            global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
+            global::ElevenLabs.MCPServerConfigUpdateRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdate10Arguments(
+            PrepareUpdate9Arguments(
                 httpClient: HttpClient,
                 mcpServerId: ref mcpServerId,
-                toolName: ref toolName,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
+                path: $"/v1/convai/mcp-servers/{mcpServerId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -92,11 +85,10 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareUpdate10Request(
+            PrepareUpdate9Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 mcpServerId: mcpServerId,
-                toolName: toolName,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -107,42 +99,9 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessUpdate10Response(
+            ProcessUpdate9Response(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            // 
-            if ((int)__response.StatusCode == 404)
-            {
-                string? __content_404 = null;
-                global::System.Exception? __exception_404 = null;
-                try
-                {
-                    if (ReadResponseAsString)
-                    {
-                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                    else
-                    {
-                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                }
-                catch (global::System.Exception __ex)
-                {
-                    __exception_404 = __ex;
-                }
-
-                throw new global::ElevenLabs.ApiException(
-                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                    innerException: __exception_404,
-                    statusCode: __response.StatusCode)
-                {
-                    ResponseBody = __content_404,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
             // Validation Error
             if ((int)__response.StatusCode == 422)
             {
@@ -194,7 +153,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessUpdate10ResponseContent(
+                ProcessUpdate9ResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -267,14 +226,14 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Mcp Tool Configuration Override<br/>
-        /// Update configuration overrides for a specific MCP tool.
+        /// Update Mcp Server Configuration<br/>
+        /// Update the configuration settings for an MCP server.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="toolName">
-        /// Name of the MCP tool to update config overrides for.
+        /// <param name="approvalPolicy">
+        /// The approval mode to set for the MCP server
         /// </param>
         /// <param name="forcePreToolSpeech">
         /// If set, overrides the server's force_pre_tool_speech setting for this tool
@@ -283,48 +242,58 @@ namespace ElevenLabs
         /// If set, overrides the server's disable_interruptions setting for this tool
         /// </param>
         /// <param name="toolCallSound">
-        /// If set, overrides the server's tool_call_sound setting for this tool
+        /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
         /// </param>
         /// <param name="toolCallSoundBehavior">
-        /// If set, overrides the server's tool_call_sound_behavior setting for this tool
+        /// Determines when the tool call sound should play for all tools from this MCP server
         /// </param>
         /// <param name="executionMode">
         /// If set, overrides the server's execution_mode setting for this tool
         /// </param>
-        /// <param name="assignments">
-        /// Dynamic variable assignments for this MCP tool
+        /// <param name="requestHeaders">
+        /// The headers to include in requests to the MCP server
         /// </param>
-        /// <param name="inputOverrides">
-        /// Mapping of json path to input override configuration
+        /// <param name="disableCompression">
+        /// Whether to disable HTTP compression for this MCP server
+        /// </param>
+        /// <param name="secretToken">
+        /// Optional secret token for authentication with this MCP server
+        /// </param>
+        /// <param name="authConnection">
+        /// Optional auth connection to use for authentication with this MCP server
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update10Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update9Async(
             string mcpServerId,
-            string toolName,
+            global::ElevenLabs.MCPApprovalPolicy? approvalPolicy = default,
             bool? forcePreToolSpeech = default,
             bool? disableInterruptions = default,
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
-            object? inputOverrides = default,
+            object? requestHeaders = default,
+            bool? disableCompression = default,
+            global::ElevenLabs.ConvAISecretLocator? secretToken = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel
+            var __request = new global::ElevenLabs.MCPServerConfigUpdateRequestModel
             {
+                ApprovalPolicy = approvalPolicy,
                 ForcePreToolSpeech = forcePreToolSpeech,
                 DisableInterruptions = disableInterruptions,
                 ToolCallSound = toolCallSound,
                 ToolCallSoundBehavior = toolCallSoundBehavior,
                 ExecutionMode = executionMode,
-                Assignments = assignments,
-                InputOverrides = inputOverrides,
+                RequestHeaders = requestHeaders,
+                DisableCompression = disableCompression,
+                SecretToken = secretToken,
+                AuthConnection = authConnection,
             };
 
-            return await Update10Async(
+            return await Update9Async(
                 mcpServerId: mcpServerId,
-                toolName: toolName,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -7,13 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareUpdate8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId,
-            global::ElevenLabs.MCPServerConfigUpdateRequestModel request);
+            ref string secretId,
+            global::ElevenLabs.PatchWorkspaceSecretRequest request);
         partial void PrepareUpdate8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId,
-            global::ElevenLabs.MCPServerConfigUpdateRequestModel request);
+            string secretId,
+            global::ElevenLabs.PatchWorkspaceSecretRequest request);
         partial void ProcessUpdate8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,19 +24,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Mcp Server Configuration<br/>
-        /// Update the configuration settings for an MCP server.
+        /// Update Convai Workspace Secret<br/>
+        /// Update an existing secret for the workspace
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
+        /// <param name="secretId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update8Async(
-            string mcpServerId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Update8Async(
+            string secretId,
 
-            global::ElevenLabs.MCPServerConfigUpdateRequestModel request,
+            global::ElevenLabs.PatchWorkspaceSecretRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,11 +43,11 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate8Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId,
+                secretId: ref secretId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/mcp-servers/{mcpServerId}",
+                path: $"/v1/convai/secrets/{secretId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -88,7 +86,7 @@ namespace ElevenLabs
             PrepareUpdate8Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                mcpServerId: mcpServerId,
+                secretId: secretId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -163,7 +161,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -193,7 +191,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -226,74 +224,31 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Mcp Server Configuration<br/>
-        /// Update the configuration settings for an MCP server.
+        /// Update Convai Workspace Secret<br/>
+        /// Update an existing secret for the workspace
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
-        /// <param name="approvalPolicy">
-        /// The approval mode to set for the MCP server
-        /// </param>
-        /// <param name="forcePreToolSpeech">
-        /// If set, overrides the server's force_pre_tool_speech setting for this tool
-        /// </param>
-        /// <param name="disableInterruptions">
-        /// If set, overrides the server's disable_interruptions setting for this tool
-        /// </param>
-        /// <param name="toolCallSound">
-        /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
-        /// </param>
-        /// <param name="toolCallSoundBehavior">
-        /// Determines when the tool call sound should play for all tools from this MCP server
-        /// </param>
-        /// <param name="executionMode">
-        /// If set, overrides the server's execution_mode setting for this tool
-        /// </param>
-        /// <param name="requestHeaders">
-        /// The headers to include in requests to the MCP server
-        /// </param>
-        /// <param name="disableCompression">
-        /// Whether to disable HTTP compression for this MCP server
-        /// </param>
-        /// <param name="secretToken">
-        /// Optional secret token for authentication with this MCP server
-        /// </param>
-        /// <param name="authConnection">
-        /// Optional auth connection to use for authentication with this MCP server
-        /// </param>
+        /// <param name="secretId"></param>
+        /// <param name="type"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update8Async(
-            string mcpServerId,
-            global::ElevenLabs.MCPApprovalPolicy? approvalPolicy = default,
-            bool? forcePreToolSpeech = default,
-            bool? disableInterruptions = default,
-            global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
-            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
-            global::ElevenLabs.ToolExecutionMode? executionMode = default,
-            object? requestHeaders = default,
-            bool? disableCompression = default,
-            global::ElevenLabs.ConvAISecretLocator? secretToken = default,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Update8Async(
+            string secretId,
+            string name,
+            string value,
+            string type = "update",
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.MCPServerConfigUpdateRequestModel
+            var __request = new global::ElevenLabs.PatchWorkspaceSecretRequest
             {
-                ApprovalPolicy = approvalPolicy,
-                ForcePreToolSpeech = forcePreToolSpeech,
-                DisableInterruptions = disableInterruptions,
-                ToolCallSound = toolCallSound,
-                ToolCallSoundBehavior = toolCallSoundBehavior,
-                ExecutionMode = executionMode,
-                RequestHeaders = requestHeaders,
-                DisableCompression = disableCompression,
-                SecretToken = secretToken,
-                AuthConnection = authConnection,
+                Type = type,
+                Name = name,
+                Value = value,
             };
 
             return await Update8Async(
-                mcpServerId: mcpServerId,
+                secretId: secretId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -7,11 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string conversationId);
+            ref string folderId);
         partial void PrepareGet5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string conversationId);
+            string folderId);
         partial void ProcessGet5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,26 +22,26 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Conversation Details<br/>
-        /// Get the details of a particular conversation
+        /// Get Agent Test Folder By Id<br/>
+        /// Gets an agent test folder by ID, including its folder path.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
+        /// <param name="folderId">
+        /// The folder ID.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConversationResponseModel> Get5Async(
-            string conversationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentTestFolderResponseModel> Get5Async(
+            string folderId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet5Arguments(
                 httpClient: HttpClient,
-                conversationId: ref conversationId);
+                folderId: ref folderId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/conversations/{conversationId}",
+                path: $"/v1/convai/agent-testing/folders/{folderId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -74,7 +74,7 @@ namespace ElevenLabs
             PrepareGet5Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                conversationId: conversationId);
+                folderId: folderId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -148,7 +148,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.GetConversationResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.GetAgentTestFolderResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -178,7 +178,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.GetConversationResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetAgentTestFolderResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

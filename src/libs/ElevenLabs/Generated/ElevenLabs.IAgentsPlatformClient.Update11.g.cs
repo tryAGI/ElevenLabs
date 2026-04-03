@@ -5,33 +5,67 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Update Whatsapp Account<br/>
-        /// Update a WhatsApp account
+        /// Update Mcp Tool Configuration Override<br/>
+        /// Update configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="phoneNumberId"></param>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to update config overrides for.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> Update11Async(
-            string phoneNumberId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update11Async(
+            string mcpServerId,
+            string toolName,
 
-            global::ElevenLabs.UpdateWhatsAppAccountRequest request,
+            global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Whatsapp Account<br/>
-        /// Update a WhatsApp account
+        /// Update Mcp Tool Configuration Override<br/>
+        /// Update configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="phoneNumberId"></param>
-        /// <param name="assignedAgentId"></param>
-        /// <param name="enableMessaging"></param>
-        /// <param name="enableAudioMessageResponse"></param>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to update config overrides for.
+        /// </param>
+        /// <param name="forcePreToolSpeech">
+        /// If set, overrides the server's force_pre_tool_speech setting for this tool
+        /// </param>
+        /// <param name="disableInterruptions">
+        /// If set, overrides the server's disable_interruptions setting for this tool
+        /// </param>
+        /// <param name="toolCallSound">
+        /// If set, overrides the server's tool_call_sound setting for this tool
+        /// </param>
+        /// <param name="toolCallSoundBehavior">
+        /// If set, overrides the server's tool_call_sound_behavior setting for this tool
+        /// </param>
+        /// <param name="executionMode">
+        /// If set, overrides the server's execution_mode setting for this tool
+        /// </param>
+        /// <param name="assignments">
+        /// Dynamic variable assignments for this MCP tool
+        /// </param>
+        /// <param name="inputOverrides">
+        /// Mapping of json path to input override configuration
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> Update11Async(
-            string phoneNumberId,
-            string? assignedAgentId = default,
-            bool? enableMessaging = default,
-            bool? enableAudioMessageResponse = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update11Async(
+            string mcpServerId,
+            string toolName,
+            bool? forcePreToolSpeech = default,
+            bool? disableInterruptions = default,
+            global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
+            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
+            global::ElevenLabs.ToolExecutionMode? executionMode = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
+            object? inputOverrides = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

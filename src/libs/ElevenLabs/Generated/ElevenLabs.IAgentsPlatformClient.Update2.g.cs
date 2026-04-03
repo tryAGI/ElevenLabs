@@ -5,41 +5,35 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Update Phone Number<br/>
-        /// Update assigned agent of a phone number
+        /// Update Agent Test Folder<br/>
+        /// Updates an agent test folder. Currently only supports updating the folder name.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="folderId">
+        /// The folder ID.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> Update2Async(
-            string phoneNumberId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentTestFolderResponseModel> Update2Async(
+            string folderId,
 
-            global::ElevenLabs.UpdatePhoneNumberRequest request,
+            global::ElevenLabs.BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Phone Number<br/>
-        /// Update assigned agent of a phone number
+        /// Update Agent Test Folder<br/>
+        /// Updates an agent test folder. Currently only supports updating the folder name.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="folderId">
+        /// The folder ID.
         /// </param>
-        /// <param name="agentId"></param>
-        /// <param name="label"></param>
-        /// <param name="inboundTrunkConfig"></param>
-        /// <param name="outboundTrunkConfig"></param>
-        /// <param name="livekitStack"></param>
+        /// <param name="name">
+        /// The new name for the folder
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> Update2Async(
-            string phoneNumberId,
-            string? agentId = default,
-            string? label = default,
-            global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig = default,
-            global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig = default,
-            global::ElevenLabs.LivekitStackType? livekitStack = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentTestFolderResponseModel> Update2Async(
+            string folderId,
+            string name,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

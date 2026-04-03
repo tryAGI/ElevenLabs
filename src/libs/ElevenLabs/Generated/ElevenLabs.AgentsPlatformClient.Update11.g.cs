@@ -7,13 +7,15 @@ namespace ElevenLabs
     {
         partial void PrepareUpdate11Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId,
-            global::ElevenLabs.UpdateWhatsAppAccountRequest request);
+            ref string mcpServerId,
+            ref string toolName,
+            global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request);
         partial void PrepareUpdate11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId,
-            global::ElevenLabs.UpdateWhatsAppAccountRequest request);
+            string mcpServerId,
+            string toolName,
+            global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request);
         partial void ProcessUpdate11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,17 +26,23 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Whatsapp Account<br/>
-        /// Update a WhatsApp account
+        /// Update Mcp Tool Configuration Override<br/>
+        /// Update configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="phoneNumberId"></param>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to update config overrides for.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Update11Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update11Async(
+            string mcpServerId,
+            string toolName,
 
-            global::ElevenLabs.UpdateWhatsAppAccountRequest request,
+            global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -43,11 +51,12 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate11Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId,
+                mcpServerId: ref mcpServerId,
+                toolName: ref toolName,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
+                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -86,7 +95,8 @@ namespace ElevenLabs
             PrepareUpdate11Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                phoneNumberId: phoneNumberId,
+                mcpServerId: mcpServerId,
+                toolName: toolName,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -100,6 +110,39 @@ namespace ElevenLabs
             ProcessUpdate11Response(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
+            // 
+            if ((int)__response.StatusCode == 404)
+            {
+                string? __content_404 = null;
+                global::System.Exception? __exception_404 = null;
+                try
+                {
+                    if (ReadResponseAsString)
+                    {
+                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                    }
+                    else
+                    {
+                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                    }
+                }
+                catch (global::System.Exception __ex)
+                {
+                    __exception_404 = __ex;
+                }
+
+                throw new global::ElevenLabs.ApiException(
+                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                    innerException: __exception_404,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_404,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
             // Validation Error
             if ((int)__response.StatusCode == 422)
             {
@@ -160,7 +203,9 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return
+                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -182,13 +227,15 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                    var __content = await __response.Content.ReadAsStringAsync(
+                    using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return
+                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -220,31 +267,64 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Whatsapp Account<br/>
-        /// Update a WhatsApp account
+        /// Update Mcp Tool Configuration Override<br/>
+        /// Update configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="phoneNumberId"></param>
-        /// <param name="assignedAgentId"></param>
-        /// <param name="enableMessaging"></param>
-        /// <param name="enableAudioMessageResponse"></param>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to update config overrides for.
+        /// </param>
+        /// <param name="forcePreToolSpeech">
+        /// If set, overrides the server's force_pre_tool_speech setting for this tool
+        /// </param>
+        /// <param name="disableInterruptions">
+        /// If set, overrides the server's disable_interruptions setting for this tool
+        /// </param>
+        /// <param name="toolCallSound">
+        /// If set, overrides the server's tool_call_sound setting for this tool
+        /// </param>
+        /// <param name="toolCallSoundBehavior">
+        /// If set, overrides the server's tool_call_sound_behavior setting for this tool
+        /// </param>
+        /// <param name="executionMode">
+        /// If set, overrides the server's execution_mode setting for this tool
+        /// </param>
+        /// <param name="assignments">
+        /// Dynamic variable assignments for this MCP tool
+        /// </param>
+        /// <param name="inputOverrides">
+        /// Mapping of json path to input override configuration
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Update11Async(
-            string phoneNumberId,
-            string? assignedAgentId = default,
-            bool? enableMessaging = default,
-            bool? enableAudioMessageResponse = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update11Async(
+            string mcpServerId,
+            string toolName,
+            bool? forcePreToolSpeech = default,
+            bool? disableInterruptions = default,
+            global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
+            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
+            global::ElevenLabs.ToolExecutionMode? executionMode = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
+            object? inputOverrides = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.UpdateWhatsAppAccountRequest
+            var __request = new global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel
             {
-                AssignedAgentId = assignedAgentId,
-                EnableMessaging = enableMessaging,
-                EnableAudioMessageResponse = enableAudioMessageResponse,
+                ForcePreToolSpeech = forcePreToolSpeech,
+                DisableInterruptions = disableInterruptions,
+                ToolCallSound = toolCallSound,
+                ToolCallSoundBehavior = toolCallSoundBehavior,
+                ExecutionMode = executionMode,
+                Assignments = assignments,
+                InputOverrides = inputOverrides,
             };
 
             return await Update11Async(
-                phoneNumberId: phoneNumberId,
+                mcpServerId: mcpServerId,
+                toolName: toolName,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

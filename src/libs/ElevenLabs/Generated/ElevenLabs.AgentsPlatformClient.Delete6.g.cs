@@ -7,12 +7,12 @@ namespace ElevenLabs
     {
         partial void PrepareDelete6Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
+            ref string documentationId,
             ref bool? force);
         partial void PrepareDelete6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
+            string documentationId,
             bool? force);
         partial void ProcessDelete6Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,20 +24,20 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Tool<br/>
-        /// Delete tool from the workspace.
+        /// Delete Knowledge Base Document Or Folder<br/>
+        /// Delete a document or folder from the knowledge base.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
         /// <param name="force">
-        /// If set to true, the tool will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents and branches.<br/>
+        /// If set to true, the document or folder will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents. For non-empty folders, this will also delete all child documents and folders.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete6Async(
-            string toolId,
+            string documentationId,
             bool? force = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -45,11 +45,11 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete6Arguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
+                documentationId: ref documentationId,
                 force: ref force);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/tools/{toolId}",
+                path: $"/v1/convai/knowledge-base/{documentationId}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("force", force?.ToString().ToLowerInvariant()) 
@@ -85,7 +85,7 @@ namespace ElevenLabs
             PrepareDelete6Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                toolId: toolId,
+                documentationId: documentationId,
                 force: force);
 
             using var __response = await HttpClient.SendAsync(

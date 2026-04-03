@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareUpdate7Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string secretId,
-            global::ElevenLabs.PatchWorkspaceSecretRequest request);
+            global::ElevenLabs.PatchConvAIDashboardSettingsRequest request);
         partial void PrepareUpdate7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string secretId,
-            global::ElevenLabs.PatchWorkspaceSecretRequest request);
+            global::ElevenLabs.PatchConvAIDashboardSettingsRequest request);
         partial void ProcessUpdate7Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,17 +22,15 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Convai Workspace Secret<br/>
-        /// Update an existing secret for the workspace
+        /// Update Convai Dashboard Settings<br/>
+        /// Update Convai dashboard settings for the workspace
         /// </summary>
-        /// <param name="secretId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Update7Async(
-            string secretId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Update7Async(
 
-            global::ElevenLabs.PatchWorkspaceSecretRequest request,
+            global::ElevenLabs.PatchConvAIDashboardSettingsRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -43,11 +39,10 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate7Arguments(
                 httpClient: HttpClient,
-                secretId: ref secretId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/secrets/{secretId}",
+                path: "/v1/convai/settings/dashboard",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -86,7 +81,6 @@ namespace ElevenLabs
             PrepareUpdate7Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                secretId: secretId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -161,7 +155,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -191,7 +185,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -224,31 +218,22 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Convai Workspace Secret<br/>
-        /// Update an existing secret for the workspace
+        /// Update Convai Dashboard Settings<br/>
+        /// Update Convai dashboard settings for the workspace
         /// </summary>
-        /// <param name="secretId"></param>
-        /// <param name="type"></param>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
+        /// <param name="charts"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Update7Async(
-            string secretId,
-            string name,
-            string value,
-            string type = "update",
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Update7Async(
+            global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? charts = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.PatchWorkspaceSecretRequest
+            var __request = new global::ElevenLabs.PatchConvAIDashboardSettingsRequest
             {
-                Type = type,
-                Name = name,
-                Value = value,
+                Charts = charts,
             };
 
             return await Update7Async(
-                secretId: secretId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet19Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string branchId);
+            ref string phoneNumberId);
         partial void PrepareGet19Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string branchId);
+            string phoneNumberId);
         partial void ProcessGet19Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,31 +22,24 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Agent Branch<br/>
-        /// Get information about a single agent branch
+        /// Get Whatsapp Account<br/>
+        /// Get a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// Unique identifier for the branch.
-        /// </param>
+        /// <param name="phoneNumberId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Get19Async(
-            string agentId,
-            string branchId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWhatsAppAccountResponse> Get19Async(
+            string phoneNumberId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet19Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                branchId: ref branchId);
+                phoneNumberId: ref phoneNumberId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/agents/{agentId}/branches/{branchId}",
+                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -81,8 +72,7 @@ namespace ElevenLabs
             PrepareGet19Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                agentId: agentId,
-                branchId: branchId);
+                phoneNumberId: phoneNumberId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -156,7 +146,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.AgentBranchResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.GetWhatsAppAccountResponse.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -186,7 +176,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.AgentBranchResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetWhatsAppAccountResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

@@ -5,16 +5,16 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Delete File Upload<br/>
-        /// Remove a file upload from a conversation. Only possible if the file hasn't already been used in the conversation.
+        /// Delete Phone Number<br/>
+        /// Delete Phone Number by ID
         /// </summary>
-        /// <param name="fileId"></param>
-        /// <param name="conversationId"></param>
+        /// <param name="phoneNumberId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Delete4Async(
-            string fileId,
-            string conversationId,
+        global::System.Threading.Tasks.Task<string> Delete4Async(
+            string phoneNumberId,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

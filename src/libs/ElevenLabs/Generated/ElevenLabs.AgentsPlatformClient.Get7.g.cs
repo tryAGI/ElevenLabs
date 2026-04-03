@@ -7,41 +7,36 @@ namespace ElevenLabs
     {
         partial void PrepareGet7Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId);
+            ref string conversationId);
         partial void PrepareGet7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId);
+            string conversationId);
         partial void ProcessGet7Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGet7ResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
-        /// Get Phone Number<br/>
-        /// Retrieve Phone Number details by ID
+        /// Get Conversation Audio<br/>
+        /// Get the audio recording of a particular conversation
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberRouteResponse> Get7Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::System.IO.Stream> Get7Async(
+            string conversationId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet7Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId);
+                conversationId: ref conversationId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
+                path: $"/v1/convai/conversations/{conversationId}/audio",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -74,12 +69,15 @@ namespace ElevenLabs
             PrepareGet7Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                phoneNumberId: phoneNumberId);
+                conversationId: conversationId);
 
-            using var __response = await HttpClient.SendAsync(
+            var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
-                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseHeadersRead,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
+
+            try
+            {
 
             ProcessResponse(
                 client: HttpClient,
@@ -126,88 +124,51 @@ namespace ElevenLabs
                 };
             }
 
-            if (ReadResponseAsString)
+            try
             {
-                var __content = await __response.Content.ReadAsStringAsync(
+                __response.EnsureSuccessStatusCode();
+
+                var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                ProcessResponseContent(
-                    client: HttpClient,
-                    response: __response,
-                    content: ref __content);
-                ProcessGet7ResponseContent(
-                    httpClient: HttpClient,
-                    httpResponseMessage: __response,
-                    content: ref __content);
-
-                try
-                {
-                    __response.EnsureSuccessStatusCode();
-
-                    return
-                        global::ElevenLabs.GetPhoneNumberRouteResponse.FromJson(__content, JsonSerializerOptions) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                }
-                catch (global::System.Exception __ex)
-                {
-                    throw new global::ElevenLabs.ApiException(
-                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                        innerException: __ex,
-                        statusCode: __response.StatusCode)
-                    {
-                        ResponseBody = __content,
-                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                            __response.Headers,
-                            h => h.Key,
-                            h => h.Value),
-                    };
-                }
+                return new global::ElevenLabs.ResponseStream(__response, __content);
             }
-            else
+            catch (global::System.Exception __ex)
             {
+                string? __content = null;
                 try
                 {
-                    __response.EnsureSuccessStatusCode();
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
-
-                    return
-                        await global::ElevenLabs.GetPhoneNumberRouteResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
-                catch (global::System.Exception __ex)
+                catch (global::System.Exception)
                 {
-                    string? __content = null;
-                    try
-                    {
-                        __content = await __response.Content.ReadAsStringAsync(
-#if NET5_0_OR_GREATER
-                            cancellationToken
-#endif
-                        ).ConfigureAwait(false);
-                    }
-                    catch (global::System.Exception)
-                    {
-                    }
-
-                    throw new global::ElevenLabs.ApiException(
-                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                        innerException: __ex,
-                        statusCode: __response.StatusCode)
-                    {
-                        ResponseBody = __content,
-                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                            __response.Headers,
-                            h => h.Key,
-                            h => h.Value),
-                    };
                 }
+
+                throw new global::ElevenLabs.ApiException(
+                    message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                    innerException: __ex,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
+
+            }
+            catch
+            {
+                __response.Dispose();
+                throw;
             }
         }
     }

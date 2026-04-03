@@ -6,10 +6,12 @@ namespace ElevenLabs
     public partial class AgentsPlatformClient
     {
         partial void PrepareGet13Arguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref string toolId);
         partial void PrepareGet13Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string toolId);
         partial void ProcessGet13Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -20,21 +22,26 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Convai Settings<br/>
-        /// Retrieve Convai settings for the workspace
+        /// Get Tool<br/>
+        /// Get tool that is available in the workspace.
         /// </summary>
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> Get13Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Get13Async(
+            string toolId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet13Arguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                toolId: ref toolId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/settings",
+                path: $"/v1/convai/tools/{toolId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -66,7 +73,8 @@ namespace ElevenLabs
                 request: __httpRequest);
             PrepareGet13Request(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest);
+                httpRequestMessage: __httpRequest,
+                toolId: toolId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -140,7 +148,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.GetConvAISettingsResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -170,7 +178,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.GetConvAISettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

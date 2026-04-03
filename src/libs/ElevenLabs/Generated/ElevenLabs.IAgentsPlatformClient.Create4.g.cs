@@ -5,23 +5,35 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Import Phone Number<br/>
-        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
+        /// Send Conversation Feedback<br/>
+        /// Send the feedback for the given conversation
         /// </summary>
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create4Async(
+        global::System.Threading.Tasks.Task<string> Create4Async(
+            string conversationId,
 
-            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request,
+            global::ElevenLabs.ConversationFeedbackRequestModel request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Import Phone Number<br/>
-        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
+        /// Send Conversation Feedback<br/>
+        /// Send the feedback for the given conversation
         /// </summary>
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
+        /// </param>
+        /// <param name="feedback">
+        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create4Async(
+        global::System.Threading.Tasks.Task<string> Create4Async(
+            string conversationId,
+            global::ElevenLabs.UserFeedbackScore? feedback = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

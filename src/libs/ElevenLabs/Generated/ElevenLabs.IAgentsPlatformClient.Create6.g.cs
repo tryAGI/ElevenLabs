@@ -5,31 +5,35 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Add Tool<br/>
-        /// Add a new tool to the available tools in the workspace.
+        /// Upload File<br/>
+        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
+        /// <param name="conversationId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create6Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create6Async(
+            string conversationId,
 
-            global::ElevenLabs.ToolRequestModel request,
+            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Add Tool<br/>
-        /// Add a new tool to the available tools in the workspace.
+        /// Upload File<br/>
+        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
+        /// <param name="conversationId"></param>
+        /// <param name="file">
+        /// Image or PDF file to upload
         /// </param>
-        /// <param name="responseMocks">
-        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// <param name="filename">
+        /// Image or PDF file to upload
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create6Async(
-            global::ElevenLabs.ToolConfig toolConfig,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create6Async(
+            string conversationId,
+            byte[] file,
+            string filename,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -7,11 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareCreate8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
+            global::ElevenLabs.PostWorkspaceSecretRequest request);
         partial void PrepareCreate8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
+            global::ElevenLabs.PostWorkspaceSecretRequest request);
         partial void ProcessCreate8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,15 +22,15 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Submit A Batch Call Request.<br/>
-        /// Submit a batch call request to schedule calls for multiple recipients.
+        /// Create Convai Workspace Secret<br/>
+        /// Create a new secret for the workspace
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> Create8Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create8Async(
 
-            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request,
+            global::ElevenLabs.PostWorkspaceSecretRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -42,7 +42,7 @@ namespace ElevenLabs
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/batch-calling/submit",
+                path: "/v1/convai/secrets",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -155,7 +155,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.BatchCallResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -185,7 +185,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.BatchCallResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -218,53 +218,25 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Submit A Batch Call Request.<br/>
-        /// Submit a batch call request to schedule calls for multiple recipients.
+        /// Create Convai Workspace Secret<br/>
+        /// Create a new secret for the workspace
         /// </summary>
-        /// <param name="callName"></param>
-        /// <param name="agentId"></param>
-        /// <param name="recipients"></param>
-        /// <param name="scheduledTimeUnix"></param>
-        /// <param name="agentPhoneNumberId"></param>
-        /// <param name="whatsappParams"></param>
-        /// <param name="timezone"></param>
-        /// <param name="branchId"></param>
-        /// <param name="environment"></param>
-        /// <param name="telephonyCallConfig">
-        /// Default Value: {"ringing_timeout_secs":60}
-        /// </param>
-        /// <param name="targetConcurrencyLimit">
-        /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
-        /// </param>
+        /// <param name="type"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> Create8Async(
-            string callName,
-            string agentId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient> recipients,
-            int? scheduledTimeUnix = default,
-            string? agentPhoneNumberId = default,
-            global::ElevenLabs.BatchCallWhatsAppParams? whatsappParams = default,
-            string? timezone = default,
-            string? branchId = default,
-            string? environment = default,
-            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig = default,
-            int? targetConcurrencyLimit = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create8Async(
+            string name,
+            string value,
+            string type = "new",
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost
+            var __request = new global::ElevenLabs.PostWorkspaceSecretRequest
             {
-                CallName = callName,
-                AgentId = agentId,
-                Recipients = recipients,
-                ScheduledTimeUnix = scheduledTimeUnix,
-                AgentPhoneNumberId = agentPhoneNumberId,
-                WhatsappParams = whatsappParams,
-                Timezone = timezone,
-                BranchId = branchId,
-                Environment = environment,
-                TelephonyCallConfig = telephonyCallConfig,
-                TargetConcurrencyLimit = targetConcurrencyLimit,
+                Type = type,
+                Name = name,
+                Value = value,
             };
 
             return await Create8Async(

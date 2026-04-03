@@ -6,12 +6,10 @@ namespace ElevenLabs
     public partial class AgentsPlatformClient
     {
         partial void PrepareGet15Arguments(
-            global::System.Net.Http.HttpClient httpClient,
-            ref string batchId);
+            global::System.Net.Http.HttpClient httpClient);
         partial void PrepareGet15Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string batchId);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
         partial void ProcessGet15Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,24 +20,21 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get A Batch Call By Id.<br/>
-        /// Get detailed information about a batch call including all recipients.
+        /// Get Convai Dashboard Settings<br/>
+        /// Retrieve Convai dashboard settings for the workspace
         /// </summary>
-        /// <param name="batchId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallDetailedResponse> Get15Async(
-            string batchId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Get15Async(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet15Arguments(
-                httpClient: HttpClient,
-                batchId: ref batchId);
+                httpClient: HttpClient);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/batch-calling/{batchId}",
+                path: "/v1/convai/settings/dashboard",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -71,8 +66,7 @@ namespace ElevenLabs
                 request: __httpRequest);
             PrepareGet15Request(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest,
-                batchId: batchId);
+                httpRequestMessage: __httpRequest);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -146,7 +140,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.BatchCallDetailedResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -176,7 +170,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.BatchCallDetailedResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

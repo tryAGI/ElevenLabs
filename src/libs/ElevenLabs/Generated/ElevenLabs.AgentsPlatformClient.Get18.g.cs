@@ -7,11 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareGet18Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId);
+            ref string mcpServerId,
+            ref string toolName);
         partial void PrepareGet18Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId);
+            string mcpServerId,
+            string toolName);
         partial void ProcessGet18Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,24 +24,31 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Whatsapp Account<br/>
-        /// Get a WhatsApp account
+        /// Get Mcp Tool Configuration Override<br/>
+        /// Retrieve configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="phoneNumberId"></param>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to retrieve config overrides for.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWhatsAppAccountResponse> Get18Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPToolConfigOverride> Get18Async(
+            string mcpServerId,
+            string toolName,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet18Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId);
+                mcpServerId: ref mcpServerId,
+                toolName: ref toolName);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
+                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -72,7 +81,8 @@ namespace ElevenLabs
             PrepareGet18Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                phoneNumberId: phoneNumberId);
+                mcpServerId: mcpServerId,
+                toolName: toolName);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -85,6 +95,39 @@ namespace ElevenLabs
             ProcessGet18Response(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
+            // 
+            if ((int)__response.StatusCode == 404)
+            {
+                string? __content_404 = null;
+                global::System.Exception? __exception_404 = null;
+                try
+                {
+                    if (ReadResponseAsString)
+                    {
+                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                    }
+                    else
+                    {
+                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                    }
+                }
+                catch (global::System.Exception __ex)
+                {
+                    __exception_404 = __ex;
+                }
+
+                throw new global::ElevenLabs.ApiException(
+                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                    innerException: __exception_404,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_404,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
             // Validation Error
             if ((int)__response.StatusCode == 422)
             {
@@ -146,7 +189,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.GetWhatsAppAccountResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.MCPToolConfigOverride.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -176,7 +219,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.GetWhatsAppAccountResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.MCPToolConfigOverride.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

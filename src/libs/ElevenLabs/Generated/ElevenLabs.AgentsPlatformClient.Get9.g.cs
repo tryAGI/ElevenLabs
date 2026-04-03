@@ -7,11 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet9Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Collections.Generic.IList<string> documentIds);
+            ref string? agentId);
         partial void PrepareGet9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.Collections.Generic.IList<string> documentIds);
+            string? agentId);
         partial void ProcessGet9Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,29 +22,29 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Knowledge Base Summaries By Ids<br/>
-        /// Gets multiple knowledge base document summaries by their IDs.
+        /// Get Live Count<br/>
+        /// Get the live count of the ongoing conversations.
         /// </summary>
-        /// <param name="documentIds">
-        /// The ids of knowledge base documents.
+        /// <param name="agentId">
+        /// The id of an agent to restrict the analytics to.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Get9Async(
-            global::System.Collections.Generic.IList<string> documentIds,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetLiveCountResponse> Get9Async(
+            string? agentId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet9Arguments(
                 httpClient: HttpClient,
-                documentIds: documentIds);
+                agentId: ref agentId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/knowledge-base/summaries",
+                path: "/v1/convai/analytics/live-count",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddRequiredParameter("document_ids", documentIds, delimiter: ",", explode: true) 
+                .AddOptionalParameter("agent_id", agentId) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -77,7 +77,7 @@ namespace ElevenLabs
             PrepareGet9Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                documentIds: documentIds);
+                agentId: agentId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -150,7 +150,9 @@ namespace ElevenLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return
+                        global::ElevenLabs.GetLiveCountResponse.FromJson(__content, JsonSerializerOptions) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -172,13 +174,15 @@ namespace ElevenLabs
                 try
                 {
                     __response.EnsureSuccessStatusCode();
-                    var __content = await __response.Content.ReadAsStringAsync(
+                    using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return
+                        await global::ElevenLabs.GetLiveCountResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
                 {

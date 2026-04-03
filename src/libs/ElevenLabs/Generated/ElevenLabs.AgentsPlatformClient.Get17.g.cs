@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareGet17Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId,
-            ref string toolName);
+            ref string mcpServerId);
         partial void PrepareGet17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId,
-            string toolName);
+            string mcpServerId);
         partial void ProcessGet17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,31 +22,26 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Mcp Tool Configuration Override<br/>
-        /// Retrieve configuration overrides for a specific MCP tool.
+        /// Get Mcp Server<br/>
+        /// Retrieve a specific MCP server configuration from the workspace.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="toolName">
-        /// Name of the MCP tool to retrieve config overrides for.
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPToolConfigOverride> Get17Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Get17Async(
             string mcpServerId,
-            string toolName,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet17Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId,
-                toolName: ref toolName);
+                mcpServerId: ref mcpServerId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
+                path: $"/v1/convai/mcp-servers/{mcpServerId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -81,8 +74,7 @@ namespace ElevenLabs
             PrepareGet17Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                mcpServerId: mcpServerId,
-                toolName: toolName);
+                mcpServerId: mcpServerId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -95,39 +87,6 @@ namespace ElevenLabs
             ProcessGet17Response(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            // 
-            if ((int)__response.StatusCode == 404)
-            {
-                string? __content_404 = null;
-                global::System.Exception? __exception_404 = null;
-                try
-                {
-                    if (ReadResponseAsString)
-                    {
-                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                    else
-                    {
-                        __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                }
-                catch (global::System.Exception __ex)
-                {
-                    __exception_404 = __ex;
-                }
-
-                throw new global::ElevenLabs.ApiException(
-                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                    innerException: __exception_404,
-                    statusCode: __response.StatusCode)
-                {
-                    ResponseBody = __content_404,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
             // Validation Error
             if ((int)__response.StatusCode == 422)
             {
@@ -189,7 +148,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.MCPToolConfigOverride.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -219,7 +178,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.MCPToolConfigOverride.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

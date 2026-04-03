@@ -7,11 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareDelete3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId);
+            ref string conversationId);
         partial void PrepareDelete3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId);
+            string conversationId);
         partial void ProcessDelete3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,26 +22,26 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Phone Number<br/>
-        /// Delete Phone Number by ID
+        /// Delete Conversation<br/>
+        /// Delete a particular conversation
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete3Async(
-            string phoneNumberId,
+            string conversationId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete3Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId);
+                conversationId: ref conversationId);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
+                path: $"/v1/convai/conversations/{conversationId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -74,7 +74,7 @@ namespace ElevenLabs
             PrepareDelete3Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                phoneNumberId: phoneNumberId);
+                conversationId: conversationId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

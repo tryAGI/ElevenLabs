@@ -5,18 +5,16 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Get Documentation From Knowledge Base<br/>
-        /// Get details about a specific documentation making up the agent's knowledge base
+        /// Get Knowledge Base Summaries By Ids<br/>
+        /// Gets multiple knowledge base document summaries by their IDs.
         /// </summary>
-        /// <param name="documentationId">
-        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// <param name="documentIds">
+        /// The ids of knowledge base documents.
         /// </param>
-        /// <param name="agentId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse> Get10Async(
-            string documentationId,
-            string? agentId = default,
+        global::System.Threading.Tasks.Task<string> Get10Async(
+            global::System.Collections.Generic.IList<string> documentIds,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

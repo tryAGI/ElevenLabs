@@ -11,7 +11,7 @@ namespace ElevenLabs
         /// <param name="envVarId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Get20Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Get21Async(
             string envVarId,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

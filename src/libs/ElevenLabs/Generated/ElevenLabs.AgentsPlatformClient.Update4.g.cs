@@ -7,13 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareUpdate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
-            global::ElevenLabs.ToolRequestModel request);
+            ref string documentationId,
+            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request);
         partial void PrepareUpdate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
-            global::ElevenLabs.ToolRequestModel request);
+            string documentationId,
+            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request);
         partial void ProcessUpdate4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,19 +24,19 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Update Document<br/>
+        /// Update the name of a document
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update4Async(
-            string toolId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> Update4Async(
+            string documentationId,
 
-            global::ElevenLabs.ToolRequestModel request,
+            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,11 +45,11 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate4Arguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
+                documentationId: ref documentationId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/tools/{toolId}",
+                path: $"/v1/convai/knowledge-base/{documentationId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -88,7 +88,7 @@ namespace ElevenLabs
             PrepareUpdate4Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                toolId: toolId,
+                documentationId: documentationId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -163,7 +163,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.UpdateDocumentRouteResponse.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -193,7 +193,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.UpdateDocumentRouteResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -226,34 +226,29 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Update Document<br/>
+        /// Update the name of a document
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
-        /// </param>
-        /// <param name="responseMocks">
-        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// <param name="name">
+        /// A custom, human-readable name for the document.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update4Async(
-            string toolId,
-            global::ElevenLabs.ToolConfig toolConfig,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> Update4Async(
+            string documentationId,
+            string name,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ToolRequestModel
+            var __request = new global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch
             {
-                ToolConfig = toolConfig,
-                ResponseMocks = responseMocks,
+                Name = name,
             };
 
             return await Update4Async(
-                toolId: toolId,
+                documentationId: documentationId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

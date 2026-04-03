@@ -7,13 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareUpdate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId,
-            global::ElevenLabs.UpdatePhoneNumberRequest request);
+            ref string folderId,
+            global::ElevenLabs.BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch request);
         partial void PrepareUpdate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId,
-            global::ElevenLabs.UpdatePhoneNumberRequest request);
+            string folderId,
+            global::ElevenLabs.BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch request);
         partial void ProcessUpdate2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,19 +24,19 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Phone Number<br/>
-        /// Update assigned agent of a phone number
+        /// Update Agent Test Folder<br/>
+        /// Updates an agent test folder. Currently only supports updating the folder name.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="folderId">
+        /// The folder ID.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> Update2Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentTestFolderResponseModel> Update2Async(
+            string folderId,
 
-            global::ElevenLabs.UpdatePhoneNumberRequest request,
+            global::ElevenLabs.BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -45,11 +45,11 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate2Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId,
+                folderId: ref folderId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
+                path: $"/v1/convai/agent-testing/folders/{folderId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -88,7 +88,7 @@ namespace ElevenLabs
             PrepareUpdate2Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                phoneNumberId: phoneNumberId,
+                folderId: folderId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -163,7 +163,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.UpdatePhoneNumberRouteResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.GetAgentTestFolderResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -193,7 +193,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.UpdatePhoneNumberRouteResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetAgentTestFolderResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -226,39 +226,29 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Phone Number<br/>
-        /// Update assigned agent of a phone number
+        /// Update Agent Test Folder<br/>
+        /// Updates an agent test folder. Currently only supports updating the folder name.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="folderId">
+        /// The folder ID.
         /// </param>
-        /// <param name="agentId"></param>
-        /// <param name="label"></param>
-        /// <param name="inboundTrunkConfig"></param>
-        /// <param name="outboundTrunkConfig"></param>
-        /// <param name="livekitStack"></param>
+        /// <param name="name">
+        /// The new name for the folder
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> Update2Async(
-            string phoneNumberId,
-            string? agentId = default,
-            string? label = default,
-            global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig = default,
-            global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig = default,
-            global::ElevenLabs.LivekitStackType? livekitStack = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentTestFolderResponseModel> Update2Async(
+            string folderId,
+            string name,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.UpdatePhoneNumberRequest
+            var __request = new global::ElevenLabs.BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch
             {
-                AgentId = agentId,
-                Label = label,
-                InboundTrunkConfig = inboundTrunkConfig,
-                OutboundTrunkConfig = outboundTrunkConfig,
-                LivekitStack = livekitStack,
+                Name = name,
             };
 
             return await Update2Async(
-                phoneNumberId: phoneNumberId,
+                folderId: folderId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

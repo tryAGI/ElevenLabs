@@ -7,11 +7,13 @@ namespace ElevenLabs
     {
         partial void PrepareCreate6Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.ToolRequestModel request);
+            ref string conversationId,
+            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request);
         partial void PrepareCreate6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.ToolRequestModel request);
+            string conversationId,
+            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request);
         partial void ProcessCreate6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,15 +24,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Add Tool<br/>
-        /// Add a new tool to the available tools in the workspace.
+        /// Upload File<br/>
+        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
+        /// <param name="conversationId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create6Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create6Async(
+            string conversationId,
 
-            global::ElevenLabs.ToolRequestModel request,
+            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -39,10 +43,11 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate6Arguments(
                 httpClient: HttpClient,
+                conversationId: ref conversationId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/tools",
+                path: $"/v1/convai/conversations/{conversationId}/files",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -68,11 +73,19 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerOptions);
-            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: __httpRequestContentBody,
-                encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
+            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+            __httpRequestContent.Add(
+                content: new global::System.Net.Http.StringContent($"{conversationId}"),
+                name: "\"conversation_id\"");
+            var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
+            __httpRequestContent.Add(
+                content: __contentFile,
+                name: "\"file\"",
+                fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
+            if (__contentFile.Headers.ContentDisposition != null)
+            {
+                __contentFile.Headers.ContentDisposition.FileNameStar = null;
+            }
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
@@ -81,6 +94,7 @@ namespace ElevenLabs
             PrepareCreate6Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                conversationId: conversationId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -155,7 +169,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.ConvAIFileUploadResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -185,7 +199,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.ConvAIFileUploadResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -218,29 +232,32 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Add Tool<br/>
-        /// Add a new tool to the available tools in the workspace.
+        /// Upload File<br/>
+        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
+        /// <param name="conversationId"></param>
+        /// <param name="file">
+        /// Image or PDF file to upload
         /// </param>
-        /// <param name="responseMocks">
-        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// <param name="filename">
+        /// Image or PDF file to upload
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create6Async(
-            global::ElevenLabs.ToolConfig toolConfig,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create6Async(
+            string conversationId,
+            byte[] file,
+            string filename,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ToolRequestModel
+            var __request = new global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost
             {
-                ToolConfig = toolConfig,
-                ResponseMocks = responseMocks,
+                File = file,
+                Filename = filename,
             };
 
             return await Create6Async(
+                conversationId: conversationId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -7,13 +7,11 @@ namespace ElevenLabs
     {
         partial void PrepareCreate5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string conversationId,
-            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request);
         partial void PrepareCreate5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string conversationId,
-            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request);
         partial void ProcessCreate5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,30 +22,25 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Upload File<br/>
-        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// Import Phone Number<br/>
+        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
         /// </summary>
-        /// <param name="conversationId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create5Async(
-            string conversationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create5Async(
 
-            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
             PrepareCreate5Arguments(
                 httpClient: HttpClient,
-                conversationId: ref conversationId,
                 request: request);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/conversations/{conversationId}/files",
+                path: "/v1/convai/phone-numbers",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -73,19 +66,11 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"{conversationId}"),
-                name: "\"conversation_id\"");
-            var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
-            __httpRequestContent.Add(
-                content: __contentFile,
-                name: "\"file\"",
-                fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
-            if (__contentFile.Headers.ContentDisposition != null)
-            {
-                __contentFile.Headers.ContentDisposition.FileNameStar = null;
-            }
+            var __httpRequestContentBody = request.ToJson(JsonSerializerOptions);
+            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                content: __httpRequestContentBody,
+                encoding: global::System.Text.Encoding.UTF8,
+                mediaType: "application/json");
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
@@ -94,7 +79,6 @@ namespace ElevenLabs
             PrepareCreate5Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                conversationId: conversationId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -169,7 +153,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.ConvAIFileUploadResponseModel.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.CreatePhoneNumberResponseModel.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -199,7 +183,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.ConvAIFileUploadResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.CreatePhoneNumberResponseModel.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -232,32 +216,19 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Upload File<br/>
-        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// Import Phone Number<br/>
+        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
         /// </summary>
-        /// <param name="conversationId"></param>
-        /// <param name="file">
-        /// Image or PDF file to upload
-        /// </param>
-        /// <param name="filename">
-        /// Image or PDF file to upload
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create5Async(
-            string conversationId,
-            byte[] file,
-            string filename,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create5Async(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost
+            var __request = new global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>
             {
-                File = file,
-                Filename = filename,
             };
 
             return await Create5Async(
-                conversationId: conversationId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
