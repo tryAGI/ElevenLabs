@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A list of Native MCP server ids to be used by the agent
+    /// A list of knowledge bases to be used by the agent
     /// </summary>
-    public sealed partial class PromptAgentAPIModelOverrideNativeMcpServerIds
+    public sealed partial class PromptAgentAPIModelOverrideInputKnowledgeBase
     {
 
         /// <summary>

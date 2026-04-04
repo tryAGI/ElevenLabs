@@ -26638,7 +26638,7 @@
           "prompt": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/PromptAgentAPIModelOverride"
+                "$ref": "#/components/schemas/PromptAgentAPIModelOverride-Input"
               },
               {
                 "type": "null"
@@ -26653,8 +26653,10 @@
           "first_message": "Hello, how can I help you today?",
           "language": "en",
           "prompt": {
+            "knowledge_base": [],
             "llm": "gemini-2.0-flash-001",
-            "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation."
+            "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
+            "tool_ids": []
           }
         }
       },
@@ -26704,7 +26706,7 @@
           "prompt": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/PromptAgentAPIModelOverride"
+                "$ref": "#/components/schemas/PromptAgentAPIModelOverride-Output"
               },
               {
                 "type": "null"
@@ -26719,8 +26721,10 @@
           "first_message": "Hello, how can I help you today?",
           "language": "en",
           "prompt": {
+            "knowledge_base": [],
             "llm": "gemini-2.0-flash-001",
-            "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation."
+            "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
+            "tool_ids": []
           }
         }
       },
@@ -39272,8 +39276,10 @@
             "first_message": "Hello, how can I help you today?",
             "language": "en",
             "prompt": {
+              "knowledge_base": [],
               "llm": "gemini-2.0-flash-001",
-              "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation."
+              "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
+              "tool_ids": []
             }
           },
           "tts": {
@@ -39343,8 +39349,10 @@
             "first_message": "Hello, how can I help you today?",
             "language": "en",
             "prompt": {
+              "knowledge_base": [],
               "llm": "gemini-2.0-flash-001",
-              "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation."
+              "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
+              "tool_ids": []
             }
           },
           "tts": {
@@ -54994,7 +55002,7 @@
           "raise_error"
         ],
         "title": "MockNoMatchBehavior",
-        "default": "call_real_tool"
+        "default": "raise_error"
       },
       "MockingStrategy": {
         "type": "string",
@@ -55345,6 +55353,18 @@
             ],
             "title": "Transcription Id",
             "description": "The transcription ID of the response."
+          },
+          "audio_duration_secs": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Duration Secs",
+            "description": "The duration of the audio that was transcribed across all channels in seconds."
           }
         },
         "type": "object",
@@ -56055,7 +56075,7 @@
           "fallback_strategy": {
             "$ref": "#/components/schemas/MockNoMatchBehavior",
             "description": "Behavior when no mock matches a tool call.",
-            "default": "call_real_tool"
+            "default": "raise_error"
           },
           "mocked_tool_names": {
             "items": {
@@ -59523,7 +59543,8 @@
             },
             "type": "array",
             "title": "Tool Ids",
-            "description": "A list of IDs of tools used by the agent"
+            "description": "A list of IDs of tools used by the agent",
+            "x-convai-client-override": true
           },
           "built_in_tools": {
             "$ref": "#/components/schemas/BuiltInTools-Input",
@@ -59554,7 +59575,8 @@
             },
             "type": "array",
             "title": "Knowledge Base",
-            "description": "A list of knowledge bases to be used by the agent"
+            "description": "A list of knowledge bases to be used by the agent",
+            "x-convai-client-override": true
           },
           "custom_llm": {
             "anyOf": [
@@ -59736,7 +59758,8 @@
             },
             "type": "array",
             "title": "Tool Ids",
-            "description": "A list of IDs of tools used by the agent"
+            "description": "A list of IDs of tools used by the agent",
+            "x-convai-client-override": true
           },
           "built_in_tools": {
             "$ref": "#/components/schemas/BuiltInTools-Output",
@@ -59767,7 +59790,8 @@
             },
             "type": "array",
             "title": "Knowledge Base",
-            "description": "A list of knowledge bases to be used by the agent"
+            "description": "A list of knowledge bases to be used by the agent",
+            "x-convai-client-override": true
           },
           "custom_llm": {
             "anyOf": [
@@ -59893,7 +59917,7 @@
           "tools": []
         }
       },
-      "PromptAgentAPIModelOverride": {
+      "PromptAgentAPIModelOverride-Input": {
         "properties": {
           "prompt": {
             "anyOf": [
@@ -59920,6 +59944,22 @@
             "description": "The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment",
             "x-convai-client-override": true
           },
+          "tool_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Ids",
+            "description": "A list of IDs of tools used by the agent",
+            "x-convai-client-override": true
+          },
           "native_mcp_server_ids": {
             "anyOf": [
               {
@@ -59935,13 +59975,116 @@
             "title": "Native Mcp Server Ids",
             "description": "A list of Native MCP server ids to be used by the agent",
             "x-convai-client-override": true
+          },
+          "knowledge_base": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/KnowledgeBaseLocator"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Knowledge Base",
+            "description": "A list of knowledge bases to be used by the agent",
+            "x-convai-client-override": true
           }
         },
         "type": "object",
         "title": "PromptAgentAPIModelOverride",
         "example": {
+          "knowledge_base": [],
           "llm": "gemini-2.0-flash-001",
-          "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation."
+          "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
+          "tool_ids": []
+        }
+      },
+      "PromptAgentAPIModelOverride-Output": {
+        "properties": {
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt",
+            "description": "The prompt for the agent",
+            "x-convai-client-override": true
+          },
+          "llm": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment",
+            "x-convai-client-override": true
+          },
+          "tool_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Ids",
+            "description": "A list of IDs of tools used by the agent",
+            "x-convai-client-override": true
+          },
+          "native_mcp_server_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Native Mcp Server Ids",
+            "description": "A list of Native MCP server ids to be used by the agent",
+            "x-convai-client-override": true
+          },
+          "knowledge_base": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/KnowledgeBaseLocator"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Knowledge Base",
+            "description": "A list of knowledge bases to be used by the agent",
+            "x-convai-client-override": true
+          }
+        },
+        "type": "object",
+        "title": "PromptAgentAPIModelOverride",
+        "example": {
+          "knowledge_base": [],
+          "llm": "gemini-2.0-flash-001",
+          "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
+          "tool_ids": []
         }
       },
       "PromptAgentAPIModelOverrideConfig": {
@@ -59958,10 +60101,22 @@
             "description": "Whether to allow overriding the llm field.",
             "default": false
           },
+          "tool_ids": {
+            "type": "boolean",
+            "title": "Tool Ids",
+            "description": "Whether to allow overriding the tool_ids field.",
+            "default": false
+          },
           "native_mcp_server_ids": {
             "type": "boolean",
             "title": "Native Mcp Server Ids",
             "description": "Whether to allow overriding the native_mcp_server_ids field.",
+            "default": false
+          },
+          "knowledge_base": {
+            "type": "boolean",
+            "title": "Knowledge Base",
+            "description": "Whether to allow overriding the knowledge_base field.",
             "default": false
           }
         },
@@ -60055,7 +60210,8 @@
               }
             ],
             "title": "Tool Ids",
-            "description": "A list of IDs of tools used by the agent"
+            "description": "A list of IDs of tools used by the agent",
+            "x-convai-client-override": true
           },
           "built_in_tools": {
             "anyOf": [
@@ -60112,7 +60268,8 @@
               }
             ],
             "title": "Knowledge Base",
-            "description": "A list of knowledge bases to be used by the agent"
+            "description": "A list of knowledge bases to be used by the agent",
+            "x-convai-client-override": true
           },
           "custom_llm": {
             "anyOf": [
@@ -60336,7 +60493,8 @@
               }
             ],
             "title": "Tool Ids",
-            "description": "A list of IDs of tools used by the agent"
+            "description": "A list of IDs of tools used by the agent",
+            "x-convai-client-override": true
           },
           "built_in_tools": {
             "anyOf": [
@@ -60393,7 +60551,8 @@
               }
             ],
             "title": "Knowledge Base",
-            "description": "A list of knowledge bases to be used by the agent"
+            "description": "A list of knowledge bases to be used by the agent",
+            "x-convai-client-override": true
           },
           "custom_llm": {
             "anyOf": [
@@ -63589,7 +63748,7 @@
           "fallback_strategy": {
             "$ref": "#/components/schemas/MockNoMatchBehavior",
             "description": "Behavior when no mock matches a tool call.",
-            "default": "call_real_tool"
+            "default": "raise_error"
           },
           "mocked_tool_ids": {
             "items": {
@@ -64949,6 +65108,18 @@
             ],
             "title": "Entities",
             "description": "List of detected entities with their text, type, and character positions in the transcript."
+          },
+          "audio_duration_secs": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Duration Secs",
+            "description": "The duration of the audio that was transcribed in seconds."
           }
         },
         "type": "object",

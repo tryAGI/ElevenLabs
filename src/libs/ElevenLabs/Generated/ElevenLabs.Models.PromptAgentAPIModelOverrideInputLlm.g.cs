@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment
     /// </summary>
-    public sealed partial class PromptAgentAPIModelOverrideLlm
+    public sealed partial class PromptAgentAPIModelOverrideInputLlm
     {
 
         /// <summary>

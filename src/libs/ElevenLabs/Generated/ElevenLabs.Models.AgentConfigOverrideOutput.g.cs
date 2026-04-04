@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"first_message":"Hello, how can I help you today?","language":"en","prompt":{"llm":"gemini-2.0-flash-001","prompt":"You are a helpful assistant that can answer questions about the topic of the conversation."}}
+    /// Example: {"first_message":"Hello, how can I help you today?","language":"en","prompt":{"knowledge_base":[],"llm":"gemini-2.0-flash-001","prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","tool_ids":[]}}
     /// </summary>
     public sealed partial class AgentConfigOverrideOutput
     {
@@ -30,7 +30,7 @@ namespace ElevenLabs
         /// The prompt for the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        public global::ElevenLabs.PromptAgentAPIModelOverride? Prompt { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelOverrideOutput? Prompt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -60,7 +60,7 @@ namespace ElevenLabs
             string? firstMessage,
             string? language,
             string? maxConversationDurationMessage,
-            global::ElevenLabs.PromptAgentAPIModelOverride? prompt)
+            global::ElevenLabs.PromptAgentAPIModelOverrideOutput? prompt)
         {
             this.FirstMessage = firstMessage;
             this.Language = language;
