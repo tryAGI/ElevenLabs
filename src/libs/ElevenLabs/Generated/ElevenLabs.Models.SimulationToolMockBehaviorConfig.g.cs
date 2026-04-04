@@ -18,7 +18,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Behavior when no mock matches a tool call.<br/>
-        /// Default Value: call_real_tool
+        /// Default Value: raise_error
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fallback_strategy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MockNoMatchBehaviorJsonConverter))]
@@ -45,7 +45,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="fallbackStrategy">
         /// Behavior when no mock matches a tool call.<br/>
-        /// Default Value: call_real_tool
+        /// Default Value: raise_error
         /// </param>
         /// <param name="mockedToolIds">
         /// Tool IDs to mock. Resolved to tool names before being passed to the orchestrator.

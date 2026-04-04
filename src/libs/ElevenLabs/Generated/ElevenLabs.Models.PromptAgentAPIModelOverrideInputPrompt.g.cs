@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// The prompt for the agent
     /// </summary>
-    public sealed partial class PromptAgentAPIModelOverridePrompt
+    public sealed partial class PromptAgentAPIModelOverrideInputPrompt
     {
 
         /// <summary>

@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public sealed partial class PromptAgentAPIModelOverridePrompt
+    public sealed partial class MultichannelSpeechToTextResponseModelAudioDurationSecs
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.PromptAgentAPIModelOverridePrompt? FromJson(
+        public static global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.PromptAgentAPIModelOverridePrompt),
-                jsonSerializerContext) as global::ElevenLabs.PromptAgentAPIModelOverridePrompt;
+                typeof(global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs),
+                jsonSerializerContext) as global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::ElevenLabs.PromptAgentAPIModelOverridePrompt? FromJson(
+        public static global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.PromptAgentAPIModelOverridePrompt>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.PromptAgentAPIModelOverridePrompt?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.PromptAgentAPIModelOverridePrompt),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.PromptAgentAPIModelOverridePrompt;
+                typeof(global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs),
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.PromptAgentAPIModelOverridePrompt?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.PromptAgentAPIModelOverridePrompt?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.MultichannelSpeechToTextResponseModelAudioDurationSecs?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: call_real_tool
+    /// Default Value: raise_error
     /// </summary>
     public enum MockNoMatchBehavior
     {

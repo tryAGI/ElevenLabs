@@ -23,6 +23,12 @@ namespace ElevenLabs
         public string? TranscriptionId { get; set; }
 
         /// <summary>
+        /// The duration of the audio that was transcribed across all channels in seconds.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_duration_secs")]
+        public double? AudioDurationSecs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -37,15 +43,20 @@ namespace ElevenLabs
         /// <param name="transcriptionId">
         /// The transcription ID of the response.
         /// </param>
+        /// <param name="audioDurationSecs">
+        /// The duration of the audio that was transcribed across all channels in seconds.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public MultichannelSpeechToTextResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextChunkResponseModel> transcripts,
-            string? transcriptionId)
+            string? transcriptionId,
+            double? audioDurationSecs)
         {
             this.Transcripts = transcripts ?? throw new global::System.ArgumentNullException(nameof(transcripts));
             this.TranscriptionId = transcriptionId;
+            this.AudioDurationSecs = audioDurationSecs;
         }
 
         /// <summary>

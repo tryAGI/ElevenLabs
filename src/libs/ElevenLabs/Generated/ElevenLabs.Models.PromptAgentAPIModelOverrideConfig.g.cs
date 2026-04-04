@@ -23,11 +23,25 @@ namespace ElevenLabs
         public bool? Llm { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the tool_ids field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_ids")]
+        public bool? ToolIds { get; set; }
+
+        /// <summary>
         /// Whether to allow overriding the native_mcp_server_ids field.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("native_mcp_server_ids")]
         public bool? NativeMcpServerIds { get; set; }
+
+        /// <summary>
+        /// Whether to allow overriding the knowledge_base field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("knowledge_base")]
+        public bool? KnowledgeBase { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -46,8 +60,16 @@ namespace ElevenLabs
         /// Whether to allow overriding the llm field.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="toolIds">
+        /// Whether to allow overriding the tool_ids field.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="nativeMcpServerIds">
         /// Whether to allow overriding the native_mcp_server_ids field.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="knowledgeBase">
+        /// Whether to allow overriding the knowledge_base field.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
@@ -56,11 +78,15 @@ namespace ElevenLabs
         public PromptAgentAPIModelOverrideConfig(
             bool? prompt,
             bool? llm,
-            bool? nativeMcpServerIds)
+            bool? toolIds,
+            bool? nativeMcpServerIds,
+            bool? knowledgeBase)
         {
             this.Prompt = prompt;
             this.Llm = llm;
+            this.ToolIds = toolIds;
             this.NativeMcpServerIds = nativeMcpServerIds;
+            this.KnowledgeBase = knowledgeBase;
         }
 
         /// <summary>

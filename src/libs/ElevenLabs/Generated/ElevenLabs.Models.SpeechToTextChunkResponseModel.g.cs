@@ -62,6 +62,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.DetectedEntity>? Entities { get; set; }
 
         /// <summary>
+        /// The duration of the audio that was transcribed in seconds.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_duration_secs")]
+        public double? AudioDurationSecs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -94,6 +100,9 @@ namespace ElevenLabs
         /// <param name="entities">
         /// List of detected entities with their text, type, and character positions in the transcript.
         /// </param>
+        /// <param name="audioDurationSecs">
+        /// The duration of the audio that was transcribed in seconds.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -105,7 +114,8 @@ namespace ElevenLabs
             int? channelIndex,
             global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel>? additionalFormats,
             string? transcriptionId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DetectedEntity>? entities)
+            global::System.Collections.Generic.IList<global::ElevenLabs.DetectedEntity>? entities,
+            double? audioDurationSecs)
         {
             this.LanguageCode = languageCode ?? throw new global::System.ArgumentNullException(nameof(languageCode));
             this.LanguageProbability = languageProbability;
@@ -115,6 +125,7 @@ namespace ElevenLabs
             this.AdditionalFormats = additionalFormats;
             this.TranscriptionId = transcriptionId;
             this.Entities = entities;
+            this.AudioDurationSecs = audioDurationSecs;
         }
 
         /// <summary>
