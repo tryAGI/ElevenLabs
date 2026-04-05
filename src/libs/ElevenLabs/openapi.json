@@ -62135,7 +62135,7 @@
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/ResponseFilterMode",
-            "description": "Controls how tool responses are filtered. 'all' returns entire response, 'allow' returns only specified paths.",
+            "description": "Controls how tool responses are filtered. 'all' returns entire response, 'allow' returns only specified paths, 'hide_all' hides the entire response.",
             "default": "all"
           },
           "filters": {
@@ -62162,7 +62162,8 @@
         "type": "string",
         "enum": [
           "all",
-          "allow"
+          "allow",
+          "hide_all"
         ],
         "title": "ResponseFilterMode",
         "description": "Controls how tool responses are filtered before being visible to the agent.",
