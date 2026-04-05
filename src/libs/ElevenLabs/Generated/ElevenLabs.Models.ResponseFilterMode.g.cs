@@ -17,6 +17,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Allow,
+        /// <summary>
+        /// 
+        /// </summary>
+        HideAll,
     }
 
     /// <summary>
@@ -33,6 +37,7 @@ namespace ElevenLabs
             {
                 ResponseFilterMode.All => "all",
                 ResponseFilterMode.Allow => "allow",
+                ResponseFilterMode.HideAll => "hide_all",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -45,6 +50,7 @@ namespace ElevenLabs
             {
                 "all" => ResponseFilterMode.All,
                 "allow" => ResponseFilterMode.Allow,
+                "hide_all" => ResponseFilterMode.HideAll,
                 _ => null,
             };
         }

@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ResponseFilter
     {
         /// <summary>
-        /// Controls how tool responses are filtered. 'all' returns entire response, 'allow' returns only specified paths.<br/>
+        /// Controls how tool responses are filtered. 'all' returns entire response, 'allow' returns only specified paths, 'hide_all' hides the entire response.<br/>
         /// Default Value: all
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ResponseFilter" /> class.
         /// </summary>
         /// <param name="mode">
-        /// Controls how tool responses are filtered. 'all' returns entire response, 'allow' returns only specified paths.<br/>
+        /// Controls how tool responses are filtered. 'all' returns entire response, 'allow' returns only specified paths, 'hide_all' hides the entire response.<br/>
         /// Default Value: all
         /// </param>
         /// <param name="filters">
