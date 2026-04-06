@@ -12,21 +12,28 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
             var readerCopy = reader;
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminator>(ref readerCopy, options);
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel? success = default;
             if (discriminator?.Status == global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminatorStatus.Success)
             {
-                success = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel)}");
+                success = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.BatchFailureResponseModel? failure = default;
             if (discriminator?.Status == global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminatorStatus.Failure)
             {
-                failure = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BatchFailureResponseModel>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BatchFailureResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BatchFailureResponseModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.BatchFailureResponseModel)}");
+                failure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.GetOrCreateRagIndexesResponse2(
@@ -45,15 +52,20 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.GetOrCreateRagIndexesResponse2 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsSuccess)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Success, typeof(global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Success!, typeInfo);
             }
             else if (value.IsFailure)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Failure, typeof(global::ElevenLabs.BatchFailureResponseModel), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BatchFailureResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BatchFailureResponseModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BatchFailureResponseModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Failure!, typeInfo);
             }
         }
     }

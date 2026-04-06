@@ -12,21 +12,28 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
             var readerCopy = reader;
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminator>(ref readerCopy, options);
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.EndCallTriggerAction? endCall = default;
             if (discriminator?.Type == global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType.EndCall)
             {
-                endCall = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.EndCallTriggerAction>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndCallTriggerAction), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndCallTriggerAction> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.EndCallTriggerAction)}");
+                endCall = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.RetryTriggerAction? retry = default;
             if (discriminator?.Type == global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType.Retry)
             {
-                retry = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.RetryTriggerAction>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RetryTriggerAction), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RetryTriggerAction> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RetryTriggerAction)}");
+                retry = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.TriggerAction(
@@ -45,15 +52,20 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.TriggerAction value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsEndCall)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndCall, typeof(global::ElevenLabs.EndCallTriggerAction), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndCallTriggerAction), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndCallTriggerAction?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.EndCallTriggerAction).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndCall!, typeInfo);
             }
             else if (value.IsRetry)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Retry, typeof(global::ElevenLabs.RetryTriggerAction), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RetryTriggerAction), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RetryTriggerAction?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.RetryTriggerAction).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Retry!, typeInfo);
             }
         }
     }

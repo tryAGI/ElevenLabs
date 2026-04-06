@@ -12,26 +12,35 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
             var readerCopy = reader;
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1Discriminator>(ref readerCopy, options);
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1Discriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1Discriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1Discriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.ResponseUnitTestModel? llm = default;
             if (discriminator?.Type == global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1DiscriminatorType.Llm)
             {
-                llm = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ResponseUnitTestModel>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ResponseUnitTestModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ResponseUnitTestModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ResponseUnitTestModel)}");
+                llm = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.ToolCallUnitTestModel? tool = default;
             if (discriminator?.Type == global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1DiscriminatorType.Tool)
             {
-                tool = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ToolCallUnitTestModel>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ToolCallUnitTestModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ToolCallUnitTestModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ToolCallUnitTestModel)}");
+                tool = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.SimulationTestModel? simulation = default;
             if (discriminator?.Type == global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1DiscriminatorType.Simulation)
             {
-                simulation = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.SimulationTestModel>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SimulationTestModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SimulationTestModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SimulationTestModel)}");
+                simulation = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.TestInfoVariant1(
@@ -52,19 +61,26 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.TestInfoVariant1 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsLlm)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Llm, typeof(global::ElevenLabs.ResponseUnitTestModel), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ResponseUnitTestModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ResponseUnitTestModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ResponseUnitTestModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Llm!, typeInfo);
             }
             else if (value.IsTool)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Tool, typeof(global::ElevenLabs.ToolCallUnitTestModel), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ToolCallUnitTestModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ToolCallUnitTestModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ToolCallUnitTestModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Tool!, typeInfo);
             }
             else if (value.IsSimulation)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Simulation, typeof(global::ElevenLabs.SimulationTestModel), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SimulationTestModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SimulationTestModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SimulationTestModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Simulation!, typeInfo);
             }
         }
     }

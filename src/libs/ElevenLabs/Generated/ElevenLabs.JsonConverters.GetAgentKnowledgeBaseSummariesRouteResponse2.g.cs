@@ -12,21 +12,28 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
             var readerCopy = reader;
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminator>(ref readerCopy, options);
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel? success = default;
             if (discriminator?.Status == global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus.Success)
             {
-                success = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel)}");
+                success = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.BatchFailureResponseModel? failure = default;
             if (discriminator?.Status == global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus.Failure)
             {
-                failure = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BatchFailureResponseModel>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BatchFailureResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BatchFailureResponseModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.BatchFailureResponseModel)}");
+                failure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponse2(
@@ -45,15 +52,20 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponse2 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsSuccess)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Success, typeof(global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Success!, typeInfo);
             }
             else if (value.IsFailure)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Failure, typeof(global::ElevenLabs.BatchFailureResponseModel), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BatchFailureResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BatchFailureResponseModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BatchFailureResponseModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Failure!, typeInfo);
             }
         }
     }

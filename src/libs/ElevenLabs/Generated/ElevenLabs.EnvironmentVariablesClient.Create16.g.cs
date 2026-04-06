@@ -66,7 +66,7 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerOptions);
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -169,13 +169,13 @@ namespace ElevenLabs
                     if (ReadResponseAsString)
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerOptions);
+                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                     }
                     else
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerOptions);
+                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -219,7 +219,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.EnvironmentVariableResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::ElevenLabs.EnvironmentVariableResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -249,7 +249,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.EnvironmentVariableResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::ElevenLabs.EnvironmentVariableResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

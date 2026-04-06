@@ -12,56 +12,77 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
             var readerCopy = reader;
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateAuthConnectionResponseDiscriminator>(ref readerCopy, options);
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateAuthConnectionResponseDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateAuthConnectionResponseDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateAuthConnectionResponseDiscriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.OAuth2ClientCredsResponse? oauth2ClientCredentials = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2ClientCredentials)
             {
-                oauth2ClientCredentials = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.OAuth2ClientCredsResponse>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OAuth2ClientCredsResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OAuth2ClientCredsResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OAuth2ClientCredsResponse)}");
+                oauth2ClientCredentials = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.BasicAuthResponse? basicAuth = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.BasicAuth)
             {
-                basicAuth = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BasicAuthResponse>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BasicAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BasicAuthResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.BasicAuthResponse)}");
+                basicAuth = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.BearerAuthResponse? bearerAuth = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.BearerAuth)
             {
-                bearerAuth = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BearerAuthResponse>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BearerAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BearerAuthResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.BearerAuthResponse)}");
+                bearerAuth = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.OAuth2JWTResponse? oauth2Jwt = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2Jwt)
             {
-                oauth2Jwt = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.OAuth2JWTResponse>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OAuth2JWTResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OAuth2JWTResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OAuth2JWTResponse)}");
+                oauth2Jwt = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.PrivateKeyJWTResponse? privateKeyJwt = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.PrivateKeyJwt)
             {
-                privateKeyJwt = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.PrivateKeyJWTResponse>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PrivateKeyJWTResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PrivateKeyJWTResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PrivateKeyJWTResponse)}");
+                privateKeyJwt = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.MTLSAuthResponse? mtls = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.Mtls)
             {
-                mtls = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.MTLSAuthResponse>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MTLSAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MTLSAuthResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MTLSAuthResponse)}");
+                mtls = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.CustomHeaderAuthResponse? customHeaderAuth = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.CustomHeaderAuth)
             {
-                customHeaderAuth = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CustomHeaderAuthResponse>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CustomHeaderAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CustomHeaderAuthResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CustomHeaderAuthResponse)}");
+                customHeaderAuth = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse? apiIntegrationOauth2AuthCode = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.ApiIntegrationOauth2AuthCode)
             {
-                apiIntegrationOauth2AuthCode = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse)}");
+                apiIntegrationOauth2AuthCode = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.WhatsAppAuthResponse? whatsappAuth = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.WhatsappAuth)
             {
-                whatsappAuth = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.WhatsAppAuthResponse>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppAuthResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WhatsAppAuthResponse)}");
+                whatsappAuth = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.CreateAuthConnectionResponse(
@@ -94,43 +115,62 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.CreateAuthConnectionResponse value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsOauth2ClientCredentials)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Oauth2ClientCredentials, typeof(global::ElevenLabs.OAuth2ClientCredsResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OAuth2ClientCredsResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OAuth2ClientCredsResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OAuth2ClientCredsResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Oauth2ClientCredentials!, typeInfo);
             }
             else if (value.IsBasicAuth)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BasicAuth, typeof(global::ElevenLabs.BasicAuthResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BasicAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BasicAuthResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BasicAuthResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BasicAuth!, typeInfo);
             }
             else if (value.IsBearerAuth)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BearerAuth, typeof(global::ElevenLabs.BearerAuthResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BearerAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BearerAuthResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BearerAuthResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BearerAuth!, typeInfo);
             }
             else if (value.IsOauth2Jwt)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Oauth2Jwt, typeof(global::ElevenLabs.OAuth2JWTResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OAuth2JWTResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OAuth2JWTResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OAuth2JWTResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Oauth2Jwt!, typeInfo);
             }
             else if (value.IsPrivateKeyJwt)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PrivateKeyJwt, typeof(global::ElevenLabs.PrivateKeyJWTResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PrivateKeyJWTResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PrivateKeyJWTResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PrivateKeyJWTResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PrivateKeyJwt!, typeInfo);
             }
             else if (value.IsMtls)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mtls, typeof(global::ElevenLabs.MTLSAuthResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MTLSAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MTLSAuthResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MTLSAuthResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mtls!, typeInfo);
             }
             else if (value.IsCustomHeaderAuth)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CustomHeaderAuth, typeof(global::ElevenLabs.CustomHeaderAuthResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CustomHeaderAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CustomHeaderAuthResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CustomHeaderAuthResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CustomHeaderAuth!, typeInfo);
             }
             else if (value.IsApiIntegrationOauth2AuthCode)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ApiIntegrationOauth2AuthCode, typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ApiIntegrationOauth2AuthCode!, typeInfo);
             }
             else if (value.IsWhatsappAuth)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.WhatsappAuth, typeof(global::ElevenLabs.WhatsAppAuthResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WhatsAppAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WhatsAppAuthResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WhatsAppAuthResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.WhatsappAuth!, typeInfo);
             }
         }
     }

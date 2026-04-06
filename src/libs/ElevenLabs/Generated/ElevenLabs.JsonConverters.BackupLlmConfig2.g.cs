@@ -12,26 +12,35 @@ namespace ElevenLabs.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
             var readerCopy = reader;
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminator>(ref readerCopy, options);
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.BackupLLMDefault? @default = default;
             if (discriminator?.Preference == global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference.Default)
             {
-                @default = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BackupLLMDefault>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BackupLLMDefault), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BackupLLMDefault> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.BackupLLMDefault)}");
+                @default = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.BackupLLMDisabled? disabled = default;
             if (discriminator?.Preference == global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference.Disabled)
             {
-                disabled = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BackupLLMDisabled>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BackupLLMDisabled), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BackupLLMDisabled> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.BackupLLMDisabled)}");
+                disabled = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.BackupLLMOverride? @override = default;
             if (discriminator?.Preference == global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference.Override)
             {
-                @override = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BackupLLMOverride>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BackupLLMOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BackupLLMOverride> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.BackupLLMOverride)}");
+                @override = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.BackupLlmConfig2(
@@ -52,19 +61,26 @@ namespace ElevenLabs.JsonConverters
             global::ElevenLabs.BackupLlmConfig2 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsDefault)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Default, typeof(global::ElevenLabs.BackupLLMDefault), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BackupLLMDefault), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BackupLLMDefault?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BackupLLMDefault).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Default!, typeInfo);
             }
             else if (value.IsDisabled)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Disabled, typeof(global::ElevenLabs.BackupLLMDisabled), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BackupLLMDisabled), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BackupLLMDisabled?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BackupLLMDisabled).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Disabled!, typeInfo);
             }
             else if (value.IsOverride)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Override, typeof(global::ElevenLabs.BackupLLMOverride), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BackupLLMOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BackupLLMOverride?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BackupLLMOverride).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Override!, typeInfo);
             }
         }
     }
