@@ -163,6 +163,21 @@ namespace ElevenLabs.JsonConverters
             {
                 listRentalServices = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ListRentalServicesParams>(ref reader, options);
             }
+            global::ElevenLabs.CreateRentalServiceParams? createRentalService = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateRentalService)
+            {
+                createRentalService = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateRentalServiceParams>(ref reader, options);
+            }
+            global::ElevenLabs.UpdateRentalServiceParams? updateRentalService = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateRentalService)
+            {
+                updateRentalService = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.UpdateRentalServiceParams>(ref reader, options);
+            }
+            global::ElevenLabs.DeleteRentalServiceParams? deleteRentalService = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteRentalService)
+            {
+                deleteRentalService = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.DeleteRentalServiceParams>(ref reader, options);
+            }
             global::ElevenLabs.CheckRentalAvailabilityParams? checkRentalAvailability = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CheckRentalAvailability)
             {
@@ -172,6 +187,101 @@ namespace ElevenLabs.JsonConverters
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateRentalBooking)
             {
                 createRentalBooking = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateRentalBookingParams>(ref reader, options);
+            }
+            global::ElevenLabs.ListAgentRulesParams? listAgentRules = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentRules)
+            {
+                listAgentRules = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ListAgentRulesParams>(ref reader, options);
+            }
+            global::ElevenLabs.CreateAgentRuleParams? createAgentRule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateAgentRule)
+            {
+                createAgentRule = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateAgentRuleParams>(ref reader, options);
+            }
+            global::ElevenLabs.UpdateAgentRuleParams? updateAgentRule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule)
+            {
+                updateAgentRule = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.UpdateAgentRuleParams>(ref reader, options);
+            }
+            global::ElevenLabs.DeleteAgentRuleParams? deleteAgentRule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentRule)
+            {
+                deleteAgentRule = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.DeleteAgentRuleParams>(ref reader, options);
+            }
+            global::ElevenLabs.ListHolidaysParams? listHolidays = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListHolidays)
+            {
+                listHolidays = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ListHolidaysParams>(ref reader, options);
+            }
+            global::ElevenLabs.CreateHolidayParams? createHoliday = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateHoliday)
+            {
+                createHoliday = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateHolidayParams>(ref reader, options);
+            }
+            global::ElevenLabs.UpdateHolidayParams? updateHoliday = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateHoliday)
+            {
+                updateHoliday = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.UpdateHolidayParams>(ref reader, options);
+            }
+            global::ElevenLabs.DeleteHolidayParams? deleteHoliday = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteHoliday)
+            {
+                deleteHoliday = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.DeleteHolidayParams>(ref reader, options);
+            }
+            global::ElevenLabs.GetScheduleParams? getSchedule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetSchedule)
+            {
+                getSchedule = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetScheduleParams>(ref reader, options);
+            }
+            global::ElevenLabs.UpdateBusinessInfoParams? updateBusinessInfo = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBusinessInfo)
+            {
+                updateBusinessInfo = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.UpdateBusinessInfoParams>(ref reader, options);
+            }
+            global::ElevenLabs.UpdateCustomerFacingConfigParams? updateCustomerFacingConfig = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCustomerFacingConfig)
+            {
+                updateCustomerFacingConfig = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.UpdateCustomerFacingConfigParams>(ref reader, options);
+            }
+            global::ElevenLabs.GetAnalyticsSummaryParams? getAnalyticsSummary = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary)
+            {
+                getAnalyticsSummary = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetAnalyticsSummaryParams>(ref reader, options);
+            }
+            global::ElevenLabs.GetBookingPageSettingsParams? getBookingPageSettings = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingPageSettings)
+            {
+                getBookingPageSettings = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetBookingPageSettingsParams>(ref reader, options);
+            }
+            global::ElevenLabs.UpdateBookingPageSettingsParams? updateBookingPageSettings = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageSettings)
+            {
+                updateBookingPageSettings = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.UpdateBookingPageSettingsParams>(ref reader, options);
+            }
+            global::ElevenLabs.GetBookingSlugStatusParams? getBookingSlugStatus = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingSlugStatus)
+            {
+                getBookingSlugStatus = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.GetBookingSlugStatusParams>(ref reader, options);
+            }
+            global::ElevenLabs.SetBookingSlugParams? setBookingSlug = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug)
+            {
+                setBookingSlug = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.SetBookingSlugParams>(ref reader, options);
+            }
+            global::ElevenLabs.ListClientInteractionsParams? listClientInteractions = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListClientInteractions)
+            {
+                listClientInteractions = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.ListClientInteractionsParams>(ref reader, options);
+            }
+            global::ElevenLabs.CreateClientInteractionParams? createClientInteraction = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateClientInteraction)
+            {
+                createClientInteraction = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.CreateClientInteractionParams>(ref reader, options);
+            }
+            global::ElevenLabs.DeleteClientInteractionParams? deleteClientInteraction = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteClientInteraction)
+            {
+                deleteClientInteraction = global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.DeleteClientInteractionParams>(ref reader, options);
             }
 
             var __value = new global::ElevenLabs.Params(
@@ -234,9 +344,53 @@ namespace ElevenLabs.JsonConverters
 
                 listRentalServices,
 
+                createRentalService,
+
+                updateRentalService,
+
+                deleteRentalService,
+
                 checkRentalAvailability,
 
-                createRentalBooking
+                createRentalBooking,
+
+                listAgentRules,
+
+                createAgentRule,
+
+                updateAgentRule,
+
+                deleteAgentRule,
+
+                listHolidays,
+
+                createHoliday,
+
+                updateHoliday,
+
+                deleteHoliday,
+
+                getSchedule,
+
+                updateBusinessInfo,
+
+                updateCustomerFacingConfig,
+
+                getAnalyticsSummary,
+
+                getBookingPageSettings,
+
+                updateBookingPageSettings,
+
+                getBookingSlugStatus,
+
+                setBookingSlug,
+
+                listClientInteractions,
+
+                createClientInteraction,
+
+                deleteClientInteraction
                 );
 
             return __value;
@@ -366,6 +520,18 @@ namespace ElevenLabs.JsonConverters
             {
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListRentalServices, typeof(global::ElevenLabs.ListRentalServicesParams), options);
             }
+            else if (value.IsCreateRentalService)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateRentalService, typeof(global::ElevenLabs.CreateRentalServiceParams), options);
+            }
+            else if (value.IsUpdateRentalService)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateRentalService, typeof(global::ElevenLabs.UpdateRentalServiceParams), options);
+            }
+            else if (value.IsDeleteRentalService)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteRentalService, typeof(global::ElevenLabs.DeleteRentalServiceParams), options);
+            }
             else if (value.IsCheckRentalAvailability)
             {
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.CheckRentalAvailability, typeof(global::ElevenLabs.CheckRentalAvailabilityParams), options);
@@ -373,6 +539,82 @@ namespace ElevenLabs.JsonConverters
             else if (value.IsCreateRentalBooking)
             {
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateRentalBooking, typeof(global::ElevenLabs.CreateRentalBookingParams), options);
+            }
+            else if (value.IsListAgentRules)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListAgentRules, typeof(global::ElevenLabs.ListAgentRulesParams), options);
+            }
+            else if (value.IsCreateAgentRule)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateAgentRule, typeof(global::ElevenLabs.CreateAgentRuleParams), options);
+            }
+            else if (value.IsUpdateAgentRule)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateAgentRule, typeof(global::ElevenLabs.UpdateAgentRuleParams), options);
+            }
+            else if (value.IsDeleteAgentRule)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteAgentRule, typeof(global::ElevenLabs.DeleteAgentRuleParams), options);
+            }
+            else if (value.IsListHolidays)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListHolidays, typeof(global::ElevenLabs.ListHolidaysParams), options);
+            }
+            else if (value.IsCreateHoliday)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateHoliday, typeof(global::ElevenLabs.CreateHolidayParams), options);
+            }
+            else if (value.IsUpdateHoliday)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateHoliday, typeof(global::ElevenLabs.UpdateHolidayParams), options);
+            }
+            else if (value.IsDeleteHoliday)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteHoliday, typeof(global::ElevenLabs.DeleteHolidayParams), options);
+            }
+            else if (value.IsGetSchedule)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetSchedule, typeof(global::ElevenLabs.GetScheduleParams), options);
+            }
+            else if (value.IsUpdateBusinessInfo)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateBusinessInfo, typeof(global::ElevenLabs.UpdateBusinessInfoParams), options);
+            }
+            else if (value.IsUpdateCustomerFacingConfig)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateCustomerFacingConfig, typeof(global::ElevenLabs.UpdateCustomerFacingConfigParams), options);
+            }
+            else if (value.IsGetAnalyticsSummary)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetAnalyticsSummary, typeof(global::ElevenLabs.GetAnalyticsSummaryParams), options);
+            }
+            else if (value.IsGetBookingPageSettings)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetBookingPageSettings, typeof(global::ElevenLabs.GetBookingPageSettingsParams), options);
+            }
+            else if (value.IsUpdateBookingPageSettings)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateBookingPageSettings, typeof(global::ElevenLabs.UpdateBookingPageSettingsParams), options);
+            }
+            else if (value.IsGetBookingSlugStatus)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetBookingSlugStatus, typeof(global::ElevenLabs.GetBookingSlugStatusParams), options);
+            }
+            else if (value.IsSetBookingSlug)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SetBookingSlug, typeof(global::ElevenLabs.SetBookingSlugParams), options);
+            }
+            else if (value.IsListClientInteractions)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListClientInteractions, typeof(global::ElevenLabs.ListClientInteractionsParams), options);
+            }
+            else if (value.IsCreateClientInteraction)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateClientInteraction, typeof(global::ElevenLabs.CreateClientInteractionParams), options);
+            }
+            else if (value.IsDeleteClientInteraction)
+            {
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteClientInteraction, typeof(global::ElevenLabs.DeleteClientInteractionParams), options);
             }
         }
     }
