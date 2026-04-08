@@ -19812,6 +19812,26 @@
             "description": "How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets."
           },
           {
+            "name": "dependency_limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.",
+              "title": "Dependency Limit"
+            },
+            "description": "Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100."
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -20009,6 +20029,112 @@
           "secrets"
         ],
         "x-fern-sdk-method-name": "update"
+      }
+    },
+    "/v1/convai/secrets/{secret_id}/dependencies/{resource_type}": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Secret Dependencies By Type",
+        "description": "Get paginated list of resources that depend on a specific secret, filtered by resource type.",
+        "operationId": "get_secret_dependencies_route",
+        "parameters": [
+          {
+            "name": "secret_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Secret Id"
+            }
+          },
+          {
+            "name": "resource_type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SecretDependencyResourceType"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many dependency items to return per page.",
+              "default": 20,
+              "title": "Page Size"
+            },
+            "description": "How many dependency items to return per page."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSecretDependenciesResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "secrets"
+        ],
+        "x-fern-sdk-method-name": "get_dependencies"
       }
     },
     "/v1/convai/batch-calling/submit": {
@@ -39107,6 +39233,12 @@
             "type": "array",
             "title": "Tools"
           },
+          "tools_has_more": {
+            "type": "boolean",
+            "title": "Tools Has More",
+            "description": "Whether there are more tool dependents beyond the returned preview",
+            "default": false
+          },
           "agents": {
             "items": {
               "oneOf": [
@@ -39128,12 +39260,11 @@
             "type": "array",
             "title": "Agents"
           },
-          "others": {
-            "items": {
-              "$ref": "#/components/schemas/SecretDependencyType"
-            },
-            "type": "array",
-            "title": "Others"
+          "agents_has_more": {
+            "type": "boolean",
+            "title": "Agents Has More",
+            "description": "Whether there are more agent dependents beyond the returned preview",
+            "default": false
           },
           "phone_numbers": {
             "items": {
@@ -39141,6 +39272,12 @@
             },
             "type": "array",
             "title": "Phone Numbers"
+          },
+          "phone_numbers_has_more": {
+            "type": "boolean",
+            "title": "Phone Numbers Has More",
+            "description": "Whether there are more phone number dependents beyond the returned preview",
+            "default": false
           },
           "mcp_servers": {
             "items": {
@@ -39162,6 +39299,13 @@
             },
             "type": "array",
             "title": "Mcp Servers"
+          },
+          "others": {
+            "items": {
+              "$ref": "#/components/schemas/SecretDependencyType"
+            },
+            "type": "array",
+            "title": "Others"
           }
         },
         "type": "object",
@@ -45178,6 +45322,10 @@
             "title": "Referenced Resource Ids",
             "description": "If the agent is a transitive dependent, contains IDs of the resources that the agent depends on directly."
           },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
           "type": {
             "type": "string",
             "const": "unknown",
@@ -45186,6 +45334,9 @@
           }
         },
         "type": "object",
+        "required": [
+          "id"
+        ],
         "title": "DependentUnknownAgentIdentifier",
         "description": "A model that represents an agent dependent on a knowledge base/tools\nto which the user has no direct access."
       },
@@ -50628,6 +50779,78 @@
         "type": "object",
         "title": "GetScheduleParams"
       },
+      "GetSecretDependenciesResponseModel": {
+        "properties": {
+          "dependencies": {
+            "anyOf": [
+              {
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DependentAvailableToolIdentifier"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DependentUnknownToolIdentifier"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                      "available": "#/components/schemas/DependentAvailableToolIdentifier",
+                      "unknown": "#/components/schemas/DependentUnknownToolIdentifier"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DependentAvailableAgentIdentifier"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DependentUnknownAgentIdentifier"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                      "available": "#/components/schemas/DependentAvailableAgentIdentifier",
+                      "unknown": "#/components/schemas/DependentUnknownAgentIdentifier"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "$ref": "#/components/schemas/DependentPhoneNumberIdentifier"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Dependencies"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Cursor for fetching the next page of dependencies"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dependencies"
+        ],
+        "title": "GetSecretDependenciesResponseModel"
+      },
       "GetSimulationTestResponseModel": {
         "properties": {
           "from_conversation_metadata": {
@@ -51384,12 +51607,6 @@
             ],
             "title": "Next Cursor",
             "description": "Cursor for fetching the next page of secrets"
-          },
-          "has_more": {
-            "type": "boolean",
-            "title": "Has More",
-            "description": "Whether there are more secrets to fetch",
-            "default": false
           }
         },
         "type": "object",
@@ -63753,6 +63970,15 @@
         ],
         "title": "SeatType",
         "description": "Seat types for workspace members.\nLite Member is equivalent to Basic Seat in the web application.\nMember is equivalent to Full Seat in the web application."
+      },
+      "SecretDependencyResourceType": {
+        "type": "string",
+        "enum": [
+          "tools",
+          "agents",
+          "phone_numbers"
+        ],
+        "title": "SecretDependencyResourceType"
       },
       "SecretDependencyType": {
         "type": "string",

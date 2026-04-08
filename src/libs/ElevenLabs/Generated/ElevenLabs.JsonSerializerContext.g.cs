@@ -553,6 +553,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.GetPronunciationDictionaryWithRulesResponseModelPermissionOnResource2NullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetToolDependentAgentsResponseModelAgentDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetToolDependentAgentsResponseModelAgentDiscriminatorTypeNullableJsonConverter),
@@ -884,6 +892,10 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.SeatTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.SeatTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.SecretDependencyResourceTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.SecretDependencyResourceTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.SecretDependencyTypeJsonConverter),
 
@@ -1407,6 +1419,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.DependentAgentsItem4JsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.DependenciesVariant1ItemJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.DependenciesVariant2ItemJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.AgentsItem3JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.DocumentJsonConverter),
@@ -1592,6 +1608,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, object>),
+
+            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant1Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant2Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, object>),
 
@@ -2234,14 +2252,14 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DependentUnknownAgentIdentifier))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminatorType), TypeInfoPropertyName = "ConvAIStoredSecretDependenciesAgentDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SecretDependencyType), TypeInfoPropertyName = "SecretDependencyType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DependentPhoneNumberIdentifier))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.McpServersItem2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.McpServersItem2), TypeInfoPropertyName = "McpServersItem22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConvAIStoredSecretDependenciesMcpServerDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConvAIStoredSecretDependenciesMcpServerDiscriminatorType), TypeInfoPropertyName = "ConvAIStoredSecretDependenciesMcpServerDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SecretDependencyType), TypeInfoPropertyName = "SecretDependencyType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConvAIUserSecretDBModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WebhookEventType), TypeInfoPropertyName = "WebhookEventType2")]
@@ -2691,6 +2709,16 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TestFromConversationMetadataOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetScheduleParams))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSecretDependenciesResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant1Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant2Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>>), TypeInfoPropertyName = "AnyOfIListDependenciesVariant1ItemIListDependenciesVariant2ItemIListDependentPhoneNumberIdentifier2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant1Item>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DependenciesVariant1Item), TypeInfoPropertyName = "DependenciesVariant1Item2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorType), TypeInfoPropertyName = "GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant2Item>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DependenciesVariant2Item), TypeInfoPropertyName = "DependenciesVariant2Item2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorType), TypeInfoPropertyName = "GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSimulationTestResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistoryResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel>))]
@@ -3072,6 +3100,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SayNodeLiteralMessageOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SayNodePromptMessageInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SayNodePromptMessageOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SecretDependencyResourceType), TypeInfoPropertyName = "SecretDependencyResourceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SectionSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TimeRange))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TimeRange>))]
@@ -3474,9 +3503,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentsItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SecretDependencyType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DependentPhoneNumberIdentifier>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.McpServersItem2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SecretDependencyType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WebhookEventType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ClientEvent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>))]
@@ -3530,6 +3559,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant1Item>, global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant2Item>, global::System.Collections.Generic.List<global::ElevenLabs.DependentPhoneNumberIdentifier>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant1Item>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant2Item>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SpeechHistoryItemResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TestInvocationSummaryResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.UnitTestRunResponseModel>))]

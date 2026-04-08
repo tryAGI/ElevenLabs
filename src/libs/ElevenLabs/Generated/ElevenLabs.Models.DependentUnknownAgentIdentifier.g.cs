@@ -16,6 +16,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? ReferencedResourceIds { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Id { get; set; }
+
+        /// <summary>
         /// Default Value: unknown
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -30,6 +37,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="DependentUnknownAgentIdentifier" /> class.
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="referencedResourceIds">
         /// If the agent is a transitive dependent, contains IDs of the resources that the agent depends on directly.
         /// </param>
@@ -40,10 +48,12 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DependentUnknownAgentIdentifier(
+            string id,
             global::System.Collections.Generic.IList<string>? referencedResourceIds,
             string? type)
         {
             this.ReferencedResourceIds = referencedResourceIds;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Type = type;
         }
 
