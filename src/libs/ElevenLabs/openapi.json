@@ -18256,6 +18256,127 @@
         "x-fern-sdk-method-name": "delete_document_rag_index"
       }
     },
+    "/v1/convai/knowledge-base/search": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Search Knowledge Base Content",
+        "description": "Fuzzy text search over knowledge base document content",
+        "operationId": "search_knowledge_base_content_route",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The search query text",
+              "title": "Query"
+            },
+            "description": "The search query text"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many documents to return at maximum. Can not exceed 100, defaults to 30.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many documents to return at maximum. Can not exceed 100, defaults to 30."
+          },
+          {
+            "name": "types",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KnowledgeBaseDocumentType"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "If present, the endpoint will return only documents of the given types.",
+              "title": "Types"
+            },
+            "description": "If present, the endpoint will return only documents of the given types."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgeBaseContentSearchResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base"
+        ],
+        "x-fern-sdk-method-name": "search"
+      }
+    },
     "/v1/convai/knowledge-base/{documentation_id}/dependent-agents": {
       "get": {
         "tags": [
@@ -21603,7 +21724,7 @@
           "Agents Platform"
         ],
         "summary": "Create A New Branch",
-        "description": "Create a new branch from a given version of main branch",
+        "description": "Create a new branch from a given version of any branch",
         "operationId": "create_branch_route",
         "parameters": [
           {
@@ -22003,14 +22124,14 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The ID of the target branch to merge into (must be the main branch).",
+              "description": "The ID of the target branch to merge into.",
               "examples": [
                 "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
               ],
               "embed": true,
               "title": "Target Branch Id"
             },
-            "description": "The ID of the target branch to merge into (must be the main branch)."
+            "description": "The ID of the target branch to merge into."
           },
           {
             "name": "xi-api-key",
@@ -26212,6 +26333,18 @@
             "description": "Percentage of traffic live on the branch",
             "default": 0.0
           },
+          "parent_branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Branch Id",
+            "description": "ID of the parent branch"
+          },
           "draft_exists": {
             "type": "boolean",
             "title": "Draft Exists",
@@ -27466,6 +27599,17 @@
               }
             ],
             "title": "Merged From Branch Id"
+          },
+          "merged_from_version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Merged From Version Id"
           }
         },
         "type": "object",
@@ -33179,6 +33323,12 @@
             "title": "Archive Source Branch",
             "description": "Whether to archive the source branch after merging",
             "default": true
+          },
+          "force": {
+            "type": "boolean",
+            "title": "Force",
+            "description": "Force source branch changes onto the target, overriding timestamp-based conflict resolution",
+            "default": false
           }
         },
         "type": "object",
@@ -38991,6 +39141,27 @@
             },
             "type": "array",
             "title": "Phone Numbers"
+          },
+          "mcp_servers": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/DependentAvailableMCPServerIdentifier"
+                },
+                {
+                  "$ref": "#/components/schemas/DependentUnknownMCPServerIdentifier"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "available": "#/components/schemas/DependentAvailableMCPServerIdentifier",
+                  "unknown": "#/components/schemas/DependentUnknownMCPServerIdentifier"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Mcp Servers"
           }
         },
         "type": "object",
@@ -51656,6 +51827,87 @@
           "tax_cents": 100
         }
       },
+      "KnowledgeBaseContentSearchResponseModel": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeBaseContentSearchResult"
+            },
+            "type": "array",
+            "title": "Results"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "title": "KnowledgeBaseContentSearchResponseModel"
+      },
+      "KnowledgeBaseContentSearchResult": {
+        "properties": {
+          "document": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetKnowledgeBaseSummaryURLResponseModel"
+              },
+              {
+                "$ref": "#/components/schemas/GetKnowledgeBaseSummaryFileResponseModel"
+              },
+              {
+                "$ref": "#/components/schemas/GetKnowledgeBaseSummaryTextResponseModel"
+              },
+              {
+                "$ref": "#/components/schemas/GetKnowledgeBaseSummaryFolderResponseModel"
+              }
+            ],
+            "title": "Document",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "file": "#/components/schemas/GetKnowledgeBaseSummaryFileResponseModel",
+                "folder": "#/components/schemas/GetKnowledgeBaseSummaryFolderResponseModel",
+                "text": "#/components/schemas/GetKnowledgeBaseSummaryTextResponseModel",
+                "url": "#/components/schemas/GetKnowledgeBaseSummaryURLResponseModel"
+              }
+            }
+          },
+          "search_snippet": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/SearchHighlightSegment"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Search Snippet"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "document",
+          "score"
+        ],
+        "title": "KnowledgeBaseContentSearchResult"
+      },
       "KnowledgeBaseDependentType": {
         "type": "string",
         "enum": [
@@ -51886,6 +52138,7 @@
           "gemini-2.5-flash",
           "gemini-3-pro-preview",
           "gemini-3-flash-preview",
+          "gemini-3.1-pro-preview",
           "gemini-3.1-flash-lite-preview",
           "claude-sonnet-4-5",
           "claude-sonnet-4-6",
@@ -51899,6 +52152,8 @@
           "custom-llm",
           "qwen3-4b",
           "qwen3-30b-a3b",
+          "qwen35-35b-a3b",
+          "qwen35-397b-a17b",
           "gpt-oss-20b",
           "gpt-oss-120b",
           "glm-45-air-fp8",
@@ -63470,6 +63725,24 @@
         "type": "object",
         "title": "SearchClientsParams",
         "description": "Search for clients by name, phone number, or email."
+      },
+      "SearchHighlightSegment": {
+        "properties": {
+          "value": {
+            "type": "string",
+            "title": "Value"
+          },
+          "is_hit": {
+            "type": "boolean",
+            "title": "Is Hit"
+          }
+        },
+        "type": "object",
+        "required": [
+          "value",
+          "is_hit"
+        ],
+        "title": "SearchHighlightSegment"
       },
       "SeatType": {
         "type": "string",

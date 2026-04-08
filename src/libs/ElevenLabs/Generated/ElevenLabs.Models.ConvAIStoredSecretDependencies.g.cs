@@ -36,6 +36,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? PhoneNumbers { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mcp_servers")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.McpServersItem2>? McpServers { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -48,6 +54,7 @@ namespace ElevenLabs
         /// <param name="agents"></param>
         /// <param name="others"></param>
         /// <param name="phoneNumbers"></param>
+        /// <param name="mcpServers"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -55,12 +62,14 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2> tools,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem> agents,
             global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType> others,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? phoneNumbers)
+            global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? phoneNumbers,
+            global::System.Collections.Generic.IList<global::ElevenLabs.McpServersItem2>? mcpServers)
         {
             this.Tools = tools ?? throw new global::System.ArgumentNullException(nameof(tools));
             this.Agents = agents ?? throw new global::System.ArgumentNullException(nameof(agents));
             this.Others = others ?? throw new global::System.ArgumentNullException(nameof(others));
             this.PhoneNumbers = phoneNumbers;
+            this.McpServers = mcpServers;
         }
 
         /// <summary>
