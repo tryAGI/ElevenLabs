@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Create A New Branch<br/>
-        /// Create a new branch from a given version of main branch
+        /// Create a new branch from a given version of any branch
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -21,7 +21,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create A New Branch<br/>
-        /// Create a new branch from a given version of main branch
+        /// Create a new branch from a given version of any branch
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.

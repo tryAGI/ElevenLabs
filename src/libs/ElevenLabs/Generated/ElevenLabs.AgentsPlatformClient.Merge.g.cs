@@ -38,7 +38,7 @@ namespace ElevenLabs
         /// Unique identifier for the source branch to merge from.
         /// </param>
         /// <param name="targetBranchId">
-        /// The ID of the target branch to merge into (must be the main branch).
+        /// The ID of the target branch to merge into.
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -251,11 +251,15 @@ namespace ElevenLabs
         /// Unique identifier for the source branch to merge from.
         /// </param>
         /// <param name="targetBranchId">
-        /// The ID of the target branch to merge into (must be the main branch).
+        /// The ID of the target branch to merge into.
         /// </param>
         /// <param name="archiveSourceBranch">
         /// Whether to archive the source branch after merging<br/>
         /// Default Value: true
+        /// </param>
+        /// <param name="force">
+        /// Force source branch changes onto the target, overriding timestamp-based conflict resolution<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -264,11 +268,13 @@ namespace ElevenLabs
             string sourceBranchId,
             string targetBranchId,
             bool? archiveSourceBranch = default,
+            bool? force = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost
             {
                 ArchiveSourceBranch = archiveSourceBranch,
+                Force = force,
             };
 
             return await MergeAsync(

@@ -155,6 +155,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gemini31ProPreview,
+        /// <summary>
+        /// 
+        /// </summary>
         Glm45AirFp8,
         /// <summary>
         /// 
@@ -303,6 +307,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Qwen3535bA3b,
+        /// <summary>
+        /// 
+        /// </summary>
+        Qwen35397bA17b,
+        /// <summary>
+        /// 
+        /// </summary>
         WattTool70b,
         /// <summary>
         /// 
@@ -358,6 +370,7 @@ namespace ElevenLabs
                 Llm.Gemini3FlashPreview => "gemini-3-flash-preview",
                 Llm.Gemini3ProPreview => "gemini-3-pro-preview",
                 Llm.Gemini31FlashLitePreview => "gemini-3.1-flash-lite-preview",
+                Llm.Gemini31ProPreview => "gemini-3.1-pro-preview",
                 Llm.Glm45AirFp8 => "glm-45-air-fp8",
                 Llm.Gpt35Turbo => "gpt-3.5-turbo",
                 Llm.Gpt35Turbo0125 => "gpt-3.5-turbo-0125",
@@ -395,6 +408,8 @@ namespace ElevenLabs
                 Llm.GrokBeta => "grok-beta",
                 Llm.Qwen330bA3b => "qwen3-30b-a3b",
                 Llm.Qwen34b => "qwen3-4b",
+                Llm.Qwen3535bA3b => "qwen35-35b-a3b",
+                Llm.Qwen35397bA17b => "qwen35-397b-a17b",
                 Llm.WattTool70b => "watt-tool-70b",
                 Llm.WattTool8b => "watt-tool-8b",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -443,6 +458,7 @@ namespace ElevenLabs
                 "gemini-3-flash-preview" => Llm.Gemini3FlashPreview,
                 "gemini-3-pro-preview" => Llm.Gemini3ProPreview,
                 "gemini-3.1-flash-lite-preview" => Llm.Gemini31FlashLitePreview,
+                "gemini-3.1-pro-preview" => Llm.Gemini31ProPreview,
                 "glm-45-air-fp8" => Llm.Glm45AirFp8,
                 "gpt-3.5-turbo" => Llm.Gpt35Turbo,
                 "gpt-3.5-turbo-0125" => Llm.Gpt35Turbo0125,
@@ -480,6 +496,8 @@ namespace ElevenLabs
                 "grok-beta" => Llm.GrokBeta,
                 "qwen3-30b-a3b" => Llm.Qwen330bA3b,
                 "qwen3-4b" => Llm.Qwen34b,
+                "qwen35-35b-a3b" => Llm.Qwen3535bA3b,
+                "qwen35-397b-a17b" => Llm.Qwen35397bA17b,
                 "watt-tool-70b" => Llm.WattTool70b,
                 "watt-tool-8b" => Llm.WattTool8b,
                 _ => null,

@@ -78,6 +78,12 @@ namespace ElevenLabs
         public double? CurrentLivePercentage { get; set; }
 
         /// <summary>
+        /// ID of the parent branch
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("parent_branch_id")]
+        public string? ParentBranchId { get; set; }
+
+        /// <summary>
         /// Whether a draft exists for the branch<br/>
         /// Default Value: false
         /// </summary>
@@ -110,6 +116,9 @@ namespace ElevenLabs
         /// Percentage of traffic live on the branch<br/>
         /// Default Value: 0F
         /// </param>
+        /// <param name="parentBranchId">
+        /// ID of the parent branch
+        /// </param>
         /// <param name="draftExists">
         /// Whether a draft exists for the branch<br/>
         /// Default Value: false
@@ -128,6 +137,7 @@ namespace ElevenLabs
             global::ElevenLabs.BranchProtectionStatus? protectionStatus,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
             double? currentLivePercentage,
+            string? parentBranchId,
             bool? draftExists)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -140,6 +150,7 @@ namespace ElevenLabs
             this.ProtectionStatus = protectionStatus;
             this.AccessInfo = accessInfo;
             this.CurrentLivePercentage = currentLivePercentage;
+            this.ParentBranchId = parentBranchId;
             this.DraftExists = draftExists;
         }
 

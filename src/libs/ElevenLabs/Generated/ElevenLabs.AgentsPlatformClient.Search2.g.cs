@@ -5,55 +5,75 @@ namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
     {
-        partial void PrepareCreate13Arguments(
+        partial void PrepareSearch2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
-        partial void PrepareCreate13Request(
+            ref string query,
+            ref int? pageSize,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
+            ref string? cursor);
+        partial void PrepareSearch2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
-        partial void ProcessCreate13Response(
+            string query,
+            int? pageSize,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
+            string? cursor);
+        partial void ProcessSearch2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreate13ResponseContent(
+        partial void ProcessSearch2ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create A New Branch<br/>
-        /// Create a new branch from a given version of any branch
+        /// Search Knowledge Base Content<br/>
+        /// Fuzzy text search over knowledge base document content
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="query">
+        /// The search query text
         /// </param>
-        /// <param name="request"></param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="types">
+        /// If present, the endpoint will return only documents of the given types.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create13Async(
-            string agentId,
-
-            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.KnowledgeBaseContentSearchResponseModel> Search2Async(
+            string query,
+            int? pageSize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types = default,
+            string? cursor = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreate13Arguments(
+            PrepareSearch2Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                request: request);
+                query: ref query,
+                pageSize: ref pageSize,
+                types: types,
+                cursor: ref cursor);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: $"/v1/convai/agents/{agentId}/branches",
+                path: "/v1/convai/knowledge-base/search",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddRequiredParameter("query", query)
+                .AddOptionalParameter("page_size", pageSize?.ToString())
+                .AddOptionalParameter("types", types?.ToString())
+                .AddOptionalParameter("cursor", cursor) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Post,
+                method: global::System.Net.Http.HttpMethod.Get,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -75,21 +95,17 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: __httpRequestContentBody,
-                encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
-            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreate13Request(
+            PrepareSearch2Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                agentId: agentId,
-                request: request);
+                query: query,
+                pageSize: pageSize,
+                types: types,
+                cursor: cursor);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -99,7 +115,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreate13Response(
+            ProcessSearch2Response(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -153,7 +169,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreate13ResponseContent(
+                ProcessSearch2ResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -163,7 +179,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.CreateAgentBranchResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        global::ElevenLabs.KnowledgeBaseContentSearchResponseModel.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -193,7 +209,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.CreateAgentBranchResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::ElevenLabs.KnowledgeBaseContentSearchResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -224,58 +240,6 @@ namespace ElevenLabs
                     };
                 }
             }
-        }
-        /// <summary>
-        /// Create A New Branch<br/>
-        /// Create a new branch from a given version of any branch
-        /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="parentVersionId">
-        /// ID of the version to branch from
-        /// </param>
-        /// <param name="name">
-        /// Name of the branch. It is unique within the agent.
-        /// </param>
-        /// <param name="description">
-        /// Description for the branch
-        /// </param>
-        /// <param name="conversationConfig">
-        /// Changes to apply to conversation config
-        /// </param>
-        /// <param name="platformSettings">
-        /// Changes to apply to platform settings
-        /// </param>
-        /// <param name="workflow">
-        /// Updated workflow definition
-        /// </param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create13Async(
-            string agentId,
-            string parentVersionId,
-            string name,
-            string description,
-            object? conversationConfig = default,
-            object? platformSettings = default,
-            global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost
-            {
-                ParentVersionId = parentVersionId,
-                Name = name,
-                Description = description,
-                ConversationConfig = conversationConfig,
-                PlatformSettings = platformSettings,
-                Workflow = workflow,
-            };
-
-            return await Create13Async(
-                agentId: agentId,
-                request: __request,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
