@@ -5,61 +5,64 @@ namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
     {
-        partial void PrepareList8Arguments(
+        partial void PrepareGetDependenciesArguments(
             global::System.Net.Http.HttpClient httpClient,
-            int? pageSize,
-            int? dependencyLimit,
+            ref string secretId,
+            ref global::ElevenLabs.SecretDependencyResourceType resourceType,
+            ref int? pageSize,
             ref string? cursor);
-        partial void PrepareList8Request(
+        partial void PrepareGetDependenciesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string secretId,
+            global::ElevenLabs.SecretDependencyResourceType resourceType,
             int? pageSize,
-            int? dependencyLimit,
             string? cursor);
-        partial void ProcessList8Response(
+        partial void ProcessGetDependenciesResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessList8ResponseContent(
+        partial void ProcessGetDependenciesResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Convai Workspace Secrets<br/>
-        /// Get all workspace secrets for the user
+        /// Get Secret Dependencies By Type<br/>
+        /// Get paginated list of resources that depend on a specific secret, filtered by resource type.
         /// </summary>
+        /// <param name="secretId"></param>
+        /// <param name="resourceType"></param>
         /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
-        /// </param>
-        /// <param name="dependencyLimit">
-        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
+        /// How many dependency items to return per page.<br/>
+        /// Default Value: 20
         /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWorkspaceSecretsResponseModel> List8Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetSecretDependenciesResponseModel> GetDependenciesAsync(
+            string secretId,
+            global::ElevenLabs.SecretDependencyResourceType resourceType,
             int? pageSize = default,
-            int? dependencyLimit = default,
             string? cursor = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareList8Arguments(
+            PrepareGetDependenciesArguments(
                 httpClient: HttpClient,
-                pageSize: pageSize,
-                dependencyLimit: dependencyLimit,
+                secretId: ref secretId,
+                resourceType: ref resourceType,
+                pageSize: ref pageSize,
                 cursor: ref cursor);
 
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                path: "/v1/convai/secrets",
+                path: $"/v1/convai/secrets/{secretId}/dependencies/{resourceType}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                .AddOptionalParameter("dependency_limit", dependencyLimit?.ToString())
                 .AddOptionalParameter("cursor", cursor) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -90,11 +93,12 @@ namespace ElevenLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareList8Request(
+            PrepareGetDependenciesRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                secretId: secretId,
+                resourceType: resourceType,
                 pageSize: pageSize,
-                dependencyLimit: dependencyLimit,
                 cursor: cursor);
 
             using var __response = await HttpClient.SendAsync(
@@ -105,7 +109,7 @@ namespace ElevenLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessList8Response(
+            ProcessGetDependenciesResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -159,7 +163,7 @@ namespace ElevenLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessList8ResponseContent(
+                ProcessGetDependenciesResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -169,7 +173,7 @@ namespace ElevenLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::ElevenLabs.GetWorkspaceSecretsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                        global::ElevenLabs.GetSecretDependenciesResponseModel.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -199,7 +203,7 @@ namespace ElevenLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::ElevenLabs.GetWorkspaceSecretsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::ElevenLabs.GetSecretDependenciesResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
