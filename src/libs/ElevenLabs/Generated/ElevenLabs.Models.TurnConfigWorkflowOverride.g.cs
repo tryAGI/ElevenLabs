@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"mode":"turn","silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
+    /// Example: {"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
     /// </summary>
     public sealed partial class TurnConfigWorkflowOverride
     {
@@ -57,6 +57,12 @@ namespace ElevenLabs
         public bool? SpeculativeTurn { get; set; }
 
         /// <summary>
+        /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("retranscribe_on_turn_timeout")]
+        public bool? RetranscribeOnTurnTimeout { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -89,6 +95,9 @@ namespace ElevenLabs
         /// <param name="speculativeTurn">
         /// When enabled, starts generating LLM responses during silence before full turn confidence is reached, reducing perceived latency. May increase LLM costs.
         /// </param>
+        /// <param name="retranscribeOnTurnTimeout">
+        /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -100,7 +109,8 @@ namespace ElevenLabs
             global::ElevenLabs.TurnMode? mode,
             global::ElevenLabs.TurnEagerness? turnEagerness,
             global::ElevenLabs.SpellingPatience? spellingPatience,
-            bool? speculativeTurn)
+            bool? speculativeTurn,
+            bool? retranscribeOnTurnTimeout)
         {
             this.TurnTimeout = turnTimeout;
             this.InitialWaitTime = initialWaitTime;
@@ -110,6 +120,7 @@ namespace ElevenLabs
             this.TurnEagerness = turnEagerness;
             this.SpellingPatience = spellingPatience;
             this.SpeculativeTurn = speculativeTurn;
+            this.RetranscribeOnTurnTimeout = retranscribeOnTurnTimeout;
         }
 
         /// <summary>

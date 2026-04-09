@@ -45,6 +45,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("group_pvc_limit")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>))]
+        public global::ElevenLabs.AnyOf<int?, string, object>? GroupPvcLimit { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count")]
         public int? CharacterCount { get; set; }
 
@@ -68,6 +75,7 @@ namespace ElevenLabs
         /// <param name="members"></param>
         /// <param name="permissions"></param>
         /// <param name="groupUsageLimit"></param>
+        /// <param name="groupPvcLimit"></param>
         /// <param name="characterCount"></param>
         /// <param name="scimExternalId"></param>
 #if NET7_0_OR_GREATER
@@ -79,6 +87,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string> members,
             global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupPermission>? permissions,
             global::ElevenLabs.AnyOf<int?, string, object>? groupUsageLimit,
+            global::ElevenLabs.AnyOf<int?, string, object>? groupPvcLimit,
             int? characterCount,
             string? scimExternalId)
         {
@@ -87,6 +96,7 @@ namespace ElevenLabs
             this.Members = members ?? throw new global::System.ArgumentNullException(nameof(members));
             this.Permissions = permissions;
             this.GroupUsageLimit = groupUsageLimit;
+            this.GroupPvcLimit = groupPvcLimit;
             this.CharacterCount = characterCount;
             this.ScimExternalId = scimExternalId;
         }
