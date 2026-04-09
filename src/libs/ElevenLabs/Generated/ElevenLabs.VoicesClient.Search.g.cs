@@ -5,6 +5,25 @@ namespace ElevenLabs
 {
     public partial class VoicesClient
     {
+
+
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_SearchSecurityRequirement0 =
+            new global::ElevenLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
+                {                    new global::ElevenLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "xi-api-key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_SearchSecurityRequirements =
+            new global::ElevenLabs.EndPointSecurityRequirement[]
+            {                s_SearchSecurityRequirement0,
+            };
         partial void PrepareSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? nextPageToken,
@@ -112,6 +131,12 @@ namespace ElevenLabs
                 includeTotalCount: ref includeTotalCount,
                 voiceIds: voiceIds);
 
+
+            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_SearchSecurityRequirements,
+                operationName: "SearchAsync");
+
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v2/voices",
                 baseUri: HttpClient.BaseAddress); 
@@ -127,7 +152,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("collection_id", collectionId)
                 .AddOptionalParameter("include_total_count", includeTotalCount?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("voice_ids", voiceIds?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -137,7 +162,7 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

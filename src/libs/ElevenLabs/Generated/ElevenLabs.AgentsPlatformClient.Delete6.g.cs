@@ -5,6 +5,25 @@ namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
     {
+
+
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Delete6SecurityRequirement0 =
+            new global::ElevenLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
+                {                    new global::ElevenLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "xi-api-key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Delete6SecurityRequirements =
+            new global::ElevenLabs.EndPointSecurityRequirement[]
+            {                s_Delete6SecurityRequirement0,
+            };
         partial void PrepareDelete6Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
@@ -48,12 +67,18 @@ namespace ElevenLabs
                 documentationId: ref documentationId,
                 force: ref force);
 
+
+            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_Delete6SecurityRequirements,
+                operationName: "Delete6Async");
+
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("force", force?.ToString().ToLowerInvariant()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -63,7 +88,7 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

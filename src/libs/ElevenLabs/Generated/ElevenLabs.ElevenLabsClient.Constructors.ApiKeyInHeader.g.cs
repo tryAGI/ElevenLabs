@@ -6,6 +6,7 @@ namespace ElevenLabs
     public sealed partial class ElevenLabsClient
     {
         /// <inheritdoc cref="ElevenLabsClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::ElevenLabs.EndPointAuthorization}?, bool)"/>
+
         public ElevenLabsClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

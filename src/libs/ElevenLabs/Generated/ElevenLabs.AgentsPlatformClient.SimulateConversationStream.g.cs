@@ -5,6 +5,25 @@ namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
     {
+
+
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_SimulateConversationStreamSecurityRequirement0 =
+            new global::ElevenLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
+                {                    new global::ElevenLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "xi-api-key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_SimulateConversationStreamSecurityRequirements =
+            new global::ElevenLabs.EndPointSecurityRequirement[]
+            {                s_SimulateConversationStreamSecurityRequirement0,
+            };
         partial void PrepareSimulateConversationStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
@@ -43,9 +62,15 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 request: request);
 
+
+            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_SimulateConversationStreamSecurityRequirements,
+                operationName: "SimulateConversationStreamAsync");
+
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/simulate-conversation/stream",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -55,7 +80,7 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

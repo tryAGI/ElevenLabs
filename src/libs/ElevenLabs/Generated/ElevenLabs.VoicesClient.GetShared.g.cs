@@ -5,6 +5,25 @@ namespace ElevenLabs
 {
     public partial class VoicesClient
     {
+
+
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_GetSharedSecurityRequirement0 =
+            new global::ElevenLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
+                {                    new global::ElevenLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "xi-api-key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_GetSharedSecurityRequirements =
+            new global::ElevenLabs.EndPointSecurityRequirement[]
+            {                s_GetSharedSecurityRequirement0,
+            };
         partial void PrepareGetSharedArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? pageSize,
@@ -162,6 +181,12 @@ namespace ElevenLabs
                 sort: ref sort,
                 page: ref page);
 
+
+            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetSharedSecurityRequirements,
+                operationName: "GetSharedAsync");
+
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/shared-voices",
                 baseUri: HttpClient.BaseAddress); 
@@ -184,7 +209,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("owner_id", ownerId)
                 .AddOptionalParameter("sort", sort)
                 .AddOptionalParameter("page", page?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -194,7 +219,7 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

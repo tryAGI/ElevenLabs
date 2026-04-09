@@ -5,6 +5,25 @@ namespace ElevenLabs
 {
     public partial class PronunciationDictionariesClient
     {
+
+
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_CreateFromRulesSecurityRequirement0 =
+            new global::ElevenLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
+                {                    new global::ElevenLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "xi-api-key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_CreateFromRulesSecurityRequirements =
+            new global::ElevenLabs.EndPointSecurityRequirement[]
+            {                s_CreateFromRulesSecurityRequirement0,
+            };
         partial void PrepareCreateFromRulesArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPost request);
@@ -41,9 +60,15 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_CreateFromRulesSecurityRequirements,
+                operationName: "CreateFromRulesAsync");
+
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/pronunciation-dictionaries/add-from-rules",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -53,7 +78,7 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

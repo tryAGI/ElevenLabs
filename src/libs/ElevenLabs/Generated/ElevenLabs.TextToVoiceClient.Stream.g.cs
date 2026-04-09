@@ -5,6 +5,25 @@ namespace ElevenLabs
 {
     public partial class TextToVoiceClient
     {
+
+
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_StreamSecurityRequirement0 =
+            new global::ElevenLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
+                {                    new global::ElevenLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "xi-api-key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_StreamSecurityRequirements =
+            new global::ElevenLabs.EndPointSecurityRequirement[]
+            {                s_StreamSecurityRequirement0,
+            };
         partial void PrepareStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string generatedVoiceId);
@@ -35,9 +54,15 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 generatedVoiceId: ref generatedVoiceId);
 
+
+            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_StreamSecurityRequirements,
+                operationName: "StreamAsync");
+
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/text-to-voice/{generatedVoiceId}/stream",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -47,7 +72,7 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
