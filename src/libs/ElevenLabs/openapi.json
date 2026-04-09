@@ -34380,7 +34380,7 @@
           "use_multi_channel": {
             "type": "boolean",
             "title": "Use Multi Channel",
-            "description": "Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported.",
+            "description": "Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.",
             "default": false
           },
           "webhook_metadata": {
@@ -34419,7 +34419,7 @@
               }
             ],
             "title": "Entity Detection",
-            "description": "Detect entities in the transcript. Can be 'all' to detect all entities, a single entity type or category string, or a list of entity types/categories. Categories include 'pii', 'phi', 'pci', 'other', 'offensive_language'. When enabled, detected entities will be returned in the 'entities' field with their text, type, and character positions. Usage of this parameter will incur additional costs."
+            "description": "Detect entities in the transcript. Can be 'all' to detect all entities, a single entity type or category string, or a list of entity types/categories. Categories include 'pii', 'phi', 'pci', 'other', 'offensive_language'. When enabled, detected entities will be returned in the 'entities' field with their text, type, and character positions. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost."
           },
           "no_verbatim": {
             "type": "boolean",
@@ -34443,7 +34443,7 @@
               }
             ],
             "title": "Entity Redaction",
-            "description": "Redact entities from the transcript text. Accepts the same format as entity_detection: 'all', a category ('pii', 'phi'), or specific entity types. Must be a subset of entity_detection. When redaction is enabled, the entities field will not be returned."
+            "description": "Redact entities from the transcript text. Accepts the same format as entity_detection: 'all', a category ('pii', 'phi'), or specific entity types. Must be a subset of entity_detection. When redaction is enabled, the entities field will not be returned. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost."
           },
           "entity_redaction_mode": {
             "type": "string",
@@ -34457,7 +34457,7 @@
             },
             "type": "array",
             "title": "Keyterms",
-            "description": "A list of keyterms to bias the transcription towards.           The keyterms are words or phrases you want the model to recognise more accurately.           The number of keyterms cannot exceed 1000.           The length of each keyterm must be less than 50 characters.           Keyterms can contain at most 5 words (after normalisation).           For example [\"hello\", \"world\", \"technical term\"].           Usage of this parameter will incur additional costs.           When more than 100 keyterms are provided, a minimum billable duration of 20 seconds applies per request.",
+            "description": "A list of keyterms to bias the transcription towards.           The keyterms are words or phrases you want the model to recognise more accurately.           The number of keyterms cannot exceed 1000.           The length of each keyterm must be less than 50 characters.           Keyterms can contain at most 5 words (after normalisation).           For example [\"hello\", \"world\", \"technical term\"].           Usage of this parameter will incur an additional 20% surcharge on the base transcription cost.           When more than 100 keyterms are provided, a minimum billable duration of 20 seconds applies per request.",
             "default": []
           }
         },
@@ -43030,6 +43030,7 @@
           },
           "turn": {
             "mode": "turn",
+            "retranscribe_on_turn_timeout": false,
             "silence_end_call_timeout": -1.0,
             "soft_timeout_config": {
               "message": "Hhmmmm...yeah.",
@@ -43180,6 +43181,7 @@
           },
           "turn": {
             "mode": "turn",
+            "retranscribe_on_turn_timeout": false,
             "silence_end_call_timeout": -1.0,
             "soft_timeout_config": {
               "message": "Hhmmmm...yeah.",
@@ -69242,12 +69244,19 @@
             "title": "Speculative Turn",
             "description": "When enabled, starts generating LLM responses during silence before full turn confidence is reached, reducing perceived latency. May increase LLM costs.",
             "default": false
+          },
+          "retranscribe_on_turn_timeout": {
+            "type": "boolean",
+            "title": "Retranscribe On Turn Timeout",
+            "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.",
+            "default": false
           }
         },
         "type": "object",
         "title": "TurnConfig",
         "example": {
           "mode": "turn",
+          "retranscribe_on_turn_timeout": false,
           "silence_end_call_timeout": -1.0,
           "soft_timeout_config": {
             "message": "Hhmmmm...yeah.",
@@ -69385,12 +69394,25 @@
             ],
             "title": "Speculative Turn",
             "description": "When enabled, starts generating LLM responses during silence before full turn confidence is reached, reducing perceived latency. May increase LLM costs."
+          },
+          "retranscribe_on_turn_timeout": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Retranscribe On Turn Timeout",
+            "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns."
           }
         },
         "type": "object",
         "title": "TurnConfigWorkflowOverride",
         "example": {
           "mode": "turn",
+          "retranscribe_on_turn_timeout": false,
           "silence_end_call_timeout": -1.0,
           "soft_timeout_config": {
             "message": "Hhmmmm...yeah.",
@@ -77976,6 +77998,21 @@
               }
             ],
             "title": "Group Usage Limit"
+          },
+          "group_pvc_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "const": "unlimited"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group Pvc Limit"
           },
           "character_count": {
             "anyOf": [
