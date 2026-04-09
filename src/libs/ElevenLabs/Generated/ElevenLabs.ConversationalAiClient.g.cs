@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public const string DefaultBaseUrl = "https://api.elevenlabs.io";
+        public const string DefaultBaseUrl = "https://api.elevenlabs.io/";
 
         private bool _disposeHttpClient = true;
 

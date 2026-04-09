@@ -7,6 +7,25 @@ namespace ElevenLabs
 {
     public partial class TextToSpeechClient
     {
+
+
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_StreamWithTimestampsSecurityRequirement0 =
+            new global::ElevenLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
+                {                    new global::ElevenLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "xi-api-key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_StreamWithTimestampsSecurityRequirements =
+            new global::ElevenLabs.EndPointSecurityRequirement[]
+            {                s_StreamWithTimestampsSecurityRequirement0,
+            };
         partial void PrepareStreamWithTimestampsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
@@ -74,6 +93,12 @@ namespace ElevenLabs
                 outputFormat: ref outputFormat,
                 request: request);
 
+
+            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_StreamWithTimestampsSecurityRequirements,
+                operationName: "StreamWithTimestampsAsync");
+
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/text-to-speech/{voiceId}/stream/with-timestamps",
                 baseUri: HttpClient.BaseAddress); 
@@ -81,7 +106,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("optimize_streaming_latency", optimizeStreamingLatency?.ToString())
                 .AddOptionalParameter("output_format", outputFormat?.ToValueString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -91,7 +116,7 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -174,6 +199,7 @@ namespace ElevenLabs
                 cancellationToken
 #endif
             ).ConfigureAwait(false);
+
             using var __reader = new global::System.IO.StreamReader(__stream);
 
             while (!__reader.EndOfStream && !cancellationToken.IsCancellationRequested)

@@ -5,6 +5,25 @@ namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
     {
+
+
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List13SecurityRequirement0 =
+            new global::ElevenLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
+                {                    new global::ElevenLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "xi-api-key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List13SecurityRequirements =
+            new global::ElevenLabs.EndPointSecurityRequirement[]
+            {                s_List13SecurityRequirement0,
+            };
         partial void PrepareList13Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
@@ -56,13 +75,19 @@ namespace ElevenLabs
                 includeArchived: ref includeArchived,
                 limit: ref limit);
 
+
+            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_List13SecurityRequirements,
+                operationName: "List13Async");
+
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/agents/{agentId}/branches",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("include_archived", includeArchived?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("limit", limit?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -72,7 +97,7 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

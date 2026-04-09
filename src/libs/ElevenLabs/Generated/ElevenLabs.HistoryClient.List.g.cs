@@ -5,6 +5,25 @@ namespace ElevenLabs
 {
     public partial class HistoryClient
     {
+
+
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_ListSecurityRequirement0 =
+            new global::ElevenLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
+                {                    new global::ElevenLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "xi-api-key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_ListSecurityRequirements =
+            new global::ElevenLabs.EndPointSecurityRequirement[]
+            {                s_ListSecurityRequirement0,
+            };
         partial void PrepareListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? pageSize,
@@ -98,6 +117,12 @@ namespace ElevenLabs
                 search: ref search,
                 source: source);
 
+
+            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ListSecurityRequirements,
+                operationName: "ListAsync");
+
             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: "/v1/history",
                 baseUri: HttpClient.BaseAddress); 
@@ -111,7 +136,7 @@ namespace ElevenLabs
                 .AddOptionalParameter("sort_direction", sortDirection?.ToString())
                 .AddOptionalParameter("search", search)
                 .AddOptionalParameter("source", source?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -121,7 +146,7 @@ namespace ElevenLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
