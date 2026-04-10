@@ -30998,6 +30998,16 @@
             "title": "Sign With C2Pa",
             "description": "Whether to sign the generated song with C2PA. Applicable only for mp3 files.",
             "default": false
+          },
+          "model_style_prefix": {
+            "type": "string",
+            "enum": [
+              "music",
+              "sfx"
+            ],
+            "title": "Model Style Prefix",
+            "default": "music",
+            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -45719,12 +45729,13 @@
                     "Dystopia",
                     "Business and Economics",
                     "Technology",
-                    "Detective and Crime",
+                    "Christian & Inspirational",
                     "Horror",
                     "Biography and Memoir",
                     "Education and Learning",
                     "History",
                     "Children's Literature",
+                    "Young Adult",
                     "Fairy Tales and Folklore",
                     "Fan Fiction",
                     "General Fiction",
@@ -45741,8 +45752,7 @@
                     "Spirituality and Religion",
                     "Travel",
                     "True Crime",
-                    "Other",
-                    "Adult Romance"
+                    "Other"
                   ]
                 },
                 "type": "array"
