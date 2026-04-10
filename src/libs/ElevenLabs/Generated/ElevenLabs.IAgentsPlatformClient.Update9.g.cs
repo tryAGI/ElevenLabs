@@ -12,12 +12,14 @@ namespace ElevenLabs
         /// ID of the MCP Server.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update9Async(
             string mcpServerId,
 
             global::ElevenLabs.MCPServerConfigUpdateRequestModel request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Mcp Server Configuration<br/>
@@ -56,6 +58,7 @@ namespace ElevenLabs
         /// <param name="authConnection">
         /// Optional auth connection to use for authentication with this MCP server
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update9Async(
@@ -70,6 +73,7 @@ namespace ElevenLabs
             bool? disableCompression = default,
             global::ElevenLabs.ConvAISecretLocator? secretToken = default,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

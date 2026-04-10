@@ -9,11 +9,13 @@ namespace ElevenLabs
         /// Removes background noise from audio
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
 
             global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Audio Isolation<br/>
@@ -32,6 +34,7 @@ namespace ElevenLabs
         /// <param name="previewB64">
         /// Optional preview image base64 for tracking this generation.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
@@ -39,6 +42,7 @@ namespace ElevenLabs
             string audioname,
             global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat2? fileFormat = default,
             string? previewB64 = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

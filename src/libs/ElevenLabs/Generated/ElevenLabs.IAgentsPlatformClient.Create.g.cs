@@ -13,12 +13,14 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentResponseModel> CreateAsync(
 
             global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost request,
             bool? enableVersioning = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Agent<br/>
@@ -44,6 +46,7 @@ namespace ElevenLabs
         /// <param name="tags">
         /// Tags to help classify and filter the agent
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentResponseModel> CreateAsync(
@@ -53,6 +56,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
             string? name = default,
             global::System.Collections.Generic.IList<string>? tags = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

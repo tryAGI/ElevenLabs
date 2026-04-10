@@ -9,11 +9,13 @@ namespace ElevenLabs
         /// Sends email invitations to join your workspace to the provided emails. Requires all email addresses to be part of a verified domain. If the users don't have an account they will be prompted to create one. If the users accept these invites they will be added as users to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceInviteResponseModel> CreateBatchAsync(
 
             global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Invite Multiple Users<br/>
@@ -28,12 +30,14 @@ namespace ElevenLabs
         /// <param name="groupIds">
         /// The group ids of the user
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceInviteResponseModel> CreateBatchAsync(
             global::System.Collections.Generic.IList<string> emails,
             global::ElevenLabs.SeatType? seatType = default,
             global::System.Collections.Generic.IList<string>? groupIds = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

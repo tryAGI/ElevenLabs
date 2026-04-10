@@ -12,12 +12,14 @@ namespace ElevenLabs
         /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.RAGDocumentIndexResponseModel> ComputeRagIndexAsync(
             string documentationId,
 
             global::ElevenLabs.RAGIndexRequestModel request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Compute Rag Index.<br/>
@@ -29,11 +31,13 @@ namespace ElevenLabs
         /// <param name="model">
         /// Default Value: e5_mistral_7b_instruct
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.RAGDocumentIndexResponseModel> ComputeRagIndexAsync(
             string documentationId,
             global::ElevenLabs.EmbeddingModelEnum model = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

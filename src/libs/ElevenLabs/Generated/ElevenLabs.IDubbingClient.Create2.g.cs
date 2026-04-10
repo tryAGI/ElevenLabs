@@ -11,12 +11,14 @@ namespace ElevenLabs
         /// ID of the dubbing project.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SpeakerCreatedResponse> Create2Async(
             string dubbingId,
 
             global::ElevenLabs.BodyCreateANewSpeakerV1DubbingResourceDubbingIdSpeakerPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create A New Speaker
@@ -39,6 +41,7 @@ namespace ElevenLabs
         /// <param name="voiceStyle">
         /// For models that support it, the voice style value to use. This will default to 1.0, with a valid range of [0.0, 1.0].
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SpeakerCreatedResponse> Create2Async(
@@ -48,6 +51,7 @@ namespace ElevenLabs
             double? voiceStability = default,
             double? voiceSimilarity = default,
             double? voiceStyle = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

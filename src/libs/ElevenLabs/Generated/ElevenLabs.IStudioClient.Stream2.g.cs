@@ -18,6 +18,7 @@ namespace ElevenLabs
         /// The ID of the chapter snapshot.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.IO.Stream> Stream2Async(
@@ -26,6 +27,7 @@ namespace ElevenLabs
             string chapterSnapshotId,
 
             global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Stream Chapter Audio<br/>
@@ -44,6 +46,7 @@ namespace ElevenLabs
         /// Whether to convert the audio to mpeg format.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::System.IO.Stream> Stream2Async(
@@ -51,6 +54,7 @@ namespace ElevenLabs
             string chapterId,
             string chapterSnapshotId,
             bool? convertToMpeg = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

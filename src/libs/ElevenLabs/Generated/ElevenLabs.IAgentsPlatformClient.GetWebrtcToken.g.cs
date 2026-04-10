@@ -20,6 +20,7 @@ namespace ElevenLabs
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.TokenResponseModel> GetWebrtcTokenAsync(
@@ -27,6 +28,7 @@ namespace ElevenLabs
             string? participantName = default,
             string? branchId = default,
             string? environment = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

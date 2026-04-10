@@ -33,6 +33,7 @@ namespace ElevenLabs
         /// Sort mode for listing tests. Use 'folders_first' to place folders before tests.<br/>
         /// Default Value: default
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestsPageResponseModel> ListAsync(
@@ -43,6 +44,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.TestType>? types = default,
             bool? includeFolders = default,
             global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

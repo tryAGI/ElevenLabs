@@ -12,12 +12,14 @@ namespace ElevenLabs
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceResponseModel> Update2Async(
             string voiceId,
 
             global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Edit Voice<br/>
@@ -42,6 +44,7 @@ namespace ElevenLabs
         /// <param name="labels">
         /// Labels for the voice. Keys can be language, accent, gender, or age.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceResponseModel> Update2Async(
@@ -51,6 +54,7 @@ namespace ElevenLabs
             bool? removeBackgroundNoise = default,
             string? description = default,
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

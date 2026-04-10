@@ -9,11 +9,13 @@ namespace ElevenLabs
         /// Add a new voice to your collection of voices in VoiceLab.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceIVCResponseModel> CreateAsync(
 
             global::ElevenLabs.BodyAddVoiceV1VoicesAddPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Voice<br/>
@@ -35,6 +37,7 @@ namespace ElevenLabs
         /// <param name="labels">
         /// Labels for the voice. Keys can be language, accent, gender, or age.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceIVCResponseModel> CreateAsync(
@@ -43,6 +46,7 @@ namespace ElevenLabs
             bool? removeBackgroundNoise = default,
             string? description = default,
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

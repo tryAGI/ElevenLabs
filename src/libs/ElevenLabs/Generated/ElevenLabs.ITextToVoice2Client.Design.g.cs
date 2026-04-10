@@ -13,12 +13,14 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_192
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> DesignAsync(
 
             global::ElevenLabs.VoiceDesignRequestModel request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Design A Voice.<br/>
@@ -76,6 +78,7 @@ namespace ElevenLabs
         /// <param name="promptStrength">
         /// Controls the balance of prompt versus reference audio when generating voice samples. 0 means almost no prompt influence, 1 means almost no reference audio influence. Only supported when using the eleven_ttv_v3 model.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> DesignAsync(
@@ -94,6 +97,7 @@ namespace ElevenLabs
             double? quality = default,
             string? referenceAudioBase64 = default,
             double? promptStrength = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -15,12 +15,14 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<byte[]> ComposeDetailedAsync(
 
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Compose Music With A Detailed Response<br/>
@@ -31,12 +33,14 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> ComposeDetailedAsResponseAsync(
 
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Compose Music With A Detailed Response<br/>
@@ -89,6 +93,7 @@ namespace ElevenLabs
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<byte[]> ComposeDetailedAsync(
@@ -105,6 +110,7 @@ namespace ElevenLabs
             bool? storeForInpainting = default,
             bool? withTimestamps = default,
             bool? signWithC2pa = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

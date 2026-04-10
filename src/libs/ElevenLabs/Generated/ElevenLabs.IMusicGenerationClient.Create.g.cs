@@ -9,11 +9,13 @@ namespace ElevenLabs
         /// Generate a composition plan from a prompt.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MusicPrompt> CreateAsync(
 
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Generate Composition Plan<br/>
@@ -32,6 +34,7 @@ namespace ElevenLabs
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MusicPrompt> CreateAsync(
@@ -39,6 +42,7 @@ namespace ElevenLabs
             int? musicLengthMs = default,
             global::ElevenLabs.MusicPrompt? sourceCompositionPlan = default,
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPostModelId? modelId = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

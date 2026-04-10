@@ -13,12 +13,14 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_192
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreatePreviewsAsync(
 
             global::ElevenLabs.VoicePreviewsRequestModel request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Generate A Voice Preview From Description<br/>
@@ -57,6 +59,7 @@ namespace ElevenLabs
         /// Whether to enhance the voice description using AI to add more detail and improve voice generation quality. When enabled, the system will automatically expand simple prompts into more detailed voice descriptions. Defaults to False<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.VoicePreviewsResponseModel> CreatePreviewsAsync(
@@ -69,6 +72,7 @@ namespace ElevenLabs
             int? seed = default,
             double? guidanceScale = default,
             bool? shouldEnhance = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -12,12 +12,14 @@ namespace ElevenLabs
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> UpdateAsync(
             string voiceId,
 
             global::ElevenLabs.VoiceSettingsResponseModel request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Edit Voice Settings<br/>
@@ -46,6 +48,7 @@ namespace ElevenLabs
         /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.<br/>
         /// Default Value: 1F
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> UpdateAsync(
@@ -55,6 +58,7 @@ namespace ElevenLabs
             double? similarityBoost = default,
             double? style = default,
             double? speed = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

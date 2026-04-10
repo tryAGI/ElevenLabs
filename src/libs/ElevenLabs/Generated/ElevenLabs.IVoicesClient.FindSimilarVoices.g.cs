@@ -9,11 +9,13 @@ namespace ElevenLabs
         /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetLibraryVoicesResponseModel> FindSimilarVoicesAsync(
 
             global::ElevenLabs.BodyGetSimilarLibraryVoicesV1SimilarVoicesPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Similar Library Voices<br/>
@@ -27,6 +29,7 @@ namespace ElevenLabs
         /// <param name="topK">
         /// Number of most similar voices to return. If similarity_threshold is provided, less than this number of voices may be returned. Values range from 1 to 100.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetLibraryVoicesResponseModel> FindSimilarVoicesAsync(
@@ -34,6 +37,7 @@ namespace ElevenLabs
             string? audioFilename = default,
             double? similarityThreshold = default,
             int? topK = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

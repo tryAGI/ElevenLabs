@@ -15,6 +15,7 @@ namespace ElevenLabs
         /// Unique identifier for the branch.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Update13Async(
@@ -22,6 +23,7 @@ namespace ElevenLabs
             string branchId,
 
             global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Agent Branch<br/>
@@ -42,6 +44,7 @@ namespace ElevenLabs
         /// <param name="protectionStatus">
         /// The protection level for the branch
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Update13Async(
@@ -50,6 +53,7 @@ namespace ElevenLabs
             string? name = default,
             bool? isArchived = default,
             global::ElevenLabs.BranchProtectionStatus? protectionStatus = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

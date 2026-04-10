@@ -31,6 +31,7 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.StreamingAudioChunkWithTimestampsResponseModel> StreamWithTimestampsAsync(
@@ -40,6 +41,7 @@ namespace ElevenLabs
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.TextToSpeechStreamWithTimestampsOutputFormat? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Text To Speech Streaming With Timestamps<br/>
@@ -104,6 +106,7 @@ namespace ElevenLabs
         /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.StreamingAudioChunkWithTimestampsResponseModel> StreamWithTimestampsAsync(
@@ -123,6 +126,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
             global::ElevenLabs.BodyTextToSpeechStreamWithTimestampsApplyTextNormalization? applyTextNormalization = default,
             bool? applyLanguageTextNormalization = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -15,6 +15,7 @@ namespace ElevenLabs
         /// Name of the MCP tool to update config overrides for.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update11Async(
@@ -22,6 +23,7 @@ namespace ElevenLabs
             string toolName,
 
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Mcp Tool Configuration Override<br/>
@@ -54,6 +56,7 @@ namespace ElevenLabs
         /// <param name="inputOverrides">
         /// Mapping of json path to input override configuration
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update11Async(
@@ -66,6 +69,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
             object? inputOverrides = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

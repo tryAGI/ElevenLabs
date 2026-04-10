@@ -12,12 +12,14 @@ namespace ElevenLabs
         /// ID of the MCP Server.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create11Async(
             string mcpServerId,
 
             global::ElevenLabs.MCPToolAddApprovalRequestModel request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Mcp Server Tool Approval<br/>
@@ -39,6 +41,7 @@ namespace ElevenLabs
         /// The tool-level approval policy<br/>
         /// Default Value: requires_approval
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create11Async(
@@ -47,6 +50,7 @@ namespace ElevenLabs
             string toolDescription,
             object? inputSchema = default,
             global::ElevenLabs.MCPToolApprovalPolicy? approvalPolicy = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

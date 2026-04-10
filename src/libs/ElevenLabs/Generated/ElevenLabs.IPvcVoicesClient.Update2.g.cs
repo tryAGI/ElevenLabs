@@ -15,6 +15,7 @@ namespace ElevenLabs
         /// Sample ID to be used
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> Update2Async(
@@ -22,6 +23,7 @@ namespace ElevenLabs
             string sampleId,
 
             global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Pvc Voice Sample<br/>
@@ -49,6 +51,7 @@ namespace ElevenLabs
         /// <param name="fileName">
         /// The name of the audio file to be used for PVC training.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddVoiceResponseModel> Update2Async(
@@ -59,6 +62,7 @@ namespace ElevenLabs
             int? trimStartTime = default,
             int? trimEndTime = default,
             string? fileName = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

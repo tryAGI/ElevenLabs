@@ -13,12 +13,14 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
 
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Sound Generation<br/>
@@ -29,12 +31,14 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> ConvertAsResponseAsync(
 
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Sound Generation<br/>
@@ -62,6 +66,7 @@ namespace ElevenLabs
         /// The model ID to use for the sound generation.<br/>
         /// Default Value: eleven_text_to_sound_v2
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
@@ -71,6 +76,7 @@ namespace ElevenLabs
             double? durationSeconds = default,
             double? promptInfluence = default,
             string? modelId = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
