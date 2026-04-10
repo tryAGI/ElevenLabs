@@ -23421,7 +23421,7 @@
           "music-generation"
         ],
         "summary": "Upload Music",
-        "description": "Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature.",
+        "description": "Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.",
         "operationId": "upload_song",
         "parameters": [
           {
@@ -40503,6 +40503,11 @@
             "type": "boolean",
             "title": "Is Error"
           },
+          "is_blocked": {
+            "type": "boolean",
+            "title": "Is Blocked",
+            "default": false
+          },
           "tool_has_been_called": {
             "type": "boolean",
             "title": "Tool Has Been Called"
@@ -40579,6 +40584,11 @@
             "type": "boolean",
             "title": "Is Error"
           },
+          "is_blocked": {
+            "type": "boolean",
+            "title": "Is Blocked",
+            "default": false
+          },
           "tool_has_been_called": {
             "type": "boolean",
             "title": "Tool Has Been Called"
@@ -40632,6 +40642,7 @@
           "tool_name",
           "result_value",
           "is_error",
+          "is_blocked",
           "tool_has_been_called",
           "tool_latency_secs",
           "error_type",
@@ -41026,6 +41037,11 @@
             "type": "boolean",
             "title": "Is Error"
           },
+          "is_blocked": {
+            "type": "boolean",
+            "title": "Is Blocked",
+            "default": false
+          },
           "tool_has_been_called": {
             "type": "boolean",
             "title": "Tool Has Been Called"
@@ -41275,6 +41291,11 @@
             "type": "boolean",
             "title": "Is Error"
           },
+          "is_blocked": {
+            "type": "boolean",
+            "title": "Is Blocked",
+            "default": false
+          },
           "tool_has_been_called": {
             "type": "boolean",
             "title": "Tool Has Been Called"
@@ -41400,6 +41421,11 @@
           "is_error": {
             "type": "boolean",
             "title": "Is Error"
+          },
+          "is_blocked": {
+            "type": "boolean",
+            "title": "Is Blocked",
+            "default": false
           },
           "tool_has_been_called": {
             "type": "boolean",
@@ -41870,6 +41896,11 @@
             "type": "boolean",
             "title": "Is Error"
           },
+          "is_blocked": {
+            "type": "boolean",
+            "title": "Is Blocked",
+            "default": false
+          },
           "tool_has_been_called": {
             "type": "boolean",
             "title": "Tool Has Been Called"
@@ -41940,6 +41971,11 @@
           "is_error": {
             "type": "boolean",
             "title": "Is Error"
+          },
+          "is_blocked": {
+            "type": "boolean",
+            "title": "Is Blocked",
+            "default": false
           },
           "tool_has_been_called": {
             "type": "boolean",
@@ -55675,6 +55711,12 @@
             "type": "number",
             "title": "Character Cost Multiplier",
             "description": "The cost multiplier for characters."
+          },
+          "cost_discount_multiplier": {
+            "type": "number",
+            "title": "Cost Discount Multiplier",
+            "description": "Discount multiplier applied to cost estimates. Defaults to 1.0 (no discount).",
+            "default": 1.0
           }
         },
         "type": "object",
@@ -55683,7 +55725,8 @@
         ],
         "title": "ModelRatesResponseModel",
         "example": {
-          "character_cost_multiplier": 1.0
+          "character_cost_multiplier": 1.0,
+          "cost_discount_multiplier": 1.0
         }
       },
       "ModelResponseModel": {
@@ -55816,7 +55859,8 @@
           "maximum_text_length_per_request": 1000000,
           "model_id": "eleven_multilingual_v2",
           "model_rates": {
-            "character_cost_multiplier": 1.0
+            "character_cost_multiplier": 1.0,
+            "cost_discount_multiplier": 1.0
           },
           "name": "Eleven Multilingual v2",
           "requires_alpha_access": false,
