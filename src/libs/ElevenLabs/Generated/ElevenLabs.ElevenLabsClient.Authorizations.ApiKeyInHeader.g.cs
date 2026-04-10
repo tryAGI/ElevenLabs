@@ -26,6 +26,7 @@ namespace ElevenLabs
             Authorizations.Add(new global::ElevenLabs.EndPointAuthorization
             {
                 Type = "ApiKey",
+                SchemeId = "ApikeyXiApiKey",
                 Location = "Header",
                 Name = "xi-api-key",
                 Value = apiKey,

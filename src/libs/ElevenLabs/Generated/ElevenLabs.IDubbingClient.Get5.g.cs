@@ -17,12 +17,14 @@ namespace ElevenLabs
         /// <param name="formatType">
         /// Format to return transcript in. For subtitles use either 'srt' or 'webvtt', and for a full transcript use 'json'. The 'json' format is not yet supported for Dubbing Studio.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingTranscriptsResponseModel> Get5Async(
             string dubbingId,
             string languageCode,
             global::ElevenLabs.GetDubbingTranscriptsFormatType formatType,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

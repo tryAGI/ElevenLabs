@@ -12,12 +12,14 @@ namespace ElevenLabs
         /// ID of the MCP Server.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create12Async(
             string mcpServerId,
 
             global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Mcp Tool Configuration Override<br/>
@@ -50,6 +52,7 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// The name of the MCP tool
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create12Async(
@@ -62,6 +65,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
             object? inputOverrides = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

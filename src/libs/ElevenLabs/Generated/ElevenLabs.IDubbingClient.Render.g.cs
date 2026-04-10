@@ -15,6 +15,7 @@ namespace ElevenLabs
         /// The target language code to render, eg. 'es'. To render the source track use 'original'.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingRenderResponseModel> RenderAsync(
@@ -22,6 +23,7 @@ namespace ElevenLabs
             string language,
 
             global::ElevenLabs.BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Render Audio Or Video For The Given Language<br/>
@@ -40,6 +42,7 @@ namespace ElevenLabs
         /// Whether to normalize the volume of the rendered audio.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingRenderResponseModel> RenderAsync(
@@ -47,6 +50,7 @@ namespace ElevenLabs
             string language,
             global::ElevenLabs.RenderType2 renderType,
             bool? normalizeVolume = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

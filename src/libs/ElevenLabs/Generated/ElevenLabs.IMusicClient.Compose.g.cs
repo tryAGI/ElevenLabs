@@ -15,12 +15,14 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<byte[]> ComposeAsync(
 
             global::ElevenLabs.BodyComposeMusicV1MusicPost request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Compose Music<br/>
@@ -31,12 +33,14 @@ namespace ElevenLabs
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> ComposeAsResponseAsync(
 
             global::ElevenLabs.BodyComposeMusicV1MusicPost request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Compose Music<br/>
@@ -85,6 +89,7 @@ namespace ElevenLabs
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<byte[]> ComposeAsync(
@@ -100,6 +105,7 @@ namespace ElevenLabs
             bool? respectSectionsDurations = default,
             bool? storeForInpainting = default,
             bool? signWithC2pa = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

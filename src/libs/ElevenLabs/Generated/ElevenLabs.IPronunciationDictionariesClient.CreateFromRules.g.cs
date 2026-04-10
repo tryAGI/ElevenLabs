@@ -9,11 +9,13 @@ namespace ElevenLabs
         /// Creates a new pronunciation dictionary from provided rules.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddPronunciationDictionaryResponseModel> CreateFromRulesAsync(
 
             global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add A Pronunciation Dictionary<br/>
@@ -33,6 +35,7 @@ namespace ElevenLabs
         /// <param name="workspaceAccess">
         /// Should be one of 'admin', 'editor' or 'viewer'. If not provided, defaults to no access.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AddPronunciationDictionaryResponseModel> CreateFromRulesAsync(
@@ -40,6 +43,7 @@ namespace ElevenLabs
             string name,
             string? description = default,
             global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess2? workspaceAccess = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

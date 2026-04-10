@@ -12,12 +12,14 @@ namespace ElevenLabs
         /// The ID of the Studio project.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeEditContentResponseModel> UpdateAsync(
             string projectId,
 
             global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Audio-Native Project Content<br/>
@@ -40,6 +42,7 @@ namespace ElevenLabs
         /// Whether to auto publish the new project snapshot after it's converted.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AudioNativeEditContentResponseModel> UpdateAsync(
@@ -48,6 +51,7 @@ namespace ElevenLabs
             string? filename = default,
             bool? autoConvert = default,
             bool? autoPublish = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

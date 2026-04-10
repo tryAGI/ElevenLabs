@@ -12,12 +12,14 @@ namespace ElevenLabs
         /// Used for moderation. Your workspace must be allowlisted to use this feature.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.PodcastProjectResponseModel> CreatePodcastAsync(
 
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost request,
             string? safetyIdentifier = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Podcast<br/>
@@ -127,6 +129,7 @@ namespace ElevenLabs
         ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
         ///     
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.PodcastProjectResponseModel> CreatePodcastAsync(
@@ -143,6 +146,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? highlights = default,
             string? callbackUrl = default,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2? applyTextNormalization = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

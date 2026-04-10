@@ -19,6 +19,7 @@ namespace ElevenLabs
         /// The ID of the branch to use
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentResponseModel> UpdateAsync(
@@ -27,6 +28,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request,
             bool? enableVersioningIfNotEnabled = default,
             string? branchId = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Patches An Agent Settings<br/>
@@ -61,6 +63,7 @@ namespace ElevenLabs
         /// <param name="versionDescription">
         /// Description for this version when publishing changes (only applicable for versioned agents)
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentResponseModel> UpdateAsync(
@@ -73,6 +76,7 @@ namespace ElevenLabs
             string? name = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             string? versionDescription = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

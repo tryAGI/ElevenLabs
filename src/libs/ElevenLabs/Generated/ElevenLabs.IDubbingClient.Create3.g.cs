@@ -9,11 +9,13 @@ namespace ElevenLabs
         /// Dubs a provided audio or video file into given language.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> Create3Async(
 
             global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Dub A Video Or An Audio File<br/>
@@ -99,6 +101,7 @@ namespace ElevenLabs
         /// <param name="csvFps">
         /// Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.DoDubbingResponseModel> Create3Async(
@@ -126,6 +129,7 @@ namespace ElevenLabs
             bool? disableVoiceCloning = default,
             global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPostMode? mode = default,
             double? csvFps = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

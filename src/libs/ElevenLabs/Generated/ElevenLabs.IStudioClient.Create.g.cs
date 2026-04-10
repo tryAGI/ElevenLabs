@@ -12,12 +12,14 @@ namespace ElevenLabs
         /// The ID of the Studio project.
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePronunciationDictionaryResponseModel> CreateAsync(
             string projectId,
 
             global::ElevenLabs.BodyCreatePronunciationDictionariesV1StudioProjectsProjectIdPronunciationDictionariesPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Pronunciation Dictionaries<br/>
@@ -33,12 +35,14 @@ namespace ElevenLabs
         /// This will automatically mark text in this project for reconversion when the new dictionary applies or the old one no longer does.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePronunciationDictionaryResponseModel> CreateAsync(
             string projectId,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel> pronunciationDictionaryLocators,
             bool? invalidateAffectedText = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
