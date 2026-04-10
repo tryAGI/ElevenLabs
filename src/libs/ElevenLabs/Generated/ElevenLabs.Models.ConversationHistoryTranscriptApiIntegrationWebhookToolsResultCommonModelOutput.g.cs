@@ -37,6 +37,13 @@ namespace ElevenLabs
         public required bool IsError { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_blocked")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool IsBlocked { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_has_been_called")]
@@ -112,6 +119,9 @@ namespace ElevenLabs
         /// <param name="toolName"></param>
         /// <param name="resultValue"></param>
         /// <param name="isError"></param>
+        /// <param name="isBlocked">
+        /// Default Value: false
+        /// </param>
         /// <param name="toolHasBeenCalled"></param>
         /// <param name="toolLatencySecs">
         /// Default Value: 0
@@ -131,6 +141,7 @@ namespace ElevenLabs
             string toolName,
             string resultValue,
             bool isError,
+            bool isBlocked,
             bool toolHasBeenCalled,
             double toolLatencySecs,
             string errorType,
@@ -145,6 +156,7 @@ namespace ElevenLabs
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
             this.ResultValue = resultValue ?? throw new global::System.ArgumentNullException(nameof(resultValue));
             this.IsError = isError;
+            this.IsBlocked = isBlocked;
             this.ToolHasBeenCalled = toolHasBeenCalled;
             this.ToolLatencySecs = toolLatencySecs;
             this.ErrorType = errorType ?? throw new global::System.ArgumentNullException(nameof(errorType));
