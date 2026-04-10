@@ -15,10 +15,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        AdultRomance,
-        /// <summary>
-        /// 
-        /// </summary>
         BiographyAndMemoir,
         /// <summary>
         /// 
@@ -31,7 +27,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        DetectiveAndCrime,
+        Christian_Inspirational,
         /// <summary>
         /// 
         /// </summary>
@@ -136,6 +132,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         TrueCrime,
+        /// <summary>
+        /// 
+        /// </summary>
+        YoungAdult,
     }
 
     /// <summary>
@@ -151,11 +151,10 @@ namespace ElevenLabs
             return value switch
             {
                 DirectPublishingReadResponseModelGenreVariant1Item.ActionAndAdventure => "Action and Adventure",
-                DirectPublishingReadResponseModelGenreVariant1Item.AdultRomance => "Adult Romance",
                 DirectPublishingReadResponseModelGenreVariant1Item.BiographyAndMemoir => "Biography and Memoir",
                 DirectPublishingReadResponseModelGenreVariant1Item.BusinessAndEconomics => "Business and Economics",
                 DirectPublishingReadResponseModelGenreVariant1Item.ChildrensLiterature => "Children's Literature",
-                DirectPublishingReadResponseModelGenreVariant1Item.DetectiveAndCrime => "Detective and Crime",
+                DirectPublishingReadResponseModelGenreVariant1Item.Christian_Inspirational => "Christian & Inspirational",
                 DirectPublishingReadResponseModelGenreVariant1Item.Dystopia => "Dystopia",
                 DirectPublishingReadResponseModelGenreVariant1Item.EducationAndLearning => "Education and Learning",
                 DirectPublishingReadResponseModelGenreVariant1Item.FairyTalesAndFolklore => "Fairy Tales and Folklore",
@@ -182,6 +181,7 @@ namespace ElevenLabs
                 DirectPublishingReadResponseModelGenreVariant1Item.Technology => "Technology",
                 DirectPublishingReadResponseModelGenreVariant1Item.Travel => "Travel",
                 DirectPublishingReadResponseModelGenreVariant1Item.TrueCrime => "True Crime",
+                DirectPublishingReadResponseModelGenreVariant1Item.YoungAdult => "Young Adult",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -193,11 +193,10 @@ namespace ElevenLabs
             return value switch
             {
                 "Action and Adventure" => DirectPublishingReadResponseModelGenreVariant1Item.ActionAndAdventure,
-                "Adult Romance" => DirectPublishingReadResponseModelGenreVariant1Item.AdultRomance,
                 "Biography and Memoir" => DirectPublishingReadResponseModelGenreVariant1Item.BiographyAndMemoir,
                 "Business and Economics" => DirectPublishingReadResponseModelGenreVariant1Item.BusinessAndEconomics,
                 "Children's Literature" => DirectPublishingReadResponseModelGenreVariant1Item.ChildrensLiterature,
-                "Detective and Crime" => DirectPublishingReadResponseModelGenreVariant1Item.DetectiveAndCrime,
+                "Christian & Inspirational" => DirectPublishingReadResponseModelGenreVariant1Item.Christian_Inspirational,
                 "Dystopia" => DirectPublishingReadResponseModelGenreVariant1Item.Dystopia,
                 "Education and Learning" => DirectPublishingReadResponseModelGenreVariant1Item.EducationAndLearning,
                 "Fairy Tales and Folklore" => DirectPublishingReadResponseModelGenreVariant1Item.FairyTalesAndFolklore,
@@ -224,6 +223,7 @@ namespace ElevenLabs
                 "Technology" => DirectPublishingReadResponseModelGenreVariant1Item.Technology,
                 "Travel" => DirectPublishingReadResponseModelGenreVariant1Item.Travel,
                 "True Crime" => DirectPublishingReadResponseModelGenreVariant1Item.TrueCrime,
+                "Young Adult" => DirectPublishingReadResponseModelGenreVariant1Item.YoungAdult,
                 _ => null,
             };
         }

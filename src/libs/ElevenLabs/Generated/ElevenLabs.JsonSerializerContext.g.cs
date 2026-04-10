@@ -129,6 +129,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelIdNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefixJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefixNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter),
@@ -1995,6 +1999,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicPrompt))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId), TypeInfoPropertyName = "BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix), TypeInfoPropertyName = "BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyComposeMusicV1MusicPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyComposeMusicV1MusicPostModelId), TypeInfoPropertyName = "BodyComposeMusicV1MusicPostModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyComputeRagIndexesInBatchV1ConvaiKnowledgeBaseRagIndexPost))]

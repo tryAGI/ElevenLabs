@@ -98,6 +98,13 @@ namespace ElevenLabs
         public bool? SignWithC2pa { get; set; }
 
         /// <summary>
+        /// Default Value: music
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_style_prefix")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefixJsonConverter))]
+        public global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix? ModelStylePrefix { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -149,6 +156,9 @@ namespace ElevenLabs
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="modelStylePrefix">
+        /// Default Value: music
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -164,7 +174,8 @@ namespace ElevenLabs
             bool? respectSectionsDurations,
             bool? storeForInpainting,
             bool? withTimestamps,
-            bool? signWithC2pa)
+            bool? signWithC2pa,
+            global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix? modelStylePrefix)
         {
             this.Prompt = prompt;
             this.CompositionPlan = compositionPlan;
@@ -178,6 +189,7 @@ namespace ElevenLabs
             this.StoreForInpainting = storeForInpainting;
             this.WithTimestamps = withTimestamps;
             this.SignWithC2pa = signWithC2pa;
+            this.ModelStylePrefix = modelStylePrefix;
         }
 
         /// <summary>

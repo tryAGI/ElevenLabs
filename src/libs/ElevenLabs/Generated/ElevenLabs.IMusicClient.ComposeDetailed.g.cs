@@ -93,6 +93,9 @@ namespace ElevenLabs
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="modelStylePrefix">
+        /// Default Value: music
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -110,6 +113,7 @@ namespace ElevenLabs
             bool? storeForInpainting = default,
             bool? withTimestamps = default,
             bool? signWithC2pa = default,
+            global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix? modelStylePrefix = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
