@@ -125,10 +125,10 @@ namespace ElevenLabs
                 } 
             }
 
-                if (safetyIdentifier != default)
-                {
-                    __httpRequest.Headers.TryAddWithoutValidation("safety-identifier", safetyIdentifier.ToString());
-                }
+            if (safetyIdentifier != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("safety-identifier", safetyIdentifier.ToString());
+            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
