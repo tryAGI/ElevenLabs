@@ -15,10 +15,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Dtmf,
-        /// <summary>
-        /// 
-        /// </summary>
         File,
         /// <summary>
         /// 
@@ -43,7 +39,6 @@ namespace ElevenLabs
             return value switch
             {
                 ChatSourceMedium.Audio => "audio",
-                ChatSourceMedium.Dtmf => "dtmf",
                 ChatSourceMedium.File => "file",
                 ChatSourceMedium.Image => "image",
                 ChatSourceMedium.Text => "text",
@@ -58,7 +53,6 @@ namespace ElevenLabs
             return value switch
             {
                 "audio" => ChatSourceMedium.Audio,
-                "dtmf" => ChatSourceMedium.Dtmf,
                 "file" => ChatSourceMedium.File,
                 "image" => ChatSourceMedium.Image,
                 "text" => ChatSourceMedium.Text,

@@ -39,6 +39,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        CopyResourcesCrossWorkspace,
+        /// <summary>
+        /// 
+        /// </summary>
         CreateInstantVoiceClone,
         /// <summary>
         /// 
@@ -205,6 +209,7 @@ namespace ElevenLabs
                 PermissionType.AuditLogRead => "audit_log_read",
                 PermissionType.ConvaiRead => "convai_read",
                 PermissionType.ConvaiWrite => "convai_write",
+                PermissionType.CopyResourcesCrossWorkspace => "copy_resources_cross_workspace",
                 PermissionType.CreateInstantVoiceClone => "create_instant_voice_clone",
                 PermissionType.CreateProfessionalVoiceClone => "create_professional_voice_clone",
                 PermissionType.CreateUserApiKey => "create_user_api_key",
@@ -259,6 +264,7 @@ namespace ElevenLabs
                 "audit_log_read" => PermissionType.AuditLogRead,
                 "convai_read" => PermissionType.ConvaiRead,
                 "convai_write" => PermissionType.ConvaiWrite,
+                "copy_resources_cross_workspace" => PermissionType.CopyResourcesCrossWorkspace,
                 "create_instant_voice_clone" => PermissionType.CreateInstantVoiceClone,
                 "create_professional_voice_clone" => PermissionType.CreateProfessionalVoiceClone,
                 "create_user_api_key" => PermissionType.CreateUserApiKey,
