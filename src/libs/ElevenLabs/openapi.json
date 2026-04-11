@@ -14956,6 +14956,27 @@
             "description": "Filter conversations by branch ID."
           },
           {
+            "name": "topic_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations by topic IDs assigned during topic discovery.",
+              "title": "Topic Ids"
+            },
+            "description": "Filter conversations by topic IDs assigned during topic discovery."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -18884,6 +18905,76 @@
           "documents"
         ],
         "x-fern-sdk-method-name": "bulk_move"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/topics": {
+      "get": {
+        "tags": [
+          "Agents Insights",
+          "Agents Platform"
+        ],
+        "summary": "Get Agent Conversation Topics",
+        "description": "Returns the latest topic discovery run results for a given agent.",
+        "operationId": "get_agent_topics_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "ID of the agent",
+              "title": "Agent Id"
+            },
+            "description": "ID of the agent"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAgentTopicsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "conversations",
+          "topics"
+        ],
+        "x-fern-sdk-method-name": "get"
       }
     },
     "/v1/convai/tools": {
@@ -27583,6 +27674,34 @@
             "test_456"
           ]
         }
+      },
+      "AgentTopicResponseModel": {
+        "properties": {
+          "topic_id": {
+            "type": "string",
+            "title": "Topic Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "conversation_count": {
+            "type": "integer",
+            "title": "Conversation Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "topic_id",
+          "label",
+          "description",
+          "conversation_count"
+        ],
+        "title": "AgentTopicResponseModel"
       },
       "AgentTransfer": {
         "properties": {
@@ -48749,6 +48868,32 @@
           "name"
         ],
         "title": "GetAgentTestFolderResponseModel"
+      },
+      "GetAgentTopicsResponseModel": {
+        "properties": {
+          "topics": {
+            "items": {
+              "$ref": "#/components/schemas/AgentTopicResponseModel"
+            },
+            "type": "array",
+            "title": "Topics"
+          },
+          "window_start_unix_secs": {
+            "type": "integer",
+            "title": "Window Start Unix Secs"
+          },
+          "window_end_unix_secs": {
+            "type": "integer",
+            "title": "Window End Unix Secs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "topics",
+          "window_start_unix_secs",
+          "window_end_unix_secs"
+        ],
+        "title": "GetAgentTopicsResponseModel"
       },
       "GetAgentsPageResponseModel": {
         "properties": {

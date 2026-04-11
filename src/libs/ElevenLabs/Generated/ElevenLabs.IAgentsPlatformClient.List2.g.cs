@@ -76,6 +76,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="topicIds">
+        /// Filter conversations by topic IDs assigned during topic discovery.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -102,6 +105,7 @@ namespace ElevenLabs
             string? search = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             string? branchId = default,
+            global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
