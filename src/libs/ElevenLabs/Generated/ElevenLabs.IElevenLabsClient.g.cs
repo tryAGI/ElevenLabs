@@ -48,6 +48,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public AgentsInsightsClient AgentsInsights { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AgentsPlatformClient AgentsPlatform { get; }
 
         /// <summary>
