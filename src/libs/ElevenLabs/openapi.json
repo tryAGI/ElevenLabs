@@ -38522,7 +38522,6 @@
         "type": "string",
         "enum": [
           "audio",
-          "dtmf",
           "text",
           "image",
           "file"
@@ -57289,7 +57288,8 @@
           "workspace_members_invite",
           "workspace_members_remove",
           "terms_of_service_accept",
-          "audit_log_read"
+          "audit_log_read",
+          "copy_resources_cross_workspace"
         ],
         "title": "PermissionType"
       },
@@ -78003,7 +78003,8 @@
           "workspace_members_invite",
           "workspace_members_remove",
           "terms_of_service_accept",
-          "audit_log_read"
+          "audit_log_read",
+          "copy_resources_cross_workspace"
         ],
         "title": "WorkspaceGroupPermission"
       },

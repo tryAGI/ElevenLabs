@@ -31,6 +31,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        CopyResourcesCrossWorkspace,
+        /// <summary>
+        /// 
+        /// </summary>
         CreateInstantVoiceClone,
         /// <summary>
         /// 
@@ -147,6 +151,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.AudioNative => "audio_native",
                 WorkspaceGroupPermission.AuditLogRead => "audit_log_read",
                 WorkspaceGroupPermission.ConversationalAi => "conversational_ai",
+                WorkspaceGroupPermission.CopyResourcesCrossWorkspace => "copy_resources_cross_workspace",
                 WorkspaceGroupPermission.CreateInstantVoiceClone => "create_instant_voice_clone",
                 WorkspaceGroupPermission.CreateProfessionalVoiceClone => "create_professional_voice_clone",
                 WorkspaceGroupPermission.CreateUserApiKey => "create_user_api_key",
@@ -187,6 +192,7 @@ namespace ElevenLabs
                 "audio_native" => WorkspaceGroupPermission.AudioNative,
                 "audit_log_read" => WorkspaceGroupPermission.AuditLogRead,
                 "conversational_ai" => WorkspaceGroupPermission.ConversationalAi,
+                "copy_resources_cross_workspace" => WorkspaceGroupPermission.CopyResourcesCrossWorkspace,
                 "create_instant_voice_clone" => WorkspaceGroupPermission.CreateInstantVoiceClone,
                 "create_professional_voice_clone" => WorkspaceGroupPermission.CreateProfessionalVoiceClone,
                 "create_user_api_key" => WorkspaceGroupPermission.CreateUserApiKey,
