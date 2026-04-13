@@ -43636,6 +43636,18 @@
         "type": "object",
         "title": "CreateHolidayParams"
       },
+      "CreateLocationParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "create_location",
+            "title": "Smb Tool Type",
+            "default": "create_location"
+          }
+        },
+        "type": "object",
+        "title": "CreateLocationParams"
+      },
       "CreateMTLSAuthRequest": {
         "properties": {
           "name": {
@@ -45101,6 +45113,18 @@
         },
         "type": "object",
         "title": "DeleteHolidayParams"
+      },
+      "DeleteLocationParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "delete_location",
+            "title": "Smb Tool Type",
+            "default": "delete_location"
+          }
+        },
+        "type": "object",
+        "title": "DeleteLocationParams"
       },
       "DeleteProductParams": {
         "properties": {
@@ -53905,6 +53929,18 @@
         },
         "type": "object",
         "title": "ListHolidaysParams"
+      },
+      "ListLocationsParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "list_locations",
+            "title": "Smb Tool Type",
+            "default": "list_locations"
+          }
+        },
+        "type": "object",
+        "title": "ListLocationsParams"
       },
       "ListMCPToolsResponseModel": {
         "properties": {
@@ -63666,6 +63702,18 @@
               },
               {
                 "$ref": "#/components/schemas/DeleteClientInteractionParams"
+              },
+              {
+                "$ref": "#/components/schemas/ListLocationsParams"
+              },
+              {
+                "$ref": "#/components/schemas/CreateLocationParams"
+              },
+              {
+                "$ref": "#/components/schemas/UpdateLocationParams"
+              },
+              {
+                "$ref": "#/components/schemas/DeleteLocationParams"
               }
             ],
             "title": "Params",
@@ -63680,6 +63728,7 @@
                 "create_client_appointment": "#/components/schemas/CreateClientAppointmentParams",
                 "create_client_interaction": "#/components/schemas/CreateClientInteractionParams",
                 "create_holiday": "#/components/schemas/CreateHolidayParams",
+                "create_location": "#/components/schemas/CreateLocationParams",
                 "create_product": "#/components/schemas/CreateProductParams",
                 "create_rental_booking": "#/components/schemas/CreateRentalBookingParams",
                 "create_rental_service": "#/components/schemas/CreateRentalServiceParams",
@@ -63691,6 +63740,7 @@
                 "delete_client": "#/components/schemas/DeleteClientParams",
                 "delete_client_interaction": "#/components/schemas/DeleteClientInteractionParams",
                 "delete_holiday": "#/components/schemas/DeleteHolidayParams",
+                "delete_location": "#/components/schemas/DeleteLocationParams",
                 "delete_product": "#/components/schemas/DeleteProductParams",
                 "delete_rental_service": "#/components/schemas/DeleteRentalServiceParams",
                 "delete_service": "#/components/schemas/DeleteServiceParams",
@@ -63707,6 +63757,7 @@
                 "list_client_interactions": "#/components/schemas/ListClientInteractionsParams",
                 "list_clients": "#/components/schemas/ListClientsParams",
                 "list_holidays": "#/components/schemas/ListHolidaysParams",
+                "list_locations": "#/components/schemas/ListLocationsParams",
                 "list_products": "#/components/schemas/ListProductsParams",
                 "list_rental_services": "#/components/schemas/ListRentalServicesParams",
                 "list_services": "#/components/schemas/ListServicesParams",
@@ -63721,6 +63772,7 @@
                 "update_client": "#/components/schemas/UpdateClientParams",
                 "update_customer_facing_config": "#/components/schemas/UpdateCustomerFacingConfigParams",
                 "update_holiday": "#/components/schemas/UpdateHolidayParams",
+                "update_location": "#/components/schemas/UpdateLocationParams",
                 "update_product": "#/components/schemas/UpdateProductParams",
                 "update_rental_service": "#/components/schemas/UpdateRentalServiceParams",
                 "update_service": "#/components/schemas/UpdateServiceParams",
@@ -70330,6 +70382,18 @@
         },
         "type": "object",
         "title": "UpdateHolidayParams"
+      },
+      "UpdateLocationParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "update_location",
+            "title": "Smb Tool Type",
+            "default": "update_location"
+          }
+        },
+        "type": "object",
+        "title": "UpdateLocationParams"
       },
       "UpdatePhoneNumberRequest": {
         "properties": {
