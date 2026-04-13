@@ -28,6 +28,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         None,
+        /// <summary>
+        /// 
+        /// </summary>
+        Xhigh,
     }
 
     /// <summary>
@@ -47,6 +51,7 @@ namespace ElevenLabs
                 LLMReasoningEffort.Medium => "medium",
                 LLMReasoningEffort.Minimal => "minimal",
                 LLMReasoningEffort.None => "none",
+                LLMReasoningEffort.Xhigh => "xhigh",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,6 +67,7 @@ namespace ElevenLabs
                 "medium" => LLMReasoningEffort.Medium,
                 "minimal" => LLMReasoningEffort.Minimal,
                 "none" => LLMReasoningEffort.None,
+                "xhigh" => LLMReasoningEffort.Xhigh,
                 _ => null,
             };
         }

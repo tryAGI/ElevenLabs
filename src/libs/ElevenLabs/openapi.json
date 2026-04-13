@@ -24867,6 +24867,73 @@
         "x-fern-sdk-method-name": "request"
       }
     },
+    "/v1/workspace/analytics/query/usage-by-product-over-time": {
+      "post": {
+        "tags": [
+          "access:all"
+        ],
+        "summary": "Usage-By-Product-Over-Time",
+        "description": "Returns credit usage broken down by product type over time. Timestamps are Unix milliseconds. The response is a tabular structure with columns, column_types, column_units, and rows.",
+        "operationId": "usage_by_product_over_time",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_usage_by_product_over_time_v1_workspace_analytics_query_usage_by_product_over_time_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceAnalyticsQueryResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "workspace",
+          "usage"
+        ],
+        "x-fern-sdk-method-name": "get_usage_by_product_over_time"
+      }
+    },
     "/docs": {
       "get": {
         "summary": "Redirect To Mintlify",
@@ -37002,6 +37069,77 @@
         ],
         "title": "Body_text_to_speech_stream_with_timestamps"
       },
+      "Body_usage_by_product_over_time_v1_workspace_analytics_query_usage_by_product_over_time_post": {
+        "properties": {
+          "start_time": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Start Time"
+          },
+          "end_time": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "End Time"
+          },
+          "interval_seconds": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Interval Seconds",
+            "default": 60
+          },
+          "group_by": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "product_type",
+                    "model",
+                    "voice_id",
+                    "user_id",
+                    "fiat_currency",
+                    "fiat_charge_type",
+                    "region",
+                    "reporting_workspace_id",
+                    "request_source",
+                    "resource_id",
+                    "subresource_id",
+                    "request_queue_type",
+                    "voice_multiplier",
+                    "hashed_xi_api_key",
+                    "billing_group_id"
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group By"
+          },
+          "filters": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ColumnFilter"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filters"
+          }
+        },
+        "type": "object",
+        "required": [
+          "start_time",
+          "end_time"
+        ],
+        "title": "Body_usage_by_product_over_time_v1_workspace_analytics_query_usage_by_product_over_time_post"
+      },
       "BranchProtectionStatus": {
         "type": "string",
         "enum": [
@@ -39030,6 +39168,78 @@
         ],
         "title": "CoachingAgentSettings",
         "description": "Runtime-only settings for the virtual coach. Not stored in the database."
+      },
+      "ColumnFilter": {
+        "properties": {
+          "column": {
+            "type": "string",
+            "title": "Column"
+          },
+          "operation": {
+            "type": "string",
+            "enum": [
+              "in",
+              "not_in",
+              "le",
+              "ge",
+              "lt",
+              "gt",
+              "eq",
+              "neq"
+            ],
+            "title": "Operation"
+          },
+          "values": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Values"
+          }
+        },
+        "type": "object",
+        "required": [
+          "column",
+          "operation",
+          "values"
+        ],
+        "title": "ColumnFilter"
+      },
+      "ColumnUnit": {
+        "type": "string",
+        "enum": [
+          "ms",
+          "s",
+          "min",
+          "duration",
+          "credits",
+          "usd",
+          "eur",
+          "inr",
+          "ratio",
+          "rating"
+        ],
+        "title": "ColumnUnit"
       },
       "ConfigEntityType": {
         "type": "string",
@@ -52560,6 +52770,7 @@
           "gpt-5.1",
           "gpt-5.2",
           "gpt-5.2-chat-latest",
+          "gpt-5.4",
           "gpt-5-mini",
           "gpt-5-nano",
           "gpt-3.5-turbo",
@@ -52611,6 +52822,7 @@
           "gpt-5-2025-08-07",
           "gpt-5.1-2025-11-13",
           "gpt-5.2-2025-12-11",
+          "gpt-5.4-2026-03-05",
           "gpt-5-mini-2025-08-07",
           "gpt-5-nano-2025-08-07",
           "gpt-4.1-2025-04-14",
@@ -53106,7 +53318,8 @@
           "minimal",
           "low",
           "medium",
-          "high"
+          "high",
+          "xhigh"
         ],
         "title": "LLMReasoningEffort"
       },
@@ -77965,6 +78178,85 @@
           "type"
         ],
         "title": "WorkflowUnconditionalModel"
+      },
+      "WorkspaceAnalyticsQueryResponseModel": {
+        "properties": {
+          "columns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Columns"
+          },
+          "column_types": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "String",
+                "Float",
+                "DateTime",
+                "Int",
+                "Bool",
+                "JSON",
+                "Map"
+              ]
+            },
+            "type": "array",
+            "title": "Column Types"
+          },
+          "rows": {
+            "items": {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Rows"
+          },
+          "column_units": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/ColumnUnit"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Column Units"
+          }
+        },
+        "type": "object",
+        "required": [
+          "columns",
+          "column_types",
+          "rows",
+          "column_units"
+        ],
+        "title": "WorkspaceAnalyticsQueryResponseModel"
       },
       "WorkspaceApiKeyListResponseModel": {
         "properties": {

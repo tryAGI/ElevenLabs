@@ -287,6 +287,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gpt54,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt5420260305,
+        /// <summary>
+        /// 
+        /// </summary>
         GptOss120b,
         /// <summary>
         /// 
@@ -403,6 +411,8 @@ namespace ElevenLabs
                 Llm.Gpt52 => "gpt-5.2",
                 Llm.Gpt5220251211 => "gpt-5.2-2025-12-11",
                 Llm.Gpt52ChatLatest => "gpt-5.2-chat-latest",
+                Llm.Gpt54 => "gpt-5.4",
+                Llm.Gpt5420260305 => "gpt-5.4-2026-03-05",
                 Llm.GptOss120b => "gpt-oss-120b",
                 Llm.GptOss20b => "gpt-oss-20b",
                 Llm.GrokBeta => "grok-beta",
@@ -491,6 +501,8 @@ namespace ElevenLabs
                 "gpt-5.2" => Llm.Gpt52,
                 "gpt-5.2-2025-12-11" => Llm.Gpt5220251211,
                 "gpt-5.2-chat-latest" => Llm.Gpt52ChatLatest,
+                "gpt-5.4" => Llm.Gpt54,
+                "gpt-5.4-2026-03-05" => Llm.Gpt5420260305,
                 "gpt-oss-120b" => Llm.GptOss120b,
                 "gpt-oss-20b" => Llm.GptOss20b,
                 "grok-beta" => Llm.GrokBeta,
