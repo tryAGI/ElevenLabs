@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class BodyTextToDialogueMultiVoiceV1TextToDialoguePost
     {
         /// <summary>
-        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech. The maximum number of unique voice IDs is 10.
+        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech. The maximum number of unique voice IDs is 10. For reliable generation, keep the total character count across all `inputs[].text` values at or below 2,000 characters per request. Longer requests can terminate early in streaming responses or return a validation error.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inputs")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -70,7 +70,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyTextToDialogueMultiVoiceV1TextToDialoguePost" /> class.
         /// </summary>
         /// <param name="inputs">
-        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech. The maximum number of unique voice IDs is 10.
+        /// A list of dialogue inputs, each containing text and a voice ID which will be converted into speech. The maximum number of unique voice IDs is 10. For reliable generation, keep the total character count across all `inputs[].text` values at or below 2,000 characters per request. Longer requests can terminate early in streaming responses or return a validation error.
         /// </param>
         /// <param name="modelId">
         /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.<br/>
