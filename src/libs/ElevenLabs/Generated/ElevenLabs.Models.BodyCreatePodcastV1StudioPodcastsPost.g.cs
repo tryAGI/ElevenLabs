@@ -40,8 +40,8 @@ namespace ElevenLabs
         /// Default Value: standard
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyCreatePodcastV1StudioPodcastsPostQualityPresetJsonConverter))]
-        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? QualityPreset { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.QualityPresetTypeJsonConverter))]
+        public global::ElevenLabs.QualityPresetType? QualityPreset { get; set; }
 
         /// <summary>
         /// Duration of the generated podcast. Must be one of:<br/>
@@ -269,7 +269,7 @@ namespace ElevenLabs
             string modelId,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> mode,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> source,
-            global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? qualityPreset,
+            global::ElevenLabs.QualityPresetType? qualityPreset,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? durationScale,
             string? language,
             string? intro,

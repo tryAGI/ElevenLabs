@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class BodyCreatePodcastV1StudioPodcastsPostQualityPresetJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset>
+    public sealed class QualityPresetTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.QualityPresetType>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset Read(
+        public override global::ElevenLabs.QualityPresetType Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPresetExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.QualityPresetTypeExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset)numValue;
+                    return (global::ElevenLabs.QualityPresetType)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset);
+                    return default(global::ElevenLabs.QualityPresetType);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset value,
+            global::ElevenLabs.QualityPresetType value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPresetExtensions.ToValueString(value));
+            writer.WriteStringValue(global::ElevenLabs.QualityPresetTypeExtensions.ToValueString(value));
         }
     }
 }

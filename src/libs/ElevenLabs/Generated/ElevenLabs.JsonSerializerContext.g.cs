@@ -137,10 +137,6 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostQualityPresetJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostQualityPresetNullableJsonConverter),
-
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2NullableJsonConverter),
@@ -156,10 +152,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostSourceType2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostSourceType2NullableJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.BodyCreatePodcastV1StudioPodcastsPostQualityPresetJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.BodyCreatePodcastV1StudioPodcastsPostQualityPresetNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreatePodcastV1StudioPodcastsPostDurationScaleJsonConverter),
 
@@ -781,10 +773,6 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelAspectRatio2NullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelQualityPresetJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelQualityPresetNullableJsonConverter),
-
             typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelApplyTextNormalizationNullableJsonConverter),
@@ -844,6 +832,10 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.PronunciationDictionaryVersionResponseModelPermissionOnResource2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PronunciationDictionaryVersionResponseModelPermissionOnResource2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.QualityPresetTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.QualityPresetTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.RAGIndexStatusJsonConverter),
 
@@ -2034,7 +2026,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostQualityPreset), TypeInfoPropertyName = "BodyCreateStudioProjectV1StudioProjectsPostQualityPreset2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.QualityPresetType), TypeInfoPropertyName = "QualityPresetType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2))]
@@ -2059,7 +2051,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PodcastURLSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>), TypeInfoPropertyName = "AnyOfPodcastTextSourcePodcastURLSource2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset), TypeInfoPropertyName = "BodyCreatePodcastV1StudioPodcastsPostQualityPreset2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale), TypeInfoPropertyName = "BodyCreatePodcastV1StudioPodcastsPostDurationScale2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost))]
@@ -3008,7 +2999,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.CaptionStyleModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ProjectExtendedResponseModelAspectRatio2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.StudioAgentSettingsModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ProjectExtendedResponseModelQualityPreset), TypeInfoPropertyName = "ProjectExtendedResponseModelQualityPreset2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PronunciationDictionaryVersionResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel>))]

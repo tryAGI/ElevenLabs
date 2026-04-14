@@ -31713,13 +31713,7 @@
             ]
           },
           "quality_preset": {
-            "type": "string",
-            "enum": [
-              "standard",
-              "high",
-              "ultra",
-              "ultra_lossless"
-            ],
+            "$ref": "#/components/schemas/QualityPresetType",
             "title": "Quality of the generated audio.",
             "description": "Output quality of the generated audio. Must be one of:\n'standard' - standard output format, 128kbps with 44.1kHz sample rate.\n'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.\n'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.\n'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.\n",
             "default": "standard",
@@ -32591,14 +32585,7 @@
             ]
           },
           "quality_preset": {
-            "type": "string",
-            "enum": [
-              "standard",
-              "high",
-              "highest",
-              "ultra",
-              "ultra_lossless"
-            ],
+            "$ref": "#/components/schemas/QualityPresetType",
             "title": "Quality of the generated audio.",
             "description": "Output quality of the generated audio. Must be one of:\n'standard' - standard output format, 128kbps with 44.1kHz sample rate.\n'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.\n'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.\n'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.\n",
             "default": "standard",
@@ -59142,15 +59129,7 @@
             "description": "Agent-related settings for the project"
           },
           "quality_preset": {
-            "type": "string",
-            "enum": [
-              "standard",
-              "high",
-              "highest",
-              "ultra",
-              "ultra_lossless"
-            ],
-            "title": "Quality Preset",
+            "$ref": "#/components/schemas/QualityPresetType",
             "description": "The quality preset level of the project."
           },
           "chapters": {
@@ -62356,6 +62335,16 @@
         ],
         "title": "PydanticPronunciationDictionaryVersionLocator",
         "description": "A locator for other documents to be able to reference a specific dictionary and it's version.\nThis is a pydantic version of PronunciationDictionaryVersionLocatorDBModel.\nRequired to ensure compat with the rest of the agent data models."
+      },
+      "QualityPresetType": {
+        "type": "string",
+        "enum": [
+          "standard",
+          "high",
+          "ultra",
+          "ultra_lossless"
+        ],
+        "default": "standard"
       },
       "QueryParamsJsonSchema": {
         "properties": {

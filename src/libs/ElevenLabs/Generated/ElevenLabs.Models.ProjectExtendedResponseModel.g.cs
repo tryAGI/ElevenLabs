@@ -237,12 +237,14 @@ namespace ElevenLabs
         public global::ElevenLabs.StudioAgentSettingsModel? AgentSettings { get; set; }
 
         /// <summary>
-        /// The quality preset level of the project.
+        /// The quality preset level of the project.<br/>
+        /// Default Value: standard
         /// </summary>
+        /// <default>global::ElevenLabs.QualityPresetType.Standard</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExtendedResponseModelQualityPresetJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.QualityPresetTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ProjectExtendedResponseModelQualityPreset QualityPreset { get; set; }
+        public required global::ElevenLabs.QualityPresetType QualityPreset { get; set; } = global::ElevenLabs.QualityPresetType.Standard;
 
         /// <summary>
         /// List of chapters of the project and their metadata.
@@ -351,7 +353,8 @@ namespace ElevenLabs
         /// Whether quality check is enabled on the project when bulk converting.
         /// </param>
         /// <param name="qualityPreset">
-        /// The quality preset level of the project.
+        /// The quality preset level of the project.<br/>
+        /// Default Value: standard
         /// </param>
         /// <param name="chapters">
         /// List of chapters of the project and their metadata.
@@ -467,7 +470,7 @@ namespace ElevenLabs
             global::ElevenLabs.ProjectExtendedResponseModelAccessLevel accessLevel,
             bool qualityCheckOn,
             bool qualityCheckOnWhenBulkConvert,
-            global::ElevenLabs.ProjectExtendedResponseModelQualityPreset qualityPreset,
+            global::ElevenLabs.QualityPresetType qualityPreset,
             global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel> chapters,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel> pronunciationDictionaryVersions,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel> pronunciationDictionaryLocators,

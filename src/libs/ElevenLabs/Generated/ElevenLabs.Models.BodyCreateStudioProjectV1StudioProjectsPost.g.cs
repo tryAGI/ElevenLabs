@@ -69,8 +69,8 @@ namespace ElevenLabs
         /// Default Value: standard
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostQualityPresetJsonConverter))]
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostQualityPreset? QualityPreset { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.QualityPresetTypeJsonConverter))]
+        public global::ElevenLabs.QualityPresetType? QualityPreset { get; set; }
 
         /// <summary>
         /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.
@@ -447,7 +447,7 @@ namespace ElevenLabs
             byte[]? fromDocument,
             string? fromDocumentname,
             string? fromContentJson,
-            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostQualityPreset? qualityPreset,
+            global::ElevenLabs.QualityPresetType? qualityPreset,
             string? title,
             string? author,
             string? description,
