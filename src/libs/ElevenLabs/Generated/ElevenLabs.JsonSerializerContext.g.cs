@@ -733,9 +733,9 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.PhoneNumberTransferCustomSipHeaderDiscriminatorTypeNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.PhoneNumberTransferTransferDestinationVariant1DiscriminatorTypeJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.PhoneNumberTransferTransferDestinationDiscriminatorTypeJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.PhoneNumberTransferTransferDestinationVariant1DiscriminatorTypeNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.PhoneNumberTransferTransferDestinationDiscriminatorTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PhoneNumberTransferPostDialDigitsVariant1DiscriminatorTypeJsonConverter),
 
@@ -1467,7 +1467,7 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CustomSipHeadersItemJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.TransferDestinationVariant1JsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.TransferDestinationJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant1JsonConverter),
 
@@ -1513,13 +1513,13 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CustomSipHeadersItem2JsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.TransferDestinationJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.TransferDestination2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant12JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.CustomSipHeadersItem3JsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.TransferDestination2JsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.TransferDestination3JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant13JsonConverter),
 
@@ -2969,12 +2969,12 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CustomSipHeadersItem), TypeInfoPropertyName = "CustomSipHeadersItem2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PhoneNumberTransferCustomSipHeaderDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PhoneNumberTransferCustomSipHeaderDiscriminatorType), TypeInfoPropertyName = "PhoneNumberTransferCustomSipHeaderDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferDestinationVariant1))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferDestination), TypeInfoPropertyName = "TransferDestination2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PhoneNumberTransferDestination))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SIPUriTransferDestination))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SIPUriDynamicVariableTransferDestination))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PhoneNumberTransferTransferDestinationVariant1Discriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PhoneNumberTransferTransferDestinationVariant1DiscriminatorType), TypeInfoPropertyName = "PhoneNumberTransferTransferDestinationVariant1DiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType), TypeInfoPropertyName = "PhoneNumberTransferTransferDestinationDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferTypeEnum), TypeInfoPropertyName = "TransferTypeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PostDialDigitsVariant1))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PostDialDigitsStatic))]
@@ -3379,7 +3379,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CustomSipHeadersItem2), TypeInfoPropertyName = "CustomSipHeadersItem22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType), TypeInfoPropertyName = "WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferDestination), TypeInfoPropertyName = "TransferDestination2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferDestination2), TypeInfoPropertyName = "TransferDestination22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminatorType), TypeInfoPropertyName = "WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PostDialDigitsVariant12))]
@@ -3389,7 +3389,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CustomSipHeadersItem3), TypeInfoPropertyName = "CustomSipHeadersItem32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminatorType), TypeInfoPropertyName = "WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferDestination2), TypeInfoPropertyName = "TransferDestination22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferDestination3), TypeInfoPropertyName = "TransferDestination32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType), TypeInfoPropertyName = "WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PostDialDigitsVariant13))]

@@ -34623,6 +34623,12 @@
             "description": "If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.",
             "default": false
           },
+          "detect_speaker_roles": {
+            "type": "boolean",
+            "title": "Detect Speaker Roles",
+            "description": "Whether to detect speaker roles (agent vs customer). Requires diarize=true. Cannot be used with use_multi_channel=true. When enabled, speaker_id values will be 'agent' and 'customer' instead of 'speaker_0', 'speaker_1', etc. Usage incurs an additional 10% surcharge on base transcription cost.",
+            "default": false
+          },
           "entity_redaction": {
             "anyOf": [
               {
@@ -57756,53 +57762,30 @@
             "description": "Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference."
           },
           "transfer_destination": {
-            "anyOf": [
+            "oneOf": [
               {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/PhoneNumberTransferDestination"
-                  },
-                  {
-                    "$ref": "#/components/schemas/SIPUriTransferDestination"
-                  },
-                  {
-                    "$ref": "#/components/schemas/PhoneNumberDynamicVariableTransferDestination"
-                  },
-                  {
-                    "$ref": "#/components/schemas/SIPUriDynamicVariableTransferDestination"
-                  }
-                ],
-                "discriminator": {
-                  "propertyName": "type",
-                  "mapping": {
-                    "phone": "#/components/schemas/PhoneNumberTransferDestination",
-                    "phone_dynamic_variable": "#/components/schemas/PhoneNumberDynamicVariableTransferDestination",
-                    "sip_uri": "#/components/schemas/SIPUriTransferDestination",
-                    "sip_uri_dynamic_variable": "#/components/schemas/SIPUriDynamicVariableTransferDestination"
-                  }
-                }
+                "$ref": "#/components/schemas/PhoneNumberTransferDestination"
               },
               {
-                "type": "null"
-              }
-            ],
-            "title": "Transfer Destination"
-          },
-          "phone_number": {
-            "anyOf": [
-              {
-                "type": "string"
+                "$ref": "#/components/schemas/SIPUriTransferDestination"
               },
               {
-                "type": "null"
+                "$ref": "#/components/schemas/PhoneNumberDynamicVariableTransferDestination"
+              },
+              {
+                "$ref": "#/components/schemas/SIPUriDynamicVariableTransferDestination"
               }
             ],
-            "title": "Phone Number",
-            "deprecated": true
-          },
-          "condition": {
-            "type": "string",
-            "title": "Condition"
+            "title": "Transfer Destination",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "phone": "#/components/schemas/PhoneNumberTransferDestination",
+                "phone_dynamic_variable": "#/components/schemas/PhoneNumberDynamicVariableTransferDestination",
+                "sip_uri": "#/components/schemas/SIPUriTransferDestination",
+                "sip_uri_dynamic_variable": "#/components/schemas/SIPUriDynamicVariableTransferDestination"
+              }
+            }
           },
           "transfer_type": {
             "$ref": "#/components/schemas/TransferTypeEnum",
@@ -57833,10 +57816,27 @@
             ],
             "title": "Post Dial Digits",
             "description": "DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers."
+          },
+          "phone_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone Number",
+            "deprecated": true
+          },
+          "condition": {
+            "type": "string",
+            "title": "Condition"
           }
         },
         "type": "object",
         "required": [
+          "transfer_destination",
           "condition"
         ],
         "title": "PhoneNumberTransfer"
@@ -64435,7 +64435,7 @@
           "workspace_lite_member"
         ],
         "title": "SeatType",
-        "description": "Seat types for workspace members.\nLite Member is equivalent to Basic Seat in the web application.\nMember is equivalent to Full Seat in the web application."
+        "description": "Seat types for workspace members."
       },
       "SecretDependencyResourceType": {
         "type": "string",
@@ -77381,24 +77381,6 @@
             "title": "Custom Sip Headers",
             "description": "Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference."
           },
-          "type": {
-            "type": "string",
-            "const": "phone_number",
-            "title": "Type",
-            "default": "phone_number"
-          },
-          "position": {
-            "$ref": "#/components/schemas/Position-Input",
-            "description": "Position of the node in the workflow."
-          },
-          "edge_order": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Edge Order",
-            "description": "The ids of outgoing edges in the order they should be evaluated."
-          },
           "transfer_destination": {
             "oneOf": [
               {
@@ -77453,7 +77435,25 @@
               }
             ],
             "title": "Post Dial Digits",
-            "description": "DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause."
+            "description": "DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers."
+          },
+          "type": {
+            "type": "string",
+            "const": "phone_number",
+            "title": "Type",
+            "default": "phone_number"
+          },
+          "position": {
+            "$ref": "#/components/schemas/Position-Input",
+            "description": "Position of the node in the workflow."
+          },
+          "edge_order": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Edge Order",
+            "description": "The ids of outgoing edges in the order they should be evaluated."
           }
         },
         "type": "object",
@@ -77487,24 +77487,6 @@
             "title": "Custom Sip Headers",
             "description": "Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference."
           },
-          "type": {
-            "type": "string",
-            "const": "phone_number",
-            "title": "Type",
-            "default": "phone_number"
-          },
-          "position": {
-            "$ref": "#/components/schemas/Position-Output",
-            "description": "Position of the node in the workflow."
-          },
-          "edge_order": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Edge Order",
-            "description": "The ids of outgoing edges in the order they should be evaluated."
-          },
           "transfer_destination": {
             "oneOf": [
               {
@@ -77559,18 +77541,36 @@
               }
             ],
             "title": "Post Dial Digits",
-            "description": "DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause."
+            "description": "DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers."
+          },
+          "type": {
+            "type": "string",
+            "const": "phone_number",
+            "title": "Type",
+            "default": "phone_number"
+          },
+          "position": {
+            "$ref": "#/components/schemas/Position-Output",
+            "description": "Position of the node in the workflow."
+          },
+          "edge_order": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Edge Order",
+            "description": "The ids of outgoing edges in the order they should be evaluated."
           }
         },
         "type": "object",
         "required": [
           "custom_sip_headers",
-          "type",
-          "position",
-          "edge_order",
           "transfer_destination",
           "transfer_type",
-          "post_dial_digits"
+          "post_dial_digits",
+          "type",
+          "position",
+          "edge_order"
         ],
         "title": "WorkflowPhoneNumberNodeModel"
       },

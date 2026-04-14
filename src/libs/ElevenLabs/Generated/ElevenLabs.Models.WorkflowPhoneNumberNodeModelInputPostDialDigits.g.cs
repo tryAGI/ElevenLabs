@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause.
+    /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
     /// </summary>
     public sealed partial class WorkflowPhoneNumberNodeModelInputPostDialDigits
     {

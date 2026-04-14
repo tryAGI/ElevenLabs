@@ -15,6 +15,27 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem2>? CustomSipHeaders { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transfer_destination")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestination2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.TransferDestination2 TransferDestination { get; set; }
+
+        /// <summary>
+        /// Default Value: conference
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transfer_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferTypeEnumJsonConverter))]
+        public global::ElevenLabs.TransferTypeEnum? TransferType { get; set; }
+
+        /// <summary>
+        /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("post_dial_digits")]
+        public global::ElevenLabs.PostDialDigitsVariant12? PostDialDigits { get; set; }
+
+        /// <summary>
         /// Default Value: phone_number
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -33,27 +54,6 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? EdgeOrder { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("transfer_destination")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestinationJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.TransferDestination TransferDestination { get; set; }
-
-        /// <summary>
-        /// Default Value: conference
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("transfer_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferTypeEnumJsonConverter))]
-        public global::ElevenLabs.TransferTypeEnum? TransferType { get; set; }
-
-        /// <summary>
-        /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("post_dial_digits")]
-        public global::ElevenLabs.PostDialDigitsVariant12? PostDialDigits { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -66,6 +66,12 @@ namespace ElevenLabs
         /// <param name="customSipHeaders">
         /// Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference.
         /// </param>
+        /// <param name="transferType">
+        /// Default Value: conference
+        /// </param>
+        /// <param name="postDialDigits">
+        /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
+        /// </param>
         /// <param name="type">
         /// Default Value: phone_number
         /// </param>
@@ -75,31 +81,25 @@ namespace ElevenLabs
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </param>
-        /// <param name="transferType">
-        /// Default Value: conference
-        /// </param>
-        /// <param name="postDialDigits">
-        /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WorkflowPhoneNumberNodeModelInput(
-            global::ElevenLabs.TransferDestination transferDestination,
+            global::ElevenLabs.TransferDestination2 transferDestination,
             global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem2>? customSipHeaders,
+            global::ElevenLabs.TransferTypeEnum? transferType,
+            global::ElevenLabs.PostDialDigitsVariant12? postDialDigits,
             string? type,
             global::ElevenLabs.PositionInput? position,
-            global::System.Collections.Generic.IList<string>? edgeOrder,
-            global::ElevenLabs.TransferTypeEnum? transferType,
-            global::ElevenLabs.PostDialDigitsVariant12? postDialDigits)
+            global::System.Collections.Generic.IList<string>? edgeOrder)
         {
             this.CustomSipHeaders = customSipHeaders;
-            this.Type = type;
-            this.Position = position;
-            this.EdgeOrder = edgeOrder;
             this.TransferDestination = transferDestination;
             this.TransferType = transferType;
             this.PostDialDigits = postDialDigits;
+            this.Type = type;
+            this.Position = position;
+            this.EdgeOrder = edgeOrder;
         }
 
         /// <summary>

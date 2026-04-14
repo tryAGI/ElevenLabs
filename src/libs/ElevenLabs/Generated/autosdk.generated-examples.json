@@ -211,17 +211,6 @@
     },
     {
       "Order": 20,
-      "Title": "Get Dubbed Transcript",
-      "Slug": "get-dubbed-transcript-file",
-      "Description": "Returns transcript for the dub as an SRT or WEBVTT file.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// 1\n// 00:00:01,000 --\u003E 00:00:04,000\n// Hello, this is the first subtitle line\n// \n// 2\n// 00:00:05,000 --\u003E 00:00:07,000\n// And here\u0027s the second subtitle line",
-      "Format": "sdk",
-      "OperationId": "get_dubbed_transcript_file",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
-    },
-    {
-      "Order": 21,
       "Title": "Delete History Item",
       "Slug": "delete-speech-history-item",
       "Description": "Delete a history item by its ID",
@@ -232,7 +221,7 @@
       "Setup": null
     },
     {
-      "Order": 22,
+      "Order": 21,
       "Title": "Download History Items",
       "Slug": "download-speech-history-items",
       "Description": "Download one or more history items. If one history item ID is provided, we will return a single audio file. If more than one history item IDs are provided, we will provide the history items packed into a .zip file.",
@@ -243,7 +232,7 @@
       "Setup": null
     },
     {
-      "Order": 23,
+      "Order": 22,
       "Title": "Get History Item",
       "Slug": "get-speech-history-item-by-id",
       "Description": "Retrieves a history item.",
@@ -254,7 +243,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 24,
+      "Order": 23,
       "Title": "List Generated Items",
       "Slug": "get-speech-history",
       "Description": "Returns a list of your generated audio.",
@@ -265,7 +254,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 25,
+      "Order": 24,
       "Title": "Stem Separation",
       "Slug": "separate-song-stems",
       "Description": "Separate an audio file into individual stems. This endpoint might have high latency, depending on the length of the audio file.",
@@ -276,7 +265,7 @@
       "Setup": null
     },
     {
-      "Order": 26,
+      "Order": 25,
       "Title": "Upload Music",
       "Slug": "upload-song",
       "Description": "Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.",
@@ -287,7 +276,7 @@
       "Setup": null
     },
     {
-      "Order": 27,
+      "Order": 26,
       "Title": "Generate Composition Plan",
       "Slug": "compose-plan",
       "Description": "Generate a composition plan from a prompt.",
@@ -298,7 +287,7 @@
       "Setup": null
     },
     {
-      "Order": 28,
+      "Order": 27,
       "Title": "Add A Pronunciation Dictionary",
       "Slug": "add-from-file",
       "Description": "Creates a new pronunciation dictionary from a lexicon .PLS file",
@@ -309,7 +298,7 @@
       "Setup": null
     },
     {
-      "Order": 29,
+      "Order": 28,
       "Title": "Add A Pronunciation Dictionary",
       "Slug": "add-from-rules",
       "Description": "Creates a new pronunciation dictionary from provided rules.",
@@ -320,7 +309,7 @@
       "Setup": null
     },
     {
-      "Order": 30,
+      "Order": 29,
       "Title": "Get Metadata For A Pronunciation Dictionary",
       "Slug": "get-pronunciation-dictionary-metadata",
       "Description": "Get metadata for a pronunciation dictionary",
@@ -331,7 +320,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 31,
+      "Order": 30,
       "Title": "Get Pronunciation Dictionaries",
       "Slug": "get-pronunciation-dictionaries-metadata",
       "Description": "Get a list of the pronunciation dictionaries you have access to and their metadata",
@@ -342,7 +331,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 32,
+      "Order": 31,
       "Title": "Update Pronunciation Dictionary",
       "Slug": "patch-pronunciation-dictionary",
       "Description": "Partially update the pronunciation dictionary without changing the version",
@@ -353,7 +342,7 @@
       "Setup": null
     },
     {
-      "Order": 33,
+      "Order": 32,
       "Title": "Add Rules To The Pronunciation Dictionary",
       "Slug": "add-rules",
       "Description": "Add rules to the pronunciation dictionary. If a rule with the same string_to_replace already exists, it will be replaced.",
@@ -364,7 +353,7 @@
       "Setup": null
     },
     {
-      "Order": 34,
+      "Order": 33,
       "Title": "Remove Rules From The Pronunciation Dictionary",
       "Slug": "remove-rules",
       "Description": "Remove rules from the pronunciation dictionary",
@@ -375,7 +364,7 @@
       "Setup": null
     },
     {
-      "Order": 35,
+      "Order": 34,
       "Title": "Set Rules On The Pronunciation Dictionary",
       "Slug": "set-rules",
       "Description": "Replaces all existing rules on the pronunciation dictionary with the provided ones.",
@@ -386,7 +375,7 @@
       "Setup": null
     },
     {
-      "Order": 36,
+      "Order": 35,
       "Title": "Create Pvc Voice",
       "Slug": "create-pvc-voice",
       "Description": "Creates a new PVC voice with metadata but no samples",
@@ -397,7 +386,7 @@
       "Setup": null
     },
     {
-      "Order": 37,
+      "Order": 36,
       "Title": "Delete Pvc Voice Sample",
       "Slug": "delete-pvc-voice-sample",
       "Description": "Delete a sample from a PVC voice.",
@@ -408,7 +397,7 @@
       "Setup": null
     },
     {
-      "Order": 38,
+      "Order": 37,
       "Title": "Retrieve Voice Sample Audio",
       "Slug": "get-pvc-sample-audio",
       "Description": "Retrieve the first 30 seconds of voice sample audio with or without noise removal.",
@@ -419,7 +408,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 39,
+      "Order": 38,
       "Title": "Retrieve Voice Sample Visual Waveform",
       "Slug": "get-pvc-sample-visual-waveform",
       "Description": "Retrieve the visual waveform of a voice sample.",
@@ -430,7 +419,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 40,
+      "Order": 39,
       "Title": "Retrieve Speaker Separation Status",
       "Slug": "get-pvc-sample-speakers",
       "Description": "Retrieve the status of the speaker separation process and the list of detected speakers if complete.",
@@ -441,7 +430,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 41,
+      "Order": 40,
       "Title": "Retrieve Separated Speaker Audio",
       "Slug": "get-speaker-audio",
       "Description": "Retrieve the separated audio for a specific speaker.",
@@ -452,7 +441,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 42,
+      "Order": 41,
       "Title": "Request Manual Verification",
       "Slug": "request-pvc-manual-verification",
       "Description": "Request manual verification for a PVC voice.",
@@ -463,7 +452,7 @@
       "Setup": null
     },
     {
-      "Order": 43,
+      "Order": 42,
       "Title": "Start Speaker Separation",
       "Slug": "start-speaker-separation",
       "Description": "Start speaker separation process for a sample",
@@ -474,7 +463,7 @@
       "Setup": null
     },
     {
-      "Order": 44,
+      "Order": 43,
       "Title": "Run Pvc Training",
       "Slug": "run-pvc-voice-training",
       "Description": "Start PVC training process for a voice.",
@@ -485,7 +474,7 @@
       "Setup": null
     },
     {
-      "Order": 45,
+      "Order": 44,
       "Title": "Edit Pvc Voice",
       "Slug": "edit-pvc-voice",
       "Description": "Edit PVC voice metadata",
@@ -496,7 +485,7 @@
       "Setup": null
     },
     {
-      "Order": 46,
+      "Order": 45,
       "Title": "Update Pvc Voice Sample",
       "Slug": "edit-pvc-voice-sample",
       "Description": "Update a PVC voice sample - apply noise removal, select speaker, change trim times or file name.",
@@ -507,7 +496,7 @@
       "Setup": null
     },
     {
-      "Order": 47,
+      "Order": 46,
       "Title": "Verify Pvc Voice Captcha",
       "Slug": "verify-pvc-voice-captcha",
       "Description": "Submit captcha verification for PVC voice.",
@@ -518,7 +507,7 @@
       "Setup": null
     },
     {
-      "Order": 48,
+      "Order": 47,
       "Title": "Delete Sample",
       "Slug": "delete-sample",
       "Description": "Removes a sample by its ID.",
@@ -529,7 +518,7 @@
       "Setup": null
     },
     {
-      "Order": 49,
+      "Order": 48,
       "Title": "Create Single Use Token",
       "Slug": "get-single-use-token",
       "Description": "Generate a time limited single-use token with embedded authentication for frontend clients.",
@@ -540,7 +529,7 @@
       "Setup": null
     },
     {
-      "Order": 50,
+      "Order": 49,
       "Title": "Speech To Text",
       "Slug": "speech-to-text",
       "Description": "Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a \u0027transcripts\u0027 object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.",
@@ -551,7 +540,7 @@
       "Setup": null
     },
     {
-      "Order": 51,
+      "Order": 50,
       "Title": "Delete Transcript By Id",
       "Slug": "delete-transcript-by-id",
       "Description": "Delete a previously generated transcript by its ID.",
@@ -562,7 +551,7 @@
       "Setup": null
     },
     {
-      "Order": 52,
+      "Order": 51,
       "Title": "Get Transcript By Id",
       "Slug": "get-transcript-by-id",
       "Description": "Retrieve a previously generated transcript by its ID.",
@@ -573,7 +562,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 53,
+      "Order": 52,
       "Title": "Convert Studio Project",
       "Slug": "convert-project-endpoint",
       "Description": "Starts conversion of a Studio project and all of its chapters.",
@@ -584,7 +573,7 @@
       "Setup": null
     },
     {
-      "Order": 54,
+      "Order": 53,
       "Title": "Convert Chapter",
       "Slug": "convert-chapter-endpoint",
       "Description": "Starts conversion of a specific chapter.",
@@ -595,7 +584,7 @@
       "Setup": null
     },
     {
-      "Order": 55,
+      "Order": 54,
       "Title": "Create Pronunciation Dictionaries",
       "Slug": "update-pronunciation-dictionaries",
       "Description": "Create a set of pronunciation dictionaries acting on a project. This will automatically mark text within this project as requiring reconverting where the new dictionary would apply or the old one no longer does.",
@@ -606,7 +595,7 @@
       "Setup": null
     },
     {
-      "Order": 56,
+      "Order": 55,
       "Title": "Delete Studio Project",
       "Slug": "delete-project",
       "Description": "Deletes a Studio project.",
@@ -617,7 +606,7 @@
       "Setup": null
     },
     {
-      "Order": 57,
+      "Order": 56,
       "Title": "Delete Chapter",
       "Slug": "delete-chapter-endpoint",
       "Description": "Deletes a chapter.",
@@ -628,7 +617,7 @@
       "Setup": null
     },
     {
-      "Order": 58,
+      "Order": 57,
       "Title": "Get Studio Project",
       "Slug": "get-project-by-id",
       "Description": "Returns information about a specific Studio project. This endpoint returns more detailed information about a project than \u0060GET /v1/studio\u0060.",
@@ -639,7 +628,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 59,
+      "Order": 58,
       "Title": "Get Project Snapshot",
       "Slug": "get-project-snapshot-endpoint",
       "Description": "Returns the project snapshot.",
@@ -650,7 +639,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 60,
+      "Order": 59,
       "Title": "Get Chapter",
       "Slug": "get-chapter-by-id-endpoint",
       "Description": "Returns information about a specific chapter.",
@@ -661,7 +650,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 61,
+      "Order": 60,
       "Title": "Get Chapter Snapshot",
       "Slug": "get-chapter-snapshot-endpoint",
       "Description": "Returns the chapter snapshot.",
@@ -672,7 +661,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 62,
+      "Order": 61,
       "Title": "Get Project Muted Tracks",
       "Slug": "get-project-muted-tracks-endpoint",
       "Description": "Returns a list of chapter IDs that have muted tracks in a project.",
@@ -683,7 +672,7 @@
       "Setup": null
     },
     {
-      "Order": 63,
+      "Order": 62,
       "Title": "List Studio Projects",
       "Slug": "get-projects",
       "Description": "Returns a list of your Studio projects with metadata.",
@@ -694,7 +683,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 64,
+      "Order": 63,
       "Title": "List Studio Project Snapshots",
       "Slug": "get-project-snapshots",
       "Description": "Retrieves a list of snapshots for a Studio project.",
@@ -705,7 +694,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 65,
+      "Order": 64,
       "Title": "List Chapter Snapshots",
       "Slug": "get-chapter-snapshots",
       "Description": "Gets information about all the snapshots of a chapter. Each snapshot can be downloaded as audio. Whenever a chapter is converted a snapshot will automatically be created.",
@@ -716,7 +705,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 66,
+      "Order": 65,
       "Title": "Text To Dialogue With Timestamps",
       "Slug": "text-to-dialogue-full-with-timestamps",
       "Description": "Generate dialogue from text with precise character-level timing information for audio-text synchronization.",
@@ -727,7 +716,7 @@
       "Setup": null
     },
     {
-      "Order": 67,
+      "Order": 66,
       "Title": "Text To Dialogue Streaming With Timestamps",
       "Slug": "text-to-dialogue-stream-with-timestamps",
       "Description": "Converts a list of text and voice ID pairs into speech (dialogue) and returns a stream of JSON blobs containing audio as a base64 encoded string and timestamps",
@@ -738,7 +727,7 @@
       "Setup": null
     },
     {
-      "Order": 68,
+      "Order": 67,
       "Title": "Text To Speech With Timestamps",
       "Slug": "text-to-speech-full-with-timestamps",
       "Description": "Generate speech from text with precise character-level timing information for audio-text synchronization.",
@@ -749,7 +738,7 @@
       "Setup": null
     },
     {
-      "Order": 69,
+      "Order": 68,
       "Title": "Text To Speech Streaming With Timestamps",
       "Slug": "text-to-speech-stream-with-timestamps",
       "Description": "Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.",
@@ -760,7 +749,7 @@
       "Setup": null
     },
     {
-      "Order": 70,
+      "Order": 69,
       "Title": "Create A New Voice From Voice Preview",
       "Slug": "create-voice",
       "Description": "Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/design or POST /v1/text-to-voice/:voice_id/remix.",
@@ -771,7 +760,7 @@
       "Setup": null
     },
     {
-      "Order": 71,
+      "Order": 70,
       "Title": "Get Characters Usage Metrics",
       "Slug": "usage-characters",
       "Description": "Returns the usage metrics for the current user or the entire workspace they are part of. The response provides a time axis based on the specified aggregation interval (default: day), with usage values for each interval along that axis. Usage is broken down by the selected breakdown type. For example, breakdown type \u0022voice\u0022 will return the usage of each voice for each interval along the time axis.",
@@ -782,7 +771,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 72,
+      "Order": 71,
       "Title": "Get User Info",
       "Slug": "get-user-info",
       "Description": "Gets information about the user",
@@ -793,7 +782,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 73,
+      "Order": 72,
       "Title": "Add Voice",
       "Slug": "add-voice",
       "Description": "Add a new voice to your collection of voices in VoiceLab.",
@@ -804,7 +793,7 @@
       "Setup": null
     },
     {
-      "Order": 74,
+      "Order": 73,
       "Title": "Delete Voice",
       "Slug": "delete-voice",
       "Description": "Deletes a voice by its ID.",
@@ -815,7 +804,7 @@
       "Setup": null
     },
     {
-      "Order": 75,
+      "Order": 74,
       "Title": "Get Similar Library Voices",
       "Slug": "get-similar-library-voices",
       "Description": "Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.",
@@ -826,7 +815,7 @@
       "Setup": null
     },
     {
-      "Order": 76,
+      "Order": 75,
       "Title": "Get Voice Settings",
       "Slug": "get-voice-settings",
       "Description": "Returns the settings for a specific voice. \u0022similarity_boost\u0022 corresponds to\u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
@@ -837,7 +826,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 77,
+      "Order": 76,
       "Title": "Get Voice",
       "Slug": "get-voice-by-id",
       "Description": "Returns metadata about a specific voice.",
@@ -848,7 +837,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 78,
+      "Order": 77,
       "Title": "List Voices",
       "Slug": "get-voices",
       "Description": "Returns a list of all available voices for a user.",
@@ -859,7 +848,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 79,
+      "Order": 78,
       "Title": "Get Default Voice Settings.",
       "Slug": "get-voice-settings-default",
       "Description": "Gets the default settings for voices. \u0022similarity_boost\u0022 corresponds to\u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
@@ -870,7 +859,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 80,
+      "Order": 79,
       "Title": "Get Voices",
       "Slug": "get-library-voices",
       "Description": "Retrieves a list of shared voices.",
@@ -881,7 +870,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 81,
+      "Order": 80,
       "Title": "Add Shared Voice",
       "Slug": "add-sharing-voice",
       "Description": "Add a shared voice to your collection of voices.",
@@ -892,7 +881,7 @@
       "Setup": null
     },
     {
-      "Order": 82,
+      "Order": 81,
       "Title": "Edit Voice Settings",
       "Slug": "edit-voice-settings",
       "Description": "Edit your settings for a specific voice. \u0022similarity_boost\u0022 corresponds to \u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
@@ -903,7 +892,7 @@
       "Setup": null
     },
     {
-      "Order": 83,
+      "Order": 82,
       "Title": "Edit Voice",
       "Slug": "edit-voice",
       "Description": "Edit a voice created by you.",
@@ -914,7 +903,7 @@
       "Setup": null
     },
     {
-      "Order": 84,
+      "Order": 83,
       "Title": "Delete Workspace Webhook",
       "Slug": "delete-workspace-webhook-route",
       "Description": "Delete the specified workspace webhook",
@@ -925,7 +914,7 @@
       "Setup": null
     },
     {
-      "Order": 85,
+      "Order": 84,
       "Title": "List Workspace Webhooks",
       "Slug": "get-workspace-webhooks-route",
       "Description": "List all webhooks for a workspace",
@@ -936,7 +925,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 86,
+      "Order": 85,
       "Title": "Update Workspace Webhook",
       "Slug": "edit-workspace-webhook-route",
       "Description": "Update the specified workspace webhook",
@@ -947,7 +936,7 @@
       "Setup": null
     },
     {
-      "Order": 87,
+      "Order": 86,
       "Title": "Add Member To User Group",
       "Slug": "add-member",
       "Description": "Adds a member of your workspace to the specified group. Requires \u0060group_members_manage\u0060 permission.",
@@ -958,7 +947,7 @@
       "Setup": null
     },
     {
-      "Order": 88,
+      "Order": 87,
       "Title": "Invite User",
       "Slug": "invite-user",
       "Description": "Sends an email invitation to join your workspace to the provided email. If the user doesn\u0027t have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission. If the user is already in the workspace a 400 error will be returned.",
@@ -969,7 +958,7 @@
       "Setup": null
     },
     {
-      "Order": 89,
+      "Order": 88,
       "Title": "Invite Multiple Users",
       "Slug": "invite-users-bulk",
       "Description": "Sends email invitations to join your workspace to the provided emails. Requires all email addresses to be part of a verified domain. If the users don\u0027t have an account they will be prompted to create one. If the users accept these invites they will be added as users to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission.",
@@ -980,7 +969,7 @@
       "Setup": null
     },
     {
-      "Order": 90,
+      "Order": 89,
       "Title": "Delete Existing Invitation",
       "Slug": "delete-invite",
       "Description": "Invalidates an existing email invitation. The invitation will still show up in the inbox it has been delivered to, but activating it to join the workspace won\u0027t work. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission.",
@@ -991,7 +980,7 @@
       "Setup": null
     },
     {
-      "Order": 91,
+      "Order": 90,
       "Title": "Get Resource",
       "Slug": "get-resource-metadata",
       "Description": "Gets the metadata of a resource by ID.",
@@ -1002,7 +991,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 92,
+      "Order": 91,
       "Title": "Delete Member From User Group",
       "Slug": "remove-member",
       "Description": "Removes a member from the specified group. Requires \u0060group_members_manage\u0060 permission.",
@@ -1013,7 +1002,7 @@
       "Setup": null
     },
     {
-      "Order": 93,
+      "Order": 92,
       "Title": "Update Member",
       "Slug": "update-workspace-member",
       "Description": "Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.",
