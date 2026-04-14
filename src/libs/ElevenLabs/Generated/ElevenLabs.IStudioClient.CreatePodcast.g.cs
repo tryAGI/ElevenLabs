@@ -137,7 +137,7 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode> mode,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>> source,
             string? safetyIdentifier = default,
-            global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostQualityPreset? qualityPreset = default,
+            global::ElevenLabs.QualityPresetType? qualityPreset = default,
             global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? durationScale = default,
             string? language = default,
             string? intro = default,

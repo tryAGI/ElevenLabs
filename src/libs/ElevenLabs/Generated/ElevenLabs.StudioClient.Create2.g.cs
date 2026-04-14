@@ -805,7 +805,7 @@ namespace ElevenLabs
             byte[]? fromDocument = default,
             string? fromDocumentname = default,
             string? fromContentJson = default,
-            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostQualityPreset? qualityPreset = default,
+            global::ElevenLabs.QualityPresetType? qualityPreset = default,
             string? title = default,
             string? author = default,
             string? description = default,
