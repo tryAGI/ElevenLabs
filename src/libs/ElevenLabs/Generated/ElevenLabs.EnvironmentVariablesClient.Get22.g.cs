@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get21SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get22SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,22 +21,22 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get21SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get22SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Get21SecurityRequirement0,
+            {                s_Get22SecurityRequirement0,
             };
-        partial void PrepareGet21Arguments(
+        partial void PrepareGet22Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string envVarId);
-        partial void PrepareGet21Request(
+        partial void PrepareGet22Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string envVarId);
-        partial void ProcessGet21Response(
+        partial void ProcessGet22Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGet21ResponseContent(
+        partial void ProcessGet22ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -49,22 +49,22 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Get21Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Get22Async(
             string envVarId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGet21Arguments(
+            PrepareGet22Arguments(
                 httpClient: HttpClient,
                 envVarId: ref envVarId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Get21SecurityRequirements,
-                operationName: "Get21Async");
+                securityRequirements: s_Get22SecurityRequirements,
+                operationName: "Get22Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -122,7 +122,7 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGet21Request(
+                PrepareGet22Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     envVarId: envVarId);
@@ -142,8 +142,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get21",
-                                methodName: "Get21Async",
+                                operationId: "Get22",
+                                methodName: "Get22Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -169,8 +169,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get21",
-                                methodName: "Get21Async",
+                                operationId: "Get22",
+                                methodName: "Get22Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -204,8 +204,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get21",
-                                methodName: "Get21Async",
+                                operationId: "Get22",
+                                methodName: "Get22Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -243,7 +243,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGet21Response(
+                ProcessGet22Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -251,8 +251,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get21",
-                                methodName: "Get21Async",
+                                operationId: "Get22",
+                                methodName: "Get22Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -271,8 +271,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get21",
-                                methodName: "Get21Async",
+                                operationId: "Get22",
+                                methodName: "Get22Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -370,7 +370,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGet21ResponseContent(
+                                ProcessGet22ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);

@@ -2,20 +2,18 @@
 
 namespace ElevenLabs
 {
-    public partial interface IAgentsPlatformClient
+    public partial interface IEnvironmentVariablesClient
     {
         /// <summary>
-        /// Get Mcp Server<br/>
-        /// Retrieve a specific MCP server configuration from the workspace.
+        /// Get Environment Variable<br/>
+        /// Get a specific environment variable by ID
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
+        /// <param name="envVarId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Get18Async(
-            string mcpServerId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Get22Async(
+            string envVarId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

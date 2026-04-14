@@ -29,12 +29,14 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             int? pageSize,
             int? dependencyLimit,
+            ref string? search,
             ref string? cursor);
         partial void PrepareList8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? pageSize,
             int? dependencyLimit,
+            string? search,
             string? cursor);
         partial void ProcessList8Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -55,6 +57,9 @@ namespace ElevenLabs
         /// <param name="dependencyLimit">
         /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
         /// </param>
+        /// <param name="search">
+        /// If specified, returns only secrets whose names start with this string.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -64,6 +69,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWorkspaceSecretsResponseModel> List8Async(
             int? pageSize = default,
             int? dependencyLimit = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -74,6 +80,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 pageSize: pageSize,
                 dependencyLimit: dependencyLimit,
+                search: ref search,
                 cursor: ref cursor);
 
 
@@ -104,6 +111,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("dependency_limit", dependencyLimit?.ToString())
+                                .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("cursor", cursor) 
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -148,6 +156,7 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     pageSize: pageSize,
                     dependencyLimit: dependencyLimit,
+                    search: search,
                     cursor: cursor);
 
                 return __httpRequest;
