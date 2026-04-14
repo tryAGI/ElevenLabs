@@ -67,6 +67,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        NullLiteral,
+        /// <summary>
+        /// 
+        /// </summary>
         NumberLiteral,
         /// <summary>
         /// 
@@ -108,6 +112,7 @@ namespace ElevenLabs
                 ASTNodeInputDiscriminatorType.LteOperator => "lte_operator",
                 ASTNodeInputDiscriminatorType.MulOperator => "mul_operator",
                 ASTNodeInputDiscriminatorType.NeqOperator => "neq_operator",
+                ASTNodeInputDiscriminatorType.NullLiteral => "null_literal",
                 ASTNodeInputDiscriminatorType.NumberLiteral => "number_literal",
                 ASTNodeInputDiscriminatorType.OrOperator => "or_operator",
                 ASTNodeInputDiscriminatorType.StringLiteral => "string_literal",
@@ -136,6 +141,7 @@ namespace ElevenLabs
                 "lte_operator" => ASTNodeInputDiscriminatorType.LteOperator,
                 "mul_operator" => ASTNodeInputDiscriminatorType.MulOperator,
                 "neq_operator" => ASTNodeInputDiscriminatorType.NeqOperator,
+                "null_literal" => ASTNodeInputDiscriminatorType.NullLiteral,
                 "number_literal" => ASTNodeInputDiscriminatorType.NumberLiteral,
                 "or_operator" => ASTNodeInputDiscriminatorType.OrOperator,
                 "string_literal" => ASTNodeInputDiscriminatorType.StringLiteral,

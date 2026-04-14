@@ -19923,6 +19923,24 @@
             "description": "Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100."
           },
           {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "If specified, returns only secrets whose names start with this string.",
+              "title": "Search"
+            },
+            "description": "If specified, returns only secrets whose names start with this string."
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -19989,6 +20007,70 @@
       }
     },
     "/v1/convai/secrets/{secret_id}": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Convai Workspace Secret",
+        "description": "Get a workspace secret by ID",
+        "operationId": "get_secret_route",
+        "parameters": [
+          {
+            "name": "secret_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Secret Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConvAIWorkspaceStoredSecretConfig"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "secrets"
+        ],
+        "x-fern-sdk-method-name": "get"
+      },
       "delete": {
         "tags": [
           "Agents Platform"
@@ -25771,6 +25853,10 @@
             "description": "Boolean literal."
           },
           {
+            "$ref": "#/components/schemas/ASTNullNode-Input",
+            "description": "Null literal."
+          },
+          {
             "$ref": "#/components/schemas/ASTLLMNode-Input",
             "description": "Value extracted by an LLM according to the given schema."
           },
@@ -25848,6 +25934,7 @@
             "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Input",
             "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Input",
             "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Input",
+            "null_literal": "#/components/schemas/ASTNullNode-Input",
             "number_literal": "#/components/schemas/ASTNumberNode-Input",
             "or_operator": "#/components/schemas/ASTOrOperatorNode-Input",
             "string_literal": "#/components/schemas/ASTStringNode-Input",
@@ -25868,6 +25955,10 @@
           {
             "$ref": "#/components/schemas/ASTBooleanNode-Output",
             "description": "Boolean literal."
+          },
+          {
+            "$ref": "#/components/schemas/ASTNullNode-Output",
+            "description": "Null literal."
           },
           {
             "$ref": "#/components/schemas/ASTLLMNode-Output",
@@ -25947,6 +26038,7 @@
             "lte_operator": "#/components/schemas/ASTLessThanOrEqualsOperatorNode-Output",
             "mul_operator": "#/components/schemas/ASTMultiplicationOperatorNode-Output",
             "neq_operator": "#/components/schemas/ASTNotEqualsOperatorNode-Output",
+            "null_literal": "#/components/schemas/ASTNullNode-Output",
             "number_literal": "#/components/schemas/ASTNumberNode-Output",
             "or_operator": "#/components/schemas/ASTOrOperatorNode-Output",
             "string_literal": "#/components/schemas/ASTStringNode-Output",
@@ -26002,6 +26094,33 @@
           "right"
         ],
         "title": "ASTNotEqualsOperatorNode"
+      },
+      "ASTNullNode-Input": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "null_literal",
+            "title": "Type",
+            "default": "null_literal"
+          }
+        },
+        "type": "object",
+        "title": "ASTNullNode"
+      },
+      "ASTNullNode-Output": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "null_literal",
+            "title": "Type",
+            "default": "null_literal"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "ASTNullNode"
       },
       "ASTNumberNode-Input": {
         "properties": {

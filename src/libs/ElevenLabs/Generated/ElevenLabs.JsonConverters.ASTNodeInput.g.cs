@@ -36,18 +36,16 @@ namespace ElevenLabs.JsonConverters
             if (__jsonProps.Contains("type")) __score2++;
             if (__jsonProps.Contains("value")) __score2++;
             var __score3 = 0;
+            if (__jsonProps.Contains("type")) __score3++;
             var __score4 = 0;
-            if (__jsonProps.Contains("name")) __score4++;
-            if (__jsonProps.Contains("type")) __score4++;
             var __score5 = 0;
-            if (__jsonProps.Contains("children")) __score5++;
+            if (__jsonProps.Contains("name")) __score5++;
             if (__jsonProps.Contains("type")) __score5++;
             var __score6 = 0;
             if (__jsonProps.Contains("children")) __score6++;
             if (__jsonProps.Contains("type")) __score6++;
             var __score7 = 0;
-            if (__jsonProps.Contains("left")) __score7++;
-            if (__jsonProps.Contains("right")) __score7++;
+            if (__jsonProps.Contains("children")) __score7++;
             if (__jsonProps.Contains("type")) __score7++;
             var __score8 = 0;
             if (__jsonProps.Contains("left")) __score8++;
@@ -86,10 +84,14 @@ namespace ElevenLabs.JsonConverters
             if (__jsonProps.Contains("right")) __score16++;
             if (__jsonProps.Contains("type")) __score16++;
             var __score17 = 0;
-            if (__jsonProps.Contains("condition")) __score17++;
-            if (__jsonProps.Contains("falseExpression")) __score17++;
-            if (__jsonProps.Contains("trueExpression")) __score17++;
+            if (__jsonProps.Contains("left")) __score17++;
+            if (__jsonProps.Contains("right")) __score17++;
             if (__jsonProps.Contains("type")) __score17++;
+            var __score18 = 0;
+            if (__jsonProps.Contains("condition")) __score18++;
+            if (__jsonProps.Contains("falseExpression")) __score18++;
+            if (__jsonProps.Contains("trueExpression")) __score18++;
+            if (__jsonProps.Contains("type")) __score18++;
             var __bestScore = 0;
             var __bestIndex = -1;
             if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
@@ -110,10 +112,12 @@ namespace ElevenLabs.JsonConverters
             if (__score15 > __bestScore) { __bestScore = __score15; __bestIndex = 15; }
             if (__score16 > __bestScore) { __bestScore = __score16; __bestIndex = 16; }
             if (__score17 > __bestScore) { __bestScore = __score17; __bestIndex = 17; }
+            if (__score18 > __bestScore) { __bestScore = __score18; __bestIndex = 18; }
 
             global::ElevenLabs.ASTStringNodeInput? stringLiteral = default;
             global::ElevenLabs.ASTNumberNodeInput? numberLiteral = default;
             global::ElevenLabs.ASTBooleanNodeInput? booleanLiteral = default;
+            global::ElevenLabs.ASTNullNodeInput? nullLiteral = default;
             global::ElevenLabs.ASTLLMNodeInput? lm = default;
             global::ElevenLabs.ASTDynamicVariableNodeInput? dynamicVariable = default;
             global::ElevenLabs.ASTOrOperatorNodeInput? orOperator = default;
@@ -180,6 +184,21 @@ namespace ElevenLabs.JsonConverters
                 {
                     try
                     {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTNullNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTNullNodeInput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTNullNodeInput).Name}");
+                        nullLiteral = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 4)
+                {
+                    try
+                    {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTLLMNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTLLMNodeInput> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTLLMNodeInput).Name}");
                         lm = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -191,7 +210,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 4)
+                else if (__bestIndex == 5)
                 {
                     try
                     {
@@ -206,7 +225,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 5)
+                else if (__bestIndex == 6)
                 {
                     try
                     {
@@ -221,7 +240,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 6)
+                else if (__bestIndex == 7)
                 {
                     try
                     {
@@ -236,7 +255,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 7)
+                else if (__bestIndex == 8)
                 {
                     try
                     {
@@ -251,7 +270,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 8)
+                else if (__bestIndex == 9)
                 {
                     try
                     {
@@ -266,7 +285,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 9)
+                else if (__bestIndex == 10)
                 {
                     try
                     {
@@ -281,7 +300,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 10)
+                else if (__bestIndex == 11)
                 {
                     try
                     {
@@ -296,7 +315,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 11)
+                else if (__bestIndex == 12)
                 {
                     try
                     {
@@ -311,7 +330,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 12)
+                else if (__bestIndex == 13)
                 {
                     try
                     {
@@ -326,7 +345,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 13)
+                else if (__bestIndex == 14)
                 {
                     try
                     {
@@ -341,7 +360,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 14)
+                else if (__bestIndex == 15)
                 {
                     try
                     {
@@ -356,7 +375,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 15)
+                else if (__bestIndex == 16)
                 {
                     try
                     {
@@ -371,7 +390,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 16)
+                else if (__bestIndex == 17)
                 {
                     try
                     {
@@ -386,7 +405,7 @@ namespace ElevenLabs.JsonConverters
                     {
                     }
                 }
-                else if (__bestIndex == 17)
+                else if (__bestIndex == 18)
                 {
                     try
                     {
@@ -403,7 +422,7 @@ namespace ElevenLabs.JsonConverters
                 }
             }
 
-            if (stringLiteral == null && numberLiteral == null && booleanLiteral == null && lm == null && dynamicVariable == null && orOperator == null && andOperator == null && eqOperator == null && neqOperator == null && gtOperator == null && ltOperator == null && gteOperator == null && lteOperator == null && addOperator == null && subOperator == null && mulOperator == null && divOperator == null && conditionalOperator == null)
+            if (stringLiteral == null && numberLiteral == null && booleanLiteral == null && nullLiteral == null && lm == null && dynamicVariable == null && orOperator == null && andOperator == null && eqOperator == null && neqOperator == null && gtOperator == null && ltOperator == null && gteOperator == null && lteOperator == null && addOperator == null && subOperator == null && mulOperator == null && divOperator == null && conditionalOperator == null)
             {
                 try
                 {
@@ -436,6 +455,19 @@ namespace ElevenLabs.JsonConverters
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTBooleanNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTBooleanNodeInput> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTBooleanNodeInput).Name}");
                     booleanLiteral = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+
+                try
+                {
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTNullNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTNullNodeInput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTNullNodeInput).Name}");
+                    nullLiteral = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -647,6 +679,8 @@ namespace ElevenLabs.JsonConverters
 
                 booleanLiteral,
 
+                nullLiteral,
+
                 lm,
 
                 dynamicVariable,
@@ -707,6 +741,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTBooleanNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTBooleanNodeInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTBooleanNodeInput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.BooleanLiteral!, typeInfo);
+            }
+            else if (value.IsNullLiteral)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTNullNodeInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTNullNodeInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTNullNodeInput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.NullLiteral!, typeInfo);
             }
             else if (value.IsLm)
             {

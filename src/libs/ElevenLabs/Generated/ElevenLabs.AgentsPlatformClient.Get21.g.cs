@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get18SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get21SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,52 +21,59 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get18SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get21SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Get18SecurityRequirement0,
+            {                s_Get21SecurityRequirement0,
             };
-        partial void PrepareGet18Arguments(
+        partial void PrepareGet21Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId);
-        partial void PrepareGet18Request(
+            ref string agentId,
+            ref string branchId);
+        partial void PrepareGet21Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId);
-        partial void ProcessGet18Response(
+            string agentId,
+            string branchId);
+        partial void ProcessGet21Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGet18ResponseContent(
+        partial void ProcessGet21ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Mcp Server<br/>
-        /// Retrieve a specific MCP server configuration from the workspace.
+        /// Get Agent Branch<br/>
+        /// Get information about a single agent branch
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="branchId">
+        /// Unique identifier for the branch.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Get18Async(
-            string mcpServerId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Get21Async(
+            string agentId,
+            string branchId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGet18Arguments(
+            PrepareGet21Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId);
+                agentId: ref agentId,
+                branchId: ref branchId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Get18SecurityRequirements,
-                operationName: "Get18Async");
+                securityRequirements: s_Get21SecurityRequirements,
+                operationName: "Get21Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -85,7 +92,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/mcp-servers/{mcpServerId}",
+                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -124,10 +131,11 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGet18Request(
+                PrepareGet21Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    mcpServerId: mcpServerId);
+                    agentId: agentId,
+                    branchId: branchId);
 
                 return __httpRequest;
             }
@@ -144,9 +152,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get18",
-                                methodName: "Get18Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                operationId: "Get21",
+                                methodName: "Get21Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -171,9 +179,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get18",
-                                methodName: "Get18Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                operationId: "Get21",
+                                methodName: "Get21Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -206,9 +214,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get18",
-                                methodName: "Get18Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                operationId: "Get21",
+                                methodName: "Get21Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -245,7 +253,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGet18Response(
+                ProcessGet21Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -253,9 +261,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get18",
-                                methodName: "Get18Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                operationId: "Get21",
+                                methodName: "Get21Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -273,9 +281,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get18",
-                                methodName: "Get18Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                operationId: "Get21",
+                                methodName: "Get21Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -339,7 +347,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGet18ResponseContent(
+                                ProcessGet21ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -349,7 +357,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.AgentBranchResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -379,7 +387,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.AgentBranchResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

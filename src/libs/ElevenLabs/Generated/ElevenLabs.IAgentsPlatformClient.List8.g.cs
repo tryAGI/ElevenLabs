@@ -14,6 +14,9 @@ namespace ElevenLabs
         /// <param name="dependencyLimit">
         /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
         /// </param>
+        /// <param name="search">
+        /// If specified, returns only secrets whose names start with this string.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -23,6 +26,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetWorkspaceSecretsResponseModel> List8Async(
             int? pageSize = default,
             int? dependencyLimit = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

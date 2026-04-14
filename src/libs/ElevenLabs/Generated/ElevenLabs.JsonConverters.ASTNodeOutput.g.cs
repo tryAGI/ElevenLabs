@@ -42,6 +42,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ASTBooleanNodeOutput)}");
                 booleanLiteral = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ASTNullNodeOutput? nullLiteral = default;
+            if (discriminator?.Type == global::ElevenLabs.ASTNodeOutputDiscriminatorType.NullLiteral)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTNullNodeOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTNullNodeOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ASTNullNodeOutput)}");
+                nullLiteral = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ASTLLMNodeOutput? llm = default;
             if (discriminator?.Type == global::ElevenLabs.ASTNodeOutputDiscriminatorType.Llm)
             {
@@ -156,6 +163,8 @@ namespace ElevenLabs.JsonConverters
 
                 booleanLiteral,
 
+                nullLiteral,
+
                 llm,
 
                 dynamicVariable,
@@ -216,6 +225,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTBooleanNodeOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTBooleanNodeOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTBooleanNodeOutput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.BooleanLiteral!, typeInfo);
+            }
+            else if (value.IsNullLiteral)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ASTNullNodeOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ASTNullNodeOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ASTNullNodeOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.NullLiteral!, typeInfo);
             }
             else if (value.IsLlm)
             {

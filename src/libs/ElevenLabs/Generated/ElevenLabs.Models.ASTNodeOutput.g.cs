@@ -66,6 +66,23 @@ namespace ElevenLabs
         public bool IsBooleanLiteral => BooleanLiteral != null;
 
         /// <summary>
+        /// Null literal.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ASTNullNodeOutput? NullLiteral { get; init; }
+#else
+        public global::ElevenLabs.ASTNullNodeOutput? NullLiteral { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NullLiteral))]
+#endif
+        public bool IsNullLiteral => NullLiteral != null;
+
+        /// <summary>
         /// Value extracted by an LLM according to the given schema.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -376,6 +393,24 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTNullNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTNullNodeOutput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ASTNullNodeOutput?(ASTNodeOutput @this) => @this.NullLiteral;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ASTNodeOutput(global::ElevenLabs.ASTNullNodeOutput? value)
+        {
+            NullLiteral = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTLLMNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTLLMNodeOutput?)value);
 
         /// <summary>
@@ -651,6 +686,7 @@ namespace ElevenLabs
             global::ElevenLabs.ASTStringNodeOutput? stringLiteral,
             global::ElevenLabs.ASTNumberNodeOutput? numberLiteral,
             global::ElevenLabs.ASTBooleanNodeOutput? booleanLiteral,
+            global::ElevenLabs.ASTNullNodeOutput? nullLiteral,
             global::ElevenLabs.ASTLLMNodeOutput? llm,
             global::ElevenLabs.ASTDynamicVariableNodeOutput? dynamicVariable,
             global::ElevenLabs.ASTOrOperatorNodeOutput? orOperator,
@@ -673,6 +709,7 @@ namespace ElevenLabs
             StringLiteral = stringLiteral;
             NumberLiteral = numberLiteral;
             BooleanLiteral = booleanLiteral;
+            NullLiteral = nullLiteral;
             Llm = llm;
             DynamicVariable = dynamicVariable;
             OrOperator = orOperator;
@@ -709,6 +746,7 @@ namespace ElevenLabs
             OrOperator as object ??
             DynamicVariable as object ??
             Llm as object ??
+            NullLiteral as object ??
             BooleanLiteral as object ??
             NumberLiteral as object ??
             StringLiteral as object 
@@ -721,6 +759,7 @@ namespace ElevenLabs
             StringLiteral?.ToString() ??
             NumberLiteral?.ToString() ??
             BooleanLiteral?.ToString() ??
+            NullLiteral?.ToString() ??
             Llm?.ToString() ??
             DynamicVariable?.ToString() ??
             OrOperator?.ToString() ??
@@ -743,7 +782,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && IsConditionalOperator;
+            return IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && IsSubOperator && !IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && IsMulOperator && !IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && IsDivOperator && !IsConditionalOperator || !IsStringLiteral && !IsNumberLiteral && !IsBooleanLiteral && !IsNullLiteral && !IsLlm && !IsDynamicVariable && !IsOrOperator && !IsAndOperator && !IsEqOperator && !IsNeqOperator && !IsGtOperator && !IsLtOperator && !IsGteOperator && !IsLteOperator && !IsAddOperator && !IsSubOperator && !IsMulOperator && !IsDivOperator && IsConditionalOperator;
         }
 
         /// <summary>
@@ -753,6 +792,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.ASTStringNodeOutput?, TResult>? stringLiteral = null,
             global::System.Func<global::ElevenLabs.ASTNumberNodeOutput?, TResult>? numberLiteral = null,
             global::System.Func<global::ElevenLabs.ASTBooleanNodeOutput?, TResult>? booleanLiteral = null,
+            global::System.Func<global::ElevenLabs.ASTNullNodeOutput?, TResult>? nullLiteral = null,
             global::System.Func<global::ElevenLabs.ASTLLMNodeOutput?, TResult>? llm = null,
             global::System.Func<global::ElevenLabs.ASTDynamicVariableNodeOutput?, TResult>? dynamicVariable = null,
             global::System.Func<global::ElevenLabs.ASTOrOperatorNodeOutput?, TResult>? orOperator = null,
@@ -786,6 +826,10 @@ namespace ElevenLabs
             else if (IsBooleanLiteral && booleanLiteral != null)
             {
                 return booleanLiteral(BooleanLiteral!);
+            }
+            else if (IsNullLiteral && nullLiteral != null)
+            {
+                return nullLiteral(NullLiteral!);
             }
             else if (IsLlm && llm != null)
             {
@@ -858,6 +902,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.ASTStringNodeOutput?>? stringLiteral = null,
             global::System.Action<global::ElevenLabs.ASTNumberNodeOutput?>? numberLiteral = null,
             global::System.Action<global::ElevenLabs.ASTBooleanNodeOutput?>? booleanLiteral = null,
+            global::System.Action<global::ElevenLabs.ASTNullNodeOutput?>? nullLiteral = null,
             global::System.Action<global::ElevenLabs.ASTLLMNodeOutput?>? llm = null,
             global::System.Action<global::ElevenLabs.ASTDynamicVariableNodeOutput?>? dynamicVariable = null,
             global::System.Action<global::ElevenLabs.ASTOrOperatorNodeOutput?>? orOperator = null,
@@ -891,6 +936,10 @@ namespace ElevenLabs
             else if (IsBooleanLiteral)
             {
                 booleanLiteral?.Invoke(BooleanLiteral!);
+            }
+            else if (IsNullLiteral)
+            {
+                nullLiteral?.Invoke(NullLiteral!);
             }
             else if (IsLlm)
             {
@@ -967,6 +1016,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.ASTNumberNodeOutput),
                 BooleanLiteral,
                 typeof(global::ElevenLabs.ASTBooleanNodeOutput),
+                NullLiteral,
+                typeof(global::ElevenLabs.ASTNullNodeOutput),
                 Llm,
                 typeof(global::ElevenLabs.ASTLLMNodeOutput),
                 DynamicVariable,
@@ -1016,6 +1067,7 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTStringNodeOutput?>.Default.Equals(StringLiteral, other.StringLiteral) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTNumberNodeOutput?>.Default.Equals(NumberLiteral, other.NumberLiteral) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTBooleanNodeOutput?>.Default.Equals(BooleanLiteral, other.BooleanLiteral) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTNullNodeOutput?>.Default.Equals(NullLiteral, other.NullLiteral) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLLMNodeOutput?>.Default.Equals(Llm, other.Llm) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTDynamicVariableNodeOutput?>.Default.Equals(DynamicVariable, other.DynamicVariable) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTOrOperatorNodeOutput?>.Default.Equals(OrOperator, other.OrOperator) &&
