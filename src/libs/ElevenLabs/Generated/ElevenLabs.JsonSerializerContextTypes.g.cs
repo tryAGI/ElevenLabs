@@ -4964,7 +4964,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TransferDestinationVariant1? Type1234 { get; set; }
+        public global::ElevenLabs.TransferDestination? Type1234 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -4980,11 +4980,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferTransferDestinationVariant1Discriminator? Type1238 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminator? Type1238 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferTransferDestinationVariant1DiscriminatorType? Type1239 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType? Type1239 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -6604,7 +6604,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TransferDestination? Type1644 { get; set; }
+        public global::ElevenLabs.TransferDestination2? Type1644 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -6644,7 +6644,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TransferDestination2? Type1654 { get; set; }
+        public global::ElevenLabs.TransferDestination3? Type1654 { get; set; }
         /// <summary>
         /// 
         /// </summary>

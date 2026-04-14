@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public readonly partial struct TransferDestinationVariant1
+    public readonly partial struct TransferDestination3
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.TransferDestinationVariant1? FromJson(
+        public static global::ElevenLabs.TransferDestination3? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.TransferDestinationVariant1),
-                jsonSerializerContext) as global::ElevenLabs.TransferDestinationVariant1?;
+                typeof(global::ElevenLabs.TransferDestination3),
+                jsonSerializerContext) as global::ElevenLabs.TransferDestination3?;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::ElevenLabs.TransferDestinationVariant1? FromJson(
+        public static global::ElevenLabs.TransferDestination3? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TransferDestinationVariant1>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TransferDestination3>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.TransferDestinationVariant1?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.TransferDestination3?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.TransferDestinationVariant1),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.TransferDestinationVariant1?;
+                typeof(global::ElevenLabs.TransferDestination3),
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.TransferDestination3?;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.TransferDestinationVariant1?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.TransferDestination3?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.TransferDestinationVariant1?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.TransferDestination3?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

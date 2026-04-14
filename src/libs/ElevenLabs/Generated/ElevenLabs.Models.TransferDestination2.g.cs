@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType? Type { get; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminatorType? Type { get; }
 
         /// <summary>
         /// 
@@ -157,7 +157,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TransferDestination2(
-            global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType? type,
+            global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminatorType? type,
             global::ElevenLabs.PhoneNumberTransferDestination? phone,
             global::ElevenLabs.SIPUriTransferDestination? sipUri,
             global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? phoneDynamicVariable,

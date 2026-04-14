@@ -7,12 +7,12 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public readonly partial struct TransferDestinationVariant1 : global::System.IEquatable<TransferDestinationVariant1>
+    public readonly partial struct TransferDestination3 : global::System.IEquatable<TransferDestination3>
     {
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferTransferDestinationVariant1DiscriminatorType? Type { get; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType? Type { get; }
 
         /// <summary>
         /// 
@@ -84,17 +84,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator TransferDestinationVariant1(global::ElevenLabs.PhoneNumberTransferDestination value) => new TransferDestinationVariant1((global::ElevenLabs.PhoneNumberTransferDestination?)value);
+        public static implicit operator TransferDestination3(global::ElevenLabs.PhoneNumberTransferDestination value) => new TransferDestination3((global::ElevenLabs.PhoneNumberTransferDestination?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.PhoneNumberTransferDestination?(TransferDestinationVariant1 @this) => @this.Phone;
+        public static implicit operator global::ElevenLabs.PhoneNumberTransferDestination?(TransferDestination3 @this) => @this.Phone;
 
         /// <summary>
         /// 
         /// </summary>
-        public TransferDestinationVariant1(global::ElevenLabs.PhoneNumberTransferDestination? value)
+        public TransferDestination3(global::ElevenLabs.PhoneNumberTransferDestination? value)
         {
             Phone = value;
         }
@@ -102,17 +102,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator TransferDestinationVariant1(global::ElevenLabs.SIPUriTransferDestination value) => new TransferDestinationVariant1((global::ElevenLabs.SIPUriTransferDestination?)value);
+        public static implicit operator TransferDestination3(global::ElevenLabs.SIPUriTransferDestination value) => new TransferDestination3((global::ElevenLabs.SIPUriTransferDestination?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.SIPUriTransferDestination?(TransferDestinationVariant1 @this) => @this.SipUri;
+        public static implicit operator global::ElevenLabs.SIPUriTransferDestination?(TransferDestination3 @this) => @this.SipUri;
 
         /// <summary>
         /// 
         /// </summary>
-        public TransferDestinationVariant1(global::ElevenLabs.SIPUriTransferDestination? value)
+        public TransferDestination3(global::ElevenLabs.SIPUriTransferDestination? value)
         {
             SipUri = value;
         }
@@ -120,17 +120,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator TransferDestinationVariant1(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination value) => new TransferDestinationVariant1((global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?)value);
+        public static implicit operator TransferDestination3(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination value) => new TransferDestination3((global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?(TransferDestinationVariant1 @this) => @this.PhoneDynamicVariable;
+        public static implicit operator global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?(TransferDestination3 @this) => @this.PhoneDynamicVariable;
 
         /// <summary>
         /// 
         /// </summary>
-        public TransferDestinationVariant1(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? value)
+        public TransferDestination3(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? value)
         {
             PhoneDynamicVariable = value;
         }
@@ -138,17 +138,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator TransferDestinationVariant1(global::ElevenLabs.SIPUriDynamicVariableTransferDestination value) => new TransferDestinationVariant1((global::ElevenLabs.SIPUriDynamicVariableTransferDestination?)value);
+        public static implicit operator TransferDestination3(global::ElevenLabs.SIPUriDynamicVariableTransferDestination value) => new TransferDestination3((global::ElevenLabs.SIPUriDynamicVariableTransferDestination?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.SIPUriDynamicVariableTransferDestination?(TransferDestinationVariant1 @this) => @this.SipUriDynamicVariable;
+        public static implicit operator global::ElevenLabs.SIPUriDynamicVariableTransferDestination?(TransferDestination3 @this) => @this.SipUriDynamicVariable;
 
         /// <summary>
         /// 
         /// </summary>
-        public TransferDestinationVariant1(global::ElevenLabs.SIPUriDynamicVariableTransferDestination? value)
+        public TransferDestination3(global::ElevenLabs.SIPUriDynamicVariableTransferDestination? value)
         {
             SipUriDynamicVariable = value;
         }
@@ -156,8 +156,8 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public TransferDestinationVariant1(
-            global::ElevenLabs.PhoneNumberTransferTransferDestinationVariant1DiscriminatorType? type,
+        public TransferDestination3(
+            global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType? type,
             global::ElevenLabs.PhoneNumberTransferDestination? phone,
             global::ElevenLabs.SIPUriTransferDestination? sipUri,
             global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? phoneDynamicVariable,
@@ -296,7 +296,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public bool Equals(TransferDestinationVariant1 other)
+        public bool Equals(TransferDestination3 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PhoneNumberTransferDestination?>.Default.Equals(Phone, other.Phone) &&
@@ -309,15 +309,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator ==(TransferDestinationVariant1 obj1, TransferDestinationVariant1 obj2)
+        public static bool operator ==(TransferDestination3 obj1, TransferDestination3 obj2)
         {
-            return global::System.Collections.Generic.EqualityComparer<TransferDestinationVariant1>.Default.Equals(obj1, obj2);
+            return global::System.Collections.Generic.EqualityComparer<TransferDestination3>.Default.Equals(obj1, obj2);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator !=(TransferDestinationVariant1 obj1, TransferDestinationVariant1 obj2)
+        public static bool operator !=(TransferDestination3 obj1, TransferDestination3 obj2)
         {
             return !(obj1 == obj2);
         }
@@ -327,7 +327,7 @@ namespace ElevenLabs
         /// </summary>
         public override bool Equals(object? obj)
         {
-            return obj is TransferDestinationVariant1 o && Equals(o);
+            return obj is TransferDestination3 o && Equals(o);
         }
     }
 }

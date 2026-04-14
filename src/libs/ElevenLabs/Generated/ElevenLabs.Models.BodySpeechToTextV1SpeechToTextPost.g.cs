@@ -151,6 +151,13 @@ namespace ElevenLabs
         public bool? NoVerbatim { get; set; }
 
         /// <summary>
+        /// Whether to detect speaker roles (agent vs customer). Requires diarize=true. Cannot be used with use_multi_channel=true. When enabled, speaker_id values will be 'agent' and 'customer' instead of 'speaker_0', 'speaker_1', etc. Usage incurs an additional 10% surcharge on base transcription cost.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("detect_speaker_roles")]
+        public bool? DetectSpeakerRoles { get; set; }
+
+        /// <summary>
         /// Redact entities from the transcript text. Accepts the same format as entity_detection: 'all', a category ('pii', 'phi'), or specific entity types. Must be a subset of entity_detection. When redaction is enabled, the entities field will not be returned. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entity_redaction")]
@@ -247,6 +254,10 @@ namespace ElevenLabs
         /// If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="detectSpeakerRoles">
+        /// Whether to detect speaker roles (agent vs customer). Requires diarize=true. Cannot be used with use_multi_channel=true. When enabled, speaker_id values will be 'agent' and 'customer' instead of 'speaker_0', 'speaker_1', etc. Usage incurs an additional 10% surcharge on base transcription cost.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="entityRedaction">
         /// Redact entities from the transcript text. Accepts the same format as entity_detection: 'all', a category ('pii', 'phi'), or specific entity types. Must be a subset of entity_detection. When redaction is enabled, the entities field will not be returned. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost.
         /// </param>
@@ -282,6 +293,7 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<string, object, object>? webhookMetadata,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityDetection,
             bool? noVerbatim,
+            bool? detectSpeakerRoles,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityRedaction,
             string? entityRedactionMode,
             global::System.Collections.Generic.IList<string>? keyterms)
@@ -306,6 +318,7 @@ namespace ElevenLabs
             this.WebhookMetadata = webhookMetadata;
             this.EntityDetection = entityDetection;
             this.NoVerbatim = noVerbatim;
+            this.DetectSpeakerRoles = detectSpeakerRoles;
             this.EntityRedaction = entityRedaction;
             this.EntityRedactionMode = entityRedactionMode;
             this.Keyterms = keyterms;

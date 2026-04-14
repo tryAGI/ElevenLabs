@@ -4,9 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Seat types for workspace members.<br/>
-    /// Lite Member is equivalent to Basic Seat in the web application.<br/>
-    /// Member is equivalent to Full Seat in the web application.
+    /// Seat types for workspace members.
     /// </summary>
     public enum SeatType
     {
