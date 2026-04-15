@@ -111,7 +111,7 @@ namespace ElevenLabs
         /// List of per-tool configuration overrides that override the server-level defaults for specific tools
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_config_overrides")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverride>? ToolConfigOverrides { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideOutput>? ToolConfigOverrides { get; set; }
 
         /// <summary>
         /// Whether to disable HTTP compression for this MCP server. Enable this if the server does not support compressed responses.<br/>
@@ -198,7 +198,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
-            global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverride>? toolConfigOverrides,
+            global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideOutput>? toolConfigOverrides,
             bool? disableCompression)
         {
             this.ApprovalPolicy = approvalPolicy;

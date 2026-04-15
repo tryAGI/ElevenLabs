@@ -661,9 +661,13 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOutputInputOverridesDiscriminatorSourceNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOverrideInputOverridesDiscriminatorSourceJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOverrideInputInputOverridesDiscriminatorSourceJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOverrideInputOverridesDiscriminatorSourceNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOverrideInputInputOverridesDiscriminatorSourceNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOverrideOutputInputOverridesDiscriminatorSourceJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOverrideOutputInputOverridesDiscriminatorSourceNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MCPToolConfigOverrideCreateRequestModelInputOverridesDiscriminatorSourceJsonConverter),
 
@@ -1454,6 +1458,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.InputOverridesVariant14JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.InputOverridesVariant15JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.InputOverridesVariant16JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ChartsItem2JsonConverter),
 
@@ -2879,9 +2885,11 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPServerTransport), TypeInfoPropertyName = "MCPServerTransport2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel, object>), TypeInfoPropertyName = "AnyOfConvAISecretLocatorConvAIUserSecretDBModelObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>), TypeInfoPropertyName = "AnyOfAuthConnectionLocatorEnvironmentAuthConnectionLocatorObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverride>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverride))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPServerConfigOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideOutput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPServerConfigUpdateRequestModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPServerMetadataResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPServerRequestModel))]
@@ -2903,14 +2911,21 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOutputInputOverridesDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOutputInputOverridesDiscriminatorSource), TypeInfoPropertyName = "MCPToolConfigOutputInputOverridesDiscriminatorSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InputOverridesVariant13), TypeInfoPropertyName = "InputOverridesVariant132")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminatorSource), TypeInfoPropertyName = "MCPToolConfigOverrideInputOverridesDiscriminatorSource2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideInputInputOverridesDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideInputInputOverridesDiscriminatorSource), TypeInfoPropertyName = "MCPToolConfigOverrideInputInputOverridesDiscriminatorSource2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolResponseMockConfigInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InputOverridesVariant14), TypeInfoPropertyName = "InputOverridesVariant142")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideOutputInputOverridesDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource), TypeInfoPropertyName = "MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolResponseMockConfigOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InputOverridesVariant15), TypeInfoPropertyName = "InputOverridesVariant152")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideCreateRequestModelInputOverridesDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideCreateRequestModelInputOverridesDiscriminatorSource), TypeInfoPropertyName = "MCPToolConfigOverrideCreateRequestModelInputOverridesDiscriminatorSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InputOverridesVariant15), TypeInfoPropertyName = "InputOverridesVariant152")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InputOverridesVariant16), TypeInfoPropertyName = "InputOverridesVariant162")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminatorSource), TypeInfoPropertyName = "MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminatorSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ManualVerificationFileResponseModel))]
@@ -3229,17 +3244,13 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolConfig), TypeInfoPropertyName = "ToolConfig2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolRequestModelToolConfigDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolRequestModelToolConfigDiscriminatorType), TypeInfoPropertyName = "ToolRequestModelToolConfigDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolResponseMockConfigInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UnitTestToolCallParameter))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolResponseMockConfigOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolConfig2), TypeInfoPropertyName = "ToolConfig22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolResponseModelToolConfigDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolResponseModelToolConfigDiscriminatorType), TypeInfoPropertyName = "ToolResponseModelToolConfigDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolUsageStatsResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolSortBy), TypeInfoPropertyName = "ToolSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolTypeFilter), TypeInfoPropertyName = "ToolTypeFilter2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolsResponseModel))]
@@ -3629,9 +3640,12 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.Tool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentBranchSummary>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MCPToolApprovalHash>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MCPToolConfigOverride>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MCPToolConfigOverrideInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MCPToolConfigOverrideOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem5>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MCPServerResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ManualVerificationFileResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MessagesSearchResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.LanguageResponseModel>))]
@@ -3674,9 +3688,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SupportedVoice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SuggestedAudioTag>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.UnitTestToolCallParameter>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentTransfer>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumberTransfer>))]

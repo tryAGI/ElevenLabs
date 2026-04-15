@@ -505,6 +505,9 @@ namespace ElevenLabs
         /// <param name="inputOverrides">
         /// Mapping of json path to input override configuration
         /// </param>
+        /// <param name="responseMocks">
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -518,6 +521,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
             object? inputOverrides = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -530,6 +534,7 @@ namespace ElevenLabs
                 ExecutionMode = executionMode,
                 Assignments = assignments,
                 InputOverrides = inputOverrides,
+                ResponseMocks = responseMocks,
             };
 
             return await Update11Async(

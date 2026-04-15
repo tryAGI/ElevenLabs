@@ -51,6 +51,12 @@ namespace ElevenLabs
         public object? InputOverrides { get; set; }
 
         /// <summary>
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_mocks")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? ResponseMocks { get; set; }
+
+        /// <summary>
         /// The name of the MCP tool
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_name")]
@@ -90,6 +96,9 @@ namespace ElevenLabs
         /// <param name="inputOverrides">
         /// Mapping of json path to input override configuration
         /// </param>
+        /// <param name="responseMocks">
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -101,7 +110,8 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
-            object? inputOverrides)
+            object? inputOverrides,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks)
         {
             this.ForcePreToolSpeech = forcePreToolSpeech;
             this.DisableInterruptions = disableInterruptions;
@@ -110,6 +120,7 @@ namespace ElevenLabs
             this.ExecutionMode = executionMode;
             this.Assignments = assignments;
             this.InputOverrides = inputOverrides;
+            this.ResponseMocks = responseMocks;
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
         }
 

@@ -46,6 +46,12 @@ namespace ElevenLabs
         public string? Environment { get; set; }
 
         /// <summary>
+        /// If set, start the workflow at this node id instead of the default entry
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("starting_workflow_node_id")]
+        public string? StartingWorkflowNodeId { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
@@ -82,6 +88,9 @@ namespace ElevenLabs
         /// <param name="environment">
         /// Environment to use for resolving environment variables
         /// </param>
+        /// <param name="startingWorkflowNodeId">
+        /// If set, start the workflow at this node id instead of the default entry
+        /// </param>
         /// <param name="dynamicVariables"></param>
         /// <param name="toolMockConfig">
         /// Configuration for which tools to mock and fallback behavior
@@ -96,6 +105,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSourceInfo? sourceInfo,
             string? branchId,
             string? environment,
+            string? startingWorkflowNodeId,
             object? dynamicVariables,
             global::ElevenLabs.OrchestratorToolMockBehaviorConfig? toolMockConfig)
         {
@@ -105,6 +115,7 @@ namespace ElevenLabs
             this.SourceInfo = sourceInfo;
             this.BranchId = branchId;
             this.Environment = environment;
+            this.StartingWorkflowNodeId = startingWorkflowNodeId;
             this.DynamicVariables = dynamicVariables;
             this.ToolMockConfig = toolMockConfig;
         }
