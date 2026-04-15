@@ -29112,66 +29112,6 @@
         ],
         "title": "ArrayJsonSchemaProperty"
       },
-      "AssetTranscription": {
-        "properties": {
-          "language_code": {
-            "type": "string",
-            "title": "Language Code"
-          },
-          "text": {
-            "type": "string",
-            "title": "Text"
-          },
-          "words": {
-            "items": {
-              "$ref": "#/components/schemas/AssetTranscriptionWord"
-            },
-            "type": "array",
-            "title": "Words"
-          }
-        },
-        "type": "object",
-        "required": [
-          "language_code",
-          "text",
-          "words"
-        ],
-        "title": "AssetTranscription"
-      },
-      "AssetTranscriptionWord": {
-        "properties": {
-          "speaker_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Speaker Id"
-          },
-          "text": {
-            "type": "string",
-            "title": "Text"
-          },
-          "start_ms": {
-            "type": "integer",
-            "title": "Start Ms"
-          },
-          "end_ms": {
-            "type": "integer",
-            "title": "End Ms"
-          }
-        },
-        "type": "object",
-        "required": [
-          "text",
-          "start_ms",
-          "end_ms"
-        ],
-        "title": "AssetTranscriptionWord"
-      },
       "AsyncConversationMetadata": {
         "properties": {
           "delivery_status": {
@@ -29346,16 +29286,6 @@
             },
             "type": "array",
             "title": "Key Moments"
-          },
-          "transcription": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AssetTranscription"
-              },
-              {
-                "type": "null"
-              }
-            ]
           }
         },
         "type": "object",
@@ -71997,16 +71927,6 @@
             },
             "type": "array",
             "title": "Key Moments"
-          },
-          "transcription": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AssetTranscription"
-              },
-              {
-                "type": "null"
-              }
-            ]
           }
         },
         "type": "object",
