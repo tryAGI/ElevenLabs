@@ -36,9 +36,9 @@ namespace ElevenLabs
 
         /// <summary>
         /// Additional overrides for the agent during conversation initiation<br/>
-        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}
+        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_starting_workflow_node_id_from_client":true}
         /// </summary>
-        /// <example>{"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}</example>
+        /// <example>{"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_starting_workflow_node_id_from_client":true}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
         public global::ElevenLabs.ConversationInitiationClientDataConfigOutput? Overrides { get; set; }
 
@@ -129,7 +129,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="overrides">
         /// Additional overrides for the agent during conversation initiation<br/>
-        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true}
+        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_starting_workflow_node_id_from_client":true}
         /// </param>
         /// <param name="workspaceOverrides">
         /// Workspace overrides for the agent

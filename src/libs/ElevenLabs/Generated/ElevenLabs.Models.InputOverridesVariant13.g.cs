@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminatorSource? Source { get; }
+        public global::ElevenLabs.MCPToolConfigOverrideInputInputOverridesDiscriminatorSource? Source { get; }
 
         /// <summary>
         /// 
@@ -122,7 +122,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public InputOverridesVariant13(
-            global::ElevenLabs.MCPToolConfigOverrideInputOverridesDiscriminatorSource? source,
+            global::ElevenLabs.MCPToolConfigOverrideInputInputOverridesDiscriminatorSource? source,
             global::ElevenLabs.ConstantSchemaOverride? constant,
             global::ElevenLabs.DynamicVariableSchemaOverride? dynamicVariable,
             global::ElevenLabs.LLMSchemaOverride? llm

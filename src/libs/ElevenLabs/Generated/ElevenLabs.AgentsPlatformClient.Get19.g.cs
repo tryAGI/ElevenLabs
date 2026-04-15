@@ -56,7 +56,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPToolConfigOverride> Get19Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPToolConfigOverrideOutput> Get19Async(
             string mcpServerId,
             string toolName,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -390,7 +390,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.MCPToolConfigOverride.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.MCPToolConfigOverrideOutput.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -420,7 +420,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.MCPToolConfigOverride.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.MCPToolConfigOverrideOutput.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

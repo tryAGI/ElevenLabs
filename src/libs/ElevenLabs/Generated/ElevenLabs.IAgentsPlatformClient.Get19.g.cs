@@ -17,7 +17,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPToolConfigOverride> Get19Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPToolConfigOverrideOutput> Get19Async(
             string mcpServerId,
             string toolName,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
