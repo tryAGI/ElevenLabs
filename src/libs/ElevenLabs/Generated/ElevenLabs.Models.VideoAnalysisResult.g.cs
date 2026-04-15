@@ -53,12 +53,6 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.VideoKeyMoment>? KeyMoments { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("transcription")]
-        public global::ElevenLabs.AssetTranscription? Transcription { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -74,7 +68,6 @@ namespace ElevenLabs
         /// <param name="subjects"></param>
         /// <param name="segments"></param>
         /// <param name="keyMoments"></param>
-        /// <param name="transcription"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -85,8 +78,7 @@ namespace ElevenLabs
             string? overallPacing,
             global::System.Collections.Generic.IList<global::ElevenLabs.VideoSubject>? subjects,
             global::System.Collections.Generic.IList<global::ElevenLabs.VideoSegment>? segments,
-            global::System.Collections.Generic.IList<global::ElevenLabs.VideoKeyMoment>? keyMoments,
-            global::ElevenLabs.AssetTranscription? transcription)
+            global::System.Collections.Generic.IList<global::ElevenLabs.VideoKeyMoment>? keyMoments)
         {
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
@@ -95,7 +87,6 @@ namespace ElevenLabs
             this.Subjects = subjects;
             this.Segments = segments;
             this.KeyMoments = keyMoments;
-            this.Transcription = transcription;
         }
 
         /// <summary>
