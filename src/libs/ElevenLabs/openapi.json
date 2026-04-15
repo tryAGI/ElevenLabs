@@ -52958,8 +52958,6 @@
           "custom-llm",
           "qwen3-4b",
           "qwen3-30b-a3b",
-          "qwen35-35b-a3b",
-          "qwen35-397b-a17b",
           "gpt-oss-20b",
           "gpt-oss-120b",
           "glm-45-air-fp8",
