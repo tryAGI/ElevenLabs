@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A dictionary of dynamic variable placeholders and their values
+    /// List of allowed string values for string type parameters
     /// </summary>
-    public sealed partial class DynamicVariablesConfigDynamicVariablePlaceholders
+    public sealed partial class AnalysisPropertyEnum
     {
 
         /// <summary>

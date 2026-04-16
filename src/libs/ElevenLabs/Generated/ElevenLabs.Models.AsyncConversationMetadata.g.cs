@@ -44,6 +44,12 @@ namespace ElevenLabs
         public required string ExternalId { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_link")]
+        public string? ExternalLink { get; set; }
+
+        /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retry_count")]
@@ -75,6 +81,7 @@ namespace ElevenLabs
         /// <param name="externalSystem"></param>
         /// <param name="externalId"></param>
         /// <param name="deliveryError"></param>
+        /// <param name="externalLink"></param>
         /// <param name="retryCount">
         /// Default Value: 0
         /// </param>
@@ -89,6 +96,7 @@ namespace ElevenLabs
             string externalSystem,
             string externalId,
             string? deliveryError,
+            string? externalLink,
             int? retryCount,
             int? lastRetryTimestamp,
             string? lastProcessedExternalMessageId)
@@ -98,6 +106,7 @@ namespace ElevenLabs
             this.DeliveryError = deliveryError;
             this.ExternalSystem = externalSystem ?? throw new global::System.ArgumentNullException(nameof(externalSystem));
             this.ExternalId = externalId ?? throw new global::System.ArgumentNullException(nameof(externalId));
+            this.ExternalLink = externalLink;
             this.RetryCount = retryCount;
             this.LastRetryTimestamp = lastRetryTimestamp;
             this.LastProcessedExternalMessageId = lastProcessedExternalMessageId;
