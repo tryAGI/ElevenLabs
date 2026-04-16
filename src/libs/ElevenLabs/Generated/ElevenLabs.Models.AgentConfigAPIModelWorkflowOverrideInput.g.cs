@@ -30,7 +30,7 @@ namespace ElevenLabs
         /// Configuration for dynamic variables
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
-        public global::ElevenLabs.DynamicVariablesConfigWorkflowOverride? DynamicVariables { get; set; }
+        public global::ElevenLabs.DynamicVariablesConfigWorkflowOverrideInput? DynamicVariables { get; set; }
 
         /// <summary>
         /// If true, the user will not be able to interrupt the agent while the first message is being delivered.
@@ -87,7 +87,7 @@ namespace ElevenLabs
             string? firstMessage,
             string? language,
             bool? hinglishMode,
-            global::ElevenLabs.DynamicVariablesConfigWorkflowOverride? dynamicVariables,
+            global::ElevenLabs.DynamicVariablesConfigWorkflowOverrideInput? dynamicVariables,
             bool? disableFirstMessageInterruptions,
             string? maxConversationDurationMessage,
             global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideInput? prompt)

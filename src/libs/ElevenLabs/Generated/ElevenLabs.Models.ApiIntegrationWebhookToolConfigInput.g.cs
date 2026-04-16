@@ -83,7 +83,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>{"dynamic_variable_placeholders":{"user_name":"John Doe"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
-        public global::ElevenLabs.DynamicVariablesConfig? DynamicVariables { get; set; }
+        public global::ElevenLabs.DynamicVariablesConfigInput? DynamicVariables { get; set; }
 
         /// <summary>
         /// Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.<br/>
@@ -195,7 +195,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolErrorHandlingMode? toolErrorHandlingMode,
-            global::ElevenLabs.DynamicVariablesConfig? dynamicVariables,
+            global::ElevenLabs.DynamicVariablesConfigInput? dynamicVariables,
             global::ElevenLabs.ToolExecutionMode? executionMode,
             string? toolVersion,
             global::ElevenLabs.ApiIntegrationWebhookOverrides? apiSchemaOverrides)

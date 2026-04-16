@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>{"dynamic_variable_placeholders":{"user_name":"John Doe"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
-        public global::ElevenLabs.DynamicVariablesConfig? DynamicVariables { get; set; }
+        public global::ElevenLabs.DynamicVariablesConfigInput? DynamicVariables { get; set; }
 
         /// <summary>
         /// If true, the user will not be able to interrupt the agent while the first message is being delivered.<br/>
@@ -99,7 +99,7 @@ namespace ElevenLabs
             string? firstMessage,
             string? language,
             bool? hinglishMode,
-            global::ElevenLabs.DynamicVariablesConfig? dynamicVariables,
+            global::ElevenLabs.DynamicVariablesConfigInput? dynamicVariables,
             bool? disableFirstMessageInterruptions,
             string? maxConversationDurationMessage,
             global::ElevenLabs.PromptAgentAPIModelInput? prompt)

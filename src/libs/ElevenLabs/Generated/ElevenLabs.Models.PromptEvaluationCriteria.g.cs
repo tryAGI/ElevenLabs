@@ -53,6 +53,12 @@ namespace ElevenLabs
         public global::ElevenLabs.AnalysisScope? Scope { get; set; }
 
         /// <summary>
+        /// LLM model to use for this evaluation criteria. If not set, uses agent's analysis_llm default.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
+        public global::ElevenLabs.Llm? Llm { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -80,6 +86,9 @@ namespace ElevenLabs
         /// The scope of transcript context used when evaluating this criterion. 'conversation' uses the full transcript; 'agent' uses only the portion where the defining agent was active.<br/>
         /// Default Value: conversation
         /// </param>
+        /// <param name="llm">
+        /// LLM model to use for this evaluation criteria. If not set, uses agent's analysis_llm default.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -89,7 +98,8 @@ namespace ElevenLabs
             string conversationGoalPrompt,
             string? type,
             bool? useKnowledgeBase,
-            global::ElevenLabs.AnalysisScope? scope)
+            global::ElevenLabs.AnalysisScope? scope,
+            global::ElevenLabs.Llm? llm)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -97,6 +107,7 @@ namespace ElevenLabs
             this.ConversationGoalPrompt = conversationGoalPrompt ?? throw new global::System.ArgumentNullException(nameof(conversationGoalPrompt));
             this.UseKnowledgeBase = useKnowledgeBase;
             this.Scope = scope;
+            this.Llm = llm;
         }
 
         /// <summary>

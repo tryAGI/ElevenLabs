@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// Example: {"dynamic_variable_placeholders":{"user_name":"John Doe"}}
     /// </summary>
-    public sealed partial class DynamicVariablesConfigWorkflowOverride
+    public sealed partial class DynamicVariablesConfigInput
     {
         /// <summary>
         /// A dictionary of dynamic variable placeholders and their values
@@ -21,7 +21,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DynamicVariablesConfigWorkflowOverride" /> class.
+        /// Initializes a new instance of the <see cref="DynamicVariablesConfigInput" /> class.
         /// </summary>
         /// <param name="dynamicVariablePlaceholders">
         /// A dictionary of dynamic variable placeholders and their values
@@ -29,16 +29,16 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public DynamicVariablesConfigWorkflowOverride(
+        public DynamicVariablesConfigInput(
             object? dynamicVariablePlaceholders)
         {
             this.DynamicVariablePlaceholders = dynamicVariablePlaceholders;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DynamicVariablesConfigWorkflowOverride" /> class.
+        /// Initializes a new instance of the <see cref="DynamicVariablesConfigInput" /> class.
         /// </summary>
-        public DynamicVariablesConfigWorkflowOverride()
+        public DynamicVariablesConfigInput()
         {
         }
     }

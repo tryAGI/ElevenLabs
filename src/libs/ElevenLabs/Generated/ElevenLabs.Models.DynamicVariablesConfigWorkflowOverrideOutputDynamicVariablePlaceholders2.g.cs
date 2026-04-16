@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A dictionary of dynamic variable placeholders and their values
+    /// 
     /// </summary>
-    public sealed partial class DynamicVariablesConfigWorkflowOverrideDynamicVariablePlaceholders
+    public sealed partial class DynamicVariablesConfigWorkflowOverrideOutputDynamicVariablePlaceholders2
     {
 
         /// <summary>

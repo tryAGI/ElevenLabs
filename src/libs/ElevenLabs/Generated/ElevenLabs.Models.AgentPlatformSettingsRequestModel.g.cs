@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// Data collection settings
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection")]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? DataCollection { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisProperty>? DataCollection { get; set; }
 
         /// <summary>
         /// Scope per data collection item ID. Missing keys default to conversation scope.
@@ -100,6 +100,14 @@ namespace ElevenLabs
         public global::ElevenLabs.PrivacyConfigInput? Privacy { get; set; }
 
         /// <summary>
+        /// Default LLM model for post-call analysis (evaluation and data collection)<br/>
+        /// Default Value: gemini-2.5-flash
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("analysis_llm")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
+        public global::ElevenLabs.Llm? AnalysisLlm { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -154,13 +162,17 @@ namespace ElevenLabs
         /// Privacy settings for the agent<br/>
         /// Example: {"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}
         /// </param>
+        /// <param name="analysisLlm">
+        /// Default LLM model for post-call analysis (evaluation and data collection)<br/>
+        /// Default Value: gemini-2.5-flash
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentPlatformSettingsRequestModel(
             global::ElevenLabs.EvaluationSettingsInput? evaluation,
             global::ElevenLabs.WidgetConfigInput? widget,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? dataCollection,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisProperty>? dataCollection,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisScope>? dataCollectionScopes,
             global::ElevenLabs.ConversationInitiationClientDataConfigInput? overrides,
             global::ElevenLabs.AgentWorkspaceOverridesInput? workspaceOverrides,
@@ -170,7 +182,8 @@ namespace ElevenLabs
             string? summaryLanguage,
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.AgentCallLimits? callLimits,
-            global::ElevenLabs.PrivacyConfigInput? privacy)
+            global::ElevenLabs.PrivacyConfigInput? privacy,
+            global::ElevenLabs.Llm? analysisLlm)
         {
             this.Evaluation = evaluation;
             this.Widget = widget;
@@ -185,6 +198,7 @@ namespace ElevenLabs
             this.Auth = auth;
             this.CallLimits = callLimits;
             this.Privacy = privacy;
+            this.AnalysisLlm = analysisLlm;
         }
 
         /// <summary>

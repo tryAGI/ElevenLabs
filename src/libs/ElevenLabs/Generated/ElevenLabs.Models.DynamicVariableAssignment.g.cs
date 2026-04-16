@@ -5,7 +5,7 @@ namespace ElevenLabs
 {
     /// <summary>
     /// Configuration for extracting values from tool responses and assigning them to dynamic variables.<br/>
-    /// Example: {"dynamic_variable":"user_name","sanitize":false,"source":"response","value_path":"user.name"}
+    /// Example: {"dynamic_variable":"user_name","preserve_native_type":false,"sanitize":false,"source":"response","value_path":"user.name"}
     /// </summary>
     public sealed partial class DynamicVariableAssignment
     {
@@ -38,6 +38,13 @@ namespace ElevenLabs
         public bool? Sanitize { get; set; }
 
         /// <summary>
+        /// If true, non-scalar values (lists, objects) extracted from the tool response are stored as their native type instead of being stringified to JSON. Enable this to use extracted arrays directly as list dynamic variables.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preserve_native_type")]
+        public bool? PreserveNativeType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -60,6 +67,10 @@ namespace ElevenLabs
         /// If true, this assignment's value will be removed from the tool response before sending to the LLM and transcript, but still processed for variable assignment.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="preserveNativeType">
+        /// If true, non-scalar values (lists, objects) extracted from the tool response are stored as their native type instead of being stringified to JSON. Enable this to use extracted arrays directly as list dynamic variables.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -67,12 +78,14 @@ namespace ElevenLabs
             string dynamicVariable,
             string valuePath,
             string? source,
-            bool? sanitize)
+            bool? sanitize,
+            bool? preserveNativeType)
         {
             this.Source = source;
             this.DynamicVariable = dynamicVariable ?? throw new global::System.ArgumentNullException(nameof(dynamicVariable));
             this.ValuePath = valuePath ?? throw new global::System.ArgumentNullException(nameof(valuePath));
             this.Sanitize = sanitize;
+            this.PreserveNativeType = preserveNativeType;
         }
 
         /// <summary>

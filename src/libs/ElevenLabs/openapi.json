@@ -26820,7 +26820,7 @@
             "default": false
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig",
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
             "description": "Configuration for dynamic variables"
           },
           "disable_first_message_interruptions": {
@@ -26874,7 +26874,7 @@
             "default": false
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig",
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
             "description": "Configuration for dynamic variables"
           },
           "disable_first_message_interruptions": {
@@ -26948,7 +26948,7 @@
           "dynamic_variables": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/DynamicVariablesConfigWorkflowOverride"
+                "$ref": "#/components/schemas/DynamicVariablesConfigWorkflowOverride-Input"
               },
               {
                 "type": "null"
@@ -27060,7 +27060,7 @@
           "dynamic_variables": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/DynamicVariablesConfigWorkflowOverride"
+                "$ref": "#/components/schemas/DynamicVariablesConfigWorkflowOverride-Output"
               },
               {
                 "type": "null"
@@ -27501,7 +27501,7 @@
           },
           "data_collection": {
             "additionalProperties": {
-              "$ref": "#/components/schemas/LiteralJsonSchemaProperty"
+              "$ref": "#/components/schemas/AnalysisProperty"
             },
             "type": "object",
             "title": "Data Collection",
@@ -27567,6 +27567,11 @@
           "privacy": {
             "$ref": "#/components/schemas/PrivacyConfig-Input",
             "description": "Privacy settings for the agent"
+          },
+          "analysis_llm": {
+            "$ref": "#/components/schemas/LLM",
+            "description": "Default LLM model for post-call analysis (evaluation and data collection)",
+            "default": "gemini-2.5-flash"
           }
         },
         "type": "object",
@@ -27584,7 +27589,7 @@
           },
           "data_collection": {
             "additionalProperties": {
-              "$ref": "#/components/schemas/LiteralJsonSchemaProperty"
+              "$ref": "#/components/schemas/AnalysisProperty"
             },
             "type": "object",
             "title": "Data Collection",
@@ -27650,6 +27655,11 @@
           "privacy": {
             "$ref": "#/components/schemas/PrivacyConfig-Output",
             "description": "Privacy settings for the agent"
+          },
+          "analysis_llm": {
+            "$ref": "#/components/schemas/LLM",
+            "description": "Default LLM model for post-call analysis (evaluation and data collection)",
+            "default": "gemini-2.5-flash"
           },
           "safety": {
             "$ref": "#/components/schemas/SafetyResponseModel"
@@ -28609,6 +28619,96 @@
         ],
         "title": "AllowlistItem"
       },
+      "AnalysisProperty": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "boolean",
+              "string",
+              "integer",
+              "number"
+            ],
+            "title": "Type"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "The description of the property. When set, the LLM will provide the value based on this description. Mutually exclusive with dynamic_variable, is_system_provided, and constant_value.",
+            "default": ""
+          },
+          "enum": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enum",
+            "description": "List of allowed string values for string type parameters"
+          },
+          "is_system_provided": {
+            "type": "boolean",
+            "title": "Is System Provided",
+            "description": "If true, the value will be populated by the system at runtime. Used by API Integration Webhook tools for templating. Mutually exclusive with description, dynamic_variable, and constant_value.",
+            "default": false
+          },
+          "dynamic_variable": {
+            "type": "string",
+            "title": "Dynamic Variable",
+            "description": "The name of the dynamic variable to use for this property's value. Mutually exclusive with description, is_system_provided, and constant_value.",
+            "default": ""
+          },
+          "constant_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              }
+            ],
+            "title": "Constant Value",
+            "description": "A constant value to use for this property. Mutually exclusive with description, dynamic_variable, and is_system_provided.",
+            "default": ""
+          },
+          "llm": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model to use for this analysis item. If not set, uses agent's analysis_llm default."
+          }
+        },
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "AnalysisProperty",
+        "description": "Data collection property with optional per-item LLM override for post-call analysis.\n\nTODO: migrate to composition (value_schema: LiteralJsonSchemaProperty + llm) instead of\ninheritance, so this generalizes cleanly to object/array schemas in the future.",
+        "example": {
+          "constant_value": "",
+          "description": "My property",
+          "dynamic_variable": "",
+          "is_system_provided": false,
+          "type": "string"
+        }
+      },
       "AnalysisScope": {
         "type": "string",
         "enum": [
@@ -28873,7 +28973,7 @@
             "default": "auto"
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig",
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -28987,7 +29087,7 @@
             "default": "auto"
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig",
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -29067,14 +29167,53 @@
                 "$ref": "#/components/schemas/ArrayJsonSchemaProperty-Input"
               }
             ],
-            "title": "Items"
+            "title": "Items",
+            "description": "Schema for array elements.",
+            "default": {
+              "type": "string",
+              "description": "Array element",
+              "is_system_provided": false,
+              "dynamic_variable": "",
+              "constant_value": ""
+            }
+          },
+          "dynamic_variable": {
+            "type": "string",
+            "title": "Dynamic Variable",
+            "description": "When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array) and constant_value.",
+            "default": ""
+          },
+          "constant_value": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Constant Value",
+            "description": "When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array) and dynamic_variable."
           }
         },
         "additionalProperties": false,
         "type": "object",
-        "required": [
-          "items"
-        ],
         "title": "ArrayJsonSchemaProperty"
       },
       "ArrayJsonSchemaProperty-Output": {
@@ -29102,14 +29241,53 @@
                 "$ref": "#/components/schemas/ArrayJsonSchemaProperty-Output"
               }
             ],
-            "title": "Items"
+            "title": "Items",
+            "description": "Schema for array elements.",
+            "default": {
+              "type": "string",
+              "description": "Array element",
+              "is_system_provided": false,
+              "dynamic_variable": "",
+              "constant_value": ""
+            }
+          },
+          "dynamic_variable": {
+            "type": "string",
+            "title": "Dynamic Variable",
+            "description": "When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array) and constant_value.",
+            "default": ""
+          },
+          "constant_value": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Constant Value",
+            "description": "When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array) and dynamic_variable."
           }
         },
         "additionalProperties": false,
         "type": "object",
-        "required": [
-          "items"
-        ],
         "title": "ArrayJsonSchemaProperty"
       },
       "AsyncConversationMetadata": {
@@ -29145,6 +29323,17 @@
           "external_id": {
             "type": "string",
             "title": "External Id"
+          },
+          "external_link": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Link"
           },
           "retry_count": {
             "type": "integer",
@@ -38968,7 +39157,7 @@
             "default": false
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig",
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -39078,7 +39267,7 @@
             "default": false
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig",
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -42596,6 +42785,9 @@
                   "type": "boolean"
                 },
                 {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
+                },
+                {
                   "type": "null"
                 }
               ]
@@ -42688,6 +42880,9 @@
                   "type": "boolean"
                 },
                 {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
+                },
+                {
                   "type": "null"
                 }
               ]
@@ -42774,6 +42969,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
                 },
                 {
                   "type": "null"
@@ -42926,6 +43124,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
                 },
                 {
                   "type": "null"
@@ -44367,6 +44568,9 @@
                   "type": "boolean"
                 },
                 {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
+                },
+                {
                   "type": "null"
                 }
               ]
@@ -44567,6 +44771,9 @@
                   "type": "boolean"
                 },
                 {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
+                },
+                {
                   "type": "null"
                 }
               ]
@@ -44718,6 +44925,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
                 },
                 {
                   "type": "null"
@@ -47306,6 +47516,12 @@
             "title": "Sanitize",
             "description": "If true, this assignment's value will be removed from the tool response before sending to the LLM and transcript, but still processed for variable assignment.",
             "default": false
+          },
+          "preserve_native_type": {
+            "type": "boolean",
+            "title": "Preserve Native Type",
+            "description": "If true, non-scalar values (lists, objects) extracted from the tool response are stored as their native type instead of being stringified to JSON. Enable this to use extracted arrays directly as list dynamic variables.",
+            "default": false
           }
         },
         "type": "object",
@@ -47317,10 +47533,73 @@
         "description": "Configuration for extracting values from tool responses and assigning them to dynamic variables.",
         "example": {
           "dynamic_variable": "user_name",
+          "preserve_native_type": false,
           "sanitize": false,
           "source": "response",
           "value_path": "user.name"
         }
+      },
+      "DynamicVariableContainerValueType-Input": {
+        "items": {
+          "$ref": "#/components/schemas/DynamicVariableNestedValueType-Input"
+        },
+        "type": "array"
+      },
+      "DynamicVariableContainerValueType-Output": {
+        "items": {
+          "$ref": "#/components/schemas/DynamicVariableNestedValueType-Output"
+        },
+        "type": "array"
+      },
+      "DynamicVariableNestedValueType-Input": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "items": {
+              "$ref": "#/components/schemas/DynamicVariableNestedValueType-Input"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "DynamicVariableNestedValueType-Output": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "items": {
+              "$ref": "#/components/schemas/DynamicVariableNestedValueType-Output"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ]
       },
       "DynamicVariableSchemaOverride": {
         "properties": {
@@ -47389,7 +47668,7 @@
         "title": "DynamicVariableUpdateCommonModel",
         "description": "Tracks a dynamic variable update that occurred during tool execution."
       },
-      "DynamicVariablesConfig": {
+      "DynamicVariablesConfig-Input": {
         "properties": {
           "dynamic_variable_placeholders": {
             "additionalProperties": {
@@ -47405,6 +47684,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
                 }
               ]
             },
@@ -47421,7 +47703,42 @@
           }
         }
       },
-      "DynamicVariablesConfigWorkflowOverride": {
+      "DynamicVariablesConfig-Output": {
+        "properties": {
+          "dynamic_variable_placeholders": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Dynamic Variable Placeholders",
+            "description": "A dictionary of dynamic variable placeholders and their values"
+          }
+        },
+        "type": "object",
+        "title": "DynamicVariablesConfig",
+        "example": {
+          "dynamic_variable_placeholders": {
+            "user_name": "John Doe"
+          }
+        }
+      },
+      "DynamicVariablesConfigWorkflowOverride-Input": {
         "properties": {
           "dynamic_variable_placeholders": {
             "anyOf": [
@@ -47439,6 +47756,51 @@
                     },
                     {
                       "type": "boolean"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dynamic Variable Placeholders",
+            "description": "A dictionary of dynamic variable placeholders and their values"
+          }
+        },
+        "type": "object",
+        "title": "DynamicVariablesConfigWorkflowOverride",
+        "example": {
+          "dynamic_variable_placeholders": {
+            "user_name": "John Doe"
+          }
+        }
+      },
+      "DynamicVariablesConfigWorkflowOverride-Output": {
+        "properties": {
+          "dynamic_variable_placeholders": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
                     }
                   ]
                 },
@@ -51223,6 +51585,9 @@
                   "type": "boolean"
                 },
                 {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
+                },
+                {
                   "type": "null"
                 }
               ]
@@ -51396,6 +51761,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
                 },
                 {
                   "type": "null"
@@ -51719,6 +52087,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
                 },
                 {
                   "type": "null"
@@ -62086,6 +62457,17 @@
             "$ref": "#/components/schemas/AnalysisScope",
             "description": "The scope of transcript context used when evaluating this criterion. 'conversation' uses the full transcript; 'agent' uses only the portion where the defining agent was active.",
             "default": "conversation"
+          },
+          "llm": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model to use for this evaluation criteria. If not set, uses agent's analysis_llm default."
           }
         },
         "type": "object",
@@ -63569,6 +63951,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
                 },
                 {
                   "type": "null"
@@ -65191,6 +65576,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
                 },
                 {
                   "type": "null"
@@ -69195,6 +69583,9 @@
                   "type": "boolean"
                 },
                 {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
+                },
+                {
                   "type": "null"
                 }
               ]
@@ -70989,6 +71380,9 @@
                   "type": "boolean"
                 },
                 {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
+                },
+                {
                   "type": "null"
                 }
               ]
@@ -71098,6 +71492,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
                 },
                 {
                   "type": "null"
@@ -71221,6 +71618,9 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
                 },
                 {
                   "type": "null"
@@ -74316,7 +74716,7 @@
             "default": "auto"
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig",
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -74414,7 +74814,7 @@
             "default": "auto"
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig",
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
