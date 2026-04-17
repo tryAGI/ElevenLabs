@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        DubbingV1TtsV3,
+        /// <summary>
+        /// 
+        /// </summary>
         DubbingV2,
         /// <summary>
         /// 
@@ -35,6 +39,7 @@ namespace ElevenLabs
             return value switch
             {
                 DubbingModel.DubbingE2eV1 => "dubbing_e2e_v1",
+                DubbingModel.DubbingV1TtsV3 => "dubbing_v1_tts_v3",
                 DubbingModel.DubbingV2 => "dubbing_v2",
                 DubbingModel.DubbingV3 => "dubbing_v3",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -48,6 +53,7 @@ namespace ElevenLabs
             return value switch
             {
                 "dubbing_e2e_v1" => DubbingModel.DubbingE2eV1,
+                "dubbing_v1_tts_v3" => DubbingModel.DubbingV1TtsV3,
                 "dubbing_v2" => DubbingModel.DubbingV2,
                 "dubbing_v3" => DubbingModel.DubbingV3,
                 _ => null,
