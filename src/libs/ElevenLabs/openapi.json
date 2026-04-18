@@ -5686,6 +5686,7 @@
         "summary": "Get The Dubbing Resource For An Id.",
         "description": "Given a dubbing ID generated from the '/v1/dubbing' endpoint with studio enabled, returns the dubbing resource.",
         "operationId": "get_dubbing_resource",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -5758,6 +5759,7 @@
         "summary": "Add A Language To The Resource",
         "description": "Adds the given ElevenLab Turbo V2/V2.5 language code to the resource. Does not automatically generate transcripts/translations/audio.",
         "operationId": "add_language",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -5841,6 +5843,7 @@
         "summary": "Create A Segment For The Speaker",
         "description": "Creates a new segment in dubbing resource with a start and end time for the speaker in every available language. Does not automatically generate transcripts/translations/audio.",
         "operationId": "create_clip",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -5937,6 +5940,7 @@
         "summary": "Modify A Single Segment",
         "description": "Modifies a single segment with new text and/or start/end times. Will update the values for only a specific language of a segment. Does not automatically regenerate the dub.",
         "operationId": "update_segment_language",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -6043,6 +6047,7 @@
         "summary": "Move Segments Between Speakers",
         "description": "Change the attribution of one or more segments to a different speaker.",
         "operationId": "migrate_segments",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -6125,6 +6130,7 @@
         "summary": "Deletes A Single Segment",
         "description": "Deletes a single segment from the dubbing.",
         "operationId": "delete_segment",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -6209,6 +6215,7 @@
         "summary": "Transcribes Segments",
         "description": "Regenerate the transcriptions for the specified segments. Does not automatically regenerate translations or dubs.",
         "operationId": "transcribe",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -6291,6 +6298,7 @@
         "summary": "Translates All Or Some Segments And Languages",
         "description": "Regenerate the translations for either the entire resource or the specified segments/languages. Will automatically transcribe missing transcriptions. Will not automatically regenerate the dubs.",
         "operationId": "translate",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -6373,6 +6381,7 @@
         "summary": "Dubs All Or Some Segments And Languages",
         "description": "Regenerate the dubs for either the entire resource or the specified segments/languages. Will automatically transcribe and translate any missing transcriptions and translations.",
         "operationId": "dub",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -6455,6 +6464,7 @@
         "summary": "Update Metadata For A Speaker",
         "description": "Amend the metadata associated with a speaker, such as their voice. Both voice cloning and using voices from the ElevenLabs library are supported.",
         "operationId": "update_speaker",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -6547,6 +6557,7 @@
         ],
         "summary": "Create A New Speaker",
         "operationId": "create_speaker",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -6629,6 +6640,7 @@
         "summary": "Search The Elevenlabs Library For Voices Similar To A Speaker.",
         "description": "Fetch the top 10 similar voices to a speaker, including the voice IDs, names, descriptions, and, where possible, a sample audio recording.",
         "operationId": "get_similar_voices_for_speaker",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -6713,6 +6725,7 @@
         "summary": "Render Audio Or Video For The Given Language",
         "description": "Regenerate the output media for a language using the latest Studio state. Please ensure all segments have been dubbed before rendering, otherwise they will be omitted. Renders are generated asynchronously, and to check the status of all renders please use the 'Get Dubbing Resource' endpoint.",
         "operationId": "render",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -30113,110 +30126,6 @@
         "type": "object",
         "title": "AutoSyncInfo"
       },
-      "AvatarContextRequestModel": {
-        "properties": {
-          "avatar_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avatar Id"
-          },
-          "avatar_style_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avatar Style Id"
-          },
-          "avatar_name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avatar Name"
-          },
-          "avatar_style_name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avatar Style Name"
-          }
-        },
-        "type": "object",
-        "title": "AvatarContextRequestModel"
-      },
-      "AvatarContextResponseModel": {
-        "properties": {
-          "avatar_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avatar Id",
-            "description": "The ID of the avatar."
-          },
-          "avatar_style_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avatar Style Id",
-            "description": "The ID of the avatar style."
-          },
-          "avatar_name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avatar Name",
-            "description": "The name of the avatar."
-          },
-          "avatar_style_name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Avatar Style Name",
-            "description": "The name of the avatar style."
-          }
-        },
-        "type": "object",
-        "title": "AvatarContextResponseModel"
-      },
       "BackupLLMDefault": {
         "properties": {
           "preference": {
@@ -35353,17 +35262,6 @@
             "examples": [
               true
             ]
-          },
-          "avatar_context": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AvatarContextRequestModel"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Avatar context when this generation is made from the Avatars video editor."
           }
         },
         "type": "object",
@@ -35480,17 +35378,6 @@
             "examples": [
               true
             ]
-          },
-          "avatar_context": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AvatarContextRequestModel"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Avatar context when this generation is made from the Avatars video editor."
           }
         },
         "type": "object",
@@ -36790,17 +36677,6 @@
             "examples": [
               true
             ]
-          },
-          "avatar_context": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AvatarContextRequestModel"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Avatar context when this generation is made from the Avatars video editor."
           }
         },
         "type": "object",
@@ -37162,17 +37038,6 @@
             "examples": [
               true
             ]
-          },
-          "avatar_context": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AvatarContextRequestModel"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Avatar context when this generation is made from the Avatars video editor."
           }
         },
         "type": "object",
@@ -66843,17 +66708,6 @@
             ],
             "title": "Output Format",
             "description": "The output format the audio was originally generated in."
-          },
-          "avatar_context": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AvatarContextResponseModel"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Avatar context if this generation was created from the Avatars video editor."
           }
         },
         "type": "object",

@@ -1994,8 +1994,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.AllowlistItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AuthorizationMethod), TypeInfoPropertyName = "AuthorizationMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AutoSyncInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AvatarContextRequestModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AvatarContextResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackupLLMDefault))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackupLLMDisabled))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackupLLMOverride))]

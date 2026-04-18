@@ -106,9 +106,6 @@ namespace ElevenLabs
         /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="avatarContext">
-        /// Avatar context when this generation is made from the Avatars video editor.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -129,7 +126,6 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
             global::ElevenLabs.BodyTextToSpeechStreamApplyTextNormalization? applyTextNormalization = default,
             bool? applyLanguageTextNormalization = default,
-            global::ElevenLabs.AvatarContextRequestModel? avatarContext = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
