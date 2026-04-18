@@ -193,11 +193,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public UsageClient Usage { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public UserClient User { get; }
 
         /// <summary>

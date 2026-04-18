@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyUsageByProductOverTimeV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupBy
+    public sealed partial class BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostFilters
     {
 
         /// <summary>

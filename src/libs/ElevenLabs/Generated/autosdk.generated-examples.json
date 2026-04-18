@@ -761,17 +761,6 @@
     },
     {
       "Order": 70,
-      "Title": "Get Characters Usage Metrics",
-      "Slug": "usage-characters",
-      "Description": "Returns the usage metrics for the current user or the entire workspace they are part of. The response provides a time axis based on the specified aggregation interval (default: day), with usage values for each interval along that axis. Usage is broken down by the selected breakdown type. For example, breakdown type \u0022voice\u0022 will return the usage of each voice for each interval along the time axis.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022time\u0022: [\n//     1738252091000,\n//     1739404800000\n//   ],\n//   \u0022usage\u0022: {\n//     \u0022All\u0022: [\n//       49,\n//       1053\n//     ]\n//   }\n// }",
-      "Format": "sdk",
-      "OperationId": "usage_characters",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
-    },
-    {
-      "Order": 71,
       "Title": "Get User Info",
       "Slug": "get-user-info",
       "Description": "Gets information about the user",
@@ -782,7 +771,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 72,
+      "Order": 71,
       "Title": "Add Voice",
       "Slug": "add-voice",
       "Description": "Add a new voice to your collection of voices in VoiceLab.",
@@ -793,7 +782,7 @@
       "Setup": null
     },
     {
-      "Order": 73,
+      "Order": 72,
       "Title": "Delete Voice",
       "Slug": "delete-voice",
       "Description": "Deletes a voice by its ID.",
@@ -804,7 +793,7 @@
       "Setup": null
     },
     {
-      "Order": 74,
+      "Order": 73,
       "Title": "Get Similar Library Voices",
       "Slug": "get-similar-library-voices",
       "Description": "Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.",
@@ -815,7 +804,7 @@
       "Setup": null
     },
     {
-      "Order": 75,
+      "Order": 74,
       "Title": "Get Voice Settings",
       "Slug": "get-voice-settings",
       "Description": "Returns the settings for a specific voice. \u0022similarity_boost\u0022 corresponds to\u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
@@ -826,7 +815,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 76,
+      "Order": 75,
       "Title": "Get Voice",
       "Slug": "get-voice-by-id",
       "Description": "Returns metadata about a specific voice.",
@@ -837,7 +826,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 77,
+      "Order": 76,
       "Title": "List Voices",
       "Slug": "get-voices",
       "Description": "Returns a list of all available voices for a user.",
@@ -848,7 +837,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 78,
+      "Order": 77,
       "Title": "Get Default Voice Settings.",
       "Slug": "get-voice-settings-default",
       "Description": "Gets the default settings for voices. \u0022similarity_boost\u0022 corresponds to\u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
@@ -859,7 +848,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 79,
+      "Order": 78,
       "Title": "Get Voices",
       "Slug": "get-library-voices",
       "Description": "Retrieves a list of shared voices.",
@@ -870,7 +859,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 80,
+      "Order": 79,
       "Title": "Add Shared Voice",
       "Slug": "add-sharing-voice",
       "Description": "Add a shared voice to your collection of voices.",
@@ -881,7 +870,7 @@
       "Setup": null
     },
     {
-      "Order": 81,
+      "Order": 80,
       "Title": "Edit Voice Settings",
       "Slug": "edit-voice-settings",
       "Description": "Edit your settings for a specific voice. \u0022similarity_boost\u0022 corresponds to \u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
@@ -892,7 +881,7 @@
       "Setup": null
     },
     {
-      "Order": 82,
+      "Order": 81,
       "Title": "Edit Voice",
       "Slug": "edit-voice",
       "Description": "Edit a voice created by you.",
@@ -903,7 +892,7 @@
       "Setup": null
     },
     {
-      "Order": 83,
+      "Order": 82,
       "Title": "Delete Workspace Webhook",
       "Slug": "delete-workspace-webhook-route",
       "Description": "Delete the specified workspace webhook",
@@ -914,7 +903,7 @@
       "Setup": null
     },
     {
-      "Order": 84,
+      "Order": 83,
       "Title": "List Workspace Webhooks",
       "Slug": "get-workspace-webhooks-route",
       "Description": "List all webhooks for a workspace",
@@ -925,7 +914,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 85,
+      "Order": 84,
       "Title": "Update Workspace Webhook",
       "Slug": "edit-workspace-webhook-route",
       "Description": "Update the specified workspace webhook",
@@ -936,7 +925,7 @@
       "Setup": null
     },
     {
-      "Order": 86,
+      "Order": 85,
       "Title": "Add Member To User Group",
       "Slug": "add-member",
       "Description": "Adds a member of your workspace to the specified group. Requires \u0060group_members_manage\u0060 permission.",
@@ -947,7 +936,7 @@
       "Setup": null
     },
     {
-      "Order": 87,
+      "Order": 86,
       "Title": "Invite User",
       "Slug": "invite-user",
       "Description": "Sends an email invitation to join your workspace to the provided email. If the user doesn\u0027t have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission. If the user is already in the workspace a 400 error will be returned.",
@@ -958,7 +947,7 @@
       "Setup": null
     },
     {
-      "Order": 88,
+      "Order": 87,
       "Title": "Invite Multiple Users",
       "Slug": "invite-users-bulk",
       "Description": "Sends email invitations to join your workspace to the provided emails. Requires all email addresses to be part of a verified domain. If the users don\u0027t have an account they will be prompted to create one. If the users accept these invites they will be added as users to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission.",
@@ -969,7 +958,7 @@
       "Setup": null
     },
     {
-      "Order": 89,
+      "Order": 88,
       "Title": "Delete Existing Invitation",
       "Slug": "delete-invite",
       "Description": "Invalidates an existing email invitation. The invitation will still show up in the inbox it has been delivered to, but activating it to join the workspace won\u0027t work. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission.",
@@ -980,7 +969,7 @@
       "Setup": null
     },
     {
-      "Order": 90,
+      "Order": 89,
       "Title": "Get Resource",
       "Slug": "get-resource-metadata",
       "Description": "Gets the metadata of a resource by ID.",
@@ -991,7 +980,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 91,
+      "Order": 90,
       "Title": "Delete Member From User Group",
       "Slug": "remove-member",
       "Description": "Removes a member from the specified group. Requires \u0060group_members_manage\u0060 permission.",
@@ -1002,7 +991,7 @@
       "Setup": null
     },
     {
-      "Order": 92,
+      "Order": 91,
       "Title": "Update Member",
       "Slug": "update-workspace-member",
       "Description": "Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.",

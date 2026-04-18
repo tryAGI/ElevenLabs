@@ -304,15 +304,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public UsageClient Usage => new UsageClient(HttpClient, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
         public UserClient User => new UserClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
