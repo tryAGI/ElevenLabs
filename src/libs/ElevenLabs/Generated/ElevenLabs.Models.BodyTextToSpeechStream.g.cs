@@ -96,12 +96,6 @@ namespace ElevenLabs
         public bool? ApplyLanguageTextNormalization { get; set; }
 
         /// <summary>
-        /// Avatar context when this generation is made from the Avatars video editor.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("avatar_context")]
-        public global::ElevenLabs.AvatarContextRequestModel? AvatarContext { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -149,9 +143,6 @@ namespace ElevenLabs
         /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="avatarContext">
-        /// Avatar context when this generation is made from the Avatars video editor.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -167,8 +158,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? previousRequestIds,
             global::System.Collections.Generic.IList<string>? nextRequestIds,
             global::ElevenLabs.BodyTextToSpeechStreamApplyTextNormalization? applyTextNormalization,
-            bool? applyLanguageTextNormalization,
-            global::ElevenLabs.AvatarContextRequestModel? avatarContext)
+            bool? applyLanguageTextNormalization)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.ModelId = modelId;
@@ -182,7 +172,6 @@ namespace ElevenLabs
             this.NextRequestIds = nextRequestIds;
             this.ApplyTextNormalization = applyTextNormalization;
             this.ApplyLanguageTextNormalization = applyLanguageTextNormalization;
-            this.AvatarContext = avatarContext;
         }
 
         /// <summary>

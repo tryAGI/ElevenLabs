@@ -55,12 +55,6 @@ namespace ElevenLabs
         public global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization? ApplyTextNormalization { get; set; }
 
         /// <summary>
-        /// Avatar context when this generation is made from the Avatars video editor.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("avatar_context")]
-        public global::ElevenLabs.AvatarContextRequestModel? AvatarContext { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -92,9 +86,6 @@ namespace ElevenLabs
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
         /// Default Value: auto
         /// </param>
-        /// <param name="avatarContext">
-        /// Avatar context when this generation is made from the Avatars video editor.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -105,8 +96,7 @@ namespace ElevenLabs
             global::ElevenLabs.ModelSettingsResponseModel? settings,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? pronunciationDictionaryLocators,
             int? seed,
-            global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization? applyTextNormalization,
-            global::ElevenLabs.AvatarContextRequestModel? avatarContext)
+            global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization? applyTextNormalization)
         {
             this.Inputs = inputs ?? throw new global::System.ArgumentNullException(nameof(inputs));
             this.ModelId = modelId;
@@ -115,7 +105,6 @@ namespace ElevenLabs
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
             this.Seed = seed;
             this.ApplyTextNormalization = applyTextNormalization;
-            this.AvatarContext = avatarContext;
         }
 
         /// <summary>
