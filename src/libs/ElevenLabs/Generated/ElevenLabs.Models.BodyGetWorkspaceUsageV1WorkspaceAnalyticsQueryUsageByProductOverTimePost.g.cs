@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyUsageByProductOverTimeV1WorkspaceAnalyticsQueryUsageByProductOverTimePost
+    public sealed partial class BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost
     {
         /// <summary>
         /// 
@@ -32,7 +32,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_by")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.BodyUsageByProductOverTimeV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? GroupBy { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? GroupBy { get; set; }
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyUsageByProductOverTimeV1WorkspaceAnalyticsQueryUsageByProductOverTimePost" /> class.
+        /// Initializes a new instance of the <see cref="BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost" /> class.
         /// </summary>
         /// <param name="startTime"></param>
         /// <param name="endTime"></param>
@@ -59,11 +59,11 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyUsageByProductOverTimeV1WorkspaceAnalyticsQueryUsageByProductOverTimePost(
+        public BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost(
             int startTime,
             int endTime,
             int? intervalSeconds,
-            global::System.Collections.Generic.IList<global::ElevenLabs.BodyUsageByProductOverTimeV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? groupBy,
+            global::System.Collections.Generic.IList<global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? groupBy,
             global::System.Collections.Generic.IList<global::ElevenLabs.ColumnFilter>? filters)
         {
             this.StartTime = startTime;
@@ -74,9 +74,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyUsageByProductOverTimeV1WorkspaceAnalyticsQueryUsageByProductOverTimePost" /> class.
+        /// Initializes a new instance of the <see cref="BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost" /> class.
         /// </summary>
-        public BodyUsageByProductOverTimeV1WorkspaceAnalyticsQueryUsageByProductOverTimePost()
+        public BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost()
         {
         }
     }
