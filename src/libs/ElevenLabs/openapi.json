@@ -14176,6 +14176,17 @@
             "description": "Sort mode for listing tests. Use 'folders_first' to place folders before tests."
           },
           {
+            "name": "sharing_mode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/TestSharingMode",
+              "description": "Filter test visibility. Use `shared_with_me` to return only tests/folders shared with the current user that they did not create.",
+              "default": "all"
+            },
+            "description": "Filter test visibility. Use `shared_with_me` to return only tests/folders shared with the current user that they did not create."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -51524,6 +51535,11 @@
             "const": "get_schedule",
             "title": "Smb Tool Type",
             "default": "get_schedule"
+          },
+          "include_location_filter": {
+            "type": "boolean",
+            "title": "Include Location Filter",
+            "default": false
           }
         },
         "type": "object",
@@ -69098,6 +69114,14 @@
           "failed"
         ],
         "title": "TestRunStatus"
+      },
+      "TestSharingMode": {
+        "type": "string",
+        "enum": [
+          "all",
+          "shared_with_me"
+        ],
+        "title": "TestSharingMode"
       },
       "TestToolResultModel": {
         "properties": {

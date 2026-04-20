@@ -15,6 +15,12 @@ namespace ElevenLabs
         public string? SmbToolType { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("include_location_filter")]
+        public bool? IncludeLocationFilter { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -26,13 +32,18 @@ namespace ElevenLabs
         /// <param name="smbToolType">
         /// Default Value: get_schedule
         /// </param>
+        /// <param name="includeLocationFilter">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetScheduleParams(
-            string? smbToolType)
+            string? smbToolType,
+            bool? includeLocationFilter)
         {
             this.SmbToolType = smbToolType;
+            this.IncludeLocationFilter = includeLocationFilter;
         }
 
         /// <summary>
