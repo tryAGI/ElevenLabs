@@ -1001,6 +1001,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.TestRunStatusNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.TestSharingModeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TestSharingModeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.TestTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.TestTypeNullableJsonConverter),
@@ -3260,6 +3264,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TestRunMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TestRunMetadataTestType), TypeInfoPropertyName = "TestRunMetadataTestType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TestRunStatus), TypeInfoPropertyName = "TestRunStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TestSharingMode), TypeInfoPropertyName = "TestSharingMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TestType), TypeInfoPropertyName = "TestType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToDialogueSettingsResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TokenResponseModel))]
