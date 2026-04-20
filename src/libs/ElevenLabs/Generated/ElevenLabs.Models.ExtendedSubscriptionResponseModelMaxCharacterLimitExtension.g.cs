@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
+    /// Deprecated: use `max_credit_limit_extension`. Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
     /// </summary>
     public sealed partial class ExtendedSubscriptionResponseModelMaxCharacterLimitExtension
     {

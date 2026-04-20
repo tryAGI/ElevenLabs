@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet17Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string batchId);
+            ref string secretId);
         partial void PrepareGet17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string batchId);
+            string secretId);
         partial void ProcessGet17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,15 +42,15 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get A Batch Call By Id.<br/>
-        /// Get detailed information about a batch call including all recipients.
+        /// Get Convai Workspace Secret<br/>
+        /// Get a workspace secret by ID
         /// </summary>
-        /// <param name="batchId"></param>
+        /// <param name="secretId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallDetailedResponse> Get17Async(
-            string batchId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> Get17Async(
+            string secretId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -58,7 +58,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet17Arguments(
                 httpClient: HttpClient,
-                batchId: ref batchId);
+                secretId: ref secretId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -83,7 +83,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/batch-calling/{batchId}",
+                                path: $"/v1/convai/secrets/{secretId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -125,7 +125,7 @@ namespace ElevenLabs
                 PrepareGet17Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    batchId: batchId);
+                    secretId: secretId);
 
                 return __httpRequest;
             }
@@ -144,7 +144,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -171,7 +171,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -206,7 +206,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -253,7 +253,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -273,7 +273,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -347,7 +347,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.BatchCallDetailedResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -377,7 +377,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.BatchCallDetailedResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

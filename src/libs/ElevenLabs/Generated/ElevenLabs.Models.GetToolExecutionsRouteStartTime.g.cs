@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Deprecated: use `max_credit_limit_extension`. Maximum number of characters that the character limit can be exceeded by. Managed by the workspace admin.
+    /// Filter executions from this Unix timestamp (inclusive).
     /// </summary>
-    public sealed partial class SubscriptionResponseModelMaxCharacterLimitExtension
+    public sealed partial class GetToolExecutionsRouteStartTime
     {
 
         /// <summary>
