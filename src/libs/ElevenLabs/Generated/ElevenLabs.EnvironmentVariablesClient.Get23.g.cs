@@ -3,11 +3,11 @@
 
 namespace ElevenLabs
 {
-    public partial class AgentsPlatformClient
+    public partial class EnvironmentVariablesClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get16SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get23SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,45 +21,50 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get16SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get23SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Get16SecurityRequirement0,
+            {                s_Get23SecurityRequirement0,
             };
-        partial void PrepareGet16Arguments(
-            global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareGet16Request(
+        partial void PrepareGet23Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessGet16Response(
+            ref string envVarId);
+        partial void PrepareGet23Request(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string envVarId);
+        partial void ProcessGet23Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGet16ResponseContent(
+        partial void ProcessGet23ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Convai Dashboard Settings<br/>
-        /// Retrieve Convai dashboard settings for the workspace
+        /// Get Environment Variable<br/>
+        /// Get a specific environment variable by ID
         /// </summary>
+        /// <param name="envVarId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Get16Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Get23Async(
+            string envVarId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGet16Arguments(
-                httpClient: HttpClient);
+            PrepareGet23Arguments(
+                httpClient: HttpClient,
+                envVarId: ref envVarId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Get16SecurityRequirements,
-                operationName: "Get16Async");
+                securityRequirements: s_Get23SecurityRequirements,
+                operationName: "Get23Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -78,7 +83,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/settings/dashboard",
+                                path: $"/v1/convai/environment-variables/{envVarId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -117,9 +122,10 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGet16Request(
+                PrepareGet23Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    envVarId: envVarId);
 
                 return __httpRequest;
             }
@@ -136,9 +142,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get16",
-                                methodName: "Get16Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                operationId: "Get23",
+                                methodName: "Get23Async",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -163,9 +169,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get16",
-                                methodName: "Get16Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                operationId: "Get23",
+                                methodName: "Get23Async",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -198,9 +204,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get16",
-                                methodName: "Get16Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                operationId: "Get23",
+                                methodName: "Get23Async",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -237,7 +243,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGet16Response(
+                ProcessGet23Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -245,9 +251,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get16",
-                                methodName: "Get16Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                operationId: "Get23",
+                                methodName: "Get23Async",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -265,9 +271,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get16",
-                                methodName: "Get16Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                operationId: "Get23",
+                                methodName: "Get23Async",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -280,6 +286,39 @@ namespace ElevenLabs
                                 willRetry: false,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            // 
+                            if ((int)__response.StatusCode == 404)
+                            {
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                    else
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_404 = __ex;
+                                }
+
+                                throw new global::ElevenLabs.ApiException(
+                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    statusCode: __response.StatusCode)
+                                {
+                                    ResponseBody = __content_404,
+                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value),
+                                };
+                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -331,7 +370,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGet16ResponseContent(
+                                ProcessGet23ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -341,7 +380,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.EnvironmentVariableResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -371,7 +410,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.EnvironmentVariableResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

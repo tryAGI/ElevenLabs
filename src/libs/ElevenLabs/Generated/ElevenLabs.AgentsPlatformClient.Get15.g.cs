@@ -40,13 +40,13 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Convai Dashboard Settings<br/>
-        /// Retrieve Convai dashboard settings for the workspace
+        /// Get Convai Settings<br/>
+        /// Retrieve Convai settings for the workspace
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Get15Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> Get15Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -78,7 +78,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/settings/dashboard",
+                                path: "/v1/convai/settings",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -138,7 +138,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                pathTemplate: "\"/v1/convai/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -165,7 +165,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                pathTemplate: "\"/v1/convai/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -200,7 +200,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                pathTemplate: "\"/v1/convai/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -247,7 +247,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                pathTemplate: "\"/v1/convai/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -267,7 +267,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
+                                pathTemplate: "\"/v1/convai/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +341,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.GetConvAISettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -371,7 +371,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.GetConvAISettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
