@@ -196,6 +196,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetClientAppointmentsParams)}");
                 getClientAppointments = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.GetAppointmentByConfirmationNumberParams? getAppointmentByConfirmationNumber = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetAppointmentByConfirmationNumber)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetAppointmentByConfirmationNumberParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams)}");
+                getAppointmentByConfirmationNumber = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListCalendarEventsParams? listCalendarEvents = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListCalendarEvents)
             {
@@ -473,6 +480,8 @@ namespace ElevenLabs.JsonConverters
 
                 getClientAppointments,
 
+                getAppointmentByConfirmationNumber,
+
                 listCalendarEvents,
 
                 updateCalendarEvent,
@@ -699,6 +708,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetClientAppointmentsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetClientAppointmentsParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetClientAppointmentsParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetClientAppointments!, typeInfo);
+            }
+            else if (value.IsGetAppointmentByConfirmationNumber)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetAppointmentByConfirmationNumberParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetAppointmentByConfirmationNumber!, typeInfo);
             }
             else if (value.IsListCalendarEvents)
             {

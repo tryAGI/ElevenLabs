@@ -115,6 +115,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        GetAppointmentByConfirmationNumber,
+        /// <summary>
+        /// 
+        /// </summary>
         GetBookingPageSettings,
         /// <summary>
         /// 
@@ -276,6 +280,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteService => "delete_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteStaff => "delete_staff",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary => "get_analytics_summary",
+                SMBToolConfigParamsDiscriminatorSmbToolType.GetAppointmentByConfirmationNumber => "get_appointment_by_confirmation_number",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingPageSettings => "get_booking_page_settings",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingSlugStatus => "get_booking_slug_status",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetClientAppointments => "get_client_appointments",
@@ -343,6 +348,7 @@ namespace ElevenLabs
                 "delete_service" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteService,
                 "delete_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteStaff,
                 "get_analytics_summary" => SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary,
+                "get_appointment_by_confirmation_number" => SMBToolConfigParamsDiscriminatorSmbToolType.GetAppointmentByConfirmationNumber,
                 "get_booking_page_settings" => SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingPageSettings,
                 "get_booking_slug_status" => SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingSlugStatus,
                 "get_client_appointments" => SMBToolConfigParamsDiscriminatorSmbToolType.GetClientAppointments,
