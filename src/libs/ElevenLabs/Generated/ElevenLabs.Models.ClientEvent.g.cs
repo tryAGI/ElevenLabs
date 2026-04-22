@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AgentResponseComplete,
+        /// <summary>
+        /// 
+        /// </summary>
         AgentResponseCorrection,
         /// <summary>
         /// 
@@ -112,6 +116,7 @@ namespace ElevenLabs
             {
                 ClientEvent.AgentChatResponsePart => "agent_chat_response_part",
                 ClientEvent.AgentResponse => "agent_response",
+                ClientEvent.AgentResponseComplete => "agent_response_complete",
                 ClientEvent.AgentResponseCorrection => "agent_response_correction",
                 ClientEvent.AgentResponseMetadata => "agent_response_metadata",
                 ClientEvent.AgentToolRequest => "agent_tool_request",
@@ -144,6 +149,7 @@ namespace ElevenLabs
             {
                 "agent_chat_response_part" => ClientEvent.AgentChatResponsePart,
                 "agent_response" => ClientEvent.AgentResponse,
+                "agent_response_complete" => ClientEvent.AgentResponseComplete,
                 "agent_response_correction" => ClientEvent.AgentResponseCorrection,
                 "agent_response_metadata" => ClientEvent.AgentResponseMetadata,
                 "agent_tool_request" => ClientEvent.AgentToolRequest,

@@ -39131,6 +39131,7 @@
           "client_error",
           "guardrail_triggered",
           "dtmf_request",
+          "agent_response_complete",
           "internal_turn_probability",
           "internal_tentative_agent_response"
         ],
@@ -42839,26 +42840,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
             },
             "type": "object",
             "title": "Dynamic Variables"
@@ -42934,26 +42916,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
             },
             "type": "object",
             "title": "Dynamic Variables"
@@ -43025,26 +42988,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
             },
             "type": "object",
             "title": "Dynamic Variables"
@@ -43180,26 +43124,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
             },
             "type": "object",
             "title": "Dynamic Variables"
@@ -44622,26 +44547,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -44825,26 +44731,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -44981,26 +44868,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -47608,18 +47476,6 @@
           "value_path": "user.name"
         }
       },
-      "DynamicVariableContainerValueType-Input": {
-        "items": {
-          "$ref": "#/components/schemas/DynamicVariableNestedValueType-Input"
-        },
-        "type": "array"
-      },
-      "DynamicVariableContainerValueType-Output": {
-        "items": {
-          "$ref": "#/components/schemas/DynamicVariableNestedValueType-Output"
-        },
-        "type": "array"
-      },
       "DynamicVariableNestedValueType-Input": {
         "anyOf": [
           {
@@ -47737,27 +47593,61 @@
         "title": "DynamicVariableUpdateCommonModel",
         "description": "Tracks a dynamic variable update that occurred during tool execution."
       },
+      "DynamicVariableValueType-Input": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "items": {
+              "$ref": "#/components/schemas/DynamicVariableNestedValueType-Input"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "DynamicVariableValueType-Output": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "items": {
+              "$ref": "#/components/schemas/DynamicVariableNestedValueType-Output"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
       "DynamicVariablesConfig-Input": {
         "properties": {
           "dynamic_variable_placeholders": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
             },
             "type": "object",
             "title": "Dynamic Variable Placeholders",
@@ -47776,23 +47666,7 @@
         "properties": {
           "dynamic_variable_placeholders": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
             },
             "type": "object",
             "title": "Dynamic Variable Placeholders",
@@ -47813,23 +47687,7 @@
             "anyOf": [
               {
                 "additionalProperties": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/DynamicVariableValueType-Input"
                 },
                 "type": "object"
               },
@@ -47855,23 +47713,7 @@
             "anyOf": [
               {
                 "additionalProperties": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/DynamicVariableValueType-Output"
                 },
                 "type": "object"
               },
@@ -51655,26 +51497,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -51838,26 +51661,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -52164,26 +51968,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -53354,7 +53139,6 @@
           "gpt-5.1",
           "gpt-5.2",
           "gpt-5.2-chat-latest",
-          "gpt-5.4",
           "gpt-5-mini",
           "gpt-5-nano",
           "gpt-3.5-turbo",
@@ -53404,7 +53188,6 @@
           "gpt-5-2025-08-07",
           "gpt-5.1-2025-11-13",
           "gpt-5.2-2025-12-11",
-          "gpt-5.4-2026-03-05",
           "gpt-5-mini-2025-08-07",
           "gpt-5-nano-2025-08-07",
           "gpt-4.1-2025-04-14",
@@ -58691,7 +58474,7 @@
           "use_out_of_band_dtmf": {
             "type": "boolean",
             "title": "Use Out Of Band Dtmf",
-            "description": "If true, send DTMF tones out-of-band using RFC 4733 (useful for SIP calls only). If false, send DTMF as in-band audio tones (works for all call types).",
+            "description": "Send DTMF tones as out-of-band RTP events (RFC 4733) instead of in-band audio. Only effective for SIP trunk imported numbers.",
             "default": true
           },
           "suppress_turn_after_dtmf": {
@@ -64061,26 +63844,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -65686,26 +65450,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -69703,26 +69448,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Output"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -71648,26 +71374,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -71762,26 +71469,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
             },
             "type": "object",
             "title": "Dynamic Variables",
@@ -71888,26 +71576,7 @@
           },
           "dynamic_variables": {
             "additionalProperties": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "$ref": "#/components/schemas/DynamicVariableContainerValueType-Input"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
             },
             "type": "object",
             "title": "Dynamic Variables",
