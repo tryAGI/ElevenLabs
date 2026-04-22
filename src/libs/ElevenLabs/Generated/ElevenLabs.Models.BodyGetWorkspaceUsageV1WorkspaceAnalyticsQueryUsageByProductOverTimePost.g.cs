@@ -9,18 +9,20 @@ namespace ElevenLabs
     public sealed partial class BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost
     {
         /// <summary>
-        /// 
+        /// Start of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StartTime { get; set; }
+        public required global::System.DateTimeOffset StartTime { get; set; }
 
         /// <summary>
-        /// 
+        /// End of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int EndTime { get; set; }
+        public required global::System.DateTimeOffset EndTime { get; set; }
 
         /// <summary>
         /// Default Value: 60
@@ -49,8 +51,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost" /> class.
         /// </summary>
-        /// <param name="startTime"></param>
-        /// <param name="endTime"></param>
+        /// <param name="startTime">
+        /// Start of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01.
+        /// </param>
+        /// <param name="endTime">
+        /// End of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01.
+        /// </param>
         /// <param name="intervalSeconds">
         /// Default Value: 60
         /// </param>
@@ -60,8 +66,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost(
-            int startTime,
-            int endTime,
+            global::System.DateTimeOffset startTime,
+            global::System.DateTimeOffset endTime,
             int? intervalSeconds,
             global::System.Collections.Generic.IList<global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? groupBy,
             global::System.Collections.Generic.IList<global::ElevenLabs.ColumnFilter>? filters)

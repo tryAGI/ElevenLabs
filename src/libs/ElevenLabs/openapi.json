@@ -25171,7 +25171,7 @@
           "access:all"
         ],
         "summary": "Get Workspace Usage",
-        "description": "Returns credit usage broken down by product type over time. Timestamps are Unix milliseconds. The response is a tabular structure with columns, column_types, column_units, and rows.",
+        "description": "Returns credit usage broken down by product type over time. The response is a tabular structure with columns, column_types, column_units, and rows.",
         "operationId": "usage_by_product_over_time",
         "parameters": [
           {
@@ -33679,13 +33679,15 @@
         "properties": {
           "start_time": {
             "type": "integer",
-            "minimum": 0.0,
-            "title": "Start Time"
+            "minimum": 1577836800000.0,
+            "title": "Start Time",
+            "description": "Start of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01."
           },
           "end_time": {
             "type": "integer",
-            "minimum": 0.0,
-            "title": "End Time"
+            "minimum": 1577836800000.0,
+            "title": "End Time",
+            "description": "End of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01."
           },
           "interval_seconds": {
             "type": "integer",
@@ -49580,6 +49582,19 @@
         "title": "GetAnalyticsSummaryParams",
         "description": "Get a summary of key business analytics for a time period."
       },
+      "GetAppointmentByConfirmationNumberParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "get_appointment_by_confirmation_number",
+            "title": "Smb Tool Type",
+            "default": "get_appointment_by_confirmation_number"
+          }
+        },
+        "type": "object",
+        "title": "GetAppointmentByConfirmationNumberParams",
+        "description": "Look up an appointment by the booking confirmation number the caller quotes.\n\nThe confirmation number is the 8-character code shown on the booking\nconfirmation page (e.g. ``#01ABCDEF``). Callers may read it back with or\nwithout the leading ``#`` and with varied spacing; the tool normalizes\nthe input and does a prefix match on the stored calendar item id."
+      },
       "GetAudioNativeProjectSettingsResponseModel": {
         "properties": {
           "enabled": {
@@ -64414,6 +64429,9 @@
                 "$ref": "#/components/schemas/GetClientAppointmentsParams"
               },
               {
+                "$ref": "#/components/schemas/GetAppointmentByConfirmationNumberParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListCalendarEventsParams"
               },
               {
@@ -64540,6 +64558,7 @@
                 "delete_service": "#/components/schemas/DeleteServiceParams",
                 "delete_staff": "#/components/schemas/DeleteStaffParams",
                 "get_analytics_summary": "#/components/schemas/GetAnalyticsSummaryParams",
+                "get_appointment_by_confirmation_number": "#/components/schemas/GetAppointmentByConfirmationNumberParams",
                 "get_booking_page_settings": "#/components/schemas/GetBookingPageSettingsParams",
                 "get_booking_slug_status": "#/components/schemas/GetBookingSlugStatusParams",
                 "get_client_appointments": "#/components/schemas/GetClientAppointmentsParams",
