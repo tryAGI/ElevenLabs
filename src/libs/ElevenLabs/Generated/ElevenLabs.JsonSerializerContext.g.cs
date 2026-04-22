@@ -1433,6 +1433,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.DynamicVariableNestedValueTypeOutputJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.DynamicVariableValueTypeInputJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.DynamicVariableValueTypeOutputJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.ExportOptionsJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PhoneNumbersItemJsonConverter),
@@ -1621,33 +1625,11 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.OneOfJsonConverter<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>),
 
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>),
-
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::ElevenLabs.ConvAISecretLocator>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIEnvVarLocator, object>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIDynamicVariable, global::ElevenLabs.ConvAIEnvVarLocator>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.Dictionary<string, string>, global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableSecretValue>, global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableAuthConnectionValue>>),
 
@@ -1657,13 +1639,7 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>),
 
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>),
-
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant1Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant2Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?>),
 
@@ -1697,21 +1673,9 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride, object>),
 
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>),
-
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>),
 
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>),
-
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::ElevenLabs.EnvironmentVariableSecretValueRequest, global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>),
-
-            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?>),
 
@@ -2445,11 +2409,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolResponseModelOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConversationInitiationClientDataInternal))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConversationInitiationSourceInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>), TypeInfoPropertyName = "AnyOfStringDoubleInt32BooleanIListDynamicVariableNestedValueTypeOutputObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DynamicVariableValueTypeOutput), TypeInfoPropertyName = "DynamicVariableValueTypeOutput2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrchestratorToolMockBehaviorConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>), TypeInfoPropertyName = "AnyOfStringDoubleInt32BooleanIListDynamicVariableNestedValueTypeInputObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DynamicVariableValueTypeInput), TypeInfoPropertyName = "DynamicVariableValueTypeInput2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConversationInitiationClientDataRequestOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator>), TypeInfoPropertyName = "AnyOfStringConvAISecretLocator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConversationSignedUrlResponseModel))]
@@ -2625,9 +2587,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubbingTranscriptsResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubbingTranscriptsResponseModelTranscriptFormat), TypeInfoPropertyName = "DubbingTranscriptsResponseModelTranscriptFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DynamicVariableNestedValueTypeInput), TypeInfoPropertyName = "DynamicVariableNestedValueTypeInput2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DynamicVariableNestedValueTypeOutput), TypeInfoPropertyName = "DynamicVariableNestedValueTypeOutput2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>>), TypeInfoPropertyName = "AnyOfStringDoubleInt32BooleanIListDynamicVariableNestedValueTypeInput2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, double?, int?, bool?, global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>>), TypeInfoPropertyName = "AnyOfStringDoubleInt32BooleanIListDynamicVariableNestedValueTypeOutput2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.EditChapterResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.EditProjectResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.EditVoiceResponseModel))]
@@ -3621,10 +3583,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, double?, int?, bool?, global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, double?, int?, bool?, global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableNestedValueTypeInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentSuccessfulResponseExample>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentFailureResponseExample>))]
@@ -3638,8 +3596,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptUtterance>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptWord>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptCharacter>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, double?, int?, bool?, global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableNestedValueTypeInput>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, double?, int?, bool?, global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableNestedValueTypeInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.EnvironmentVariableResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.InvoiceResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VerificationAttemptResponseModel>))]

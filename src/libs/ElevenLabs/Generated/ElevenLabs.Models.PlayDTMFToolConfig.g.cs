@@ -17,7 +17,7 @@ namespace ElevenLabs
         public string? SystemToolType { get; set; }
 
         /// <summary>
-        /// If true, send DTMF tones out-of-band using RFC 4733 (useful for SIP calls only). If false, send DTMF as in-band audio tones (works for all call types).<br/>
+        /// Send DTMF tones as out-of-band RTP events (RFC 4733) instead of in-band audio. Only effective for SIP trunk imported numbers.<br/>
         /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_out_of_band_dtmf")]
@@ -43,7 +43,7 @@ namespace ElevenLabs
         /// Default Value: play_keypad_touch_tone
         /// </param>
         /// <param name="useOutOfBandDtmf">
-        /// If true, send DTMF tones out-of-band using RFC 4733 (useful for SIP calls only). If false, send DTMF as in-band audio tones (works for all call types).<br/>
+        /// Send DTMF tones as out-of-band RTP events (RFC 4733) instead of in-band audio. Only effective for SIP trunk imported numbers.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="suppressTurnAfterDtmf">
