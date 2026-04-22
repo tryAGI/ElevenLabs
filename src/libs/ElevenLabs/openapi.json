@@ -52612,6 +52612,46 @@
         ],
         "title": "HtmlExportOptions"
       },
+      "Icon": {
+        "properties": {
+          "src": {
+            "type": "string",
+            "title": "Src"
+          },
+          "mimeType": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mimetype"
+          },
+          "sizes": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sizes"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "src"
+        ],
+        "title": "Icon",
+        "description": "An icon for display in user interfaces."
+      },
       "ImageAvatar": {
         "properties": {
           "type": {
@@ -69316,6 +69356,20 @@
             ],
             "title": "Outputschema"
           },
+          "icons": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Icon"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Icons"
+          },
           "annotations": {
             "anyOf": [
               {
@@ -69337,6 +69391,16 @@
               }
             ],
             "title": "Meta"
+          },
+          "execution": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolExecution"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": true,
@@ -69506,6 +69570,30 @@
         "title": "ToolErrorHandlingMode",
         "description": "Controls how tool errors are processed before being shared with the agent.",
         "default": "auto"
+      },
+      "ToolExecution": {
+        "properties": {
+          "taskSupport": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "forbidden",
+                  "optional",
+                  "required"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tasksupport"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "ToolExecution",
+        "description": "Execution-related properties for a tool."
       },
       "ToolExecutionMode": {
         "type": "string",

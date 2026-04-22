@@ -43,6 +43,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("icons")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.Icon>? Icons { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotations")]
         public global::ElevenLabs.ToolAnnotations2? Annotations { get; set; }
 
@@ -51,6 +57,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("_meta")]
         public object? Meta { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("execution")]
+        public global::ElevenLabs.ToolExecution2? Execution { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -66,8 +78,10 @@ namespace ElevenLabs
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="outputSchema"></param>
+        /// <param name="icons"></param>
         /// <param name="annotations"></param>
         /// <param name="meta"></param>
+        /// <param name="execution"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -77,16 +91,20 @@ namespace ElevenLabs
             string? title,
             string? description,
             object? outputSchema,
+            global::System.Collections.Generic.IList<global::ElevenLabs.Icon>? icons,
             global::ElevenLabs.ToolAnnotations2? annotations,
-            object? meta)
+            object? meta,
+            global::ElevenLabs.ToolExecution2? execution)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Title = title;
             this.Description = description;
             this.InputSchema = inputSchema ?? throw new global::System.ArgumentNullException(nameof(inputSchema));
             this.OutputSchema = outputSchema;
+            this.Icons = icons;
             this.Annotations = annotations;
             this.Meta = meta;
+            this.Execution = execution;
         }
 
         /// <summary>
