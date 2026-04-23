@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -72,11 +74,20 @@ namespace ElevenLabs
         public string? Description { get; set; }
 
         /// <summary>
-        /// If true, all tools from this MCP server will require pre-tool execution speech<br/>
+        /// DEPRECATED: use `pre_tool_speech` instead. If true, all tools from this MCP server will require pre-tool execution speech.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("force_pre_tool_speech")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? ForcePreToolSpeech { get; set; }
+
+        /// <summary>
+        /// Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency. Applies to every tool from this MCP server unless overridden per tool.<br/>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pre_tool_speech")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PreToolSpeechModeJsonConverter))]
+        public global::ElevenLabs.PreToolSpeechMode? PreToolSpeech { get; set; }
 
         /// <summary>
         /// If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.<br/>
@@ -154,9 +165,9 @@ namespace ElevenLabs
         /// Optional auth connection to use for authentication with this MCP server
         /// </param>
         /// <param name="description"></param>
-        /// <param name="forcePreToolSpeech">
-        /// If true, all tools from this MCP server will require pre-tool execution speech<br/>
-        /// Default Value: false
+        /// <param name="preToolSpeech">
+        /// Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency. Applies to every tool from this MCP server unless overridden per tool.<br/>
+        /// Default Value: auto
         /// </param>
         /// <param name="disableInterruptions">
         /// If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.<br/>
@@ -193,7 +204,7 @@ namespace ElevenLabs
             object? requestHeaders,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection,
             string? description,
-            bool? forcePreToolSpeech,
+            global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
             bool? disableInterruptions,
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
@@ -210,7 +221,7 @@ namespace ElevenLabs
             this.AuthConnection = authConnection;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description;
-            this.ForcePreToolSpeech = forcePreToolSpeech;
+            this.PreToolSpeech = preToolSpeech;
             this.DisableInterruptions = disableInterruptions;
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;

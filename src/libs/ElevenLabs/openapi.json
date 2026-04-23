@@ -29155,8 +29155,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -29269,8 +29275,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -29345,6 +29357,7 @@
           "response_timeout_secs",
           "disable_interruptions",
           "force_pre_tool_speech",
+          "pre_tool_speech",
           "assignments",
           "tool_call_sound",
           "tool_call_sound_behavior",
@@ -35159,7 +35172,7 @@
             },
             "type": "array",
             "title": "Keyterms",
-            "description": "A list of keyterms to bias the transcription towards.           The keyterms are words or phrases you want the model to recognise more accurately.           The number of keyterms cannot exceed 1000.           The length of each keyterm must be less than 50 characters.           Keyterms can contain at most 5 words (after normalisation).           For example [\"hello\", \"world\", \"technical term\"].           Usage of this parameter will incur an additional 20% surcharge on the base transcription cost.           When more than 100 keyterms are provided, a minimum billable duration of 20 seconds applies per request.",
+            "description": "A list of keyterms to bias the transcription towards.           The keyterms are words or phrases you want the model to recognise more accurately.           The number of keyterms cannot exceed 1000.           The length of each keyterm must be less than 50 characters.           Keyterms can contain at most 5 words (after normalisation).           For example [\"hello\", \"world\", \"technical term\"].           The following characters are not supported: `<`, `>`, `{`, `}`, `[`, `]`, `\\`.           Usage of this parameter will incur an additional 20% surcharge on the base transcription cost.           When more than 100 keyterms are provided, a minimum billable duration of 20 seconds applies per request.",
             "default": []
           }
         },
@@ -39267,8 +39280,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -39377,8 +39396,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -55105,8 +55130,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, all tools from this MCP server will require pre-tool execution speech",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, all tools from this MCP server will require pre-tool execution speech.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency. Applies to every tool from this MCP server unless overridden per tool.",
+            "default": "auto"
           },
           "disable_interruptions": {
             "type": "boolean",
@@ -55251,8 +55282,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, all tools from this MCP server will require pre-tool execution speech",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, all tools from this MCP server will require pre-tool execution speech.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency. Applies to every tool from this MCP server unless overridden per tool.",
+            "default": "auto"
           },
           "disable_interruptions": {
             "type": "boolean",
@@ -55326,7 +55363,19 @@
               }
             ],
             "title": "Force Pre Tool Speech",
-            "description": "If set, overrides the server's force_pre_tool_speech setting for this tool"
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If set, overrides the server's force_pre_tool_speech setting for this tool.",
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PreToolSpeechMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's pre_tool_speech setting for this tool."
           },
           "disable_interruptions": {
             "anyOf": [
@@ -55668,8 +55717,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -55842,8 +55897,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -55998,7 +56059,19 @@
               }
             ],
             "title": "Force Pre Tool Speech",
-            "description": "If set, overrides the server's force_pre_tool_speech setting for this tool"
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If set, overrides the server's force_pre_tool_speech setting for this tool.",
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PreToolSpeechMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's pre_tool_speech setting for this tool."
           },
           "disable_interruptions": {
             "anyOf": [
@@ -56125,7 +56198,19 @@
               }
             ],
             "title": "Force Pre Tool Speech",
-            "description": "If set, overrides the server's force_pre_tool_speech setting for this tool"
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If set, overrides the server's force_pre_tool_speech setting for this tool.",
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PreToolSpeechMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's pre_tool_speech setting for this tool."
           },
           "disable_interruptions": {
             "anyOf": [
@@ -56247,7 +56332,19 @@
               }
             ],
             "title": "Force Pre Tool Speech",
-            "description": "If set, overrides the server's force_pre_tool_speech setting for this tool"
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If set, overrides the server's force_pre_tool_speech setting for this tool.",
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PreToolSpeechMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's pre_tool_speech setting for this tool."
           },
           "disable_interruptions": {
             "anyOf": [
@@ -56381,7 +56478,19 @@
               }
             ],
             "title": "Force Pre Tool Speech",
-            "description": "If set, overrides the server's force_pre_tool_speech setting for this tool"
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If set, overrides the server's force_pre_tool_speech setting for this tool.",
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PreToolSpeechMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's pre_tool_speech setting for this tool."
           },
           "disable_interruptions": {
             "anyOf": [
@@ -58217,6 +58326,34 @@
         ],
         "title": "PdfExportOptions"
       },
+      "PendingBlocksMetadataModel": {
+        "properties": {
+          "target_global_offset_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Global Offset Ms"
+          },
+          "block_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Block Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_global_offset_ms",
+          "block_ids"
+        ],
+        "title": "PendingBlocksMetadataModel"
+      },
       "PendingCancellationResponseModel": {
         "properties": {
           "kind": {
@@ -58274,6 +58411,34 @@
           "type"
         ],
         "title": "PendingClipTask"
+      },
+      "PendingExternalAudiosMetadataModel": {
+        "properties": {
+          "target_global_offset_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Global Offset Ms"
+          },
+          "external_audio_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "External Audio Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_global_offset_ms",
+          "external_audio_ids"
+        ],
+        "title": "PendingExternalAudiosMetadataModel"
       },
       "PendingSubscriptionSwitchResponseModel": {
         "properties": {
@@ -58940,6 +59105,16 @@
           "name"
         ],
         "title": "PostWorkspaceSecretResponseModel"
+      },
+      "PreToolSpeechMode": {
+        "type": "string",
+        "enum": [
+          "auto",
+          "force",
+          "off"
+        ],
+        "title": "PreToolSpeechMode",
+        "default": "auto"
       },
       "PreviewAudioDBModel": {
         "properties": {
@@ -60017,6 +60192,26 @@
             "type": "array",
             "title": "Pending External Audio Ids"
           },
+          "pending_blocks_metadata": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PendingBlocksMetadataModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pending_external_audios_metadata": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PendingExternalAudiosMetadataModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "speech_imported": {
             "type": "boolean",
             "title": "Speech Imported",
@@ -61059,6 +61254,26 @@
               }
             ],
             "title": "Source Asset Id"
+          },
+          "pending_blocks_metadata": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PendingBlocksMetadataModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pending_external_audios_metadata": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PendingExternalAudiosMetadataModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "pending_block_ids": {
             "items": {
@@ -64422,8 +64637,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -66829,7 +67050,8 @@
                   "Dubbing",
                   "PlayAPI",
                   "ConvAI",
-                  "VoiceGeneration"
+                  "VoiceGeneration",
+                  "InVPC"
                 ]
               },
               {
@@ -68045,8 +68267,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -68181,8 +68409,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -74851,8 +75085,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {
@@ -74949,8 +75189,14 @@
           "force_pre_tool_speech": {
             "type": "boolean",
             "title": "Force Pre Tool Speech",
-            "description": "If true, the agent will speak before the tool call.",
-            "default": false
+            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
+            "default": false,
+            "deprecated": true
+          },
+          "pre_tool_speech": {
+            "$ref": "#/components/schemas/PreToolSpeechMode",
+            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
+            "default": "auto"
           },
           "assignments": {
             "items": {

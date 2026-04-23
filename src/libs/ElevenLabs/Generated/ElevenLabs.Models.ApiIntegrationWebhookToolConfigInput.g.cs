@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -43,11 +45,20 @@ namespace ElevenLabs
         public bool? DisableInterruptions { get; set; }
 
         /// <summary>
-        /// If true, the agent will speak before the tool call.<br/>
+        /// DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("force_pre_tool_speech")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? ForcePreToolSpeech { get; set; }
+
+        /// <summary>
+        /// Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.<br/>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pre_tool_speech")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.PreToolSpeechModeJsonConverter))]
+        public global::ElevenLabs.PreToolSpeechMode? PreToolSpeech { get; set; }
 
         /// <summary>
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
@@ -146,9 +157,9 @@ namespace ElevenLabs
         /// If true, the user will not be able to interrupt the agent while this tool is running.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="forcePreToolSpeech">
-        /// If true, the agent will speak before the tool call.<br/>
-        /// Default Value: false
+        /// <param name="preToolSpeech">
+        /// Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.<br/>
+        /// Default Value: auto
         /// </param>
         /// <param name="assignments">
         /// Configuration for extracting values from tool responses and assigning them to dynamic variables
@@ -190,7 +201,7 @@ namespace ElevenLabs
             string? type,
             int? responseTimeoutSecs,
             bool? disableInterruptions,
-            bool? forcePreToolSpeech,
+            global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
@@ -205,7 +216,7 @@ namespace ElevenLabs
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.DisableInterruptions = disableInterruptions;
-            this.ForcePreToolSpeech = forcePreToolSpeech;
+            this.PreToolSpeech = preToolSpeech;
             this.Assignments = assignments;
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;

@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -16,10 +18,17 @@ namespace ElevenLabs
         public required string ToolName { get; set; }
 
         /// <summary>
-        /// If set, overrides the server's force_pre_tool_speech setting for this tool
+        /// DEPRECATED: use `pre_tool_speech` instead. If set, overrides the server's force_pre_tool_speech setting for this tool.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("force_pre_tool_speech")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? ForcePreToolSpeech { get; set; }
+
+        /// <summary>
+        /// If set, overrides the server's pre_tool_speech setting for this tool.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pre_tool_speech")]
+        public global::ElevenLabs.PreToolSpeechMode? PreToolSpeech { get; set; }
 
         /// <summary>
         /// If set, overrides the server's disable_interruptions setting for this tool
@@ -75,8 +84,8 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// The name of the MCP tool
         /// </param>
-        /// <param name="forcePreToolSpeech">
-        /// If set, overrides the server's force_pre_tool_speech setting for this tool
+        /// <param name="preToolSpeech">
+        /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>
         /// <param name="disableInterruptions">
         /// If set, overrides the server's disable_interruptions setting for this tool
@@ -104,7 +113,7 @@ namespace ElevenLabs
 #endif
         public MCPToolConfigOverrideInput(
             string toolName,
-            bool? forcePreToolSpeech,
+            global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
             bool? disableInterruptions,
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
@@ -114,7 +123,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks)
         {
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
-            this.ForcePreToolSpeech = forcePreToolSpeech;
+            this.PreToolSpeech = preToolSpeech;
             this.DisableInterruptions = disableInterruptions;
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;

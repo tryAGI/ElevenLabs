@@ -178,6 +178,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pending_blocks_metadata")]
+        public global::ElevenLabs.PendingBlocksMetadataModel? PendingBlocksMetadata { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pending_external_audios_metadata")]
+        public global::ElevenLabs.PendingExternalAudiosMetadataModel? PendingExternalAudiosMetadata { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pending_block_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> PendingBlockIds { get; set; }
@@ -326,6 +338,8 @@ namespace ElevenLabs
         /// <param name="assetPreviewSignedUrl"></param>
         /// <param name="sourceVideoId"></param>
         /// <param name="sourceAssetId"></param>
+        /// <param name="pendingBlocksMetadata"></param>
+        /// <param name="pendingExternalAudiosMetadata"></param>
         /// <param name="speechImported">
         /// Default Value: false
         /// </param>
@@ -393,6 +407,8 @@ namespace ElevenLabs
             string? assetPreviewSignedUrl,
             string? sourceVideoId,
             string? sourceAssetId,
+            global::ElevenLabs.PendingBlocksMetadataModel? pendingBlocksMetadata,
+            global::ElevenLabs.PendingExternalAudiosMetadataModel? pendingExternalAudiosMetadata,
             bool? speechImported,
             global::ElevenLabs.PendingClipTask? pendingTask,
             bool? audioTrackReady,
@@ -435,6 +451,8 @@ namespace ElevenLabs
             this.AssetPreviewSignedUrl = assetPreviewSignedUrl;
             this.SourceVideoId = sourceVideoId;
             this.SourceAssetId = sourceAssetId;
+            this.PendingBlocksMetadata = pendingBlocksMetadata;
+            this.PendingExternalAudiosMetadata = pendingExternalAudiosMetadata;
             this.PendingBlockIds = pendingBlockIds ?? throw new global::System.ArgumentNullException(nameof(pendingBlockIds));
             this.PendingExternalAudioIds = pendingExternalAudioIds ?? throw new global::System.ArgumentNullException(nameof(pendingExternalAudioIds));
             this.SpeechImported = speechImported;
