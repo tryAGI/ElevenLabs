@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial interface IAgentsPlatformClient
@@ -28,8 +30,8 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="forcePreToolSpeech">
-        /// If set, overrides the server's force_pre_tool_speech setting for this tool
+        /// <param name="preToolSpeech">
+        /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>
         /// <param name="disableInterruptions">
         /// If set, overrides the server's disable_interruptions setting for this tool
@@ -61,7 +63,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create12Async(
             string mcpServerId,
             string toolName,
-            bool? forcePreToolSpeech = default,
+            global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
             bool? disableInterruptions = default,
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,

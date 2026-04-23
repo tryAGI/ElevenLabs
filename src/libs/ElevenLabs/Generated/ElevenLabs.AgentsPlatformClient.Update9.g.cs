@@ -1,6 +1,8 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
@@ -443,8 +445,8 @@ namespace ElevenLabs
         /// <param name="approvalPolicy">
         /// The approval mode to set for the MCP server
         /// </param>
-        /// <param name="forcePreToolSpeech">
-        /// If set, overrides the server's force_pre_tool_speech setting for this tool
+        /// <param name="preToolSpeech">
+        /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>
         /// <param name="disableInterruptions">
         /// If set, overrides the server's disable_interruptions setting for this tool
@@ -476,7 +478,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update9Async(
             string mcpServerId,
             global::ElevenLabs.MCPApprovalPolicy? approvalPolicy = default,
-            bool? forcePreToolSpeech = default,
+            global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
             bool? disableInterruptions = default,
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
@@ -491,7 +493,7 @@ namespace ElevenLabs
             var __request = new global::ElevenLabs.MCPServerConfigUpdateRequestModel
             {
                 ApprovalPolicy = approvalPolicy,
-                ForcePreToolSpeech = forcePreToolSpeech,
+                PreToolSpeech = preToolSpeech,
                 DisableInterruptions = disableInterruptions,
                 ToolCallSound = toolCallSound,
                 ToolCallSoundBehavior = toolCallSoundBehavior,

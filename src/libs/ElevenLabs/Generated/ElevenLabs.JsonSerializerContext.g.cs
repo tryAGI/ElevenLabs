@@ -745,6 +745,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.PhoneNumberTransferPostDialDigitsVariant1DiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.PreToolSpeechModeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.PreToolSpeechModeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.PrivateKeyJWTResponseAlgorithmJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PrivateKeyJWTResponseAlgorithmNullableJsonConverter),
@@ -1929,6 +1933,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConvAIDynamicVariable))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ResponseFilterMode))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationWebhookToolConfigInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PreToolSpeechMode), TypeInfoPropertyName = "PreToolSpeechMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DynamicVariableAssignment))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolCallSoundType))]
@@ -2986,8 +2991,10 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PatchConvAISettingsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PatchWorkspaceSecretRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PatchWorkspaceWebhookResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PendingBlocksMetadataModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PendingClipTask))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PendingClipTaskType), TypeInfoPropertyName = "PendingClipTaskType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PendingExternalAudiosMetadataModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PendingSubscriptionSwitchResponseModelNextTier), TypeInfoPropertyName = "PendingSubscriptionSwitchResponseModelNextTier2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PhoneNumberTransfer))]
