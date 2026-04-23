@@ -29506,6 +29506,96 @@
         "type": "object",
         "title": "ArrayJsonSchemaProperty"
       },
+      "AssetTranscription": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "processing",
+              "completed",
+              "failed"
+            ],
+            "title": "Status"
+          },
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AssetTranscriptionData"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "updated_at_ms": {
+            "type": "integer",
+            "title": "Updated At Ms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data"
+        ],
+        "title": "AssetTranscription"
+      },
+      "AssetTranscriptionData": {
+        "properties": {
+          "language_code": {
+            "type": "string",
+            "title": "Language Code"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "words": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Words"
+          },
+          "word_start_times_ms": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Word Start Times Ms"
+          },
+          "word_end_times_ms": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Word End Times Ms"
+          },
+          "word_speaker_ids": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Word Speaker Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "language_code",
+          "text",
+          "words",
+          "word_start_times_ms",
+          "word_end_times_ms",
+          "word_speaker_ids"
+        ],
+        "title": "AssetTranscriptionData"
+      },
       "AsyncConversationMetadata": {
         "properties": {
           "delivery_status": {
@@ -60003,6 +60093,16 @@
               }
             ]
           },
+          "transcription": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AssetTranscription"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "type": {
             "type": "string",
             "const": "audio",
@@ -61024,6 +61124,16 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/VideoAnalysis"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "transcription": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AssetTranscription"
               },
               {
                 "type": "null"
