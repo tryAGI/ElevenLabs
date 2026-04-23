@@ -49,6 +49,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AgentTestEntityTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.AgentTrustContextJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.AgentTrustContextNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.AgentWorkflowRequestModelNodesDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.AgentWorkflowRequestModelNodesDiscriminatorTypeNullableJsonConverter),
@@ -1865,6 +1869,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GuardrailsV1Input))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AuthSettings))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PrivacyConfigInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AgentTrustContext), TypeInfoPropertyName = "AgentTrustContext2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Llm), TypeInfoPropertyName = "Llm2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AgentPlatformSettingsResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.EvaluationSettingsOutput))]

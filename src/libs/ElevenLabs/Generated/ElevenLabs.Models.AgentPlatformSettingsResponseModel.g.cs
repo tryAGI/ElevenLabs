@@ -100,6 +100,14 @@ namespace ElevenLabs
         public global::ElevenLabs.PrivacyConfigOutput? Privacy { get; set; }
 
         /// <summary>
+        /// The trust context in which the agent operates.<br/>
+        /// Default Value: unknown
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("trust_context")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AgentTrustContextJsonConverter))]
+        public global::ElevenLabs.AgentTrustContext? TrustContext { get; set; }
+
+        /// <summary>
         /// Default LLM model for post-call analysis (evaluation and data collection)<br/>
         /// Default Value: gemini-2.5-flash
         /// </summary>
@@ -168,6 +176,10 @@ namespace ElevenLabs
         /// Privacy settings for the agent<br/>
         /// Example: {"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}
         /// </param>
+        /// <param name="trustContext">
+        /// The trust context in which the agent operates.<br/>
+        /// Default Value: unknown
+        /// </param>
         /// <param name="analysisLlm">
         /// Default LLM model for post-call analysis (evaluation and data collection)<br/>
         /// Default Value: gemini-2.5-flash
@@ -190,6 +202,7 @@ namespace ElevenLabs
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.AgentCallLimits? callLimits,
             global::ElevenLabs.PrivacyConfigOutput? privacy,
+            global::ElevenLabs.AgentTrustContext? trustContext,
             global::ElevenLabs.Llm? analysisLlm,
             global::ElevenLabs.SafetyResponseModel? safety)
         {
@@ -206,6 +219,7 @@ namespace ElevenLabs
             this.Auth = auth;
             this.CallLimits = callLimits;
             this.Privacy = privacy;
+            this.TrustContext = trustContext;
             this.AnalysisLlm = analysisLlm;
             this.Safety = safety;
         }
