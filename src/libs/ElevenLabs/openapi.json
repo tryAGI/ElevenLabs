@@ -27784,6 +27784,11 @@
             "$ref": "#/components/schemas/PrivacyConfig-Input",
             "description": "Privacy settings for the agent"
           },
+          "trust_context": {
+            "$ref": "#/components/schemas/AgentTrustContext",
+            "description": "The trust context in which the agent operates.",
+            "default": "unknown"
+          },
           "analysis_llm": {
             "$ref": "#/components/schemas/LLM",
             "description": "Default LLM model for post-call analysis (evaluation and data collection)",
@@ -27871,6 +27876,11 @@
           "privacy": {
             "$ref": "#/components/schemas/PrivacyConfig-Output",
             "description": "Privacy settings for the agent"
+          },
+          "trust_context": {
+            "$ref": "#/components/schemas/AgentTrustContext",
+            "description": "The trust context in which the agent operates.",
+            "default": "unknown"
           },
           "analysis_llm": {
             "$ref": "#/components/schemas/LLM",
@@ -28158,6 +28168,17 @@
           "condition"
         ],
         "title": "AgentTransfer"
+      },
+      "AgentTrustContext": {
+        "type": "string",
+        "enum": [
+          "unknown",
+          "low",
+          "high"
+        ],
+        "title": "AgentTrustContext",
+        "description": "The trust context in which the agent operates.\n\nUNKNOWN: not yet classified (existing agents created before this feature).\nLOW: serves untrusted external participants (e.g. customer support, sales) —\n     outputs should be vetted and tool access scoped.\nHIGH: serves the owner (e.g. personal assistant) — full tool access is appropriate.",
+        "default": "unknown"
       },
       "AgentVersionMetadata": {
         "properties": {
