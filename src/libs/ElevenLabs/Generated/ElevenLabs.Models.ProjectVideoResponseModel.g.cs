@@ -232,6 +232,12 @@ namespace ElevenLabs
         public global::ElevenLabs.VideoAnalysis? Analysis { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcription")]
+        public global::ElevenLabs.AssetTranscription? Transcription { get; set; }
+
+        /// <summary>
         /// Default Value: video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -333,6 +339,7 @@ namespace ElevenLabs
         /// <param name="currentSnapshotId"></param>
         /// <param name="sourceContext"></param>
         /// <param name="analysis"></param>
+        /// <param name="transcription"></param>
         /// <param name="type">
         /// Default Value: video
         /// </param>
@@ -393,6 +400,7 @@ namespace ElevenLabs
             string? currentSnapshotId,
             global::ElevenLabs.GenerationSourceContext? sourceContext,
             global::ElevenLabs.VideoAnalysis? analysis,
+            global::ElevenLabs.AssetTranscription? transcription,
             string? type,
             global::ElevenLabs.CanvasPlacement? canvasPlacement,
             global::ElevenLabs.ClipAnimation? animation,
@@ -436,6 +444,7 @@ namespace ElevenLabs
             this.CurrentSnapshotId = currentSnapshotId;
             this.SourceContext = sourceContext;
             this.Analysis = analysis;
+            this.Transcription = transcription;
             this.Type = type;
             this.CanvasPlacement = canvasPlacement;
             this.Animation = animation;
