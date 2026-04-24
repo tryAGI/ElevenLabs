@@ -48,6 +48,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ObjectJsonSchemaPropertyInput? RequestBodySchema { get; set; }
 
         /// <summary>
+        /// Schema describing the expected response body structure. For documentation only; not surfaced to the LLM.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_body_schema")]
+        public global::ElevenLabs.ObjectJsonSchemaPropertyInput? ResponseBodySchema { get; set; }
+
+        /// <summary>
         /// Content type for the request body. Only applies to POST/PUT/PATCH requests.<br/>
         /// Default Value: application/json
         /// </summary>
@@ -90,6 +96,9 @@ namespace ElevenLabs
         /// <param name="requestBodySchema">
         /// Schema for the body parameters, if any. Used for POST/PATCH/PUT requests. The schema should be an object which will be sent as the json body
         /// </param>
+        /// <param name="responseBodySchema">
+        /// Schema describing the expected response body structure. For documentation only; not surfaced to the LLM.
+        /// </param>
         /// <param name="contentType">
         /// Content type for the request body. Only applies to POST/PUT/PATCH requests.<br/>
         /// Default Value: application/json
@@ -107,6 +116,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? pathParamsSchema,
             global::ElevenLabs.QueryParamsJsonSchema? queryParamsSchema,
             global::ElevenLabs.ObjectJsonSchemaPropertyInput? requestBodySchema,
+            global::ElevenLabs.ObjectJsonSchemaPropertyInput? responseBodySchema,
             global::ElevenLabs.WebhookToolApiSchemaConfigInputContentType? contentType,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection)
         {
@@ -116,6 +126,7 @@ namespace ElevenLabs
             this.PathParamsSchema = pathParamsSchema;
             this.QueryParamsSchema = queryParamsSchema;
             this.RequestBodySchema = requestBodySchema;
+            this.ResponseBodySchema = responseBodySchema;
             this.ContentType = contentType;
             this.AuthConnection = authConnection;
         }

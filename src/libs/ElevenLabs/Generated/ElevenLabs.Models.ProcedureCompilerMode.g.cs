@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: llm
+    /// Default Value: append
     /// </summary>
     public enum ProcedureCompilerMode
     {
@@ -16,10 +16,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Deterministic,
-        /// <summary>
-        /// 
-        /// </summary>
-        Llm,
     }
 
     /// <summary>
@@ -36,7 +32,6 @@ namespace ElevenLabs
             {
                 ProcedureCompilerMode.Append => "append",
                 ProcedureCompilerMode.Deterministic => "deterministic",
-                ProcedureCompilerMode.Llm => "llm",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -49,7 +44,6 @@ namespace ElevenLabs
             {
                 "append" => ProcedureCompilerMode.Append,
                 "deterministic" => ProcedureCompilerMode.Deterministic,
-                "llm" => ProcedureCompilerMode.Llm,
                 _ => null,
             };
         }

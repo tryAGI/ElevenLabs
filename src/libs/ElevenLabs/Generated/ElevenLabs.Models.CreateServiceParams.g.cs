@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Create a new service in the system.
+    /// Create a new service (classic or rental) in the system.
     /// </summary>
     public sealed partial class CreateServiceParams
     {

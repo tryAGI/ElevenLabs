@@ -224,48 +224,6 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteCalendarEventParams)}");
                 deleteCalendarEvent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.ListRentalServicesParams? listRentalServices = default;
-            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListRentalServices)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListRentalServicesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListRentalServicesParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListRentalServicesParams)}");
-                listRentalServices = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.CreateRentalServiceParams? createRentalService = default;
-            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateRentalService)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateRentalServiceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateRentalServiceParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateRentalServiceParams)}");
-                createRentalService = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.UpdateRentalServiceParams? updateRentalService = default;
-            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateRentalService)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateRentalServiceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateRentalServiceParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateRentalServiceParams)}");
-                updateRentalService = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.DeleteRentalServiceParams? deleteRentalService = default;
-            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteRentalService)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteRentalServiceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteRentalServiceParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteRentalServiceParams)}");
-                deleteRentalService = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.CheckRentalAvailabilityParams? checkRentalAvailability = default;
-            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CheckRentalAvailability)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CheckRentalAvailabilityParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CheckRentalAvailabilityParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CheckRentalAvailabilityParams)}");
-                checkRentalAvailability = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
-            global::ElevenLabs.CreateRentalBookingParams? createRentalBooking = default;
-            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateRentalBooking)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateRentalBookingParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateRentalBookingParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateRentalBookingParams)}");
-                createRentalBooking = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
             global::ElevenLabs.ListAgentRulesParams? listAgentRules = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentRules)
             {
@@ -487,18 +445,6 @@ namespace ElevenLabs.JsonConverters
                 updateCalendarEvent,
 
                 deleteCalendarEvent,
-
-                listRentalServices,
-
-                createRentalService,
-
-                updateRentalService,
-
-                deleteRentalService,
-
-                checkRentalAvailability,
-
-                createRentalBooking,
 
                 listAgentRules,
 
@@ -732,42 +678,6 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteCalendarEventParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteCalendarEventParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteCalendarEventParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteCalendarEvent!, typeInfo);
-            }
-            else if (value.IsListRentalServices)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListRentalServicesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListRentalServicesParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListRentalServicesParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListRentalServices!, typeInfo);
-            }
-            else if (value.IsCreateRentalService)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateRentalServiceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateRentalServiceParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateRentalServiceParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateRentalService!, typeInfo);
-            }
-            else if (value.IsUpdateRentalService)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateRentalServiceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateRentalServiceParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateRentalServiceParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateRentalService!, typeInfo);
-            }
-            else if (value.IsDeleteRentalService)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteRentalServiceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteRentalServiceParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteRentalServiceParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteRentalService!, typeInfo);
-            }
-            else if (value.IsCheckRentalAvailability)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CheckRentalAvailabilityParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CheckRentalAvailabilityParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CheckRentalAvailabilityParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CheckRentalAvailability!, typeInfo);
-            }
-            else if (value.IsCreateRentalBooking)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateRentalBookingParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateRentalBookingParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateRentalBookingParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateRentalBooking!, typeInfo);
             }
             else if (value.IsListAgentRules)
             {
