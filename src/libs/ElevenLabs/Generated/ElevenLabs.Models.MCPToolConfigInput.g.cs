@@ -31,8 +31,8 @@ namespace ElevenLabs
         public required string Description { get; set; }
 
         /// <summary>
-        /// The maximum time in seconds to wait for the tool call to complete.<br/>
-        /// Default Value: 20
+        /// The maximum time in seconds to wait for the MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
+        /// Default Value: 30
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
         public int? ResponseTimeoutSecs { get; set; }
@@ -190,8 +190,8 @@ namespace ElevenLabs
         /// Default Value: mcp
         /// </param>
         /// <param name="responseTimeoutSecs">
-        /// The maximum time in seconds to wait for the tool call to complete.<br/>
-        /// Default Value: 20
+        /// The maximum time in seconds to wait for the MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
+        /// Default Value: 30
         /// </param>
         /// <param name="disableInterruptions">
         /// If true, the user will not be able to interrupt the agent while this tool is running.<br/>

@@ -490,6 +490,9 @@ namespace ElevenLabs
         /// <param name="executionMode">
         /// If set, overrides the server's execution_mode setting for this tool
         /// </param>
+        /// <param name="responseTimeoutSecs">
+        /// If set, overrides the server's response timeout for this MCP tool.
+        /// </param>
         /// <param name="assignments">
         /// Dynamic variable assignments for this MCP tool
         /// </param>
@@ -513,6 +516,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
+            int? responseTimeoutSecs = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
             object? inputOverrides = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
@@ -526,6 +530,7 @@ namespace ElevenLabs
                 ToolCallSound = toolCallSound,
                 ToolCallSoundBehavior = toolCallSoundBehavior,
                 ExecutionMode = executionMode,
+                ResponseTimeoutSecs = responseTimeoutSecs,
                 Assignments = assignments,
                 InputOverrides = inputOverrides,
                 ResponseMocks = responseMocks,

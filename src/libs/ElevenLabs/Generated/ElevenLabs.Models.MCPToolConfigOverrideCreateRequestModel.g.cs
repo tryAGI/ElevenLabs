@@ -48,6 +48,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ToolExecutionMode? ExecutionMode { get; set; }
 
         /// <summary>
+        /// If set, overrides the server's response timeout for this MCP tool.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
+        public int? ResponseTimeoutSecs { get; set; }
+
+        /// <summary>
         /// Dynamic variable assignments for this MCP tool
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assignments")]
@@ -99,6 +105,9 @@ namespace ElevenLabs
         /// <param name="executionMode">
         /// If set, overrides the server's execution_mode setting for this tool
         /// </param>
+        /// <param name="responseTimeoutSecs">
+        /// If set, overrides the server's response timeout for this MCP tool.
+        /// </param>
         /// <param name="assignments">
         /// Dynamic variable assignments for this MCP tool
         /// </param>
@@ -118,6 +127,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
+            int? responseTimeoutSecs,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
             object? inputOverrides,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks)
@@ -127,6 +137,7 @@ namespace ElevenLabs
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;
             this.ExecutionMode = executionMode;
+            this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.Assignments = assignments;
             this.InputOverrides = inputOverrides;
             this.ResponseMocks = responseMocks;
