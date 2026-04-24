@@ -119,6 +119,13 @@ namespace ElevenLabs
         public global::ElevenLabs.ToolExecutionMode? ExecutionMode { get; set; }
 
         /// <summary>
+        /// The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
+        /// Default Value: 30
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
+        public int? ResponseTimeoutSecs { get; set; }
+
+        /// <summary>
         /// List of per-tool configuration overrides that override the server-level defaults for specific tools
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_config_overrides")]
@@ -184,6 +191,10 @@ namespace ElevenLabs
         /// Determines when and how all tools from this MCP server execute: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.<br/>
         /// Default Value: immediate
         /// </param>
+        /// <param name="responseTimeoutSecs">
+        /// The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
+        /// Default Value: 30
+        /// </param>
         /// <param name="toolConfigOverrides">
         /// List of per-tool configuration overrides that override the server-level defaults for specific tools
         /// </param>
@@ -209,6 +220,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
+            int? responseTimeoutSecs,
             global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideOutput>? toolConfigOverrides,
             bool? disableCompression)
         {
@@ -226,6 +238,7 @@ namespace ElevenLabs
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;
             this.ExecutionMode = executionMode;
+            this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.ToolConfigOverrides = toolConfigOverrides;
             this.DisableCompression = disableCompression;
         }

@@ -54,6 +54,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ToolExecutionMode? ExecutionMode { get; set; }
 
         /// <summary>
+        /// The maximum time in seconds to wait for each MCP tool call to complete.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
+        public int? ResponseTimeoutSecs { get; set; }
+
+        /// <summary>
         /// The headers to include in requests to the MCP server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
@@ -105,6 +111,9 @@ namespace ElevenLabs
         /// <param name="executionMode">
         /// If set, overrides the server's execution_mode setting for this tool
         /// </param>
+        /// <param name="responseTimeoutSecs">
+        /// The maximum time in seconds to wait for each MCP tool call to complete.
+        /// </param>
         /// <param name="requestHeaders">
         /// The headers to include in requests to the MCP server
         /// </param>
@@ -127,6 +136,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
+            int? responseTimeoutSecs,
             object? requestHeaders,
             bool? disableCompression,
             global::ElevenLabs.ConvAISecretLocator? secretToken,
@@ -138,6 +148,7 @@ namespace ElevenLabs
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;
             this.ExecutionMode = executionMode;
+            this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.RequestHeaders = requestHeaders;
             this.DisableCompression = disableCompression;
             this.SecretToken = secretToken;

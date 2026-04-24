@@ -48,6 +48,9 @@ namespace ElevenLabs
         /// <param name="executionMode">
         /// If set, overrides the server's execution_mode setting for this tool
         /// </param>
+        /// <param name="responseTimeoutSecs">
+        /// The maximum time in seconds to wait for each MCP tool call to complete.
+        /// </param>
         /// <param name="requestHeaders">
         /// The headers to include in requests to the MCP server
         /// </param>
@@ -71,6 +74,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
+            int? responseTimeoutSecs = default,
             object? requestHeaders = default,
             bool? disableCompression = default,
             global::ElevenLabs.ConvAISecretLocator? secretToken = default,

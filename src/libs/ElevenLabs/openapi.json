@@ -55187,6 +55187,14 @@
             "description": "Determines when and how all tools from this MCP server execute: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.",
             "default": "immediate"
           },
+          "response_timeout_secs": {
+            "type": "integer",
+            "maximum": 120.0,
+            "minimum": 5.0,
+            "title": "Response Timeout Secs",
+            "description": "The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "default": 30
+          },
           "tool_config_overrides": {
             "items": {
               "$ref": "#/components/schemas/MCPToolConfigOverride-Input"
@@ -55339,6 +55347,14 @@
             "description": "Determines when and how all tools from this MCP server execute: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.",
             "default": "immediate"
           },
+          "response_timeout_secs": {
+            "type": "integer",
+            "maximum": 120.0,
+            "minimum": 5.0,
+            "title": "Response Timeout Secs",
+            "description": "The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "default": 30
+          },
           "tool_config_overrides": {
             "items": {
               "$ref": "#/components/schemas/MCPToolConfigOverride-Output"
@@ -55442,6 +55458,20 @@
               }
             ],
             "description": "If set, overrides the server's execution_mode setting for this tool"
+          },
+          "response_timeout_secs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 120.0,
+                "minimum": 5.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Timeout Secs",
+            "description": "The maximum time in seconds to wait for each MCP tool call to complete."
           },
           "request_headers": {
             "anyOf": [
@@ -55725,9 +55755,11 @@
           },
           "response_timeout_secs": {
             "type": "integer",
+            "maximum": 120.0,
+            "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete.",
-            "default": 20
+            "description": "The maximum time in seconds to wait for the MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "default": 30
           },
           "disable_interruptions": {
             "type": "boolean",
@@ -55905,9 +55937,11 @@
           },
           "response_timeout_secs": {
             "type": "integer",
+            "maximum": 120.0,
+            "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete.",
-            "default": 20
+            "description": "The maximum time in seconds to wait for the MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "default": 30
           },
           "disable_interruptions": {
             "type": "boolean",
@@ -56139,6 +56173,20 @@
             ],
             "description": "If set, overrides the server's execution_mode setting for this tool"
           },
+          "response_timeout_secs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 120.0,
+                "minimum": 5.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Timeout Secs",
+            "description": "If set, overrides the server's response timeout for this MCP tool (seconds)."
+          },
           "assignments": {
             "items": {
               "$ref": "#/components/schemas/DynamicVariableAssignment"
@@ -56278,6 +56326,20 @@
             ],
             "description": "If set, overrides the server's execution_mode setting for this tool"
           },
+          "response_timeout_secs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 120.0,
+                "minimum": 5.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Timeout Secs",
+            "description": "If set, overrides the server's response timeout for this MCP tool (seconds)."
+          },
           "assignments": {
             "items": {
               "$ref": "#/components/schemas/DynamicVariableAssignment"
@@ -56411,6 +56473,20 @@
               }
             ],
             "description": "If set, overrides the server's execution_mode setting for this tool"
+          },
+          "response_timeout_secs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 120.0,
+                "minimum": 5.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Timeout Secs",
+            "description": "If set, overrides the server's response timeout for this MCP tool."
           },
           "assignments": {
             "anyOf": [
@@ -56557,6 +56633,20 @@
               }
             ],
             "description": "If set, overrides the server's execution_mode setting for this tool"
+          },
+          "response_timeout_secs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 120.0,
+                "minimum": 5.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Timeout Secs",
+            "description": "If set, overrides the server's response timeout for this MCP tool."
           },
           "assignments": {
             "anyOf": [
