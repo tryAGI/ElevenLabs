@@ -11,10 +11,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        CheckRentalAvailability,
-        /// <summary>
-        /// 
-        /// </summary>
         CheckServiceAvailability,
         /// <summary>
         /// 
@@ -48,14 +44,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         CreateProduct,
-        /// <summary>
-        /// 
-        /// </summary>
-        CreateRentalBooking,
-        /// <summary>
-        /// 
-        /// </summary>
-        CreateRentalService,
         /// <summary>
         /// 
         /// </summary>
@@ -96,10 +84,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         DeleteProduct,
-        /// <summary>
-        /// 
-        /// </summary>
-        DeleteRentalService,
         /// <summary>
         /// 
         /// </summary>
@@ -171,10 +155,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        ListRentalServices,
-        /// <summary>
-        /// 
-        /// </summary>
         ListServices,
         /// <summary>
         /// 
@@ -231,10 +211,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        UpdateRentalService,
-        /// <summary>
-        /// 
-        /// </summary>
         UpdateService,
         /// <summary>
         /// 
@@ -254,7 +230,6 @@ namespace ElevenLabs
         {
             return value switch
             {
-                SMBToolConfigParamsDiscriminatorSmbToolType.CheckRentalAvailability => "check_rental_availability",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CheckServiceAvailability => "check_service_availability",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateAgentRule => "create_agent_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateAsset => "create_asset",
@@ -264,8 +239,6 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateHoliday => "create_holiday",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateLocation => "create_location",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateProduct => "create_product",
-                SMBToolConfigParamsDiscriminatorSmbToolType.CreateRentalBooking => "create_rental_booking",
-                SMBToolConfigParamsDiscriminatorSmbToolType.CreateRentalService => "create_rental_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateService => "create_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateStaff => "create_staff",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentRule => "delete_agent_rule",
@@ -276,7 +249,6 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteHoliday => "delete_holiday",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteLocation => "delete_location",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteProduct => "delete_product",
-                SMBToolConfigParamsDiscriminatorSmbToolType.DeleteRentalService => "delete_rental_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteService => "delete_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteStaff => "delete_staff",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary => "get_analytics_summary",
@@ -294,7 +266,6 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListHolidays => "list_holidays",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListLocations => "list_locations",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListProducts => "list_products",
-                SMBToolConfigParamsDiscriminatorSmbToolType.ListRentalServices => "list_rental_services",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListServices => "list_services",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListStaff => "list_staff",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients => "search_clients",
@@ -309,7 +280,6 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateHoliday => "update_holiday",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateLocation => "update_location",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateProduct => "update_product",
-                SMBToolConfigParamsDiscriminatorSmbToolType.UpdateRentalService => "update_rental_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateService => "update_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateStaff => "update_staff",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -322,7 +292,6 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "check_rental_availability" => SMBToolConfigParamsDiscriminatorSmbToolType.CheckRentalAvailability,
                 "check_service_availability" => SMBToolConfigParamsDiscriminatorSmbToolType.CheckServiceAvailability,
                 "create_agent_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateAgentRule,
                 "create_asset" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateAsset,
@@ -332,8 +301,6 @@ namespace ElevenLabs
                 "create_holiday" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateHoliday,
                 "create_location" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateLocation,
                 "create_product" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateProduct,
-                "create_rental_booking" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateRentalBooking,
-                "create_rental_service" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateRentalService,
                 "create_service" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateService,
                 "create_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateStaff,
                 "delete_agent_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentRule,
@@ -344,7 +311,6 @@ namespace ElevenLabs
                 "delete_holiday" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteHoliday,
                 "delete_location" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteLocation,
                 "delete_product" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteProduct,
-                "delete_rental_service" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteRentalService,
                 "delete_service" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteService,
                 "delete_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteStaff,
                 "get_analytics_summary" => SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary,
@@ -362,7 +328,6 @@ namespace ElevenLabs
                 "list_holidays" => SMBToolConfigParamsDiscriminatorSmbToolType.ListHolidays,
                 "list_locations" => SMBToolConfigParamsDiscriminatorSmbToolType.ListLocations,
                 "list_products" => SMBToolConfigParamsDiscriminatorSmbToolType.ListProducts,
-                "list_rental_services" => SMBToolConfigParamsDiscriminatorSmbToolType.ListRentalServices,
                 "list_services" => SMBToolConfigParamsDiscriminatorSmbToolType.ListServices,
                 "list_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.ListStaff,
                 "search_clients" => SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients,
@@ -377,7 +342,6 @@ namespace ElevenLabs
                 "update_holiday" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateHoliday,
                 "update_location" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateLocation,
                 "update_product" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateProduct,
-                "update_rental_service" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateRentalService,
                 "update_service" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateService,
                 "update_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateStaff,
                 _ => null,

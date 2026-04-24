@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Number of chunks from BM25 search
+    /// Schema describing the expected response body structure. For documentation only; not surfaced to the LLM.
     /// </summary>
-    public sealed partial class SourceConfigJsonKKeyword
+    public sealed partial class WebhookToolApiSchemaConfigInputResponseBodySchema
     {
 
         /// <summary>

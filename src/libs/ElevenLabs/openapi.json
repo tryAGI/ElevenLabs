@@ -39210,18 +39210,6 @@
         ],
         "title": "ChatSourceMedium"
       },
-      "CheckRentalAvailabilityParams": {
-        "properties": {
-          "smb_tool_type": {
-            "type": "string",
-            "const": "check_rental_availability",
-            "title": "Smb Tool Type",
-            "default": "check_rental_availability"
-          }
-        },
-        "type": "object",
-        "title": "CheckRentalAvailabilityParams"
-      },
       "CheckServiceAvailabilityParams": {
         "properties": {
           "smb_tool_type": {
@@ -44646,30 +44634,6 @@
           "status": "ok"
         }
       },
-      "CreateRentalBookingParams": {
-        "properties": {
-          "smb_tool_type": {
-            "type": "string",
-            "const": "create_rental_booking",
-            "title": "Smb Tool Type",
-            "default": "create_rental_booking"
-          }
-        },
-        "type": "object",
-        "title": "CreateRentalBookingParams"
-      },
-      "CreateRentalServiceParams": {
-        "properties": {
-          "smb_tool_type": {
-            "type": "string",
-            "const": "create_rental_service",
-            "title": "Smb Tool Type",
-            "default": "create_rental_service"
-          }
-        },
-        "type": "object",
-        "title": "CreateRentalServiceParams"
-      },
       "CreateResponseUnitTestRequest": {
         "properties": {
           "from_conversation_metadata": {
@@ -44852,7 +44816,7 @@
         },
         "type": "object",
         "title": "CreateServiceParams",
-        "description": "Create a new service in the system."
+        "description": "Create a new service (classic or rental) in the system."
       },
       "CreateSimulationTestRequest": {
         "properties": {
@@ -45740,18 +45704,6 @@
         "example": {
           "status": "ok"
         }
-      },
-      "DeleteRentalServiceParams": {
-        "properties": {
-          "smb_tool_type": {
-            "type": "string",
-            "const": "delete_rental_service",
-            "title": "Smb Tool Type",
-            "default": "delete_rental_service"
-          }
-        },
-        "type": "object",
-        "title": "DeleteRentalServiceParams"
       },
       "DeleteSampleResponseModel": {
         "properties": {
@@ -54798,23 +54750,6 @@
         "type": "object",
         "title": "ListProductsParams"
       },
-      "ListRentalServicesParams": {
-        "properties": {
-          "list_kwargs": {
-            "additionalProperties": true,
-            "type": "object",
-            "title": "List Kwargs"
-          },
-          "smb_tool_type": {
-            "type": "string",
-            "const": "list_rental_services",
-            "title": "Smb Tool Type",
-            "default": "list_rental_services"
-          }
-        },
-        "type": "object",
-        "title": "ListRentalServicesParams"
-      },
       "ListResponseMeta": {
         "properties": {
           "total": {
@@ -56856,17 +56791,6 @@
         ],
         "title": "MatchAnythingParameterEvaluationStrategy"
       },
-      "MergingStrategy": {
-        "type": "string",
-        "enum": [
-          "rank_fusion",
-          "top_k_per_source",
-          "weighted_interleave"
-        ],
-        "title": "MergingStrategy",
-        "description": "Strategy for merging results from multiple sources.",
-        "default": "rank_fusion"
-      },
       "MessageSearchSortBy": {
         "type": "string",
         "enum": [
@@ -57261,80 +57185,6 @@
         },
         "type": "object",
         "title": "ModerationGuardrail"
-      },
-      "MultiSourceConfigJson": {
-        "properties": {
-          "source_names": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Source Names",
-            "description": "List of source names to use (e.g., ['chunks', 'products'])"
-          },
-          "source_overrides": {
-            "anyOf": [
-              {
-                "items": {
-                  "$ref": "#/components/schemas/SourceConfigJson"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Source Overrides",
-            "description": "Per-source parameter overrides"
-          },
-          "merging_strategy": {
-            "$ref": "#/components/schemas/MergingStrategy",
-            "description": "How to merge results from multiple sources",
-            "default": "rank_fusion"
-          },
-          "final_top_k": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Final Top K",
-            "description": "Final number of chunks after merging",
-            "default": 10
-          },
-          "use_decomposition": {
-            "type": "boolean",
-            "title": "Use Decomposition",
-            "description": "Decompose complex queries",
-            "default": true
-          },
-          "use_reformulation": {
-            "type": "boolean",
-            "title": "Use Reformulation",
-            "description": "LLM reformulates query",
-            "default": true
-          },
-          "synthesize_response": {
-            "type": "boolean",
-            "title": "Synthesize Response",
-            "description": "LLM generates answer vs raw chunks",
-            "default": true
-          }
-        },
-        "additionalProperties": false,
-        "type": "object",
-        "title": "MultiSourceConfigJson",
-        "description": "JSON-serializable multi-source retrieval configuration.\n\nThis can be passed as JSON in tool configurations for full control."
       },
       "MultichannelSpeechToTextResponseModel": {
         "properties": {
@@ -59518,12 +59368,11 @@
       "ProcedureCompilerMode": {
         "type": "string",
         "enum": [
-          "llm",
           "deterministic",
           "append"
         ],
         "title": "ProcedureCompilerMode",
-        "default": "llm"
+        "default": "append"
       },
       "ProcedureRefResponseModel": {
         "properties": {
@@ -59566,7 +59415,7 @@
         "properties": {
           "compiler_mode": {
             "$ref": "#/components/schemas/ProcedureCompilerMode",
-            "default": "llm"
+            "default": "append"
           }
         },
         "type": "object",
@@ -64883,24 +64732,6 @@
                 "$ref": "#/components/schemas/DeleteCalendarEventParams"
               },
               {
-                "$ref": "#/components/schemas/ListRentalServicesParams"
-              },
-              {
-                "$ref": "#/components/schemas/CreateRentalServiceParams"
-              },
-              {
-                "$ref": "#/components/schemas/UpdateRentalServiceParams"
-              },
-              {
-                "$ref": "#/components/schemas/DeleteRentalServiceParams"
-              },
-              {
-                "$ref": "#/components/schemas/CheckRentalAvailabilityParams"
-              },
-              {
-                "$ref": "#/components/schemas/CreateRentalBookingParams"
-              },
-              {
                 "$ref": "#/components/schemas/ListAgentRulesParams"
               },
               {
@@ -64974,7 +64805,6 @@
             "discriminator": {
               "propertyName": "smb_tool_type",
               "mapping": {
-                "check_rental_availability": "#/components/schemas/CheckRentalAvailabilityParams",
                 "check_service_availability": "#/components/schemas/CheckServiceAvailabilityParams",
                 "create_agent_rule": "#/components/schemas/CreateAgentRuleParams",
                 "create_asset": "#/components/schemas/CreateAssetParams",
@@ -64984,8 +64814,6 @@
                 "create_holiday": "#/components/schemas/CreateHolidayParams",
                 "create_location": "#/components/schemas/CreateLocationParams",
                 "create_product": "#/components/schemas/CreateProductParams",
-                "create_rental_booking": "#/components/schemas/CreateRentalBookingParams",
-                "create_rental_service": "#/components/schemas/CreateRentalServiceParams",
                 "create_service": "#/components/schemas/CreateServiceParams",
                 "create_staff": "#/components/schemas/CreateStaffParams",
                 "delete_agent_rule": "#/components/schemas/DeleteAgentRuleParams",
@@ -64996,7 +64824,6 @@
                 "delete_holiday": "#/components/schemas/DeleteHolidayParams",
                 "delete_location": "#/components/schemas/DeleteLocationParams",
                 "delete_product": "#/components/schemas/DeleteProductParams",
-                "delete_rental_service": "#/components/schemas/DeleteRentalServiceParams",
                 "delete_service": "#/components/schemas/DeleteServiceParams",
                 "delete_staff": "#/components/schemas/DeleteStaffParams",
                 "get_analytics_summary": "#/components/schemas/GetAnalyticsSummaryParams",
@@ -65014,7 +64841,6 @@
                 "list_holidays": "#/components/schemas/ListHolidaysParams",
                 "list_locations": "#/components/schemas/ListLocationsParams",
                 "list_products": "#/components/schemas/ListProductsParams",
-                "list_rental_services": "#/components/schemas/ListRentalServicesParams",
                 "list_services": "#/components/schemas/ListServicesParams",
                 "list_staff": "#/components/schemas/ListStaffParams",
                 "search_clients": "#/components/schemas/SearchClientsParams",
@@ -65029,7 +64855,6 @@
                 "update_holiday": "#/components/schemas/UpdateHolidayParams",
                 "update_location": "#/components/schemas/UpdateLocationParams",
                 "update_product": "#/components/schemas/UpdateProductParams",
-                "update_rental_service": "#/components/schemas/UpdateRentalServiceParams",
                 "update_service": "#/components/schemas/UpdateServiceParams",
                 "update_staff": "#/components/schemas/UpdateStaffParams"
               }
@@ -66512,240 +66337,6 @@
           "desc"
         ],
         "title": "SortDirection"
-      },
-      "SourceConfigJson": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name",
-            "description": "Source name (can be existing or new)"
-          },
-          "db_name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Db Name",
-            "description": "MongoDB database name. Default: eleven_customer_support"
-          },
-          "collection_name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Collection Name",
-            "description": "MongoDB collection name. Required for new sources."
-          },
-          "k_dense": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "K Dense",
-            "description": "Number of chunks from vector search"
-          },
-          "k_keyword": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "K Keyword",
-            "description": "Number of chunks from BM25 search"
-          },
-          "dense_weight": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Dense Weight",
-            "description": "Weight for vector results"
-          },
-          "keyword_weight": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Keyword Weight",
-            "description": "Weight for BM25 results"
-          },
-          "source_weight": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Source Weight",
-            "description": "Weight for cross-source merging"
-          },
-          "vector_index_name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Vector Index Name",
-            "description": "Vector search index name. Default: 'default'"
-          },
-          "embedding_field": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Embedding Field",
-            "description": "Field containing embeddings. Default: 'embedding'"
-          },
-          "content_field": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Content Field",
-            "description": "Field containing text content. Default: 'content'"
-          },
-          "enabled": {
-            "type": "boolean",
-            "title": "Enabled",
-            "description": "Whether this source is active",
-            "default": true
-          }
-        },
-        "additionalProperties": false,
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "title": "SourceConfigJson",
-        "description": "JSON-serializable source configuration for tool configs.\n\nThis can override existing sources or define entirely new ones.\nFor new sources, collection_name is required."
-      },
-      "SourceRetrievalConfig": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name"
-          },
-          "collection_name": {
-            "type": "string",
-            "title": "Collection Name"
-          },
-          "db_name": {
-            "type": "string",
-            "title": "Db Name",
-            "default": "eleven_customer_support"
-          },
-          "enabled": {
-            "type": "boolean",
-            "title": "Enabled",
-            "default": true
-          },
-          "k_dense": {
-            "type": "integer",
-            "title": "K Dense",
-            "default": 5
-          },
-          "k_keyword": {
-            "type": "integer",
-            "title": "K Keyword",
-            "default": 5
-          },
-          "dense_weight": {
-            "type": "number",
-            "title": "Dense Weight",
-            "default": 1.0
-          },
-          "keyword_weight": {
-            "type": "number",
-            "title": "Keyword Weight",
-            "default": 1.0
-          },
-          "source_weight": {
-            "type": "number",
-            "title": "Source Weight",
-            "default": 1.0
-          },
-          "vector_index_name": {
-            "type": "string",
-            "title": "Vector Index Name",
-            "default": "default"
-          },
-          "embedding_field": {
-            "type": "string",
-            "title": "Embedding Field",
-            "default": "embedding"
-          },
-          "content_field": {
-            "type": "string",
-            "title": "Content Field",
-            "default": "content"
-          },
-          "filter_field": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Filter Field"
-          },
-          "num_candidates_multiplier": {
-            "type": "integer",
-            "title": "Num Candidates Multiplier",
-            "default": 10
-          },
-          "result_fields": {
-            "additionalProperties": {
-              "items": {},
-              "type": "array"
-            },
-            "type": "object",
-            "title": "Result Fields"
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "collection_name"
-        ],
-        "title": "SourceRetrievalConfig"
       },
       "SpeakerAudioResponseModel": {
         "properties": {
@@ -71909,18 +71500,6 @@
         "type": "object",
         "title": "UpdateProductParams"
       },
-      "UpdateRentalServiceParams": {
-        "properties": {
-          "smb_tool_type": {
-            "type": "string",
-            "const": "update_rental_service",
-            "title": "Smb Tool Type",
-            "default": "update_rental_service"
-          }
-        },
-        "type": "object",
-        "title": "UpdateRentalServiceParams"
-      },
       "UpdateResponseUnitTestRequest": {
         "properties": {
           "from_conversation_metadata": {
@@ -74979,6 +74558,17 @@
             ],
             "description": "Schema for the body parameters, if any. Used for POST/PATCH/PUT requests. The schema should be an object which will be sent as the json body"
           },
+          "response_body_schema": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Schema describing the expected response body structure. For documentation only; not surfaced to the LLM."
+          },
           "content_type": {
             "type": "string",
             "enum": [
@@ -75103,6 +74693,17 @@
               }
             ],
             "description": "Schema for the body parameters, if any. Used for POST/PATCH/PUT requests. The schema should be an object which will be sent as the json body"
+          },
+          "response_body_schema": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Output"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Schema describing the expected response body structure. For documentation only; not surfaced to the LLM."
           },
           "content_type": {
             "type": "string",

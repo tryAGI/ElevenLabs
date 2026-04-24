@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// MongoDB collection name. Required for new sources.
+    /// Schema describing the expected response body structure. For documentation only; not surfaced to the LLM.
     /// </summary>
-    public sealed partial class SourceConfigJsonCollectionName
+    public sealed partial class WebhookToolApiSchemaConfigOutputResponseBodySchema
     {
 
         /// <summary>
