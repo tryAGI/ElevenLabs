@@ -703,6 +703,167 @@
         "x-fern-sdk-method-name": "convert"
       }
     },
+    "/v1/audio-isolation/history": {
+      "get": {
+        "tags": [
+          "audio-isolation"
+        ],
+        "summary": "Get Audio Isolation History",
+        "description": "Returns a list of all your audio isolation generations.",
+        "operationId": "get_audio_isolation_history",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 1000,
+              "minimum": 1,
+              "description": "How many history items to return at maximum. Defaults to 100.",
+              "default": 100,
+              "title": "Page Size"
+            },
+            "description": "How many history items to return at maximum. Defaults to 100."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number for search pagination (1-based). Only used when search is provided.",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number for search pagination (1-based). Only used when search is provided."
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Optional search term used for filtering audio isolation history (title/text).",
+              "examples": [
+                "podcast",
+                "lecture"
+              ],
+              "title": "Search"
+            },
+            "description": "Optional search term used for filtering audio isolation history (title/text)."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAudioIsolationHistoryResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "audio_isolation",
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/audio-isolation/history/{history_item_id}": {
+      "delete": {
+        "tags": [
+          "audio-isolation"
+        ],
+        "summary": "Delete Audio Isolation History Item",
+        "description": "Deletes a specific audio isolation history item and the associated media files.",
+        "operationId": "delete_audio_isolation_history_item",
+        "parameters": [
+          {
+            "name": "history_item_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the audio isolation history item.",
+              "title": "History Item Id"
+            },
+            "description": "Identifier of the audio isolation history item."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "audio_isolation",
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
     "/v1/audio-isolation/stream": {
       "post": {
         "tags": [
@@ -28655,6 +28816,7 @@
               "additional_knowledge_base": [],
               "additional_prompt": "",
               "additional_tool_ids": [],
+              "auto_advance_after_first_response": false,
               "conversation_config": {},
               "edge_order": [
                 "entry_to_tool_a"
@@ -28670,6 +28832,7 @@
               "additional_knowledge_base": [],
               "additional_prompt": "",
               "additional_tool_ids": [],
+              "auto_advance_after_first_response": false,
               "conversation_config": {},
               "edge_order": [],
               "label": "Failure",
@@ -28693,6 +28856,7 @@
               "additional_knowledge_base": [],
               "additional_prompt": "",
               "additional_tool_ids": [],
+              "auto_advance_after_first_response": false,
               "conversation_config": {},
               "edge_order": [],
               "label": "Success A",
@@ -29823,6 +29987,111 @@
           "description"
         ],
         "title": "AudioAnalysisResult"
+      },
+      "AudioIsolationHistoryItemResponseModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "created_at_unix": {
+            "type": "integer",
+            "title": "Created At Unix"
+          },
+          "format": {
+            "type": "string",
+            "title": "Format"
+          },
+          "duration_seconds": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration Seconds"
+          },
+          "download_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Download Url"
+          },
+          "icon_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Icon Url"
+          },
+          "source_video_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Video Url"
+          },
+          "supports_video": {
+            "type": "boolean",
+            "title": "Supports Video"
+          },
+          "processing": {
+            "type": "boolean",
+            "title": "Processing"
+          },
+          "preview_b64": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preview B64"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "created_at_unix",
+          "format",
+          "duration_seconds",
+          "download_url",
+          "icon_url",
+          "source_video_url",
+          "supports_video",
+          "processing",
+          "preview_b64"
+        ],
+        "title": "AudioIsolationHistoryItemResponseModel"
       },
       "AudioKeyMoment": {
         "properties": {
@@ -43263,6 +43532,25 @@
         "title": "ConversationSimulationSpecification",
         "description": "A specification that will be used to simulate a conversation between an agent and an AI user."
       },
+      "ConversationSource": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "conversation",
+            "title": "Type",
+            "default": "conversation"
+          },
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "conversation_id"
+        ],
+        "title": "ConversationSource"
+      },
       "ConversationSummaryResponseModel": {
         "properties": {
           "agent_id": {
@@ -45098,6 +45386,15 @@
           "token"
         ],
         "title": "CreateTwilioPhoneNumberRequest"
+      },
+      "Currency": {
+        "type": "string",
+        "enum": [
+          "usd",
+          "eur",
+          "inr"
+        ],
+        "title": "Currency"
       },
       "CustomGuardrail-Input": {
         "properties": {
@@ -48353,18 +48650,12 @@
           "currency": {
             "anyOf": [
               {
-                "type": "string",
-                "enum": [
-                  "usd",
-                  "eur",
-                  "inr"
-                ]
+                "$ref": "#/components/schemas/Currency"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Currency",
             "description": "The currency of the user's subscription."
           },
           "status": {
@@ -49419,6 +49710,7 @@
                 "additional_knowledge_base": [],
                 "additional_prompt": "",
                 "additional_tool_ids": [],
+                "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [
                   "entry_to_tool_a"
@@ -49434,6 +49726,7 @@
                 "additional_knowledge_base": [],
                 "additional_prompt": "",
                 "additional_tool_ids": [],
+                "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [],
                 "label": "Failure",
@@ -49457,6 +49750,7 @@
                 "additional_knowledge_base": [],
                 "additional_prompt": "",
                 "additional_tool_ids": [],
+                "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [],
                 "label": "Success A",
@@ -49682,6 +49976,27 @@
         "type": "object",
         "title": "GetAppointmentByConfirmationNumberParams",
         "description": "Look up an appointment by the booking confirmation number the caller quotes.\n\nThe confirmation number is the 8-character code shown on the booking\nconfirmation page (e.g. ``#01ABCDEF``). Callers may read it back with or\nwithout the leading ``#`` and with varied spacing; the tool normalizes\nthe input and does a prefix match on the stored calendar item id."
+      },
+      "GetAudioIsolationHistoryResponseModel": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/AudioIsolationHistoryItemResponseModel"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "has_more"
+        ],
+        "title": "GetAudioIsolationHistoryResponseModel"
       },
       "GetAudioNativeProjectSettingsResponseModel": {
         "properties": {
@@ -56690,6 +57005,36 @@
         "title": "MTLSAuthResponse",
         "description": "Response model for mTLS auth connections."
       },
+      "ManualSource": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "manual",
+            "title": "Type",
+            "default": "manual"
+          },
+          "created_by_user_id": {
+            "type": "string",
+            "title": "Created By User Id"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "created_by_user_id"
+        ],
+        "title": "ManualSource"
+      },
       "ManualVerificationFileResponseModel": {
         "properties": {
           "file_id": {
@@ -56790,6 +57135,60 @@
           "type"
         ],
         "title": "MatchAnythingParameterEvaluationStrategy"
+      },
+      "MemoryEntrySearchResult": {
+        "properties": {
+          "entry_id": {
+            "type": "string",
+            "title": "Entry Id"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary"
+          },
+          "text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationSource"
+              },
+              {
+                "$ref": "#/components/schemas/ManualSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "entry_id",
+          "version"
+        ],
+        "title": "MemoryEntrySearchResult"
       },
       "MessageSearchSortBy": {
         "type": "string",
@@ -67705,18 +68104,12 @@
           "currency": {
             "anyOf": [
               {
-                "type": "string",
-                "enum": [
-                  "usd",
-                  "eur",
-                  "inr"
-                ]
+                "$ref": "#/components/schemas/Currency"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Currency",
             "description": "The currency of the user's subscription."
           },
           "status": {

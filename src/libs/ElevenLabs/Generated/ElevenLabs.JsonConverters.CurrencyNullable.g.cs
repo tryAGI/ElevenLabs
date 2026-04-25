@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class ExtendedSubscriptionResponseModelCurrency2JsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency2>
+    public sealed class CurrencyNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.Currency?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency2 Read(
+        public override global::ElevenLabs.Currency? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency2Extensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.CurrencyExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency2)numValue;
+                    return (global::ElevenLabs.Currency)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency2);
+                    return default(global::ElevenLabs.Currency?);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,19 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency2 value,
+            global::ElevenLabs.Currency? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency2Extensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::ElevenLabs.CurrencyExtensions.ToValueString(value.Value));
+            }
         }
     }
 }

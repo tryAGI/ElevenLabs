@@ -129,7 +129,7 @@ namespace ElevenLabs
         /// The currency of the user's subscription.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("currency")]
-        public global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency2? Currency { get; set; }
+        public global::ElevenLabs.Currency? Currency { get; set; }
 
         /// <summary>
         /// The status of the user's subscription.
@@ -308,7 +308,7 @@ namespace ElevenLabs
             int? maxCharacterLimitExtension,
             int? nextCharacterCountResetUnix,
             int? maxVoiceAddEdits,
-            global::ElevenLabs.ExtendedSubscriptionResponseModelCurrency2? currency,
+            global::ElevenLabs.Currency? currency,
             global::ElevenLabs.BillingPeriod? billingPeriod,
             global::ElevenLabs.CharacterRefreshPeriod? characterRefreshPeriod,
             global::ElevenLabs.InvoiceResponseModel? nextInvoice,

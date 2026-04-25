@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public enum SubscriptionResponseModelCurrency2
+    public enum Currency
     {
         /// <summary>
         /// 
@@ -25,31 +25,31 @@ namespace ElevenLabs
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class SubscriptionResponseModelCurrency2Extensions
+    public static class CurrencyExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this SubscriptionResponseModelCurrency2 value)
+        public static string ToValueString(this Currency value)
         {
             return value switch
             {
-                SubscriptionResponseModelCurrency2.Eur => "eur",
-                SubscriptionResponseModelCurrency2.Inr => "inr",
-                SubscriptionResponseModelCurrency2.Usd => "usd",
+                Currency.Eur => "eur",
+                Currency.Inr => "inr",
+                Currency.Usd => "usd",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static SubscriptionResponseModelCurrency2? ToEnum(string value)
+        public static Currency? ToEnum(string value)
         {
             return value switch
             {
-                "eur" => SubscriptionResponseModelCurrency2.Eur,
-                "inr" => SubscriptionResponseModelCurrency2.Inr,
-                "usd" => SubscriptionResponseModelCurrency2.Usd,
+                "eur" => Currency.Eur,
+                "inr" => Currency.Inr,
+                "usd" => Currency.Usd,
                 _ => null,
             };
         }
