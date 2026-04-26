@@ -40558,6 +40558,12 @@
             "type": "array",
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
+          },
+          "source_attribution": {
+            "type": "boolean",
+            "title": "Source Attribution",
+            "description": "When enabled and knowledge base content is present, the LLM is instructed to report which sources it used.",
+            "default": false
           }
         },
         "type": "object",
@@ -40871,6 +40877,18 @@
             ],
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
+          },
+          "source_attribution": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Attribution",
+            "description": "When enabled and knowledge base content is present, the LLM is instructed to report which sources it used."
           }
         },
         "type": "object",
@@ -41847,6 +41865,13 @@
               }
             ],
             "title": "Source Event Id"
+          },
+          "used_static_kb_document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Used Static Kb Document Ids"
           }
         },
         "type": "object",
@@ -42015,6 +42040,13 @@
               }
             ],
             "title": "Source Event Id"
+          },
+          "used_static_kb_document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Used Static Kb Document Ids"
           }
         },
         "type": "object",
@@ -42287,6 +42319,13 @@
               }
             ],
             "title": "Source Event Id"
+          },
+          "used_static_kb_document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Used Static Kb Document Ids"
           },
           "file_input": {
             "anyOf": [
@@ -63932,6 +63971,13 @@
           "rag_latency_secs": {
             "type": "number",
             "title": "Rag Latency Secs"
+          },
+          "used_chunk_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Used Chunk Ids"
           }
         },
         "type": "object",
