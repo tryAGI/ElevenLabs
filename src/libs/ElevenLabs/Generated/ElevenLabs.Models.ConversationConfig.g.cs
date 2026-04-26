@@ -48,6 +48,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? MonitoringEvents { get; set; }
 
         /// <summary>
+        /// When enabled and knowledge base content is present, the LLM is instructed to report which sources it used.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_attribution")]
+        public bool? SourceAttribution { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -77,6 +84,10 @@ namespace ElevenLabs
         /// <param name="monitoringEvents">
         /// The events that will be sent to monitoring connections.
         /// </param>
+        /// <param name="sourceAttribution">
+        /// When enabled and knowledge base content is present, the LLM is instructed to report which sources it used.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -86,7 +97,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? clientEvents,
             global::ElevenLabs.FileInputConfig? fileInput,
             bool? monitoringEnabled,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? monitoringEvents)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? monitoringEvents,
+            bool? sourceAttribution)
         {
             this.TextOnly = textOnly;
             this.MaxDurationSeconds = maxDurationSeconds;
@@ -94,6 +106,7 @@ namespace ElevenLabs
             this.FileInput = fileInput;
             this.MonitoringEnabled = monitoringEnabled;
             this.MonitoringEvents = monitoringEvents;
+            this.SourceAttribution = sourceAttribution;
         }
 
         /// <summary>

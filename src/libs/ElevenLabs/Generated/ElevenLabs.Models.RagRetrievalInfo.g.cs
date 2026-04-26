@@ -39,6 +39,12 @@ namespace ElevenLabs
         public required double RagLatencySecs { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("used_chunk_ids")]
+        public global::System.Collections.Generic.IList<string>? UsedChunkIds { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -53,6 +59,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="retrievalQuery"></param>
         /// <param name="ragLatencySecs"></param>
+        /// <param name="usedChunkIds"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -60,12 +67,14 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.RagChunkMetadata> chunks,
             global::ElevenLabs.EmbeddingModelEnum embeddingModel,
             string retrievalQuery,
-            double ragLatencySecs)
+            double ragLatencySecs,
+            global::System.Collections.Generic.IList<string>? usedChunkIds)
         {
             this.Chunks = chunks ?? throw new global::System.ArgumentNullException(nameof(chunks));
             this.EmbeddingModel = embeddingModel;
             this.RetrievalQuery = retrievalQuery ?? throw new global::System.ArgumentNullException(nameof(retrievalQuery));
             this.RagLatencySecs = ragLatencySecs;
+            this.UsedChunkIds = usedChunkIds;
         }
 
         /// <summary>

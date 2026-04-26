@@ -110,6 +110,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("used_static_kb_document_ids")]
+        public global::System.Collections.Generic.IList<string>? UsedStaticKbDocumentIds { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_input")]
         public global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? FileInput { get; set; }
 
@@ -140,6 +146,7 @@ namespace ElevenLabs
         /// <param name="originalMessage"></param>
         /// <param name="sourceMedium"></param>
         /// <param name="sourceEventId"></param>
+        /// <param name="usedStaticKbDocumentIds"></param>
         /// <param name="fileInput"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -161,6 +168,7 @@ namespace ElevenLabs
             string? originalMessage,
             global::ElevenLabs.ChatSourceMedium? sourceMedium,
             int? sourceEventId,
+            global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
             global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput)
         {
             this.Role = role;
@@ -179,6 +187,7 @@ namespace ElevenLabs
             this.OriginalMessage = originalMessage;
             this.SourceMedium = sourceMedium;
             this.SourceEventId = sourceEventId;
+            this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
             this.FileInput = fileInput;
         }
 
