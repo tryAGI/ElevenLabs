@@ -5,21 +5,21 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Delete Tool<br/>
-        /// Delete tool from the workspace.
+        /// Delete Knowledge Base Document Or Folder<br/>
+        /// Delete a document or folder from the knowledge base.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
         /// <param name="force">
-        /// If set to true, the tool will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents and branches.<br/>
+        /// If set to true, the document or folder will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents. For non-empty folders, this will also delete all child documents and folders.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> Delete7Async(
-            string toolId,
+            string documentationId,
             bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

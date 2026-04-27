@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareDelete5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string fileId,
-            ref string conversationId);
+            ref string phoneNumberId);
         partial void PrepareDelete5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string fileId,
-            string conversationId);
+            string phoneNumberId);
         partial void ProcessDelete5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,17 +42,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete File Upload<br/>
-        /// Remove a file upload from a conversation. Only possible if the file hasn't already been used in the conversation.
+        /// Delete Phone Number<br/>
+        /// Delete Phone Number by ID
         /// </summary>
-        /// <param name="fileId"></param>
-        /// <param name="conversationId"></param>
+        /// <param name="phoneNumberId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Delete5Async(
-            string fileId,
-            string conversationId,
+        public async global::System.Threading.Tasks.Task<string> Delete5Async(
+            string phoneNumberId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -62,8 +60,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete5Arguments(
                 httpClient: HttpClient,
-                fileId: ref fileId,
-                conversationId: ref conversationId);
+                phoneNumberId: ref phoneNumberId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -88,7 +85,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/conversations/{conversationId}/files/{fileId}",
+                                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -130,8 +127,7 @@ namespace ElevenLabs
                 PrepareDelete5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    fileId: fileId,
-                    conversationId: conversationId);
+                    phoneNumberId: phoneNumberId);
 
                 return __httpRequest;
             }
@@ -150,7 +146,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete5",
                                 methodName: "Delete5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -177,7 +173,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete5",
                                 methodName: "Delete5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -212,7 +208,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete5",
                                 methodName: "Delete5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -259,7 +255,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete5",
                                 methodName: "Delete5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -279,7 +275,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete5",
                                 methodName: "Delete5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -352,9 +348,7 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::ElevenLabs.ConvAIFileUploadResponseModel.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -376,15 +370,13 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::ElevenLabs.ConvAIFileUploadResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {

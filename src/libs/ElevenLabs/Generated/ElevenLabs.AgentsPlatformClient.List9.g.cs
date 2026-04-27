@@ -27,13 +27,17 @@ namespace ElevenLabs
             };
         partial void PrepareList9Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? limit,
-            ref string? lastDoc);
+            int? pageSize,
+            int? dependencyLimit,
+            ref string? search,
+            ref string? cursor);
         partial void PrepareList9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? limit,
-            string? lastDoc);
+            int? pageSize,
+            int? dependencyLimit,
+            string? search,
+            string? cursor);
         partial void ProcessList9Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,19 +48,29 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get All Batch Calls For A Workspace.<br/>
-        /// Get all batch calls for the current workspace.
+        /// Get Convai Workspace Secrets<br/>
+        /// Get all workspace secrets for the user
         /// </summary>
-        /// <param name="limit">
-        /// Default Value: 100
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
         /// </param>
-        /// <param name="lastDoc"></param>
+        /// <param name="dependencyLimit">
+        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
+        /// </param>
+        /// <param name="search">
+        /// If specified, returns only secrets whose names start with this string.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceBatchCallsResponse> List9Async(
-            int? limit = default,
-            string? lastDoc = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWorkspaceSecretsResponseModel> List9Async(
+            int? pageSize = default,
+            int? dependencyLimit = default,
+            string? search = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -64,8 +78,10 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList9Arguments(
                 httpClient: HttpClient,
-                limit: ref limit,
-                lastDoc: ref lastDoc);
+                pageSize: pageSize,
+                dependencyLimit: dependencyLimit,
+                search: ref search,
+                cursor: ref cursor);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -90,11 +106,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/batch-calling/workspace",
+                                path: "/v1/convai/secrets",
                                 baseUri: HttpClient.BaseAddress); 
                             __pathBuilder
-                                .AddOptionalParameter("limit", limit?.ToString())
-                                .AddOptionalParameter("last_doc", lastDoc) 
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("dependency_limit", dependencyLimit?.ToString())
+                                .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("cursor", cursor) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -136,8 +154,10 @@ namespace ElevenLabs
                 PrepareList9Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    limit: limit,
-                    lastDoc: lastDoc);
+                    pageSize: pageSize,
+                    dependencyLimit: dependencyLimit,
+                    search: search,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -156,7 +176,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List9",
                                 methodName: "List9Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -183,7 +203,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List9",
                                 methodName: "List9Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -218,7 +238,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List9",
                                 methodName: "List9Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -265,7 +285,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List9",
                                 methodName: "List9Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -285,7 +305,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List9",
                                 methodName: "List9Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -359,7 +379,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.WorkspaceBatchCallsResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.GetWorkspaceSecretsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -389,7 +409,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.WorkspaceBatchCallsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.GetWorkspaceSecretsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

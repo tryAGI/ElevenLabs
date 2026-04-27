@@ -29,24 +29,30 @@ namespace ElevenLabs
             };
         partial void PrepareList7Arguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref int? pageSize,
             ref string? search,
-            int? pageSize,
             ref bool? showOnlyOwnedDocuments,
             ref string? createdByUserId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
+            ref string? parentFolderId,
+            ref string? ancestorFolderId,
+            ref bool? foldersFirst,
             ref global::ElevenLabs.SortDirection? sortDirection,
-            global::ElevenLabs.ToolSortBy? sortBy,
+            global::ElevenLabs.KnowledgeBaseSortBy? sortBy,
             ref string? cursor);
         partial void PrepareList7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? search,
             int? pageSize,
+            string? search,
             bool? showOnlyOwnedDocuments,
             string? createdByUserId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
+            string? parentFolderId,
+            string? ancestorFolderId,
+            bool? foldersFirst,
             global::ElevenLabs.SortDirection? sortDirection,
-            global::ElevenLabs.ToolSortBy? sortBy,
+            global::ElevenLabs.KnowledgeBaseSortBy? sortBy,
             string? cursor);
         partial void ProcessList7Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -58,24 +64,35 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Tools<br/>
-        /// Get all available tools in the workspace.
+        /// Get Knowledge Base List<br/>
+        /// Get a list of available knowledge base documents
         /// </summary>
-        /// <param name="search">
-        /// If specified, the endpoint returns only tools whose names start with this string.
-        /// </param>
         /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="search">
+        /// If specified, the endpoint returns only such knowledge base documents whose names start with this string.
         /// </param>
         /// <param name="showOnlyOwnedDocuments">
-        /// If set to true, the endpoint will return only tools owned by you (and not shared from somebody else). Deprecated: use created_by_user_id instead.<br/>
+        /// If set to true, the endpoint will return only documents owned by you (and not shared from somebody else). Deprecated: use created_by_user_id instead.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="createdByUserId">
-        /// Filter tools by creator user ID. When set, only tools created by this user are returned. Takes precedence over show_only_owned_documents. Use '@me' to refer to the authenticated user.
+        /// Filter documents by creator user ID. When set, only documents created by this user are returned. Takes precedence over show_only_owned_documents. Use '@me' to refer to the authenticated user.
         /// </param>
         /// <param name="types">
-        /// If present, the endpoint will return only tools of the given types.
+        /// If present, the endpoint will return only documents of the given types.
+        /// </param>
+        /// <param name="parentFolderId">
+        /// If set, the endpoint will return only documents that are direct children of the given folder.
+        /// </param>
+        /// <param name="ancestorFolderId">
+        /// If set, the endpoint will return only documents that are descendants of the given folder.
+        /// </param>
+        /// <param name="foldersFirst">
+        /// Whether folders should be returned first in the list of documents.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="sortDirection">
         /// The direction to sort the results<br/>
@@ -90,14 +107,17 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolsResponseModel> List7Async(
-            string? search = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetKnowledgeBaseListResponseModel> List7Async(
             int? pageSize = default,
+            string? search = default,
             bool? showOnlyOwnedDocuments = default,
             string? createdByUserId = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types = default,
+            string? parentFolderId = default,
+            string? ancestorFolderId = default,
+            bool? foldersFirst = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
-            global::ElevenLabs.ToolSortBy? sortBy = default,
+            global::ElevenLabs.KnowledgeBaseSortBy? sortBy = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -106,11 +126,14 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList7Arguments(
                 httpClient: HttpClient,
+                pageSize: ref pageSize,
                 search: ref search,
-                pageSize: pageSize,
                 showOnlyOwnedDocuments: ref showOnlyOwnedDocuments,
                 createdByUserId: ref createdByUserId,
                 types: types,
+                parentFolderId: ref parentFolderId,
+                ancestorFolderId: ref ancestorFolderId,
+                foldersFirst: ref foldersFirst,
                 sortDirection: ref sortDirection,
                 sortBy: sortBy,
                 cursor: ref cursor);
@@ -138,14 +161,17 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/tools",
+                                path: "/v1/convai/knowledge-base",
                                 baseUri: HttpClient.BaseAddress); 
                             __pathBuilder
-                                .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("created_by_user_id", createdByUserId)
                                 .AddOptionalParameter("types", types?.ToString())
+                                .AddOptionalParameter("parent_folder_id", parentFolderId)
+                                .AddOptionalParameter("ancestor_folder_id", ancestorFolderId)
+                                .AddOptionalParameter("folders_first", foldersFirst?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToString())
                                 .AddOptionalParameter("cursor", cursor) 
@@ -190,11 +216,14 @@ namespace ElevenLabs
                 PrepareList7Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    search: search,
                     pageSize: pageSize,
+                    search: search,
                     showOnlyOwnedDocuments: showOnlyOwnedDocuments,
                     createdByUserId: createdByUserId,
                     types: types,
+                    parentFolderId: parentFolderId,
+                    ancestorFolderId: ancestorFolderId,
+                    foldersFirst: foldersFirst,
                     sortDirection: sortDirection,
                     sortBy: sortBy,
                     cursor: cursor);
@@ -216,7 +245,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List7",
                                 methodName: "List7Async",
-                                pathTemplate: "\"/v1/convai/tools\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -243,7 +272,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List7",
                                 methodName: "List7Async",
-                                pathTemplate: "\"/v1/convai/tools\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -278,7 +307,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List7",
                                 methodName: "List7Async",
-                                pathTemplate: "\"/v1/convai/tools\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -325,7 +354,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List7",
                                 methodName: "List7Async",
-                                pathTemplate: "\"/v1/convai/tools\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -345,7 +374,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List7",
                                 methodName: "List7Async",
-                                pathTemplate: "\"/v1/convai/tools\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -419,7 +448,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.ToolsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.GetKnowledgeBaseListResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -449,7 +478,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.ToolsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.GetKnowledgeBaseListResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

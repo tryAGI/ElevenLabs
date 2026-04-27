@@ -5,22 +5,17 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Delete Knowledge Base Document Or Folder<br/>
-        /// Delete a document or folder from the knowledge base.
+        /// Delete File Upload<br/>
+        /// Remove a file upload from a conversation. Only possible if the file hasn't already been used in the conversation.
         /// </summary>
-        /// <param name="documentationId">
-        /// The id of a document from the knowledge base. This is returned on document addition.
-        /// </param>
-        /// <param name="force">
-        /// If set to true, the document or folder will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents. For non-empty folders, this will also delete all child documents and folders.<br/>
-        /// Default Value: false
-        /// </param>
+        /// <param name="fileId"></param>
+        /// <param name="conversationId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> Delete6Async(
-            string documentationId,
-            bool? force = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Delete6Async(
+            string fileId,
+            string conversationId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

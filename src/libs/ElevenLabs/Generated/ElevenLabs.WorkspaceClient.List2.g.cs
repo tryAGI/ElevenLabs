@@ -26,10 +26,24 @@ namespace ElevenLabs
             {                s_List2SecurityRequirement0,
             };
         partial void PrepareList2Arguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref int? limit,
+            ref string? cursor,
+            int? timeFromUnixMs,
+            int? timeToUnixMs,
+            ref string? actorUid,
+            ref string? className,
+            ref string? activityName);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            int? limit,
+            string? cursor,
+            int? timeFromUnixMs,
+            int? timeToUnixMs,
+            string? actorUid,
+            string? className,
+            string? activityName);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,20 +54,56 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Workspace Auth Connections<br/>
-        /// Get all auth connections for the workspace
+        /// Get Workspace Audit Logs<br/>
+        /// Returns the audit log for the workspace. Requires enterprise tier and the audit_log_read permission.
         /// </summary>
+        /// <param name="limit">
+        /// Maximum number of entries per page<br/>
+        /// Default Value: 50
+        /// </param>
+        /// <param name="cursor">
+        /// Cursor for the next page (from previous response)
+        /// </param>
+        /// <param name="timeFromUnixMs">
+        /// Only include entries at or after this time (ms since epoch)
+        /// </param>
+        /// <param name="timeToUnixMs">
+        /// Only include entries at or before this time (ms since epoch)
+        /// </param>
+        /// <param name="actorUid">
+        /// Filter by actor user ID
+        /// </param>
+        /// <param name="className">
+        /// Filter by OCSF event class name (e.g. Account Change)
+        /// </param>
+        /// <param name="activityName">
+        /// Filter by audit activity name (e.g. Subscription Creation)
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListAuthConnectionsResponse> List2Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceAuditLogsPageResponse> List2Async(
+            int? limit = default,
+            string? cursor = default,
+            int? timeFromUnixMs = default,
+            int? timeToUnixMs = default,
+            string? actorUid = default,
+            string? className = default,
+            string? activityName = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList2Arguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                limit: ref limit,
+                cursor: ref cursor,
+                timeFromUnixMs: timeFromUnixMs,
+                timeToUnixMs: timeToUnixMs,
+                actorUid: ref actorUid,
+                className: ref className,
+                activityName: ref activityName);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -78,8 +128,17 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/workspace/auth-connections",
-                                baseUri: HttpClient.BaseAddress);
+                                path: "/v1/workspace/audit-logs",
+                                baseUri: HttpClient.BaseAddress); 
+                            __pathBuilder
+                                .AddOptionalParameter("limit", limit?.ToString())
+                                .AddOptionalParameter("cursor", cursor)
+                                .AddOptionalParameter("time_from_unix_ms", timeFromUnixMs?.ToString())
+                                .AddOptionalParameter("time_to_unix_ms", timeToUnixMs?.ToString())
+                                .AddOptionalParameter("actor_uid", actorUid)
+                                .AddOptionalParameter("class_name", className)
+                                .AddOptionalParameter("activity_name", activityName) 
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -119,7 +178,14 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareList2Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    limit: limit,
+                    cursor: cursor,
+                    timeFromUnixMs: timeFromUnixMs,
+                    timeToUnixMs: timeToUnixMs,
+                    actorUid: actorUid,
+                    className: className,
+                    activityName: activityName);
 
                 return __httpRequest;
             }
@@ -138,7 +204,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "\"/v1/workspace/auth-connections\"",
+                                pathTemplate: "\"/v1/workspace/audit-logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -165,7 +231,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "\"/v1/workspace/auth-connections\"",
+                                pathTemplate: "\"/v1/workspace/audit-logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -200,7 +266,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "\"/v1/workspace/auth-connections\"",
+                                pathTemplate: "\"/v1/workspace/audit-logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -247,7 +313,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "\"/v1/workspace/auth-connections\"",
+                                pathTemplate: "\"/v1/workspace/audit-logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -267,7 +333,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "\"/v1/workspace/auth-connections\"",
+                                pathTemplate: "\"/v1/workspace/audit-logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +407,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.ListAuthConnectionsResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.WorkspaceAuditLogsPageResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -371,7 +437,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.ListAuthConnectionsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.WorkspaceAuditLogsPageResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

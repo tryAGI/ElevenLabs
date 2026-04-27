@@ -53,12 +53,6 @@ namespace ElevenLabs
         public string? SessionIterationId { get; set; }
 
         /// <summary>
-        /// Modified/enhanced prompt if different from original
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("altered_prompt")]
-        public string? AlteredPrompt { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_parameters")]
@@ -88,9 +82,6 @@ namespace ElevenLabs
         /// <param name="modelProvider"></param>
         /// <param name="generationSessionId"></param>
         /// <param name="sessionIterationId"></param>
-        /// <param name="alteredPrompt">
-        /// Modified/enhanced prompt if different from original
-        /// </param>
         /// <param name="modelParameters"></param>
         /// <param name="extendVideo"></param>
 #if NET7_0_OR_GREATER
@@ -104,7 +95,6 @@ namespace ElevenLabs
             string? modelProvider,
             string? generationSessionId,
             string? sessionIterationId,
-            string? alteredPrompt,
             object? modelParameters,
             global::ElevenLabs.ReferenceVideo? extendVideo)
         {
@@ -115,7 +105,6 @@ namespace ElevenLabs
             this.ModelProvider = modelProvider;
             this.GenerationSessionId = generationSessionId;
             this.SessionIterationId = sessionIterationId;
-            this.AlteredPrompt = alteredPrompt;
             this.ModelParameters = modelParameters;
             this.ExtendVideo = extendVideo;
         }

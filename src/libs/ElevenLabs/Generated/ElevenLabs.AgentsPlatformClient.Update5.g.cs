@@ -27,13 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
-            global::ElevenLabs.ToolRequestModel request);
+            ref string documentationId,
+            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request);
         partial void PrepareUpdate5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
-            global::ElevenLabs.ToolRequestModel request);
+            string documentationId,
+            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request);
         partial void ProcessUpdate5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,20 +44,20 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Update Document<br/>
+        /// Update the name of a document
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update5Async(
-            string toolId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> Update5Async(
+            string documentationId,
 
-            global::ElevenLabs.ToolRequestModel request,
+            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -67,7 +67,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate5Arguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
+                documentationId: ref documentationId,
                 request: request);
 
 
@@ -93,7 +93,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/tools/{toolId}",
+                                path: $"/v1/convai/knowledge-base/{documentationId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareUpdate5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolId: toolId,
+                    documentationId: documentationId,
                     request: request);
 
                 return __httpRequest;
@@ -161,7 +161,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -188,7 +188,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -223,7 +223,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -270,7 +270,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -290,7 +290,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -364,7 +364,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.UpdateDocumentRouteResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -394,7 +394,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.UpdateDocumentRouteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
@@ -434,36 +434,31 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Tool<br/>
-        /// Update tool that is available in the workspace.
+        /// Update Document<br/>
+        /// Update the name of a document
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
-        /// </param>
-        /// <param name="responseMocks">
-        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// <param name="name">
+        /// A custom, human-readable name for the document.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Update5Async(
-            string toolId,
-            global::ElevenLabs.ToolConfig toolConfig,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> Update5Async(
+            string documentationId,
+            string name,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ToolRequestModel
+            var __request = new global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch
             {
-                ToolConfig = toolConfig,
-                ResponseMocks = responseMocks,
+                Name = name,
             };
 
             return await Update5Async(
-                toolId: toolId,
+                documentationId: documentationId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

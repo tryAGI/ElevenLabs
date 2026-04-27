@@ -51,7 +51,8 @@ namespace ElevenLabs
             ref string? search,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             ref string? branchId,
-            global::System.Collections.Generic.IList<string>? topicIds);
+            global::System.Collections.Generic.IList<string>? topicIds,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -77,7 +78,8 @@ namespace ElevenLabs
             string? search,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             string? branchId,
-            global::System.Collections.Generic.IList<string>? topicIds);
+            global::System.Collections.Generic.IList<string>? topicIds,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -160,6 +162,9 @@ namespace ElevenLabs
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -187,6 +192,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -216,7 +222,8 @@ namespace ElevenLabs
                 search: ref search,
                 conversationInitiationSource: conversationInitiationSource,
                 branchId: ref branchId,
-                topicIds: topicIds);
+                topicIds: topicIds,
+                excludeStatuses: excludeStatuses);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -266,7 +273,8 @@ namespace ElevenLabs
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
                                 .AddOptionalParameter("branch_id", branchId)
-                                .AddOptionalParameter("topic_ids", topicIds?.ToString()) 
+                                .AddOptionalParameter("topic_ids", topicIds?.ToString())
+                                .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString()) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -330,7 +338,8 @@ namespace ElevenLabs
                     search: search,
                     conversationInitiationSource: conversationInitiationSource,
                     branchId: branchId,
-                    topicIds: topicIds);
+                    topicIds: topicIds,
+                    excludeStatuses: excludeStatuses);
 
                 return __httpRequest;
             }

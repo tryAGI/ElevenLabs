@@ -27,13 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareDelete6Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string documentationId,
-            ref bool? force);
+            ref string fileId,
+            ref string conversationId);
         partial void PrepareDelete6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string documentationId,
-            bool? force);
+            string fileId,
+            string conversationId);
         partial void ProcessDelete6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,22 +44,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Knowledge Base Document Or Folder<br/>
-        /// Delete a document or folder from the knowledge base.
+        /// Delete File Upload<br/>
+        /// Remove a file upload from a conversation. Only possible if the file hasn't already been used in the conversation.
         /// </summary>
-        /// <param name="documentationId">
-        /// The id of a document from the knowledge base. This is returned on document addition.
-        /// </param>
-        /// <param name="force">
-        /// If set to true, the document or folder will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents. For non-empty folders, this will also delete all child documents and folders.<br/>
-        /// Default Value: false
-        /// </param>
+        /// <param name="fileId"></param>
+        /// <param name="conversationId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Delete6Async(
-            string documentationId,
-            bool? force = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Delete6Async(
+            string fileId,
+            string conversationId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -67,8 +62,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete6Arguments(
                 httpClient: HttpClient,
-                documentationId: ref documentationId,
-                force: ref force);
+                fileId: ref fileId,
+                conversationId: ref conversationId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -93,11 +88,8 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/knowledge-base/{documentationId}",
-                                baseUri: HttpClient.BaseAddress); 
-                            __pathBuilder
-                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant()) 
-                                ;
+                                path: $"/v1/convai/conversations/{conversationId}/files/{fileId}",
+                                baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -138,8 +130,8 @@ namespace ElevenLabs
                 PrepareDelete6Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentationId: documentationId,
-                    force: force);
+                    fileId: fileId,
+                    conversationId: conversationId);
 
                 return __httpRequest;
             }
@@ -158,7 +150,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -185,7 +177,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -220,7 +212,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -267,7 +259,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -287,7 +279,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -360,7 +352,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return __content;
+                                    return
+                                        global::ElevenLabs.ConvAIFileUploadResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -382,13 +376,15 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return __content;
+                                    return
+                                        await global::ElevenLabs.ConvAIFileUploadResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
                                 {

@@ -27,13 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId,
-            global::ElevenLabs.UpdatePhoneNumberRequest request);
+            ref string tagId,
+            global::ElevenLabs.PatchConversationTagRequestModel request);
         partial void PrepareUpdate3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId,
-            global::ElevenLabs.UpdatePhoneNumberRequest request);
+            string tagId,
+            global::ElevenLabs.PatchConversationTagRequestModel request);
         partial void ProcessUpdate3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,20 +44,18 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Phone Number<br/>
-        /// Update assigned agent of a phone number
+        /// Update Conversation Tag<br/>
+        /// Update a conversation tag's title and/or description. Restricted to the tag owner or a workspace admin.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
+        /// <param name="tagId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> Update3Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConversationTagResponseModel> Update3Async(
+            string tagId,
 
-            global::ElevenLabs.UpdatePhoneNumberRequest request,
+            global::ElevenLabs.PatchConversationTagRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -67,7 +65,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate3Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId,
+                tagId: ref tagId,
                 request: request);
 
 
@@ -93,7 +91,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
+                                path: $"/v1/convai/tags/{tagId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -141,7 +139,7 @@ namespace ElevenLabs
                 PrepareUpdate3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    phoneNumberId: phoneNumberId,
+                    tagId: tagId,
                     request: request);
 
                 return __httpRequest;
@@ -161,7 +159,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -188,7 +186,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -223,7 +221,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -270,7 +268,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -290,7 +288,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -364,7 +362,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.UpdatePhoneNumberRouteResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.ConversationTagResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -394,7 +392,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.UpdatePhoneNumberRouteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.ConversationTagResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
@@ -434,41 +432,34 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Phone Number<br/>
-        /// Update assigned agent of a phone number
+        /// Update Conversation Tag<br/>
+        /// Update a conversation tag's title and/or description. Restricted to the tag owner or a workspace admin.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="tagId"></param>
+        /// <param name="title">
+        /// If provided, replaces the tag title. Omit to leave unchanged.
         /// </param>
-        /// <param name="agentId"></param>
-        /// <param name="label"></param>
-        /// <param name="inboundTrunkConfig"></param>
-        /// <param name="outboundTrunkConfig"></param>
-        /// <param name="livekitStack"></param>
+        /// <param name="description">
+        /// If provided, replaces the tag description. Omit to leave unchanged.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> Update3Async(
-            string phoneNumberId,
-            string? agentId = default,
-            string? label = default,
-            global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig = default,
-            global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig = default,
-            global::ElevenLabs.LivekitStackType? livekitStack = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConversationTagResponseModel> Update3Async(
+            string tagId,
+            string? title = default,
+            string? description = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.UpdatePhoneNumberRequest
+            var __request = new global::ElevenLabs.PatchConversationTagRequestModel
             {
-                AgentId = agentId,
-                Label = label,
-                InboundTrunkConfig = inboundTrunkConfig,
-                OutboundTrunkConfig = outboundTrunkConfig,
-                LivekitStack = livekitStack,
+                Title = title,
+                Description = description,
             };
 
             return await Update3Async(
-                phoneNumberId: phoneNumberId,
+                tagId: tagId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

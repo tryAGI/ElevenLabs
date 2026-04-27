@@ -27,25 +27,39 @@ namespace ElevenLabs
             };
         partial void PrepareDelete8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string secretId);
+            ref string toolId,
+            ref bool? force);
         partial void PrepareDelete8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string secretId);
+            string toolId,
+            bool? force);
         partial void ProcessDelete8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessDelete8ResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Delete Convai Workspace Secret<br/>
-        /// Delete a workspace secret if it's not in use
+        /// Delete Tool<br/>
+        /// Delete tool from the workspace.
         /// </summary>
-        /// <param name="secretId"></param>
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
+        /// <param name="force">
+        /// If set to true, the tool will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents and branches.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task Delete8Async(
-            string secretId,
+        public async global::System.Threading.Tasks.Task<string> Delete8Async(
+            string toolId,
+            bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -53,7 +67,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete8Arguments(
                 httpClient: HttpClient,
-                secretId: ref secretId);
+                toolId: ref toolId,
+                force: ref force);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -78,8 +93,11 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/secrets/{secretId}",
-                                baseUri: HttpClient.BaseAddress);
+                                path: $"/v1/convai/tools/{toolId}",
+                                baseUri: HttpClient.BaseAddress); 
+                            __pathBuilder
+                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant()) 
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -120,7 +138,8 @@ namespace ElevenLabs
                 PrepareDelete8Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    secretId: secretId);
+                    toolId: toolId,
+                    force: force);
 
                 return __httpRequest;
             }
@@ -139,7 +158,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete8",
                                 methodName: "Delete8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -166,7 +185,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete8",
                                 methodName: "Delete8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -201,7 +220,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete8",
                                 methodName: "Delete8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -248,7 +267,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete8",
                                 methodName: "Delete8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -268,7 +287,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete8",
                                 methodName: "Delete8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -332,11 +351,16 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessDelete8ResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
+                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -358,6 +382,13 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
+                                    var __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {

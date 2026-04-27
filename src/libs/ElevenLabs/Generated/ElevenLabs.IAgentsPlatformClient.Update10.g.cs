@@ -1,0 +1,85 @@
+#nullable enable
+
+#pragma warning disable CS0618 // Type or member is obsolete
+
+namespace ElevenLabs
+{
+    public partial interface IAgentsPlatformClient
+    {
+        /// <summary>
+        /// Update Mcp Server Configuration<br/>
+        /// Update the configuration settings for an MCP server.
+        /// </summary>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update10Async(
+            string mcpServerId,
+
+            global::ElevenLabs.MCPServerConfigUpdateRequestModel request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Mcp Server Configuration<br/>
+        /// Update the configuration settings for an MCP server.
+        /// </summary>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="approvalPolicy">
+        /// The approval mode to set for the MCP server
+        /// </param>
+        /// <param name="preToolSpeech">
+        /// If set, overrides the server's pre_tool_speech setting for this tool.
+        /// </param>
+        /// <param name="disableInterruptions">
+        /// If set, overrides the server's disable_interruptions setting for this tool
+        /// </param>
+        /// <param name="toolCallSound">
+        /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
+        /// </param>
+        /// <param name="toolCallSoundBehavior">
+        /// Determines when the tool call sound should play for all tools from this MCP server
+        /// </param>
+        /// <param name="executionMode">
+        /// If set, overrides the server's execution_mode setting for this tool
+        /// </param>
+        /// <param name="responseTimeoutSecs">
+        /// The maximum time in seconds to wait for each MCP tool call to complete.
+        /// </param>
+        /// <param name="requestHeaders">
+        /// The headers to include in requests to the MCP server
+        /// </param>
+        /// <param name="disableCompression">
+        /// Whether to disable HTTP compression for this MCP server
+        /// </param>
+        /// <param name="secretToken">
+        /// Optional secret token for authentication with this MCP server
+        /// </param>
+        /// <param name="authConnection">
+        /// Optional auth connection to use for authentication with this MCP server
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update10Async(
+            string mcpServerId,
+            global::ElevenLabs.MCPApprovalPolicy? approvalPolicy = default,
+            global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
+            bool? disableInterruptions = default,
+            global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
+            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
+            global::ElevenLabs.ToolExecutionMode? executionMode = default,
+            int? responseTimeoutSecs = default,
+            object? requestHeaders = default,
+            bool? disableCompression = default,
+            global::ElevenLabs.ConvAISecretLocator? secretToken = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

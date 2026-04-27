@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"allowed_to_extend_character_limit":true,"billing_period":"monthly_period","can_extend_character_limit":true,"can_extend_voice_limit":true,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":1000,"character_limit":10000,"character_refresh_period":"monthly_period","currency":"usd","has_open_invoices":true,"has_used_creator_coupon_on_account":false,"has_used_starter_coupon_on_account":false,"max_character_limit_extension":10000,"max_credit_limit_extension":10000,"next_character_count_reset_unix":1738356858,"next_invoice":{"amount_due_cents":1000,"discounts":[{"discount_percent_off":20.0}],"next_payment_attempt_unix":1738356858,"payment_intent_status":"processing","payment_intent_statusses":["processing","succeeded"],"subtotal_cents":900,"tax_cents":100},"open_invoices":[{"amount_due_cents":1000,"discounts":[{"discount_percent_off":20.0}],"next_payment_attempt_unix":1738356858,"payment_intent_status":"processing","payment_intent_statusses":["processing","succeeded"],"subtotal_cents":900,"tax_cents":100}],"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"active","tier":"starter","voice_add_edit_counter":0,"voice_limit":10,"voice_slots_used":1}
+    /// Example: {"allowed_to_extend_character_limit":true,"billing_period":"monthly_period","can_extend_character_limit":true,"can_extend_voice_limit":true,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":1000,"character_limit":10000,"character_refresh_period":"monthly_period","currency":"usd","current_overage":{"amount":"0","currency":"usd"},"has_open_invoices":true,"has_used_creator_coupon_on_account":false,"has_used_starter_coupon_on_account":false,"max_character_limit_extension":10000,"max_credit_limit_extension":10000,"next_character_count_reset_unix":1738356858,"next_invoice":{"amount_due_cents":1000,"discounts":[{"discount_percent_off":20.0}],"next_payment_attempt_unix":1738356858,"payment_intent_status":"processing","payment_intent_statusses":["processing","succeeded"],"subtotal_cents":900,"tax_cents":100},"open_invoices":[{"amount_due_cents":1000,"discounts":[{"discount_percent_off":20.0}],"next_payment_attempt_unix":1738356858,"payment_intent_status":"processing","payment_intent_statusses":["processing","succeeded"],"subtotal_cents":900,"tax_cents":100}],"professional_voice_limit":1,"professional_voice_slots_used":0,"status":"active","tier":"starter","voice_add_edit_counter":0,"voice_limit":10,"voice_slots_used":1}
     /// </summary>
     public sealed partial class ExtendedSubscriptionResponseModel
     {
@@ -132,6 +132,13 @@ namespace ElevenLabs
         public global::ElevenLabs.Currency? Currency { get; set; }
 
         /// <summary>
+        /// The current usage-based overage cost.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("current_overage")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.Price CurrentOverage { get; set; }
+
+        /// <summary>
         /// The status of the user's subscription.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
@@ -243,6 +250,9 @@ namespace ElevenLabs
         /// <param name="canUseProfessionalVoiceCloning">
         /// Whether the user can use professional voice cloning.
         /// </param>
+        /// <param name="currentOverage">
+        /// The current usage-based overage cost.
+        /// </param>
         /// <param name="status">
         /// The status of the user's subscription.
         /// </param>
@@ -302,6 +312,7 @@ namespace ElevenLabs
             bool canExtendVoiceLimit,
             bool canUseInstantVoiceCloning,
             bool canUseProfessionalVoiceCloning,
+            global::ElevenLabs.Price currentOverage,
             global::ElevenLabs.SubscriptionStatusType status,
             global::System.Collections.Generic.IList<global::ElevenLabs.InvoiceResponseModel> openInvoices,
             bool hasOpenInvoices,
@@ -334,6 +345,7 @@ namespace ElevenLabs
             this.CanUseInstantVoiceCloning = canUseInstantVoiceCloning;
             this.CanUseProfessionalVoiceCloning = canUseProfessionalVoiceCloning;
             this.Currency = currency;
+            this.CurrentOverage = currentOverage ?? throw new global::System.ArgumentNullException(nameof(currentOverage));
             this.Status = status;
             this.BillingPeriod = billingPeriod;
             this.CharacterRefreshPeriod = characterRefreshPeriod;
