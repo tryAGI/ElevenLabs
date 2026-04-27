@@ -25326,6 +25326,58 @@
         "x-fern-sdk-method-name": "request"
       }
     },
+    "/v1/templates/agent/tool-call-schemas": {
+      "get": {
+        "tags": [
+          "template-agent"
+        ],
+        "summary": "Flow Agent Tool-Call Schemas",
+        "description": "Anchor every flows-agent tool input model in the OpenAPI schema.\n\nThe frontend imports the generated TypeScript shapes from `@/api/xiSchemas`\nto render typed approval details for each tool call. The endpoint itself\nintentionally returns an empty payload — only the response schema matters.",
+        "operationId": "get_flow_agent_tool_call_schemas",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlowsAgentToolCallSchemas"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/workspace/analytics/query/usage-by-product-over-time": {
       "post": {
         "tags": [
@@ -26691,6 +26743,55 @@
         ],
         "title": "AddChapterResponseModel"
       },
+      "AddEdgeSpec": {
+        "properties": {
+          "source_node_id": {
+            "type": "string",
+            "title": "Source Node Id",
+            "description": "ID of the source node."
+          },
+          "target_node_id": {
+            "type": "string",
+            "title": "Target Node Id",
+            "description": "ID of the target node."
+          },
+          "target_port": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Port",
+            "description": "Target port override. Usually auto-determined from source output type."
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_node_id",
+          "target_node_id"
+        ],
+        "title": "AddEdgeSpec"
+      },
+      "AddEdgesInput": {
+        "properties": {
+          "edges": {
+            "items": {
+              "$ref": "#/components/schemas/AddEdgeSpec"
+            },
+            "type": "array",
+            "title": "Edges",
+            "description": "List of edges to create."
+          }
+        },
+        "type": "object",
+        "required": [
+          "edges"
+        ],
+        "title": "AddEdgesInput"
+      },
       "AddKnowledgeBaseResponseModel": {
         "properties": {
           "id": {
@@ -26716,6 +26817,76 @@
           "name"
         ],
         "title": "AddKnowledgeBaseResponseModel"
+      },
+      "AddNodeInput": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/FlowNodeType",
+            "description": "The type of node to create."
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label",
+            "description": "Optional display label for the node."
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ModelID"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Model ID to use. If not set, the default model for the node type is used."
+          },
+          "model_parameters": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Model Parameters",
+            "description": "Initial model parameters. Use get_model_schema to see valid parameters."
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt",
+            "description": "Optional prompt text for the node."
+          },
+          "connect_from": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Connect From",
+            "description": "Existing node IDs that should feed INTO this new node. Pass these when you already know the upstream wiring — the canvas places the new node correctly on creation instead of parking it first and reflowing later."
+          },
+          "connect_to": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Connect To",
+            "description": "Existing node IDs that this new node should feed INTO. Same purpose as connect_from but for downstream wiring."
+          }
+        },
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "AddNodeInput"
       },
       "AddProjectResponseModel": {
         "properties": {
@@ -26813,6 +26984,62 @@
           "version_id": "5xM3yVvZQKV0EfqQpLrJ",
           "version_rules_num": 5
         }
+      },
+      "AddStaticAssetNodeInput": {
+        "properties": {
+          "modality": {
+            "type": "string",
+            "enum": [
+              "image",
+              "video",
+              "audio",
+              "text"
+            ],
+            "title": "Modality",
+            "description": "The type of static asset: 'image', 'video', 'audio', or 'text'."
+          },
+          "content_asset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Asset Id",
+            "description": "ID of the uploaded asset. Required for image, video, and audio."
+          },
+          "inline_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Inline Text",
+            "description": "Text content for text nodes. Required for text modality."
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label",
+            "description": "Optional display label for the node."
+          }
+        },
+        "type": "object",
+        "required": [
+          "modality"
+        ],
+        "title": "AddStaticAssetNodeInput"
       },
       "AddVoiceIVCResponseModel": {
         "properties": {
@@ -30681,6 +30908,23 @@
         ],
         "title": "AuthorizationMethod",
         "default": "public"
+      },
+      "AutoLayoutInput": {
+        "properties": {
+          "node_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Node Ids",
+            "description": "Node IDs to arrange."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_ids"
+        ],
+        "title": "AutoLayoutInput"
       },
       "AutoSyncInfo": {
         "properties": {
@@ -46443,6 +46687,30 @@
         "title": "DependentUnknownToolIdentifier",
         "description": "A model that represents an tool dependent on a knowledge base/tools\nto which the user has no direct access."
       },
+      "DescribeMediaInput": {
+        "properties": {
+          "node_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Node Ids",
+            "description": "Node IDs whose latest completed generation should be described.",
+            "default": []
+          },
+          "asset_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Asset Ids",
+            "description": "Asset IDs of user-uploaded files to describe.",
+            "default": []
+          }
+        },
+        "type": "object",
+        "title": "DescribeMediaInput"
+      },
       "DetailedMusicResponse": {
         "properties": {
           "composition_plan": {
@@ -47187,6 +47455,26 @@
           "chapters"
         ],
         "title": "DirectPublishingReadResponseModel"
+      },
+      "DisconnectSpec": {
+        "properties": {
+          "source_node_id": {
+            "type": "string",
+            "title": "Source Node Id",
+            "description": "ID of the source node to disconnect."
+          },
+          "target_node_id": {
+            "type": "string",
+            "title": "Target Node Id",
+            "description": "ID of the target node to disconnect from."
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_node_id",
+          "target_node_id"
+        ],
+        "title": "DisconnectSpec"
       },
       "DiscountResponseModel": {
         "properties": {
@@ -49228,6 +49516,113 @@
           "verification_attempts_count": 2,
           "verification_failures": []
         }
+      },
+      "FlowNodeType": {
+        "type": "string",
+        "enum": [
+          "image-generation",
+          "video-generation",
+          "tts",
+          "sfx",
+          "music",
+          "composition",
+          "llm"
+        ],
+        "title": "FlowNodeType",
+        "description": "All node types in the flows canvas."
+      },
+      "FlowsAgentToolCallSchemas": {
+        "properties": {
+          "tool_names": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "get_model_guide",
+                "judge_generation",
+                "describe_media",
+                "get_flow_state",
+                "get_node_type_registry",
+                "inspect_node",
+                "get_node_generation_metadata",
+                "get_generation_status",
+                "get_model_schema",
+                "get_available_voices",
+                "check_node_connections",
+                "wait",
+                "add_node",
+                "add_static_asset_node",
+                "add_edges",
+                "remove_elements",
+                "update_node",
+                "auto_layout",
+                "move_nodes",
+                "run_node",
+                "set_track_property",
+                "set_clip_property",
+                "move_clip",
+                "reorder_tracks"
+              ]
+            },
+            "type": "array",
+            "title": "Tool Names",
+            "description": "Every server-tool name the flows agent can invoke."
+          },
+          "tool_inputs": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/AddNodeInput"
+                },
+                {
+                  "$ref": "#/components/schemas/AddStaticAssetNodeInput"
+                },
+                {
+                  "$ref": "#/components/schemas/AddEdgesInput"
+                },
+                {
+                  "$ref": "#/components/schemas/RemoveElementsInput"
+                },
+                {
+                  "$ref": "#/components/schemas/UpdateNodeInput"
+                },
+                {
+                  "$ref": "#/components/schemas/AutoLayoutInput"
+                },
+                {
+                  "$ref": "#/components/schemas/MoveNodesInput"
+                },
+                {
+                  "$ref": "#/components/schemas/SetTrackPropertyInput"
+                },
+                {
+                  "$ref": "#/components/schemas/SetClipPropertyInput"
+                },
+                {
+                  "$ref": "#/components/schemas/MoveClipInput"
+                },
+                {
+                  "$ref": "#/components/schemas/ReorderTracksInput"
+                },
+                {
+                  "$ref": "#/components/schemas/DescribeMediaInput"
+                },
+                {
+                  "$ref": "#/components/schemas/JudgeGenerationInput"
+                },
+                {
+                  "$ref": "#/components/schemas/NodeIdInput"
+                }
+              ],
+              "description": "Input payload for one flows-agent tool call."
+            },
+            "type": "array",
+            "title": "Tool Inputs",
+            "description": "Sample list — populated only by the introspection endpoint. The shape is what matters: every member of the union becomes a TypeScript type the frontend can use to render typed tool approval details."
+          }
+        },
+        "type": "object",
+        "title": "FlowsAgentToolCallSchemas",
+        "description": "Container that anchors all flows-agent tool input shapes in OpenAPI."
       },
       "FocusGuardrail": {
         "properties": {
@@ -53336,6 +53731,29 @@
           "tax_cents": 100
         }
       },
+      "JudgeGenerationInput": {
+        "properties": {
+          "node_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Node Ids",
+            "description": "Node IDs whose latest completed generation should be evaluated. Pass multiple IDs for cross-output consistency scoring."
+          },
+          "user_intent": {
+            "type": "string",
+            "title": "User Intent",
+            "description": "What the user wants from these outputs — restate the creative brief, not the prompt."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_ids",
+          "user_intent"
+        ],
+        "title": "JudgeGenerationInput"
+      },
       "KnowledgeBaseContentSearchResponseModel": {
         "properties": {
           "results": {
@@ -57372,6 +57790,83 @@
         "title": "MockingStrategy",
         "default": "none"
       },
+      "ModelID": {
+        "type": "string",
+        "enum": [
+          "veo-2.0-generate-001",
+          "veo-2.0-generate-exp",
+          "veo-3.0-generate-001",
+          "veo-3.0-generate-preview",
+          "veo-3.0-fast-generate-001",
+          "veo-3.0-fast-generate-preview",
+          "veo-3.1-generate-001",
+          "veo-3.1-generate-preview",
+          "veo-3.1-fast-generate-001",
+          "veo-3.1-fast-generate-preview",
+          "veo-3.1-lite-generate-001",
+          "gemini-2.5-flash-image",
+          "gemini-3-pro-image-preview",
+          "gemini-3.1-flash-image-preview",
+          "imagen-4-fast",
+          "imagen-4",
+          "imagen-4-ultra",
+          "sora-2-pro",
+          "sora-2",
+          "gpt-image-1",
+          "gpt-image-1.5",
+          "gpt-image-2",
+          "kling-2.5-turbo",
+          "kling-2.6-pro",
+          "kling-2.6-pro-motion-control",
+          "kling-omni-video",
+          "kling-omni-edit-video",
+          "kling-omni-image",
+          "kling-o3-pro",
+          "kling-3-pro",
+          "kling-3-pro-motion-control",
+          "flux-1-kontext",
+          "flux-2-pro",
+          "topaz-image-upscale",
+          "topaz-video-upscale",
+          "sync-lipsync-v2-pro",
+          "sync-lipsync-v3",
+          "veed-lipsync",
+          "veed-fabric-1-fast",
+          "bytedance-omnihuman-v1.5",
+          "bytedance-seedance-v1-pro",
+          "bytedance-seedance-v1.5-pro",
+          "bytedance-seedance-v2",
+          "bytedance-seedance-v2-fast",
+          "bytedance-seedream-4",
+          "bytedance-seedream-4.5",
+          "bytedance-seedream-5-lite",
+          "wan-2.5-preview-image",
+          "wan-2.5-preview-video",
+          "wan-2.6",
+          "ltx-v2-retake",
+          "ltx-v2-fast",
+          "ltx-v2",
+          "ltx-audio-to-video",
+          "creatify-aurora",
+          "runway-gen4-turbo",
+          "runway-gen4-aleph",
+          "runway-gen4-5",
+          "runway-act-two",
+          "runway-gen4-image",
+          "runway-gen4-image-turbo",
+          "test-image",
+          "test-video",
+          "eleven_multilingual_v2",
+          "eleven_turbo_v2_5",
+          "eleven_v3",
+          "eleven_text_to_sound_v2",
+          "eleven_music_v1",
+          "eleven_composition",
+          "birefnet-v2-bg-removal",
+          "gemini-2.5-flash-llm",
+          "gemini-2.5-flash-lite-llm"
+        ]
+      },
       "ModelRatesResponseModel": {
         "properties": {
           "character_cost_multiplier": {
@@ -57623,6 +58118,90 @@
         },
         "type": "object",
         "title": "ModerationGuardrail"
+      },
+      "MoveClipInput": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id",
+            "description": "ID of the composition node."
+          },
+          "from_track_index": {
+            "type": "integer",
+            "title": "From Track Index",
+            "description": "Source track index."
+          },
+          "from_clip_index": {
+            "type": "integer",
+            "title": "From Clip Index",
+            "description": "Source clip index within the track."
+          },
+          "to_track_index": {
+            "type": "integer",
+            "title": "To Track Index",
+            "description": "Destination track index."
+          },
+          "to_clip_index": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Clip Index",
+            "description": "Destination clip position. None appends to the end."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "from_track_index",
+          "from_clip_index",
+          "to_track_index"
+        ],
+        "title": "MoveClipInput"
+      },
+      "MoveNodesInput": {
+        "properties": {
+          "moves": {
+            "items": {
+              "$ref": "#/components/schemas/MoveSpec"
+            },
+            "type": "array",
+            "title": "Moves",
+            "description": "List of node moves."
+          }
+        },
+        "type": "object",
+        "required": [
+          "moves"
+        ],
+        "title": "MoveNodesInput"
+      },
+      "MoveSpec": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id",
+            "description": "ID of the node to move."
+          },
+          "position": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Position",
+            "description": "Target position with 'x' and 'y' coordinates."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "position"
+        ],
+        "title": "MoveSpec"
       },
       "MultichannelSpeechToTextResponseModel": {
         "properties": {
@@ -58014,6 +58593,20 @@
         },
         "type": "object",
         "title": "NoCoachingSettings"
+      },
+      "NodeIdInput": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id",
+            "description": "The ID of the node to operate on."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id"
+        ],
+        "title": "NodeIdInput"
       },
       "NonStreamingOutputFormats": {
         "type": "string",
@@ -64281,6 +64874,42 @@
         ],
         "title": "RegionConfigRequest"
       },
+      "RemoveElementsInput": {
+        "properties": {
+          "node_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node Ids",
+            "description": "Node IDs to remove."
+          },
+          "disconnections": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/DisconnectSpec"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Disconnections",
+            "description": "Connections to remove. The backend finds and clears all references."
+          }
+        },
+        "type": "object",
+        "title": "RemoveElementsInput"
+      },
       "Render": {
         "properties": {
           "id": {
@@ -64355,6 +64984,29 @@
           "clips_zip"
         ],
         "title": "RenderType"
+      },
+      "ReorderTracksInput": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id",
+            "description": "ID of the composition node."
+          },
+          "track_order": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Track Order",
+            "description": "New track order as list of current track indices."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "track_order"
+        ],
+        "title": "ReorderTracksInput"
       },
       "RequestPVCManualVerificationResponseModel": {
         "properties": {
@@ -66067,6 +66719,117 @@
         },
         "type": "object",
         "title": "SetBookingSlugParams"
+      },
+      "SetClipPropertyInput": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id",
+            "description": "ID of the composition node."
+          },
+          "track_index": {
+            "type": "integer",
+            "title": "Track Index",
+            "description": "Zero-based index of the track."
+          },
+          "clip_index": {
+            "type": "integer",
+            "title": "Clip Index",
+            "description": "Zero-based index of the clip within the track."
+          },
+          "gap_before": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gap Before",
+            "description": "Silence in seconds before this clip."
+          },
+          "trim_in": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trim In",
+            "description": "Start time in seconds to trim from source."
+          },
+          "trim_out": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trim Out",
+            "description": "End time in seconds to trim to in source."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "track_index",
+          "clip_index"
+        ],
+        "title": "SetClipPropertyInput"
+      },
+      "SetTrackPropertyInput": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id",
+            "description": "ID of the composition node."
+          },
+          "track_index": {
+            "type": "integer",
+            "title": "Track Index",
+            "description": "Zero-based index of the track to update."
+          },
+          "volume": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 10.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Volume",
+            "description": "Track volume (0.0-10.0)."
+          },
+          "mute": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mute",
+            "description": "Whether to mute the track."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "track_index"
+        ],
+        "title": "SetTrackPropertyInput"
       },
       "SfxSourceContext": {
         "properties": {
@@ -71868,6 +72631,84 @@
         },
         "type": "object",
         "title": "UpdateLocationParams"
+      },
+      "UpdateNodeInput": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id",
+            "description": "The ID of the node to update."
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ModelID"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Switch to a new model. Resets model_parameters."
+          },
+          "model_parameters": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Parameters",
+            "description": "Full model parameters. Use get_model_schema to see valid parameters."
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt",
+            "description": "Set prompt text, or a reference dict with template_node_id."
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label",
+            "description": "Set the display label."
+          },
+          "active_generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Generation Id",
+            "description": "Set the active generation ID."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id"
+        ],
+        "title": "UpdateNodeInput"
       },
       "UpdatePhoneNumberRequest": {
         "properties": {
