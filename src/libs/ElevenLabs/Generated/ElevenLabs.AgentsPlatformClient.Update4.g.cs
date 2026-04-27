@@ -27,13 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string documentationId,
-            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request);
+            ref string phoneNumberId,
+            global::ElevenLabs.UpdatePhoneNumberRequest request);
         partial void PrepareUpdate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string documentationId,
-            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request);
+            string phoneNumberId,
+            global::ElevenLabs.UpdatePhoneNumberRequest request);
         partial void ProcessUpdate4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,20 +44,20 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Document<br/>
-        /// Update the name of a document
+        /// Update Phone Number<br/>
+        /// Update assigned agent of a phone number
         /// </summary>
-        /// <param name="documentationId">
-        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// <param name="phoneNumberId">
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> Update4Async(
-            string documentationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> Update4Async(
+            string phoneNumberId,
 
-            global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch request,
+            global::ElevenLabs.UpdatePhoneNumberRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -67,7 +67,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate4Arguments(
                 httpClient: HttpClient,
-                documentationId: ref documentationId,
+                phoneNumberId: ref phoneNumberId,
                 request: request);
 
 
@@ -93,7 +93,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/knowledge-base/{documentationId}",
+                                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareUpdate4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentationId: documentationId,
+                    phoneNumberId: phoneNumberId,
                     request: request);
 
                 return __httpRequest;
@@ -161,7 +161,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -188,7 +188,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -223,7 +223,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -270,7 +270,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -290,7 +290,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -364,7 +364,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.UpdateDocumentRouteResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.UpdatePhoneNumberRouteResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -394,7 +394,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.UpdateDocumentRouteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.UpdatePhoneNumberRouteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
@@ -434,31 +434,41 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Document<br/>
-        /// Update the name of a document
+        /// Update Phone Number<br/>
+        /// Update assigned agent of a phone number
         /// </summary>
-        /// <param name="documentationId">
-        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// <param name="phoneNumberId">
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="name">
-        /// A custom, human-readable name for the document.
-        /// </param>
+        /// <param name="agentId"></param>
+        /// <param name="label"></param>
+        /// <param name="inboundTrunkConfig"></param>
+        /// <param name="outboundTrunkConfig"></param>
+        /// <param name="livekitStack"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> Update4Async(
-            string documentationId,
-            string name,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdatePhoneNumberRouteResponse> Update4Async(
+            string phoneNumberId,
+            string? agentId = default,
+            string? label = default,
+            global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig = default,
+            global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig = default,
+            global::ElevenLabs.LivekitStackType? livekitStack = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch
+            var __request = new global::ElevenLabs.UpdatePhoneNumberRequest
             {
-                Name = name,
+                AgentId = agentId,
+                Label = label,
+                InboundTrunkConfig = inboundTrunkConfig,
+                OutboundTrunkConfig = outboundTrunkConfig,
+                LivekitStack = livekitStack,
             };
 
             return await Update4Async(
-                documentationId: documentationId,
+                phoneNumberId: phoneNumberId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

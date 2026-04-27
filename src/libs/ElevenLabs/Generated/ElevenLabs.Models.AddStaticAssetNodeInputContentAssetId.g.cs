@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// ID of the uploaded asset. Required for image, video, and audio.
+    /// ID of an uploaded asset. For image/video/audio, set exactly one of `content_asset_id` or `generation_id`.
     /// </summary>
     public sealed partial class AddStaticAssetNodeInputContentAssetId
     {

@@ -5,15 +5,15 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Delete A Batch Call.<br/>
-        /// Permanently delete a batch call and all recipient records. Conversations remain in history.
+        /// Delete Convai Workspace Secret<br/>
+        /// Delete a workspace secret if it's not in use
         /// </summary>
-        /// <param name="batchId"></param>
+        /// <param name="secretId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task Delete9Async(
-            string batchId,
+            string secretId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

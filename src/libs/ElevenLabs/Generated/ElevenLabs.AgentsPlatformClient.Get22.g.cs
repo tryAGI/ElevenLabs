@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet22Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string branchId);
+            ref string phoneNumberId);
         partial void PrepareGet22Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string branchId);
+            string phoneNumberId);
         partial void ProcessGet22Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,21 +42,15 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Agent Branch<br/>
-        /// Get information about a single agent branch
+        /// Get Whatsapp Account<br/>
+        /// Get a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// Unique identifier for the branch.
-        /// </param>
+        /// <param name="phoneNumberId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Get22Async(
-            string agentId,
-            string branchId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWhatsAppAccountResponse> Get22Async(
+            string phoneNumberId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -66,8 +58,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet22Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                branchId: ref branchId);
+                phoneNumberId: ref phoneNumberId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -92,7 +83,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}",
+                                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -134,8 +125,7 @@ namespace ElevenLabs
                 PrepareGet22Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    branchId: branchId);
+                    phoneNumberId: phoneNumberId);
 
                 return __httpRequest;
             }
@@ -154,7 +144,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get22",
                                 methodName: "Get22Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -181,7 +171,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get22",
                                 methodName: "Get22Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -216,7 +206,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get22",
                                 methodName: "Get22Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -263,7 +253,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get22",
                                 methodName: "Get22Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -283,7 +273,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get22",
                                 methodName: "Get22Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -357,7 +347,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.AgentBranchResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.GetWhatsAppAccountResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -387,7 +377,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.AgentBranchResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.GetWhatsAppAccountResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

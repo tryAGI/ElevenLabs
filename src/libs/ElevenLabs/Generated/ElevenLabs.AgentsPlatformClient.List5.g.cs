@@ -40,13 +40,13 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Available Llms<br/>
-        /// Returns a list of available LLM models that can be used with agents, including their capabilities and any deprecation status. The response is filtered based on the data residency of the deployment and any compliance requirements (e.g. HIPAA) of the workspace subscription.
+        /// List Phone Numbers<br/>
+        /// Retrieve all Phone Numbers
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LLMListResponseModelInput> List5Async(
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>> List5Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -78,7 +78,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/llm/list",
+                                path: "/v1/convai/phone-numbers",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -138,7 +138,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List5",
                                 methodName: "List5Async",
-                                pathTemplate: "\"/v1/convai/llm/list\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -165,7 +165,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List5",
                                 methodName: "List5Async",
-                                pathTemplate: "\"/v1/convai/llm/list\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -200,7 +200,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List5",
                                 methodName: "List5Async",
-                                pathTemplate: "\"/v1/convai/llm/list\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -247,7 +247,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List5",
                                 methodName: "List5Async",
-                                pathTemplate: "\"/v1/convai/llm/list\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -267,7 +267,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List5",
                                 methodName: "List5Async",
-                                pathTemplate: "\"/v1/convai/llm/list\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +341,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.LLMListResponseModelInput.FromJson(__content, JsonSerializerContext) ??
+                                        (global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>), JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -371,7 +371,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.LLMListResponseModelInput.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        (global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>), JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

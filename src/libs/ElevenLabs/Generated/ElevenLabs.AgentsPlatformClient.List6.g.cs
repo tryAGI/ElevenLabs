@@ -1,8 +1,6 @@
 
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
@@ -28,32 +26,10 @@ namespace ElevenLabs
             {                s_List6SecurityRequirement0,
             };
         partial void PrepareList6Arguments(
-            global::System.Net.Http.HttpClient httpClient,
-            ref int? pageSize,
-            ref string? search,
-            ref bool? showOnlyOwnedDocuments,
-            ref string? createdByUserId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
-            ref string? parentFolderId,
-            ref string? ancestorFolderId,
-            ref bool? foldersFirst,
-            ref global::ElevenLabs.SortDirection? sortDirection,
-            global::ElevenLabs.KnowledgeBaseSortBy? sortBy,
-            ref string? cursor);
+            global::System.Net.Http.HttpClient httpClient);
         partial void PrepareList6Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? pageSize,
-            string? search,
-            bool? showOnlyOwnedDocuments,
-            string? createdByUserId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types,
-            string? parentFolderId,
-            string? ancestorFolderId,
-            bool? foldersFirst,
-            global::ElevenLabs.SortDirection? sortDirection,
-            global::ElevenLabs.KnowledgeBaseSortBy? sortBy,
-            string? cursor);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
         partial void ProcessList6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -64,79 +40,20 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Knowledge Base List<br/>
-        /// Get a list of available knowledge base documents
+        /// List Available Llms<br/>
+        /// Returns a list of available LLM models that can be used with agents, including their capabilities and any deprecation status. The response is filtered based on the data residency of the deployment and any compliance requirements (e.g. HIPAA) of the workspace subscription.
         /// </summary>
-        /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
-        /// Default Value: 30
-        /// </param>
-        /// <param name="search">
-        /// If specified, the endpoint returns only such knowledge base documents whose names start with this string.
-        /// </param>
-        /// <param name="showOnlyOwnedDocuments">
-        /// If set to true, the endpoint will return only documents owned by you (and not shared from somebody else). Deprecated: use created_by_user_id instead.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="createdByUserId">
-        /// Filter documents by creator user ID. When set, only documents created by this user are returned. Takes precedence over show_only_owned_documents. Use '@me' to refer to the authenticated user.
-        /// </param>
-        /// <param name="types">
-        /// If present, the endpoint will return only documents of the given types.
-        /// </param>
-        /// <param name="parentFolderId">
-        /// If set, the endpoint will return only documents that are direct children of the given folder.
-        /// </param>
-        /// <param name="ancestorFolderId">
-        /// If set, the endpoint will return only documents that are descendants of the given folder.
-        /// </param>
-        /// <param name="foldersFirst">
-        /// Whether folders should be returned first in the list of documents.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="sortDirection">
-        /// The direction to sort the results<br/>
-        /// Default Value: desc
-        /// </param>
-        /// <param name="sortBy">
-        /// The field to sort the results by
-        /// </param>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetKnowledgeBaseListResponseModel> List6Async(
-            int? pageSize = default,
-            string? search = default,
-            bool? showOnlyOwnedDocuments = default,
-            string? createdByUserId = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types = default,
-            string? parentFolderId = default,
-            string? ancestorFolderId = default,
-            bool? foldersFirst = default,
-            global::ElevenLabs.SortDirection? sortDirection = default,
-            global::ElevenLabs.KnowledgeBaseSortBy? sortBy = default,
-            string? cursor = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LLMListResponseModelInput> List6Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList6Arguments(
-                httpClient: HttpClient,
-                pageSize: ref pageSize,
-                search: ref search,
-                showOnlyOwnedDocuments: ref showOnlyOwnedDocuments,
-                createdByUserId: ref createdByUserId,
-                types: types,
-                parentFolderId: ref parentFolderId,
-                ancestorFolderId: ref ancestorFolderId,
-                foldersFirst: ref foldersFirst,
-                sortDirection: ref sortDirection,
-                sortBy: sortBy,
-                cursor: ref cursor);
+                httpClient: HttpClient);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -161,21 +78,8 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/knowledge-base",
-                                baseUri: HttpClient.BaseAddress); 
-                            __pathBuilder
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("search", search)
-                                .AddOptionalParameter("show_only_owned_documents", showOnlyOwnedDocuments?.ToString().ToLowerInvariant())
-                                .AddOptionalParameter("created_by_user_id", createdByUserId)
-                                .AddOptionalParameter("types", types?.ToString())
-                                .AddOptionalParameter("parent_folder_id", parentFolderId)
-                                .AddOptionalParameter("ancestor_folder_id", ancestorFolderId)
-                                .AddOptionalParameter("folders_first", foldersFirst?.ToString().ToLowerInvariant())
-                                .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
-                                .AddOptionalParameter("sort_by", sortBy?.ToString())
-                                .AddOptionalParameter("cursor", cursor) 
-                                ;
+                                path: "/v1/convai/llm/list",
+                                baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -215,18 +119,7 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareList6Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    pageSize: pageSize,
-                    search: search,
-                    showOnlyOwnedDocuments: showOnlyOwnedDocuments,
-                    createdByUserId: createdByUserId,
-                    types: types,
-                    parentFolderId: parentFolderId,
-                    ancestorFolderId: ancestorFolderId,
-                    foldersFirst: foldersFirst,
-                    sortDirection: sortDirection,
-                    sortBy: sortBy,
-                    cursor: cursor);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -245,7 +138,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base\"",
+                                pathTemplate: "\"/v1/convai/llm/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -272,7 +165,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base\"",
+                                pathTemplate: "\"/v1/convai/llm/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -307,7 +200,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base\"",
+                                pathTemplate: "\"/v1/convai/llm/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -354,7 +247,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base\"",
+                                pathTemplate: "\"/v1/convai/llm/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -374,7 +267,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base\"",
+                                pathTemplate: "\"/v1/convai/llm/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -448,7 +341,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.GetKnowledgeBaseListResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.LLMListResponseModelInput.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -478,7 +371,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.GetKnowledgeBaseListResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.LLMListResponseModelInput.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

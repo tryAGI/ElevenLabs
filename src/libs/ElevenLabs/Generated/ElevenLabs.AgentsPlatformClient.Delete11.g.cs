@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareDelete11Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId,
-            ref string toolName);
+            ref string mcpServerId);
         partial void PrepareDelete11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId,
-            string toolName);
+            string mcpServerId);
         partial void ProcessDelete11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,21 +42,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Mcp Server Tool Approval<br/>
-        /// Remove approval for a specific MCP tool when using per-tool approval mode.
+        /// Delete Mcp Server<br/>
+        /// Delete a specific MCP server configuration from the workspace.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="toolName">
-        /// Name of the MCP tool to remove approval for.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Delete11Async(
+        public async global::System.Threading.Tasks.Task<string> Delete11Async(
             string mcpServerId,
-            string toolName,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -66,8 +60,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete11Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId,
-                toolName: ref toolName);
+                mcpServerId: ref mcpServerId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -92,7 +85,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}",
+                                path: $"/v1/convai/mcp-servers/{mcpServerId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -134,8 +127,7 @@ namespace ElevenLabs
                 PrepareDelete11Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    mcpServerId: mcpServerId,
-                    toolName: toolName);
+                    mcpServerId: mcpServerId);
 
                 return __httpRequest;
             }
@@ -154,7 +146,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete11",
                                 methodName: "Delete11Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -181,7 +173,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete11",
                                 methodName: "Delete11Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -216,7 +208,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete11",
                                 methodName: "Delete11Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -263,7 +255,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete11",
                                 methodName: "Delete11Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -283,7 +275,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete11",
                                 methodName: "Delete11Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -356,9 +348,7 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -380,15 +370,13 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {

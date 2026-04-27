@@ -44,14 +44,14 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Mcp Tool Configuration Override<br/>
-        /// Remove configuration overrides for a specific MCP tool.
+        /// Delete Mcp Server Tool Approval<br/>
+        /// Remove approval for a specific MCP tool when using per-tool approval mode.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
         /// <param name="toolName">
-        /// Name of the MCP tool to remove config overrides for.
+        /// Name of the MCP tool to remove approval for.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -92,7 +92,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
+                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -154,7 +154,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete12",
                                 methodName: "Delete12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -181,7 +181,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete12",
                                 methodName: "Delete12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -216,7 +216,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete12",
                                 methodName: "Delete12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -263,7 +263,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete12",
                                 methodName: "Delete12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -283,7 +283,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete12",
                                 methodName: "Delete12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

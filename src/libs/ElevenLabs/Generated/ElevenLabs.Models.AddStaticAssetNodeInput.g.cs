@@ -17,10 +17,16 @@ namespace ElevenLabs
         public required global::ElevenLabs.AddStaticAssetNodeInputModality Modality { get; set; }
 
         /// <summary>
-        /// ID of the uploaded asset. Required for image, video, and audio.
+        /// ID of an uploaded asset. For image/video/audio, set exactly one of `content_asset_id` or `generation_id`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content_asset_id")]
         public string? ContentAssetId { get; set; }
+
+        /// <summary>
+        /// ID of a saved content generation. For image/video/audio, set exactly one of `content_asset_id` or `generation_id`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("generation_id")]
+        public string? GenerationId { get; set; }
 
         /// <summary>
         /// Text content for text nodes. Required for text modality.
@@ -47,7 +53,10 @@ namespace ElevenLabs
         /// The type of static asset: 'image', 'video', 'audio', or 'text'.
         /// </param>
         /// <param name="contentAssetId">
-        /// ID of the uploaded asset. Required for image, video, and audio.
+        /// ID of an uploaded asset. For image/video/audio, set exactly one of `content_asset_id` or `generation_id`.
+        /// </param>
+        /// <param name="generationId">
+        /// ID of a saved content generation. For image/video/audio, set exactly one of `content_asset_id` or `generation_id`.
         /// </param>
         /// <param name="inlineText">
         /// Text content for text nodes. Required for text modality.
@@ -61,11 +70,13 @@ namespace ElevenLabs
         public AddStaticAssetNodeInput(
             global::ElevenLabs.AddStaticAssetNodeInputModality modality,
             string? contentAssetId,
+            string? generationId,
             string? inlineText,
             string? label)
         {
             this.Modality = modality;
             this.ContentAssetId = contentAssetId;
+            this.GenerationId = generationId;
             this.InlineText = inlineText;
             this.Label = label;
         }

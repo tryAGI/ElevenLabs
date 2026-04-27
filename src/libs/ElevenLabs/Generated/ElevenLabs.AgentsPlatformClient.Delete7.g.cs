@@ -27,12 +27,12 @@ namespace ElevenLabs
             };
         partial void PrepareDelete7Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
+            ref string documentationId,
             ref bool? force);
         partial void PrepareDelete7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
+            string documentationId,
             bool? force);
         partial void ProcessDelete7Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -44,21 +44,21 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Tool<br/>
-        /// Delete tool from the workspace.
+        /// Delete Knowledge Base Document Or Folder<br/>
+        /// Delete a document or folder from the knowledge base.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
         /// <param name="force">
-        /// If set to true, the tool will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents and branches.<br/>
+        /// If set to true, the document or folder will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents. For non-empty folders, this will also delete all child documents and folders.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete7Async(
-            string toolId,
+            string documentationId,
             bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -67,7 +67,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete7Arguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
+                documentationId: ref documentationId,
                 force: ref force);
 
 
@@ -93,7 +93,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/tools/{toolId}",
+                                path: $"/v1/convai/knowledge-base/{documentationId}",
                                 baseUri: HttpClient.BaseAddress); 
                             __pathBuilder
                                 .AddOptionalParameter("force", force?.ToString().ToLowerInvariant()) 
@@ -138,7 +138,7 @@ namespace ElevenLabs
                 PrepareDelete7Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolId: toolId,
+                    documentationId: documentationId,
                     force: force);
 
                 return __httpRequest;
@@ -158,7 +158,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete7",
                                 methodName: "Delete7Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -185,7 +185,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete7",
                                 methodName: "Delete7Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -220,7 +220,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete7",
                                 methodName: "Delete7Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -267,7 +267,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete7",
                                 methodName: "Delete7Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -287,7 +287,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete7",
                                 methodName: "Delete7Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

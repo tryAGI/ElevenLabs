@@ -26,10 +26,14 @@ namespace ElevenLabs
             {                s_List4SecurityRequirement0,
             };
         partial void PrepareList4Arguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref int? pageSize,
+            ref string? cursor);
         partial void PrepareList4Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            int? pageSize,
+            string? cursor);
         partial void ProcessList4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,20 +44,31 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Phone Numbers<br/>
-        /// Retrieve all Phone Numbers
+        /// List Conversation Tags<br/>
+        /// List conversation tags for the workspace, ordered by most recently created first.
         /// </summary>
+        /// <param name="pageSize">
+        /// How many conversation tags to return. Can not exceed 100.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>> List4Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConversationTagsPageResponseModel> List4Async(
+            int? pageSize = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList4Arguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                pageSize: ref pageSize,
+                cursor: ref cursor);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -78,8 +93,12 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/phone-numbers",
-                                baseUri: HttpClient.BaseAddress);
+                                path: "/v1/convai/tags",
+                                baseUri: HttpClient.BaseAddress); 
+                            __pathBuilder
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("cursor", cursor) 
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -119,7 +138,9 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareList4Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    pageSize: pageSize,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -138,7 +159,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -165,7 +186,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -200,7 +221,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -247,7 +268,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -267,7 +288,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +362,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        (global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>), JsonSerializerContext) ??
+                                        global::ElevenLabs.GetConversationTagsPageResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -371,7 +392,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        (global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>), JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.GetConversationTagsPageResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

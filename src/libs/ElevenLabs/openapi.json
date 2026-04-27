@@ -9678,6 +9678,185 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/workspace/audit-logs": {
+      "get": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "Get Workspace Audit Logs",
+        "description": "Returns the audit log for the workspace. Requires enterprise tier and the audit_log_read permission.",
+        "operationId": "get_workspace_audit_logs",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Maximum number of entries per page",
+              "default": 50,
+              "title": "Limit"
+            },
+            "description": "Maximum number of entries per page"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Cursor for the next page (from previous response)",
+              "title": "Cursor"
+            },
+            "description": "Cursor for the next page (from previous response)"
+          },
+          {
+            "name": "time_from_unix_ms",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only include entries at or after this time (ms since epoch)",
+              "title": "Time From Unix Ms"
+            },
+            "description": "Only include entries at or after this time (ms since epoch)"
+          },
+          {
+            "name": "time_to_unix_ms",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only include entries at or before this time (ms since epoch)",
+              "title": "Time To Unix Ms"
+            },
+            "description": "Only include entries at or before this time (ms since epoch)"
+          },
+          {
+            "name": "actor_uid",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by actor user ID",
+              "title": "Actor Uid"
+            },
+            "description": "Filter by actor user ID"
+          },
+          {
+            "name": "class_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by OCSF event class name (e.g. Account Change)",
+              "title": "Class Name"
+            },
+            "description": "Filter by OCSF event class name (e.g. Account Change)"
+          },
+          {
+            "name": "activity_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by audit activity name (e.g. Subscription Creation)",
+              "title": "Activity Name"
+            },
+            "description": "Filter by audit activity name (e.g. Subscription Creation)"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceAuditLogsPageResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "workspace",
+          "audit_logs"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
     "/v1/workspace/auth-connections": {
       "post": {
         "tags": [
@@ -15163,6 +15342,34 @@
             "description": "Filter conversations by topic IDs assigned during topic discovery."
           },
           {
+            "name": "exclude_statuses",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "initiated",
+                      "in-progress",
+                      "processing",
+                      "done",
+                      "failed"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.",
+              "title": "Exclude Statuses"
+            },
+            "description": "Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -16286,6 +16493,359 @@
           "messages"
         ],
         "x-fern-sdk-method-name": "search"
+      }
+    },
+    "/v1/convai/tags": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "List Conversation Tags",
+        "description": "List conversation tags for the workspace, ordered by most recently created first.",
+        "operationId": "list_conversation_tags_route",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many conversation tags to return. Can not exceed 100.",
+              "default": 100,
+              "title": "Page Size"
+            },
+            "description": "How many conversation tags to return. Can not exceed 100."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConversationTagsPageResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversations",
+          "tags"
+        ],
+        "x-fern-sdk-method-name": "list"
+      },
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Create Conversation Tag",
+        "description": "Create a new conversation tag for the workspace.",
+        "operationId": "create_conversation_tag_route",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateConversationTagRequestModel",
+                "description": "Conversation tag to create."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationTagResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversations",
+          "tags"
+        ],
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/convai/tags/{tag_id}": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Conversation Tag",
+        "description": "Get a conversation tag by ID.",
+        "operationId": "get_conversation_tag_route",
+        "parameters": [
+          {
+            "name": "tag_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Tag Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationTagResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversations",
+          "tags"
+        ],
+        "x-fern-sdk-method-name": "get"
+      },
+      "patch": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Update Conversation Tag",
+        "description": "Update a conversation tag's title and/or description. Restricted to the tag owner or a workspace admin.",
+        "operationId": "update_conversation_tag_route",
+        "parameters": [
+          {
+            "name": "tag_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Tag Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchConversationTagRequestModel",
+                "description": "Fields to update. Omit a field to leave it unchanged."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationTagResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversations",
+          "tags"
+        ],
+        "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Delete Conversation Tag",
+        "description": "Delete a conversation tag. Restricted to the tag owner or a workspace admin.",
+        "operationId": "delete_conversation_tag_route",
+        "parameters": [
+          {
+            "name": "tag_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Tag Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversations",
+          "tags"
+        ],
+        "x-fern-sdk-method-name": "delete"
       }
     },
     "/v1/convai/phone-numbers": {
@@ -22137,6 +22697,58 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/convai/api-integrations/docs": {
+      "get": {
+        "tags": [
+          "Agent Platform"
+        ],
+        "summary": "Get Integration Docs",
+        "description": "Get MDX documentation for all integrations that have it. Returns docs for publicly available integrations when unauthenticated, and includes feature-flagged integrations when authenticated.",
+        "operationId": "get_api_integration_docs",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_ApiIntegrationDocResponse_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/convai/whatsapp-accounts/{phone_number_id}": {
       "get": {
         "tags": [
@@ -26731,6 +27343,79 @@
         ],
         "title": "ASTSubtractionOperatorNode"
       },
+      "AccountChangeActivityId": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          99
+        ],
+        "title": "AccountChangeActivityId",
+        "description": "OCSF Activity IDs for Account Change [3001] events.\n\nSpec: https://schema.ocsf.io/1.6.0/classes/account_change"
+      },
+      "ActorModel": {
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/UserModel",
+            "description": "User who performed the action"
+          },
+          "app_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "App Name",
+            "description": "Client application or service name"
+          },
+          "app_uid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "App Uid",
+            "description": "Client application unique identifier"
+          },
+          "session": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session",
+            "description": "Session information"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "user"
+        ],
+        "title": "ActorModel",
+        "description": "OCSF Actor object - describes the entity that performed the action.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/actor"
+      },
       "AddChapterResponseModel": {
         "properties": {
           "chapter": {
@@ -27008,7 +27693,19 @@
               }
             ],
             "title": "Content Asset Id",
-            "description": "ID of the uploaded asset. Required for image, video, and audio."
+            "description": "ID of an uploaded asset. For image/video/audio, set exactly one of `content_asset_id` or `generation_id`."
+          },
+          "generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Generation Id",
+            "description": "ID of a saved content generation. For image/video/audio, set exactly one of `content_asset_id` or `generation_id`."
           },
           "inline_text": {
             "anyOf": [
@@ -29346,6 +30043,37 @@
         "title": "AnalysisScope",
         "default": "conversation"
       },
+      "ApiIntegrationDocResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Integration identifier"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Display name of the integration"
+          },
+          "doc_mdx": {
+            "type": "string",
+            "title": "Doc Mdx",
+            "description": "Full MDX documentation content for the integration"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "doc_mdx"
+        ],
+        "title": "ApiIntegrationDocResponse",
+        "example": {
+          "doc_mdx": "## Overview\n\nConnect your ElevenLabs AI agents with HubSpot CRM.\n\n{/* app:end */}\n\n## Demo video\n...",
+          "id": "hubspot",
+          "name": "HubSpot"
+        }
+      },
       "ApiIntegrationOAuth2AuthCodeResponse": {
         "properties": {
           "name": {
@@ -29930,6 +30658,14 @@
         "additionalProperties": false,
         "type": "object",
         "title": "ArrayJsonSchemaProperty"
+      },
+      "AspectRatio": {
+        "type": "string",
+        "enum": [
+          "16:9",
+          "9:16"
+        ],
+        "default": "16:9"
       },
       "AssetTranscription": {
         "properties": {
@@ -30893,6 +31629,22 @@
           "shareable_token": "1234567890"
         }
       },
+      "AuthenticationActivityId": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          99
+        ],
+        "title": "AuthenticationActivityId",
+        "description": "OCSF Activity IDs for Authentication [3002] events.\n\nSpec: https://schema.ocsf.io/1.6.0/classes/authentication"
+      },
       "AuthorizationMethod": {
         "type": "string",
         "enum": [
@@ -30964,6 +31716,29 @@
         },
         "type": "object",
         "title": "AutoSyncInfo"
+      },
+      "AvailableNode": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "type"
+        ],
+        "title": "AvailableNode"
       },
       "BackupLLMDefault": {
         "properties": {
@@ -31530,6 +32305,22 @@
         ],
         "title": "BearerAuthResponse",
         "description": "Response model for bearer auth"
+      },
+      "BiRefNetBgRemovalTemplateParameters": {
+        "properties": {
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "BiRefNetBgRemovalTemplateParameters"
       },
       "BillingPeriod": {
         "type": "string",
@@ -38442,6 +39233,580 @@
         "type": "object",
         "title": "BuiltInToolsWorkflowOverride"
       },
+      "BytedanceOmniHumanTemplateParameters": {
+        "properties": {
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "1080p"
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "BytedanceOmniHumanTemplateParameters"
+      },
+      "BytedanceSeedance1_5ProParameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "21:9",
+              "16:9",
+              "4:3",
+              "1:1",
+              "3:4",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "camera_fixed": {
+            "type": "boolean",
+            "title": "Camera Fixed",
+            "default": false
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "BytedanceSeedance1_5ProParameters"
+      },
+      "BytedanceSeedance2FastParameters": {
+        "properties": {
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "21:9",
+                  "16:9",
+                  "4:3",
+                  "1:1",
+                  "3:4",
+                  "9:16"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reference_images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Images"
+          },
+          "reference_videos": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceVideo"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Videos"
+          },
+          "reference_audios": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceAudio"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Audios"
+          }
+        },
+        "type": "object",
+        "title": "BytedanceSeedance2FastParameters"
+      },
+      "BytedanceSeedance2Parameters": {
+        "properties": {
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "21:9",
+                  "16:9",
+                  "4:3",
+                  "1:1",
+                  "3:4",
+                  "9:16"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reference_images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Images"
+          },
+          "reference_videos": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceVideo"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Videos"
+          },
+          "reference_audios": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceAudio"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Audios"
+          }
+        },
+        "type": "object",
+        "title": "BytedanceSeedance2Parameters"
+      },
+      "BytedanceSeedanceParameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "21:9",
+              "16:9",
+              "4:3",
+              "1:1",
+              "3:4",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "camera_fixed": {
+            "type": "boolean",
+            "title": "Camera Fixed",
+            "default": false
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          }
+        },
+        "type": "object",
+        "title": "BytedanceSeedanceParameters"
+      },
+      "BytedanceSeedream4Parameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:4",
+              "16:9",
+              "4:3",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1080p",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "1080p"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          }
+        },
+        "type": "object",
+        "title": "BytedanceSeedream4Parameters"
+      },
+      "BytedanceSeedream4_5Parameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:4",
+              "16:9",
+              "4:3",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "2K"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          }
+        },
+        "type": "object",
+        "title": "BytedanceSeedream4_5Parameters"
+      },
+      "BytedanceSeedream5LiteParameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:4",
+              "16:9",
+              "4:3",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "2K",
+              "3K"
+            ],
+            "title": "Resolution",
+            "default": "2K"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          }
+        },
+        "type": "object",
+        "title": "BytedanceSeedream5LiteParameters"
+      },
       "CanvasPlacement": {
         "properties": {
           "x_relative": {
@@ -38518,6 +39883,32 @@
         "type": "object",
         "title": "CanvasPlacement",
         "description": "Defines asset positioning and transformation on canvas."
+      },
+      "CanvasSummary": {
+        "properties": {
+          "total_nodes": {
+            "type": "integer",
+            "title": "Total Nodes"
+          },
+          "total_edges": {
+            "type": "integer",
+            "title": "Total Edges"
+          },
+          "node_types": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Node Types"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_nodes",
+          "total_edges",
+          "node_types"
+        ],
+        "title": "CanvasSummary"
       },
       "CaptionStyleCharacterAnimationModel": {
         "properties": {
@@ -39996,6 +41387,69 @@
           "type": "client"
         }
       },
+      "Clip": {
+        "properties": {
+          "gap_before": {
+            "type": "number",
+            "title": "Gap Before",
+            "default": 0.0
+          },
+          "timeline_start": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timeline Start",
+            "deprecated": true
+          },
+          "trim_in": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trim In"
+          },
+          "trim_out": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trim Out"
+          },
+          "modality": {
+            "$ref": "#/components/schemas/ContentModality"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              }
+            ],
+            "title": "Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "modality",
+          "source"
+        ],
+        "title": "Clip"
+      },
       "ClipAnimation": {
         "properties": {
           "enter_effect": {
@@ -40363,6 +41817,16 @@
         },
         "type": "object",
         "title": "ContentGuardrail"
+      },
+      "ContentModality": {
+        "type": "string",
+        "enum": [
+          "video",
+          "image",
+          "text",
+          "audio"
+        ],
+        "title": "ContentModality"
       },
       "ContentThresholdGuardrail": {
         "properties": {
@@ -43999,6 +45463,51 @@
         ],
         "title": "ConversationSummaryResponseModel"
       },
+      "ConversationTagResponseModel": {
+        "properties": {
+          "tag_id": {
+            "type": "string",
+            "title": "Tag Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "owner_user_id": {
+            "type": "string",
+            "title": "Owner User Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "created_at_unix_secs": {
+            "type": "integer",
+            "title": "Created At Unix Secs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "tag_id",
+          "workspace_id",
+          "owner_user_id",
+          "title",
+          "description",
+          "created_at_unix_secs"
+        ],
+        "title": "ConversationTagResponseModel"
+      },
       "ConversationTokenDBModel": {
         "properties": {
           "agent_id": {
@@ -44781,6 +46290,35 @@
         "type": "object",
         "title": "CreateClientParams",
         "description": "Create a new client in the system."
+      },
+      "CreateConversationTagRequestModel": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Title",
+            "description": "Display title of the tag."
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "Optional free-text description."
+          }
+        },
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "title": "CreateConversationTagRequestModel"
       },
       "CreateCustomHeaderAuthRequest": {
         "properties": {
@@ -45669,6 +47207,63 @@
           "token"
         ],
         "title": "CreateTwilioPhoneNumberRequest"
+      },
+      "CreatifyAuroraTemplateParameters": {
+        "properties": {
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "guidance_scale": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Guidance Scale"
+          },
+          "audio_guidance_scale": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Guidance Scale"
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "CreatifyAuroraTemplateParameters"
       },
       "Currency": {
         "type": "string",
@@ -46704,7 +48299,16 @@
             },
             "type": "array",
             "title": "Asset Ids",
-            "description": "Asset IDs of user-uploaded files to describe.",
+            "description": "IDs of user-uploaded assets to describe. Use the value from a `content_asset_id=<id>` reference line.",
+            "default": []
+          },
+          "generation_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Generation Ids",
+            "description": "IDs of saved content generations to describe. Use the value from a `generation_id=<id>` reference line.",
             "default": []
           }
         },
@@ -46841,6 +48445,44 @@
           "end_char"
         ],
         "title": "DetectedEntity"
+      },
+      "DeviceModel": {
+        "properties": {
+          "ip": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ip",
+            "description": "IP address"
+          },
+          "hostname": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hostname",
+            "description": "Device hostname"
+          },
+          "type_id": {
+            "type": "integer",
+            "title": "Type Id",
+            "description": "Device type ID (99 = Unknown)",
+            "default": 99
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "DeviceModel",
+        "description": "Device information.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/device"
       },
       "DialogueInput": {
         "properties": {
@@ -48447,6 +50089,39 @@
           }
         }
       },
+      "EdgeData": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "target": {
+            "type": "string",
+            "title": "Target"
+          },
+          "sourcePort": {
+            "type": "string",
+            "title": "Sourceport"
+          },
+          "targetPort": {
+            "type": "string",
+            "title": "Targetport"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "target",
+          "sourcePort",
+          "targetPort"
+        ],
+        "title": "EdgeData"
+      },
       "EditChapterResponseModel": {
         "properties": {
           "chapter": {
@@ -48504,6 +50179,180 @@
         "example": {
           "status": "ok"
         }
+      },
+      "ElevenLabsCompositionTemplateParameters": {
+        "properties": {
+          "tracks": {
+            "items": {
+              "$ref": "#/components/schemas/Track"
+            },
+            "type": "array",
+            "title": "Tracks",
+            "default": []
+          }
+        },
+        "type": "object",
+        "title": "ElevenLabsCompositionTemplateParameters",
+        "description": "Relaxed version of ElevenLabsCompositionParameters for saving incomplete template nodes.\n\nAllows empty tracks so a Composition node can be persisted before it is wired up."
+      },
+      "ElevenLabsMusicParameters": {
+        "properties": {
+          "duration_seconds": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 600.0,
+                "minimum": 3.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration Seconds"
+          },
+          "instrumental": {
+            "type": "boolean",
+            "title": "Instrumental",
+            "description": "Generate instrumental music without vocals.",
+            "default": false
+          },
+          "lyrics_type": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "custom",
+              "instrumental"
+            ],
+            "title": "Lyrics Type",
+            "description": "How lyrics are handled: auto-generated, custom-provided, or instrumental only.",
+            "default": "auto"
+          },
+          "lyrics": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lyrics",
+            "description": "Custom lyrics text or a reference to a text node's output. Ignored when lyrics_type is 'instrumental'."
+          },
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Reference audio track to use as a style or melody guide."
+          },
+          "chat_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chat Id"
+          }
+        },
+        "type": "object",
+        "title": "ElevenLabsMusicParameters",
+        "description": "Parameters for ElevenLabs Music generation in Flows."
+      },
+      "ElevenLabsSFXParameters": {
+        "properties": {
+          "duration_seconds": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 30.0,
+                "minimum": 0.5
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration Seconds"
+          },
+          "prompt_influence": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Prompt Influence",
+            "description": "How strongly the prompt guides the output (0=loose, 1=strict).",
+            "default": 0.3
+          },
+          "loop": {
+            "type": "boolean",
+            "title": "Loop",
+            "description": "Whether to generate a seamlessly looping sound effect.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "ElevenLabsSFXParameters",
+        "description": "Parameters for ElevenLabs SFX in templates."
+      },
+      "ElevenLabsTTSParameters": {
+        "properties": {
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id",
+            "description": "ID of the voice to use for speech synthesis."
+          },
+          "language_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language Code",
+            "description": "BCP-47 language code for multilingual models."
+          },
+          "output_format": {
+            "type": "string",
+            "title": "Output Format",
+            "default": "mp3_44100_128"
+          },
+          "pronunciation_dictionary_locators": {
+            "items": {
+              "$ref": "#/components/schemas/PronunciationDictionaryLocator"
+            },
+            "type": "array",
+            "title": "Pronunciation Dictionary Locators",
+            "default": []
+          },
+          "desired_duration_seconds": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Desired Duration Seconds"
+          }
+        },
+        "type": "object",
+        "required": [
+          "voice_id"
+        ],
+        "title": "ElevenLabsTTSParameters",
+        "description": "Parameters for ElevenLabs TTS models. Charged via TTS billing, not content-generation credits."
       },
       "EmbedVariant": {
         "type": "string",
@@ -48588,6 +50437,28 @@
         },
         "type": "object",
         "title": "EndCallTriggerAction"
+      },
+      "EntityManagementActivityId": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          99
+        ],
+        "title": "EntityManagementActivityId",
+        "description": "OCSF Activity IDs for Entity Management [3004] events.\n\nSpec: https://schema.ocsf.io/1.6.0/classes/entity_management"
       },
       "EnvironmentAuthConnectionLocator": {
         "properties": {
@@ -48985,6 +50856,10 @@
             ],
             "description": "The currency of the user's subscription."
           },
+          "current_overage": {
+            "$ref": "#/components/schemas/Price",
+            "description": "The current usage-based overage cost."
+          },
           "status": {
             "$ref": "#/components/schemas/SubscriptionStatusType",
             "description": "The status of the user's subscription."
@@ -49080,6 +50955,7 @@
           "can_extend_voice_limit",
           "can_use_instant_voice_cloning",
           "can_use_professional_voice_cloning",
+          "current_overage",
           "status",
           "open_invoices",
           "has_open_invoices"
@@ -49096,6 +50972,10 @@
           "character_limit": 10000,
           "character_refresh_period": "monthly_period",
           "currency": "usd",
+          "current_overage": {
+            "amount": "0",
+            "currency": "usd"
+          },
           "has_open_invoices": true,
           "has_used_creator_coupon_on_account": false,
           "has_used_starter_coupon_on_account": false,
@@ -49531,6 +51411,44 @@
         "title": "FlowNodeType",
         "description": "All node types in the flows canvas."
       },
+      "FlowStateResult": {
+        "properties": {
+          "nodes": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/GenerationNode"
+                },
+                {
+                  "$ref": "#/components/schemas/StaticAssetNode"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "generation": "#/components/schemas/GenerationNode",
+                  "static_asset": "#/components/schemas/StaticAssetNode"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Nodes"
+          },
+          "edges": {
+            "items": {
+              "$ref": "#/components/schemas/EdgeData"
+            },
+            "type": "array",
+            "title": "Edges"
+          }
+        },
+        "type": "object",
+        "required": [
+          "nodes",
+          "edges"
+        ],
+        "title": "FlowStateResult"
+      },
       "FlowsAgentToolCallSchemas": {
         "properties": {
           "tool_names": {
@@ -49611,6 +51529,21 @@
                 },
                 {
                   "$ref": "#/components/schemas/NodeIdInput"
+                },
+                {
+                  "$ref": "#/components/schemas/GetModelGuideInput"
+                },
+                {
+                  "$ref": "#/components/schemas/PreviewNodeModelInput"
+                },
+                {
+                  "$ref": "#/components/schemas/GetGenerationStatusInput"
+                },
+                {
+                  "$ref": "#/components/schemas/GetAvailableVoicesInput"
+                },
+                {
+                  "$ref": "#/components/schemas/WaitInput"
                 }
               ],
               "description": "Input payload for one flows-agent tool call."
@@ -49618,11 +51551,161 @@
             "type": "array",
             "title": "Tool Inputs",
             "description": "Sample list — populated only by the introspection endpoint. The shape is what matters: every member of the union becomes a TypeScript type the frontend can use to render typed tool approval details."
+          },
+          "tool_outputs": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/MutationResult"
+                },
+                {
+                  "$ref": "#/components/schemas/FlowStateResult"
+                },
+                {
+                  "$ref": "#/components/schemas/NodeConnectionsResult"
+                },
+                {
+                  "$ref": "#/components/schemas/NodeGenerationMetadataResult"
+                },
+                {
+                  "$ref": "#/components/schemas/GenerationStatusResult"
+                }
+              ],
+              "description": "Output payload for one flows-agent tool call."
+            },
+            "type": "array",
+            "title": "Tool Outputs",
+            "description": "Sample list — populated only by the introspection endpoint. The shape anchors every typed tool result in OpenAPI so the frontend can narrow AgentToolResult.output without hand-writing types."
           }
         },
         "type": "object",
         "title": "FlowsAgentToolCallSchemas",
-        "description": "Container that anchors all flows-agent tool input shapes in OpenAPI."
+        "description": "Container that anchors all flows-agent tool input/output shapes in OpenAPI."
+      },
+      "Flux1KontextParameters": {
+        "properties": {
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "cfg_scale": {
+            "type": "number",
+            "title": "Cfg Scale",
+            "default": 0.5
+          },
+          "output_format": {
+            "$ref": "#/components/schemas/ImageOutputFormat",
+            "default": "png"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": true
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "21:9",
+              "16:9",
+              "4:3",
+              "3:2",
+              "1:1",
+              "2:3",
+              "3:4",
+              "9:16",
+              "9:21"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "Flux1KontextParameters"
+      },
+      "Flux2ProParameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "16:9",
+              "4:3",
+              "1:1",
+              "3:4",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p",
+              "2K"
+            ],
+            "title": "Resolution",
+            "default": "1080p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": false
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "jpeg",
+              "png",
+              "webp"
+            ],
+            "title": "Output Format",
+            "default": "png"
+          }
+        },
+        "type": "object",
+        "title": "Flux2ProParameters"
       },
       "FocusGuardrail": {
         "properties": {
@@ -49739,6 +51822,829 @@
           "text": "Hello"
         }
       },
+      "GPTImage2Parameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Quality",
+            "default": "medium"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "4:5",
+              "5:4",
+              "3:4",
+              "4:3",
+              "2:3",
+              "3:2",
+              "1:2",
+              "2:1",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:3",
+              "3:1"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1K",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "1K"
+          },
+          "mask": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "GPTImage2Parameters",
+        "description": "GPT Image 2 accepts a `size` parameter (WxH) instead of separate quality/aspect_ratio.\nWe expose aspect_ratio + resolution in the UI and compute the size at generation time.\n\nSize constraints from OpenAI:\n- Max edge <= 3840px, both edges multiples of 16, ratio <= 3:1\n- Total pixels between 655,360 and 8,294,400"
+      },
+      "GPTImageParameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "background": {
+            "type": "string",
+            "enum": [
+              "transparent",
+              "opaque",
+              "auto"
+            ],
+            "title": "Background",
+            "default": "auto"
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Quality",
+            "default": "medium"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:2",
+              "2:3"
+            ],
+            "title": "Aspect Ratio",
+            "default": "1:1"
+          },
+          "mask": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "GPTImageParameters"
+      },
+      "Gemini31FlashImageParameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:4",
+              "4:1",
+              "1:8",
+              "8:1"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "512",
+              "1K",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "1K"
+          }
+        },
+        "type": "object",
+        "title": "Gemini31FlashImageParameters"
+      },
+      "GeminiImageParameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          }
+        },
+        "type": "object",
+        "title": "GeminiImageParameters"
+      },
+      "GeminiImageProParameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1K",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "1K"
+          }
+        },
+        "type": "object",
+        "title": "GeminiImageProParameters"
+      },
+      "GeminiLLMParameters": {
+        "properties": {
+          "system_instruction": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "System Instruction",
+            "description": "System-level instruction that guides the model's behavior and output style."
+          },
+          "temperature": {
+            "type": "number",
+            "maximum": 2.0,
+            "minimum": 0.0,
+            "title": "Temperature",
+            "description": "Controls randomness: 0.0 is deterministic, 2.0 is maximum randomness.",
+            "default": 0.7
+          },
+          "thinking_budget": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Thinking Budget",
+            "description": "Thinking token budget. None=automatic, 0=disabled, >0=custom. Not supported on all models (e.g. gemini-2.5-flash-lite-llm)."
+          },
+          "max_output_tokens": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 65536.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Output Tokens",
+            "description": "Maximum tokens in the response. None for model default."
+          },
+          "prompt_parts": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TextPromptPart"
+                },
+                {
+                  "$ref": "#/components/schemas/ImageReferencePromptPart"
+                },
+                {
+                  "$ref": "#/components/schemas/TextReferencePromptPart"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "image_reference": "#/components/schemas/ImageReferencePromptPart",
+                  "text": "#/components/schemas/TextPromptPart",
+                  "text_reference": "#/components/schemas/TextReferencePromptPart"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Prompt Parts",
+            "description": "Multipart prompt combining text and image/text references for richer context."
+          }
+        },
+        "type": "object",
+        "title": "GeminiLLMParameters",
+        "description": "Parameters for Gemini LLM text generation. Provider/model info is on ModelRegistryEntry."
+      },
+      "GenerationBrief": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "created_at_unix_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At Unix Ms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "title": "GenerationBrief"
+      },
+      "GenerationDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "model_id": {
+            "$ref": "#/components/schemas/ModelID"
+          },
+          "modality": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Modality"
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt"
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message"
+          },
+          "inline_content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Inline Content"
+          },
+          "content_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Url"
+          },
+          "thumbnail_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Thumbnail Url"
+          },
+          "duration_secs": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration Secs"
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Width"
+          },
+          "height": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Height"
+          },
+          "created_at_unix_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At Unix Ms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "model_id"
+        ],
+        "title": "GenerationDetail"
+      },
+      "GenerationNode": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Globally unique identifier for this node (must be unique across all templates). Clients must generate a random alphanumeric ID with sufficient entropy to avoid collisions."
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "Label for the node, displayed in the UI."
+          },
+          "template_id": {
+            "type": "string",
+            "title": "Template Id",
+            "description": "ID of the template this node belongs to."
+          },
+          "position": {
+            "$ref": "#/components/schemas/NodePosition",
+            "description": "Position of the node on the canvas."
+          },
+          "modified_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Modified By",
+            "description": "User ID of the person who last modified this node."
+          },
+          "modified_at_utc": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Modified At Utc",
+            "description": "When this node was last modified."
+          },
+          "type": {
+            "type": "string",
+            "const": "generation",
+            "title": "Type",
+            "default": "generation"
+          },
+          "model_id": {
+            "$ref": "#/components/schemas/ModelID",
+            "description": "The model to use (e.g., 'gemini-2.5-flash-image', 'veo-3.1-generate-001')."
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt",
+            "description": "The prompt for this node. Can be a literal string or a reference to another node's output."
+          },
+          "display_prompt": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Prompt",
+            "description": "Rich text representation of the prompt preserving formatting and inline components."
+          },
+          "model_parameters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Veo3Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/Veo2Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/Veo2ExpParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Veo3_1Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/Veo3_1FastParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Veo3_1LiteParameters"
+              },
+              {
+                "$ref": "#/components/schemas/GeminiImageParameters"
+              },
+              {
+                "$ref": "#/components/schemas/GeminiImageProParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Gemini31FlashImageParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Imagen4FastParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Imagen4Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/Sora2Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/Sora2ProParameters"
+              },
+              {
+                "$ref": "#/components/schemas/GPTImageParameters"
+              },
+              {
+                "$ref": "#/components/schemas/GPTImage2Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/Kling2_5TurboParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Kling2_6ProParameters"
+              },
+              {
+                "$ref": "#/components/schemas/KlingOmniVideoParameters"
+              },
+              {
+                "$ref": "#/components/schemas/KlingOmniImageParameters"
+              },
+              {
+                "$ref": "#/components/schemas/KlingO3ProParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Kling3ProParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Flux1KontextParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Flux2ProParameters"
+              },
+              {
+                "$ref": "#/components/schemas/BytedanceSeedanceParameters"
+              },
+              {
+                "$ref": "#/components/schemas/BytedanceSeedance1_5ProParameters"
+              },
+              {
+                "$ref": "#/components/schemas/BytedanceSeedance2Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/BytedanceSeedance2FastParameters"
+              },
+              {
+                "$ref": "#/components/schemas/BytedanceSeedream4Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/BytedanceSeedream4_5Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/BytedanceSeedream5LiteParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Wan2_5PreviewImageParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Wan2_5PreviewVideoParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Wan2_6Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/LTXV2Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/LTXV2FastParameters"
+              },
+              {
+                "$ref": "#/components/schemas/RunwayGen45Parameters"
+              },
+              {
+                "$ref": "#/components/schemas/RunwayGen4ImageParameters"
+              },
+              {
+                "$ref": "#/components/schemas/TestParameters"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsTTSParameters"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsSFXParameters"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsMusicParameters"
+              },
+              {
+                "$ref": "#/components/schemas/GeminiLLMParameters"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsCompositionTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/Kling2_6ProMotionControlTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/KlingOmniEditVideoTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/TopazImageUpscaleTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/TopazVideoUpscaleTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/BiRefNetBgRemovalTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/SyncLipSyncTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/VeedLipSyncTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/VeedFabricTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/BytedanceOmniHumanTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/CreatifyAuroraTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/LTXV2RetakeTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/LTXAudioToVideoTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/RunwayGen4TurboTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/RunwayGen4AlephTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/RunwayActTwoTemplateParameters"
+              },
+              {
+                "$ref": "#/components/schemas/RunwayGen4ImageTurboTemplateParameters"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Parameters",
+            "description": "Model-specific parameters."
+          },
+          "active_generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Generation Id",
+            "description": "ID of the currently active/selected generation output for this node. When set, the UI displays this generation as the active output."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "template_id",
+          "position",
+          "model_id"
+        ],
+        "title": "GenerationNode",
+        "description": "A generation node response that runs a model.",
+        "example": {
+          "active_generation_id": "gen_abc123",
+          "id": "J3Pbu5gP6NNKBscdCdwB",
+          "label": "Generate Image",
+          "model_id": "gemini-2.5-flash-image",
+          "model_parameters": {
+            "aspect_ratio": "16:9",
+            "images": [
+              {
+                "template_node_id": "K8Qnx2mR4PPLCteeDfxC"
+              }
+            ]
+          },
+          "position": {
+            "x": 300,
+            "y": 150
+          },
+          "prompt": "A sunset over mountains",
+          "template_id": "tmpl_abc123",
+          "type": "generation"
+        }
+      },
       "GenerationSourceContext": {
         "properties": {
           "source_type": {
@@ -49799,18 +52705,6 @@
             ],
             "title": "Session Iteration Id"
           },
-          "altered_prompt": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Altered Prompt",
-            "description": "Modified/enhanced prompt if different from original"
-          },
           "model_parameters": {
             "anyOf": [
               {
@@ -49840,6 +52734,37 @@
           "model_id"
         ],
         "title": "GenerationSourceContext"
+      },
+      "GenerationStatusResult": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "generations": {
+            "items": {
+              "$ref": "#/components/schemas/GenerationDetail"
+            },
+            "type": "array",
+            "title": "Generations",
+            "default": []
+          },
+          "all_completed": {
+            "type": "boolean",
+            "title": "All Completed",
+            "default": false
+          },
+          "has_failures": {
+            "type": "boolean",
+            "title": "Has Failures",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id"
+        ],
+        "title": "GenerationStatusResult"
       },
       "GenesysRegion": {
         "type": "string",
@@ -50485,6 +53410,24 @@
           "snapshot_id": "JBFqnCBsd6RMkjVDRZzb"
         }
       },
+      "GetAvailableVoicesInput": {
+        "properties": {
+          "search": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Search",
+            "description": "Optional search query to filter voices by name."
+          }
+        },
+        "type": "object",
+        "title": "GetAvailableVoicesInput"
+      },
       "GetBookingPageSettingsParams": {
         "properties": {
           "smb_tool_type": {
@@ -50759,6 +53702,38 @@
         ],
         "title": "GetConversationResponseModel"
       },
+      "GetConversationTagsPageResponseModel": {
+        "properties": {
+          "conversation_tags": {
+            "items": {
+              "$ref": "#/components/schemas/ConversationTagResponseModel"
+            },
+            "type": "array",
+            "title": "Conversation Tags"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More"
+          }
+        },
+        "type": "object",
+        "required": [
+          "conversation_tags",
+          "has_more"
+        ],
+        "title": "GetConversationTagsPageResponseModel"
+      },
       "GetConversationUsersPageResponseModel": {
         "properties": {
           "users": {
@@ -50822,6 +53797,20 @@
           "has_more"
         ],
         "title": "GetConversationsPageResponseModel"
+      },
+      "GetGenerationStatusInput": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id",
+            "description": "The session ID returned by run_node."
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id"
+        ],
+        "title": "GetGenerationStatusInput"
       },
       "GetKnowledgeBaseDependentAgentsResponseModel": {
         "properties": {
@@ -51682,6 +54671,20 @@
             "count": 42
           }
         ]
+      },
+      "GetModelGuideInput": {
+        "properties": {
+          "model_id": {
+            "type": "string",
+            "title": "Model Id",
+            "description": "The model ID to get prompting guidance for, as shown in the node parameter context."
+          }
+        },
+        "type": "object",
+        "required": [
+          "model_id"
+        ],
+        "title": "GetModelGuideInput"
       },
       "GetOrCreateRAGIndexRequestModel": {
         "properties": {
@@ -53262,6 +56265,24 @@
         ],
         "title": "GetWorkspaceSecretsResponseModel"
       },
+      "GroupManagementActivityId": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          99
+        ],
+        "title": "GroupManagementActivityId",
+        "description": "OCSF Activity IDs for Group Management [3006] events.\n\nSpec: https://schema.ocsf.io/1.6.0/classes/group_management"
+      },
       "GuardrailExecutionMode": {
         "type": "string",
         "enum": [
@@ -53464,6 +56485,54 @@
         ],
         "title": "HtmlExportOptions"
       },
+      "HttpRequestModel": {
+        "properties": {
+          "http_method": {
+            "type": "string",
+            "title": "Http Method",
+            "description": "HTTP method (GET, POST, etc.)"
+          },
+          "url": {
+            "$ref": "#/components/schemas/UrlModel",
+            "description": "Request URL object"
+          },
+          "user_agent": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Agent",
+            "description": "User agent string"
+          },
+          "x_forwarded_for": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "X Forwarded For",
+            "description": "X-Forwarded-For header as a list"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "http_method",
+          "url"
+        ],
+        "title": "HttpRequestModel",
+        "description": "HTTP request details.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/http_request"
+      },
       "Icon": {
         "properties": {
           "src": {
@@ -53522,6 +56591,83 @@
         },
         "type": "object",
         "title": "ImageAvatar"
+      },
+      "ImageOutputFormat": {
+        "type": "string",
+        "enum": [
+          "jpeg",
+          "png"
+        ],
+        "default": "png"
+      },
+      "ImageReferencePromptPart": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "image_reference",
+            "title": "Type",
+            "default": "image_reference"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/ReferenceImage"
+          }
+        },
+        "type": "object",
+        "required": [
+          "reference"
+        ],
+        "title": "ImageReferencePromptPart"
+      },
+      "Imagen4FastParameters": {
+        "properties": {
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:4",
+              "4:3",
+              "9:16",
+              "16:9"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "1K",
+            "title": "Resolution",
+            "default": "1K"
+          }
+        },
+        "type": "object",
+        "title": "Imagen4FastParameters"
+      },
+      "Imagen4Parameters": {
+        "properties": {
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:4",
+              "4:3",
+              "9:16",
+              "16:9"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1K",
+              "2K"
+            ],
+            "title": "Resolution",
+            "default": "1K"
+          }
+        },
+        "type": "object",
+        "title": "Imagen4Parameters"
       },
       "InboundSIPTrunkConfigRequestModel": {
         "properties": {
@@ -53753,6 +56899,508 @@
           "user_intent"
         ],
         "title": "JudgeGenerationInput"
+      },
+      "Kling2_5TurboParameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "cfg_scale": {
+            "type": "number",
+            "title": "Cfg Scale",
+            "default": 0.5
+          },
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "16:9",
+                  "9:16",
+                  "1:1"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio"
+          }
+        },
+        "type": "object",
+        "title": "Kling2_5TurboParameters"
+      },
+      "Kling2_6ProMotionControlTemplateParameters": {
+        "properties": {
+          "keep_audio": {
+            "type": "boolean",
+            "title": "Keep Audio",
+            "default": true
+          },
+          "character_orientation": {
+            "type": "string",
+            "enum": [
+              "image",
+              "video"
+            ],
+            "title": "Character Orientation"
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "character_orientation"
+        ],
+        "title": "Kling2_6ProMotionControlTemplateParameters"
+      },
+      "Kling2_6ProParameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "cfg_scale": {
+            "type": "number",
+            "title": "Cfg Scale",
+            "default": 0.5
+          },
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "16:9",
+                  "9:16",
+                  "1:1"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio"
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "Kling2_6ProParameters"
+      },
+      "Kling3ProParameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "16:9",
+                  "9:16",
+                  "1:1"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio"
+          },
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1080p",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "1080p"
+          }
+        },
+        "type": "object",
+        "title": "Kling3ProParameters"
+      },
+      "KlingO3ProParameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": false
+          },
+          "reference_images": {
+            "items": {
+              "$ref": "#/components/schemas/ReferenceImage"
+            },
+            "type": "array",
+            "title": "Reference Images",
+            "default": []
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "16:9",
+                  "9:16",
+                  "1:1",
+                  "auto"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1080p",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "1080p"
+          }
+        },
+        "type": "object",
+        "title": "KlingO3ProParameters"
+      },
+      "KlingOmniEditVideoTemplateParameters": {
+        "properties": {
+          "keep_audio": {
+            "type": "boolean",
+            "title": "Keep Audio",
+            "default": true
+          },
+          "reference_images": {
+            "items": {
+              "$ref": "#/components/schemas/ReferenceImage"
+            },
+            "type": "array",
+            "title": "Reference Images",
+            "default": []
+          },
+          "elements": {
+            "items": {
+              "$ref": "#/components/schemas/VideoElement"
+            },
+            "type": "array",
+            "title": "Elements",
+            "default": []
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "KlingOmniEditVideoTemplateParameters"
+      },
+      "KlingOmniImageParameters": {
+        "properties": {
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ReferenceImage"
+            },
+            "type": "array",
+            "title": "Images"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1K",
+              "2K"
+            ],
+            "title": "Resolution",
+            "default": "1K"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4",
+              "3:2",
+              "2:3",
+              "21:9"
+            ],
+            "title": "Aspect Ratio",
+            "default": "auto"
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "jpeg",
+              "png",
+              "webp"
+            ],
+            "title": "Output Format",
+            "default": "png"
+          }
+        },
+        "type": "object",
+        "required": [
+          "images"
+        ],
+        "title": "KlingOmniImageParameters"
+      },
+      "KlingOmniVideoParameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "16:9",
+                  "9:16",
+                  "1:1",
+                  "auto"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "keep_audio": {
+            "type": "boolean",
+            "title": "Keep Audio",
+            "default": true
+          },
+          "reference_images": {
+            "items": {
+              "$ref": "#/components/schemas/ReferenceImage"
+            },
+            "type": "array",
+            "title": "Reference Images",
+            "default": []
+          },
+          "elements": {
+            "items": {
+              "$ref": "#/components/schemas/VideoElement"
+            },
+            "type": "array",
+            "title": "Elements",
+            "default": []
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          }
+        },
+        "type": "object",
+        "title": "KlingOmniVideoParameters"
       },
       "KnowledgeBaseContentSearchResponseModel": {
         "properties": {
@@ -54776,6 +58424,221 @@
         ],
         "title": "LLMUsageCalculatorResponseModel"
       },
+      "LTXAudioToVideoTemplateParameters": {
+        "properties": {
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "16:9",
+                  "9:16",
+                  "1:1",
+                  "4:3",
+                  "3:4"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio"
+          },
+          "resolution": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "720p",
+                  "1K"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolution"
+          },
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": false
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "LTXAudioToVideoTemplateParameters"
+      },
+      "LTXV2FastParameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 6
+          },
+          "target_fps": {
+            "type": "integer",
+            "enum": [
+              25,
+              50
+            ],
+            "title": "Target Fps",
+            "default": 25
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1080p",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "1080p"
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "LTXV2FastParameters"
+      },
+      "LTXV2Parameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 6
+          },
+          "target_fps": {
+            "type": "integer",
+            "enum": [
+              25,
+              50
+            ],
+            "title": "Target Fps",
+            "default": 25
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1080p",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "1080p"
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "LTXV2Parameters"
+      },
+      "LTXV2RetakeTemplateParameters": {
+        "properties": {
+          "retake_start_time": {
+            "type": "number",
+            "title": "Retake Start Time",
+            "default": 0
+          },
+          "retake_duration_secs": {
+            "type": "integer",
+            "title": "Retake Duration Secs",
+            "default": 5
+          },
+          "retake_mode": {
+            "type": "string",
+            "enum": [
+              "replace_audio",
+              "replace_video",
+              "replace_audio_and_video"
+            ],
+            "title": "Retake Mode",
+            "default": "replace_audio_and_video"
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "LTXV2RetakeTemplateParameters"
+      },
       "LanguageAddedResponse": {
         "properties": {
           "version": {
@@ -55580,6 +59443,26 @@
           "results"
         ],
         "title": "ListResponse[AgentBranchSummary]"
+      },
+      "ListResponse_ApiIntegrationDocResponse_": {
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/ListResponseMeta",
+            "default": {}
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/ApiIntegrationDocResponse"
+            },
+            "type": "array",
+            "title": "Results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "title": "ListResponse[ApiIntegrationDocResponse]"
       },
       "ListServicesParams": {
         "properties": {
@@ -58571,6 +62454,160 @@
           "song_id": "jR4Xz8kL2mNpQ9wVtY1b"
         }
       },
+      "MutationResult": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success",
+            "default": true
+          },
+          "node": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/GenerationNode"
+                  },
+                  {
+                    "$ref": "#/components/schemas/StaticAssetNode"
+                  }
+                ],
+                "discriminator": {
+                  "propertyName": "type",
+                  "mapping": {
+                    "generation": "#/components/schemas/GenerationNode",
+                    "static_asset": "#/components/schemas/StaticAssetNode"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node"
+          },
+          "node_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node Ids"
+          },
+          "created_nodes": {
+            "anyOf": [
+              {
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GenerationNode"
+                    },
+                    {
+                      "$ref": "#/components/schemas/StaticAssetNode"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                      "generation": "#/components/schemas/GenerationNode",
+                      "static_asset": "#/components/schemas/StaticAssetNode"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created Nodes"
+          },
+          "edges": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/EdgeData"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edges"
+          },
+          "canvas_summary": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CanvasSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "errors": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Errors"
+          },
+          "validation_error": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ValidationErrorDetail"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "input_ports": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/PortDefinition"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Input Ports"
+          },
+          "orphaned_edges": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Orphaned Edges"
+          }
+        },
+        "type": "object",
+        "title": "MutationResult"
+      },
       "NoCoachingSettings": {
         "properties": {
           "type": {
@@ -58594,6 +62631,90 @@
         "type": "object",
         "title": "NoCoachingSettings"
       },
+      "NodeConnectionsResult": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "node_label": {
+            "type": "string",
+            "title": "Node Label"
+          },
+          "prompt_text": {
+            "type": "string",
+            "title": "Prompt Text",
+            "default": ""
+          },
+          "connected_references": {
+            "items": {
+              "$ref": "#/components/schemas/NodeRef"
+            },
+            "type": "array",
+            "title": "Connected References",
+            "default": []
+          },
+          "available_unconnected_nodes": {
+            "items": {
+              "$ref": "#/components/schemas/AvailableNode"
+            },
+            "type": "array",
+            "title": "Available Unconnected Nodes",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "node_label"
+        ],
+        "title": "NodeConnectionsResult"
+      },
+      "NodeGenerationMetadataResult": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "node_type": {
+            "type": "string",
+            "title": "Node Type"
+          },
+          "active_generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Generation Id"
+          },
+          "generations": {
+            "items": {
+              "$ref": "#/components/schemas/GenerationBrief"
+            },
+            "type": "array",
+            "title": "Generations",
+            "default": []
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Notes",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "node_type"
+        ],
+        "title": "NodeGenerationMetadataResult"
+      },
       "NodeIdInput": {
         "properties": {
           "node_id": {
@@ -58607,6 +62728,45 @@
           "node_id"
         ],
         "title": "NodeIdInput"
+      },
+      "NodePosition": {
+        "properties": {
+          "x": {
+            "type": "number",
+            "title": "X",
+            "description": "Horizontal position in pixels from the left edge."
+          },
+          "y": {
+            "type": "number",
+            "title": "Y",
+            "description": "Vertical position in pixels from the top edge."
+          }
+        },
+        "type": "object",
+        "required": [
+          "x",
+          "y"
+        ],
+        "title": "NodePosition",
+        "description": "Position of a node on the canvas."
+      },
+      "NodeRef": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "title": "NodeRef"
       },
       "NonStreamingOutputFormats": {
         "type": "string",
@@ -59219,6 +63379,39 @@
         },
         "type": "object",
         "title": "PatchConvAISettingsRequest"
+      },
+      "PatchConversationTagRequestModel": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 120,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title",
+            "description": "If provided, replaces the tag title. Omit to leave unchanged."
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "If provided, replaces the tag description. Omit to leave unchanged."
+          }
+        },
+        "type": "object",
+        "title": "PatchConversationTagRequestModel"
       },
       "PatchWorkspaceSecretRequest": {
         "properties": {
@@ -59947,6 +64140,45 @@
           "url": "https://www.example.com"
         }
       },
+      "PortDefinition": {
+        "properties": {
+          "key": {
+            "type": "string",
+            "title": "Key"
+          },
+          "modality": {
+            "$ref": "#/components/schemas/ContentModality"
+          },
+          "required": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Required"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "key",
+          "modality"
+        ],
+        "title": "PortDefinition"
+      },
       "Position-Input": {
         "properties": {
           "x": {
@@ -60187,6 +64419,44 @@
           "audio_url"
         ],
         "title": "PreviewAudioDBModel"
+      },
+      "PreviewNodeModelInput": {
+        "properties": {
+          "node_type": {
+            "type": "string",
+            "title": "Node Type",
+            "description": "The node type to preview the model for."
+          },
+          "model_id": {
+            "type": "string",
+            "title": "Model Id",
+            "description": "The model ID to preview."
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_type",
+          "model_id"
+        ],
+        "title": "PreviewNodeModelInput"
+      },
+      "Price": {
+        "properties": {
+          "amount": {
+            "type": "string",
+            "title": "Amount"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          }
+        },
+        "type": "object",
+        "required": [
+          "amount",
+          "currency"
+        ],
+        "title": "Price",
+        "description": "Currency/amount pair."
       },
       "PrivacyConfig-Input": {
         "properties": {
@@ -63855,6 +68125,30 @@
         ],
         "title": "PronunciationDictionaryAliasRuleResponseModel"
       },
+      "PronunciationDictionaryLocator": {
+        "properties": {
+          "pronunciation_dictionary_id": {
+            "type": "string",
+            "title": "Pronunciation Dictionary Id"
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "pronunciation_dictionary_id"
+        ],
+        "title": "PronunciationDictionaryLocator"
+      },
       "PronunciationDictionaryLocatorResponseModel": {
         "properties": {
           "pronunciation_dictionary_id": {
@@ -64754,6 +69048,177 @@
           "upload_date_unix": 1714204800
         }
       },
+      "ReferenceAudio": {
+        "properties": {
+          "history_item_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "History Item Id"
+          },
+          "content_asset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Asset Id"
+          },
+          "generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Generation Id"
+          },
+          "estimated_duration_seconds": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimated Duration Seconds"
+          },
+          "template_node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Template Node Id"
+          },
+          "studio_clip": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudioClipReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "ReferenceAudio"
+      },
+      "ReferenceImage": {
+        "properties": {
+          "content_asset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Asset Id"
+          },
+          "generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Generation Id"
+          },
+          "video_image_at_secs": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Video Image At Secs"
+          },
+          "template_node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Template Node Id"
+          },
+          "studio_clip": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudioClipReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "ReferenceImage"
+      },
+      "ReferenceText": {
+        "properties": {
+          "generation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Generation Id"
+          },
+          "template_node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Template Node Id"
+          },
+          "inline_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Inline Text"
+          }
+        },
+        "type": "object",
+        "title": "ReferenceText",
+        "description": "Reference to text output from another node or generation, or inline text."
+      },
       "ReferenceVideo": {
         "properties": {
           "generation_id": {
@@ -65529,6 +69994,260 @@
           "tests"
         ],
         "title": "RunAgentTestsRequestModel"
+      },
+      "RunwayActTwoTemplateParameters": {
+        "properties": {
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "auto"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio"
+          },
+          "body_control": {
+            "type": "boolean",
+            "title": "Body Control",
+            "default": false
+          },
+          "expression_intensity": {
+            "type": "integer",
+            "title": "Expression Intensity",
+            "default": 3
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "RunwayActTwoTemplateParameters"
+      },
+      "RunwayGen45Parameters": {
+        "properties": {
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4",
+              "21:9"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "enum": [
+              5,
+              8,
+              10
+            ],
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "RunwayGen45Parameters",
+        "description": "Parameters for Runway Gen-4.5 T2V and I2V."
+      },
+      "RunwayGen4AlephTemplateParameters": {
+        "properties": {
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "auto"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio"
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "RunwayGen4AlephTemplateParameters"
+      },
+      "RunwayGen4ImageParameters": {
+        "properties": {
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "reference_images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Images"
+          }
+        },
+        "type": "object",
+        "title": "RunwayGen4ImageParameters"
+      },
+      "RunwayGen4ImageTurboTemplateParameters": {
+        "properties": {
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "reference_images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Images"
+          }
+        },
+        "type": "object",
+        "title": "RunwayGen4ImageTurboTemplateParameters"
+      },
+      "RunwayGen4TurboTemplateParameters": {
+        "properties": {
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4",
+              "21:9"
+            ],
+            "title": "Aspect Ratio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "RunwayGen4TurboTemplateParameters"
       },
       "SIPMediaEncryptionEnum": {
         "type": "string",
@@ -66831,6 +71550,21 @@
         ],
         "title": "SetTrackPropertyInput"
       },
+      "SeverityId": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          99
+        ],
+        "title": "SeverityId",
+        "description": "OCSF Severity levels.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/severity_id"
+      },
       "SfxSourceContext": {
         "properties": {
           "source_type": {
@@ -67537,6 +72271,71 @@
           "song_id"
         ],
         "title": "SongSourceContext"
+      },
+      "Sora2Parameters": {
+        "properties": {
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "default": "16:9"
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "default": "720p"
+          }
+        },
+        "type": "object",
+        "title": "Sora2Parameters"
+      },
+      "Sora2ProParameters": {
+        "properties": {
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "default": "16:9"
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          }
+        },
+        "type": "object",
+        "title": "Sora2ProParameters"
       },
       "SortDirection": {
         "type": "string",
@@ -68495,6 +73294,128 @@
           "status": "ok"
         }
       },
+      "StaticAssetNode": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Globally unique identifier for this node (must be unique across all templates). Clients must generate a random alphanumeric ID with sufficient entropy to avoid collisions."
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "Label for the node, displayed in the UI."
+          },
+          "template_id": {
+            "type": "string",
+            "title": "Template Id",
+            "description": "ID of the template this node belongs to."
+          },
+          "position": {
+            "$ref": "#/components/schemas/NodePosition",
+            "description": "Position of the node on the canvas."
+          },
+          "modified_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Modified By",
+            "description": "User ID of the person who last modified this node."
+          },
+          "modified_at_utc": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Modified At Utc",
+            "description": "When this node was last modified."
+          },
+          "type": {
+            "type": "string",
+            "const": "static_asset",
+            "title": "Type",
+            "default": "static_asset"
+          },
+          "modality": {
+            "type": "string",
+            "enum": [
+              "image",
+              "video",
+              "text",
+              "audio"
+            ],
+            "title": "Modality",
+            "description": "The type of asset (image, video, text, or audio)."
+          },
+          "asset": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Asset",
+            "description": "Reference to the static asset."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "template_id",
+          "position",
+          "modality",
+          "asset"
+        ],
+        "title": "StaticAssetNode",
+        "description": "A static asset node response (image, video, text, or audio).",
+        "example": {
+          "asset": {
+            "content_asset_id": "asset_xyz789"
+          },
+          "id": "S1Abc2defGHI3jkl",
+          "label": "Static Image",
+          "modality": "image",
+          "position": {
+            "x": 100,
+            "y": 150
+          },
+          "template_id": "tmpl_abc123",
+          "type": "static_asset"
+        }
+      },
+      "StatusId": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2,
+          99
+        ],
+        "title": "StatusId",
+        "description": "OCSF Status levels.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/status_id"
+      },
       "StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel": {
         "properties": {
           "audio_base64": {
@@ -68921,6 +73842,10 @@
             ],
             "description": "The currency of the user's subscription."
           },
+          "current_overage": {
+            "$ref": "#/components/schemas/Price",
+            "description": "The current usage-based overage cost."
+          },
           "status": {
             "$ref": "#/components/schemas/SubscriptionStatusType",
             "description": "The status of the user's subscription."
@@ -68965,6 +73890,7 @@
           "can_extend_voice_limit",
           "can_use_instant_voice_cloning",
           "can_use_professional_voice_cloning",
+          "current_overage",
           "status"
         ],
         "title": "SubscriptionResponseModel",
@@ -68979,6 +73905,10 @@
           "character_limit": 100000,
           "character_refresh_period": "monthly_period",
           "currency": "usd",
+          "current_overage": {
+            "amount": "0",
+            "currency": "usd"
+          },
           "max_character_limit_extension": 10000,
           "max_credit_limit_extension": 10000,
           "max_voice_add_edits": 230,
@@ -69133,6 +74063,44 @@
           "voice_id"
         ],
         "title": "SupportedVoice"
+      },
+      "SyncLipSyncTemplateParameters": {
+        "properties": {
+          "sync_mode": {
+            "type": "string",
+            "enum": [
+              "cut_off",
+              "loop",
+              "bounce",
+              "silence",
+              "remap"
+            ],
+            "title": "Sync Mode",
+            "default": "cut_off"
+          },
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "SyncLipSyncTemplateParameters"
       },
       "SystemToolConfig-Input": {
         "properties": {
@@ -70378,6 +75346,74 @@
         ],
         "title": "TestInvocationSummaryResponseModel"
       },
+      "TestParameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "error": {
+            "type": "boolean",
+            "title": "Error",
+            "default": false
+          },
+          "estimated_mpx": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimated Mpx"
+          },
+          "estimated_duration": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimated Duration"
+          },
+          "charge_from_reference_sizes": {
+            "type": "boolean",
+            "title": "Charge From Reference Sizes",
+            "default": false
+          },
+          "charge_from_reference_durations": {
+            "type": "boolean",
+            "title": "Charge From Reference Durations",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "TestParameters",
+        "description": "Parameters for the test provider - minimal, just for testing."
+      },
       "TestRunMetadata": {
         "properties": {
           "workspace_id": {
@@ -70491,6 +75527,43 @@
         "title": "TextNormalisationType",
         "description": "Method for converting numbers to words before sending to TTS",
         "default": "system_prompt"
+      },
+      "TextPromptPart": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "text",
+            "title": "Type",
+            "default": "text"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "title": "TextPromptPart"
+      },
+      "TextReferencePromptPart": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "text_reference",
+            "title": "Type",
+            "default": "text_reference"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/ReferenceText"
+          }
+        },
+        "type": "object",
+        "required": [
+          "reference"
+        ],
+        "title": "TextReferencePromptPart"
       },
       "ThresholdGuardrail": {
         "properties": {
@@ -71276,6 +76349,98 @@
           "has_more"
         ],
         "title": "ToolsResponseModel"
+      },
+      "TopazImageUpscaleTemplateParameters": {
+        "properties": {
+          "upscale_factor": {
+            "type": "number",
+            "title": "Upscale Factor",
+            "default": 2.0
+          },
+          "crop_to_fill": {
+            "type": "boolean",
+            "title": "Crop To Fill",
+            "default": true
+          },
+          "output_format": {
+            "$ref": "#/components/schemas/ImageOutputFormat",
+            "default": "png"
+          },
+          "face_enhancement": {
+            "type": "boolean",
+            "title": "Face Enhancement",
+            "default": false
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "TopazImageUpscaleTemplateParameters"
+      },
+      "TopazVideoUpscaleTemplateParameters": {
+        "properties": {
+          "upscale_factor": {
+            "type": "number",
+            "title": "Upscale Factor",
+            "default": 2.0
+          },
+          "target_fps": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Fps"
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "TopazVideoUpscaleTemplateParameters"
+      },
+      "Track": {
+        "properties": {
+          "clips": {
+            "items": {
+              "$ref": "#/components/schemas/Clip"
+            },
+            "type": "array",
+            "title": "Clips"
+          },
+          "volume": {
+            "type": "number",
+            "maximum": 10.0,
+            "minimum": 0.0,
+            "title": "Volume",
+            "default": 1.0
+          },
+          "mute": {
+            "type": "boolean",
+            "title": "Mute",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "Track"
       },
       "TransferBranchInfoDefaultingToMain": {
         "properties": {
@@ -73119,6 +78284,86 @@
           "status": "ok"
         }
       },
+      "UrlModel": {
+        "properties": {
+          "url_string": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url String",
+            "description": "Full URL string"
+          },
+          "scheme": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheme",
+            "description": "URL scheme (e.g., https)"
+          },
+          "hostname": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hostname",
+            "description": "URL hostname"
+          },
+          "port": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Port",
+            "description": "URL port"
+          },
+          "path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Path",
+            "description": "URL path"
+          },
+          "query_string": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Query String",
+            "description": "URL query string"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "UrlModel",
+        "description": "OCSF URL object.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/url"
+      },
       "UsageAggregationInterval": {
         "type": "string",
         "enum": [
@@ -73172,6 +78417,17 @@
           }
         }
       },
+      "UserAccessManagementActivityId": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2,
+          99
+        ],
+        "title": "UserAccessManagementActivityId",
+        "description": "OCSF Activity IDs for User Access Management [3005] events.\n\nSpec: https://schema.ocsf.io/1.6.0/classes/user_access_management"
+      },
       "UserFeedback": {
         "properties": {
           "score": {
@@ -73196,6 +78452,91 @@
           "dislike"
         ],
         "title": "UserFeedbackScore"
+      },
+      "UserModel": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "Username"
+          },
+          "uid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Uid",
+            "description": "Unique user identifier"
+          },
+          "type_id": {
+            "$ref": "#/components/schemas/UserTypeId",
+            "description": "Account type identifier",
+            "default": 1
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type",
+            "description": "Account type description"
+          },
+          "email_addr": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email Addr",
+            "description": "User email address"
+          },
+          "full_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Full Name",
+            "description": "Full name of the user"
+          },
+          "domain": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Domain",
+            "description": "User's domain"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "UserModel",
+        "description": "OCSF User object.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/user"
       },
       "UserResponseModel": {
         "properties": {
@@ -73345,6 +78686,10 @@
             "character_limit": 100000,
             "character_refresh_period": "monthly_period",
             "currency": "usd",
+            "current_overage": {
+              "amount": "0",
+              "currency": "usd"
+            },
             "max_character_limit_extension": 10000,
             "max_credit_limit_extension": 10000,
             "max_voice_add_edits": 230,
@@ -73360,6 +78705,19 @@
           "user_id": "1234567890",
           "xi_api_key": "8so27l7327189x0h939ekx293380l920"
         }
+      },
+      "UserTypeId": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          99
+        ],
+        "title": "UserTypeId",
+        "description": "OCSF User type IDs.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/user"
       },
       "UsersSortBy": {
         "type": "string",
@@ -73473,6 +78831,606 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "ValidationErrorDetail": {
+        "properties": {
+          "parameter_key": {
+            "type": "string",
+            "title": "Parameter Key",
+            "default": ""
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "ValidationErrorDetail"
+      },
+      "VeedFabricTemplateParameters": {
+        "properties": {
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "VeedFabricTemplateParameters"
+      },
+      "VeedLipSyncTemplateParameters": {
+        "properties": {
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "VeedLipSyncTemplateParameters"
+      },
+      "Veo2ExpParameters": {
+        "properties": {
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": true
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "extend_video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reference_images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/VeoReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Images"
+          }
+        },
+        "type": "object",
+        "title": "Veo2ExpParameters"
+      },
+      "Veo2Parameters": {
+        "properties": {
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": true
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "extend_video": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceVideo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "Veo2Parameters"
+      },
+      "Veo3Parameters": {
+        "properties": {
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": true
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "Veo3Parameters"
+      },
+      "Veo3_1FastParameters": {
+        "properties": {
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": true
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reference_images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/VeoReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Images"
+          }
+        },
+        "type": "object",
+        "title": "Veo3_1FastParameters"
+      },
+      "Veo3_1LiteParameters": {
+        "properties": {
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": true
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "Veo3_1LiteParameters"
+      },
+      "Veo3_1Parameters": {
+        "properties": {
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": true
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p",
+              "4K"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "default": true
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reference_images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/VeoReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Images"
+          }
+        },
+        "type": "object",
+        "title": "Veo3_1Parameters"
+      },
+      "VeoReferenceImage": {
+        "properties": {
+          "reference_image": {
+            "$ref": "#/components/schemas/ReferenceImage"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "asset",
+              "style"
+            ],
+            "title": "Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "reference_image",
+          "type"
+        ],
+        "title": "VeoReferenceImage"
       },
       "VerificationAttemptResponseModel": {
         "properties": {
@@ -73708,6 +79666,26 @@
           "description"
         ],
         "title": "VideoAnalysisResult"
+      },
+      "VideoElement": {
+        "properties": {
+          "frontal_image": {
+            "$ref": "#/components/schemas/ReferenceImage"
+          },
+          "reference_images": {
+            "items": {
+              "$ref": "#/components/schemas/ReferenceImage"
+            },
+            "type": "array",
+            "title": "Reference Images"
+          }
+        },
+        "type": "object",
+        "required": [
+          "frontal_image",
+          "reference_images"
+        ],
+        "title": "VideoElement"
       },
       "VideoKeyMoment": {
         "properties": {
@@ -75720,6 +81698,318 @@
         "type": "object",
         "title": "VoicemailDetectionToolConfig",
         "description": "Allows the agent to detect when a voicemail system is encountered.\n\nThis tool should be invoked by the LLM when it detects that the call has been\nanswered by a voicemail system rather than a human. If a voicemail message\nis configured, it will be played; otherwise the call will end immediately."
+      },
+      "WaitInput": {
+        "properties": {
+          "seconds": {
+            "type": "number",
+            "maximum": 180.0,
+            "minimum": 5.0,
+            "title": "Seconds",
+            "description": "Maximum seconds to wait (up to 3 minutes). Resolves early on completion or failure.",
+            "default": 120
+          },
+          "session_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session Id",
+            "description": "Deprecated: use session_ids. Single session ID to monitor.",
+            "deprecated": true
+          },
+          "session_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session Ids",
+            "description": "Session IDs from run_node to monitor. Resolves when ALL complete or any fails."
+          }
+        },
+        "type": "object",
+        "title": "WaitInput"
+      },
+      "Wan2_5PreviewImageParameters": {
+        "properties": {
+          "images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceImage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Images"
+          },
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:4",
+              "16:9",
+              "4:3",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "default": "1:1"
+          },
+          "enhance_prompt": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enhance Prompt"
+          }
+        },
+        "type": "object",
+        "title": "Wan2_5PreviewImageParameters"
+      },
+      "Wan2_5PreviewVideoParameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "16:9",
+                  "9:16",
+                  "1:1"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "Wan2_5PreviewVideoParameters"
+      },
+      "Wan2_6Parameters": {
+        "properties": {
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceImage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reference_videos": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceVideo"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Videos"
+          },
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReferenceAudio"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p",
+              "1080p"
+            ],
+            "title": "Resolution",
+            "default": "720p"
+          },
+          "aspect_ratio": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "16:9",
+                  "9:16",
+                  "1:1",
+                  "4:3",
+                  "3:4"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aspect Ratio"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "title": "Duration Secs",
+            "default": 5
+          },
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceText"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "default": true
+          },
+          "multi_shots": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Multi Shots",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "Wan2_6Parameters"
       },
       "WebhookAuthMethodType": {
         "type": "string",
@@ -80425,6 +86715,188 @@
           "hashed_xi_api_key"
         ],
         "title": "WorkspaceApiKeyResponseModel"
+      },
+      "WorkspaceAuditLogEntryResponse": {
+        "properties": {
+          "metadata": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Metadata",
+            "description": "Event metadata"
+          },
+          "time": {
+            "type": "integer",
+            "title": "Time",
+            "description": "Event time in milliseconds since epoch"
+          },
+          "activity_id": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AccountChangeActivityId"
+              },
+              {
+                "$ref": "#/components/schemas/AuthenticationActivityId"
+              },
+              {
+                "$ref": "#/components/schemas/EntityManagementActivityId"
+              },
+              {
+                "$ref": "#/components/schemas/UserAccessManagementActivityId"
+              },
+              {
+                "$ref": "#/components/schemas/GroupManagementActivityId"
+              }
+            ],
+            "title": "Activity Id",
+            "description": "Activity ID"
+          },
+          "activity_name": {
+            "type": "string",
+            "title": "Activity Name",
+            "description": "Activity name"
+          },
+          "category_name": {
+            "type": "string",
+            "title": "Category Name",
+            "description": "Event category",
+            "default": "Identity & Access Management"
+          },
+          "category_uid": {
+            "type": "integer",
+            "title": "Category Uid",
+            "description": "Category UID for IAM",
+            "default": 3
+          },
+          "class_name": {
+            "type": "string",
+            "title": "Class Name",
+            "description": "Event class name",
+            "default": ""
+          },
+          "class_uid": {
+            "type": "integer",
+            "title": "Class Uid",
+            "description": "Event class UID",
+            "default": 0
+          },
+          "severity_id": {
+            "$ref": "#/components/schemas/SeverityId",
+            "description": "Severity level",
+            "default": 1
+          },
+          "status_id": {
+            "$ref": "#/components/schemas/StatusId",
+            "description": "Status of the action"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/ActorModel",
+            "description": "Actor performing the action"
+          },
+          "device": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DeviceModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Device information"
+          },
+          "http_request": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/HttpRequestModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "HTTP request details"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable event description"
+          },
+          "unmapped": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Unmapped",
+            "description": "Attributes not mapped to OCSF"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Firestore document ID"
+          },
+          "time_dt": {
+            "type": "string",
+            "title": "Time Dt",
+            "description": "Event time in human-readable RFC 3339 format, derived from 'time'.",
+            "readOnly": true
+          },
+          "type_uid": {
+            "type": "integer",
+            "title": "Type Uid",
+            "description": "OCSF type_uid is class_uid * 100 + activity_id.",
+            "readOnly": true
+          },
+          "type_name": {
+            "type": "string",
+            "title": "Type Name",
+            "description": "OCSF type_name combines class_name and activity_name.",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "activity_id",
+          "activity_name",
+          "status_id",
+          "actor",
+          "message",
+          "id",
+          "time_dt",
+          "type_uid",
+          "type_name"
+        ],
+        "title": "WorkspaceAuditLogEntryResponse",
+        "description": "Audit log entry with Firestore document ID for API responses."
+      },
+      "WorkspaceAuditLogsPageResponse": {
+        "properties": {
+          "entries": {
+            "items": {
+              "$ref": "#/components/schemas/WorkspaceAuditLogEntryResponse"
+            },
+            "type": "array",
+            "title": "Entries"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "entries",
+          "has_more",
+          "next_cursor"
+        ],
+        "title": "WorkspaceAuditLogsPageResponse",
+        "description": "Paginated workspace audit log response."
       },
       "WorkspaceBatchCallsResponse": {
         "properties": {

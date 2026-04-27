@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet11Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string documentationId,
-            ref string? agentId);
+            global::System.Collections.Generic.IList<string> documentIds);
         partial void PrepareGet11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string documentationId,
-            string? agentId);
+            global::System.Collections.Generic.IList<string> documentIds);
         partial void ProcessGet11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,19 +42,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Documentation From Knowledge Base<br/>
-        /// Get details about a specific documentation making up the agent's knowledge base
+        /// Get Knowledge Base Summaries By Ids<br/>
+        /// Gets multiple knowledge base document summaries by their IDs.
         /// </summary>
-        /// <param name="documentationId">
-        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// <param name="documentIds">
+        /// The ids of knowledge base documents.
         /// </param>
-        /// <param name="agentId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse> Get11Async(
-            string documentationId,
-            string? agentId = default,
+        public async global::System.Threading.Tasks.Task<string> Get11Async(
+            global::System.Collections.Generic.IList<string> documentIds,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -64,8 +60,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet11Arguments(
                 httpClient: HttpClient,
-                documentationId: ref documentationId,
-                agentId: ref agentId);
+                documentIds: documentIds);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -90,10 +85,10 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/knowledge-base/{documentationId}",
+                                path: "/v1/convai/knowledge-base/summaries",
                                 baseUri: HttpClient.BaseAddress); 
                             __pathBuilder
-                                .AddOptionalParameter("agent_id", agentId) 
+                                .AddRequiredParameter("document_ids", documentIds, delimiter: ",", explode: true) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -135,8 +130,7 @@ namespace ElevenLabs
                 PrepareGet11Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentationId: documentationId,
-                    agentId: agentId);
+                    documentIds: documentIds);
 
                 return __httpRequest;
             }
@@ -155,7 +149,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -182,7 +176,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -217,7 +211,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -264,7 +258,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -284,7 +278,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -357,9 +351,7 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -381,15 +373,13 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {

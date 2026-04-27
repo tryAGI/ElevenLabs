@@ -27,32 +27,25 @@ namespace ElevenLabs
             };
         partial void PrepareDelete10Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId);
+            ref string batchId);
         partial void PrepareDelete10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId);
+            string batchId);
         partial void ProcessDelete10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDelete10ResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
-        /// Delete Mcp Server<br/>
-        /// Delete a specific MCP server configuration from the workspace.
+        /// Delete A Batch Call.<br/>
+        /// Permanently delete a batch call and all recipient records. Conversations remain in history.
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
+        /// <param name="batchId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Delete10Async(
-            string mcpServerId,
+        public async global::System.Threading.Tasks.Task Delete10Async(
+            string batchId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -60,7 +53,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete10Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId);
+                batchId: ref batchId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -85,7 +78,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/mcp-servers/{mcpServerId}",
+                                path: $"/v1/convai/batch-calling/{batchId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -127,7 +120,7 @@ namespace ElevenLabs
                 PrepareDelete10Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    mcpServerId: mcpServerId);
+                    batchId: batchId);
 
                 return __httpRequest;
             }
@@ -146,7 +139,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -173,7 +166,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -208,7 +201,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -255,7 +248,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -275,7 +268,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -339,16 +332,11 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDelete10ResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -370,13 +358,6 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-
-                                    return __content;
                                 }
                                 catch (global::System.Exception __ex)
                                 {

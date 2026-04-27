@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet10Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Collections.Generic.IList<string> documentIds);
+            ref string? agentId);
         partial void PrepareGet10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.Collections.Generic.IList<string> documentIds);
+            string? agentId);
         partial void ProcessGet10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,17 +42,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Knowledge Base Summaries By Ids<br/>
-        /// Gets multiple knowledge base document summaries by their IDs.
+        /// Get Live Count<br/>
+        /// Get the live count of the ongoing conversations.
         /// </summary>
-        /// <param name="documentIds">
-        /// The ids of knowledge base documents.
+        /// <param name="agentId">
+        /// The id of an agent to restrict the analytics to.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Get10Async(
-            global::System.Collections.Generic.IList<string> documentIds,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetLiveCountResponse> Get10Async(
+            string? agentId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -60,7 +60,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet10Arguments(
                 httpClient: HttpClient,
-                documentIds: documentIds);
+                agentId: ref agentId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -85,10 +85,10 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/knowledge-base/summaries",
+                                path: "/v1/convai/analytics/live-count",
                                 baseUri: HttpClient.BaseAddress); 
                             __pathBuilder
-                                .AddRequiredParameter("document_ids", documentIds, delimiter: ",", explode: true) 
+                                .AddOptionalParameter("agent_id", agentId) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -130,7 +130,7 @@ namespace ElevenLabs
                 PrepareGet10Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentIds: documentIds);
+                    agentId: agentId);
 
                 return __httpRequest;
             }
@@ -149,7 +149,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -176,7 +176,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -211,7 +211,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -258,7 +258,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -278,7 +278,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -351,7 +351,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return __content;
+                                    return
+                                        global::ElevenLabs.GetLiveCountResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -373,13 +375,15 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return __content;
+                                    return
+                                        await global::ElevenLabs.GetLiveCountResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
                                 {

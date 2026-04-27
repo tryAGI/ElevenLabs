@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareDelete13Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId);
+            ref string mcpServerId,
+            ref string toolName);
         partial void PrepareDelete13Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId);
+            string mcpServerId,
+            string toolName);
         partial void ProcessDelete13Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,15 +44,21 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Whatsapp Account<br/>
-        /// Delete a WhatsApp account
+        /// Delete Mcp Tool Configuration Override<br/>
+        /// Remove configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="phoneNumberId"></param>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to remove config overrides for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Delete13Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Delete13Async(
+            string mcpServerId,
+            string toolName,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -58,7 +66,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete13Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId);
+                mcpServerId: ref mcpServerId,
+                toolName: ref toolName);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -83,7 +92,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
+                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -125,7 +134,8 @@ namespace ElevenLabs
                 PrepareDelete13Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    phoneNumberId: phoneNumberId);
+                    mcpServerId: mcpServerId,
+                    toolName: toolName);
 
                 return __httpRequest;
             }
@@ -144,7 +154,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete13",
                                 methodName: "Delete13Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -171,7 +181,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete13",
                                 methodName: "Delete13Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -206,7 +216,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete13",
                                 methodName: "Delete13Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -253,7 +263,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete13",
                                 methodName: "Delete13Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -273,7 +283,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete13",
                                 methodName: "Delete13Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -346,7 +356,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return __content;
+                                    return
+                                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -368,13 +380,15 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return __content;
+                                    return
+                                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
                                 {

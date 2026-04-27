@@ -28,12 +28,12 @@ namespace ElevenLabs
         partial void PrepareCreate14Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
         partial void PrepareCreate14Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
         partial void ProcessCreate14Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,8 +44,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create A New Branch<br/>
+        /// Create a new branch from a given version of any branch
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -54,10 +54,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create14Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create14Async(
             string agentId,
 
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -93,7 +93,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/deployments",
+                                path: $"/v1/convai/agents/{agentId}/branches",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -161,7 +161,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -188,7 +188,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -223,7 +223,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -270,7 +270,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -290,7 +290,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -364,7 +364,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.AgentDeploymentResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.CreateAgentBranchResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -394,7 +394,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.AgentDeploymentResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.CreateAgentBranchResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
@@ -434,27 +434,52 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create A New Branch<br/>
+        /// Create a new branch from a given version of any branch
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="deploymentRequest">
-        /// Request to create a new deployment
+        /// <param name="parentVersionId">
+        /// ID of the version to branch from
+        /// </param>
+        /// <param name="name">
+        /// Name of the branch. It is unique within the agent.
+        /// </param>
+        /// <param name="description">
+        /// Description for the branch
+        /// </param>
+        /// <param name="conversationConfig">
+        /// Changes to apply to conversation config
+        /// </param>
+        /// <param name="platformSettings">
+        /// Changes to apply to platform settings
+        /// </param>
+        /// <param name="workflow">
+        /// Updated workflow definition
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create14Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create14Async(
             string agentId,
-            global::ElevenLabs.AgentDeploymentRequest deploymentRequest,
+            string parentVersionId,
+            string name,
+            string description,
+            object? conversationConfig = default,
+            object? platformSettings = default,
+            global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost
+            var __request = new global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost
             {
-                DeploymentRequest = deploymentRequest,
+                ParentVersionId = parentVersionId,
+                Name = name,
+                Description = description,
+                ConversationConfig = conversationConfig,
+                PlatformSettings = platformSettings,
+                Workflow = workflow,
             };
 
             return await Create14Async(

@@ -40,13 +40,13 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Workspace Service Accounts<br/>
-        /// List all service accounts in the workspace
+        /// Get Workspace Auth Connections<br/>
+        /// Get all auth connections for the workspace
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceServiceAccountListResponseModel> List3Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListAuthConnectionsResponse> List3Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -78,7 +78,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/service-accounts",
+                                path: "/v1/workspace/auth-connections",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -138,7 +138,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                pathTemplate: "\"/v1/workspace/auth-connections\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -165,7 +165,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                pathTemplate: "\"/v1/workspace/auth-connections\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -200,7 +200,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                pathTemplate: "\"/v1/workspace/auth-connections\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -247,7 +247,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                pathTemplate: "\"/v1/workspace/auth-connections\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -267,7 +267,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                pathTemplate: "\"/v1/workspace/auth-connections\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +341,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.WorkspaceServiceAccountListResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.ListAuthConnectionsResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -371,7 +371,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.WorkspaceServiceAccountListResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.ListAuthConnectionsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

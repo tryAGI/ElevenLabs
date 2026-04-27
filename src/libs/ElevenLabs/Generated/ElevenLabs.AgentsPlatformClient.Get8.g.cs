@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId);
+            ref string tagId);
         partial void PrepareGet8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId);
+            string tagId);
         partial void ProcessGet8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,17 +42,15 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Phone Number<br/>
-        /// Retrieve Phone Number details by ID
+        /// Get Conversation Tag<br/>
+        /// Get a conversation tag by ID.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
+        /// <param name="tagId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberRouteResponse> Get8Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConversationTagResponseModel> Get8Async(
+            string tagId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -60,7 +58,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet8Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId);
+                tagId: ref tagId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -85,7 +83,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
+                                path: $"/v1/convai/tags/{tagId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -127,7 +125,7 @@ namespace ElevenLabs
                 PrepareGet8Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    phoneNumberId: phoneNumberId);
+                    tagId: tagId);
 
                 return __httpRequest;
             }
@@ -146,7 +144,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -173,7 +171,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -208,7 +206,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -255,7 +253,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -275,7 +273,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -349,7 +347,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.GetPhoneNumberRouteResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.ConversationTagResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -379,7 +377,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.GetPhoneNumberRouteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.ConversationTagResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

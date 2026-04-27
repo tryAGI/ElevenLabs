@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet9Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? agentId);
+            ref string phoneNumberId);
         partial void PrepareGet9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? agentId);
+            string phoneNumberId);
         partial void ProcessGet9Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,17 +42,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Live Count<br/>
-        /// Get the live count of the ongoing conversations.
+        /// Get Phone Number<br/>
+        /// Retrieve Phone Number details by ID
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent to restrict the analytics to.
+        /// <param name="phoneNumberId">
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetLiveCountResponse> Get9Async(
-            string? agentId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberRouteResponse> Get9Async(
+            string phoneNumberId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -60,7 +60,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet9Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId);
+                phoneNumberId: ref phoneNumberId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -85,11 +85,8 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/analytics/live-count",
-                                baseUri: HttpClient.BaseAddress); 
-                            __pathBuilder
-                                .AddOptionalParameter("agent_id", agentId) 
-                                ;
+                                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
+                                baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -130,7 +127,7 @@ namespace ElevenLabs
                 PrepareGet9Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId);
+                    phoneNumberId: phoneNumberId);
 
                 return __httpRequest;
             }
@@ -149,7 +146,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get9",
                                 methodName: "Get9Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -176,7 +173,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get9",
                                 methodName: "Get9Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -211,7 +208,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get9",
                                 methodName: "Get9Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -258,7 +255,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get9",
                                 methodName: "Get9Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -278,7 +275,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get9",
                                 methodName: "Get9Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -352,7 +349,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.GetLiveCountResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.GetPhoneNumberRouteResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -382,7 +379,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.GetLiveCountResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.GetPhoneNumberRouteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

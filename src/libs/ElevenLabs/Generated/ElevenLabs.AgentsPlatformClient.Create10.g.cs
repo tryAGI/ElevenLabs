@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareCreate10Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.MCPServerRequestModel request);
+            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
         partial void PrepareCreate10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.MCPServerRequestModel request);
+            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
         partial void ProcessCreate10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,16 +42,16 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Mcp Server<br/>
-        /// Create a new MCP server configuration in the workspace.
+        /// Submit A Batch Call Request.<br/>
+        /// Submit a batch call request to schedule calls for multiple recipients.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create10Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> Create10Async(
 
-            global::ElevenLabs.MCPServerRequestModel request,
+            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -86,7 +86,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/mcp-servers",
+                                path: "/v1/convai/batch-calling/submit",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -153,7 +153,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create10",
                                 methodName: "Create10Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -180,7 +180,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create10",
                                 methodName: "Create10Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -215,7 +215,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create10",
                                 methodName: "Create10Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -262,7 +262,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create10",
                                 methodName: "Create10Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -282,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create10",
                                 methodName: "Create10Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -356,7 +356,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.BatchCallResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -386,7 +386,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.BatchCallResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
@@ -426,23 +426,55 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Mcp Server<br/>
-        /// Create a new MCP server configuration in the workspace.
+        /// Submit A Batch Call Request.<br/>
+        /// Submit a batch call request to schedule calls for multiple recipients.
         /// </summary>
-        /// <param name="config">
-        /// Configuration details for the MCP Server.
+        /// <param name="callName"></param>
+        /// <param name="agentId"></param>
+        /// <param name="recipients"></param>
+        /// <param name="scheduledTimeUnix"></param>
+        /// <param name="agentPhoneNumberId"></param>
+        /// <param name="whatsappParams"></param>
+        /// <param name="timezone"></param>
+        /// <param name="branchId"></param>
+        /// <param name="environment"></param>
+        /// <param name="telephonyCallConfig">
+        /// Default Value: {"ringing_timeout_secs":60}
+        /// </param>
+        /// <param name="targetConcurrencyLimit">
+        /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create10Async(
-            global::ElevenLabs.MCPServerConfigInput config,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> Create10Async(
+            string callName,
+            string agentId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient> recipients,
+            int? scheduledTimeUnix = default,
+            string? agentPhoneNumberId = default,
+            global::ElevenLabs.BatchCallWhatsAppParams? whatsappParams = default,
+            string? timezone = default,
+            string? branchId = default,
+            string? environment = default,
+            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig = default,
+            int? targetConcurrencyLimit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.MCPServerRequestModel
+            var __request = new global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost
             {
-                Config = config,
+                CallName = callName,
+                AgentId = agentId,
+                Recipients = recipients,
+                ScheduledTimeUnix = scheduledTimeUnix,
+                AgentPhoneNumberId = agentPhoneNumberId,
+                WhatsappParams = whatsappParams,
+                Timezone = timezone,
+                BranchId = branchId,
+                Environment = environment,
+                TelephonyCallConfig = telephonyCallConfig,
+                TargetConcurrencyLimit = targetConcurrencyLimit,
             };
 
             return await Create10Async(

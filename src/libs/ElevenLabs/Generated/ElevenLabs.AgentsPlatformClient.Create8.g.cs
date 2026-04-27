@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareCreate8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.PostWorkspaceSecretRequest request);
+            global::ElevenLabs.ToolRequestModel request);
         partial void PrepareCreate8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.PostWorkspaceSecretRequest request);
+            global::ElevenLabs.ToolRequestModel request);
         partial void ProcessCreate8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,16 +42,16 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Add Tool<br/>
+        /// Add a new tool to the available tools in the workspace.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create8Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create8Async(
 
-            global::ElevenLabs.PostWorkspaceSecretRequest request,
+            global::ElevenLabs.ToolRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -86,7 +86,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/secrets",
+                                path: "/v1/convai/tools",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -153,7 +153,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create8",
                                 methodName: "Create8Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/tools\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -180,7 +180,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create8",
                                 methodName: "Create8Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/tools\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -215,7 +215,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create8",
                                 methodName: "Create8Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/tools\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -262,7 +262,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create8",
                                 methodName: "Create8Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/tools\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -282,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create8",
                                 methodName: "Create8Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/tools\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -356,7 +356,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -386,7 +386,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
@@ -426,27 +426,28 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Add Tool<br/>
+        /// Add a new tool to the available tools in the workspace.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
+        /// <param name="toolConfig">
+        /// Configuration for the tool
+        /// </param>
+        /// <param name="responseMocks">
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create8Async(
-            string name,
-            string value,
-            string type = "new",
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create8Async(
+            global::ElevenLabs.ToolConfig toolConfig,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.PostWorkspaceSecretRequest
+            var __request = new global::ElevenLabs.ToolRequestModel
             {
-                Type = type,
-                Name = name,
-                Value = value,
+                ToolConfig = toolConfig,
+                ResponseMocks = responseMocks,
             };
 
             return await Create8Async(

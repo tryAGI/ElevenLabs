@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareCreate6Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string conversationId,
-            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request);
         partial void PrepareCreate6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string conversationId,
-            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request);
         partial void ProcessCreate6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,28 +42,23 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Upload File<br/>
-        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// Import Phone Number<br/>
+        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
         /// </summary>
-        /// <param name="conversationId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create6Async(
-            string conversationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create6Async(
 
-            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
             PrepareCreate6Arguments(
                 httpClient: HttpClient,
-                conversationId: ref conversationId,
                 request: request);
 
 
@@ -91,7 +84,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/conversations/{conversationId}/files",
+                                path: "/v1/convai/phone-numbers",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -122,19 +115,11 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
-                            var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{conversationId}"),
-                                name: "\"conversation_id\"");
-                            var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
-                            __httpRequestContent.Add(
-                                content: __contentFile,
-                                name: "\"file\"",
-                                fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
-                            if (__contentFile.Headers.ContentDisposition != null)
-                            {
-                                __contentFile.Headers.ContentDisposition.FileNameStar = null;
-                            }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
                             __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -147,7 +132,6 @@ namespace ElevenLabs
                 PrepareCreate6Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    conversationId: conversationId,
                     request: request);
 
                 return __httpRequest;
@@ -167,7 +151,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -194,7 +178,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -229,7 +213,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -276,7 +260,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -296,7 +280,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files\"",
+                                pathTemplate: "\"/v1/convai/phone-numbers\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -370,7 +354,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.ConvAIFileUploadResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.CreatePhoneNumberResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -400,7 +384,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.ConvAIFileUploadResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.CreatePhoneNumberResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
@@ -440,34 +424,21 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Upload File<br/>
-        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// Import Phone Number<br/>
+        /// Import Phone Number from provider configuration (Twilio or SIP trunk)
         /// </summary>
-        /// <param name="conversationId"></param>
-        /// <param name="file">
-        /// Image or PDF file to upload
-        /// </param>
-        /// <param name="filename">
-        /// Image or PDF file to upload
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create6Async(
-            string conversationId,
-            byte[] file,
-            string filename,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create6Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost
+            var __request = new global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>
             {
-                File = file,
-                Filename = filename,
             };
 
             return await Create6Async(
-                conversationId: conversationId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

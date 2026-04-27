@@ -1,0 +1,93 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class Kling25TurboParameters
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("start_frame")]
+        public global::ElevenLabs.ReferenceImage? StartFrame { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_frame")]
+        public global::ElevenLabs.ReferenceImage? EndFrame { get; set; }
+
+        /// <summary>
+        /// Default Value: 5
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("duration_secs")]
+        public int? DurationSecs { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("negative_prompt")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::ElevenLabs.ReferenceText, object>))]
+        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ReferenceText, object>? NegativePrompt { get; set; }
+
+        /// <summary>
+        /// Default Value: 0.5F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cfg_scale")]
+        public double? CfgScale { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("aspect_ratio")]
+        public global::ElevenLabs.Kling25TurboParametersAspectRatio2? AspectRatio { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Kling25TurboParameters" /> class.
+        /// </summary>
+        /// <param name="startFrame"></param>
+        /// <param name="endFrame"></param>
+        /// <param name="durationSecs">
+        /// Default Value: 5
+        /// </param>
+        /// <param name="negativePrompt"></param>
+        /// <param name="cfgScale">
+        /// Default Value: 0.5F
+        /// </param>
+        /// <param name="aspectRatio"></param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public Kling25TurboParameters(
+            global::ElevenLabs.ReferenceImage? startFrame,
+            global::ElevenLabs.ReferenceImage? endFrame,
+            int? durationSecs,
+            global::ElevenLabs.AnyOf<string, global::ElevenLabs.ReferenceText, object>? negativePrompt,
+            double? cfgScale,
+            global::ElevenLabs.Kling25TurboParametersAspectRatio2? aspectRatio)
+        {
+            this.StartFrame = startFrame;
+            this.EndFrame = endFrame;
+            this.DurationSecs = durationSecs;
+            this.NegativePrompt = negativePrompt;
+            this.CfgScale = cfgScale;
+            this.AspectRatio = aspectRatio;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Kling25TurboParameters" /> class.
+        /// </summary>
+        public Kling25TurboParameters()
+        {
+        }
+    }
+}

@@ -26,10 +26,26 @@ namespace ElevenLabs
             {                s_Get15SecurityRequirement0,
             };
         partial void PrepareGet15Arguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref string toolId,
+            ref string? cursor,
+            ref int? pageSize,
+            bool? isError,
+            ref string? agentId,
+            ref string? branchId,
+            double? startTime,
+            double? endTime);
         partial void PrepareGet15Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string toolId,
+            string? cursor,
+            int? pageSize,
+            bool? isError,
+            string? agentId,
+            string? branchId,
+            double? startTime,
+            double? endTime);
         partial void ProcessGet15Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,20 +56,61 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Convai Settings<br/>
-        /// Retrieve Convai settings for the workspace
+        /// Get Tool Executions<br/>
+        /// Get paginated list of tool executions for a specific tool.
         /// </summary>
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="isError">
+        /// Filter by error status. If not provided, returns all executions.
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by agent ID.
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by agent branch ID.
+        /// </param>
+        /// <param name="startTime">
+        /// Filter executions from this Unix timestamp (inclusive).
+        /// </param>
+        /// <param name="endTime">
+        /// Filter executions until this Unix timestamp (inclusive).
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> Get15Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetToolExecutionsPageResponseModel> Get15Async(
+            string toolId,
+            string? cursor = default,
+            int? pageSize = default,
+            bool? isError = default,
+            string? agentId = default,
+            string? branchId = default,
+            double? startTime = default,
+            double? endTime = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGet15Arguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                toolId: ref toolId,
+                cursor: ref cursor,
+                pageSize: ref pageSize,
+                isError: isError,
+                agentId: ref agentId,
+                branchId: ref branchId,
+                startTime: startTime,
+                endTime: endTime);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -78,8 +135,17 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/settings",
-                                baseUri: HttpClient.BaseAddress);
+                                path: $"/v1/convai/tools/{toolId}/executions",
+                                baseUri: HttpClient.BaseAddress); 
+                            __pathBuilder
+                                .AddOptionalParameter("cursor", cursor)
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("is_error", isError?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("start_time", startTime?.ToString())
+                                .AddOptionalParameter("end_time", endTime?.ToString()) 
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -119,7 +185,15 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareGet15Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    toolId: toolId,
+                    cursor: cursor,
+                    pageSize: pageSize,
+                    isError: isError,
+                    agentId: agentId,
+                    branchId: branchId,
+                    startTime: startTime,
+                    endTime: endTime);
 
                 return __httpRequest;
             }
@@ -138,7 +212,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -165,7 +239,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -200,7 +274,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -247,7 +321,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -267,7 +341,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get15",
                                 methodName: "Get15Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +415,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.GetConvAISettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.GetToolExecutionsPageResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -371,7 +445,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.GetConvAISettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.GetToolExecutionsPageResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)

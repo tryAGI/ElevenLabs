@@ -27,25 +27,25 @@ namespace ElevenLabs
             };
         partial void PrepareDelete9Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string batchId);
+            ref string secretId);
         partial void PrepareDelete9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string batchId);
+            string secretId);
         partial void ProcessDelete9Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
         /// <summary>
-        /// Delete A Batch Call.<br/>
-        /// Permanently delete a batch call and all recipient records. Conversations remain in history.
+        /// Delete Convai Workspace Secret<br/>
+        /// Delete a workspace secret if it's not in use
         /// </summary>
-        /// <param name="batchId"></param>
+        /// <param name="secretId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task Delete9Async(
-            string batchId,
+            string secretId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -53,7 +53,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete9Arguments(
                 httpClient: HttpClient,
-                batchId: ref batchId);
+                secretId: ref secretId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -78,7 +78,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/batch-calling/{batchId}",
+                                path: $"/v1/convai/secrets/{secretId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -120,7 +120,7 @@ namespace ElevenLabs
                 PrepareDelete9Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    batchId: batchId);
+                    secretId: secretId);
 
                 return __httpRequest;
             }
@@ -139,7 +139,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete9",
                                 methodName: "Delete9Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -166,7 +166,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete9",
                                 methodName: "Delete9Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -201,7 +201,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete9",
                                 methodName: "Delete9Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -248,7 +248,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete9",
                                 methodName: "Delete9Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -268,7 +268,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete9",
                                 methodName: "Delete9Async",
-                                pathTemplate: "$\"/v1/convai/batch-calling/{batchId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

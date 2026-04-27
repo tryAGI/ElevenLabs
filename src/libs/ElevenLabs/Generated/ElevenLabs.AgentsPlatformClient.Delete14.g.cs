@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareDelete14Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string branchId);
+            ref string phoneNumberId);
         partial void PrepareDelete14Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string branchId);
+            string phoneNumberId);
         partial void ProcessDelete14Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,21 +42,15 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Agent Draft<br/>
-        /// Delete a draft for an agent
+        /// Delete Whatsapp Account<br/>
+        /// Delete a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// The ID of the agent branch to use
-        /// </param>
+        /// <param name="phoneNumberId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> Delete14Async(
-            string agentId,
-            string branchId,
+            string phoneNumberId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -66,8 +58,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete14Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                branchId: ref branchId);
+                phoneNumberId: ref phoneNumberId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -92,11 +83,8 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/drafts",
-                                baseUri: HttpClient.BaseAddress); 
-                            __pathBuilder
-                                .AddRequiredParameter("branch_id", branchId) 
-                                ;
+                                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
+                                baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -137,8 +125,7 @@ namespace ElevenLabs
                 PrepareDelete14Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    branchId: branchId);
+                    phoneNumberId: phoneNumberId);
 
                 return __httpRequest;
             }
@@ -157,7 +144,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete14",
                                 methodName: "Delete14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -184,7 +171,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete14",
                                 methodName: "Delete14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -219,7 +206,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete14",
                                 methodName: "Delete14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -266,7 +253,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete14",
                                 methodName: "Delete14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -286,7 +273,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete14",
                                 methodName: "Delete14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

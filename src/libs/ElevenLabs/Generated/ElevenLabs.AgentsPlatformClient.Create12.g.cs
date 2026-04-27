@@ -1,8 +1,6 @@
 
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
@@ -30,12 +28,12 @@ namespace ElevenLabs
         partial void PrepareCreate12Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string mcpServerId,
-            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request);
+            global::ElevenLabs.MCPToolAddApprovalRequestModel request);
         partial void PrepareCreate12Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string mcpServerId,
-            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request);
+            global::ElevenLabs.MCPToolAddApprovalRequestModel request);
         partial void ProcessCreate12Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,8 +44,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Mcp Tool Configuration Override<br/>
-        /// Create configuration overrides for a specific MCP tool.
+        /// Create Mcp Server Tool Approval<br/>
+        /// Add approval for a specific MCP tool when using per-tool approval mode.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
@@ -59,7 +57,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create12Async(
             string mcpServerId,
 
-            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request,
+            global::ElevenLabs.MCPToolAddApprovalRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -95,7 +93,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs",
+                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -163,7 +161,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create12",
                                 methodName: "Create12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -190,7 +188,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create12",
                                 methodName: "Create12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -225,7 +223,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create12",
                                 methodName: "Create12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -272,7 +270,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create12",
                                 methodName: "Create12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -292,7 +290,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create12",
                                 methodName: "Create12Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-approvals\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -305,39 +303,6 @@ namespace ElevenLabs
                                 willRetry: false,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
-                            if ((int)__response.StatusCode == 409)
-                            {
-                                string? __content_409 = null;
-                                global::System.Exception? __exception_409 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_409 = __ex;
-                                }
-
-                                throw new global::ElevenLabs.ApiException(
-                                    message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_409,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_409,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value),
-                                };
-                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -469,41 +434,24 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Mcp Tool Configuration Override<br/>
-        /// Create configuration overrides for a specific MCP tool.
+        /// Create Mcp Server Tool Approval<br/>
+        /// Add approval for a specific MCP tool when using per-tool approval mode.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="preToolSpeech">
-        /// If set, overrides the server's pre_tool_speech setting for this tool.
-        /// </param>
-        /// <param name="disableInterruptions">
-        /// If set, overrides the server's disable_interruptions setting for this tool
-        /// </param>
-        /// <param name="toolCallSound">
-        /// If set, overrides the server's tool_call_sound setting for this tool
-        /// </param>
-        /// <param name="toolCallSoundBehavior">
-        /// If set, overrides the server's tool_call_sound_behavior setting for this tool
-        /// </param>
-        /// <param name="executionMode">
-        /// If set, overrides the server's execution_mode setting for this tool
-        /// </param>
-        /// <param name="responseTimeoutSecs">
-        /// If set, overrides the server's response timeout for this MCP tool.
-        /// </param>
-        /// <param name="assignments">
-        /// Dynamic variable assignments for this MCP tool
-        /// </param>
-        /// <param name="inputOverrides">
-        /// Mapping of json path to input override configuration
-        /// </param>
-        /// <param name="responseMocks">
-        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
-        /// </param>
         /// <param name="toolName">
         /// The name of the MCP tool
+        /// </param>
+        /// <param name="toolDescription">
+        /// The description of the MCP tool
+        /// </param>
+        /// <param name="inputSchema">
+        /// The input schema of the MCP tool (the schema defined on the MCP server before ElevenLabs does any extra processing)
+        /// </param>
+        /// <param name="approvalPolicy">
+        /// The tool-level approval policy<br/>
+        /// Default Value: requires_approval
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -511,30 +459,18 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create12Async(
             string mcpServerId,
             string toolName,
-            global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
-            bool? disableInterruptions = default,
-            global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
-            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
-            global::ElevenLabs.ToolExecutionMode? executionMode = default,
-            int? responseTimeoutSecs = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
-            object? inputOverrides = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
+            string toolDescription,
+            object? inputSchema = default,
+            global::ElevenLabs.MCPToolApprovalPolicy? approvalPolicy = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel
+            var __request = new global::ElevenLabs.MCPToolAddApprovalRequestModel
             {
-                PreToolSpeech = preToolSpeech,
-                DisableInterruptions = disableInterruptions,
-                ToolCallSound = toolCallSound,
-                ToolCallSoundBehavior = toolCallSoundBehavior,
-                ExecutionMode = executionMode,
-                ResponseTimeoutSecs = responseTimeoutSecs,
-                Assignments = assignments,
-                InputOverrides = inputOverrides,
-                ResponseMocks = responseMocks,
                 ToolName = toolName,
+                ToolDescription = toolDescription,
+                InputSchema = inputSchema,
+                ApprovalPolicy = approvalPolicy,
             };
 
             return await Create12Async(

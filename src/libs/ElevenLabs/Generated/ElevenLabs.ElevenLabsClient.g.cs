@@ -52,6 +52,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public AgentPlatformClient AgentPlatform => new AgentPlatformClient(HttpClient, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AgentsInsightsClient AgentsInsights => new AgentsInsightsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,

@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string secretId,
-            global::ElevenLabs.PatchWorkspaceSecretRequest request);
+            global::ElevenLabs.PatchConvAIDashboardSettingsRequest request);
         partial void PrepareUpdate8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string secretId,
-            global::ElevenLabs.PatchWorkspaceSecretRequest request);
+            global::ElevenLabs.PatchConvAIDashboardSettingsRequest request);
         partial void ProcessUpdate8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,18 +42,16 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Convai Workspace Secret<br/>
-        /// Update an existing secret for the workspace
+        /// Update Convai Dashboard Settings<br/>
+        /// Update Convai dashboard settings for the workspace
         /// </summary>
-        /// <param name="secretId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Update8Async(
-            string secretId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Update8Async(
 
-            global::ElevenLabs.PatchWorkspaceSecretRequest request,
+            global::ElevenLabs.PatchConvAIDashboardSettingsRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -65,7 +61,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate8Arguments(
                 httpClient: HttpClient,
-                secretId: ref secretId,
                 request: request);
 
 
@@ -91,7 +86,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/secrets/{secretId}",
+                                path: "/v1/convai/settings/dashboard",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -139,7 +134,6 @@ namespace ElevenLabs
                 PrepareUpdate8Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    secretId: secretId,
                     request: request);
 
                 return __httpRequest;
@@ -159,7 +153,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update8",
                                 methodName: "Update8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -186,7 +180,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update8",
                                 methodName: "Update8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -221,7 +215,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update8",
                                 methodName: "Update8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -268,7 +262,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update8",
                                 methodName: "Update8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -288,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update8",
                                 methodName: "Update8Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -362,7 +356,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -392,7 +386,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
@@ -432,33 +426,24 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Convai Workspace Secret<br/>
-        /// Update an existing secret for the workspace
+        /// Update Convai Dashboard Settings<br/>
+        /// Update Convai dashboard settings for the workspace
         /// </summary>
-        /// <param name="secretId"></param>
-        /// <param name="type"></param>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
+        /// <param name="charts"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Update8Async(
-            string secretId,
-            string name,
-            string value,
-            string type = "update",
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Update8Async(
+            global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? charts = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.PatchWorkspaceSecretRequest
+            var __request = new global::ElevenLabs.PatchConvAIDashboardSettingsRequest
             {
-                Type = type,
-                Name = name,
-                Value = value,
+                Charts = charts,
             };
 
             return await Update8Async(
-                secretId: secretId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

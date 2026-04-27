@@ -26,10 +26,12 @@ namespace ElevenLabs
             {                s_List12SecurityRequirement0,
             };
         partial void PrepareList12Arguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref string mcpServerId);
         partial void PrepareList12Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string mcpServerId);
         partial void ProcessList12Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,20 +42,25 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Whatsapp Accounts<br/>
-        /// List all WhatsApp accounts
+        /// List Mcp Server Tools<br/>
+        /// Retrieve all tools available for a specific MCP server configuration.
         /// </summary>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListWhatsAppAccountsResponse> List12Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListMCPToolsResponseModel> List12Async(
+            string mcpServerId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList12Arguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                mcpServerId: ref mcpServerId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -78,7 +85,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/whatsapp-accounts",
+                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tools",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -119,7 +126,8 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareList12Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    mcpServerId: mcpServerId);
 
                 return __httpRequest;
             }
@@ -138,7 +146,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List12",
                                 methodName: "List12Async",
-                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -165,7 +173,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List12",
                                 methodName: "List12Async",
-                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -200,7 +208,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List12",
                                 methodName: "List12Async",
-                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -247,7 +255,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List12",
                                 methodName: "List12Async",
-                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -267,7 +275,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List12",
                                 methodName: "List12Async",
-                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +349,7 @@ namespace ElevenLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::ElevenLabs.ListWhatsAppAccountsResponse.FromJson(__content, JsonSerializerContext) ??
+                                        global::ElevenLabs.ListMCPToolsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -371,7 +379,7 @@ namespace ElevenLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::ElevenLabs.ListWhatsAppAccountsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::ElevenLabs.ListMCPToolsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
