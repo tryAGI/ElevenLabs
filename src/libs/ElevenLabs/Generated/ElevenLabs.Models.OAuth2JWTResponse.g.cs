@@ -90,6 +90,14 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? Scopes { get; set; }
 
         /// <summary>
+        /// Token field to extract from the token endpoint response.<br/>
+        /// Default Value: access_token
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("token_response_field")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldJsonConverter))]
+        public global::ElevenLabs.OAuth2JWTResponseTokenResponseField? TokenResponseField { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
@@ -146,6 +154,10 @@ namespace ElevenLabs
         /// <param name="scopes">
         /// OAuth2 scopes to request when exchanging JWT for access token
         /// </param>
+        /// <param name="tokenResponseField">
+        /// Token field to extract from the token endpoint response.<br/>
+        /// Default Value: access_token
+        /// </param>
         /// <param name="usedBy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -164,6 +176,7 @@ namespace ElevenLabs
             int? expirationSeconds,
             global::System.Collections.Generic.Dictionary<string, string>? extraParams,
             global::System.Collections.Generic.IList<string>? scopes,
+            global::ElevenLabs.OAuth2JWTResponseTokenResponseField? tokenResponseField,
             global::ElevenLabs.AuthConnectionDependencies? usedBy)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -178,6 +191,7 @@ namespace ElevenLabs
             this.ExtraParams = extraParams;
             this.TokenUrl = tokenUrl ?? throw new global::System.ArgumentNullException(nameof(tokenUrl));
             this.Scopes = scopes;
+            this.TokenResponseField = tokenResponseField;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
         }

@@ -203,6 +203,48 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams)}");
                 getAppointmentByConfirmationNumber = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ListGroupSessionsParams? listGroupSessions = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListGroupSessions)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListGroupSessionsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListGroupSessionsParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListGroupSessionsParams)}");
+                listGroupSessions = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.ScheduleGroupSessionParams? scheduleGroupSession = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ScheduleGroupSessionParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ScheduleGroupSessionParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ScheduleGroupSessionParams)}");
+                scheduleGroupSession = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.RegisterForGroupSessionParams? registerForGroupSession = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RegisterForGroupSessionParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RegisterForGroupSessionParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RegisterForGroupSessionParams)}");
+                registerForGroupSession = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.CancelGroupSessionRegistrationParams? cancelGroupSessionRegistration = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CancelGroupSessionRegistration)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CancelGroupSessionRegistrationParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CancelGroupSessionRegistrationParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CancelGroupSessionRegistrationParams)}");
+                cancelGroupSessionRegistration = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.UpdateGroupSessionSeatsParams? updateGroupSessionSeats = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateGroupSessionSeats)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateGroupSessionSeatsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateGroupSessionSeatsParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateGroupSessionSeatsParams)}");
+                updateGroupSessionSeats = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.CancelGroupSessionForAllParams? cancelGroupSessionForAll = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CancelGroupSessionForAll)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CancelGroupSessionForAllParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CancelGroupSessionForAllParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CancelGroupSessionForAllParams)}");
+                cancelGroupSessionForAll = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListCalendarEventsParams? listCalendarEvents = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListCalendarEvents)
             {
@@ -440,6 +482,18 @@ namespace ElevenLabs.JsonConverters
 
                 getAppointmentByConfirmationNumber,
 
+                listGroupSessions,
+
+                scheduleGroupSession,
+
+                registerForGroupSession,
+
+                cancelGroupSessionRegistration,
+
+                updateGroupSessionSeats,
+
+                cancelGroupSessionForAll,
+
                 listCalendarEvents,
 
                 updateCalendarEvent,
@@ -660,6 +714,42 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetAppointmentByConfirmationNumberParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetAppointmentByConfirmationNumber!, typeInfo);
+            }
+            else if (value.IsListGroupSessions)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListGroupSessionsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListGroupSessionsParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListGroupSessionsParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListGroupSessions!, typeInfo);
+            }
+            else if (value.IsScheduleGroupSession)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ScheduleGroupSessionParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ScheduleGroupSessionParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ScheduleGroupSessionParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ScheduleGroupSession!, typeInfo);
+            }
+            else if (value.IsRegisterForGroupSession)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RegisterForGroupSessionParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RegisterForGroupSessionParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.RegisterForGroupSessionParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RegisterForGroupSession!, typeInfo);
+            }
+            else if (value.IsCancelGroupSessionRegistration)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CancelGroupSessionRegistrationParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CancelGroupSessionRegistrationParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CancelGroupSessionRegistrationParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CancelGroupSessionRegistration!, typeInfo);
+            }
+            else if (value.IsUpdateGroupSessionSeats)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateGroupSessionSeatsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateGroupSessionSeatsParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateGroupSessionSeatsParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateGroupSessionSeats!, typeInfo);
+            }
+            else if (value.IsCancelGroupSessionForAll)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CancelGroupSessionForAllParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CancelGroupSessionForAllParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CancelGroupSessionForAllParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CancelGroupSessionForAll!, typeInfo);
             }
             else if (value.IsListCalendarEvents)
             {

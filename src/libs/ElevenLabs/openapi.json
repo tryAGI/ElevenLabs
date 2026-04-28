@@ -14583,9 +14583,16 @@
           {
             "name": "agent_id",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
-              "type": "string",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "description": "Filter by agent ID",
               "title": "Agent Id"
             },
@@ -40061,6 +40068,32 @@
         "type": "object",
         "title": "BytedanceSeedream5LiteParameters"
       },
+      "CancelGroupSessionForAllParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "cancel_group_session_for_all",
+            "title": "Smb Tool Type",
+            "default": "cancel_group_session_for_all"
+          }
+        },
+        "type": "object",
+        "title": "CancelGroupSessionForAllParams",
+        "description": "Cancel an entire group session and notify every registered participant.\nDestructive -- prefer ``cancel_group_session_registration`` for cancelling\na single attendee."
+      },
+      "CancelGroupSessionRegistrationParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "cancel_group_session_registration",
+            "title": "Smb Tool Type",
+            "default": "cancel_group_session_registration"
+          }
+        },
+        "type": "object",
+        "title": "CancelGroupSessionRegistrationParams",
+        "description": "Cancel a single client's registration for a group session."
+      },
       "CanvasPlacement": {
         "properties": {
           "x_relative": {
@@ -46952,6 +46985,16 @@
             "title": "Scopes",
             "description": "OAuth2 scopes to request when exchanging JWT for access token"
           },
+          "token_response_field": {
+            "type": "string",
+            "enum": [
+              "access_token",
+              "id_token"
+            ],
+            "title": "Token Response Field",
+            "description": "Token field to extract from the token endpoint response.",
+            "default": "access_token"
+          },
           "secret_key": {
             "type": "string",
             "title": "Secret Key"
@@ -47285,7 +47328,7 @@
         },
         "type": "object",
         "title": "CreateServiceParams",
-        "description": "Create a new service (classic or rental) in the system."
+        "description": "Create a new service (classic, rental, or group) in the system."
       },
       "CreateSimulationTestRequest": {
         "properties": {
@@ -47357,6 +47400,28 @@
           "tool_mock_config": {
             "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
             "description": "Configuration for which tools to mock and fallback behavior."
+          },
+          "evaluation_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6."
+          },
+          "simulated_user_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model for the simulated user. Defaults to Claude Sonnet 4.6."
           },
           "name": {
             "type": "string",
@@ -55940,6 +56005,28 @@
             "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
             "description": "Configuration for which tools to mock and fallback behavior."
           },
+          "evaluation_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6."
+          },
+          "simulated_user_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model for the simulated user. Defaults to Claude Sonnet 4.6."
+          },
           "id": {
             "type": "string",
             "title": "Id"
@@ -59642,6 +59729,19 @@
         "title": "ListClientsParams",
         "description": "List clients ordered by most recently updated, with an optional limit."
       },
+      "ListGroupSessionsParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "list_group_sessions",
+            "title": "Smb Tool Type",
+            "default": "list_group_sessions"
+          }
+        },
+        "type": "object",
+        "title": "ListGroupSessionsParams",
+        "description": "List scheduled group sessions for a group service in a date range.\n\nGroup services are scheduled in advance (e.g. yoga classes, workshops) and\ncallers register against an existing session. Use this for group services;\nuse ``check_service_availability`` for appointment / rental services."
+      },
       "ListHolidaysParams": {
         "properties": {
           "smb_tool_type": {
@@ -63305,6 +63405,16 @@
             "type": "array",
             "title": "Scopes",
             "description": "OAuth2 scopes to request when exchanging JWT for access token"
+          },
+          "token_response_field": {
+            "type": "string",
+            "enum": [
+              "access_token",
+              "id_token"
+            ],
+            "title": "Token Response Field",
+            "description": "Token field to extract from the token endpoint response.",
+            "default": "access_token"
           },
           "id": {
             "type": "string",
@@ -69721,6 +69831,19 @@
         ],
         "title": "RegionConfigRequest"
       },
+      "RegisterForGroupSessionParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "register_for_group_session",
+            "title": "Smb Tool Type",
+            "default": "register_for_group_session"
+          }
+        },
+        "type": "object",
+        "title": "RegisterForGroupSessionParams",
+        "description": "Register a client for a scheduled group session."
+      },
       "RemoveElementsInput": {
         "properties": {
           "node_ids": {
@@ -70932,6 +71055,24 @@
                 "$ref": "#/components/schemas/GetAppointmentByConfirmationNumberParams"
               },
               {
+                "$ref": "#/components/schemas/ListGroupSessionsParams"
+              },
+              {
+                "$ref": "#/components/schemas/ScheduleGroupSessionParams"
+              },
+              {
+                "$ref": "#/components/schemas/RegisterForGroupSessionParams"
+              },
+              {
+                "$ref": "#/components/schemas/CancelGroupSessionRegistrationParams"
+              },
+              {
+                "$ref": "#/components/schemas/UpdateGroupSessionSeatsParams"
+              },
+              {
+                "$ref": "#/components/schemas/CancelGroupSessionForAllParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListCalendarEventsParams"
               },
               {
@@ -71014,6 +71155,8 @@
             "discriminator": {
               "propertyName": "smb_tool_type",
               "mapping": {
+                "cancel_group_session_for_all": "#/components/schemas/CancelGroupSessionForAllParams",
+                "cancel_group_session_registration": "#/components/schemas/CancelGroupSessionRegistrationParams",
                 "check_service_availability": "#/components/schemas/CheckServiceAvailabilityParams",
                 "create_agent_rule": "#/components/schemas/CreateAgentRuleParams",
                 "create_asset": "#/components/schemas/CreateAssetParams",
@@ -71047,11 +71190,14 @@
                 "list_calendar_events": "#/components/schemas/ListCalendarEventsParams",
                 "list_client_interactions": "#/components/schemas/ListClientInteractionsParams",
                 "list_clients": "#/components/schemas/ListClientsParams",
+                "list_group_sessions": "#/components/schemas/ListGroupSessionsParams",
                 "list_holidays": "#/components/schemas/ListHolidaysParams",
                 "list_locations": "#/components/schemas/ListLocationsParams",
                 "list_products": "#/components/schemas/ListProductsParams",
                 "list_services": "#/components/schemas/ListServicesParams",
                 "list_staff": "#/components/schemas/ListStaffParams",
+                "register_for_group_session": "#/components/schemas/RegisterForGroupSessionParams",
+                "schedule_group_session": "#/components/schemas/ScheduleGroupSessionParams",
                 "search_clients": "#/components/schemas/SearchClientsParams",
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
                 "update_agent_rule": "#/components/schemas/UpdateAgentRuleParams",
@@ -71061,6 +71207,7 @@
                 "update_calendar_event": "#/components/schemas/UpdateCalendarEventParams",
                 "update_client": "#/components/schemas/UpdateClientParams",
                 "update_customer_facing_config": "#/components/schemas/UpdateCustomerFacingConfigParams",
+                "update_group_session_seats": "#/components/schemas/UpdateGroupSessionSeatsParams",
                 "update_holiday": "#/components/schemas/UpdateHolidayParams",
                 "update_location": "#/components/schemas/UpdateLocationParams",
                 "update_product": "#/components/schemas/UpdateProductParams",
@@ -71423,6 +71570,19 @@
           "prompt"
         ],
         "title": "SayNodePromptMessage"
+      },
+      "ScheduleGroupSessionParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "schedule_group_session",
+            "title": "Smb Tool Type",
+            "default": "schedule_group_session"
+          }
+        },
+        "type": "object",
+        "title": "ScheduleGroupSessionParams",
+        "description": "Schedule a single instance of a group service.\n\nThe session's duration is derived from the parent service so the assistant\nonly has to pin start time, the (optional) instructor / room, and the\nlocation. Participants register separately via\n``register_for_group_session``."
       },
       "ScopedAnalysisResult": {
         "properties": {
@@ -72166,6 +72326,28 @@
           "tool_mock_config": {
             "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
             "description": "Configuration for which tools to mock and fallback behavior."
+          },
+          "evaluation_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6."
+          },
+          "simulated_user_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model for the simulated user. Defaults to Claude Sonnet 4.6."
           }
         },
         "type": "object",
@@ -78166,6 +78348,19 @@
         ],
         "title": "UpdateEnvironmentVariableRequest"
       },
+      "UpdateGroupSessionSeatsParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "update_group_session_seats",
+            "title": "Smb Tool Type",
+            "default": "update_group_session_seats"
+          }
+        },
+        "type": "object",
+        "title": "UpdateGroupSessionSeatsParams",
+        "description": "Change the seat count of an existing group session registration."
+      },
       "UpdateHolidayParams": {
         "properties": {
           "smb_tool_type": {
@@ -78503,6 +78698,28 @@
           "tool_mock_config": {
             "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
             "description": "Configuration for which tools to mock and fallback behavior."
+          },
+          "evaluation_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6."
+          },
+          "simulated_user_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "LLM model for the simulated user. Defaults to Claude Sonnet 4.6."
           },
           "name": {
             "type": "string",

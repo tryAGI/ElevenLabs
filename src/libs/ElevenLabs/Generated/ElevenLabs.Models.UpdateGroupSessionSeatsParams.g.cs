@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Create a new service (classic, rental, or group) in the system.
+    /// Change the seat count of an existing group session registration.
     /// </summary>
-    public sealed partial class CreateServiceParams
+    public sealed partial class UpdateGroupSessionSeatsParams
     {
         /// <summary>
-        /// Default Value: create_service
+        /// Default Value: update_group_session_seats
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("smb_tool_type")]
         public string? SmbToolType { get; set; }
@@ -21,24 +21,24 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateServiceParams" /> class.
+        /// Initializes a new instance of the <see cref="UpdateGroupSessionSeatsParams" /> class.
         /// </summary>
         /// <param name="smbToolType">
-        /// Default Value: create_service
+        /// Default Value: update_group_session_seats
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public CreateServiceParams(
+        public UpdateGroupSessionSeatsParams(
             string? smbToolType)
         {
             this.SmbToolType = smbToolType;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateServiceParams" /> class.
+        /// Initializes a new instance of the <see cref="UpdateGroupSessionSeatsParams" /> class.
         /// </summary>
-        public CreateServiceParams()
+        public UpdateGroupSessionSeatsParams()
         {
         }
     }

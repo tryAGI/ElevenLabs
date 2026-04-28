@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Create a new service (classic, rental, or group) in the system.
+    /// Cancel a single client's registration for a group session.
     /// </summary>
-    public sealed partial class CreateServiceParams
+    public sealed partial class CancelGroupSessionRegistrationParams
     {
         /// <summary>
-        /// Default Value: create_service
+        /// Default Value: cancel_group_session_registration
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("smb_tool_type")]
         public string? SmbToolType { get; set; }
@@ -21,24 +21,24 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateServiceParams" /> class.
+        /// Initializes a new instance of the <see cref="CancelGroupSessionRegistrationParams" /> class.
         /// </summary>
         /// <param name="smbToolType">
-        /// Default Value: create_service
+        /// Default Value: cancel_group_session_registration
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public CreateServiceParams(
+        public CancelGroupSessionRegistrationParams(
             string? smbToolType)
         {
             this.SmbToolType = smbToolType;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateServiceParams" /> class.
+        /// Initializes a new instance of the <see cref="CancelGroupSessionRegistrationParams" /> class.
         /// </summary>
-        public CreateServiceParams()
+        public CancelGroupSessionRegistrationParams()
         {
         }
     }

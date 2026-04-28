@@ -64,6 +64,18 @@ namespace ElevenLabs
         public global::ElevenLabs.SimulationToolMockBehaviorConfig? ToolMockConfig { get; set; }
 
         /// <summary>
+        /// LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_model")]
+        public global::ElevenLabs.Llm? EvaluationModel { get; set; }
+
+        /// <summary>
+        /// LLM model for the simulated user. Defaults to Claude Sonnet 4.6.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("simulated_user_model")]
+        public global::ElevenLabs.Llm? SimulatedUserModel { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -112,6 +124,12 @@ namespace ElevenLabs
         /// <param name="toolMockConfig">
         /// Configuration for which tools to mock and fallback behavior.
         /// </param>
+        /// <param name="evaluationModel">
+        /// LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6.
+        /// </param>
+        /// <param name="simulatedUserModel">
+        /// LLM model for the simulated user. Defaults to Claude Sonnet 4.6.
+        /// </param>
         /// <param name="parentFolderId">
         /// The ID of the parent folder. If not provided, the test will be created at the root level.
         /// </param>
@@ -129,6 +147,8 @@ namespace ElevenLabs
             int? simulationMaxTurns,
             string? simulationEnvironment,
             global::ElevenLabs.SimulationToolMockBehaviorConfig? toolMockConfig,
+            global::ElevenLabs.Llm? evaluationModel,
+            global::ElevenLabs.Llm? simulatedUserModel,
             string? parentFolderId)
         {
             this.FromConversationMetadata = fromConversationMetadata;
@@ -140,6 +160,8 @@ namespace ElevenLabs
             this.SimulationMaxTurns = simulationMaxTurns;
             this.SimulationEnvironment = simulationEnvironment;
             this.ToolMockConfig = toolMockConfig;
+            this.EvaluationModel = evaluationModel;
+            this.SimulatedUserModel = simulatedUserModel;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ParentFolderId = parentFolderId;
         }

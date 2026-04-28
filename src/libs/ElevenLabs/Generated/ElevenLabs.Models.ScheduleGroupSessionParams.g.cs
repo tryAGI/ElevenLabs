@@ -4,12 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Create a new service (classic, rental, or group) in the system.
+    /// Schedule a single instance of a group service.<br/>
+    /// The session's duration is derived from the parent service so the assistant<br/>
+    /// only has to pin start time, the (optional) instructor / room, and the<br/>
+    /// location. Participants register separately via<br/>
+    /// ``register_for_group_session``.
     /// </summary>
-    public sealed partial class CreateServiceParams
+    public sealed partial class ScheduleGroupSessionParams
     {
         /// <summary>
-        /// Default Value: create_service
+        /// Default Value: schedule_group_session
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("smb_tool_type")]
         public string? SmbToolType { get; set; }
@@ -21,24 +25,24 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateServiceParams" /> class.
+        /// Initializes a new instance of the <see cref="ScheduleGroupSessionParams" /> class.
         /// </summary>
         /// <param name="smbToolType">
-        /// Default Value: create_service
+        /// Default Value: schedule_group_session
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public CreateServiceParams(
+        public ScheduleGroupSessionParams(
             string? smbToolType)
         {
             this.SmbToolType = smbToolType;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateServiceParams" /> class.
+        /// Initializes a new instance of the <see cref="ScheduleGroupSessionParams" /> class.
         /// </summary>
-        public CreateServiceParams()
+        public ScheduleGroupSessionParams()
         {
         }
     }
