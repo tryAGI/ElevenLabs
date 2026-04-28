@@ -24,6 +24,12 @@ namespace ElevenLabs
         public global::ElevenLabs.MusicPrompt? MusicPrompt { get; set; }
 
         /// <summary>
+        /// The lyrics text to use for the generation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("lyrics_text")]
+        public string? LyricsText { get; set; }
+
+        /// <summary>
         /// A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("composition_plan")]
@@ -88,6 +94,9 @@ namespace ElevenLabs
         /// <param name="prompt">
         /// A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
         /// </param>
+        /// <param name="lyricsText">
+        /// The lyrics text to use for the generation.
+        /// </param>
         /// <param name="compositionPlan">
         /// A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`.
         /// </param>
@@ -121,6 +130,7 @@ namespace ElevenLabs
 #endif
         public BodyStreamComposedMusicV1MusicStreamPost(
             string? prompt,
+            string? lyricsText,
             global::ElevenLabs.MusicPrompt? compositionPlan,
             int? musicLengthMs,
             global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPostModelId? modelId,
@@ -131,6 +141,7 @@ namespace ElevenLabs
             bool? storeForInpainting)
         {
             this.Prompt = prompt;
+            this.LyricsText = lyricsText;
             this.CompositionPlan = compositionPlan;
             this.MusicLengthMs = musicLengthMs;
             this.ModelId = modelId;

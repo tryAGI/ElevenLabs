@@ -1501,6 +1501,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.WebhookToolApiSchemaConfigOutputContentTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.WebhookTranscriptFormatJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.WebhookTranscriptFormatNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.WebhookUsageTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.WebhookUsageTypeNullableJsonConverter),
@@ -2346,6 +2350,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AssetTranscriptionStatus), TypeInfoPropertyName = "AssetTranscriptionStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AssetTranscriptionData2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<int>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AssignConversationTagsRequestModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AsyncConversationMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AsyncConversationMetadataDeliveryStatus), TypeInfoPropertyName = "AsyncConversationMetadataDeliveryStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioAnalysis))]
@@ -2743,6 +2748,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConvAIUserSecretDBModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WebhookEventType), TypeInfoPropertyName = "WebhookEventType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WebhookTranscriptFormat), TypeInfoPropertyName = "WebhookTranscriptFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConversationChargingCommonModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LLMCategoryUsage))]

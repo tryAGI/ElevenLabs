@@ -52,7 +52,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             ref string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
-            global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses);
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
+            global::System.Collections.Generic.IList<string>? tagIds);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -79,7 +80,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
-            global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses);
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
+            global::System.Collections.Generic.IList<string>? tagIds);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -165,6 +167,9 @@ namespace ElevenLabs
         /// <param name="excludeStatuses">
         /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
         /// </param>
+        /// <param name="tagIds">
+        /// Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -193,6 +198,7 @@ namespace ElevenLabs
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? tagIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -223,7 +229,8 @@ namespace ElevenLabs
                 conversationInitiationSource: conversationInitiationSource,
                 branchId: ref branchId,
                 topicIds: topicIds,
-                excludeStatuses: excludeStatuses);
+                excludeStatuses: excludeStatuses,
+                tagIds: tagIds);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -274,7 +281,8 @@ namespace ElevenLabs
                                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
                                 .AddOptionalParameter("branch_id", branchId)
                                 .AddOptionalParameter("topic_ids", topicIds?.ToString())
-                                .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString()) 
+                                .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString())
+                                .AddOptionalParameter("tag_ids", tagIds?.ToString()) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -339,7 +347,8 @@ namespace ElevenLabs
                     conversationInitiationSource: conversationInitiationSource,
                     branchId: branchId,
                     topicIds: topicIds,
-                    excludeStatuses: excludeStatuses);
+                    excludeStatuses: excludeStatuses,
+                    tagIds: tagIds);
 
                 return __httpRequest;
             }

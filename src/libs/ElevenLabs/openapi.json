@@ -15370,6 +15370,27 @@
             "description": "Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views."
           },
           {
+            "name": "tag_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.",
+              "title": "Tag Ids"
+            },
+            "description": "Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -16495,6 +16516,146 @@
         "x-fern-sdk-method-name": "search"
       }
     },
+    "/v1/convai/conversations/{conversation_id}/tags": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Assign Conversation Tags",
+        "description": "Assign one or more conversation tags to a conversation. Tags that are already assigned are ignored. Tags must belong to the same workspace.",
+        "operationId": "assign_conversation_tags_route",
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Conversation Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignConversationTagsRequestModel",
+                "description": "Tag ids to assign to the conversation."
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "conversations",
+          "tags"
+        ],
+        "x-fern-sdk-method-name": "assign"
+      }
+    },
+    "/v1/convai/conversations/{conversation_id}/tags/{tag_id}": {
+      "delete": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Unassign Conversation Tag",
+        "description": "Remove a single conversation tag from a conversation.",
+        "operationId": "unassign_conversation_tag_route",
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Conversation Id"
+            }
+          },
+          {
+            "name": "tag_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Tag Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "conversations",
+          "tags"
+        ],
+        "x-fern-sdk-method-name": "unassign"
+      }
+    },
     "/v1/convai/tags": {
       "get": {
         "tags": [
@@ -16578,6 +16739,7 @@
           }
         },
         "x-fern-sdk-group-name": [
+          "conversational_ai",
           "conversations",
           "tags"
         ],
@@ -16644,6 +16806,7 @@
           }
         },
         "x-fern-sdk-group-name": [
+          "conversational_ai",
           "conversations",
           "tags"
         ],
@@ -16710,6 +16873,7 @@
           }
         },
         "x-fern-sdk-group-name": [
+          "conversational_ai",
           "conversations",
           "tags"
         ],
@@ -16785,6 +16949,7 @@
           }
         },
         "x-fern-sdk-group-name": [
+          "conversational_ai",
           "conversations",
           "tags"
         ],
@@ -16842,6 +17007,7 @@
           }
         },
         "x-fern-sdk-group-name": [
+          "conversational_ai",
           "conversations",
           "tags"
         ],
@@ -30757,6 +30923,25 @@
         ],
         "title": "AssetTranscriptionData"
       },
+      "AssignConversationTagsRequestModel": {
+        "properties": {
+          "tag_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Tag Ids",
+            "description": "Tag IDs to add to the conversation. Re-assigning an existing tag is a no-op."
+          }
+        },
+        "type": "object",
+        "required": [
+          "tag_ids"
+        ],
+        "title": "AssignConversationTagsRequestModel"
+      },
       "AsyncConversationMetadata": {
         "properties": {
           "delivery_status": {
@@ -32864,6 +33049,20 @@
             "deprecated": true,
             "x-fern-ignore": true
           },
+          "lyrics_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lyrics Text",
+            "description": "The lyrics text to use for the generation.",
+            "x-fern-ignore": true
+          },
           "composition_plan": {
             "anyOf": [
               {
@@ -33003,6 +33202,20 @@
             ],
             "description": "A music prompt. Deprecated. Use `composition_plan` instead.",
             "deprecated": true,
+            "x-fern-ignore": true
+          },
+          "lyrics_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lyrics Text",
+            "description": "The lyrics text to use for the generation.",
             "x-fern-ignore": true
           },
           "composition_plan": {
@@ -36588,6 +36801,20 @@
             ],
             "description": "A music prompt. Deprecated. Use `composition_plan` instead.",
             "deprecated": true,
+            "x-fern-ignore": true
+          },
+          "lyrics_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lyrics Text",
+            "description": "The lyrics text to use for the generation.",
             "x-fern-ignore": true
           },
           "composition_plan": {
@@ -42106,6 +42333,11 @@
             "type": "array",
             "title": "Events",
             "description": "List of event types to send via webhook. Options: transcript, audio, call_initiation_failure."
+          },
+          "transcript_format": {
+            "$ref": "#/components/schemas/WebhookTranscriptFormat",
+            "description": "Format for transcript webhooks.",
+            "default": "json"
           },
           "send_audio": {
             "anyOf": [
@@ -53687,6 +53919,14 @@
             },
             "type": "array",
             "title": "Transcript"
+          },
+          "tag_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tag Ids",
+            "description": "Conversation tag ids assigned to this conversation."
           }
         },
         "type": "object",
@@ -65378,7 +65618,14 @@
             "title": "Start Time Ms"
           },
           "end_time_ms": {
-            "type": "integer",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "End Time Ms"
           },
           "order": {
@@ -66480,7 +66727,14 @@
             "title": "Start Time Ms"
           },
           "end_time_ms": {
-            "type": "integer",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "End Time Ms"
           },
           "asset_preview_signed_url": {
@@ -69944,6 +70198,17 @@
               }
             ],
             "title": "Rejected Details"
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explanation"
           }
         },
         "type": "object",
@@ -82536,6 +82801,15 @@
           "response_timeout_secs": 20,
           "type": "webhook"
         }
+      },
+      "WebhookTranscriptFormat": {
+        "type": "string",
+        "enum": [
+          "json",
+          "opentelemetry"
+        ],
+        "title": "WebhookTranscriptFormat",
+        "default": "json"
       },
       "WebhookUsageType": {
         "type": "string",

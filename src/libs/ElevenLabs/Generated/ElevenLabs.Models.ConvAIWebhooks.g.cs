@@ -23,6 +23,14 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>? Events { get; set; }
 
         /// <summary>
+        /// Format for transcript webhooks.<br/>
+        /// Default Value: json
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcript_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WebhookTranscriptFormatJsonConverter))]
+        public global::ElevenLabs.WebhookTranscriptFormat? TranscriptFormat { get; set; }
+
+        /// <summary>
         /// DEPRECATED: Use 'events' field instead. Whether to send audio data with post-call webhooks for ConvAI conversations
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("send_audio")]
@@ -42,15 +50,21 @@ namespace ElevenLabs
         /// <param name="events">
         /// List of event types to send via webhook. Options: transcript, audio, call_initiation_failure.
         /// </param>
+        /// <param name="transcriptFormat">
+        /// Format for transcript webhooks.<br/>
+        /// Default Value: json
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConvAIWebhooks(
             string? postCallWebhookId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>? events)
+            global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>? events,
+            global::ElevenLabs.WebhookTranscriptFormat? transcriptFormat)
         {
             this.PostCallWebhookId = postCallWebhookId;
             this.Events = events;
+            this.TranscriptFormat = transcriptFormat;
         }
 
         /// <summary>
