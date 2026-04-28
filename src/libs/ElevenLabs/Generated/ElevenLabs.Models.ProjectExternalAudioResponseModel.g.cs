@@ -53,8 +53,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time_ms")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int EndTimeMs { get; set; }
+        public int? EndTimeMs { get; set; }
 
         /// <summary>
         /// 
@@ -214,7 +213,6 @@ namespace ElevenLabs
         /// <param name="offsetMs"></param>
         /// <param name="durationMs"></param>
         /// <param name="startTimeMs"></param>
-        /// <param name="endTimeMs"></param>
         /// <param name="order"></param>
         /// <param name="trackId"></param>
         /// <param name="createdAtMs"></param>
@@ -222,6 +220,7 @@ namespace ElevenLabs
         /// <param name="pendingBlockIds"></param>
         /// <param name="pendingExternalAudioIds"></param>
         /// <param name="signedUrl"></param>
+        /// <param name="endTimeMs"></param>
         /// <param name="volumeGainDb">
         /// Default Value: 0F
         /// </param>
@@ -262,7 +261,6 @@ namespace ElevenLabs
             int offsetMs,
             int durationMs,
             int startTimeMs,
-            int endTimeMs,
             string order,
             string trackId,
             int createdAtMs,
@@ -270,6 +268,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string> pendingBlockIds,
             global::System.Collections.Generic.IList<string> pendingExternalAudioIds,
             string? signedUrl,
+            int? endTimeMs,
             double? volumeGainDb,
             bool? muted,
             int? fadeInMs,

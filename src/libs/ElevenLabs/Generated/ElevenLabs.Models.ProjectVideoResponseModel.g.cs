@@ -154,8 +154,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time_ms")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int EndTimeMs { get; set; }
+        public int? EndTimeMs { get; set; }
 
         /// <summary>
         /// 
@@ -323,7 +322,6 @@ namespace ElevenLabs
         /// <param name="thumbnailSize"></param>
         /// <param name="thumbnailSheets"></param>
         /// <param name="startTimeMs"></param>
-        /// <param name="endTimeMs"></param>
         /// <param name="pendingBlockIds"></param>
         /// <param name="pendingExternalAudioIds"></param>
         /// <param name="signedUrl"></param>
@@ -335,6 +333,7 @@ namespace ElevenLabs
         /// Default Value: 0
         /// </param>
         /// <param name="error"></param>
+        /// <param name="endTimeMs"></param>
         /// <param name="assetPreviewSignedUrl"></param>
         /// <param name="sourceVideoId"></param>
         /// <param name="sourceAssetId"></param>
@@ -396,7 +395,6 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<int> thumbnailSize,
             global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVideoThumbnailSheetResponseModel> thumbnailSheets,
             int startTimeMs,
-            int endTimeMs,
             global::System.Collections.Generic.IList<string> pendingBlockIds,
             global::System.Collections.Generic.IList<string> pendingExternalAudioIds,
             string? signedUrl,
@@ -404,6 +402,7 @@ namespace ElevenLabs
             int? fadeInMs,
             int? fadeOutMs,
             string? error,
+            int? endTimeMs,
             string? assetPreviewSignedUrl,
             string? sourceVideoId,
             string? sourceAssetId,

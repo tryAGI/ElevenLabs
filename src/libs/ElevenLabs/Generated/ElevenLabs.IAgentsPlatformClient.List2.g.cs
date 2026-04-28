@@ -82,6 +82,9 @@ namespace ElevenLabs
         /// <param name="excludeStatuses">
         /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
         /// </param>
+        /// <param name="tagIds">
+        /// Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -110,6 +113,7 @@ namespace ElevenLabs
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? tagIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

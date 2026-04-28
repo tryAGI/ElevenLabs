@@ -48,6 +48,12 @@ namespace ElevenLabs
         public string? RejectedDetails { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("explanation")]
+        public string? Explanation { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -62,6 +68,7 @@ namespace ElevenLabs
         /// <param name="rejectReasons"></param>
         /// <param name="scoresBreakdown"></param>
         /// <param name="rejectedDetails"></param>
+        /// <param name="explanation"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -71,7 +78,8 @@ namespace ElevenLabs
             string? reviewedBy,
             global::System.Collections.Generic.IList<global::ElevenLabs.ReviewResponseModelRejectReasonsVariant1Item>? rejectReasons,
             global::System.Collections.Generic.Dictionary<string, int>? scoresBreakdown,
-            string? rejectedDetails)
+            string? rejectedDetails,
+            string? explanation)
         {
             this.ReviewStatus = reviewStatus;
             this.ReviewedAtUnix = reviewedAtUnix;
@@ -79,6 +87,7 @@ namespace ElevenLabs
             this.RejectReasons = rejectReasons;
             this.ScoresBreakdown = scoresBreakdown;
             this.RejectedDetails = rejectedDetails;
+            this.Explanation = explanation;
         }
 
         /// <summary>

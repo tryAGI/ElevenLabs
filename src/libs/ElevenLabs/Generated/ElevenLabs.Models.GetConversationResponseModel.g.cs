@@ -114,6 +114,12 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> Transcript { get; set; }
 
         /// <summary>
+        /// Conversation tag ids assigned to this conversation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tag_ids")]
+        public global::System.Collections.Generic.IList<string>? TagIds { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -142,6 +148,9 @@ namespace ElevenLabs
         /// <param name="environment">
         /// Default Value: production
         /// </param>
+        /// <param name="tagIds">
+        /// Conversation tag ids assigned to this conversation.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -161,7 +170,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryAnalysisCommonModel? analysis,
             global::System.Collections.Generic.IList<global::ElevenLabs.VisitedAgentRef>? visitedAgents,
             global::ElevenLabs.ConversationInitiationClientDataRequestOutput? conversationInitiationClientData,
-            string? environment)
+            string? environment,
+            global::System.Collections.Generic.IList<string>? tagIds)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.AgentName = agentName;
@@ -179,6 +189,7 @@ namespace ElevenLabs
             this.HasUserAudio = hasUserAudio;
             this.HasResponseAudio = hasResponseAudio;
             this.Transcript = transcript ?? throw new global::System.ArgumentNullException(nameof(transcript));
+            this.TagIds = tagIds;
         }
 
         /// <summary>

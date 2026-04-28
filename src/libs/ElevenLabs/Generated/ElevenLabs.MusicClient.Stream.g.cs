@@ -438,6 +438,9 @@ namespace ElevenLabs
         /// <param name="prompt">
         /// A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
         /// </param>
+        /// <param name="lyricsText">
+        /// The lyrics text to use for the generation.
+        /// </param>
         /// <param name="compositionPlan">
         /// A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`.
         /// </param>
@@ -472,6 +475,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> StreamAsync(
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? prompt = default,
+            string? lyricsText = default,
             global::ElevenLabs.MusicPrompt? compositionPlan = default,
             int? musicLengthMs = default,
             global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPostModelId? modelId = default,
@@ -486,6 +490,7 @@ namespace ElevenLabs
             var __request = new global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPost
             {
                 Prompt = prompt,
+                LyricsText = lyricsText,
                 CompositionPlan = compositionPlan,
                 MusicLengthMs = musicLengthMs,
                 ModelId = modelId,
