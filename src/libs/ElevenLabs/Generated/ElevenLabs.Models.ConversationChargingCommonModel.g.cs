@@ -63,6 +63,18 @@ namespace ElevenLabs
         public double? FreeLlmDollarsConsumed { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tts_usage")]
+        public global::ElevenLabs.ConversationTTSUsageModel? TtsUsage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("asr_usage")]
+        public global::ElevenLabs.ConversationASRUsageModel? AsrUsage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -88,6 +100,8 @@ namespace ElevenLabs
         /// <param name="freeLlmDollarsConsumed">
         /// Default Value: 0F
         /// </param>
+        /// <param name="ttsUsage"></param>
+        /// <param name="asrUsage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -100,7 +114,9 @@ namespace ElevenLabs
             int? llmCharge,
             int? callCharge,
             double? freeMinutesConsumed,
-            double? freeLlmDollarsConsumed)
+            double? freeLlmDollarsConsumed,
+            global::ElevenLabs.ConversationTTSUsageModel? ttsUsage,
+            global::ElevenLabs.ConversationASRUsageModel? asrUsage)
         {
             this.DevDiscount = devDiscount;
             this.IsBurst = isBurst;
@@ -111,6 +127,8 @@ namespace ElevenLabs
             this.CallCharge = callCharge;
             this.FreeMinutesConsumed = freeMinutesConsumed;
             this.FreeLlmDollarsConsumed = freeLlmDollarsConsumed;
+            this.TtsUsage = ttsUsage;
+            this.AsrUsage = asrUsage;
         }
 
         /// <summary>
