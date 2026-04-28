@@ -1,0 +1,53 @@
+#nullable enable
+
+namespace ElevenLabs.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class CreateOAuth2JWTRequestTokenResponseFieldJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField>
+    {
+        /// <inheritdoc />
+        public override global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseFieldExtensions.ToEnum(stringValue) ?? default;
+                    }
+                    
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            writer.WriteStringValue(global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseFieldExtensions.ToValueString(value));
+        }
+    }
+}

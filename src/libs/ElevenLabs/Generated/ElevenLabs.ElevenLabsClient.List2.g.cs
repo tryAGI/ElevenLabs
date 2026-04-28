@@ -27,13 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareList2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
+            ref string? agentId,
             ref int? pageSize,
             ref string? cursor);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
+            string? agentId,
             int? pageSize,
             string? cursor);
         partial void ProcessList2Response(
@@ -63,7 +63,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestInvocationsPageResponseModel> List2Async(
-            string agentId,
+            string? agentId = default,
             int? pageSize = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -103,7 +103,7 @@ namespace ElevenLabs
                                 path: "/v1/convai/test-invocations",
                                 baseUri: HttpClient.BaseAddress); 
                             __pathBuilder
-                                .AddRequiredParameter("agent_id", agentId)
+                                .AddOptionalParameter("agent_id", agentId)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("cursor", cursor) 
                                 ;
