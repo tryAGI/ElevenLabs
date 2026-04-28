@@ -69,6 +69,13 @@ namespace ElevenLabs
         public string? FinetuneId { get; set; }
 
         /// <summary>
+        /// How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.<br/>
+        /// Default Value: 1F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("finetune_strength")]
+        public double? FinetuneStrength { get; set; }
+
+        /// <summary>
         /// If true, proper names in the prompt will be phonetically spelled in the lyrics for better pronunciation by the music model. The original names will be restored in word timestamps.<br/>
         /// Default Value: false
         /// </summary>
@@ -117,6 +124,10 @@ namespace ElevenLabs
         /// <param name="finetuneId">
         /// The ID of the finetune to use for the generation
         /// </param>
+        /// <param name="finetuneStrength">
+        /// How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.<br/>
+        /// Default Value: 1F
+        /// </param>
         /// <param name="usePhoneticNames">
         /// If true, proper names in the prompt will be phonetically spelled in the lyrics for better pronunciation by the music model. The original names will be restored in word timestamps.<br/>
         /// Default Value: false
@@ -137,6 +148,7 @@ namespace ElevenLabs
             int? seed,
             bool? forceInstrumental,
             string? finetuneId,
+            double? finetuneStrength,
             bool? usePhoneticNames,
             bool? storeForInpainting)
         {
@@ -148,6 +160,7 @@ namespace ElevenLabs
             this.Seed = seed;
             this.ForceInstrumental = forceInstrumental;
             this.FinetuneId = finetuneId;
+            this.FinetuneStrength = finetuneStrength;
             this.UsePhoneticNames = usePhoneticNames;
             this.StoreForInpainting = storeForInpainting;
         }

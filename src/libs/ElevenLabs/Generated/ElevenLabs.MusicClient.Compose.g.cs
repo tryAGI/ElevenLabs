@@ -499,6 +499,10 @@ namespace ElevenLabs
         /// <param name="finetuneId">
         /// The ID of the finetune to use for the generation
         /// </param>
+        /// <param name="finetuneStrength">
+        /// How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.<br/>
+        /// Default Value: 1F
+        /// </param>
         /// <param name="usePhoneticNames">
         /// If true, proper names in the prompt will be phonetically spelled in the lyrics for better pronunciation by the music model. The original names will be restored in word timestamps.<br/>
         /// Default Value: false
@@ -528,6 +532,7 @@ namespace ElevenLabs
             int? seed = default,
             bool? forceInstrumental = default,
             string? finetuneId = default,
+            double? finetuneStrength = default,
             bool? usePhoneticNames = default,
             bool? respectSectionsDurations = default,
             bool? storeForInpainting = default,
@@ -545,6 +550,7 @@ namespace ElevenLabs
                 Seed = seed,
                 ForceInstrumental = forceInstrumental,
                 FinetuneId = finetuneId,
+                FinetuneStrength = finetuneStrength,
                 UsePhoneticNames = usePhoneticNames,
                 RespectSectionsDurations = respectSectionsDurations,
                 StoreForInpainting = storeForInpainting,

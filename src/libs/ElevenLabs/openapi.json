@@ -33131,6 +33131,15 @@
             "description": "The ID of the finetune to use for the generation",
             "x-fern-ignore": true
           },
+          "finetune_strength": {
+            "type": "number",
+            "maximum": 2.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Finetune Strength",
+            "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
+            "default": 1.0,
+            "x-fern-ignore": true
+          },
           "use_phonetic_names": {
             "type": "boolean",
             "title": "Use Phonetic Names",
@@ -33284,6 +33293,15 @@
             ],
             "title": "Finetune Id",
             "description": "The ID of the finetune to use for the generation",
+            "x-fern-ignore": true
+          },
+          "finetune_strength": {
+            "type": "number",
+            "maximum": 2.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Finetune Strength",
+            "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
+            "default": 1.0,
             "x-fern-ignore": true
           },
           "use_phonetic_names": {
@@ -36883,6 +36901,15 @@
             ],
             "title": "Finetune Id",
             "description": "The ID of the finetune to use for the generation",
+            "x-fern-ignore": true
+          },
+          "finetune_strength": {
+            "type": "number",
+            "maximum": 2.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Finetune Strength",
+            "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
+            "default": 1.0,
             "x-fern-ignore": true
           },
           "use_phonetic_names": {
@@ -42384,6 +42411,34 @@
         ],
         "title": "ConvAIWorkspaceStoredSecretConfig"
       },
+      "ConversationASRUsageModel": {
+        "properties": {
+          "asr_model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Asr Model"
+          },
+          "total_transcription_calls": {
+            "type": "integer",
+            "title": "Total Transcription Calls",
+            "default": 0
+          },
+          "total_audio_input_seconds": {
+            "type": "number",
+            "title": "Total Audio Input Seconds",
+            "default": 0.0
+          }
+        },
+        "type": "object",
+        "title": "ConversationASRUsageModel",
+        "description": "Aggregated ASR usage for a conversation (analytics-only, not billing)."
+      },
       "ConversationChargingCommonModel": {
         "properties": {
           "dev_discount": {
@@ -42452,6 +42507,26 @@
             "type": "number",
             "title": "Free Llm Dollars Consumed",
             "default": 0.0
+          },
+          "tts_usage": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationTTSUsageModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "asr_usage": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationASRUsageModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -45695,6 +45770,41 @@
         ],
         "title": "ConversationSummaryResponseModel"
       },
+      "ConversationTTSUsageModel": {
+        "properties": {
+          "primary_tts_model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Primary Tts Model"
+          },
+          "total_audio_output_seconds": {
+            "type": "number",
+            "title": "Total Audio Output Seconds",
+            "default": 0.0
+          },
+          "total_characters": {
+            "type": "integer",
+            "title": "Total Characters",
+            "default": 0
+          },
+          "per_voice_usage": {
+            "items": {
+              "$ref": "#/components/schemas/ConversationVoiceUsageModel"
+            },
+            "type": "array",
+            "title": "Per Voice Usage"
+          }
+        },
+        "type": "object",
+        "title": "ConversationTTSUsageModel",
+        "description": "Aggregated TTS usage for a conversation (analytics-only, not billing)."
+      },
       "ConversationTagResponseModel": {
         "properties": {
           "tag_id": {
@@ -45917,6 +46027,24 @@
           "last_contact_conversation_id"
         ],
         "title": "ConversationUserResponseModel"
+      },
+      "ConversationVoiceUsageModel": {
+        "properties": {
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id"
+          },
+          "audio_output_seconds": {
+            "type": "number",
+            "title": "Audio Output Seconds",
+            "default": 0.0
+          }
+        },
+        "type": "object",
+        "required": [
+          "voice_id"
+        ],
+        "title": "ConversationVoiceUsageModel"
       },
       "ConversationalConfigAPIModel-Input": {
         "properties": {
