@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Net;
 using System.Text;
 
@@ -10,30 +11,35 @@ public partial class Tests
     {
         Uri? capturedUri = null;
         string? capturedPayload = null;
+        var originalCulture = CultureInfo.CurrentCulture;
+        var originalUICulture = CultureInfo.CurrentUICulture;
 
-        using var httpClient = new HttpClient(new StubHttpMessageHandler(
-            request =>
-            {
-                capturedUri = request.RequestUri;
-                capturedPayload = request.Content!.ReadAsStringAsync().GetAwaiter().GetResult();
-                return new HttpResponseMessage(HttpStatusCode.OK)
-                {
-                    Content = new StringContent(
-                        """{"language_code":"eng","language_probability":0.99,"text":"ok","words":[]}""",
-                        Encoding.UTF8,
-                        "application/json"),
-                };
-            }))
-        {
-            BaseAddress = new Uri("https://api.elevenlabs.io"),
-        };
-
-        var client = new SpeechToText2Client(httpClient, disposeHttpClient: false);
-
-        var audioBytes = Encoding.UTF8.GetBytes("fake-audio");
-        // Ignore deserialization result — we're testing request serialization
         try
         {
+            CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("fr-FR");
+            CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("fr-FR");
+
+            using var httpClient = new HttpClient(new StubHttpMessageHandler(
+                request =>
+                {
+                    capturedUri = request.RequestUri;
+                    capturedPayload = request.Content!.ReadAsStringAsync().GetAwaiter().GetResult();
+                    return new HttpResponseMessage(HttpStatusCode.OK)
+                    {
+                        Content = new StringContent(
+                            """{"language_code":"eng","language_probability":0.99,"text":"ok","words":[]}""",
+                            Encoding.UTF8,
+                            "application/json"),
+                    };
+                }))
+            {
+                BaseAddress = new Uri("https://api.elevenlabs.io"),
+            };
+
+            var client = new SpeechToText2Client(httpClient, disposeHttpClient: false);
+
+            var audioBytes = Encoding.UTF8.GetBytes("fake-audio");
+            // Ignore deserialization result — we're testing request serialization
             await client.ConvertAsync(
                 modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV2,
                 file: audioBytes,
@@ -43,11 +49,18 @@ public partial class Tests
                 numSpeakers: 2,
                 timestampsGranularity: BodySpeechToTextV1SpeechToTextPostTimestampsGranularity.Character,
                 diarize: true,
+                diarizationThreshold: 0.22,
+                temperature: 0.5,
                 enableLogging: false);
         }
         catch (InvalidOperationException)
         {
             // AnyOf deserialization may fail for stubbed responses — expected
+        }
+        finally
+        {
+            CultureInfo.CurrentCulture = originalCulture;
+            CultureInfo.CurrentUICulture = originalUICulture;
         }
 
         capturedUri.Should().NotBeNull();
@@ -59,6 +72,15 @@ public partial class Tests
         payload.Should().Contain("eng");
         payload.Should().Contain("sample.wav");
         payload.Should().Contain("fake-audio");
+        payload.Should().Contain("Content-Type: audio/wav");
+        payload.Should().Contain("\r\ntrue\r\n");
+        payload.Should().Contain("\r\nfalse\r\n");
+        payload.Should().Contain("\r\n0.22\r\n");
+        payload.Should().Contain("\r\n0.5\r\n");
+        payload.Should().NotContain("True");
+        payload.Should().NotContain("False");
+        payload.Should().NotContain("0,22");
+        payload.Should().NotContain("0,5");
     }
 
     [TestMethod]
