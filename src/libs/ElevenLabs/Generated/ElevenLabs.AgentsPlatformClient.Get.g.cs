@@ -130,7 +130,7 @@ namespace ElevenLabs
                 PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentIds: agentIds);
+                    agentIds: agentIds!);
 
                 return __httpRequest;
             }

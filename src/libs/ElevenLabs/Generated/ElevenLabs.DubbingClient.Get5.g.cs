@@ -141,9 +141,9 @@ namespace ElevenLabs
                 PrepareGet5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dubbingId: dubbingId,
-                    languageCode: languageCode,
-                    formatType: formatType);
+                    dubbingId: dubbingId!,
+                    languageCode: languageCode!,
+                    formatType: formatType!);
 
                 return __httpRequest;
             }

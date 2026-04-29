@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareUpdate6Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolId: toolId,
+                    toolId: toolId!,
                     request: request);
 
                 return __httpRequest;

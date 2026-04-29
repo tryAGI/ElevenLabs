@@ -127,7 +127,7 @@ namespace ElevenLabs
                 PrepareList12Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    mcpServerId: mcpServerId);
+                    mcpServerId: mcpServerId!);
 
                 return __httpRequest;
             }

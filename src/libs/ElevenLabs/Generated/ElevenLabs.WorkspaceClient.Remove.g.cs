@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareRemoveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    groupId: groupId,
+                    groupId: groupId!,
                     request: request);
 
                 return __httpRequest;

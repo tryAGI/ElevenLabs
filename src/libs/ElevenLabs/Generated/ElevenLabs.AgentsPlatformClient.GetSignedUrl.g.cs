@@ -155,7 +155,7 @@ namespace ElevenLabs
                 PrepareGetSignedUrlRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
+                    agentId: agentId!,
                     includeConversationId: includeConversationId,
                     branchId: branchId,
                     environment: environment);

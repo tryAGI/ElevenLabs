@@ -120,7 +120,7 @@ namespace ElevenLabs
                 PrepareDelete10Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    batchId: batchId);
+                    batchId: batchId!);
 
                 return __httpRequest;
             }

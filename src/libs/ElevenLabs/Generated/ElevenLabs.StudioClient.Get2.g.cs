@@ -134,8 +134,8 @@ namespace ElevenLabs
                 PrepareGet2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectId: projectId,
-                    projectSnapshotId: projectSnapshotId);
+                    projectId: projectId!,
+                    projectSnapshotId: projectSnapshotId!);
 
                 return __httpRequest;
             }

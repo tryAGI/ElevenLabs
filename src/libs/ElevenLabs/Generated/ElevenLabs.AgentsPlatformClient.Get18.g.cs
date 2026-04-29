@@ -125,7 +125,7 @@ namespace ElevenLabs
                 PrepareGet18Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    secretId: secretId);
+                    secretId: secretId!);
 
                 return __httpRequest;
             }

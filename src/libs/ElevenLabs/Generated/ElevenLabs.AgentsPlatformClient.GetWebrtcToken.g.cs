@@ -154,7 +154,7 @@ namespace ElevenLabs
                 PrepareGetWebrtcTokenRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
+                    agentId: agentId!,
                     participantName: participantName,
                     branchId: branchId,
                     environment: environment);

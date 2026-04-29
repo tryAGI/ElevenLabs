@@ -157,30 +157,58 @@ namespace ElevenLabs
             }
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{voiceId}"),
+                                content: new global::System.Net.Http.StringContent(voiceId ?? string.Empty),
                                 name: "\"voice_id\"");
                             if (enableLogging != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{enableLogging}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(enableLogging, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"enable_logging\"");
                             } 
                             if (optimizeStreamingLatency != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{optimizeStreamingLatency}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(optimizeStreamingLatency, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"optimize_streaming_latency\"");
                             } 
                             if (outputFormat != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{outputFormat?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"output_format\"");
                             }
                             var __contentAudio = new global::System.Net.Http.ByteArrayContent(request.Audio ?? global::System.Array.Empty<byte>());
+                            __contentAudio.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                request.Audioname is null
+                                    ? "application/octet-stream"
+                                    : (global::System.IO.Path.GetExtension(request.Audioname) ?? string.Empty).ToLowerInvariant() switch
+                                    {
+                                        ".aac" => "audio/aac",
+                                        ".flac" => "audio/flac",
+                                        ".gif" => "image/gif",
+                                        ".jpeg" => "image/jpeg",
+                                        ".jpg" => "image/jpeg",
+                                        ".json" => "application/json",
+                                        ".m4a" => "audio/mp4",
+                                        ".mp3" => "audio/mpeg",
+                                        ".mp4" => "video/mp4",
+                                        ".mpeg" => "audio/mpeg",
+                                        ".mpga" => "audio/mpeg",
+                                        ".oga" => "audio/ogg",
+                                        ".ogg" => "audio/ogg",
+                                        ".opus" => "audio/ogg",
+                                        ".pdf" => "application/pdf",
+                                        ".png" => "image/png",
+                                        ".txt" => "text/plain",
+                                        ".wav" => "audio/wav",
+                                        ".weba" => "audio/webm",
+                                        ".webm" => "video/webm",
+                                        ".webp" => "image/webp",
+                                        _ => "application/octet-stream",
+                                    });
                             __httpRequestContent.Add(
                                 content: __contentAudio,
                                 name: "\"audio\"",
@@ -193,35 +221,35 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.ModelId}"),
+                                    content: new global::System.Net.Http.StringContent(request.ModelId ?? string.Empty),
                                     name: "\"model_id\"");
                             } 
                             if (request.VoiceSettings != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.VoiceSettings}"),
+                                    content: new global::System.Net.Http.StringContent(request.VoiceSettings ?? string.Empty),
                                     name: "\"voice_settings\"");
                             } 
                             if (request.Seed != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Seed}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.Seed, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"seed\"");
                             } 
                             if (request.RemoveBackgroundNoise != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.RemoveBackgroundNoise}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.RemoveBackgroundNoise, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"remove_background_noise\"");
                             } 
                             if (request.FileFormat != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.FileFormat}"),
+                                    content: new global::System.Net.Http.StringContent(request.FileFormat.ToString() ?? string.Empty),
                                     name: "\"file_format\"");
                             }
                             __httpRequest.Content = __httpRequestContent;
@@ -236,7 +264,7 @@ namespace ElevenLabs
                 PrepareStreamRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    voiceId: voiceId,
+                    voiceId: voiceId!,
                     enableLogging: enableLogging,
                     optimizeStreamingLatency: optimizeStreamingLatency,
                     outputFormat: outputFormat,

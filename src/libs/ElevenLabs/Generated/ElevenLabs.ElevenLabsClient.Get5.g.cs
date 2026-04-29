@@ -127,7 +127,7 @@ namespace ElevenLabs
                 PrepareGet5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    testInvocationId: testInvocationId);
+                    testInvocationId: testInvocationId!);
 
                 return __httpRequest;
             }

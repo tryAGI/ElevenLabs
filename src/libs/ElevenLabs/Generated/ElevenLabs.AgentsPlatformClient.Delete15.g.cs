@@ -137,8 +137,8 @@ namespace ElevenLabs
                 PrepareDelete15Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    branchId: branchId);
+                    agentId: agentId!,
+                    branchId: branchId!);
 
                 return __httpRequest;
             }

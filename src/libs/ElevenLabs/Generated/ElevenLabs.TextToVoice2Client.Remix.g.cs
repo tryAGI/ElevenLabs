@@ -152,7 +152,7 @@ namespace ElevenLabs
                 PrepareRemixRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    voiceId: voiceId,
+                    voiceId: voiceId!,
                     outputFormat: outputFormat,
                     request: request);
 

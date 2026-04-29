@@ -127,7 +127,7 @@ namespace ElevenLabs
                 PrepareGetDocumentRagIndexesRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentationId: documentationId);
+                    documentationId: documentationId!);
 
                 return __httpRequest;
             }

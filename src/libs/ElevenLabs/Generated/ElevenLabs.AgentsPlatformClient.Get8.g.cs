@@ -125,7 +125,7 @@ namespace ElevenLabs
                 PrepareGet8Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    tagId: tagId);
+                    tagId: tagId!);
 
                 return __httpRequest;
             }

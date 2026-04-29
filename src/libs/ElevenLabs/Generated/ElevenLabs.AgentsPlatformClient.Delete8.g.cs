@@ -138,7 +138,7 @@ namespace ElevenLabs
                 PrepareDelete8Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolId: toolId,
+                    toolId: toolId!,
                     force: force);
 
                 return __httpRequest;

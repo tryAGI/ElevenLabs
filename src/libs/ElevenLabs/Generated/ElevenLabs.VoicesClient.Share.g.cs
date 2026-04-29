@@ -148,8 +148,8 @@ namespace ElevenLabs
                 PrepareShareRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    publicUserId: publicUserId,
-                    voiceId: voiceId,
+                    publicUserId: publicUserId!,
+                    voiceId: voiceId!,
                     request: request);
 
                 return __httpRequest;

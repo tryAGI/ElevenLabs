@@ -144,8 +144,8 @@ namespace ElevenLabs
                 PrepareUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    serviceAccountUserId: serviceAccountUserId,
-                    apiKeyId: apiKeyId,
+                    serviceAccountUserId: serviceAccountUserId!,
+                    apiKeyId: apiKeyId!,
                     request: request);
 
                 return __httpRequest;

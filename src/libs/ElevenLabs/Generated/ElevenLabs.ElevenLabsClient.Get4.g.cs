@@ -127,7 +127,7 @@ namespace ElevenLabs
                 PrepareGet4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    testId: testId);
+                    testId: testId!);
 
                 return __httpRequest;
             }

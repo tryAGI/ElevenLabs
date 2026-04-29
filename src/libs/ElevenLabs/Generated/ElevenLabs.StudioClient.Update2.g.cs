@@ -126,19 +126,47 @@ namespace ElevenLabs
             }
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{projectId}"),
+                                content: new global::System.Net.Http.StringContent(projectId ?? string.Empty),
                                 name: "\"project_id\"");
                             if (request.FromUrl != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.FromUrl}"),
+                                    content: new global::System.Net.Http.StringContent(request.FromUrl ?? string.Empty),
                                     name: "\"from_url\"");
                             } 
                             if (request.FromDocument != default)
                             {
 
                                 var __contentFromDocument = new global::System.Net.Http.ByteArrayContent(request.FromDocument ?? global::System.Array.Empty<byte>());
+                                __contentFromDocument.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    request.FromDocumentname is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(request.FromDocumentname) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
                                 __httpRequestContent.Add(
                                     content: __contentFromDocument,
                                     name: "\"from_document\"",
@@ -152,14 +180,14 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.FromContentJson}"),
+                                    content: new global::System.Net.Http.StringContent(request.FromContentJson ?? string.Empty),
                                     name: "\"from_content_json\"");
                             } 
                             if (request.AutoConvert != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.AutoConvert}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AutoConvert, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"auto_convert\"");
                             }
                             __httpRequest.Content = __httpRequestContent;
@@ -174,7 +202,7 @@ namespace ElevenLabs
                 PrepareUpdate2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectId: projectId,
+                    projectId: projectId!,
                     request: request);
 
                 return __httpRequest;

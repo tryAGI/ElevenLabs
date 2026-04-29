@@ -137,8 +137,8 @@ namespace ElevenLabs
                 PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    resourceId: resourceId,
-                    resourceType: resourceType);
+                    resourceId: resourceId!,
+                    resourceType: resourceType!);
 
                 return __httpRequest;
             }

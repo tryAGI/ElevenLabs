@@ -134,8 +134,8 @@ namespace ElevenLabs
                 PrepareGet23Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    branchId: branchId);
+                    agentId: agentId!,
+                    branchId: branchId!);
 
                 return __httpRequest;
             }

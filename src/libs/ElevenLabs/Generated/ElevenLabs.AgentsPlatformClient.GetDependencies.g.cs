@@ -149,8 +149,8 @@ namespace ElevenLabs
                 PrepareGetDependenciesRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    secretId: secretId,
-                    resourceType: resourceType,
+                    secretId: secretId!,
+                    resourceType: resourceType!,
                     pageSize: pageSize,
                     cursor: cursor);
 

@@ -139,7 +139,7 @@ namespace ElevenLabs
                 PrepareUpdate3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    tagId: tagId,
+                    tagId: tagId!,
                     request: request);
 
                 return __httpRequest;

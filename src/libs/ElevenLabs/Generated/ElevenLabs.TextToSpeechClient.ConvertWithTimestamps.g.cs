@@ -177,7 +177,7 @@ namespace ElevenLabs
                 PrepareConvertWithTimestampsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    voiceId: voiceId,
+                    voiceId: voiceId!,
                     enableLogging: enableLogging,
                     optimizeStreamingLatency: optimizeStreamingLatency,
                     outputFormat: outputFormat,

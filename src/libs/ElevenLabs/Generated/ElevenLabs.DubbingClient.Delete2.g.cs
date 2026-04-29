@@ -127,7 +127,7 @@ namespace ElevenLabs
                 PrepareDelete2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dubbingId: dubbingId);
+                    dubbingId: dubbingId!);
 
                 return __httpRequest;
             }

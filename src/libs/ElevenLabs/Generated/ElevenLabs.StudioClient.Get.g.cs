@@ -137,7 +137,7 @@ namespace ElevenLabs
                 PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectId: projectId,
+                    projectId: projectId!,
                     shareId: shareId);
 
                 return __httpRequest;

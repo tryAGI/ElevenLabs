@@ -125,7 +125,7 @@ namespace ElevenLabs
                 PrepareGet24Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    envVarId: envVarId);
+                    envVarId: envVarId!);
 
                 return __httpRequest;
             }

@@ -133,7 +133,7 @@ namespace ElevenLabs
                 PrepareDelete2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    folderId: folderId,
+                    folderId: folderId!,
                     force: force);
 
                 return __httpRequest;

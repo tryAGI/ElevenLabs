@@ -139,7 +139,7 @@ namespace ElevenLabs
                 PrepareUpdate9Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    secretId: secretId,
+                    secretId: secretId!,
                     request: request);
 
                 return __httpRequest;

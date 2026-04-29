@@ -155,7 +155,7 @@ namespace ElevenLabs
                 PrepareSearchRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    textQuery: textQuery,
+                    textQuery: textQuery!,
                     agentId: agentId,
                     pageSize: pageSize,
                     cursor: cursor);

@@ -150,8 +150,8 @@ namespace ElevenLabs
                 PrepareUpdate12Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    mcpServerId: mcpServerId,
-                    toolName: toolName,
+                    mcpServerId: mcpServerId!,
+                    toolName: toolName!,
                     request: request);
 
                 return __httpRequest;

@@ -307,7 +307,7 @@ namespace ElevenLabs
                 PrepareTextSearchRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    textQuery: textQuery,
+                    textQuery: textQuery!,
                     agentId: agentId,
                     callSuccessful: callSuccessful,
                     callStartBeforeUnix: callStartBeforeUnix,

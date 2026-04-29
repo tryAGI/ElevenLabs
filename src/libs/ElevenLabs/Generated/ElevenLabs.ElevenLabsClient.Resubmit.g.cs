@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareResubmitRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    testInvocationId: testInvocationId,
+                    testInvocationId: testInvocationId!,
                     request: request);
 
                 return __httpRequest;

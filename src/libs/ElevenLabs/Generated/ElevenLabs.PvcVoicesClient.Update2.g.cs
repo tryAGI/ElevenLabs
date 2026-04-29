@@ -148,8 +148,8 @@ namespace ElevenLabs
                 PrepareUpdate2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    voiceId: voiceId,
-                    sampleId: sampleId,
+                    voiceId: voiceId!,
+                    sampleId: sampleId!,
                     request: request);
 
                 return __httpRequest;

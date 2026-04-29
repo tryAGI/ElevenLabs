@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareUpdate2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    folderId: folderId,
+                    folderId: folderId!,
                     request: request);
 
                 return __httpRequest;

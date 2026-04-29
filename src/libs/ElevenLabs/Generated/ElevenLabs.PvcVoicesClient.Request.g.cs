@@ -126,11 +126,12 @@ namespace ElevenLabs
             }
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{voiceId}"),
+                                content: new global::System.Net.Http.StringContent(voiceId ?? string.Empty),
                                 name: "\"voice_id\"");
                             for (var __iFiles = 0; __iFiles < request.Files.Count; __iFiles++)
                             {
                                 var __contentFiles = new global::System.Net.Http.ByteArrayContent(request.Files[__iFiles]);
+                            __contentFiles.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
                                 __httpRequestContent.Add(
                                     content: __contentFiles,
                                     name: "\"files\"",
@@ -144,7 +145,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.ExtraText}"),
+                                    content: new global::System.Net.Http.StringContent(request.ExtraText ?? string.Empty),
                                     name: "\"extra_text\"");
                             }
                             __httpRequest.Content = __httpRequestContent;
@@ -159,7 +160,7 @@ namespace ElevenLabs
                 PrepareRequestRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    voiceId: voiceId,
+                    voiceId: voiceId!,
                     request: request);
 
                 return __httpRequest;

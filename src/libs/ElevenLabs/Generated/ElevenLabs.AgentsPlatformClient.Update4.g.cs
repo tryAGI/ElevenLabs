@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareUpdate4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    phoneNumberId: phoneNumberId,
+                    phoneNumberId: phoneNumberId!,
                     request: request);
 
                 return __httpRequest;

@@ -134,8 +134,8 @@ namespace ElevenLabs
                 PrepareDelete13Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    mcpServerId: mcpServerId,
-                    toolName: toolName);
+                    mcpServerId: mcpServerId!,
+                    toolName: toolName!);
 
                 return __httpRequest;
             }

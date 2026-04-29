@@ -134,8 +134,8 @@ namespace ElevenLabs
                 PrepareGet3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dubbingId: dubbingId,
-                    languageCode: languageCode);
+                    dubbingId: dubbingId!,
+                    languageCode: languageCode!);
 
                 return __httpRequest;
             }

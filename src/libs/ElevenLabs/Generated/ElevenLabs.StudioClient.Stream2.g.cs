@@ -150,9 +150,9 @@ namespace ElevenLabs
                 PrepareStream2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectId: projectId,
-                    chapterId: chapterId,
-                    chapterSnapshotId: chapterSnapshotId,
+                    projectId: projectId!,
+                    chapterId: chapterId!,
+                    chapterSnapshotId: chapterSnapshotId!,
                     request: request);
 
                 return __httpRequest;

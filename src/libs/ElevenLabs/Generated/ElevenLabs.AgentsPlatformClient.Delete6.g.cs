@@ -130,8 +130,8 @@ namespace ElevenLabs
                 PrepareDelete6Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    fileId: fileId,
-                    conversationId: conversationId);
+                    fileId: fileId!,
+                    conversationId: conversationId!);
 
                 return __httpRequest;
             }

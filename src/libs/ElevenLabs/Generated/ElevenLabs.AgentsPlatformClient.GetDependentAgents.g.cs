@@ -146,7 +146,7 @@ namespace ElevenLabs
                 PrepareGetDependentAgentsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolId: toolId,
+                    toolId: toolId!,
                     cursor: cursor,
                     pageSize: pageSize);
 
