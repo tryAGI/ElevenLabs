@@ -30,7 +30,11 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeechClient(
+            httpClient: httpClient,
+            authorizations: CreateApiKeyAuthorizations("client-key"),
+            options: null,
+            disposeHttpClient: false);
 
         var result = await client.ConvertAsync(
             voiceId: "voice_123",
@@ -71,7 +75,7 @@ public partial class Tests
             enableLogging: false,
             optimizeStreamingLatency: 4,
             outputFormat: TextToSpeechFullOutputFormat.Pcm24000,
-            xiApiKey: "override-key");
+            requestOptions: CreateApiKeyHeaderOptions("override-key"));
 
         result.Should().BeEquivalentTo(responseBytes, options => options.WithStrictOrdering());
 
@@ -131,12 +135,16 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeechClient(
+            httpClient: httpClient,
+            authorizations: CreateApiKeyAuthorizations("client-key"),
+            options: null,
+            disposeHttpClient: false);
 
         await client.ConvertAsync(
             voiceId: "voice_123",
             text: "hello",
-            xiApiKey: "override-key");
+            requestOptions: CreateApiKeyHeaderOptions("override-key"));
 
         capturedApiKey.Should().Be("override-key");
     }
@@ -156,7 +164,11 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new TextToSpeechClient(httpClient, disposeHttpClient: false);
+        var client = new TextToSpeechClient(
+            httpClient: httpClient,
+            authorizations: CreateApiKeyAuthorizations(),
+            options: null,
+            disposeHttpClient: false);
 
         var act = () => client.ConvertAsync(
             voiceId: "voice_123",

@@ -25,9 +25,13 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new AgentsPlatformClient(httpClient, disposeHttpClient: false);
+        var client = new AgentsPlatformClient(
+            httpClient: httpClient,
+            authorizations: CreateApiKeyAuthorizations(),
+            options: null,
+            disposeHttpClient: false);
 
-        using Stream audio = await client.Get6Async("conversation-id");
+        using Stream audio = await client.Get7Async("conversation-id");
         using var buffer = new MemoryStream();
         await audio.CopyToAsync(buffer);
 
@@ -43,23 +47,23 @@ public partial class Tests
     {
         AssertBinaryStreamReturnType(
             typeof(IAgentsPlatformClient),
-            nameof(IAgentsPlatformClient.Get6Async),
+            nameof(IAgentsPlatformClient.Get7Async),
             typeof(string),
-            typeof(string),
+            typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
         AssertBinaryReturnType(
             typeof(IAudioIsolationClient),
             nameof(IAudioIsolationClient.ConvertAsync),
             typeof(BodyAudioIsolationV1AudioIsolationPost),
-            typeof(string),
+            typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
         AssertBinaryStreamReturnType(
             typeof(IAudioIsolationClient),
             nameof(IAudioIsolationClient.StreamAsync),
             typeof(BodyAudioIsolationStreamV1AudioIsolationStreamPost),
-            typeof(string),
+            typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
         AssertBinaryReturnType(
@@ -67,7 +71,7 @@ public partial class Tests
             nameof(ISamplesClient.GetAsync),
             typeof(string),
             typeof(string),
-            typeof(string),
+            typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
     }
 

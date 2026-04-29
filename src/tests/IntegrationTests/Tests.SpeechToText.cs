@@ -36,7 +36,11 @@ public partial class Tests
                 BaseAddress = new Uri("https://api.elevenlabs.io"),
             };
 
-            var client = new SpeechToText2Client(httpClient, disposeHttpClient: false);
+            var client = new SpeechToText2Client(
+                httpClient: httpClient,
+                authorizations: CreateApiKeyAuthorizations(),
+                options: null,
+                disposeHttpClient: false);
 
             var audioBytes = Encoding.UTF8.GetBytes("fake-audio");
             // Ignore deserialization result — we're testing request serialization
@@ -188,14 +192,17 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new SpeechToText2Client(httpClient, disposeHttpClient: false);
+        var client = new SpeechToText2Client(
+            httpClient: httpClient,
+            authorizations: CreateApiKeyAuthorizations(TestApiKey),
+            options: null,
+            disposeHttpClient: false);
 
         try
         {
             await client.ConvertAsync(
                 modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
-                sourceUrl: "https://example.com/audio.wav",
-                xiApiKey: "test-api-key");
+                sourceUrl: "https://example.com/audio.wav");
         }
         catch (InvalidOperationException)
         {

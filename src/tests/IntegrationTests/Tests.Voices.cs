@@ -42,7 +42,11 @@ public partial class Tests
             BaseAddress = new Uri("https://api.elevenlabs.io"),
         };
 
-        var client = new VoicesClient(httpClient, disposeHttpClient: false);
+        var client = new VoicesClient(
+            httpClient: httpClient,
+            authorizations: CreateApiKeyAuthorizations(),
+            options: null,
+            disposeHttpClient: false);
 
         GetVoicesResponseModel response = await client.GetAllAsync();
 

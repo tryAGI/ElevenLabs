@@ -53,6 +53,10 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 
+  <PropertyGroup Label="AutoSDK Trim" Condition="'$(MSBuildProjectName)' == 'TrimmingCheck'">
+    <NoWarn>$(NoWarn);CA1303</NoWarn>
+  </PropertyGroup>
+
   <PropertyGroup Label="Trimmable" Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">
     <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">true</IsAotCompatible>
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>

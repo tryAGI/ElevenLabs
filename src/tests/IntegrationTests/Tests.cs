@@ -3,6 +3,8 @@ namespace ElevenLabs.IntegrationTests;
 [TestClass]
 public partial class Tests
 {
+    private const string TestApiKey = "test-api-key";
+
     private static ElevenLabsClient GetAuthenticatedClient()
     {
         var apiKey =
@@ -13,5 +15,24 @@ public partial class Tests
         var client = new ElevenLabsClient(apiKey);
 
         return client;
+    }
+
+    private static List<EndPointAuthorization> CreateApiKeyAuthorizations(string apiKey = TestApiKey) =>
+    [
+        new EndPointAuthorization
+        {
+            Type = "ApiKey",
+            SchemeId = "ApikeyXiApiKey",
+            Location = "Header",
+            Name = "xi-api-key",
+            Value = apiKey,
+        },
+    ];
+
+    private static AutoSDKRequestOptions CreateApiKeyHeaderOptions(string apiKey)
+    {
+        var options = new AutoSDKRequestOptions();
+        options.Headers["xi-api-key"] = apiKey;
+        return options;
     }
 }

@@ -5,7 +5,25 @@ set -euo pipefail
 
 dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
-curl --fail --silent --show-error -L https://api.elevenlabs.io/openapi.json | jq . > openapi.json
+curl --fail --silent --show-error -L https://api.elevenlabs.io/openapi.json | jq '
+  # The upstream GenerationNode response spec lists every model-specific parameter
+  # schema in one large anyOf. That generates a huge AnyOf<...> type which trips
+  # Roslyn/System.Text.Json source generation, while the corresponding request
+  # shapes already treat model_parameters as provider-specific JSON.
+  (.components.schemas.GenerationNode.properties.model_parameters) = {
+    "anyOf": [
+      {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      {
+        "type": "null"
+      }
+    ],
+    "title": "Model Parameters",
+    "description": "Model-specific parameters."
+  }
+' > openapi.json
 
 autosdk generate openapi.json \
   --namespace ElevenLabs \
