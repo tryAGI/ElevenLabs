@@ -173,11 +173,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public TemplateAgentClient TemplateAgent { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public TextToDialogueClient TextToDialogue { get; }
 
         /// <summary>
