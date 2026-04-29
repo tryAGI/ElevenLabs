@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareUpdate3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    webhookId: webhookId,
+                    webhookId: webhookId!,
                     request: request);
 
                 return __httpRequest;

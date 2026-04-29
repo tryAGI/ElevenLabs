@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareAddRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    pronunciationDictionaryId: pronunciationDictionaryId,
+                    pronunciationDictionaryId: pronunciationDictionaryId!,
                     request: request);
 
                 return __httpRequest;

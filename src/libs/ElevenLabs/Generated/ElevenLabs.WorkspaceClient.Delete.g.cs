@@ -130,8 +130,8 @@ namespace ElevenLabs
                 PrepareDeleteRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    serviceAccountUserId: serviceAccountUserId,
-                    apiKeyId: apiKeyId);
+                    serviceAccountUserId: serviceAccountUserId!,
+                    apiKeyId: apiKeyId!);
 
                 return __httpRequest;
             }

@@ -127,7 +127,7 @@ namespace ElevenLabs
                 PrepareDeleteRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    voiceId: voiceId);
+                    voiceId: voiceId!);
 
                 return __httpRequest;
             }

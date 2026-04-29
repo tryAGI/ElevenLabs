@@ -158,9 +158,9 @@ namespace ElevenLabs
                 PrepareMergeRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    sourceBranchId: sourceBranchId,
-                    targetBranchId: targetBranchId,
+                    agentId: agentId!,
+                    sourceBranchId: sourceBranchId!,
+                    targetBranchId: targetBranchId!,
                     request: request);
 
                 return __httpRequest;

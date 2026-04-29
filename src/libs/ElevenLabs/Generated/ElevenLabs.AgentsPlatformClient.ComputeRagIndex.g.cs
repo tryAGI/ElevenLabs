@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareComputeRagIndexRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentationId: documentationId,
+                    documentationId: documentationId!,
                     request: request);
 
                 return __httpRequest;

@@ -140,7 +140,7 @@ namespace ElevenLabs
                 PrepareGet2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    voiceId: voiceId,
+                    voiceId: voiceId!,
                     withSettings: withSettings);
 
                 return __httpRequest;

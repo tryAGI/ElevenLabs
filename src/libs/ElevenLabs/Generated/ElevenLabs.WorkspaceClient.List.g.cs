@@ -125,7 +125,7 @@ namespace ElevenLabs
                 PrepareListRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    serviceAccountUserId: serviceAccountUserId);
+                    serviceAccountUserId: serviceAccountUserId!);
 
                 return __httpRequest;
             }

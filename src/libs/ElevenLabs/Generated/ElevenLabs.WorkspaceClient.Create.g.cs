@@ -139,7 +139,7 @@ namespace ElevenLabs
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    serviceAccountUserId: serviceAccountUserId,
+                    serviceAccountUserId: serviceAccountUserId!,
                     request: request);
 
                 return __httpRequest;

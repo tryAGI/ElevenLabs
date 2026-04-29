@@ -134,8 +134,8 @@ namespace ElevenLabs
                 PrepareConvert2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectId: projectId,
-                    chapterId: chapterId);
+                    projectId: projectId!,
+                    chapterId: chapterId!);
 
                 return __httpRequest;
             }

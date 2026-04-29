@@ -148,8 +148,8 @@ namespace ElevenLabs
                 PrepareUpdate14Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    branchId: branchId,
+                    agentId: agentId!,
+                    branchId: branchId!,
                     request: request);
 
                 return __httpRequest;

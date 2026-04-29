@@ -147,7 +147,7 @@ namespace ElevenLabs
                 PrepareList14Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
+                    agentId: agentId!,
                     includeArchived: includeArchived,
                     limit: limit);
 

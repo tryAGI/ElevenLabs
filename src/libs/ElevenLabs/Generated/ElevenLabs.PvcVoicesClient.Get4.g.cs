@@ -141,9 +141,9 @@ namespace ElevenLabs
                 PrepareGet4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    voiceId: voiceId,
-                    sampleId: sampleId,
-                    speakerId: speakerId);
+                    voiceId: voiceId!,
+                    sampleId: sampleId!,
+                    speakerId: speakerId!);
 
                 return __httpRequest;
             }

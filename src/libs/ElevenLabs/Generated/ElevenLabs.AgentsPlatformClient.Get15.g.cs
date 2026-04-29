@@ -186,7 +186,7 @@ namespace ElevenLabs
                 PrepareGet15Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolId: toolId,
+                    toolId: toolId!,
                     cursor: cursor,
                     pageSize: pageSize,
                     isError: isError,

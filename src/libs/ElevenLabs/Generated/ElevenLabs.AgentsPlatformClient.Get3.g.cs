@@ -137,7 +137,7 @@ namespace ElevenLabs
                 PrepareGet3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
+                    agentId: agentId!,
                     conversationSignature: conversationSignature);
 
                 return __httpRequest;

@@ -144,8 +144,8 @@ namespace ElevenLabs
                 PrepareGet13Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentationId: documentationId,
-                    chunkId: chunkId,
+                    documentationId: documentationId!,
+                    chunkId: chunkId!,
                     embeddingModel: embeddingModel);
 
                 return __httpRequest;

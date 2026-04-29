@@ -160,7 +160,7 @@ namespace ElevenLabs
                 PrepareUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
+                    agentId: agentId!,
                     enableVersioningIfNotEnabled: enableVersioningIfNotEnabled,
                     branchId: branchId,
                     request: request);

@@ -125,7 +125,7 @@ namespace ElevenLabs
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    tokenType: tokenType);
+                    tokenType: tokenType!);
 
                 return __httpRequest;
             }

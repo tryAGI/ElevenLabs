@@ -135,16 +135,44 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{enableLogging}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(enableLogging, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"enable_logging\"");
                             }
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{request.ModelId.ToValueString()}"),
+                                content: new global::System.Net.Http.StringContent(request.ModelId.ToValueString()),
                                 name: "\"model_id\"");
                             if (request.File != default)
                             {
 
                                 var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
+                                __contentFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    request.Filename is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(request.Filename) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
                                 __httpRequestContent.Add(
                                     content: __contentFile,
                                     name: "\"file\"",
@@ -158,147 +186,147 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.LanguageCode}"),
+                                    content: new global::System.Net.Http.StringContent(request.LanguageCode ?? string.Empty),
                                     name: "\"language_code\"");
                             } 
                             if (request.TagAudioEvents != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.TagAudioEvents}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.TagAudioEvents, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"tag_audio_events\"");
                             } 
                             if (request.NumSpeakers != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.NumSpeakers}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.NumSpeakers, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"num_speakers\"");
                             } 
                             if (request.TimestampsGranularity != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.TimestampsGranularity?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((request.TimestampsGranularity).HasValue ? (request.TimestampsGranularity).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"timestamps_granularity\"");
                             } 
                             if (request.Diarize != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Diarize}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.Diarize, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"diarize\"");
                             } 
                             if (request.DiarizationThreshold != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.DiarizationThreshold}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.DiarizationThreshold, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"diarization_threshold\"");
                             } 
                             if (request.AdditionalFormats != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.AdditionalFormats, x => x))}]"),
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.AdditionalFormats, x => x.ToString() ?? string.Empty))}]"),
                                     name: "\"additional_formats\"");
                             } 
                             if (request.FileFormat != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.FileFormat?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((request.FileFormat).HasValue ? (request.FileFormat).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"file_format\"");
                             } 
                             if (request.CloudStorageUrl != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.CloudStorageUrl}"),
+                                    content: new global::System.Net.Http.StringContent(request.CloudStorageUrl ?? string.Empty),
                                     name: "\"cloud_storage_url\"");
                             } 
                             if (request.SourceUrl != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.SourceUrl}"),
+                                    content: new global::System.Net.Http.StringContent(request.SourceUrl ?? string.Empty),
                                     name: "\"source_url\"");
                             } 
                             if (request.Webhook != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Webhook}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.Webhook, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"webhook\"");
                             } 
                             if (request.WebhookId != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.WebhookId}"),
+                                    content: new global::System.Net.Http.StringContent(request.WebhookId ?? string.Empty),
                                     name: "\"webhook_id\"");
                             } 
                             if (request.Temperature != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Temperature}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.Temperature, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"temperature\"");
                             } 
                             if (request.Seed != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Seed}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.Seed, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"seed\"");
                             } 
                             if (request.UseMultiChannel != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.UseMultiChannel}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.UseMultiChannel, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"use_multi_channel\"");
                             } 
                             if (request.WebhookMetadata != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.WebhookMetadata?.ToString() ?? string.Empty),
+                                    content: new global::System.Net.Http.StringContent(request.WebhookMetadata.ToString() ?? string.Empty),
                                     name: "\"webhook_metadata\"");
                             } 
                             if (request.EntityDetection != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.EntityDetection?.ToString() ?? string.Empty),
+                                    content: new global::System.Net.Http.StringContent(request.EntityDetection.ToString() ?? string.Empty),
                                     name: "\"entity_detection\"");
                             } 
                             if (request.NoVerbatim != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.NoVerbatim}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.NoVerbatim, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"no_verbatim\"");
                             } 
                             if (request.DetectSpeakerRoles != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.DetectSpeakerRoles}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.DetectSpeakerRoles, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"detect_speaker_roles\"");
                             } 
                             if (request.EntityRedaction != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.EntityRedaction?.ToString() ?? string.Empty),
+                                    content: new global::System.Net.Http.StringContent(request.EntityRedaction.ToString() ?? string.Empty),
                                     name: "\"entity_redaction\"");
                             } 
                             if (request.EntityRedactionMode != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.EntityRedactionMode}"),
+                                    content: new global::System.Net.Http.StringContent(request.EntityRedactionMode ?? string.Empty),
                                     name: "\"entity_redaction_mode\"");
                             } 
                             if (request.Keyterms != default)

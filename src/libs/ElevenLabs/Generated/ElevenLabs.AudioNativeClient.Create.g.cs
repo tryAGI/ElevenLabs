@@ -121,75 +121,103 @@ namespace ElevenLabs
             }
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{request.Name}"),
+                                content: new global::System.Net.Http.StringContent(request.Name ?? string.Empty),
                                 name: "\"name\"");
                             if (request.Image != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Image}"),
+                                    content: new global::System.Net.Http.StringContent(request.Image ?? string.Empty),
                                     name: "\"image\"");
                             } 
                             if (request.Author != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Author}"),
+                                    content: new global::System.Net.Http.StringContent(request.Author ?? string.Empty),
                                     name: "\"author\"");
                             } 
                             if (request.Title != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Title}"),
+                                    content: new global::System.Net.Http.StringContent(request.Title ?? string.Empty),
                                     name: "\"title\"");
                             } 
                             if (request.Small != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Small}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.Small, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"small\"");
                             } 
                             if (request.TextColor != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.TextColor}"),
+                                    content: new global::System.Net.Http.StringContent(request.TextColor ?? string.Empty),
                                     name: "\"text_color\"");
                             } 
                             if (request.BackgroundColor != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.BackgroundColor}"),
+                                    content: new global::System.Net.Http.StringContent(request.BackgroundColor ?? string.Empty),
                                     name: "\"background_color\"");
                             } 
                             if (request.Sessionization != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Sessionization}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.Sessionization, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"sessionization\"");
                             } 
                             if (request.VoiceId != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.VoiceId}"),
+                                    content: new global::System.Net.Http.StringContent(request.VoiceId ?? string.Empty),
                                     name: "\"voice_id\"");
                             } 
                             if (request.ModelId != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.ModelId}"),
+                                    content: new global::System.Net.Http.StringContent(request.ModelId ?? string.Empty),
                                     name: "\"model_id\"");
                             } 
                             if (request.File != default)
                             {
 
                                 var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
+                                __contentFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    request.Filename is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(request.Filename) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
                                 __httpRequestContent.Add(
                                     content: __contentFile,
                                     name: "\"file\"",
@@ -203,14 +231,14 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.AutoConvert}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AutoConvert, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"auto_convert\"");
                             } 
                             if (request.ApplyTextNormalization != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.ApplyTextNormalization}"),
+                                    content: new global::System.Net.Http.StringContent(request.ApplyTextNormalization.ToString() ?? string.Empty),
                                     name: "\"apply_text_normalization\"");
                             } 
                             if (request.PronunciationDictionaryLocators != default)

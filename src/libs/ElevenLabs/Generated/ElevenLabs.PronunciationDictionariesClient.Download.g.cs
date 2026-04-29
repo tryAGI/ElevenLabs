@@ -162,8 +162,8 @@ namespace ElevenLabs
                 PrepareDownloadRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dictionaryId: dictionaryId,
-                    versionId: versionId);
+                    dictionaryId: dictionaryId!,
+                    versionId: versionId!);
 
                 return __httpRequest;
             }

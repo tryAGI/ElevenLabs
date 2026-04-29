@@ -133,12 +133,13 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{outputFormat?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"output_format\"");
                             }
                             for (var __iVideos = 0; __iVideos < request.Videos.Count; __iVideos++)
                             {
                                 var __contentVideos = new global::System.Net.Http.ByteArrayContent(request.Videos[__iVideos]);
+                            __contentVideos.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
                                 __httpRequestContent.Add(
                                     content: __contentVideos,
                                     name: "\"videos\"",
@@ -152,7 +153,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Description}"),
+                                    content: new global::System.Net.Http.StringContent(request.Description ?? string.Empty),
                                     name: "\"description\"");
                             } 
                             if (request.Tags != default)
@@ -166,7 +167,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.SignWithC2pa}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.SignWithC2pa, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"sign_with_c2pa\"");
                             }
                             __httpRequest.Content = __httpRequestContent;

@@ -122,7 +122,7 @@ namespace ElevenLabs
                 PrepareStreamRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    generatedVoiceId: generatedVoiceId);
+                    generatedVoiceId: generatedVoiceId!);
 
                 return __httpRequest;
             }

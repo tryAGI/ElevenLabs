@@ -134,8 +134,8 @@ namespace ElevenLabs
                 PrepareDeleteDocumentRagIndexRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentationId: documentationId,
-                    ragIndexId: ragIndexId);
+                    documentationId: documentationId!,
+                    ragIndexId: ragIndexId!);
 
                 return __httpRequest;
             }

@@ -135,7 +135,7 @@ namespace ElevenLabs
                 PrepareGet12Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentationId: documentationId,
+                    documentationId: documentationId!,
                     agentId: agentId);
 
                 return __httpRequest;

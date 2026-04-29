@@ -125,7 +125,7 @@ namespace ElevenLabs
                 PrepareCancelRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    batchId: batchId);
+                    batchId: batchId!);
 
                 return __httpRequest;
             }

@@ -125,8 +125,8 @@ namespace ElevenLabs
                 PrepareUnassignRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    conversationId: conversationId,
-                    tagId: tagId);
+                    conversationId: conversationId!,
+                    tagId: tagId!);
 
                 return __httpRequest;
             }

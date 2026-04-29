@@ -125,7 +125,7 @@ namespace ElevenLabs
                 PrepareSizeRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId);
+                    agentId: agentId!);
 
                 return __httpRequest;
             }

@@ -119,40 +119,68 @@ namespace ElevenLabs
             }
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{request.Name}"),
+                                content: new global::System.Net.Http.StringContent(request.Name ?? string.Empty),
                                 name: "\"name\"");
                             if (request.DefaultTitleVoiceId != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.DefaultTitleVoiceId}"),
+                                    content: new global::System.Net.Http.StringContent(request.DefaultTitleVoiceId ?? string.Empty),
                                     name: "\"default_title_voice_id\"");
                             } 
                             if (request.DefaultParagraphVoiceId != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.DefaultParagraphVoiceId}"),
+                                    content: new global::System.Net.Http.StringContent(request.DefaultParagraphVoiceId ?? string.Empty),
                                     name: "\"default_paragraph_voice_id\"");
                             } 
                             if (request.DefaultModelId != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.DefaultModelId}"),
+                                    content: new global::System.Net.Http.StringContent(request.DefaultModelId ?? string.Empty),
                                     name: "\"default_model_id\"");
                             } 
                             if (request.FromUrl != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.FromUrl}"),
+                                    content: new global::System.Net.Http.StringContent(request.FromUrl ?? string.Empty),
                                     name: "\"from_url\"");
                             } 
                             if (request.FromDocument != default)
                             {
 
                                 var __contentFromDocument = new global::System.Net.Http.ByteArrayContent(request.FromDocument ?? global::System.Array.Empty<byte>());
+                                __contentFromDocument.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    request.FromDocumentname is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(request.FromDocumentname) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
                                 __httpRequestContent.Add(
                                     content: __contentFromDocument,
                                     name: "\"from_document\"",
@@ -166,35 +194,35 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.FromContentJson}"),
+                                    content: new global::System.Net.Http.StringContent(request.FromContentJson ?? string.Empty),
                                     name: "\"from_content_json\"");
                             } 
                             if (request.QualityPreset != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.QualityPreset?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((request.QualityPreset).HasValue ? (request.QualityPreset).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"quality_preset\"");
                             } 
                             if (request.Title != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Title}"),
+                                    content: new global::System.Net.Http.StringContent(request.Title ?? string.Empty),
                                     name: "\"title\"");
                             } 
                             if (request.Author != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Author}"),
+                                    content: new global::System.Net.Http.StringContent(request.Author ?? string.Empty),
                                     name: "\"author\"");
                             } 
                             if (request.Description != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Description}"),
+                                    content: new global::System.Net.Http.StringContent(request.Description ?? string.Empty),
                                     name: "\"description\"");
                             } 
                             if (request.Genres != default)
@@ -208,56 +236,56 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.TargetAudience}"),
+                                    content: new global::System.Net.Http.StringContent(request.TargetAudience.ToString() ?? string.Empty),
                                     name: "\"target_audience\"");
                             } 
                             if (request.Language != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Language}"),
+                                    content: new global::System.Net.Http.StringContent(request.Language ?? string.Empty),
                                     name: "\"language\"");
                             } 
                             if (request.ContentType != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.ContentType}"),
+                                    content: new global::System.Net.Http.StringContent(request.ContentType ?? string.Empty),
                                     name: "\"content_type\"");
                             } 
                             if (request.OriginalPublicationDate != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.OriginalPublicationDate}"),
+                                    content: new global::System.Net.Http.StringContent(request.OriginalPublicationDate ?? string.Empty),
                                     name: "\"original_publication_date\"");
                             } 
                             if (request.MatureContent != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.MatureContent}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.MatureContent, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"mature_content\"");
                             } 
                             if (request.IsbnNumber != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.IsbnNumber}"),
+                                    content: new global::System.Net.Http.StringContent(request.IsbnNumber ?? string.Empty),
                                     name: "\"isbn_number\"");
                             } 
                             if (request.AcxVolumeNormalization != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.AcxVolumeNormalization}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AcxVolumeNormalization, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"acx_volume_normalization\"");
                             } 
                             if (request.VolumeNormalization != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.VolumeNormalization}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.VolumeNormalization, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"volume_normalization\"");
                             } 
                             if (request.PronunciationDictionaryLocators != default)
@@ -271,42 +299,42 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.CallbackUrl}"),
+                                    content: new global::System.Net.Http.StringContent(request.CallbackUrl ?? string.Empty),
                                     name: "\"callback_url\"");
                             } 
                             if (request.Fiction != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Fiction}"),
+                                    content: new global::System.Net.Http.StringContent(request.Fiction.ToString() ?? string.Empty),
                                     name: "\"fiction\"");
                             } 
                             if (request.ApplyTextNormalization != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.ApplyTextNormalization}"),
+                                    content: new global::System.Net.Http.StringContent(request.ApplyTextNormalization.ToString() ?? string.Empty),
                                     name: "\"apply_text_normalization\"");
                             } 
                             if (request.AutoConvert != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.AutoConvert}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AutoConvert, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"auto_convert\"");
                             } 
                             if (request.AutoAssignVoices != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.AutoAssignVoices}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AutoAssignVoices, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"auto_assign_voices\"");
                             } 
                             if (request.SourceType != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.SourceType}"),
+                                    content: new global::System.Net.Http.StringContent(request.SourceType.ToString() ?? string.Empty),
                                     name: "\"source_type\"");
                             } 
                             if (request.VoiceSettings != default)
@@ -320,7 +348,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.CreatePublishingRead}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.CreatePublishingRead, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"create_publishing_read\"");
                             }
                             __httpRequest.Content = __httpRequestContent;

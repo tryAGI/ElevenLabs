@@ -141,7 +141,7 @@ namespace ElevenLabs
                 PrepareUnshareRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    resourceId: resourceId,
+                    resourceId: resourceId!,
                     request: request);
 
                 return __httpRequest;

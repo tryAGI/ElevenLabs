@@ -127,7 +127,7 @@ namespace ElevenLabs
                 PrepareGet5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    folderId: folderId);
+                    folderId: folderId!);
 
                 return __httpRequest;
             }
