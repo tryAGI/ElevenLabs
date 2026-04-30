@@ -311,6 +311,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Qwen35397bA17b,
+        /// <summary>
+        /// 
+        /// </summary>
+        Qwen3635bA3b,
+        /// <summary>
+        /// 
+        /// </summary>
         WattTool70b,
         /// <summary>
         /// 
@@ -405,6 +413,8 @@ namespace ElevenLabs
                 Llm.GrokBeta => "grok-beta",
                 Llm.Qwen330bA3b => "qwen3-30b-a3b",
                 Llm.Qwen34b => "qwen3-4b",
+                Llm.Qwen35397bA17b => "qwen35-397b-a17b",
+                Llm.Qwen3635bA3b => "qwen36-35b-a3b",
                 Llm.WattTool70b => "watt-tool-70b",
                 Llm.WattTool8b => "watt-tool-8b",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -492,6 +502,8 @@ namespace ElevenLabs
                 "grok-beta" => Llm.GrokBeta,
                 "qwen3-30b-a3b" => Llm.Qwen330bA3b,
                 "qwen3-4b" => Llm.Qwen34b,
+                "qwen35-397b-a17b" => Llm.Qwen35397bA17b,
+                "qwen36-35b-a3b" => Llm.Qwen3635bA3b,
                 "watt-tool-70b" => Llm.WattTool70b,
                 "watt-tool-8b" => Llm.WattTool8b,
                 _ => null,
