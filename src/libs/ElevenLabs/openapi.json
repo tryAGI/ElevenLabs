@@ -21523,6 +21523,24 @@
             }
           },
           {
+            "name": "agent_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter batch calls to a single agent.",
+              "title": "Agent Id"
+            },
+            "description": "Filter batch calls to a single agent."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -48444,6 +48462,11 @@
             "type": "boolean",
             "title": "Can Use Assistant",
             "default": true
+          },
+          "is_voice_changer_on": {
+            "type": "boolean",
+            "title": "Is Voice Changer On",
+            "default": false
           }
         },
         "type": "object",

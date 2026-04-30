@@ -28,12 +28,14 @@ namespace ElevenLabs
         partial void PrepareList10Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? limit,
-            ref string? lastDoc);
+            ref string? lastDoc,
+            ref string? agentId);
         partial void PrepareList10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? limit,
-            string? lastDoc);
+            string? lastDoc,
+            string? agentId);
         partial void ProcessList10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,12 +53,16 @@ namespace ElevenLabs
         /// Default Value: 100
         /// </param>
         /// <param name="lastDoc"></param>
+        /// <param name="agentId">
+        /// Filter batch calls to a single agent.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceBatchCallsResponse> List10Async(
             int? limit = default,
             string? lastDoc = default,
+            string? agentId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -65,7 +71,8 @@ namespace ElevenLabs
             PrepareList10Arguments(
                 httpClient: HttpClient,
                 limit: ref limit,
-                lastDoc: ref lastDoc);
+                lastDoc: ref lastDoc,
+                agentId: ref agentId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -94,7 +101,8 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress); 
                             __pathBuilder
                                 .AddOptionalParameter("limit", limit?.ToString())
-                                .AddOptionalParameter("last_doc", lastDoc) 
+                                .AddOptionalParameter("last_doc", lastDoc)
+                                .AddOptionalParameter("agent_id", agentId) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -137,7 +145,8 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     limit: limit,
-                    lastDoc: lastDoc);
+                    lastDoc: lastDoc,
+                    agentId: agentId);
 
                 return __httpRequest;
             }
