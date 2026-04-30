@@ -4,7 +4,10 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Permanently remove a previously-cancelled calendar event.<br/>
+    /// This delete tool is the irreversible follow-up to cancel_calendar_event.<br/>
+    /// The backend rejects the call (422) if the event hasn't been<br/>
+    /// cancelled yet, so the only safe path is cancel-then-delete.
     /// </summary>
     public sealed partial class DeleteCalendarEventParams
     {

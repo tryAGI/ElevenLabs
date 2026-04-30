@@ -172,6 +172,12 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentDefinitionSource? AgentLastUpdatedFrom { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_rewards")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? VoiceRewards { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -217,6 +223,7 @@ namespace ElevenLabs
         /// <param name="agentLastUpdatedFrom">
         /// Default Value: unknown
         /// </param>
+        /// <param name="voiceRewards"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -246,7 +253,8 @@ namespace ElevenLabs
             global::ElevenLabs.AsyncConversationMetadata? asyncMetadata,
             global::ElevenLabs.WhatsAppConversationInfo? whatsapp,
             global::ElevenLabs.AgentDefinitionSource? agentCreatedFrom,
-            global::ElevenLabs.AgentDefinitionSource? agentLastUpdatedFrom)
+            global::ElevenLabs.AgentDefinitionSource? agentLastUpdatedFrom,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? voiceRewards)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.AcceptedTimeUnixSecs = acceptedTimeUnixSecs;
@@ -274,6 +282,7 @@ namespace ElevenLabs
             this.Whatsapp = whatsapp;
             this.AgentCreatedFrom = agentCreatedFrom;
             this.AgentLastUpdatedFrom = agentLastUpdatedFrom;
+            this.VoiceRewards = voiceRewards;
         }
 
         /// <summary>
