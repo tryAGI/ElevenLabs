@@ -315,6 +315,12 @@ namespace ElevenLabs
         public bool? CanUseAssistant { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_voice_changer_on")]
+        public bool? IsVoiceChangerOn { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -377,6 +383,9 @@ namespace ElevenLabs
         /// <param name="canUseAssistant">
         /// Default Value: true
         /// </param>
+        /// <param name="isVoiceChangerOn">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -430,7 +439,8 @@ namespace ElevenLabs
             global::ElevenLabs.SampleConfigDBModel? sampleConfig,
             global::ElevenLabs.ReviewResponseModel? review,
             string? voiceId,
-            bool? canUseAssistant)
+            bool? canUseAssistant,
+            bool? isVoiceChangerOn)
         {
             this.ReadId = readId ?? throw new global::System.ArgumentNullException(nameof(readId));
             this.CreatedAtUnix = createdAtUnix;
@@ -482,6 +492,7 @@ namespace ElevenLabs
             this.Review = review;
             this.VoiceId = voiceId;
             this.CanUseAssistant = canUseAssistant;
+            this.IsVoiceChangerOn = isVoiceChangerOn;
         }
 
         /// <summary>
