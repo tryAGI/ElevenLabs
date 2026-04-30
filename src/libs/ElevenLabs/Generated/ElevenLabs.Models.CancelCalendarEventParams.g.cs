@@ -6,19 +6,13 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class GetClientAppointmentsParams
+    public sealed partial class CancelCalendarEventParams
     {
         /// <summary>
-        /// Default Value: get_client_appointments
+        /// Default Value: cancel_calendar_event
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("smb_tool_type")]
         public string? SmbToolType { get; set; }
-
-        /// <summary>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("include_cancelled")]
-        public bool? IncludeCancelled { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -27,29 +21,24 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetClientAppointmentsParams" /> class.
+        /// Initializes a new instance of the <see cref="CancelCalendarEventParams" /> class.
         /// </summary>
         /// <param name="smbToolType">
-        /// Default Value: get_client_appointments
-        /// </param>
-        /// <param name="includeCancelled">
-        /// Default Value: false
+        /// Default Value: cancel_calendar_event
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public GetClientAppointmentsParams(
-            string? smbToolType,
-            bool? includeCancelled)
+        public CancelCalendarEventParams(
+            string? smbToolType)
         {
             this.SmbToolType = smbToolType;
-            this.IncludeCancelled = includeCancelled;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetClientAppointmentsParams" /> class.
+        /// Initializes a new instance of the <see cref="CancelCalendarEventParams" /> class.
         /// </summary>
-        public GetClientAppointmentsParams()
+        public CancelCalendarEventParams()
         {
         }
     }

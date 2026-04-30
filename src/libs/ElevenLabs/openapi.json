@@ -39209,6 +39209,18 @@
         "type": "object",
         "title": "BuiltInToolsWorkflowOverride"
       },
+      "CancelCalendarEventParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "cancel_calendar_event",
+            "title": "Smb Tool Type",
+            "default": "cancel_calendar_event"
+          }
+        },
+        "type": "object",
+        "title": "CancelCalendarEventParams"
+      },
       "CancelGroupSessionForAllParams": {
         "properties": {
           "smb_tool_type": {
@@ -42479,6 +42491,13 @@
           "agent_last_updated_from": {
             "$ref": "#/components/schemas/AgentDefinitionSource",
             "default": "unknown"
+          },
+          "voice_rewards": {
+            "items": {
+              "$ref": "#/components/schemas/ConversationVoiceRewardModel"
+            },
+            "type": "array",
+            "title": "Voice Rewards"
           }
         },
         "type": "object",
@@ -45103,6 +45122,24 @@
         ],
         "title": "ConversationUserResponseModel"
       },
+      "ConversationVoiceRewardModel": {
+        "properties": {
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id"
+          },
+          "reward_usd_cents": {
+            "type": "number",
+            "title": "Reward Usd Cents"
+          }
+        },
+        "type": "object",
+        "required": [
+          "voice_id",
+          "reward_usd_cents"
+        ],
+        "title": "ConversationVoiceRewardModel"
+      },
       "ConversationVoiceUsageModel": {
         "properties": {
           "voice_id": {
@@ -45330,6 +45367,7 @@
             "voice_id": "cjVigY5qzO86Huf0OWal"
           },
           "turn": {
+            "interruption_ignore_terms": [],
             "mode": "turn",
             "retranscribe_on_turn_timeout": false,
             "silence_end_call_timeout": -1.0,
@@ -45481,6 +45519,7 @@
             "voice_id": "cjVigY5qzO86Huf0OWal"
           },
           "turn": {
+            "interruption_ignore_terms": [],
             "mode": "turn",
             "retranscribe_on_turn_timeout": false,
             "silence_end_call_timeout": -1.0,
@@ -47159,7 +47198,8 @@
           }
         },
         "type": "object",
-        "title": "DeleteCalendarEventParams"
+        "title": "DeleteCalendarEventParams",
+        "description": "Permanently remove a previously-cancelled calendar event.\n\nThis delete tool is the irreversible follow-up to cancel_calendar_event.\nThe backend rejects the call (422) if the event hasn't been\ncancelled yet, so the only safe path is cancel-then-delete."
       },
       "DeleteChapterResponseModel": {
         "properties": {
@@ -47219,6 +47259,19 @@
         "example": {
           "status": "ok"
         }
+      },
+      "DeleteGroupSessionParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "delete_group_session",
+            "title": "Smb Tool Type",
+            "default": "delete_group_session"
+          }
+        },
+        "type": "object",
+        "title": "DeleteGroupSessionParams",
+        "description": "Permanently remove a previously-cancelled group session.\n\nGroup analogue of ``delete_calendar_event``: cancel\n(``cancel_group_session_for_all``) is the soft, history-preserving step;\nthis tool is the irreversible follow-up that drops the row from Mongo\nand the staff Google Calendar entirely. The backend rejects the call\n(422) if the session hasn't been cancelled yet, so the only safe path\nis cancel-then-delete."
       },
       "DeleteHistoryItemResponse": {
         "properties": {
@@ -51448,6 +51501,11 @@
             "const": "get_client_appointments",
             "title": "Smb Tool Type",
             "default": "get_client_appointments"
+          },
+          "include_cancelled": {
+            "type": "boolean",
+            "title": "Include Cancelled",
+            "default": false
           }
         },
         "type": "object",
@@ -55076,6 +55134,7 @@
           "gpt-5.2",
           "gpt-5.2-chat-latest",
           "gpt-5.4",
+          "gpt-5.5",
           "gpt-5-mini",
           "gpt-5-nano",
           "gpt-3.5-turbo",
@@ -55128,6 +55187,7 @@
           "gpt-5.1-2025-11-13",
           "gpt-5.2-2025-12-11",
           "gpt-5.4-2026-03-05",
+          "gpt-5.5-2026-04-23",
           "gpt-5-mini-2025-08-07",
           "gpt-5-nano-2025-08-07",
           "gpt-4.1-2025-04-14",
@@ -55978,6 +56038,18 @@
           "name": "English"
         }
       },
+      "LeaveMessageParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "leave_message",
+            "title": "Smb Tool Type",
+            "default": "leave_message"
+          }
+        },
+        "type": "object",
+        "title": "LeaveMessageParams"
+      },
       "LibraryVoiceResponseModel": {
         "properties": {
           "public_owner_id": {
@@ -56406,6 +56478,11 @@
             "const": "list_calendar_events",
             "title": "Smb Tool Type",
             "default": "list_calendar_events"
+          },
+          "include_cancelled": {
+            "type": "boolean",
+            "title": "Include Cancelled",
+            "default": false
           }
         },
         "type": "object",
@@ -66002,6 +66079,24 @@
             ],
             "title": "Role",
             "description": "The role of the user making the request"
+          },
+          "anonymous_access_level_override": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "admin",
+                  "editor",
+                  "commenter",
+                  "viewer"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Anonymous Access Level Override",
+            "description": "The access level for anonymous users. If None, the resource is not shared publicly."
           }
         },
         "type": "object",
@@ -66761,10 +66856,16 @@
                 "$ref": "#/components/schemas/CancelGroupSessionForAllParams"
               },
               {
+                "$ref": "#/components/schemas/DeleteGroupSessionParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListCalendarEventsParams"
               },
               {
                 "$ref": "#/components/schemas/UpdateCalendarEventParams"
+              },
+              {
+                "$ref": "#/components/schemas/CancelCalendarEventParams"
               },
               {
                 "$ref": "#/components/schemas/DeleteCalendarEventParams"
@@ -66837,12 +66938,16 @@
               },
               {
                 "$ref": "#/components/schemas/DeleteLocationParams"
+              },
+              {
+                "$ref": "#/components/schemas/LeaveMessageParams"
               }
             ],
             "title": "Params",
             "discriminator": {
               "propertyName": "smb_tool_type",
               "mapping": {
+                "cancel_calendar_event": "#/components/schemas/CancelCalendarEventParams",
                 "cancel_group_session_for_all": "#/components/schemas/CancelGroupSessionForAllParams",
                 "cancel_group_session_registration": "#/components/schemas/CancelGroupSessionRegistrationParams",
                 "check_service_availability": "#/components/schemas/CheckServiceAvailabilityParams",
@@ -66861,6 +66966,7 @@
                 "delete_calendar_event": "#/components/schemas/DeleteCalendarEventParams",
                 "delete_client": "#/components/schemas/DeleteClientParams",
                 "delete_client_interaction": "#/components/schemas/DeleteClientInteractionParams",
+                "delete_group_session": "#/components/schemas/DeleteGroupSessionParams",
                 "delete_holiday": "#/components/schemas/DeleteHolidayParams",
                 "delete_location": "#/components/schemas/DeleteLocationParams",
                 "delete_product": "#/components/schemas/DeleteProductParams",
@@ -66873,6 +66979,7 @@
                 "get_client_appointments": "#/components/schemas/GetClientAppointmentsParams",
                 "get_client_by_phone": "#/components/schemas/GetClientByPhoneParams",
                 "get_schedule": "#/components/schemas/GetScheduleParams",
+                "leave_message": "#/components/schemas/LeaveMessageParams",
                 "list_agent_rules": "#/components/schemas/ListAgentRulesParams",
                 "list_assets": "#/components/schemas/ListAssetsParams",
                 "list_calendar_events": "#/components/schemas/ListCalendarEventsParams",
@@ -72649,6 +72756,7 @@
         "type": "object",
         "title": "TurnConfig",
         "example": {
+          "interruption_ignore_terms": [],
           "mode": "turn",
           "retranscribe_on_turn_timeout": false,
           "silence_end_call_timeout": -1.0,
@@ -72805,6 +72913,7 @@
         "type": "object",
         "title": "TurnConfigWorkflowOverride",
         "example": {
+          "interruption_ignore_terms": [],
           "mode": "turn",
           "retranscribe_on_turn_timeout": false,
           "silence_end_call_timeout": -1.0,
@@ -81954,7 +82063,8 @@
           "content_templates",
           "songs",
           "avatars",
-          "avatar_video_generations"
+          "avatar_video_generations",
+          "resource_collection"
         ],
         "title": "WorkspaceResourceType",
         "description": "Resource types that can be shared in the workspace. The name always need to match the collection names"

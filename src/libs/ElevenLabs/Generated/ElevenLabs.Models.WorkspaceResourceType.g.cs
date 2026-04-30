@@ -135,6 +135,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ResourceCollection,
+        /// <summary>
+        /// 
+        /// </summary>
         ResourceLocators,
         /// <summary>
         /// 
@@ -197,6 +201,7 @@ namespace ElevenLabs
                 WorkspaceResourceType.Dubbing => "dubbing",
                 WorkspaceResourceType.Project => "project",
                 WorkspaceResourceType.PronunciationDictionary => "pronunciation_dictionary",
+                WorkspaceResourceType.ResourceCollection => "resource_collection",
                 WorkspaceResourceType.ResourceLocators => "resource_locators",
                 WorkspaceResourceType.Songs => "songs",
                 WorkspaceResourceType.Voice => "voice",
@@ -243,6 +248,7 @@ namespace ElevenLabs
                 "dubbing" => WorkspaceResourceType.Dubbing,
                 "project" => WorkspaceResourceType.Project,
                 "pronunciation_dictionary" => WorkspaceResourceType.PronunciationDictionary,
+                "resource_collection" => WorkspaceResourceType.ResourceCollection,
                 "resource_locators" => WorkspaceResourceType.ResourceLocators,
                 "songs" => WorkspaceResourceType.Songs,
                 "voice" => WorkspaceResourceType.Voice,

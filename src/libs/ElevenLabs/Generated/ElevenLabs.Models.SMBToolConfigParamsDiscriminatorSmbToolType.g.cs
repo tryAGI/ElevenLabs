@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        CancelCalendarEvent,
+        /// <summary>
+        /// 
+        /// </summary>
         CancelGroupSessionForAll,
         /// <summary>
         /// 
@@ -83,6 +87,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        DeleteGroupSession,
+        /// <summary>
+        /// 
+        /// </summary>
         DeleteHoliday,
         /// <summary>
         /// 
@@ -128,6 +136,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         GetSchedule,
+        /// <summary>
+        /// 
+        /// </summary>
+        LeaveMessage,
         /// <summary>
         /// 
         /// </summary>
@@ -254,6 +266,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                SMBToolConfigParamsDiscriminatorSmbToolType.CancelCalendarEvent => "cancel_calendar_event",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CancelGroupSessionForAll => "cancel_group_session_for_all",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CancelGroupSessionRegistration => "cancel_group_session_registration",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CheckServiceAvailability => "check_service_availability",
@@ -272,6 +285,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteCalendarEvent => "delete_calendar_event",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteClient => "delete_client",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteClientInteraction => "delete_client_interaction",
+                SMBToolConfigParamsDiscriminatorSmbToolType.DeleteGroupSession => "delete_group_session",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteHoliday => "delete_holiday",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteLocation => "delete_location",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteProduct => "delete_product",
@@ -284,6 +298,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetClientAppointments => "get_client_appointments",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetClientByPhone => "get_client_by_phone",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetSchedule => "get_schedule",
+                SMBToolConfigParamsDiscriminatorSmbToolType.LeaveMessage => "leave_message",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentRules => "list_agent_rules",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListAssets => "list_assets",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListCalendarEvents => "list_calendar_events",
@@ -322,6 +337,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "cancel_calendar_event" => SMBToolConfigParamsDiscriminatorSmbToolType.CancelCalendarEvent,
                 "cancel_group_session_for_all" => SMBToolConfigParamsDiscriminatorSmbToolType.CancelGroupSessionForAll,
                 "cancel_group_session_registration" => SMBToolConfigParamsDiscriminatorSmbToolType.CancelGroupSessionRegistration,
                 "check_service_availability" => SMBToolConfigParamsDiscriminatorSmbToolType.CheckServiceAvailability,
@@ -340,6 +356,7 @@ namespace ElevenLabs
                 "delete_calendar_event" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteCalendarEvent,
                 "delete_client" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteClient,
                 "delete_client_interaction" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteClientInteraction,
+                "delete_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteGroupSession,
                 "delete_holiday" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteHoliday,
                 "delete_location" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteLocation,
                 "delete_product" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteProduct,
@@ -352,6 +369,7 @@ namespace ElevenLabs
                 "get_client_appointments" => SMBToolConfigParamsDiscriminatorSmbToolType.GetClientAppointments,
                 "get_client_by_phone" => SMBToolConfigParamsDiscriminatorSmbToolType.GetClientByPhone,
                 "get_schedule" => SMBToolConfigParamsDiscriminatorSmbToolType.GetSchedule,
+                "leave_message" => SMBToolConfigParamsDiscriminatorSmbToolType.LeaveMessage,
                 "list_agent_rules" => SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentRules,
                 "list_assets" => SMBToolConfigParamsDiscriminatorSmbToolType.ListAssets,
                 "list_calendar_events" => SMBToolConfigParamsDiscriminatorSmbToolType.ListCalendarEvents,

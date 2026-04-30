@@ -38,6 +38,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.ResourceAccessInfoRole Role { get; set; }
 
         /// <summary>
+        /// The access level for anonymous users. If None, the resource is not shared publicly.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("anonymous_access_level_override")]
+        public global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride2? AnonymousAccessLevelOverride { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -58,6 +64,9 @@ namespace ElevenLabs
         /// <param name="role">
         /// The role of the user making the request
         /// </param>
+        /// <param name="anonymousAccessLevelOverride">
+        /// The access level for anonymous users. If None, the resource is not shared publicly.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -65,12 +74,14 @@ namespace ElevenLabs
             bool isCreator,
             string creatorName,
             string creatorEmail,
-            global::ElevenLabs.ResourceAccessInfoRole role)
+            global::ElevenLabs.ResourceAccessInfoRole role,
+            global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride2? anonymousAccessLevelOverride)
         {
             this.IsCreator = isCreator;
             this.CreatorName = creatorName ?? throw new global::System.ArgumentNullException(nameof(creatorName));
             this.CreatorEmail = creatorEmail ?? throw new global::System.ArgumentNullException(nameof(creatorEmail));
             this.Role = role;
+            this.AnonymousAccessLevelOverride = anonymousAccessLevelOverride;
         }
 
         /// <summary>
