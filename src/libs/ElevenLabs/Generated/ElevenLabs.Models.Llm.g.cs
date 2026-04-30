@@ -291,6 +291,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gpt54,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt5420260305,
+        /// <summary>
+        /// 
+        /// </summary>
         GptOss120b,
         /// <summary>
         /// 
@@ -308,10 +316,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Qwen34b,
-        /// <summary>
-        /// 
-        /// </summary>
-        Qwen35397bA17b,
         /// <summary>
         /// 
         /// </summary>
@@ -408,12 +412,13 @@ namespace ElevenLabs
                 Llm.Gpt52 => "gpt-5.2",
                 Llm.Gpt5220251211 => "gpt-5.2-2025-12-11",
                 Llm.Gpt52ChatLatest => "gpt-5.2-chat-latest",
+                Llm.Gpt54 => "gpt-5.4",
+                Llm.Gpt5420260305 => "gpt-5.4-2026-03-05",
                 Llm.GptOss120b => "gpt-oss-120b",
                 Llm.GptOss20b => "gpt-oss-20b",
                 Llm.GrokBeta => "grok-beta",
                 Llm.Qwen330bA3b => "qwen3-30b-a3b",
                 Llm.Qwen34b => "qwen3-4b",
-                Llm.Qwen35397bA17b => "qwen35-397b-a17b",
                 Llm.Qwen3635bA3b => "qwen36-35b-a3b",
                 Llm.WattTool70b => "watt-tool-70b",
                 Llm.WattTool8b => "watt-tool-8b",
@@ -497,12 +502,13 @@ namespace ElevenLabs
                 "gpt-5.2" => Llm.Gpt52,
                 "gpt-5.2-2025-12-11" => Llm.Gpt5220251211,
                 "gpt-5.2-chat-latest" => Llm.Gpt52ChatLatest,
+                "gpt-5.4" => Llm.Gpt54,
+                "gpt-5.4-2026-03-05" => Llm.Gpt5420260305,
                 "gpt-oss-120b" => Llm.GptOss120b,
                 "gpt-oss-20b" => Llm.GptOss20b,
                 "grok-beta" => Llm.GrokBeta,
                 "qwen3-30b-a3b" => Llm.Qwen330bA3b,
                 "qwen3-4b" => Llm.Qwen34b,
-                "qwen35-397b-a17b" => Llm.Qwen35397bA17b,
                 "qwen36-35b-a3b" => Llm.Qwen3635bA3b,
                 "watt-tool-70b" => Llm.WattTool70b,
                 "watt-tool-8b" => Llm.WattTool8b,
