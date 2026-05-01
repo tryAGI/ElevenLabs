@@ -41197,6 +41197,26 @@
         "type": "object",
         "title": "ContentThresholdGuardrail"
       },
+      "ContextualUpdateInfo": {
+        "properties": {
+          "context_id": {
+            "type": "string",
+            "title": "Context Id",
+            "description": "Client-supplied identifier grouping related contextual updates."
+          },
+          "is_superseded": {
+            "type": "boolean",
+            "title": "Is Superseded",
+            "description": "True when this contextual update has been replaced by a newer update with the same context_id.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "context_id"
+        ],
+        "title": "ContextualUpdateInfo"
+      },
       "Contributor": {
         "properties": {
           "name": {
@@ -43440,6 +43460,16 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/ConversationHistoryTranscriptFileInputResponseModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "contextual_update_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ContextualUpdateInfo"
               },
               {
                 "type": "null"
