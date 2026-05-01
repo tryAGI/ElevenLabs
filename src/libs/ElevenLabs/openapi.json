@@ -62370,11 +62370,25 @@
             "title": "Filename"
           },
           "signed_url": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Signed Url"
           },
           "thumbnail_signed_url": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Thumbnail Signed Url"
           },
           "type": {
@@ -62466,14 +62480,33 @@
               }
             ],
             "title": "Source Asset Id"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "pending_task": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PendingClipTask"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
         "required": [
           "image_id",
           "filename",
-          "signed_url",
-          "thumbnail_signed_url",
           "file_size_bytes",
           "width",
           "height",
