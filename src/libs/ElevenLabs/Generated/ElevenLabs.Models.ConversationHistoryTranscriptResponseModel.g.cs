@@ -120,6 +120,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? FileInput { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("contextual_update_info")]
+        public global::ElevenLabs.ContextualUpdateInfo? ContextualUpdateInfo { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -148,6 +154,7 @@ namespace ElevenLabs
         /// <param name="sourceEventId"></param>
         /// <param name="usedStaticKbDocumentIds"></param>
         /// <param name="fileInput"></param>
+        /// <param name="contextualUpdateInfo"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -169,7 +176,8 @@ namespace ElevenLabs
             global::ElevenLabs.ChatSourceMedium? sourceMedium,
             int? sourceEventId,
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
-            global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput)
+            global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput,
+            global::ElevenLabs.ContextualUpdateInfo? contextualUpdateInfo)
         {
             this.Role = role;
             this.AgentMetadata = agentMetadata;
@@ -189,6 +197,7 @@ namespace ElevenLabs
             this.SourceEventId = sourceEventId;
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
             this.FileInput = fileInput;
+            this.ContextualUpdateInfo = contextualUpdateInfo;
         }
 
         /// <summary>
