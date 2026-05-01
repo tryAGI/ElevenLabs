@@ -48912,16 +48912,6 @@
           ]
         }
       },
-      "DubbingModel": {
-        "type": "string",
-        "enum": [
-          "dubbing_v1_tts_v3",
-          "dubbing_v2",
-          "dubbing_v3",
-          "dubbing_e2e_v1"
-        ],
-        "title": "DubbingModel"
-      },
       "DubbingRenderResponseModel": {
         "properties": {
           "version": {
@@ -57031,10 +57021,10 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
+            "maximum": 300.0,
             "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 300 seconds (inclusive).",
             "default": 30
           },
           "tool_config_overrides": {
@@ -57191,10 +57181,10 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
+            "maximum": 300.0,
             "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 300 seconds (inclusive).",
             "default": 30
           },
           "tool_config_overrides": {
@@ -57305,7 +57295,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "maximum": 120.0,
+                "maximum": 300.0,
                 "minimum": 5.0
               },
               {
@@ -57597,10 +57587,10 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
+            "maximum": 300.0,
             "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for the MCP tool call to complete. Must be between 5 and 300 seconds (inclusive).",
             "default": 30
           },
           "disable_interruptions": {
@@ -57779,10 +57769,10 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
+            "maximum": 300.0,
             "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for the MCP tool call to complete. Must be between 5 and 300 seconds (inclusive).",
             "default": 30
           },
           "disable_interruptions": {
@@ -58019,7 +58009,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "maximum": 120.0,
+                "maximum": 300.0,
                 "minimum": 5.0
               },
               {
@@ -58172,7 +58162,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "maximum": 120.0,
+                "maximum": 300.0,
                 "minimum": 5.0
               },
               {
@@ -58320,7 +58310,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "maximum": 120.0,
+                "maximum": 300.0,
                 "minimum": 5.0
               },
               {
@@ -58480,7 +58470,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "maximum": 120.0,
+                "maximum": 300.0,
                 "minimum": 5.0
               },
               {
@@ -62197,20 +62187,6 @@
             ],
             "title": "Source Asset Id"
           },
-          "pending_block_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Pending Block Ids"
-          },
-          "pending_external_audio_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Pending External Audio Ids"
-          },
           "pending_blocks_metadata": {
             "anyOf": [
               {
@@ -62349,8 +62325,6 @@
           "track_id",
           "created_at_ms",
           "updated_at_ms",
-          "pending_block_ids",
-          "pending_external_audio_ids",
           "import_speech_progress"
         ],
         "title": "ProjectExternalAudioResponseModel"
@@ -63301,20 +63275,6 @@
               }
             ]
           },
-          "pending_block_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Pending Block Ids"
-          },
-          "pending_external_audio_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Pending External Audio Ids"
-          },
           "speech_imported": {
             "type": "boolean",
             "title": "Speech Imported",
@@ -63449,8 +63409,6 @@
           "thumbnail_sheets",
           "start_time_ms",
           "end_time_ms",
-          "pending_block_ids",
-          "pending_external_audio_ids",
           "preview_job_progress",
           "import_speech_progress"
         ],

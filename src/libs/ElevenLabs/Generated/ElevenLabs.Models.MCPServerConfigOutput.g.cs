@@ -119,7 +119,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ToolExecutionMode? ExecutionMode { get; set; }
 
         /// <summary>
-        /// The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
+        /// The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 300 seconds (inclusive).<br/>
         /// Default Value: 30
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
@@ -192,7 +192,7 @@ namespace ElevenLabs
         /// Default Value: immediate
         /// </param>
         /// <param name="responseTimeoutSecs">
-        /// The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
+        /// The maximum time in seconds to wait for each MCP tool call to complete. Must be between 5 and 300 seconds (inclusive).<br/>
         /// Default Value: 30
         /// </param>
         /// <param name="toolConfigOverrides">
