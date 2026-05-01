@@ -26,15 +26,13 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("signed_url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SignedUrl { get; set; }
+        public string? SignedUrl { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail_signed_url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ThumbnailSignedUrl { get; set; }
+        public string? ThumbnailSignedUrl { get; set; }
 
         /// <summary>
         /// Default Value: image
@@ -142,6 +140,18 @@ namespace ElevenLabs
         public string? SourceAssetId { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public string? Error { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pending_task")]
+        public global::ElevenLabs.PendingClipTask? PendingTask { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -152,8 +162,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="imageId"></param>
         /// <param name="filename"></param>
-        /// <param name="signedUrl"></param>
-        /// <param name="thumbnailSignedUrl"></param>
         /// <param name="fileSizeBytes"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
@@ -165,6 +173,8 @@ namespace ElevenLabs
         /// </param>
         /// <param name="createdAtMs"></param>
         /// <param name="updatedAtMs"></param>
+        /// <param name="signedUrl"></param>
+        /// <param name="thumbnailSignedUrl"></param>
         /// <param name="type">
         /// Default Value: image
         /// </param>
@@ -182,14 +192,14 @@ namespace ElevenLabs
         /// </param>
         /// <param name="currentSnapshotId"></param>
         /// <param name="sourceAssetId"></param>
+        /// <param name="error"></param>
+        /// <param name="pendingTask"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ProjectImageResponseModel(
             string imageId,
             string filename,
-            string signedUrl,
-            string thumbnailSignedUrl,
             long fileSizeBytes,
             int width,
             int height,
@@ -199,18 +209,22 @@ namespace ElevenLabs
             global::ElevenLabs.CanvasPlacement canvasPlacement,
             int createdAtMs,
             int updatedAtMs,
+            string? signedUrl,
+            string? thumbnailSignedUrl,
             string? type,
             string? source,
             string? trackId,
             global::ElevenLabs.ClipAnimation? animation,
             double? opacity,
             string? currentSnapshotId,
-            string? sourceAssetId)
+            string? sourceAssetId,
+            string? error,
+            global::ElevenLabs.PendingClipTask? pendingTask)
         {
             this.ImageId = imageId ?? throw new global::System.ArgumentNullException(nameof(imageId));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
-            this.SignedUrl = signedUrl ?? throw new global::System.ArgumentNullException(nameof(signedUrl));
-            this.ThumbnailSignedUrl = thumbnailSignedUrl ?? throw new global::System.ArgumentNullException(nameof(thumbnailSignedUrl));
+            this.SignedUrl = signedUrl;
+            this.ThumbnailSignedUrl = thumbnailSignedUrl;
             this.Type = type;
             this.Source = source;
             this.FileSizeBytes = fileSizeBytes;
@@ -227,6 +241,8 @@ namespace ElevenLabs
             this.UpdatedAtMs = updatedAtMs;
             this.CurrentSnapshotId = currentSnapshotId;
             this.SourceAssetId = sourceAssetId;
+            this.Error = error;
+            this.PendingTask = pendingTask;
         }
 
         /// <summary>
