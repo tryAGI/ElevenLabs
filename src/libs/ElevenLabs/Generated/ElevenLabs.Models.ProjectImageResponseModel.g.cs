@@ -152,6 +152,12 @@ namespace ElevenLabs
         public global::ElevenLabs.PendingClipTask? PendingTask { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("analysis")]
+        public global::ElevenLabs.ImageAnalysis? Analysis { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -194,6 +200,7 @@ namespace ElevenLabs
         /// <param name="sourceAssetId"></param>
         /// <param name="error"></param>
         /// <param name="pendingTask"></param>
+        /// <param name="analysis"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -219,7 +226,8 @@ namespace ElevenLabs
             string? currentSnapshotId,
             string? sourceAssetId,
             string? error,
-            global::ElevenLabs.PendingClipTask? pendingTask)
+            global::ElevenLabs.PendingClipTask? pendingTask,
+            global::ElevenLabs.ImageAnalysis? analysis)
         {
             this.ImageId = imageId ?? throw new global::System.ArgumentNullException(nameof(imageId));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
@@ -243,6 +251,7 @@ namespace ElevenLabs
             this.SourceAssetId = sourceAssetId;
             this.Error = error;
             this.PendingTask = pendingTask;
+            this.Analysis = analysis;
         }
 
         /// <summary>

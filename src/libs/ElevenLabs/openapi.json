@@ -54626,6 +54626,109 @@
         "title": "Icon",
         "description": "An icon for display in user interfaces."
       },
+      "ImageAnalysis": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "processing",
+              "completed",
+              "failed"
+            ],
+            "title": "Status"
+          },
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageAnalysisResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "updated_at_ms": {
+            "type": "integer",
+            "title": "Updated At Ms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data"
+        ],
+        "title": "ImageAnalysis"
+      },
+      "ImageAnalysisResult": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "content_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Type"
+          },
+          "mood_and_style": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mood And Style"
+          },
+          "composition_notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Composition Notes"
+          },
+          "visible_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Visible Text",
+            "description": "Readable text overlaid or shown in the image, if any."
+          },
+          "subjects": {
+            "items": {
+              "$ref": "#/components/schemas/ImageSubject"
+            },
+            "type": "array",
+            "title": "Subjects"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "description"
+        ],
+        "title": "ImageAnalysisResult"
+      },
       "ImageAvatar": {
         "properties": {
           "type": {
@@ -54644,6 +54747,24 @@
         },
         "type": "object",
         "title": "ImageAvatar"
+      },
+      "ImageSubject": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "description"
+        ],
+        "title": "ImageSubject"
       },
       "InboundSIPTrunkConfigRequestModel": {
         "properties": {
@@ -62496,6 +62617,16 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/PendingClipTask"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "analysis": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageAnalysis"
               },
               {
                 "type": "null"
