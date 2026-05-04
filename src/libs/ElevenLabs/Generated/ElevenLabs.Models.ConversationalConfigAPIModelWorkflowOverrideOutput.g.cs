@@ -30,7 +30,7 @@ namespace ElevenLabs
         /// Configuration for conversational events
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation")]
-        public global::ElevenLabs.ConversationConfigWorkflowOverride? Conversation { get; set; }
+        public global::ElevenLabs.ConversationConfigWorkflowOverrideOutput? Conversation { get; set; }
 
         /// <summary>
         /// Language presets for conversations
@@ -87,7 +87,7 @@ namespace ElevenLabs
             global::ElevenLabs.ASRConversationalConfigWorkflowOverride? asr,
             global::ElevenLabs.TurnConfigWorkflowOverride? turn,
             global::ElevenLabs.TTSConversationalConfigWorkflowOverrideOutput? tts,
-            global::ElevenLabs.ConversationConfigWorkflowOverride? conversation,
+            global::ElevenLabs.ConversationConfigWorkflowOverrideOutput? conversation,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetOutput>? languagePresets,
             global::ElevenLabs.VADConfigWorkflowOverride? vad,
             global::ElevenLabs.AgentConfigAPIModelWorkflowOverrideOutput? agent)

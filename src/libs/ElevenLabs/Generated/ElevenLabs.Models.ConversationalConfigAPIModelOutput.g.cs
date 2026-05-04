@@ -38,7 +38,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>{"client_events":["audio","interruption"],"max_duration_seconds":600}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation")]
-        public global::ElevenLabs.ConversationConfig? Conversation { get; set; }
+        public global::ElevenLabs.ConversationConfigOutput? Conversation { get; set; }
 
         /// <summary>
         /// Language presets for conversations
@@ -105,7 +105,7 @@ namespace ElevenLabs
             global::ElevenLabs.ASRConversationalConfig? asr,
             global::ElevenLabs.TurnConfig? turn,
             global::ElevenLabs.TTSConversationalConfigOutput? tts,
-            global::ElevenLabs.ConversationConfig? conversation,
+            global::ElevenLabs.ConversationConfigOutput? conversation,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetOutput>? languagePresets,
             global::ElevenLabs.VADConfig? vad,
             global::ElevenLabs.AgentConfigAPIModelOutput? agent)
