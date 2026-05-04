@@ -31664,6 +31664,120 @@
         "type": "object",
         "title": "AutoSyncInfo"
       },
+      "BackgroundMusicConfig": {
+        "properties": {
+          "source_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BackgroundMusicSourceType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The type of background music source."
+          },
+          "source_id": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BackgroundMusicPresetId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Identifier for the music source."
+          },
+          "volume": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.01,
+            "title": "Volume",
+            "description": "Volume level for background music (0.01 to 1.0).",
+            "default": 0.6
+          },
+          "crossfade_loop": {
+            "type": "boolean",
+            "title": "Crossfade Loop",
+            "description": "Apply a crossfade at the loop boundary to avoid audible pops when the music loops.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "BackgroundMusicConfig"
+      },
+      "BackgroundMusicConfigWorkflowOverride": {
+        "properties": {
+          "source_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BackgroundMusicSourceType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The type of background music source."
+          },
+          "source_id": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BackgroundMusicPresetId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Identifier for the music source."
+          },
+          "volume": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Volume",
+            "description": "Volume level for background music (0.01 to 1.0)."
+          },
+          "crossfade_loop": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Crossfade Loop",
+            "description": "Apply a crossfade at the loop boundary to avoid audible pops when the music loops."
+          }
+        },
+        "type": "object",
+        "title": "BackgroundMusicConfigWorkflowOverride"
+      },
+      "BackgroundMusicPresetId": {
+        "type": "string",
+        "enum": [
+          "typing",
+          "elevator1",
+          "elevator2",
+          "elevator3",
+          "elevator4"
+        ],
+        "title": "BackgroundMusicPresetId",
+        "description": "Predefined background music preset identifiers."
+      },
+      "BackgroundMusicSourceType": {
+        "type": "string",
+        "enum": [
+          "preset"
+        ],
+        "title": "BackgroundMusicSourceType",
+        "description": "The type of background music source."
+      },
       "BackupLLMDefault": {
         "properties": {
           "preference": {
@@ -41640,7 +41754,66 @@
         "type": "object",
         "title": "ConversationChargingCommonModel"
       },
-      "ConversationConfig": {
+      "ConversationConfig-Input": {
+        "properties": {
+          "text_only": {
+            "type": "boolean",
+            "title": "Text Only",
+            "description": "If enabled audio will not be processed and only text will be used, use to avoid audio pricing.",
+            "default": false,
+            "x-convai-client-override": true
+          },
+          "max_duration_seconds": {
+            "type": "integer",
+            "title": "Max Duration Seconds",
+            "description": "The maximum duration of a conversation in seconds",
+            "default": 600
+          },
+          "client_events": {
+            "items": {
+              "$ref": "#/components/schemas/ClientEvent"
+            },
+            "type": "array",
+            "title": "Client Events",
+            "description": "The events that will be sent to the client"
+          },
+          "file_input": {
+            "$ref": "#/components/schemas/FileInputConfig",
+            "description": "Configuration for file input (image/PDF uploads) during conversations.",
+            "x-convai-client-override": true
+          },
+          "monitoring_enabled": {
+            "type": "boolean",
+            "title": "Monitoring Enabled",
+            "description": "Enable real-time monitoring of conversations via WebSocket",
+            "default": false
+          },
+          "monitoring_events": {
+            "items": {
+              "$ref": "#/components/schemas/ClientEvent"
+            },
+            "type": "array",
+            "title": "Monitoring Events",
+            "description": "The events that will be sent to monitoring connections."
+          },
+          "source_attribution": {
+            "type": "boolean",
+            "title": "Source Attribution",
+            "description": "When enabled and knowledge base content is present, the LLM is instructed to report which sources it used.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "ConversationConfig",
+        "example": {
+          "client_events": [
+            "audio",
+            "interruption"
+          ],
+          "max_duration_seconds": 600
+        }
+      },
+      "ConversationConfig-Output": {
         "properties": {
           "text_only": {
             "type": "boolean",
@@ -41920,7 +42093,111 @@
         "type": "object",
         "title": "ConversationConfigOverrideConfig"
       },
-      "ConversationConfigWorkflowOverride": {
+      "ConversationConfigWorkflowOverride-Input": {
+        "properties": {
+          "text_only": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text Only",
+            "description": "If enabled audio will not be processed and only text will be used, use to avoid audio pricing.",
+            "x-convai-client-override": true
+          },
+          "max_duration_seconds": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Duration Seconds",
+            "description": "The maximum duration of a conversation in seconds"
+          },
+          "client_events": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ClientEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Client Events",
+            "description": "The events that will be sent to the client"
+          },
+          "file_input": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FileInputConfigWorkflowOverride"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for file input (image/PDF uploads) during conversations.",
+            "x-convai-client-override": true
+          },
+          "monitoring_enabled": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Monitoring Enabled",
+            "description": "Enable real-time monitoring of conversations via WebSocket"
+          },
+          "monitoring_events": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ClientEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Monitoring Events",
+            "description": "The events that will be sent to monitoring connections."
+          },
+          "source_attribution": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Attribution",
+            "description": "When enabled and knowledge base content is present, the LLM is instructed to report which sources it used."
+          }
+        },
+        "type": "object",
+        "title": "ConversationConfigWorkflowOverride",
+        "example": {
+          "client_events": [
+            "audio",
+            "interruption"
+          ],
+          "max_duration_seconds": 600
+        }
+      },
+      "ConversationConfigWorkflowOverride-Output": {
         "properties": {
           "text_only": {
             "anyOf": [
@@ -45204,7 +45481,7 @@
             "description": "Configuration for conversational text to speech"
           },
           "conversation": {
-            "$ref": "#/components/schemas/ConversationConfig",
+            "$ref": "#/components/schemas/ConversationConfig-Input",
             "description": "Configuration for conversational events"
           },
           "language_presets": {
@@ -45242,7 +45519,7 @@
             "description": "Configuration for conversational text to speech"
           },
           "conversation": {
-            "$ref": "#/components/schemas/ConversationConfig",
+            "$ref": "#/components/schemas/ConversationConfig-Output",
             "description": "Configuration for conversational events"
           },
           "language_presets": {
@@ -45303,7 +45580,7 @@
           "conversation": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ConversationConfigWorkflowOverride"
+                "$ref": "#/components/schemas/ConversationConfigWorkflowOverride-Input"
               },
               {
                 "type": "null"
@@ -45455,7 +45732,7 @@
           "conversation": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ConversationConfigWorkflowOverride"
+                "$ref": "#/components/schemas/ConversationConfigWorkflowOverride-Output"
               },
               {
                 "type": "null"
@@ -68941,6 +69218,38 @@
           "version"
         ],
         "title": "SpeakerUpdatedResponse"
+      },
+      "SpeechEngineConfig": {
+        "properties": {
+          "ws_url": {
+            "type": "string",
+            "title": "Ws Url",
+            "description": "The WebSocket URL for the transcript server"
+          },
+          "request_headers": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/components/schemas/ConvAISecretLocator"
+                },
+                {
+                  "$ref": "#/components/schemas/ConvAIDynamicVariable"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Request Headers",
+            "description": "Headers to include in the WebSocket connection request"
+          }
+        },
+        "type": "object",
+        "required": [
+          "ws_url"
+        ],
+        "title": "SpeechEngineConfig"
       },
       "SpeechHistoryItemResponseModel": {
         "properties": {
