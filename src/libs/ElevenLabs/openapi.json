@@ -2413,9 +2413,10 @@
         "tags": [
           "text-to-voice"
         ],
-        "summary": "Generate A Voice Preview From Description",
-        "description": "Generate a custom voice based on voice description. This method returns a list of voice previews. Each preview has a generated_voice_id and a sample of the voice as base64 encoded mp3 audio. If you like the a voice previewand want to create the voice call /v1/text-to-voice/create-voice-from-preview with the generated_voice_id to create the voice.",
+        "summary": "[Deprecated] Generate A Voice Preview From Description",
+        "description": "**Deprecated.** Use `POST /v1/text-to-voice/design` instead. Generate a custom voice based on voice description. This method returns a list of voice previews. Each preview has a generated_voice_id and a sample of the voice as base64 encoded mp3 audio. To create the voice use `POST /v1/text-to-voice` with the chosen `generated_voice_id`.",
         "operationId": "text_to_voice",
+        "deprecated": true,
         "parameters": [
           {
             "name": "output_format",
@@ -33857,7 +33858,7 @@
           "generated_voice_id": {
             "type": "string",
             "title": "Generated Voice Id",
-            "description": "The generated_voice_id to create, call POST /v1/text-to-voice/create-previews and fetch the generated_voice_id from the response header if don't have one yet.",
+            "description": "The generated_voice_id to create; obtain it from POST /v1/text-to-voice/design, POST /v1/text-to-voice/:voice_id/remix, or the response headers when generating previews.",
             "examples": [
               "37HceQefKmEi3bGovXjL"
             ]
