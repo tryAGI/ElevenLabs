@@ -62,6 +62,12 @@ namespace ElevenLabs
         public string? ScimExternalId { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_scim_synced")]
+        public bool? IsScimSynced { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -78,6 +84,9 @@ namespace ElevenLabs
         /// <param name="groupPvcLimit"></param>
         /// <param name="characterCount"></param>
         /// <param name="scimExternalId"></param>
+        /// <param name="isScimSynced">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -89,7 +98,8 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<int?, string, object>? groupUsageLimit,
             global::ElevenLabs.AnyOf<int?, string, object>? groupPvcLimit,
             int? characterCount,
-            string? scimExternalId)
+            string? scimExternalId,
+            bool? isScimSynced)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -99,6 +109,7 @@ namespace ElevenLabs
             this.GroupPvcLimit = groupPvcLimit;
             this.CharacterCount = characterCount;
             this.ScimExternalId = scimExternalId;
+            this.IsScimSynced = isScimSynced;
         }
 
         /// <summary>

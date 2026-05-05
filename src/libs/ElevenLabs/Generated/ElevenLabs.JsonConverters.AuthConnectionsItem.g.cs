@@ -77,6 +77,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse)}");
                 apiIntegrationOauth2AuthCode = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? apiIntegrationOauth2CustomApp = default;
+            if (discriminator?.AuthType == global::ElevenLabs.ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.ApiIntegrationOauth2CustomApp)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse)}");
+                apiIntegrationOauth2CustomApp = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.WhatsAppAuthResponse? whatsappAuth = default;
             if (discriminator?.AuthType == global::ElevenLabs.ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.WhatsappAuth)
             {
@@ -102,6 +109,8 @@ namespace ElevenLabs.JsonConverters
                 customHeaderAuth,
 
                 apiIntegrationOauth2AuthCode,
+
+                apiIntegrationOauth2CustomApp,
 
                 whatsappAuth
                 );
@@ -165,6 +174,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.ApiIntegrationOauth2AuthCode!, typeInfo);
+            }
+            else if (value.IsApiIntegrationOauth2CustomApp)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ApiIntegrationOauth2CustomApp!, typeInfo);
             }
             else if (value.IsWhatsappAuth)
             {
