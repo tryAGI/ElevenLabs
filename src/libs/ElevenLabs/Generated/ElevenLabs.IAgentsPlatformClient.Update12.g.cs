@@ -37,6 +37,27 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// Name of the MCP tool to update config overrides for.
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>> Update12AsResponseAsync(
+            string mcpServerId,
+            string toolName,
+
+            global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Mcp Tool Configuration Override<br/>
+        /// Update configuration overrides for a specific MCP tool.
+        /// </summary>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to update config overrides for.
+        /// </param>
         /// <param name="preToolSpeech">
         /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>

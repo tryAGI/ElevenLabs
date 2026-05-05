@@ -90,6 +90,13 @@ namespace ElevenLabs
         public required global::ElevenLabs.LivekitStackType LivekitStack { get; set; } = global::ElevenLabs.LivekitStackType.Standard;
 
         /// <summary>
+        /// Whether to store SIP messages for this phone number.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("store_sip_messages")]
+        public bool? StoreSipMessages { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -124,6 +131,10 @@ namespace ElevenLabs
         /// <param name="inboundTrunk">
         /// Configuration of the Inbound SIP trunk - if configured.
         /// </param>
+        /// <param name="storeSipMessages">
+        /// Whether to store SIP messages for this phone number.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -135,7 +146,8 @@ namespace ElevenLabs
             global::ElevenLabs.PhoneNumberAgentInfo? assignedAgent,
             string? provider,
             global::ElevenLabs.GetPhoneNumberOutboundSIPTrunkConfigResponseModel? outboundTrunk,
-            global::ElevenLabs.GetPhoneNumberInboundSIPTrunkConfigResponseModel? inboundTrunk)
+            global::ElevenLabs.GetPhoneNumberInboundSIPTrunkConfigResponseModel? inboundTrunk,
+            bool? storeSipMessages)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
@@ -145,6 +157,7 @@ namespace ElevenLabs
             this.OutboundTrunk = outboundTrunk;
             this.InboundTrunk = inboundTrunk;
             this.LivekitStack = livekitStack;
+            this.StoreSipMessages = storeSipMessages;
         }
 
         /// <summary>

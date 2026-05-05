@@ -48,6 +48,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_id")]
+        public string? CallId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_sid")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string CallSid { get; set; }
@@ -74,6 +80,7 @@ namespace ElevenLabs
         /// <param name="agentNumber"></param>
         /// <param name="externalNumber"></param>
         /// <param name="callSid"></param>
+        /// <param name="callId"></param>
         /// <param name="sipHeaderDynamicVariables"></param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
@@ -85,6 +92,7 @@ namespace ElevenLabs
             string agentNumber,
             string externalNumber,
             string callSid,
+            string? callId,
             global::System.Collections.Generic.Dictionary<string, string>? sipHeaderDynamicVariables,
             string type = "sip_trunking")
         {
@@ -93,6 +101,7 @@ namespace ElevenLabs
             this.AgentNumber = agentNumber ?? throw new global::System.ArgumentNullException(nameof(agentNumber));
             this.ExternalNumber = externalNumber ?? throw new global::System.ArgumentNullException(nameof(externalNumber));
             this.Type = type;
+            this.CallId = callId;
             this.CallSid = callSid ?? throw new global::System.ArgumentNullException(nameof(callSid));
             this.SipHeaderDynamicVariables = sipHeaderDynamicVariables;
         }

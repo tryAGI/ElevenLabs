@@ -41,8 +41,14 @@ namespace ElevenLabs.Realtime
                     }
                     catch (global::System.Net.WebSockets.WebSocketException exception)
                     {
+                        RaiseException(exception);
                         var rethrow = false;
                         OnReceiveException(exception, ref rethrow);
+                        if (await TryReconnectAsync(exception, cancellationToken).ConfigureAwait(false))
+                        {
+                            continue;
+                        }
+
                         if (rethrow)
                         {
                             throw;
@@ -52,6 +58,11 @@ namespace ElevenLabs.Realtime
                     }
                     catch (global::System.OperationCanceledException exception)
                     {
+                        if (!cancellationToken.IsCancellationRequested)
+                        {
+                            RaiseException(exception);
+                        }
+
                         var rethrow = false;
                         OnReceiveException(exception, ref rethrow);
                         if (rethrow)
@@ -64,6 +75,7 @@ namespace ElevenLabs.Realtime
 
                     if (result.MessageType == global::System.Net.WebSockets.WebSocketMessageType.Close)
                     {
+                        RaiseClosed(result.CloseStatus, result.CloseStatusDescription);
                         await _clientWebSocket.CloseAsync(
                             closeStatus: global::System.Net.WebSockets.WebSocketCloseStatus.NormalClosure,
                             statusDescription: "Closing",
@@ -93,9 +105,113 @@ namespace ElevenLabs.Realtime
                 }
 
                 string json = global::System.Text.Encoding.UTF8.GetString(__messageBuffer.ToArray());
-                    var @event = (global::ElevenLabs.Realtime.ServerEvent)global::System.Text.Json.JsonSerializer.Deserialize(json, typeof(global::ElevenLabs.Realtime.ServerEvent), JsonSerializerContext)!;
+                    global::ElevenLabs.Realtime.ServerEvent @event;
+                    try
+                    {
+                        @event = (global::ElevenLabs.Realtime.ServerEvent)global::System.Text.Json.JsonSerializer.Deserialize(json, typeof(global::ElevenLabs.Realtime.ServerEvent), JsonSerializerContext)!;
+                    }
+                    catch (global::System.Exception exception) when (
+                        exception is global::System.Text.Json.JsonException ||
+                        exception is global::System.NotSupportedException ||
+                        exception is global::System.InvalidOperationException)
+                    {
+                        var rethrow = false;
+                        OnReceiveException(exception, ref rethrow);
+                        DispatchUnknownMessage(json);
+                        if (rethrow)
+                        {
+                            throw;
+                        }
 
+                        continue;
+                    }
+
+                    DispatchReceivedMessage(@event, json);
                     yield return @event;
+            }
+        }
+
+
+        private static global::System.Text.Json.JsonElement? TryParseMessageJson(
+            string rawText)
+        {
+            try
+            {
+                using var document = global::System.Text.Json.JsonDocument.Parse(rawText);
+                return document.RootElement.Clone();
+            }
+            catch (global::System.Text.Json.JsonException)
+            {
+                return null;
+            }
+        }
+
+        private void DispatchUnknownMessage(
+            string rawText)
+        {
+            UnknownMessage?.Invoke(
+                this,
+                new AutoSDKWebSocketUnknownMessageEventArgs(
+                    rawText,
+                    TryParseMessageJson(rawText)));
+        }
+
+        private void DispatchReceivedMessage(
+            global::ElevenLabs.Realtime.ServerEvent @event,
+            string rawText)
+        {
+            var json = TryParseMessageJson(rawText);
+            MessageReceived?.Invoke(
+                this,
+                new AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.Realtime.ServerEvent>(
+                    @event,
+                    rawText,
+                    json));
+
+            if (@event.SessionStarted is { } __SessionStartedReceived)
+            {
+                SessionStartedReceived?.Invoke(
+                    this,
+                    new AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.Realtime.SessionStartedPayload>(
+                        __SessionStartedReceived,
+                        rawText,
+                        json));
+            }
+            if (@event.PartialTranscript is { } __PartialTranscriptReceived)
+            {
+                PartialTranscriptReceived?.Invoke(
+                    this,
+                    new AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.Realtime.PartialTranscriptPayload>(
+                        __PartialTranscriptReceived,
+                        rawText,
+                        json));
+            }
+            if (@event.CommittedTranscript is { } __CommittedTranscriptReceived)
+            {
+                CommittedTranscriptReceived?.Invoke(
+                    this,
+                    new AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.Realtime.CommittedTranscriptPayload>(
+                        __CommittedTranscriptReceived,
+                        rawText,
+                        json));
+            }
+            if (@event.CommittedTranscriptWithTimestamps is { } __CommittedTranscriptWithTimestampsReceived)
+            {
+                CommittedTranscriptWithTimestampsReceived?.Invoke(
+                    this,
+                    new AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload>(
+                        __CommittedTranscriptWithTimestampsReceived,
+                        rawText,
+                        json));
+            }
+            if (@event.Error is { } __ErrorReceived)
+            {
+                ErrorReceived?.Invoke(
+                    this,
+                    new AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.Realtime.ErrorPayload>(
+                        __ErrorReceived,
+                        rawText,
+                        json));
             }
         }
     }

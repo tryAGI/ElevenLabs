@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
+    /// Example: {"file_input_config":{"enabled":false,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
     /// </summary>
     public sealed partial class WidgetConfigResponseModel
     {
@@ -348,6 +348,12 @@ namespace ElevenLabs
         public bool? UseRtc { get; set; }
 
         /// <summary>
+        /// Configuration for file upload in the widget
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_input_config")]
+        public global::ElevenLabs.FileInputConfig? FileInputConfig { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -530,6 +536,9 @@ namespace ElevenLabs
         /// <param name="useRtc">
         /// Whether to use WebRTC for conversation connections
         /// </param>
+        /// <param name="fileInputConfig">
+        /// Configuration for file upload in the widget
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -584,7 +593,8 @@ namespace ElevenLabs
             bool? textOnly,
             bool? supportsTextOnly,
             string? firstMessage,
-            bool? useRtc)
+            bool? useRtc,
+            global::ElevenLabs.FileInputConfig? fileInputConfig)
         {
             this.Variant = variant;
             this.Placement = placement;
@@ -637,6 +647,7 @@ namespace ElevenLabs
             this.SupportsTextOnly = supportsTextOnly;
             this.FirstMessage = firstMessage;
             this.UseRtc = useRtc;
+            this.FileInputConfig = fileInputConfig;
         }
 
         /// <summary>

@@ -39,6 +39,12 @@ namespace ElevenLabs
         public global::ElevenLabs.LivekitStackType? LivekitStack { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("store_sip_messages")]
+        public bool? StoreSipMessages { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -52,6 +58,7 @@ namespace ElevenLabs
         /// <param name="inboundTrunkConfig"></param>
         /// <param name="outboundTrunkConfig"></param>
         /// <param name="livekitStack"></param>
+        /// <param name="storeSipMessages"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -60,13 +67,15 @@ namespace ElevenLabs
             string? label,
             global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig,
             global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig,
-            global::ElevenLabs.LivekitStackType? livekitStack)
+            global::ElevenLabs.LivekitStackType? livekitStack,
+            bool? storeSipMessages)
         {
             this.AgentId = agentId;
             this.Label = label;
             this.InboundTrunkConfig = inboundTrunkConfig;
             this.OutboundTrunkConfig = outboundTrunkConfig;
             this.LivekitStack = livekitStack;
+            this.StoreSipMessages = storeSipMessages;
         }
 
         /// <summary>

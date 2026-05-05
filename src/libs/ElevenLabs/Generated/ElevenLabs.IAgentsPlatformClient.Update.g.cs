@@ -44,6 +44,32 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentResponseModel>> UpdateAsResponseAsync(
+            string agentId,
+
+            global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request,
+            bool? enableVersioningIfNotEnabled = default,
+            string? branchId = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Patches An Agent Settings<br/>
+        /// Patches an Agent settings
+        /// </summary>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="enableVersioningIfNotEnabled">
+        /// Enable versioning for the agent, if not already enabled<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="branchId">
+        /// The ID of the branch to use
+        /// </param>
         /// <param name="conversationConfig">
         /// Conversation configuration for an agent
         /// </param>

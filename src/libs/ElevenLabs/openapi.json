@@ -15783,6 +15783,108 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/convai/conversations/{conversation_id}/sip-messages": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Sip Messages For A Conversation",
+        "description": "Get SIP messages associated with a conversation's phone call",
+        "operationId": "get_conversation_sip_messages",
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of the conversation you're taking the action on.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "embed": true,
+              "title": "Conversation Id"
+            },
+            "description": "The id of the conversation you're taking the action on."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 20,
+              "minimum": 1,
+              "default": 20,
+              "title": "Page Size"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSIPLogMessagesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "conversations"
+        ],
+        "x-fern-sdk-method-name": "get_sip_messages"
+      }
+    },
     "/v1/convai/conversations/{conversation_id}/audio": {
       "get": {
         "tags": [
@@ -17424,6 +17526,108 @@
           "phone_numbers"
         ],
         "x-fern-sdk-method-name": "update"
+      }
+    },
+    "/v1/convai/phone-numbers/{phone_number_id}/sip-messages": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Sip Messages For A Phone Number",
+        "description": "Get SIP messages for a phone number",
+        "operationId": "list_sip_messages",
+        "parameters": [
+          {
+            "name": "phone_number_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "TeaqRRdTcIfIu2i7BYfT"
+              ],
+              "embed": true,
+              "title": "Phone Number Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 20,
+              "minimum": 1,
+              "default": 20,
+              "title": "Page Size"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSIPLogMessagesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "phone_numbers"
+        ],
+        "x-fern-sdk-method-name": "get_sip_messages"
       }
     },
     "/v1/convai/llm-usage/calculate": {
@@ -43030,6 +43234,17 @@
             "const": "sip_trunking",
             "title": "Type"
           },
+          "call_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Call Id"
+          },
           "call_sid": {
             "type": "string",
             "title": "Call Sid"
@@ -43965,12 +44180,16 @@
                   },
                   {
                     "$ref": "#/components/schemas/TestToolResultModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/KnowledgeBaseRagToolResultModel"
                   }
                 ],
                 "discriminator": {
                   "propertyName": "result_type",
                   "mapping": {
                     "end_call_success": "#/components/schemas/EndCallToolResultModel",
+                    "knowledge_base_rag_success": "#/components/schemas/KnowledgeBaseRagToolResultModel",
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
@@ -44096,12 +44315,16 @@
                   },
                   {
                     "$ref": "#/components/schemas/TestToolResultModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/KnowledgeBaseRagToolResultModel"
                   }
                 ],
                 "discriminator": {
                   "propertyName": "result_type",
                   "mapping": {
                     "end_call_success": "#/components/schemas/EndCallToolResultModel",
+                    "knowledge_base_rag_success": "#/components/schemas/KnowledgeBaseRagToolResultModel",
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
@@ -53342,6 +53565,12 @@
           "livekit_stack": {
             "$ref": "#/components/schemas/LivekitStackType",
             "description": "Type of Livekit stack used for this number."
+          },
+          "store_sip_messages": {
+            "type": "boolean",
+            "title": "Store Sip Messages",
+            "description": "Whether to store SIP messages for this phone number.",
+            "default": false
           }
         },
         "type": "object",
@@ -53830,6 +54059,38 @@
           "name"
         ],
         "title": "GetResponseUnitTestResponseModel"
+      },
+      "GetSIPLogMessagesResponse": {
+        "properties": {
+          "sip_messages": {
+            "items": {
+              "$ref": "#/components/schemas/SIPLogMessage"
+            },
+            "type": "array",
+            "title": "Sip Messages"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "sip_messages"
+        ],
+        "title": "GetSIPLogMessagesResponse"
       },
       "GetScheduleParams": {
         "properties": {
@@ -55581,6 +55842,56 @@
           "type": "file",
           "usage_mode": "auto"
         }
+      },
+      "KnowledgeBaseRagToolConfig": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "knowledge_base_rag",
+            "title": "System Tool Type",
+            "default": "knowledge_base_rag"
+          }
+        },
+        "type": "object",
+        "title": "KnowledgeBaseRagToolConfig"
+      },
+      "KnowledgeBaseRagToolResultModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "knowledge_base_rag_success",
+            "title": "Result Type",
+            "default": "knowledge_base_rag_success"
+          },
+          "status": {
+            "$ref": "#/components/schemas/KnowledgeBaseRagToolStatus",
+            "default": "success"
+          },
+          "chunk_count": {
+            "type": "integer",
+            "title": "Chunk Count",
+            "description": "Number of relevant chunks retrieved",
+            "default": 0
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable status for the LLM about the search results",
+            "default": "Referenced knowledge base."
+          }
+        },
+        "type": "object",
+        "title": "KnowledgeBaseRagToolResultModel"
+      },
+      "KnowledgeBaseRagToolStatus": {
+        "type": "string",
+        "enum": [
+          "success",
+          "no_documents",
+          "no_results"
+        ],
+        "title": "KnowledgeBaseRagToolStatus",
+        "default": "success"
       },
       "KnowledgeBaseSortBy": {
         "type": "string",
@@ -62730,6 +63041,17 @@
             ],
             "title": "Source Asset Id"
           },
+          "source_platform_asset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Platform Asset Id"
+          },
           "pending_blocks_metadata": {
             "anyOf": [
               {
@@ -62993,6 +63315,17 @@
               }
             ],
             "title": "Source Asset Id"
+          },
+          "source_platform_asset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Platform Asset Id"
           },
           "error": {
             "anyOf": [
@@ -63840,6 +64173,17 @@
               }
             ],
             "title": "Source Asset Id"
+          },
+          "source_platform_asset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Platform Asset Id"
           },
           "pending_blocks_metadata": {
             "anyOf": [
@@ -67091,6 +67435,69 @@
           "tests"
         ],
         "title": "RunAgentTestsRequestModel"
+      },
+      "SIPLogMessage": {
+        "properties": {
+          "call_id": {
+            "type": "string",
+            "title": "Call Id"
+          },
+          "phone_numbers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Phone Numbers"
+          },
+          "local_address": {
+            "type": "string",
+            "title": "Local Address"
+          },
+          "remote_address": {
+            "type": "string",
+            "title": "Remote Address"
+          },
+          "transport": {
+            "type": "string",
+            "title": "Transport"
+          },
+          "raw_message": {
+            "type": "string",
+            "title": "Raw Message"
+          },
+          "error_message": {
+            "type": "string",
+            "title": "Error Message"
+          },
+          "direction": {
+            "$ref": "#/components/schemas/SIPLogMessageDirection"
+          },
+          "created_at_unix_micro": {
+            "type": "integer",
+            "title": "Created At Unix Micro"
+          }
+        },
+        "type": "object",
+        "required": [
+          "call_id",
+          "phone_numbers",
+          "local_address",
+          "remote_address",
+          "transport",
+          "raw_message",
+          "error_message",
+          "direction",
+          "created_at_unix_micro"
+        ],
+        "title": "SIPLogMessage"
+      },
+      "SIPLogMessageDirection": {
+        "type": "string",
+        "enum": [
+          "in",
+          "out"
+        ],
+        "title": "SIPLogMessageDirection"
       },
       "SIPMediaEncryptionEnum": {
         "type": "string",
@@ -70821,6 +71228,9 @@
               },
               {
                 "$ref": "#/components/schemas/VoicemailDetectionToolConfig"
+              },
+              {
+                "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
               }
             ],
             "title": "Params",
@@ -70828,6 +71238,7 @@
               "propertyName": "system_tool_type",
               "mapping": {
                 "end_call": "#/components/schemas/EndCallToolConfig",
+                "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
@@ -70963,6 +71374,9 @@
               },
               {
                 "$ref": "#/components/schemas/VoicemailDetectionToolConfig"
+              },
+              {
+                "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
               }
             ],
             "title": "Params",
@@ -70970,6 +71384,7 @@
               "propertyName": "system_tool_type",
               "mapping": {
                 "end_call": "#/components/schemas/EndCallToolConfig",
+                "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
@@ -74289,6 +74704,17 @@
                 "type": "null"
               }
             ]
+          },
+          "store_sip_messages": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Store Sip Messages"
           }
         },
         "type": "object",
@@ -79634,6 +80060,10 @@
             ],
             "title": "Use Rtc",
             "description": "Whether to use WebRTC for conversation connections"
+          },
+          "file_input_config": {
+            "$ref": "#/components/schemas/FileInputConfig",
+            "description": "Configuration for file upload in the widget"
           }
         },
         "type": "object",
@@ -79642,6 +80072,10 @@
         ],
         "title": "WidgetConfigResponseModel",
         "example": {
+          "file_input_config": {
+            "enabled": false,
+            "max_files_per_conversation": 10
+          },
           "first_message": "Hello! How can I help you today?",
           "language": "en",
           "language_presets": {},

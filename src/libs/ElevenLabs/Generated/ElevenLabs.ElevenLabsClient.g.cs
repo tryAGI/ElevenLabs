@@ -43,7 +43,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public AccessAllClient AccessAll => new AccessAllClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AccessAllClient AccessAll => new AccessAllClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -52,7 +52,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public AgentPlatformClient AgentPlatform => new AgentPlatformClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AgentPlatformClient AgentPlatform => new AgentPlatformClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -61,7 +61,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public AgentsInsightsClient AgentsInsights => new AgentsInsightsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AgentsInsightsClient AgentsInsights => new AgentsInsightsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -70,7 +70,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public AgentsPlatformClient AgentsPlatform => new AgentsPlatformClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AgentsPlatformClient AgentsPlatform => new AgentsPlatformClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -79,7 +79,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public AgentsWorkspaceAnalyticsClient AgentsWorkspaceAnalytics => new AgentsWorkspaceAnalyticsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AgentsWorkspaceAnalyticsClient AgentsWorkspaceAnalytics => new AgentsWorkspaceAnalyticsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -88,7 +88,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public AudioIsolationClient AudioIsolation => new AudioIsolationClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AudioIsolationClient AudioIsolation => new AudioIsolationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -97,7 +97,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public AudioNativeClient AudioNative => new AudioNativeClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AudioNativeClient AudioNative => new AudioNativeClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -106,7 +106,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public ConversationalAiClient ConversationalAi => new ConversationalAiClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ConversationalAiClient ConversationalAi => new ConversationalAiClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -115,7 +115,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public ConversationalAi2Client ConversationalAi2 => new ConversationalAi2Client(HttpClient, authorizations: Authorizations, options: Options)
+        public ConversationalAi2Client ConversationalAi2 => new ConversationalAi2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -124,7 +124,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public DubbingClient Dubbing => new DubbingClient(HttpClient, authorizations: Authorizations, options: Options)
+        public DubbingClient Dubbing => new DubbingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -133,7 +133,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public EnvironmentVariablesClient EnvironmentVariables => new EnvironmentVariablesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public EnvironmentVariablesClient EnvironmentVariables => new EnvironmentVariablesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -142,7 +142,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public ForcedAlignmentClient ForcedAlignment => new ForcedAlignmentClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ForcedAlignmentClient ForcedAlignment => new ForcedAlignmentClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -151,7 +151,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public HistoryClient History => new HistoryClient(HttpClient, authorizations: Authorizations, options: Options)
+        public HistoryClient History => new HistoryClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -160,7 +160,7 @@ namespace ElevenLabs
         /// <summary>
         /// Access the different models of the platform.
         /// </summary>
-        public ModelsClient Models => new ModelsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ModelsClient Models => new ModelsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -169,7 +169,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public MusicClient Music => new MusicClient(HttpClient, authorizations: Authorizations, options: Options)
+        public MusicClient Music => new MusicClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -178,7 +178,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public MusicGenerationClient MusicGeneration => new MusicGenerationClient(HttpClient, authorizations: Authorizations, options: Options)
+        public MusicGenerationClient MusicGeneration => new MusicGenerationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -187,7 +187,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public PronunciationDictionariesClient PronunciationDictionaries => new PronunciationDictionariesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public PronunciationDictionariesClient PronunciationDictionaries => new PronunciationDictionariesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -196,7 +196,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public PronunciationDictionaryClient PronunciationDictionary => new PronunciationDictionaryClient(HttpClient, authorizations: Authorizations, options: Options)
+        public PronunciationDictionaryClient PronunciationDictionary => new PronunciationDictionaryClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -205,7 +205,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public PvcVoicesClient PvcVoices => new PvcVoicesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public PvcVoicesClient PvcVoices => new PvcVoicesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -214,7 +214,7 @@ namespace ElevenLabs
         /// <summary>
         /// Access to your samples. A sample is any audio file you attached to a voice. A voice can have one or more samples.
         /// </summary>
-        public SamplesClient Samples => new SamplesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SamplesClient Samples => new SamplesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -223,7 +223,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public SingleUseTokenClient SingleUseToken => new SingleUseTokenClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SingleUseTokenClient SingleUseToken => new SingleUseTokenClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -232,7 +232,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public SpeechToSpeechClient SpeechToSpeech => new SpeechToSpeechClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SpeechToSpeechClient SpeechToSpeech => new SpeechToSpeechClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -241,7 +241,7 @@ namespace ElevenLabs
         /// <summary>
         /// Transcribe your audio files with detailed speaker annotations and precise timestamps using our cutting-edge model.
         /// </summary>
-        public SpeechToTextClient SpeechToText => new SpeechToTextClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SpeechToTextClient SpeechToText => new SpeechToTextClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -250,7 +250,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public SpeechToText2Client SpeechToText2 => new SpeechToText2Client(HttpClient, authorizations: Authorizations, options: Options)
+        public SpeechToText2Client SpeechToText2 => new SpeechToText2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -259,7 +259,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public StudioClient Studio => new StudioClient(HttpClient, authorizations: Authorizations, options: Options)
+        public StudioClient Studio => new StudioClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -268,7 +268,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public TextToDialogueClient TextToDialogue => new TextToDialogueClient(HttpClient, authorizations: Authorizations, options: Options)
+        public TextToDialogueClient TextToDialogue => new TextToDialogueClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -277,7 +277,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public TextToSoundEffectsClient TextToSoundEffects => new TextToSoundEffectsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public TextToSoundEffectsClient TextToSoundEffects => new TextToSoundEffectsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -286,7 +286,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public TextToSpeechClient TextToSpeech => new TextToSpeechClient(HttpClient, authorizations: Authorizations, options: Options)
+        public TextToSpeechClient TextToSpeech => new TextToSpeechClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -295,7 +295,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public TextToVoiceClient TextToVoice => new TextToVoiceClient(HttpClient, authorizations: Authorizations, options: Options)
+        public TextToVoiceClient TextToVoice => new TextToVoiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -304,7 +304,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public TextToVoice2Client TextToVoice2 => new TextToVoice2Client(HttpClient, authorizations: Authorizations, options: Options)
+        public TextToVoice2Client TextToVoice2 => new TextToVoice2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -313,7 +313,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public UserClient User => new UserClient(HttpClient, authorizations: Authorizations, options: Options)
+        public UserClient User => new UserClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -322,7 +322,7 @@ namespace ElevenLabs
         /// <summary>
         /// Access to voices created either by you or ElevenLabs.
         /// </summary>
-        public VoicesClient Voices => new VoicesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public VoicesClient Voices => new VoicesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -331,7 +331,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public WebhooksClient Webhooks => new WebhooksClient(HttpClient, authorizations: Authorizations, options: Options)
+        public WebhooksClient Webhooks => new WebhooksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -340,7 +340,7 @@ namespace ElevenLabs
         /// <summary>
         /// Access to workspace related endpoints.
         /// </summary>
-        public WorkspaceClient Workspace => new WorkspaceClient(HttpClient, authorizations: Authorizations, options: Options)
+        public WorkspaceClient Workspace => new WorkspaceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -379,10 +379,10 @@ namespace ElevenLabs
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public ElevenLabsClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::ElevenLabs.EndPointAuthorization>? authorizations = null,
-            global::ElevenLabs.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::ElevenLabs.EndPointAuthorization>? authorizations,
+            global::ElevenLabs.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 

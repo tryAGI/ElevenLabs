@@ -28,6 +28,23 @@ namespace ElevenLabs
         /// <param name="pronunciationDictionaryId">
         /// The id of the pronunciation dictionary
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PronunciationDictionaryRulesResponseModel>> SetAsResponseAsync(
+            string pronunciationDictionaryId,
+
+            global::ElevenLabs.BodySetRulesOnThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdSetRulesPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Set Rules On The Pronunciation Dictionary<br/>
+        /// Replaces all existing rules on the pronunciation dictionary with the provided ones.
+        /// </summary>
+        /// <param name="pronunciationDictionaryId">
+        /// The id of the pronunciation dictionary
+        /// </param>
         /// <param name="rules">
         /// List of pronunciation rules. Rule can be either:<br/>
         ///     an alias rule: {'string_to_replace': 'a', 'type': 'alias', 'alias': 'b', }<br/>
