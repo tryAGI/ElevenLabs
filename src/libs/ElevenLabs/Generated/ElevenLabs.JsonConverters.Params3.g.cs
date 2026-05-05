@@ -70,6 +70,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.VoicemailDetectionToolConfig)}");
                 voicemailDetection = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.KnowledgeBaseRagToolConfig? knowledgeBaseRag = default;
+            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType.KnowledgeBaseRag)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseRagToolConfig> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseRagToolConfig)}");
+                knowledgeBaseRag = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.Params3(
                 discriminator?.SystemToolType,
@@ -85,7 +92,9 @@ namespace ElevenLabs.JsonConverters
 
                 playKeypadTouchTone,
 
-                voicemailDetection
+                voicemailDetection,
+
+                knowledgeBaseRag
                 );
 
             return __value;
@@ -141,6 +150,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.VoicemailDetectionToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.VoicemailDetectionToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.VoicemailDetectionToolConfig).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.VoicemailDetection!, typeInfo);
+            }
+            else if (value.IsKnowledgeBaseRag)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseRagToolConfig?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseRag!, typeInfo);
             }
         }
     }

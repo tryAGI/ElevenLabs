@@ -28,6 +28,23 @@ namespace ElevenLabs
         /// <param name="projectId">
         /// The ID of the Studio project.
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AddChapterResponseModel>> Create3AsResponseAsync(
+            string projectId,
+
+            global::ElevenLabs.BodyCreateChapterV1StudioProjectsProjectIdChaptersPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create Chapter<br/>
+        /// Creates a new chapter either as blank or from a URL.
+        /// </summary>
+        /// <param name="projectId">
+        /// The ID of the Studio project.
+        /// </param>
         /// <param name="name">
         /// The name of the chapter, used for identification only.
         /// </param>

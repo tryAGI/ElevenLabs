@@ -33,5 +33,34 @@ namespace ElevenLabs
             string? sortDirection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Pronunciation Dictionaries<br/>
+        /// Get a list of the pronunciation dictionaries you have access to and their metadata
+        /// </summary>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="sort">
+        /// Which field to sort by, one of 'created_at_unix' or 'name'.<br/>
+        /// Default Value: creation_time_unix
+        /// </param>
+        /// <param name="sortDirection">
+        /// Which direction to sort the voices in. 'ascending' or 'descending'.<br/>
+        /// Default Value: DESCENDING
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetPronunciationDictionariesMetadataResponseModel>> ListAsResponseAsync(
+            string? cursor = default,
+            int? pageSize = default,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
+            string? sortDirection = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

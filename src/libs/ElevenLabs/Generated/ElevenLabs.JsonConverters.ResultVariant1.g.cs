@@ -105,6 +105,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TestToolResultModel)}");
                 testingToolResult = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.KnowledgeBaseRagToolResultModel? knowledgeBaseRagSuccess = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseRagSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseRagToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseRagToolResultModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseRagToolResultModel)}");
+                knowledgeBaseRagSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.ResultVariant1(
                 discriminator?.ResultType,
@@ -130,7 +137,9 @@ namespace ElevenLabs.JsonConverters
 
                 voicemailDetectionSuccess,
 
-                testingToolResult
+                testingToolResult,
+
+                knowledgeBaseRagSuccess
                 );
 
             return __value;
@@ -216,6 +225,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TestToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TestToolResultModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TestToolResultModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.TestingToolResult!, typeInfo);
+            }
+            else if (value.IsKnowledgeBaseRagSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseRagToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseRagToolResultModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseRagToolResultModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseRagSuccess!, typeInfo);
             }
         }
     }

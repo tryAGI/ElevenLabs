@@ -104,6 +104,68 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await ListAsResponseAsync(
+                pageSize: pageSize,
+                search: search,
+                archived: archived,
+                showOnlyOwnedAgents: showOnlyOwnedAgents,
+                createdByUserId: createdByUserId,
+                sortDirection: sortDirection,
+                sortBy: sortBy,
+                cursor: cursor,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// List Agents<br/>
+        /// Returns a list of your agents and their metadata.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many Agents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="search">
+        /// Search by agents name.
+        /// </param>
+        /// <param name="archived">
+        /// Filter agents by archived status<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="showOnlyOwnedAgents">
+        /// If set to true, the endpoint will omit any agents that were shared with you by someone else and include only the ones you own. Deprecated: use created_by_user_id instead.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter agents by creator user ID. When set, only agents created by this user are returned. Takes precedence over show_only_owned_agents. Use '@me' to refer to the authenticated user.
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentsPageResponseModel>> ListAsResponseAsync(
+            int? pageSize = default,
+            string? search = default,
+            bool? archived = default,
+            bool? showOnlyOwnedAgents = default,
+            string? createdByUserId = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            global::ElevenLabs.AgentSortBy? sortBy = default,
+            string? cursor = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareListArguments(
@@ -139,9 +201,10 @@ namespace ElevenLabs
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: "/v1/convai/agents",
-                                baseUri: HttpClient.BaseAddress); 
+                                baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("search", search)
@@ -150,7 +213,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("created_by_user_id", createdByUserId)
                                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToString())
-                                .AddOptionalParameter("cursor", cursor) 
+                                .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -229,6 +292,8 @@ namespace ElevenLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -239,6 +304,11 @@ namespace ElevenLabs
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -256,6 +326,8 @@ namespace ElevenLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -265,8 +337,7 @@ namespace ElevenLabs
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -275,6 +346,11 @@ namespace ElevenLabs
                         __attempt < __maxAttempts &&
                         global::ElevenLabs.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -291,14 +367,15 @@ namespace ElevenLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -338,6 +415,8 @@ namespace ElevenLabs
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -358,6 +437,8 @@ namespace ElevenLabs
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // Validation Error
@@ -420,9 +501,13 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::ElevenLabs.GetAgentsPageResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.GetAgentsPageResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentsPageResponseModel>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -450,9 +535,13 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::ElevenLabs.GetAgentsPageResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.GetAgentsPageResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentsPageResponseModel>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

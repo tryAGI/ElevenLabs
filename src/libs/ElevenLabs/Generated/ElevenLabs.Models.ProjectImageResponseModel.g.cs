@@ -142,6 +142,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_platform_asset_id")]
+        public string? SourcePlatformAssetId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public string? Error { get; set; }
 
@@ -198,6 +204,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="currentSnapshotId"></param>
         /// <param name="sourceAssetId"></param>
+        /// <param name="sourcePlatformAssetId"></param>
         /// <param name="error"></param>
         /// <param name="pendingTask"></param>
         /// <param name="analysis"></param>
@@ -225,6 +232,7 @@ namespace ElevenLabs
             double? opacity,
             string? currentSnapshotId,
             string? sourceAssetId,
+            string? sourcePlatformAssetId,
             string? error,
             global::ElevenLabs.PendingClipTask? pendingTask,
             global::ElevenLabs.ImageAnalysis? analysis)
@@ -249,6 +257,7 @@ namespace ElevenLabs
             this.UpdatedAtMs = updatedAtMs;
             this.CurrentSnapshotId = currentSnapshotId;
             this.SourceAssetId = sourceAssetId;
+            this.SourcePlatformAssetId = sourcePlatformAssetId;
             this.Error = error;
             this.PendingTask = pendingTask;
             this.Analysis = analysis;

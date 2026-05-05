@@ -18,5 +18,19 @@ namespace ElevenLabs
             string generatedVoiceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Text To Voice Preview Streaming<br/>
+        /// Stream a voice preview that was created via the /v1/text-to-voice/design endpoint.
+        /// </summary>
+        /// <param name="generatedVoiceId">
+        /// The generated_voice_id to stream.
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.IO.Stream>> StreamAsResponseAsync(
+            string generatedVoiceId,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

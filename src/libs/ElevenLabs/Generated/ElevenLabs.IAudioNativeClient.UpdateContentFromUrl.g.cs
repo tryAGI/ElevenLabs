@@ -21,6 +21,19 @@ namespace ElevenLabs
         /// Update Audio-Native Content From Url<br/>
         /// Finds an AudioNative project matching the provided URL, extracts content from the URL, updates the project content, and queues it for conversion and auto-publishing.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AudioNativeEditContentResponseModel>> UpdateContentFromUrlAsResponseAsync(
+
+            global::ElevenLabs.BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Audio-Native Content From Url<br/>
+        /// Finds an AudioNative project matching the provided URL, extracts content from the URL, updates the project content, and queues it for conversion and auto-publishing.
+        /// </summary>
         /// <param name="url">
         /// URL of the page to extract content from.
         /// </param>

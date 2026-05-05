@@ -28,6 +28,23 @@ namespace ElevenLabs
         /// <param name="safetyIdentifier">
         /// Used for moderation. Your workspace must be allowlisted to use this feature.
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PodcastProjectResponseModel>> CreatePodcastAsResponseAsync(
+
+            global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost request,
+            string? safetyIdentifier = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create Podcast<br/>
+        /// Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.
+        /// </summary>
+        /// <param name="safetyIdentifier">
+        /// Used for moderation. Your workspace must be allowlisted to use this feature.
+        /// </param>
         /// <param name="modelId">
         /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
         /// </param>

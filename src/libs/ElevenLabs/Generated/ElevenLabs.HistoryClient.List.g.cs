@@ -106,6 +106,71 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await ListAsResponseAsync(
+                pageSize: pageSize,
+                startAfterHistoryItemId: startAfterHistoryItemId,
+                voiceId: voiceId,
+                modelId: modelId,
+                dateBeforeUnix: dateBeforeUnix,
+                dateAfterUnix: dateAfterUnix,
+                sortDirection: sortDirection,
+                search: search,
+                source: source,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// List Generated Items<br/>
+        /// Returns a list of your generated audio.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many history items to return at maximum. Can not exceed 1000, defaults to 100.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="startAfterHistoryItemId">
+        /// After which ID to start fetching, use this parameter to paginate across a large collection of history items. In case this parameter is not provided history items will be fetched starting from the most recently created one ordered descending by their creation date.
+        /// </param>
+        /// <param name="voiceId">
+        /// Voice ID to be filtered for, you can use GET https://api.elevenlabs.io/v1/voices to receive a list of voices and their IDs.
+        /// </param>
+        /// <param name="modelId">
+        /// Model ID to filter history items by.
+        /// </param>
+        /// <param name="dateBeforeUnix">
+        /// Unix timestamp to filter history items before this date (exclusive).
+        /// </param>
+        /// <param name="dateAfterUnix">
+        /// Unix timestamp to filter history items after this date (inclusive).
+        /// </param>
+        /// <param name="sortDirection">
+        /// Sort direction for the results.<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="search">
+        /// search term used for filtering
+        /// </param>
+        /// <param name="source">
+        /// Source of the generated history item
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetSpeechHistoryResponseModel>> ListAsResponseAsync(
+            int? pageSize = default,
+            string? startAfterHistoryItemId = default,
+            string? voiceId = default,
+            string? modelId = default,
+            int? dateBeforeUnix = default,
+            int? dateAfterUnix = default,
+            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection = default,
+            string? search = default,
+            global::ElevenLabs.GetSpeechHistorySource2? source = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareListArguments(
@@ -142,9 +207,10 @@ namespace ElevenLabs
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: "/v1/history",
-                                baseUri: HttpClient.BaseAddress); 
+                                baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("start_after_history_item_id", startAfterHistoryItemId)
@@ -154,7 +220,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("date_after_unix", dateAfterUnix?.ToString())
                                 .AddOptionalParameter("sort_direction", sortDirection?.ToString())
                                 .AddOptionalParameter("search", search)
-                                .AddOptionalParameter("source", source?.ToString()) 
+                                .AddOptionalParameter("source", source?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -234,6 +300,8 @@ namespace ElevenLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -244,6 +312,11 @@ namespace ElevenLabs
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -261,6 +334,8 @@ namespace ElevenLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -270,8 +345,7 @@ namespace ElevenLabs
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -280,6 +354,11 @@ namespace ElevenLabs
                         __attempt < __maxAttempts &&
                         global::ElevenLabs.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -296,14 +375,15 @@ namespace ElevenLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -343,6 +423,8 @@ namespace ElevenLabs
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -363,6 +445,8 @@ namespace ElevenLabs
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // Validation Error
@@ -425,9 +509,13 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::ElevenLabs.GetSpeechHistoryResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.GetSpeechHistoryResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetSpeechHistoryResponseModel>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -455,9 +543,13 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::ElevenLabs.GetSpeechHistoryResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.GetSpeechHistoryResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetSpeechHistoryResponseModel>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

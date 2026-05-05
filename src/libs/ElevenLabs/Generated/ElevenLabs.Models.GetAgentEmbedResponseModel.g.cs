@@ -16,9 +16,9 @@ namespace ElevenLabs
         public required string AgentId { get; set; }
 
         /// <summary>
-        /// Example: {"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
+        /// Example: {"file_input_config":{"enabled":false,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
         /// </summary>
-        /// <example>{"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}</example>
+        /// <example>{"file_input_config":{"enabled":false,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("widget_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.WidgetConfigResponseModel WidgetConfig { get; set; }
@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="widgetConfig">
-        /// Example: {"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
+        /// Example: {"file_input_config":{"enabled":false,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

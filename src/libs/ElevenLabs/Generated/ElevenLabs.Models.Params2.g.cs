@@ -144,6 +144,23 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VoicemailDetection))]
 #endif
         public bool IsVoicemailDetection => VoicemailDetection != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.KnowledgeBaseRagToolConfig? KnowledgeBaseRag { get; init; }
+#else
+        public global::ElevenLabs.KnowledgeBaseRagToolConfig? KnowledgeBaseRag { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(KnowledgeBaseRag))]
+#endif
+        public bool IsKnowledgeBaseRag => KnowledgeBaseRag != null;
         /// <summary>
         /// 
         /// </summary>
@@ -273,6 +290,24 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.KnowledgeBaseRagToolConfig value) => new Params2((global::ElevenLabs.KnowledgeBaseRagToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.KnowledgeBaseRagToolConfig?(Params2 @this) => @this.KnowledgeBaseRag;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.KnowledgeBaseRagToolConfig? value)
+        {
+            KnowledgeBaseRag = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Params2(
             global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType? systemToolType,
             global::ElevenLabs.EndCallToolConfig? endCall,
@@ -281,7 +316,8 @@ namespace ElevenLabs
             global::ElevenLabs.TransferToNumberToolConfigInput? transferToNumber,
             global::ElevenLabs.SkipTurnToolConfig? skipTurn,
             global::ElevenLabs.PlayDTMFToolConfig? playKeypadTouchTone,
-            global::ElevenLabs.VoicemailDetectionToolConfig? voicemailDetection
+            global::ElevenLabs.VoicemailDetectionToolConfig? voicemailDetection,
+            global::ElevenLabs.KnowledgeBaseRagToolConfig? knowledgeBaseRag
             )
         {
             SystemToolType = systemToolType;
@@ -293,12 +329,14 @@ namespace ElevenLabs
             SkipTurn = skipTurn;
             PlayKeypadTouchTone = playKeypadTouchTone;
             VoicemailDetection = voicemailDetection;
+            KnowledgeBaseRag = knowledgeBaseRag;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            KnowledgeBaseRag as object ??
             VoicemailDetection as object ??
             PlayKeypadTouchTone as object ??
             SkipTurn as object ??
@@ -318,7 +356,8 @@ namespace ElevenLabs
             TransferToNumber?.ToString() ??
             SkipTurn?.ToString() ??
             PlayKeypadTouchTone?.ToString() ??
-            VoicemailDetection?.ToString() 
+            VoicemailDetection?.ToString() ??
+            KnowledgeBaseRag?.ToString() 
             ;
 
         /// <summary>
@@ -326,7 +365,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection;
+            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && IsKnowledgeBaseRag;
         }
 
         /// <summary>
@@ -340,6 +379,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.SkipTurnToolConfig?, TResult>? skipTurn = null,
             global::System.Func<global::ElevenLabs.PlayDTMFToolConfig?, TResult>? playKeypadTouchTone = null,
             global::System.Func<global::ElevenLabs.VoicemailDetectionToolConfig?, TResult>? voicemailDetection = null,
+            global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolConfig?, TResult>? knowledgeBaseRag = null,
             bool validate = true)
         {
             if (validate)
@@ -375,6 +415,10 @@ namespace ElevenLabs
             {
                 return voicemailDetection(VoicemailDetection!);
             }
+            else if (IsKnowledgeBaseRag && knowledgeBaseRag != null)
+            {
+                return knowledgeBaseRag(KnowledgeBaseRag!);
+            }
 
             return default(TResult);
         }
@@ -390,6 +434,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.SkipTurnToolConfig?>? skipTurn = null,
             global::System.Action<global::ElevenLabs.PlayDTMFToolConfig?>? playKeypadTouchTone = null,
             global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig?>? voicemailDetection = null,
+            global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig?>? knowledgeBaseRag = null,
             bool validate = true)
         {
             if (validate)
@@ -425,6 +470,10 @@ namespace ElevenLabs
             {
                 voicemailDetection?.Invoke(VoicemailDetection!);
             }
+            else if (IsKnowledgeBaseRag)
+            {
+                knowledgeBaseRag?.Invoke(KnowledgeBaseRag!);
+            }
         }
 
         /// <summary>
@@ -448,6 +497,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.PlayDTMFToolConfig),
                 VoicemailDetection,
                 typeof(global::ElevenLabs.VoicemailDetectionToolConfig),
+                KnowledgeBaseRag,
+                typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -470,7 +521,8 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfigInput?>.Default.Equals(TransferToNumber, other.TransferToNumber) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolConfig?>.Default.Equals(SkipTurn, other.SkipTurn) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFToolConfig?>.Default.Equals(PlayKeypadTouchTone, other.PlayKeypadTouchTone) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoicemailDetectionToolConfig?>.Default.Equals(VoicemailDetection, other.VoicemailDetection) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoicemailDetectionToolConfig?>.Default.Equals(VoicemailDetection, other.VoicemailDetection) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolConfig?>.Default.Equals(KnowledgeBaseRag, other.KnowledgeBaseRag) 
                 ;
         }
 

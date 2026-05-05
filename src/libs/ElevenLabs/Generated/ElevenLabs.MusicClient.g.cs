@@ -72,10 +72,10 @@ namespace ElevenLabs
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public MusicClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::ElevenLabs.EndPointAuthorization>? authorizations = null,
-            global::ElevenLabs.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::ElevenLabs.EndPointAuthorization>? authorizations,
+            global::ElevenLabs.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 

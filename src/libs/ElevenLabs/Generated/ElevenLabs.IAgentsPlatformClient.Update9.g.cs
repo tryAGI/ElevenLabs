@@ -24,6 +24,21 @@ namespace ElevenLabs
         /// Update an existing secret for the workspace
         /// </summary>
         /// <param name="secretId"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PostWorkspaceSecretResponseModel>> Update9AsResponseAsync(
+            string secretId,
+
+            global::ElevenLabs.PatchWorkspaceSecretRequest request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Convai Workspace Secret<br/>
+        /// Update an existing secret for the workspace
+        /// </summary>
+        /// <param name="secretId"></param>
         /// <param name="type"></param>
         /// <param name="name"></param>
         /// <param name="value"></param>

@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        KnowledgeBaseRagSuccess,
+        /// <summary>
+        /// 
+        /// </summary>
         LanguageDetectionSuccess,
         /// <summary>
         /// 
@@ -71,6 +75,7 @@ namespace ElevenLabs
             return value switch
             {
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.EndCallSuccess => "end_call_success",
+                ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseRagSuccess => "knowledge_base_rag_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.LanguageDetectionSuccess => "language_detection_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfError => "play_dtmf_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfSuccess => "play_dtmf_success",
@@ -93,6 +98,7 @@ namespace ElevenLabs
             return value switch
             {
                 "end_call_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.EndCallSuccess,
+                "knowledge_base_rag_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseRagSuccess,
                 "language_detection_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.LanguageDetectionSuccess,
                 "play_dtmf_error" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfError,
                 "play_dtmf_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfSuccess,

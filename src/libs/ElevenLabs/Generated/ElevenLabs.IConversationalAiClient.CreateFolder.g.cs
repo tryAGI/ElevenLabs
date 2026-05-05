@@ -21,6 +21,19 @@ namespace ElevenLabs
         /// Create Folder<br/>
         /// Create a folder used for grouping documents together.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AddKnowledgeBaseResponseModel>> CreateFolderAsResponseAsync(
+
+            global::ElevenLabs.BodyCreateFolderV1ConvaiKnowledgeBaseFolderPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create Folder<br/>
+        /// Create a folder used for grouping documents together.
+        /// </summary>
         /// <param name="name">
         /// A custom, human-readable name for the document.
         /// </param>

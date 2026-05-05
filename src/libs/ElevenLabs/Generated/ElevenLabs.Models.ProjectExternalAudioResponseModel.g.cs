@@ -122,6 +122,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_platform_asset_id")]
+        public string? SourcePlatformAssetId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pending_blocks_metadata")]
         public global::ElevenLabs.PendingBlocksMetadataModel? PendingBlocksMetadata { get; set; }
 
@@ -219,6 +225,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="sourceExternalAudioId"></param>
         /// <param name="sourceAssetId"></param>
+        /// <param name="sourcePlatformAssetId"></param>
         /// <param name="pendingBlocksMetadata"></param>
         /// <param name="pendingExternalAudiosMetadata"></param>
         /// <param name="speechImported">
@@ -257,6 +264,7 @@ namespace ElevenLabs
             int? fadeOutMs,
             string? sourceExternalAudioId,
             string? sourceAssetId,
+            string? sourcePlatformAssetId,
             global::ElevenLabs.PendingBlocksMetadataModel? pendingBlocksMetadata,
             global::ElevenLabs.PendingExternalAudiosMetadataModel? pendingExternalAudiosMetadata,
             bool? speechImported,
@@ -286,6 +294,7 @@ namespace ElevenLabs
             this.FadeOutMs = fadeOutMs;
             this.SourceExternalAudioId = sourceExternalAudioId;
             this.SourceAssetId = sourceAssetId;
+            this.SourcePlatformAssetId = sourcePlatformAssetId;
             this.PendingBlocksMetadata = pendingBlocksMetadata;
             this.PendingExternalAudiosMetadata = pendingExternalAudiosMetadata;
             this.SpeechImported = speechImported;

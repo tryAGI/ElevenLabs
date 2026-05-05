@@ -30,6 +30,23 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>> Update10AsResponseAsync(
+            string mcpServerId,
+
+            global::ElevenLabs.MCPServerConfigUpdateRequestModel request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Mcp Server Configuration<br/>
+        /// Update the configuration settings for an MCP server.
+        /// </summary>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
         /// <param name="approvalPolicy">
         /// The approval mode to set for the MCP server
         /// </param>

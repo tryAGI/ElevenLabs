@@ -28,6 +28,23 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> SimulateConversationStreamAsResponseAsync(
+            string agentId,
+
+            global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Simulates A Conversation (Stream)<br/>
+        /// Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.
+        /// </summary>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
         /// <param name="simulationSpecification">
         /// A specification detailing how the conversation should be simulated
         /// </param>

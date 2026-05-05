@@ -28,6 +28,23 @@ namespace ElevenLabs
         /// <param name="webhookId">
         /// The unique ID for the webhook
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PatchWorkspaceWebhookResponseModel>> Update3AsResponseAsync(
+            string webhookId,
+
+            global::ElevenLabs.BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Workspace Webhook<br/>
+        /// Update the specified workspace webhook
+        /// </summary>
+        /// <param name="webhookId">
+        /// The unique ID for the webhook
+        /// </param>
         /// <param name="isDisabled">
         /// Whether to disable or enable the webhook
         /// </param>

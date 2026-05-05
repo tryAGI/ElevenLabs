@@ -35,6 +35,27 @@ namespace ElevenLabs
         /// <param name="sampleId">
         /// Sample ID to be used
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AddVoiceResponseModel>> Update2AsResponseAsync(
+            string voiceId,
+            string sampleId,
+
+            global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Pvc Voice Sample<br/>
+        /// Update a PVC voice sample - apply noise removal, select speaker, change trim times or file name.
+        /// </summary>
+        /// <param name="voiceId">
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+        /// </param>
+        /// <param name="sampleId">
+        /// Sample ID to be used
+        /// </param>
         /// <param name="removeBackgroundNoise">
         /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
         /// Default Value: false
