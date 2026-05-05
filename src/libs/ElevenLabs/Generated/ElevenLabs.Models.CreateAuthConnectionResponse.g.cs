@@ -151,6 +151,23 @@ namespace ElevenLabs
         public bool IsApiIntegrationOauth2AuthCode => ApiIntegrationOauth2AuthCode != null;
 
         /// <summary>
+        /// Response model for user-owned OAuth2 Custom App auth connections
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? ApiIntegrationOauth2CustomApp { get; init; }
+#else
+        public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? ApiIntegrationOauth2CustomApp { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiIntegrationOauth2CustomApp))]
+#endif
+        public bool IsApiIntegrationOauth2CustomApp => ApiIntegrationOauth2CustomApp != null;
+
+        /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -313,6 +330,24 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?(CreateAuthConnectionResponse @this) => @this.ApiIntegrationOauth2CustomApp;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CreateAuthConnectionResponse(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? value)
+        {
+            ApiIntegrationOauth2CustomApp = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.WhatsAppAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.WhatsAppAuthResponse?)value);
 
         /// <summary>
@@ -341,6 +376,7 @@ namespace ElevenLabs
             global::ElevenLabs.MTLSAuthResponse? mtls,
             global::ElevenLabs.CustomHeaderAuthResponse? customHeaderAuth,
             global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse? apiIntegrationOauth2AuthCode,
+            global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? apiIntegrationOauth2CustomApp,
             global::ElevenLabs.WhatsAppAuthResponse? whatsappAuth
             )
         {
@@ -354,6 +390,7 @@ namespace ElevenLabs
             Mtls = mtls;
             CustomHeaderAuth = customHeaderAuth;
             ApiIntegrationOauth2AuthCode = apiIntegrationOauth2AuthCode;
+            ApiIntegrationOauth2CustomApp = apiIntegrationOauth2CustomApp;
             WhatsappAuth = whatsappAuth;
         }
 
@@ -362,6 +399,7 @@ namespace ElevenLabs
         /// </summary>
         public object? Object =>
             WhatsappAuth as object ??
+            ApiIntegrationOauth2CustomApp as object ??
             ApiIntegrationOauth2AuthCode as object ??
             CustomHeaderAuth as object ??
             Mtls as object ??
@@ -384,6 +422,7 @@ namespace ElevenLabs
             Mtls?.ToString() ??
             CustomHeaderAuth?.ToString() ??
             ApiIntegrationOauth2AuthCode?.ToString() ??
+            ApiIntegrationOauth2CustomApp?.ToString() ??
             WhatsappAuth?.ToString() 
             ;
 
@@ -392,7 +431,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsWhatsappAuth || !IsOauth2ClientCredentials && IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && IsApiIntegrationOauth2AuthCode && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && IsWhatsappAuth;
+            return IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth || !IsOauth2ClientCredentials && IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && IsWhatsappAuth;
         }
 
         /// <summary>
@@ -407,6 +446,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.MTLSAuthResponse?, TResult>? mtls = null,
             global::System.Func<global::ElevenLabs.CustomHeaderAuthResponse?, TResult>? customHeaderAuth = null,
             global::System.Func<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?, TResult>? apiIntegrationOauth2AuthCode = null,
+            global::System.Func<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?, TResult>? apiIntegrationOauth2CustomApp = null,
             global::System.Func<global::ElevenLabs.WhatsAppAuthResponse?, TResult>? whatsappAuth = null,
             bool validate = true)
         {
@@ -447,6 +487,10 @@ namespace ElevenLabs
             {
                 return apiIntegrationOauth2AuthCode(ApiIntegrationOauth2AuthCode!);
             }
+            else if (IsApiIntegrationOauth2CustomApp && apiIntegrationOauth2CustomApp != null)
+            {
+                return apiIntegrationOauth2CustomApp(ApiIntegrationOauth2CustomApp!);
+            }
             else if (IsWhatsappAuth && whatsappAuth != null)
             {
                 return whatsappAuth(WhatsappAuth!);
@@ -467,6 +511,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.MTLSAuthResponse?>? mtls = null,
             global::System.Action<global::ElevenLabs.CustomHeaderAuthResponse?>? customHeaderAuth = null,
             global::System.Action<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?>? apiIntegrationOauth2AuthCode = null,
+            global::System.Action<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?>? apiIntegrationOauth2CustomApp = null,
             global::System.Action<global::ElevenLabs.WhatsAppAuthResponse?>? whatsappAuth = null,
             bool validate = true)
         {
@@ -507,6 +552,10 @@ namespace ElevenLabs
             {
                 apiIntegrationOauth2AuthCode?.Invoke(ApiIntegrationOauth2AuthCode!);
             }
+            else if (IsApiIntegrationOauth2CustomApp)
+            {
+                apiIntegrationOauth2CustomApp?.Invoke(ApiIntegrationOauth2CustomApp!);
+            }
             else if (IsWhatsappAuth)
             {
                 whatsappAuth?.Invoke(WhatsappAuth!);
@@ -536,6 +585,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.CustomHeaderAuthResponse),
                 ApiIntegrationOauth2AuthCode,
                 typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse),
+                ApiIntegrationOauth2CustomApp,
+                typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse),
                 WhatsappAuth,
                 typeof(global::ElevenLabs.WhatsAppAuthResponse),
             };
@@ -562,6 +613,7 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MTLSAuthResponse?>.Default.Equals(Mtls, other.Mtls) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CustomHeaderAuthResponse?>.Default.Equals(CustomHeaderAuth, other.CustomHeaderAuth) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?>.Default.Equals(ApiIntegrationOauth2AuthCode, other.ApiIntegrationOauth2AuthCode) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?>.Default.Equals(ApiIntegrationOauth2CustomApp, other.ApiIntegrationOauth2CustomApp) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppAuthResponse?>.Default.Equals(WhatsappAuth, other.WhatsappAuth) 
                 ;
         }

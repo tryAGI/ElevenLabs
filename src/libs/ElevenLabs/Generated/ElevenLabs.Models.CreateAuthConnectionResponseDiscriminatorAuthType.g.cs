@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ApiIntegrationOauth2CustomApp,
+        /// <summary>
+        /// 
+        /// </summary>
         BasicAuth,
         /// <summary>
         /// 
@@ -59,6 +63,7 @@ namespace ElevenLabs
             return value switch
             {
                 CreateAuthConnectionResponseDiscriminatorAuthType.ApiIntegrationOauth2AuthCode => "api_integration_oauth2_auth_code",
+                CreateAuthConnectionResponseDiscriminatorAuthType.ApiIntegrationOauth2CustomApp => "api_integration_oauth2_custom_app",
                 CreateAuthConnectionResponseDiscriminatorAuthType.BasicAuth => "basic_auth",
                 CreateAuthConnectionResponseDiscriminatorAuthType.BearerAuth => "bearer_auth",
                 CreateAuthConnectionResponseDiscriminatorAuthType.CustomHeaderAuth => "custom_header_auth",
@@ -78,6 +83,7 @@ namespace ElevenLabs
             return value switch
             {
                 "api_integration_oauth2_auth_code" => CreateAuthConnectionResponseDiscriminatorAuthType.ApiIntegrationOauth2AuthCode,
+                "api_integration_oauth2_custom_app" => CreateAuthConnectionResponseDiscriminatorAuthType.ApiIntegrationOauth2CustomApp,
                 "basic_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.BasicAuth,
                 "bearer_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.BearerAuth,
                 "custom_header_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.CustomHeaderAuth,
