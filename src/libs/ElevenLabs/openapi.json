@@ -2969,7 +2969,7 @@
           "voices"
         ],
         "summary": "List Voices",
-        "description": "Returns a list of all available voices for a user.",
+        "description": "Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.",
         "operationId": "get_voices",
         "parameters": [
           {
