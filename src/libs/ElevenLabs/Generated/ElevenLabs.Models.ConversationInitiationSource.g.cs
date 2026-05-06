@@ -64,6 +64,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        TwilioSms,
+        /// <summary>
+        /// 
+        /// </summary>
         Unknown,
         /// <summary>
         /// 
@@ -104,6 +108,7 @@ namespace ElevenLabs
                 ConversationInitiationSource.SwiftSdk => "swift_sdk",
                 ConversationInitiationSource.TemplatePreview => "template_preview",
                 ConversationInitiationSource.Twilio => "twilio",
+                ConversationInitiationSource.TwilioSms => "twilio_sms",
                 ConversationInitiationSource.Unknown => "unknown",
                 ConversationInitiationSource.Whatsapp => "whatsapp",
                 ConversationInitiationSource.Widget => "widget",
@@ -131,6 +136,7 @@ namespace ElevenLabs
                 "swift_sdk" => ConversationInitiationSource.SwiftSdk,
                 "template_preview" => ConversationInitiationSource.TemplatePreview,
                 "twilio" => ConversationInitiationSource.Twilio,
+                "twilio_sms" => ConversationInitiationSource.TwilioSms,
                 "unknown" => ConversationInitiationSource.Unknown,
                 "whatsapp" => ConversationInitiationSource.Whatsapp,
                 "widget" => ConversationInitiationSource.Widget,

@@ -31934,7 +31934,8 @@
           "livekit_token",
           "livekit_token_website",
           "genesys_api_key",
-          "whatsapp"
+          "whatsapp",
+          "sms"
         ],
         "title": "AuthorizationMethod",
         "default": "public"
@@ -43097,6 +43098,16 @@
               }
             ]
           },
+          "sms": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SMSConversationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "agent_created_from": {
             "$ref": "#/components/schemas/AgentDefinitionSource",
             "default": "unknown"
@@ -45234,6 +45245,7 @@
           "genesys",
           "swift_sdk",
           "whatsapp",
+          "twilio_sms",
           "flutter_sdk",
           "zendesk_integration",
           "slack_integration",
@@ -67984,6 +67996,50 @@
           }
         ],
         "x-fern-ignore": true
+      },
+      "SMSConversationInfo": {
+        "properties": {
+          "direction": {
+            "type": "string",
+            "enum": [
+              "inbound",
+              "outbound"
+            ],
+            "title": "Direction"
+          },
+          "phone_number_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone Number Id"
+          },
+          "sms_user_phone_number": {
+            "type": "string",
+            "title": "Sms User Phone Number"
+          },
+          "agent_phone_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Phone Number"
+          }
+        },
+        "type": "object",
+        "required": [
+          "direction",
+          "sms_user_phone_number"
+        ],
+        "title": "SMSConversationInfo"
       },
       "SafetyCommonModel": {
         "properties": {
