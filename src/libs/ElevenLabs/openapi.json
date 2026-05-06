@@ -12358,7 +12358,7 @@
             "schema": {
               "type": "boolean",
               "description": "Enable versioning for the agent",
-              "default": false,
+              "default": true,
               "title": "Enable Versioning"
             },
             "description": "Enable versioning for the agent"
@@ -12659,7 +12659,7 @@
             "schema": {
               "type": "boolean",
               "description": "Enable versioning for the agent, if not already enabled",
-              "default": false,
+              "default": true,
               "title": "Enable Versioning If Not Enabled"
             },
             "description": "Enable versioning for the agent, if not already enabled"
@@ -41409,6 +41409,7 @@
           "usd",
           "eur",
           "inr",
+          "pln",
           "ratio",
           "rating"
         ],
@@ -47360,7 +47361,8 @@
         "enum": [
           "usd",
           "eur",
-          "inr"
+          "inr",
+          "pln"
         ],
         "title": "Currency"
       },
