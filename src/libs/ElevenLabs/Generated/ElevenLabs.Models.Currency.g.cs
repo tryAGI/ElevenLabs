@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Pln,
+        /// <summary>
+        /// 
+        /// </summary>
         Usd,
     }
 
@@ -36,6 +40,7 @@ namespace ElevenLabs
             {
                 Currency.Eur => "eur",
                 Currency.Inr => "inr",
+                Currency.Pln => "pln",
                 Currency.Usd => "usd",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -49,6 +54,7 @@ namespace ElevenLabs
             {
                 "eur" => Currency.Eur,
                 "inr" => Currency.Inr,
+                "pln" => Currency.Pln,
                 "usd" => Currency.Usd,
                 _ => null,
             };

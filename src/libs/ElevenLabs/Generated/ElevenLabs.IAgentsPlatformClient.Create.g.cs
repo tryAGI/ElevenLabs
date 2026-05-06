@@ -10,7 +10,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="enableVersioning">
         /// Enable versioning for the agent<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="enableVersioning">
         /// Enable versioning for the agent<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -46,7 +46,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="enableVersioning">
         /// Enable versioning for the agent<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="conversationConfig">
         /// Conversation configuration for an agent

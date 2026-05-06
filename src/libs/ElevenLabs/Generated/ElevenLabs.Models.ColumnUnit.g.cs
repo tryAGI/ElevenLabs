@@ -35,6 +35,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Pln,
+        /// <summary>
+        /// 
+        /// </summary>
         Rating,
         /// <summary>
         /// 
@@ -68,6 +72,7 @@ namespace ElevenLabs
                 ColumnUnit.Inr => "inr",
                 ColumnUnit.Min => "min",
                 ColumnUnit.Ms => "ms",
+                ColumnUnit.Pln => "pln",
                 ColumnUnit.Rating => "rating",
                 ColumnUnit.Ratio => "ratio",
                 ColumnUnit.S => "s",
@@ -88,6 +93,7 @@ namespace ElevenLabs
                 "inr" => ColumnUnit.Inr,
                 "min" => ColumnUnit.Min,
                 "ms" => ColumnUnit.Ms,
+                "pln" => ColumnUnit.Pln,
                 "rating" => ColumnUnit.Rating,
                 "ratio" => ColumnUnit.Ratio,
                 "s" => ColumnUnit.S,

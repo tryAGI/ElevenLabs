@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="enableVersioningIfNotEnabled">
         /// Enable versioning for the agent, if not already enabled<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="branchId">
         /// The ID of the branch to use
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="enableVersioningIfNotEnabled">
         /// Enable versioning for the agent, if not already enabled<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="branchId">
         /// The ID of the branch to use
@@ -65,7 +65,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="enableVersioningIfNotEnabled">
         /// Enable versioning for the agent, if not already enabled<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="branchId">
         /// The ID of the branch to use
