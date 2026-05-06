@@ -43,6 +43,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Sms,
+        /// <summary>
+        /// 
+        /// </summary>
         Whatsapp,
     }
 
@@ -66,6 +70,7 @@ namespace ElevenLabs
                 AuthorizationMethod.Public => "public",
                 AuthorizationMethod.ShareableLink => "shareable_link",
                 AuthorizationMethod.SignedUrl => "signed_url",
+                AuthorizationMethod.Sms => "sms",
                 AuthorizationMethod.Whatsapp => "whatsapp",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -85,6 +90,7 @@ namespace ElevenLabs
                 "public" => AuthorizationMethod.Public,
                 "shareable_link" => AuthorizationMethod.ShareableLink,
                 "signed_url" => AuthorizationMethod.SignedUrl,
+                "sms" => AuthorizationMethod.Sms,
                 "whatsapp" => AuthorizationMethod.Whatsapp,
                 _ => null,
             };

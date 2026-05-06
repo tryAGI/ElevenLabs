@@ -158,6 +158,12 @@ namespace ElevenLabs
         public global::ElevenLabs.WhatsAppConversationInfo? Whatsapp { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sms")]
+        public global::ElevenLabs.SMSConversationInfo? Sms { get; set; }
+
+        /// <summary>
         /// Default Value: unknown
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_created_from")]
@@ -217,6 +223,7 @@ namespace ElevenLabs
         /// <param name="timezone"></param>
         /// <param name="asyncMetadata"></param>
         /// <param name="whatsapp"></param>
+        /// <param name="sms"></param>
         /// <param name="agentCreatedFrom">
         /// Default Value: unknown
         /// </param>
@@ -252,6 +259,7 @@ namespace ElevenLabs
             string? timezone,
             global::ElevenLabs.AsyncConversationMetadata? asyncMetadata,
             global::ElevenLabs.WhatsAppConversationInfo? whatsapp,
+            global::ElevenLabs.SMSConversationInfo? sms,
             global::ElevenLabs.AgentDefinitionSource? agentCreatedFrom,
             global::ElevenLabs.AgentDefinitionSource? agentLastUpdatedFrom,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? voiceRewards)
@@ -280,6 +288,7 @@ namespace ElevenLabs
             this.Timezone = timezone;
             this.AsyncMetadata = asyncMetadata;
             this.Whatsapp = whatsapp;
+            this.Sms = sms;
             this.AgentCreatedFrom = agentCreatedFrom;
             this.AgentLastUpdatedFrom = agentLastUpdatedFrom;
             this.VoiceRewards = voiceRewards;
