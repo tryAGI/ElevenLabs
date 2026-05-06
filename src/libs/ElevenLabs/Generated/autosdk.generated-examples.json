@@ -5,11 +5,11 @@
       "Title": "Get User Subscription Info",
       "Slug": "get-user-subscription-info",
       "Description": "Gets extended information about the users subscription",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022allowed_to_extend_character_limit\u0022: true,\n//   \u0022billing_period\u0022: \u0022monthly_period\u0022,\n//   \u0022can_extend_character_limit\u0022: true,\n//   \u0022can_extend_voice_limit\u0022: true,\n//   \u0022can_use_instant_voice_cloning\u0022: true,\n//   \u0022can_use_professional_voice_cloning\u0022: true,\n//   \u0022character_count\u0022: 1000,\n//   \u0022character_limit\u0022: 10000,\n//   \u0022character_refresh_period\u0022: \u0022monthly_period\u0022,\n//   \u0022currency\u0022: \u0022usd\u0022,\n//   \u0022current_overage\u0022: {\n//     \u0022amount\u0022: \u00220\u0022,\n//     \u0022currency\u0022: \u0022usd\u0022\n//   },\n//   \u0022has_open_invoices\u0022: true,\n//   \u0022has_used_creator_coupon_on_account\u0022: false,\n//   \u0022has_used_starter_coupon_on_account\u0022: false,\n//   \u0022max_character_limit_extension\u0022: 10000,\n//   \u0022max_credit_limit_extension\u0022: 10000,\n//   \u0022next_character_count_reset_unix\u0022: 1738356858,\n//   \u0022next_invoice\u0022: {\n//     \u0022amount_due_cents\u0022: 1000,\n//     \u0022discounts\u0022: [\n//       {\n//         \u0022discount_percent_off\u0022: 20.0\n//       }\n//     ],\n//     \u0022next_payment_attempt_unix\u0022: 1738356858,\n//     \u0022payment_intent_status\u0022: \u0022processing\u0022,\n//     \u0022payment_intent_statusses\u0022: [\n//       \u0022processing\u0022,\n//       \u0022succeeded\u0022\n//     ],\n//     \u0022subtotal_cents\u0022: 900,\n//     \u0022tax_cents\u0022: 100\n//   },\n//   \u0022open_invoices\u0022: [\n//     {\n//       \u0022amount_due_cents\u0022: 1000,\n//       \u0022discounts\u0022: [\n//         {\n//           \u0022discount_percent_off\u0022: 20.0\n//         }\n//       ],\n//       \u0022next_payment_attempt_unix\u0022: 1738356858,\n//       \u0022payment_intent_status\u0022: \u0022processing\u0022,\n//       \u0022payment_intent_statusses\u0022: [\n//         \u0022processing\u0022,\n//         \u0022succeeded\u0022\n//       ],\n//       \u0022subtotal_cents\u0022: 900,\n//       \u0022tax_cents\u0022: 100\n//     }\n//   ],\n//   \u0022professional_voice_limit\u0022: 1,\n//   \u0022professional_voice_slots_used\u0022: 0,\n//   \u0022status\u0022: \u0022active\u0022,\n//   \u0022tier\u0022: \u0022starter\u0022,\n//   \u0022voice_add_edit_counter\u0022: 0,\n//   \u0022voice_limit\u0022: 10,\n//   \u0022voice_slots_used\u0022: 1\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get User Subscription Info\n# @name get_user_subscription_info\nGET {{host}}/v1/user/subscription\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_user_subscription_info",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 2,
@@ -38,22 +38,22 @@
       "Title": "Get Agent",
       "Slug": "get-agent-route",
       "Description": "Retrieve config for an agent",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022agent_id\u0022: \u0022agent_7101k5zvyjhmfg983brhmhkd98n6\u0022,\n//   \u0022name\u0022: \u0022My Agent\u0022,\n//   \u0022workflow\u0022: {\n//     \u0022edges\u0022: {\n//       \u0022entry_to_tool_a\u0022: {\n//         \u0022forward_condition\u0022: {\n//           \u0022condition\u0022: \u0022Tool A condition\u0022,\n//           \u0022type\u0022: \u0022llm\u0022\n//         },\n//         \u0022source\u0022: \u0022entry_node\u0022,\n//         \u0022target\u0022: \u0022tool_node_a\u0022\n//       },\n//       \u0022start_to_entry\u0022: {\n//         \u0022forward_condition\u0022: {\n//           \u0022type\u0022: \u0022unconditional\u0022\n//         },\n//         \u0022source\u0022: \u0022start_node\u0022,\n//         \u0022target\u0022: \u0022entry_node\u0022\n//       },\n//       \u0022tool_a_to_failure\u0022: {\n//         \u0022forward_condition\u0022: {\n//           \u0022successful\u0022: false,\n//           \u0022type\u0022: \u0022result\u0022\n//         },\n//         \u0022source\u0022: \u0022tool_node_a\u0022,\n//         \u0022target\u0022: \u0022failure_node\u0022\n//       },\n//       \u0022tool_a_to_tool_b\u0022: {\n//         \u0022forward_condition\u0022: {\n//           \u0022successful\u0022: true,\n//           \u0022type\u0022: \u0022result\u0022\n//         },\n//         \u0022source\u0022: \u0022tool_node_a\u0022,\n//         \u0022target\u0022: \u0022tool_node_b\u0022\n//       },\n//       \u0022tool_b_to_agent_transfer\u0022: {\n//         \u0022forward_condition\u0022: {\n//           \u0022type\u0022: \u0022unconditional\u0022\n//         },\n//         \u0022source\u0022: \u0022tool_node_b\u0022,\n//         \u0022target\u0022: \u0022success_transfer\u0022\n//       },\n//       \u0022tool_b_to_conversation\u0022: {\n//         \u0022forward_condition\u0022: {\n//           \u0022condition\u0022: \u0022Conversation condition\u0022,\n//           \u0022type\u0022: \u0022llm\u0022\n//         },\n//         \u0022source\u0022: \u0022tool_node_b\u0022,\n//         \u0022target\u0022: \u0022success_conversation\u0022\n//       },\n//       \u0022tool_b_to_end\u0022: {\n//         \u0022forward_condition\u0022: {\n//           \u0022condition\u0022: \u0022End condition\u0022,\n//           \u0022type\u0022: \u0022llm\u0022\n//         },\n//         \u0022source\u0022: \u0022tool_node_b\u0022,\n//         \u0022target\u0022: \u0022success_end\u0022\n//       },\n//       \u0022tool_b_to_phone\u0022: {\n//         \u0022forward_condition\u0022: {\n//           \u0022expression\u0022: {\n//             \u0022children\u0022: [\n//               {\n//                 \u0022name\u0022: \u0022force_phone_transfer\u0022,\n//                 \u0022type\u0022: \u0022dynamic_variable\u0022\n//               },\n//               {\n//                 \u0022prompt\u0022: \u0022Phone condition\u0022,\n//                 \u0022type\u0022: \u0022llm\u0022,\n//                 \u0022value_schema\u0022: {\n//                   \u0022description\u0022: \u0022Phone condition\u0022,\n//                   \u0022type\u0022: \u0022boolean\u0022\n//                 }\n//               },\n//               {\n//                 \u0022left\u0022: {\n//                   \u0022name\u0022: \u0022mode\u0022,\n//                   \u0022type\u0022: \u0022dynamic_variable\u0022\n//                 },\n//                 \u0022right\u0022: {\n//                   \u0022type\u0022: \u0022string_literal\u0022,\n//                   \u0022value\u0022: \u0022dev\u0022\n//                 },\n//                 \u0022type\u0022: \u0022eq_operator\u0022\n//               }\n//             ],\n//             \u0022type\u0022: \u0022or_operator\u0022\n//           },\n//           \u0022type\u0022: \u0022expression\u0022\n//         },\n//         \u0022source\u0022: \u0022tool_node_b\u0022,\n//         \u0022target\u0022: \u0022success_phone\u0022\n//       }\n//     },\n//     \u0022nodes\u0022: {\n//       \u0022entry_node\u0022: {\n//         \u0022additional_knowledge_base\u0022: [],\n//         \u0022additional_prompt\u0022: \u0022\u0022,\n//         \u0022additional_tool_ids\u0022: [],\n//         \u0022auto_advance_after_first_response\u0022: false,\n//         \u0022conversation_config\u0022: {},\n//         \u0022edge_order\u0022: [\n//           \u0022entry_to_tool_a\u0022\n//         ],\n//         \u0022label\u0022: \u0022Entry\u0022,\n//         \u0022position\u0022: {\n//           \u0022x\u0022: 0.0,\n//           \u0022y\u0022: 0.0\n//         },\n//         \u0022type\u0022: \u0022override_agent\u0022\n//       },\n//       \u0022failure_node\u0022: {\n//         \u0022additional_knowledge_base\u0022: [],\n//         \u0022additional_prompt\u0022: \u0022\u0022,\n//         \u0022additional_tool_ids\u0022: [],\n//         \u0022auto_advance_after_first_response\u0022: false,\n//         \u0022conversation_config\u0022: {},\n//         \u0022edge_order\u0022: [],\n//         \u0022label\u0022: \u0022Failure\u0022,\n//         \u0022position\u0022: {\n//           \u0022x\u0022: 0.0,\n//           \u0022y\u0022: 0.0\n//         },\n//         \u0022type\u0022: \u0022override_agent\u0022\n//       },\n//       \u0022start_node\u0022: {\n//         \u0022edge_order\u0022: [\n//           \u0022start_to_entry\u0022\n//         ],\n//         \u0022position\u0022: {\n//           \u0022x\u0022: 0.0,\n//           \u0022y\u0022: 0.0\n//         },\n//         \u0022type\u0022: \u0022start\u0022\n//       },\n//       \u0022success_conversation\u0022: {\n//         \u0022additional_knowledge_base\u0022: [],\n//         \u0022additional_prompt\u0022: \u0022\u0022,\n//         \u0022additional_tool_ids\u0022: [],\n//         \u0022auto_advance_after_first_response\u0022: false,\n//         \u0022conversation_config\u0022: {},\n//         \u0022edge_order\u0022: [],\n//         \u0022label\u0022: \u0022Success A\u0022,\n//         \u0022position\u0022: {\n//           \u0022x\u0022: 0.0,\n//           \u0022y\u0022: 0.0\n//         },\n//         \u0022type\u0022: \u0022override_agent\u0022\n//       },\n//       \u0022success_end\u0022: {\n//         \u0022edge_order\u0022: [],\n//         \u0022position\u0022: {\n//           \u0022x\u0022: 0.0,\n//           \u0022y\u0022: 0.0\n//         },\n//         \u0022type\u0022: \u0022end\u0022\n//       },\n//       \u0022success_phone\u0022: {\n//         \u0022custom_sip_headers\u0022: [],\n//         \u0022edge_order\u0022: [],\n//         \u0022position\u0022: {\n//           \u0022x\u0022: 0.0,\n//           \u0022y\u0022: 0.0\n//         },\n//         \u0022transfer_destination\u0022: {\n//           \u0022phone_number\u0022: \u0022\\u002B1234567890\u0022,\n//           \u0022type\u0022: \u0022phone\u0022\n//         },\n//         \u0022transfer_type\u0022: \u0022conference\u0022,\n//         \u0022type\u0022: \u0022phone_number\u0022\n//       },\n//       \u0022success_transfer\u0022: {\n//         \u0022agent_id\u0022: \u0022success_transfer_agent\u0022,\n//         \u0022delay_ms\u0022: 0,\n//         \u0022edge_order\u0022: [],\n//         \u0022enable_transferred_agent_first_message\u0022: false,\n//         \u0022position\u0022: {\n//           \u0022x\u0022: 0.0,\n//           \u0022y\u0022: 0.0\n//         },\n//         \u0022type\u0022: \u0022standalone_agent\u0022\n//       },\n//       \u0022tool_node_a\u0022: {\n//         \u0022edge_order\u0022: [\n//           \u0022tool_a_to_failure\u0022,\n//           \u0022tool_a_to_tool_b\u0022\n//         ],\n//         \u0022position\u0022: {\n//           \u0022x\u0022: 0.0,\n//           \u0022y\u0022: 0.0\n//         },\n//         \u0022tools\u0022: [\n//           {\n//             \u0022tool_id\u0022: \u0022tool_a\u0022\n//           },\n//           {\n//             \u0022tool_id\u0022: \u0022tool_b\u0022\n//           }\n//         ],\n//         \u0022type\u0022: \u0022tool\u0022\n//       },\n//       \u0022tool_node_b\u0022: {\n//         \u0022edge_order\u0022: [\n//           \u0022tool_b_to_conversation\u0022,\n//           \u0022tool_b_to_end\u0022,\n//           \u0022tool_b_to_phone\u0022,\n//           \u0022tool_b_to_agent_transfer\u0022\n//         ],\n//         \u0022position\u0022: {\n//           \u0022x\u0022: 0.0,\n//           \u0022y\u0022: 0.0\n//         },\n//         \u0022tools\u0022: [\n//           {\n//             \u0022tool_id\u0022: \u0022tool_a\u0022\n//           }\n//         ],\n//         \u0022type\u0022: \u0022tool\u0022\n//       }\n//     },\n//     \u0022prevent_subagent_loops\u0022: false\n//   }\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Agent\n# @name get_agent_route\nGET {{host}}/v1/convai/agents/{{agent_id}}?version_id={{version_id}}\u0026branch_id={{branch_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_agent_route",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 5,
       "Title": "Get Shareable Agent Link",
       "Slug": "get-agent-link-route",
       "Description": "Get the current link used to share the agent with others",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022agent_id\u0022: \u0022J3Pbu5gP6NNKBscdCdwB\u0022\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Shareable Agent Link\n# @name get_agent_link_route\nGET {{host}}/v1/convai/agents/{{agent_id}}/link\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_agent_link_route",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 6,
@@ -192,22 +192,22 @@
       "Title": "Get Dubbing",
       "Slug": "get-dubbed-metadata",
       "Description": "Returns metadata about a dubbing project, including whether it\u0027s still in progress or not",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022created_at\u0022: \u00222025-07-15T14:49:41.149000\u0022,\n//   \u0022dubbing_id\u0022: \u002221m00Tcm4TlvDq8ikWAM\u0022,\n//   \u0022editable\u0022: true,\n//   \u0022media_metadata\u0022: {\n//     \u0022content_type\u0022: \u0022video/mp4\u0022,\n//     \u0022duration\u0022: 127.5\n//   },\n//   \u0022name\u0022: \u0022My Dubbing Project\u0022,\n//   \u0022source_language\u0022: \u0022en\u0022,\n//   \u0022status\u0022: \u0022dubbed\u0022,\n//   \u0022target_languages\u0022: [\n//     \u0022es\u0022,\n//     \u0022fr\u0022,\n//     \u0022de\u0022\n//   ]\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Dubbing\n# @name get_dubbed_metadata\nGET {{host}}/v1/dubbing/{{dubbing_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_dubbed_metadata",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 19,
       "Title": "Get Dubbed File",
       "Slug": "get-dubbed-file",
       "Description": "Returns dub as a streamed MP3 or MP4 file. If this dub has been edited using Dubbing Studio you need to use the resource render endpoint as this endpoint only returns the original automatic dub result.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Dubbed File\n# @name get_dubbed_file\nGET {{host}}/v1/dubbing/{{dubbing_id}}/audio/{{language_code}}\nxi-api-key: {{api_key}}\nAccept: application/json, audio/mpeg, video/mp4\n\n## Responses\n# 200\n# Description: The dubbed audio or video file\n# Content-Type: audio/mpeg, video/mp4\n# 403\n# Description: Permission denied\n# Content-Type: application/json\n# 404\n# Description: Dubbing not found\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json\n# 425\n# Description: Dubbing not ready\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_dubbed_file",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 20,
@@ -236,11 +236,11 @@
       "Title": "Get History Item",
       "Slug": "get-speech-history-item-by-id",
       "Description": "Retrieves a history item.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022character_count_change_from\u0022: 17189,\n//   \u0022character_count_change_to\u0022: 17231,\n//   \u0022content_type\u0022: \u0022audio/mpeg\u0022,\n//   \u0022date_unix\u0022: 1714650306,\n//   \u0022history_item_id\u0022: \u0022ja9xsmfGhxYcymxGcOGB\u0022,\n//   \u0022model_id\u0022: \u0022eleven_multilingual_v2\u0022,\n//   \u0022request_id\u0022: \u0022BF0BZg4IwLGBlaVjv9Im\u0022,\n//   \u0022settings\u0022: {\n//     \u0022similarity_boost\u0022: 0.5,\n//     \u0022stability\u0022: 0.71,\n//     \u0022style\u0022: 0,\n//     \u0022use_speaker_boost\u0022: true\n//   },\n//   \u0022source\u0022: \u0022TTS\u0022,\n//   \u0022state\u0022: \u0022created\u0022,\n//   \u0022text\u0022: \u0022Hello, world!\u0022,\n//   \u0022voice_category\u0022: \u0022premade\u0022,\n//   \u0022voice_id\u0022: \u002221m00Tcm4TlvDq8ikWAM\u0022,\n//   \u0022voice_name\u0022: \u0022Rachel\u0022\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get History Item\n# @name get_speech_history_item_by_id\nGET {{host}}/v1/history/{{history_item_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_speech_history_item_by_id",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 23,
@@ -313,11 +313,11 @@
       "Title": "Get Metadata For A Pronunciation Dictionary",
       "Slug": "get-pronunciation-dictionary-metadata",
       "Description": "Get metadata for a pronunciation dictionary",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022created_by\u0022: \u0022ar6633Es2kUjFXBdR1iVc9ztsXl1\u0022,\n//   \u0022creation_time_unix\u0022: 1714156800,\n//   \u0022description\u0022: \u0022This is a test dictionary\u0022,\n//   \u0022id\u0022: \u00225xM3yVvZQKV0EfqQpLrJ\u0022,\n//   \u0022latest_version_id\u0022: \u00225xM3yVvZQKV0EfqQpLr2\u0022,\n//   \u0022latest_version_rules_num\u0022: 2,\n//   \u0022name\u0022: \u0022My Dictionary\u0022,\n//   \u0022permission_on_resource\u0022: \u0022admin\u0022,\n//   \u0022rules\u0022: [\n//     {\n//       \u0022alias\u0022: \u0022tie-land\u0022,\n//       \u0022string_to_replace\u0022: \u0022Thailand\u0022,\n//       \u0022type\u0022: \u0022alias\u0022\n//     },\n//     {\n//       \u0022alphabet\u0022: \u0022ipa\u0022,\n//       \u0022phoneme\u0022: \u0022/t\\u0259\\u02C8me\\u026Ato\\u028A/\u0022,\n//       \u0022string_to_replace\u0022: \u0022Tomato\u0022,\n//       \u0022type\u0022: \u0022phoneme\u0022\n//     }\n//   ]\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Metadata For A Pronunciation Dictionary\n# @name get_pronunciation_dictionary_metadata\nGET {{host}}/v1/pronunciation-dictionaries/{{pronunciation_dictionary_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_pronunciation_dictionary_metadata",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 30,
@@ -401,44 +401,44 @@
       "Title": "Retrieve Voice Sample Audio",
       "Slug": "get-pvc-sample-audio",
       "Description": "Retrieve the first 30 seconds of voice sample audio with or without noise removal.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022audio_base_64\u0022: \u0022audio_base_64\u0022,\n//   \u0022duration_secs\u0022: 5.0,\n//   \u0022media_type\u0022: \u0022audio/mpeg\u0022,\n//   \u0022sample_id\u0022: \u0022DCwhRBWXzGAHq8TQ4Fs18\u0022,\n//   \u0022voice_id\u0022: \u0022DCwhRBWXzGAHq8TQ4Fs18\u0022\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Retrieve Voice Sample Audio\n# @name get_pvc_sample_audio\nGET {{host}}/v1/voices/pvc/{{voice_id}}/samples/{{sample_id}}/audio?remove_background_noise=false\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_pvc_sample_audio",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 38,
       "Title": "Retrieve Voice Sample Visual Waveform",
       "Slug": "get-pvc-sample-visual-waveform",
       "Description": "Retrieve the visual waveform of a voice sample.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022sample_id\u0022: \u0022DCwhRBWXzGAHq8TQ4Fs18\u0022,\n//   \u0022visual_waveform\u0022: [\n//     0.1,\n//     0.2,\n//     0.3,\n//     0.4,\n//     0.5\n//   ]\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Retrieve Voice Sample Visual Waveform\n# @name get_pvc_sample_visual_waveform\nGET {{host}}/v1/voices/pvc/{{voice_id}}/samples/{{sample_id}}/waveform\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_pvc_sample_visual_waveform",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 39,
       "Title": "Retrieve Speaker Separation Status",
       "Slug": "get-pvc-sample-speakers",
       "Description": "Retrieve the status of the speaker separation process and the list of detected speakers if complete.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022sample_id\u0022: \u0022DCwhRBWXzGAHq8TQ4Fs18\u0022,\n//   \u0022status\u0022: \u0022not_started\u0022,\n//   \u0022voice_id\u0022: \u0022DCwhRBWXzGAHq8TQ4Fs18\u0022\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Retrieve Speaker Separation Status\n# @name get_pvc_sample_speakers\nGET {{host}}/v1/voices/pvc/{{voice_id}}/samples/{{sample_id}}/speakers\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_pvc_sample_speakers",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 40,
       "Title": "Retrieve Separated Speaker Audio",
       "Slug": "get-speaker-audio",
       "Description": "Retrieve the separated audio for a specific speaker.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022audio_base_64\u0022: \u0022audio_base_64\u0022,\n//   \u0022duration_secs\u0022: 5.0,\n//   \u0022media_type\u0022: \u0022audio/mpeg\u0022\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Retrieve Separated Speaker Audio\n# @name get_speaker_audio\nGET {{host}}/v1/voices/pvc/{{voice_id}}/samples/{{sample_id}}/speakers/{{speaker_id}}/audio\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_speaker_audio",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 41,
@@ -555,11 +555,11 @@
       "Title": "Get Transcript By Id",
       "Slug": "get-transcript-by-id",
       "Description": "Retrieve a previously generated transcript by its ID.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Transcript By Id\n# @name get_transcript_by_id\nGET {{host}}/v1/speech-to-text/transcripts/{{transcription_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: The transcript data\n# Content-Type: application/json\n# 401\n# Description: Authentication required\n# Content-Type: application/json\n# 404\n# Description: Transcript not found\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_transcript_by_id",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 52,
@@ -621,44 +621,44 @@
       "Title": "Get Studio Project",
       "Slug": "get-project-by-id",
       "Description": "Returns information about a specific Studio project. This endpoint returns more detailed information about a project than \u0060GET /v1/studio\u0060.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022access_level\u0022: \u0022viewer\u0022,\n//   \u0022apply_text_normalization\u0022: \u0022auto\u0022,\n//   \u0022assets\u0022: [],\n//   \u0022author\u0022: \u0022John Doe\u0022,\n//   \u0022base_voices\u0022: [],\n//   \u0022can_be_downloaded\u0022: true,\n//   \u0022chapters\u0022: [\n//     {\n//       \u0022can_be_downloaded\u0022: true,\n//       \u0022chapter_id\u0022: \u0022aw1NgEzBg83R7vgmiJt6\u0022,\n//       \u0022conversion_progress\u0022: 0.5,\n//       \u0022last_conversion_date_unix\u0022: 1714204800,\n//       \u0022last_conversion_error\u0022: \u0022Error message\u0022,\n//       \u0022name\u0022: \u0022Chapter 1\u0022,\n//       \u0022state\u0022: \u0022converting\u0022,\n//       \u0022statistics\u0022: {\n//         \u0022characters_converted\u0022: 500,\n//         \u0022characters_unconverted\u0022: 1000,\n//         \u0022paragraphs_converted\u0022: 20,\n//         \u0022paragraphs_unconverted\u0022: 10,\n//         \u0022voice_statistics\u0022: [\n//           {\n//             \u0022characters_converted\u0022: 300,\n//             \u0022characters_unconverted\u0022: 600,\n//             \u0022voice_id\u0022: \u0022voice123\u0022\n//           },\n//           {\n//             \u0022characters_converted\u0022: 200,\n//             \u0022characters_unconverted\u0022: 400,\n//             \u0022voice_id\u0022: \u0022voice456\u0022\n//           }\n//         ]\n//       }\n//     }\n//   ],\n//   \u0022content_type\u0022: \u0022Novel\u0022,\n//   \u0022cover_image_url\u0022: \u0022https://example.com/cover.jpg\u0022,\n//   \u0022create_date_unix\u0022: 1714204800,\n//   \u0022created_by_user_id\u0022: \u0022Vbtgl3bRdj6lk79rYAgx\u0022,\n//   \u0022creation_meta\u0022: {\n//     \u0022creation_progress\u0022: 0.5,\n//     \u0022status\u0022: \u0022pending\u0022,\n//     \u0022type\u0022: \u0022blank\u0022\n//   },\n//   \u0022default_model_id\u0022: \u0022eleven_multilingual_v2\u0022,\n//   \u0022default_paragraph_voice_id\u0022: \u0022JBFqnCBsd6RMkjVDRZzb\u0022,\n//   \u0022default_title_voice_id\u0022: \u0022JBFqnCBsd6RMkjVDRZzb\u0022,\n//   \u0022description\u0022: \u0022This is a description of my project.\u0022,\n//   \u0022experimental\u0022: {},\n//   \u0022fiction\u0022: \u0022fiction\u0022,\n//   \u0022genres\u0022: [\n//     \u0022Novel\u0022,\n//     \u0022Short Story\u0022\n//   ],\n//   \u0022isbn_number\u0022: \u0022978-90-274-3964-2\u0022,\n//   \u0022language\u0022: \u0022en\u0022,\n//   \u0022last_conversion_date_unix\u0022: 1714204800,\n//   \u0022mature_content\u0022: false,\n//   \u0022name\u0022: \u0022My Project\u0022,\n//   \u0022original_publication_date\u0022: \u00222025-01-01\u0022,\n//   \u0022project_id\u0022: \u0022aw1NgEzBg83R7vgmiJt6\u0022,\n//   \u0022pronunciation_dictionary_locators\u0022: [],\n//   \u0022pronunciation_dictionary_versions\u0022: [],\n//   \u0022public_share_id\u0022: \u0022abc123def456789\u0022,\n//   \u0022quality_check_on\u0022: false,\n//   \u0022quality_check_on_when_bulk_convert\u0022: false,\n//   \u0022quality_preset\u0022: \u0022standard\u0022,\n//   \u0022state\u0022: \u0022default\u0022,\n//   \u0022target_audience\u0022: \u0022young adult\u0022,\n//   \u0022title\u0022: \u0022My Project\u0022,\n//   \u0022voices\u0022: [],\n//   \u0022volume_normalization\u0022: true\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Studio Project\n# @name get_project_by_id\nGET {{host}}/v1/studio/projects/{{project_id}}?share_id={{share_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_project_by_id",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 58,
       "Title": "Get Project Snapshot",
       "Slug": "get-project-snapshot-endpoint",
       "Description": "Returns the project snapshot.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022audio_duration_secs\u0022: 123.45,\n//   \u0022character_alignments\u0022: [],\n//   \u0022created_at_unix\u0022: 1714204800,\n//   \u0022name\u0022: \u0022My Project Snapshot\u0022,\n//   \u0022project_id\u0022: \u0022aw1NgEzBg83R7vgmiJt6\u0022,\n//   \u0022project_snapshot_id\u0022: \u0022aw1NgEzBg83R7vgmiJt6\u0022\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Project Snapshot\n# @name get_project_snapshot_endpoint\nGET {{host}}/v1/studio/projects/{{project_id}}/snapshots/{{project_snapshot_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_project_snapshot_endpoint",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 59,
       "Title": "Get Chapter",
       "Slug": "get-chapter-by-id-endpoint",
       "Description": "Returns information about a specific chapter.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022can_be_downloaded\u0022: true,\n//   \u0022chapter_id\u0022: \u0022aw1NgEzBg83R7vgmiJt6\u0022,\n//   \u0022content\u0022: {\n//     \u0022blocks\u0022: []\n//   },\n//   \u0022conversion_progress\u0022: 0.5,\n//   \u0022last_conversion_date_unix\u0022: 1714204800,\n//   \u0022name\u0022: \u0022Chapter 1\u0022,\n//   \u0022state\u0022: \u0022default\u0022,\n//   \u0022statistics\u0022: {\n//     \u0022characters_converted\u0022: 200,\n//     \u0022characters_unconverted\u0022: 100,\n//     \u0022paragraphs_converted\u0022: 5,\n//     \u0022paragraphs_unconverted\u0022: 3\n//   }\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Chapter\n# @name get_chapter_by_id_endpoint\nGET {{host}}/v1/studio/projects/{{project_id}}/chapters/{{chapter_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_chapter_by_id_endpoint",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 60,
       "Title": "Get Chapter Snapshot",
       "Slug": "get-chapter-snapshot-endpoint",
       "Description": "Returns the chapter snapshot.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022chapter_id\u0022: \u0022aw1NgEzBg83R7vgmiJt3\u0022,\n//   \u0022chapter_snapshot_id\u0022: \u0022aw1NgEzBg83R7vgmiJt1\u0022,\n//   \u0022character_alignments\u0022: [],\n//   \u0022created_at_unix\u0022: 1714204800,\n//   \u0022name\u0022: \u0022My Chapter Snapshot\u0022,\n//   \u0022project_id\u0022: \u0022aw1NgEzBg83R7vgmiJt2\u0022\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Chapter Snapshot\n# @name get_chapter_snapshot_endpoint\nGET {{host}}/v1/studio/projects/{{project_id}}/chapters/{{chapter_id}}/snapshots/{{chapter_snapshot_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_chapter_snapshot_endpoint",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 61,
@@ -764,11 +764,11 @@
       "Title": "Get User Info",
       "Slug": "get-user-info",
       "Description": "Gets information about the user",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022can_use_delayed_payment_methods\u0022: false,\n//   \u0022created_at\u0022: 1753999199,\n//   \u0022first_name\u0022: \u0022John\u0022,\n//   \u0022is_api_key_hashed\u0022: false,\n//   \u0022is_new_user\u0022: false,\n//   \u0022is_onboarding_checklist_completed\u0022: true,\n//   \u0022is_onboarding_completed\u0022: true,\n//   \u0022seat_type\u0022: \u0022workspace_member\u0022,\n//   \u0022show_compliance_terms\u0022: false,\n//   \u0022subscription\u0022: {\n//     \u0022allowed_to_extend_character_limit\u0022: false,\n//     \u0022billing_period\u0022: \u0022monthly_period\u0022,\n//     \u0022can_extend_character_limit\u0022: false,\n//     \u0022can_extend_voice_limit\u0022: false,\n//     \u0022can_use_instant_voice_cloning\u0022: true,\n//     \u0022can_use_professional_voice_cloning\u0022: true,\n//     \u0022character_count\u0022: 17231,\n//     \u0022character_limit\u0022: 100000,\n//     \u0022character_refresh_period\u0022: \u0022monthly_period\u0022,\n//     \u0022currency\u0022: \u0022usd\u0022,\n//     \u0022current_overage\u0022: {\n//       \u0022amount\u0022: \u00220\u0022,\n//       \u0022currency\u0022: \u0022usd\u0022\n//     },\n//     \u0022max_character_limit_extension\u0022: 10000,\n//     \u0022max_credit_limit_extension\u0022: 10000,\n//     \u0022max_voice_add_edits\u0022: 230,\n//     \u0022next_character_count_reset_unix\u0022: 1738356858,\n//     \u0022professional_voice_limit\u0022: 1,\n//     \u0022professional_voice_slots_used\u0022: 0,\n//     \u0022status\u0022: \u0022free\u0022,\n//     \u0022tier\u0022: \u0022trial\u0022,\n//     \u0022voice_add_edit_counter\u0022: 212,\n//     \u0022voice_limit\u0022: 120,\n//     \u0022voice_slots_used\u0022: 1\n//   },\n//   \u0022user_id\u0022: \u00221234567890\u0022,\n//   \u0022xi_api_key\u0022: \u00228so27l7327189x0h939ekx293380l920\u0022\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get User Info\n# @name get_user_info\nGET {{host}}/v1/user\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_user_info",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 71,
@@ -808,22 +808,22 @@
       "Title": "Get Voice Settings",
       "Slug": "get-voice-settings",
       "Description": "Returns the settings for a specific voice. \u0022similarity_boost\u0022 corresponds to\u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022similarity_boost\u0022: 1.0,\n//   \u0022speed\u0022: 1.0,\n//   \u0022stability\u0022: 1.0,\n//   \u0022style\u0022: 0.0,\n//   \u0022use_speaker_boost\u0022: true\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Voice Settings\n# @name get_voice_settings\nGET {{host}}/v1/voices/{{voice_id}}/settings\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_voice_settings",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 75,
       "Title": "Get Voice",
       "Slug": "get-voice-by-id",
       "Description": "Returns metadata about a specific voice.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022available_for_tiers\u0022: [\n//     \u0022creator\u0022,\n//     \u0022enterprise\u0022\n//   ],\n//   \u0022category\u0022: \u0022professional\u0022,\n//   \u0022description\u0022: \u0022A warm, expressive voice with a touch of humor.\u0022,\n//   \u0022fine_tuning\u0022: {\n//     \u0022is_allowed_to_fine_tune\u0022: true,\n//     \u0022manual_verification_requested\u0022: false,\n//     \u0022state\u0022: {\n//       \u0022eleven_multilingual_v2\u0022: \u0022fine_tuned\u0022\n//     },\n//     \u0022verification_attempts_count\u0022: 2,\n//     \u0022verification_failures\u0022: []\n//   },\n//   \u0022high_quality_base_model_ids\u0022: [\n//     \u0022eleven_v2_flash\u0022,\n//     \u0022eleven_flash_v2\u0022,\n//     \u0022eleven_turbo_v2_5\u0022,\n//     \u0022eleven_multilingual_v2\u0022,\n//     \u0022eleven_v2_5_flash\u0022,\n//     \u0022eleven_flash_v2_5\u0022,\n//     \u0022eleven_turbo_v2\u0022\n//   ],\n//   \u0022is_legacy\u0022: false,\n//   \u0022is_mixed\u0022: false,\n//   \u0022is_owner\u0022: false,\n//   \u0022labels\u0022: {\n//     \u0022accent\u0022: \u0022American\u0022,\n//     \u0022age\u0022: \u0022middle-aged\u0022,\n//     \u0022description\u0022: \u0022expressive\u0022,\n//     \u0022gender\u0022: \u0022female\u0022,\n//     \u0022use_case\u0022: \u0022social media\u0022\n//   },\n//   \u0022name\u0022: \u0022Rachel\u0022,\n//   \u0022preview_url\u0022: \u0022https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3\u0022,\n//   \u0022settings\u0022: {\n//     \u0022similarity_boost\u0022: 1.0,\n//     \u0022speed\u0022: 1.0,\n//     \u0022stability\u0022: 1.0,\n//     \u0022style\u0022: 0.0,\n//     \u0022use_speaker_boost\u0022: true\n//   },\n//   \u0022sharing\u0022: {\n//     \u0022category\u0022: \u0022professional\u0022,\n//     \u0022cloned_by_count\u0022: 50,\n//     \u0022date_unix\u0022: 1714204800,\n//     \u0022description\u0022: \u0022A female voice with a soft and friendly tone.\u0022,\n//     \u0022disable_at_unix\u0022: 1714204800,\n//     \u0022enabled_in_library\u0022: true,\n//     \u0022featured\u0022: true,\n//     \u0022financial_rewards_enabled\u0022: true,\n//     \u0022free_users_allowed\u0022: true,\n//     \u0022history_item_sample_id\u0022: \u0022DCwhRBWXzGAHq8TQ4Fs18\u0022,\n//     \u0022labels\u0022: {\n//       \u0022accent\u0022: \u0022American\u0022,\n//       \u0022gender\u0022: \u0022female\u0022\n//     },\n//     \u0022liked_by_count\u0022: 100,\n//     \u0022live_moderation_enabled\u0022: true,\n//     \u0022moderation_check\u0022: {\n//       \u0022captcha_checks\u0022: [\n//         0.95,\n//         0.98\n//       ],\n//       \u0022captcha_ids\u0022: [\n//         \u0022captcha1\u0022,\n//         \u0022captcha2\u0022\n//       ],\n//       \u0022date_checked_unix\u0022: 1714204800,\n//       \u0022description_check\u0022: true,\n//       \u0022description_value\u0022: \u0022A female voice with a soft and friendly tone.\u0022,\n//       \u0022name_check\u0022: true,\n//       \u0022name_value\u0022: \u0022Rachel\u0022,\n//       \u0022sample_checks\u0022: [\n//         0.95,\n//         0.98\n//       ],\n//       \u0022sample_ids\u0022: [\n//         \u0022sample1\u0022,\n//         \u0022sample2\u0022\n//       ]\n//     },\n//     \u0022name\u0022: \u0022Rachel\u0022,\n//     \u0022notice_period\u0022: 30,\n//     \u0022original_voice_id\u0022: \u0022DCwhRBWXzGAHq8TQ4Fs18\u0022,\n//     \u0022public_owner_id\u0022: \u0022DCwhRBWXzGAHq8TQ4Fs18\u0022,\n//     \u0022rate\u0022: 0.05,\n//     \u0022reader_app_enabled\u0022: true,\n//     \u0022reader_restricted_on\u0022: [\n//       {\n//         \u0022resource_id\u0022: \u0022FCwhRBWXzGAHq8TQ4Fs18\u0022,\n//         \u0022resource_type\u0022: \u0022read\u0022\n//       }\n//     ],\n//     \u0022review_status\u0022: \u0022allowed\u0022,\n//     \u0022status\u0022: \u0022enabled\u0022,\n//     \u0022voice_mixing_allowed\u0022: false,\n//     \u0022whitelisted_emails\u0022: [\n//       \u0022example@example.com\u0022\n//     ]\n//   },\n//   \u0022verified_languages\u0022: [\n//     {\n//       \u0022accent\u0022: \u0022american\u0022,\n//       \u0022language\u0022: \u0022en\u0022,\n//       \u0022locale\u0022: \u0022en-US\u0022,\n//       \u0022model_id\u0022: \u0022eleven_multilingual_v2\u0022,\n//       \u0022preview_url\u0022: \u0022https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3\u0022\n//     }\n//   ],\n//   \u0022voice_id\u0022: \u002221m00Tcm4TlvDq8ikWAM\u0022,\n//   \u0022voice_verification\u0022: {\n//     \u0022is_verified\u0022: true,\n//     \u0022language\u0022: \u0022en\u0022,\n//     \u0022requires_verification\u0022: false,\n//     \u0022verification_attempts\u0022: [\n//       {\n//         \u0022accepted\u0022: true,\n//         \u0022date_unix\u0022: 1714204800,\n//         \u0022levenshtein_distance\u0022: 2,\n//         \u0022recording\u0022: {\n//           \u0022mime_type\u0022: \u0022audio/mpeg\u0022,\n//           \u0022recording_id\u0022: \u0022CwhRBWXzGAHq8TQ4Fs17\u0022,\n//           \u0022size_bytes\u0022: 1000000,\n//           \u0022transcription\u0022: \u0022Hello, how are you?\u0022,\n//           \u0022upload_date_unix\u0022: 1714204800\n//         },\n//         \u0022similarity\u0022: 0.95,\n//         \u0022text\u0022: \u0022Hello, how are you?\u0022\n//       }\n//     ],\n//     \u0022verification_attempts_count\u0022: 0,\n//     \u0022verification_failures\u0022: []\n//   }\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Voice\n# @name get_voice_by_id\nGET {{host}}/v1/voices/{{voice_id}}?with_settings=true\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_voice_by_id",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 76,
@@ -973,11 +973,11 @@
       "Title": "Get Resource",
       "Slug": "get-resource-metadata",
       "Description": "Gets the metadata of a resource by ID.",
-      "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.GetAsync();\n\n// Example response:\n// {\n//   \u0022anonymous_access_level_override\u0022: \u0022viewer\u0022,\n//   \u0022creator_user_id\u0022: \u00225zavrE1kZXv2lFw9BKgEkf0B5Wqo\u0022,\n//   \u0022resource_id\u0022: \u00224ZUqyldxf71HqUbcP2Lc\u0022,\n//   \u0022resource_name\u0022: \u0022My Custom Voice\u0022,\n//   \u0022resource_type\u0022: \u0022voice\u0022,\n//   \u0022role_to_group_ids\u0022: {\n//     \u0022admin\u0022: [\n//       \u00225zavrE1kZXv2lFw9BKgEkf0B5Wqo\u0022\n//     ],\n//     \u0022editor\u0022: [\n//       \u00228ruQDGM2R4w1mFbHI5aROCUjIpJZ\u0022\n//     ],\n//     \u0022viewer\u0022: []\n//   },\n//   \u0022share_options\u0022: [\n//     {\n//       \u0022id\u0022: \u0022i2YYI6huwBmcgYydAXARmQJc3pmX\u0022,\n//       \u0022name\u0022: \u0022user@example.com\u0022,\n//       \u0022type\u0022: \u0022user\u0022\n//     },\n//     {\n//       \u0022id\u0022: \u0022x1AfvYKAmiqxCnbvZeNXHqqthJaC\u0022,\n//       \u0022name\u0022: \u0022mygroup\u0022,\n//       \u0022type\u0022: \u0022group\u0022\n//     }\n//   ]\n// }",
-      "Format": "sdk",
+      "Language": "http",
+      "Code": "### Get Resource\n# @name get_resource_metadata\nGET {{host}}/v1/workspace/resources/{{resource_id}}?resource_type=voice\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
       "OperationId": "get_resource_metadata",
-      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+      "Setup": null
     },
     {
       "Order": 90,
