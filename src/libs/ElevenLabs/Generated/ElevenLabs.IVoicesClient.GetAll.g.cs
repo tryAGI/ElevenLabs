@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// List Voices<br/>
-        /// Returns a list of all available voices for a user.
+        /// Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.
         /// </summary>
         /// <param name="showLegacy">
         /// If set to true, legacy premade voices will be included in responses from /v1/voices<br/>
@@ -21,7 +21,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Voices<br/>
-        /// Returns a list of all available voices for a user.
+        /// Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.
         /// </summary>
         /// <param name="showLegacy">
         /// If set to true, legacy premade voices will be included in responses from /v1/voices<br/>
