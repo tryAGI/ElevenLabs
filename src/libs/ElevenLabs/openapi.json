@@ -29360,6 +29360,39 @@
           "conversation_count": {
             "type": "integer",
             "title": "Conversation Count"
+          },
+          "parent_topic_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Topic Id"
+          },
+          "x_2d": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "X 2D"
+          },
+          "y_2d": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Y 2D"
           }
         },
         "type": "object",
@@ -32076,6 +32109,10 @@
       "BackgroundMusicPresetId": {
         "type": "string",
         "enum": [
+          "office2",
+          "office1",
+          "restaurant",
+          "city",
           "typing",
           "elevator1",
           "elevator2",
