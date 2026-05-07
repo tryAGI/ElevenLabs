@@ -12,10 +12,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Append,
-        /// <summary>
-        /// 
-        /// </summary>
-        Deterministic,
     }
 
     /// <summary>
@@ -31,7 +27,6 @@ namespace ElevenLabs
             return value switch
             {
                 ProcedureCompilerMode.Append => "append",
-                ProcedureCompilerMode.Deterministic => "deterministic",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,7 +38,6 @@ namespace ElevenLabs
             return value switch
             {
                 "append" => ProcedureCompilerMode.Append,
-                "deterministic" => ProcedureCompilerMode.Deterministic,
                 _ => null,
             };
         }

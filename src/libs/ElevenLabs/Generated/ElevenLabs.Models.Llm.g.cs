@@ -299,6 +299,22 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gpt54Mini,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt54Mini20260317,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt54Nano,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt54Nano20260317,
+        /// <summary>
+        /// 
+        /// </summary>
         Gpt55,
         /// <summary>
         /// 
@@ -422,6 +438,10 @@ namespace ElevenLabs
                 Llm.Gpt52ChatLatest => "gpt-5.2-chat-latest",
                 Llm.Gpt54 => "gpt-5.4",
                 Llm.Gpt5420260305 => "gpt-5.4-2026-03-05",
+                Llm.Gpt54Mini => "gpt-5.4-mini",
+                Llm.Gpt54Mini20260317 => "gpt-5.4-mini-2026-03-17",
+                Llm.Gpt54Nano => "gpt-5.4-nano",
+                Llm.Gpt54Nano20260317 => "gpt-5.4-nano-2026-03-17",
                 Llm.Gpt55 => "gpt-5.5",
                 Llm.Gpt5520260423 => "gpt-5.5-2026-04-23",
                 Llm.GptOss120b => "gpt-oss-120b",
@@ -514,6 +534,10 @@ namespace ElevenLabs
                 "gpt-5.2-chat-latest" => Llm.Gpt52ChatLatest,
                 "gpt-5.4" => Llm.Gpt54,
                 "gpt-5.4-2026-03-05" => Llm.Gpt5420260305,
+                "gpt-5.4-mini" => Llm.Gpt54Mini,
+                "gpt-5.4-mini-2026-03-17" => Llm.Gpt54Mini20260317,
+                "gpt-5.4-nano" => Llm.Gpt54Nano,
+                "gpt-5.4-nano-2026-03-17" => Llm.Gpt54Nano20260317,
                 "gpt-5.5" => Llm.Gpt55,
                 "gpt-5.5-2026-04-23" => Llm.Gpt5520260423,
                 "gpt-oss-120b" => Llm.GptOss120b,
