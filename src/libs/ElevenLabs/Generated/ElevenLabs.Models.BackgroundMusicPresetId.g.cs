@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        City,
+        /// <summary>
+        /// 
+        /// </summary>
         Elevator1,
         /// <summary>
         /// 
@@ -24,6 +28,18 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Elevator4,
+        /// <summary>
+        /// 
+        /// </summary>
+        Office1,
+        /// <summary>
+        /// 
+        /// </summary>
+        Office2,
+        /// <summary>
+        /// 
+        /// </summary>
+        Restaurant,
         /// <summary>
         /// 
         /// </summary>
@@ -42,10 +58,14 @@ namespace ElevenLabs
         {
             return value switch
             {
+                BackgroundMusicPresetId.City => "city",
                 BackgroundMusicPresetId.Elevator1 => "elevator1",
                 BackgroundMusicPresetId.Elevator2 => "elevator2",
                 BackgroundMusicPresetId.Elevator3 => "elevator3",
                 BackgroundMusicPresetId.Elevator4 => "elevator4",
+                BackgroundMusicPresetId.Office1 => "office1",
+                BackgroundMusicPresetId.Office2 => "office2",
+                BackgroundMusicPresetId.Restaurant => "restaurant",
                 BackgroundMusicPresetId.Typing => "typing",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -57,10 +77,14 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "city" => BackgroundMusicPresetId.City,
                 "elevator1" => BackgroundMusicPresetId.Elevator1,
                 "elevator2" => BackgroundMusicPresetId.Elevator2,
                 "elevator3" => BackgroundMusicPresetId.Elevator3,
                 "elevator4" => BackgroundMusicPresetId.Elevator4,
+                "office1" => BackgroundMusicPresetId.Office1,
+                "office2" => BackgroundMusicPresetId.Office2,
+                "restaurant" => BackgroundMusicPresetId.Restaurant,
                 "typing" => BackgroundMusicPresetId.Typing,
                 _ => null,
             };
