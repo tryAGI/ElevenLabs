@@ -919,7 +919,7 @@
       "Slug": "edit-workspace-webhook-route",
       "Description": "Update the specified workspace webhook",
       "Language": "http",
-      "Code": "### Update Workspace Webhook\n# @name edit_workspace_webhook_route\nPATCH {{host}}/v1/workspace/webhooks/{{webhook_id}}\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022is_disabled\u0022: true,\n  \u0022name\u0022: \u0022string\u0022,\n  \u0022retry_enabled\u0022: true\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Update Workspace Webhook\n# @name edit_workspace_webhook_route\nPATCH {{host}}/v1/workspace/webhooks/{{webhook_id}}\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022is_disabled\u0022: true,\n  \u0022name\u0022: \u0022string\u0022,\n  \u0022retry_enabled\u0022: true,\n  \u0022request_headers\u0022: {}\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "edit_workspace_webhook_route",
       "Setup": null

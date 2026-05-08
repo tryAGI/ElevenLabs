@@ -38279,6 +38279,21 @@
             "examples": [
               true
             ]
+          },
+          "request_headers": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Request Headers",
+            "description": "A list of request headers to include with the webhook delivery (optional)"
           }
         },
         "type": "object",
@@ -78272,6 +78287,21 @@
             "type": "string",
             "title": "Webhook Url",
             "description": "The HTTPS callback URL that will be called when this webhook is triggered"
+          },
+          "request_headers": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Request Headers",
+            "description": "Optional custom request headers to include with each webhook delivery"
           }
         },
         "type": "object",

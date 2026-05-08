@@ -29,6 +29,12 @@ namespace ElevenLabs
         public bool? RetryEnabled { get; set; }
 
         /// <summary>
+        /// A list of request headers to include with the webhook delivery (optional)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? RequestHeaders { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -46,17 +52,22 @@ namespace ElevenLabs
         /// <param name="retryEnabled">
         /// Whether to enable automatic retries for transient failures (5xx, 429, timeout)
         /// </param>
+        /// <param name="requestHeaders">
+        /// A list of request headers to include with the webhook delivery (optional)
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch(
             bool isDisabled,
             string name,
-            bool? retryEnabled)
+            bool? retryEnabled,
+            global::System.Collections.Generic.Dictionary<string, string>? requestHeaders)
         {
             this.IsDisabled = isDisabled;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.RetryEnabled = retryEnabled;
+            this.RequestHeaders = requestHeaders;
         }
 
         /// <summary>
