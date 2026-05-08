@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickTwilio(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? value)
+        {
+            value = Twilio;
+            return IsTwilio;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? SipTrunking { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipTrunking))]
 #endif
         public bool IsSipTrunking => SipTrunking != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSipTrunking(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? value)
+        {
+            value = SipTrunking;
+            return IsSipTrunking;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -126,8 +152,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel?, TResult>? twilio = null,
-            global::System.Func<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel?, TResult>? sipTrunking = null,
+            global::System.Func<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel, TResult>? twilio = null,
+            global::System.Func<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel, TResult>? sipTrunking = null,
             bool validate = true)
         {
             if (validate)
@@ -151,8 +177,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel?>? twilio = null,
-            global::System.Action<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel?>? sipTrunking = null,
+            global::System.Action<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel>? twilio = null,
+
+            global::System.Action<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel>? sipTrunking = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsTwilio)
+            {
+                twilio?.Invoke(Twilio!);
+            }
+            else if (IsSipTrunking)
+            {
+                sipTrunking?.Invoke(SipTrunking!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel>? twilio = null,
+            global::System.Action<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel>? sipTrunking = null,
             bool validate = true)
         {
             if (validate)

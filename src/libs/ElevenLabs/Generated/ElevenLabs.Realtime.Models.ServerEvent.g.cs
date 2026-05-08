@@ -32,6 +32,19 @@ namespace ElevenLabs.Realtime
         public bool IsSessionStarted => SessionStarted != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSessionStarted(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.Realtime.SessionStartedPayload? value)
+        {
+            value = SessionStarted;
+            return IsSessionStarted;
+        }
+
+        /// <summary>
         /// Event containing a partial (in-progress) transcript.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +60,19 @@ namespace ElevenLabs.Realtime
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PartialTranscript))]
 #endif
         public bool IsPartialTranscript => PartialTranscript != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickPartialTranscript(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.Realtime.PartialTranscriptPayload? value)
+        {
+            value = PartialTranscript;
+            return IsPartialTranscript;
+        }
 
         /// <summary>
         /// Event containing a committed (final) transcript.
@@ -66,6 +92,19 @@ namespace ElevenLabs.Realtime
         public bool IsCommittedTranscript => CommittedTranscript != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCommittedTranscript(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.Realtime.CommittedTranscriptPayload? value)
+        {
+            value = CommittedTranscript;
+            return IsCommittedTranscript;
+        }
+
+        /// <summary>
         /// Event containing a committed transcript with word-level timestamps.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -83,6 +122,19 @@ namespace ElevenLabs.Realtime
         public bool IsCommittedTranscriptWithTimestamps => CommittedTranscriptWithTimestamps != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCommittedTranscriptWithTimestamps(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload? value)
+        {
+            value = CommittedTranscriptWithTimestamps;
+            return IsCommittedTranscriptWithTimestamps;
+        }
+
+        /// <summary>
         /// Error event from the ElevenLabs service.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -98,6 +150,19 @@ namespace ElevenLabs.Realtime
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Error))]
 #endif
         public bool IsError => Error != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickError(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.Realtime.ErrorPayload? value)
+        {
+            value = Error;
+            return IsError;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -243,11 +308,11 @@ namespace ElevenLabs.Realtime
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.Realtime.SessionStartedPayload?, TResult>? sessionStarted = null,
-            global::System.Func<global::ElevenLabs.Realtime.PartialTranscriptPayload?, TResult>? partialTranscript = null,
-            global::System.Func<global::ElevenLabs.Realtime.CommittedTranscriptPayload?, TResult>? committedTranscript = null,
-            global::System.Func<global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload?, TResult>? committedTranscriptWithTimestamps = null,
-            global::System.Func<global::ElevenLabs.Realtime.ErrorPayload?, TResult>? error = null,
+            global::System.Func<global::ElevenLabs.Realtime.SessionStartedPayload, TResult>? sessionStarted = null,
+            global::System.Func<global::ElevenLabs.Realtime.PartialTranscriptPayload, TResult>? partialTranscript = null,
+            global::System.Func<global::ElevenLabs.Realtime.CommittedTranscriptPayload, TResult>? committedTranscript = null,
+            global::System.Func<global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload, TResult>? committedTranscriptWithTimestamps = null,
+            global::System.Func<global::ElevenLabs.Realtime.ErrorPayload, TResult>? error = null,
             bool validate = true)
         {
             if (validate)
@@ -283,11 +348,53 @@ namespace ElevenLabs.Realtime
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.Realtime.SessionStartedPayload?>? sessionStarted = null,
-            global::System.Action<global::ElevenLabs.Realtime.PartialTranscriptPayload?>? partialTranscript = null,
-            global::System.Action<global::ElevenLabs.Realtime.CommittedTranscriptPayload?>? committedTranscript = null,
-            global::System.Action<global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload?>? committedTranscriptWithTimestamps = null,
-            global::System.Action<global::ElevenLabs.Realtime.ErrorPayload?>? error = null,
+            global::System.Action<global::ElevenLabs.Realtime.SessionStartedPayload>? sessionStarted = null,
+
+            global::System.Action<global::ElevenLabs.Realtime.PartialTranscriptPayload>? partialTranscript = null,
+
+            global::System.Action<global::ElevenLabs.Realtime.CommittedTranscriptPayload>? committedTranscript = null,
+
+            global::System.Action<global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload>? committedTranscriptWithTimestamps = null,
+
+            global::System.Action<global::ElevenLabs.Realtime.ErrorPayload>? error = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsSessionStarted)
+            {
+                sessionStarted?.Invoke(SessionStarted!);
+            }
+            else if (IsPartialTranscript)
+            {
+                partialTranscript?.Invoke(PartialTranscript!);
+            }
+            else if (IsCommittedTranscript)
+            {
+                committedTranscript?.Invoke(CommittedTranscript!);
+            }
+            else if (IsCommittedTranscriptWithTimestamps)
+            {
+                committedTranscriptWithTimestamps?.Invoke(CommittedTranscriptWithTimestamps!);
+            }
+            else if (IsError)
+            {
+                error?.Invoke(Error!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.Realtime.SessionStartedPayload>? sessionStarted = null,
+            global::System.Action<global::ElevenLabs.Realtime.PartialTranscriptPayload>? partialTranscript = null,
+            global::System.Action<global::ElevenLabs.Realtime.CommittedTranscriptPayload>? committedTranscript = null,
+            global::System.Action<global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload>? committedTranscriptWithTimestamps = null,
+            global::System.Action<global::ElevenLabs.Realtime.ErrorPayload>? error = null,
             bool validate = true)
         {
             if (validate)

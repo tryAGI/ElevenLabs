@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickHeader(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WhatsAppTemplateHeaderComponentParams? value)
+        {
+            value = Header;
+            return IsHeader;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateBodyComponentParams? Body { get; init; }
 #else
@@ -51,6 +64,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickBody(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WhatsAppTemplateBodyComponentParams? value)
+        {
+            value = Body;
+            return IsBody;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateButtonComponentParams? Button { get; init; }
 #else
@@ -64,6 +90,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Button))]
 #endif
         public bool IsButton => Button != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickButton(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WhatsAppTemplateButtonComponentParams? value)
+        {
+            value = Button;
+            return IsButton;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -165,9 +204,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams?, TResult>? header = null,
-            global::System.Func<global::ElevenLabs.WhatsAppTemplateBodyComponentParams?, TResult>? body = null,
-            global::System.Func<global::ElevenLabs.WhatsAppTemplateButtonComponentParams?, TResult>? button = null,
+            global::System.Func<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams, TResult>? header = null,
+            global::System.Func<global::ElevenLabs.WhatsAppTemplateBodyComponentParams, TResult>? body = null,
+            global::System.Func<global::ElevenLabs.WhatsAppTemplateButtonComponentParams, TResult>? button = null,
             bool validate = true)
         {
             if (validate)
@@ -195,9 +234,39 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams?>? header = null,
-            global::System.Action<global::ElevenLabs.WhatsAppTemplateBodyComponentParams?>? body = null,
-            global::System.Action<global::ElevenLabs.WhatsAppTemplateButtonComponentParams?>? button = null,
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams>? header = null,
+
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateBodyComponentParams>? body = null,
+
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateButtonComponentParams>? button = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsHeader)
+            {
+                header?.Invoke(Header!);
+            }
+            else if (IsBody)
+            {
+                body?.Invoke(Body!);
+            }
+            else if (IsButton)
+            {
+                button?.Invoke(Button!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams>? header = null,
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateBodyComponentParams>? body = null,
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateButtonComponentParams>? button = null,
             bool validate = true)
         {
             if (validate)

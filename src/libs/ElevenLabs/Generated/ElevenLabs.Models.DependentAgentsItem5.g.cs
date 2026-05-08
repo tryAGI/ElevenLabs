@@ -32,6 +32,19 @@ namespace ElevenLabs
         public bool IsAvailable => Available != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickAvailable(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DependentAvailableAgentIdentifier? value)
+        {
+            value = Available;
+            return IsAvailable;
+        }
+
+        /// <summary>
         /// A model that represents an agent dependent on a knowledge base/tools<br/>
         /// to which the user has no direct access.
         /// </summary>
@@ -48,6 +61,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Unknown))]
 #endif
         public bool IsUnknown => Unknown != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUnknown(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DependentUnknownAgentIdentifier? value)
+        {
+            value = Unknown;
+            return IsUnknown;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -127,8 +153,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.DependentAvailableAgentIdentifier?, TResult>? available = null,
-            global::System.Func<global::ElevenLabs.DependentUnknownAgentIdentifier?, TResult>? unknown = null,
+            global::System.Func<global::ElevenLabs.DependentAvailableAgentIdentifier, TResult>? available = null,
+            global::System.Func<global::ElevenLabs.DependentUnknownAgentIdentifier, TResult>? unknown = null,
             bool validate = true)
         {
             if (validate)
@@ -152,8 +178,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.DependentAvailableAgentIdentifier?>? available = null,
-            global::System.Action<global::ElevenLabs.DependentUnknownAgentIdentifier?>? unknown = null,
+            global::System.Action<global::ElevenLabs.DependentAvailableAgentIdentifier>? available = null,
+
+            global::System.Action<global::ElevenLabs.DependentUnknownAgentIdentifier>? unknown = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsAvailable)
+            {
+                available?.Invoke(Available!);
+            }
+            else if (IsUnknown)
+            {
+                unknown?.Invoke(Unknown!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.DependentAvailableAgentIdentifier>? available = null,
+            global::System.Action<global::ElevenLabs.DependentUnknownAgentIdentifier>? unknown = null,
             bool validate = true)
         {
             if (validate)

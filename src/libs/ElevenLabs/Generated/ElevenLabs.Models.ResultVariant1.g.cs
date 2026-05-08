@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEndCallSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.EndCallToolResultModel? value)
+        {
+            value = EndCallSuccess;
+            return IsEndCallSuccess;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LanguageDetectionToolResultModel? LanguageDetectionSuccess { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LanguageDetectionSuccess))]
 #endif
         public bool IsLanguageDetectionSuccess => LanguageDetectionSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLanguageDetectionSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.LanguageDetectionToolResultModel? value)
+        {
+            value = LanguageDetectionSuccess;
+            return IsLanguageDetectionSuccess;
+        }
 
         /// <summary>
         /// 
@@ -68,6 +94,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickTransferToAgentSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferToAgentToolResultSuccessModel? value)
+        {
+            value = TransferToAgentSuccess;
+            return IsTransferToAgentSuccess;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToAgentToolResultErrorModel? TransferToAgentError { get; init; }
 #else
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToAgentError))]
 #endif
         public bool IsTransferToAgentError => TransferToAgentError != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickTransferToAgentError(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferToAgentToolResultErrorModel? value)
+        {
+            value = TransferToAgentError;
+            return IsTransferToAgentError;
+        }
 
         /// <summary>
         /// 
@@ -102,6 +154,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickTransferToNumberTwilioSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? value)
+        {
+            value = TransferToNumberTwilioSuccess;
+            return IsTransferToNumberTwilioSuccess;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberResultSipSuccessModel? TransferToNumberSipSuccess { get; init; }
 #else
@@ -115,6 +180,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberSipSuccess))]
 #endif
         public bool IsTransferToNumberSipSuccess => TransferToNumberSipSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickTransferToNumberSipSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferToNumberResultSipSuccessModel? value)
+        {
+            value = TransferToNumberSipSuccess;
+            return IsTransferToNumberSipSuccess;
+        }
 
         /// <summary>
         /// 
@@ -136,6 +214,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickTransferToNumberError(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferToNumberResultErrorModel? value)
+        {
+            value = TransferToNumberError;
+            return IsTransferToNumberError;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SkipTurnToolResponseModel? SkipTurnSuccess { get; init; }
 #else
@@ -149,6 +240,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SkipTurnSuccess))]
 #endif
         public bool IsSkipTurnSuccess => SkipTurnSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSkipTurnSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SkipTurnToolResponseModel? value)
+        {
+            value = SkipTurnSuccess;
+            return IsSkipTurnSuccess;
+        }
 
         /// <summary>
         /// 
@@ -170,6 +274,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickPlayDtmfSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.PlayDTMFResultSuccessModel? value)
+        {
+            value = PlayDtmfSuccess;
+            return IsPlayDtmfSuccess;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PlayDTMFResultErrorModel? PlayDtmfError { get; init; }
 #else
@@ -183,6 +300,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayDtmfError))]
 #endif
         public bool IsPlayDtmfError => PlayDtmfError != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickPlayDtmfError(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.PlayDTMFResultErrorModel? value)
+        {
+            value = PlayDtmfError;
+            return IsPlayDtmfError;
+        }
 
         /// <summary>
         /// 
@@ -204,6 +334,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickVoicemailDetectionSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.VoiceMailDetectionResultSuccessModel? value)
+        {
+            value = VoicemailDetectionSuccess;
+            return IsVoicemailDetectionSuccess;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TestToolResultModel? TestingToolResult { get; init; }
 #else
@@ -221,6 +364,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickTestingToolResult(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TestToolResultModel? value)
+        {
+            value = TestingToolResult;
+            return IsTestingToolResult;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.KnowledgeBaseRagToolResultModel? KnowledgeBaseRagSuccess { get; init; }
 #else
@@ -234,6 +390,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(KnowledgeBaseRagSuccess))]
 #endif
         public bool IsKnowledgeBaseRagSuccess => KnowledgeBaseRagSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickKnowledgeBaseRagSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.KnowledgeBaseRagToolResultModel? value)
+        {
+            value = KnowledgeBaseRagSuccess;
+            return IsKnowledgeBaseRagSuccess;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -555,19 +724,19 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.EndCallToolResultModel?, TResult>? endCallSuccess = null,
-            global::System.Func<global::ElevenLabs.LanguageDetectionToolResultModel?, TResult>? languageDetectionSuccess = null,
-            global::System.Func<global::ElevenLabs.TransferToAgentToolResultSuccessModel?, TResult>? transferToAgentSuccess = null,
-            global::System.Func<global::ElevenLabs.TransferToAgentToolResultErrorModel?, TResult>? transferToAgentError = null,
-            global::System.Func<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel?, TResult>? transferToNumberTwilioSuccess = null,
-            global::System.Func<global::ElevenLabs.TransferToNumberResultSipSuccessModel?, TResult>? transferToNumberSipSuccess = null,
-            global::System.Func<global::ElevenLabs.TransferToNumberResultErrorModel?, TResult>? transferToNumberError = null,
-            global::System.Func<global::ElevenLabs.SkipTurnToolResponseModel?, TResult>? skipTurnSuccess = null,
-            global::System.Func<global::ElevenLabs.PlayDTMFResultSuccessModel?, TResult>? playDtmfSuccess = null,
-            global::System.Func<global::ElevenLabs.PlayDTMFResultErrorModel?, TResult>? playDtmfError = null,
-            global::System.Func<global::ElevenLabs.VoiceMailDetectionResultSuccessModel?, TResult>? voicemailDetectionSuccess = null,
-            global::System.Func<global::ElevenLabs.TestToolResultModel?, TResult>? testingToolResult = null,
-            global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolResultModel?, TResult>? knowledgeBaseRagSuccess = null,
+            global::System.Func<global::ElevenLabs.EndCallToolResultModel, TResult>? endCallSuccess = null,
+            global::System.Func<global::ElevenLabs.LanguageDetectionToolResultModel, TResult>? languageDetectionSuccess = null,
+            global::System.Func<global::ElevenLabs.TransferToAgentToolResultSuccessModel, TResult>? transferToAgentSuccess = null,
+            global::System.Func<global::ElevenLabs.TransferToAgentToolResultErrorModel, TResult>? transferToAgentError = null,
+            global::System.Func<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel, TResult>? transferToNumberTwilioSuccess = null,
+            global::System.Func<global::ElevenLabs.TransferToNumberResultSipSuccessModel, TResult>? transferToNumberSipSuccess = null,
+            global::System.Func<global::ElevenLabs.TransferToNumberResultErrorModel, TResult>? transferToNumberError = null,
+            global::System.Func<global::ElevenLabs.SkipTurnToolResponseModel, TResult>? skipTurnSuccess = null,
+            global::System.Func<global::ElevenLabs.PlayDTMFResultSuccessModel, TResult>? playDtmfSuccess = null,
+            global::System.Func<global::ElevenLabs.PlayDTMFResultErrorModel, TResult>? playDtmfError = null,
+            global::System.Func<global::ElevenLabs.VoiceMailDetectionResultSuccessModel, TResult>? voicemailDetectionSuccess = null,
+            global::System.Func<global::ElevenLabs.TestToolResultModel, TResult>? testingToolResult = null,
+            global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolResultModel, TResult>? knowledgeBaseRagSuccess = null,
             bool validate = true)
         {
             if (validate)
@@ -635,19 +804,109 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.EndCallToolResultModel?>? endCallSuccess = null,
-            global::System.Action<global::ElevenLabs.LanguageDetectionToolResultModel?>? languageDetectionSuccess = null,
-            global::System.Action<global::ElevenLabs.TransferToAgentToolResultSuccessModel?>? transferToAgentSuccess = null,
-            global::System.Action<global::ElevenLabs.TransferToAgentToolResultErrorModel?>? transferToAgentError = null,
-            global::System.Action<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel?>? transferToNumberTwilioSuccess = null,
-            global::System.Action<global::ElevenLabs.TransferToNumberResultSipSuccessModel?>? transferToNumberSipSuccess = null,
-            global::System.Action<global::ElevenLabs.TransferToNumberResultErrorModel?>? transferToNumberError = null,
-            global::System.Action<global::ElevenLabs.SkipTurnToolResponseModel?>? skipTurnSuccess = null,
-            global::System.Action<global::ElevenLabs.PlayDTMFResultSuccessModel?>? playDtmfSuccess = null,
-            global::System.Action<global::ElevenLabs.PlayDTMFResultErrorModel?>? playDtmfError = null,
-            global::System.Action<global::ElevenLabs.VoiceMailDetectionResultSuccessModel?>? voicemailDetectionSuccess = null,
-            global::System.Action<global::ElevenLabs.TestToolResultModel?>? testingToolResult = null,
-            global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolResultModel?>? knowledgeBaseRagSuccess = null,
+            global::System.Action<global::ElevenLabs.EndCallToolResultModel>? endCallSuccess = null,
+
+            global::System.Action<global::ElevenLabs.LanguageDetectionToolResultModel>? languageDetectionSuccess = null,
+
+            global::System.Action<global::ElevenLabs.TransferToAgentToolResultSuccessModel>? transferToAgentSuccess = null,
+
+            global::System.Action<global::ElevenLabs.TransferToAgentToolResultErrorModel>? transferToAgentError = null,
+
+            global::System.Action<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel>? transferToNumberTwilioSuccess = null,
+
+            global::System.Action<global::ElevenLabs.TransferToNumberResultSipSuccessModel>? transferToNumberSipSuccess = null,
+
+            global::System.Action<global::ElevenLabs.TransferToNumberResultErrorModel>? transferToNumberError = null,
+
+            global::System.Action<global::ElevenLabs.SkipTurnToolResponseModel>? skipTurnSuccess = null,
+
+            global::System.Action<global::ElevenLabs.PlayDTMFResultSuccessModel>? playDtmfSuccess = null,
+
+            global::System.Action<global::ElevenLabs.PlayDTMFResultErrorModel>? playDtmfError = null,
+
+            global::System.Action<global::ElevenLabs.VoiceMailDetectionResultSuccessModel>? voicemailDetectionSuccess = null,
+
+            global::System.Action<global::ElevenLabs.TestToolResultModel>? testingToolResult = null,
+
+            global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolResultModel>? knowledgeBaseRagSuccess = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEndCallSuccess)
+            {
+                endCallSuccess?.Invoke(EndCallSuccess!);
+            }
+            else if (IsLanguageDetectionSuccess)
+            {
+                languageDetectionSuccess?.Invoke(LanguageDetectionSuccess!);
+            }
+            else if (IsTransferToAgentSuccess)
+            {
+                transferToAgentSuccess?.Invoke(TransferToAgentSuccess!);
+            }
+            else if (IsTransferToAgentError)
+            {
+                transferToAgentError?.Invoke(TransferToAgentError!);
+            }
+            else if (IsTransferToNumberTwilioSuccess)
+            {
+                transferToNumberTwilioSuccess?.Invoke(TransferToNumberTwilioSuccess!);
+            }
+            else if (IsTransferToNumberSipSuccess)
+            {
+                transferToNumberSipSuccess?.Invoke(TransferToNumberSipSuccess!);
+            }
+            else if (IsTransferToNumberError)
+            {
+                transferToNumberError?.Invoke(TransferToNumberError!);
+            }
+            else if (IsSkipTurnSuccess)
+            {
+                skipTurnSuccess?.Invoke(SkipTurnSuccess!);
+            }
+            else if (IsPlayDtmfSuccess)
+            {
+                playDtmfSuccess?.Invoke(PlayDtmfSuccess!);
+            }
+            else if (IsPlayDtmfError)
+            {
+                playDtmfError?.Invoke(PlayDtmfError!);
+            }
+            else if (IsVoicemailDetectionSuccess)
+            {
+                voicemailDetectionSuccess?.Invoke(VoicemailDetectionSuccess!);
+            }
+            else if (IsTestingToolResult)
+            {
+                testingToolResult?.Invoke(TestingToolResult!);
+            }
+            else if (IsKnowledgeBaseRagSuccess)
+            {
+                knowledgeBaseRagSuccess?.Invoke(KnowledgeBaseRagSuccess!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.EndCallToolResultModel>? endCallSuccess = null,
+            global::System.Action<global::ElevenLabs.LanguageDetectionToolResultModel>? languageDetectionSuccess = null,
+            global::System.Action<global::ElevenLabs.TransferToAgentToolResultSuccessModel>? transferToAgentSuccess = null,
+            global::System.Action<global::ElevenLabs.TransferToAgentToolResultErrorModel>? transferToAgentError = null,
+            global::System.Action<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel>? transferToNumberTwilioSuccess = null,
+            global::System.Action<global::ElevenLabs.TransferToNumberResultSipSuccessModel>? transferToNumberSipSuccess = null,
+            global::System.Action<global::ElevenLabs.TransferToNumberResultErrorModel>? transferToNumberError = null,
+            global::System.Action<global::ElevenLabs.SkipTurnToolResponseModel>? skipTurnSuccess = null,
+            global::System.Action<global::ElevenLabs.PlayDTMFResultSuccessModel>? playDtmfSuccess = null,
+            global::System.Action<global::ElevenLabs.PlayDTMFResultErrorModel>? playDtmfError = null,
+            global::System.Action<global::ElevenLabs.VoiceMailDetectionResultSuccessModel>? voicemailDetectionSuccess = null,
+            global::System.Action<global::ElevenLabs.TestToolResultModel>? testingToolResult = null,
+            global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolResultModel>? knowledgeBaseRagSuccess = null,
             bool validate = true)
         {
             if (validate)

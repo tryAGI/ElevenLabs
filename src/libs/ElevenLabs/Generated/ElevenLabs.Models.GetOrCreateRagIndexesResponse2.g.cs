@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel? value)
+        {
+            value = Success;
+            return IsSuccess;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BatchFailureResponseModel? Failure { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Failure))]
 #endif
         public bool IsFailure => Failure != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickFailure(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.BatchFailureResponseModel? value)
+        {
+            value = Failure;
+            return IsFailure;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -126,8 +152,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel?, TResult>? success = null,
-            global::System.Func<global::ElevenLabs.BatchFailureResponseModel?, TResult>? failure = null,
+            global::System.Func<global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel, TResult>? success = null,
+            global::System.Func<global::ElevenLabs.BatchFailureResponseModel, TResult>? failure = null,
             bool validate = true)
         {
             if (validate)
@@ -151,8 +177,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel?>? success = null,
-            global::System.Action<global::ElevenLabs.BatchFailureResponseModel?>? failure = null,
+            global::System.Action<global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel>? success = null,
+
+            global::System.Action<global::ElevenLabs.BatchFailureResponseModel>? failure = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsSuccess)
+            {
+                success?.Invoke(Success!);
+            }
+            else if (IsFailure)
+            {
+                failure?.Invoke(Failure!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel>? success = null,
+            global::System.Action<global::ElevenLabs.BatchFailureResponseModel>? failure = null,
             bool validate = true)
         {
             if (validate)

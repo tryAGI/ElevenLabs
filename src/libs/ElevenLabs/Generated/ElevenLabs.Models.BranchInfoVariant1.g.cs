@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickTrafficSplit(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferBranchInfoTrafficSplit? value)
+        {
+            value = TrafficSplit;
+            return IsTrafficSplit;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferBranchInfoDefaultingToMain? DefaultingToMain { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DefaultingToMain))]
 #endif
         public bool IsDefaultingToMain => DefaultingToMain != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDefaultingToMain(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferBranchInfoDefaultingToMain? value)
+        {
+            value = DefaultingToMain;
+            return IsDefaultingToMain;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -126,8 +152,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.TransferBranchInfoTrafficSplit?, TResult>? trafficSplit = null,
-            global::System.Func<global::ElevenLabs.TransferBranchInfoDefaultingToMain?, TResult>? defaultingToMain = null,
+            global::System.Func<global::ElevenLabs.TransferBranchInfoTrafficSplit, TResult>? trafficSplit = null,
+            global::System.Func<global::ElevenLabs.TransferBranchInfoDefaultingToMain, TResult>? defaultingToMain = null,
             bool validate = true)
         {
             if (validate)
@@ -151,8 +177,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.TransferBranchInfoTrafficSplit?>? trafficSplit = null,
-            global::System.Action<global::ElevenLabs.TransferBranchInfoDefaultingToMain?>? defaultingToMain = null,
+            global::System.Action<global::ElevenLabs.TransferBranchInfoTrafficSplit>? trafficSplit = null,
+
+            global::System.Action<global::ElevenLabs.TransferBranchInfoDefaultingToMain>? defaultingToMain = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsTrafficSplit)
+            {
+                trafficSplit?.Invoke(TrafficSplit!);
+            }
+            else if (IsDefaultingToMain)
+            {
+                defaultingToMain?.Invoke(DefaultingToMain!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.TransferBranchInfoTrafficSplit>? trafficSplit = null,
+            global::System.Action<global::ElevenLabs.TransferBranchInfoDefaultingToMain>? defaultingToMain = null,
             bool validate = true)
         {
             if (validate)

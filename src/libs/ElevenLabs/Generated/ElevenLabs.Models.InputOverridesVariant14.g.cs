@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickConstant(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ConstantSchemaOverride? value)
+        {
+            value = Constant;
+            return IsConstant;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DynamicVariableSchemaOverride? DynamicVariable { get; init; }
 #else
@@ -51,6 +64,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDynamicVariable(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DynamicVariableSchemaOverride? value)
+        {
+            value = DynamicVariable;
+            return IsDynamicVariable;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LLMSchemaOverride? Llm { get; init; }
 #else
@@ -64,6 +90,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Llm))]
 #endif
         public bool IsLlm => Llm != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLlm(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.LLMSchemaOverride? value)
+        {
+            value = Llm;
+            return IsLlm;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -165,9 +204,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.ConstantSchemaOverride?, TResult>? constant = null,
-            global::System.Func<global::ElevenLabs.DynamicVariableSchemaOverride?, TResult>? dynamicVariable = null,
-            global::System.Func<global::ElevenLabs.LLMSchemaOverride?, TResult>? llm = null,
+            global::System.Func<global::ElevenLabs.ConstantSchemaOverride, TResult>? constant = null,
+            global::System.Func<global::ElevenLabs.DynamicVariableSchemaOverride, TResult>? dynamicVariable = null,
+            global::System.Func<global::ElevenLabs.LLMSchemaOverride, TResult>? llm = null,
             bool validate = true)
         {
             if (validate)
@@ -195,9 +234,39 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.ConstantSchemaOverride?>? constant = null,
-            global::System.Action<global::ElevenLabs.DynamicVariableSchemaOverride?>? dynamicVariable = null,
-            global::System.Action<global::ElevenLabs.LLMSchemaOverride?>? llm = null,
+            global::System.Action<global::ElevenLabs.ConstantSchemaOverride>? constant = null,
+
+            global::System.Action<global::ElevenLabs.DynamicVariableSchemaOverride>? dynamicVariable = null,
+
+            global::System.Action<global::ElevenLabs.LLMSchemaOverride>? llm = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsConstant)
+            {
+                constant?.Invoke(Constant!);
+            }
+            else if (IsDynamicVariable)
+            {
+                dynamicVariable?.Invoke(DynamicVariable!);
+            }
+            else if (IsLlm)
+            {
+                llm?.Invoke(Llm!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.ConstantSchemaOverride>? constant = null,
+            global::System.Action<global::ElevenLabs.DynamicVariableSchemaOverride>? dynamicVariable = null,
+            global::System.Action<global::ElevenLabs.LLMSchemaOverride>? llm = null,
             bool validate = true)
         {
             if (validate)

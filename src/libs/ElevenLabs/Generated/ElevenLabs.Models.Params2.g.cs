@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEndCall(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.EndCallToolConfig? value)
+        {
+            value = EndCall;
+            return IsEndCall;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LanguageDetectionToolConfig? LanguageDetection { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LanguageDetection))]
 #endif
         public bool IsLanguageDetection => LanguageDetection != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLanguageDetection(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.LanguageDetectionToolConfig? value)
+        {
+            value = LanguageDetection;
+            return IsLanguageDetection;
+        }
 
         /// <summary>
         /// 
@@ -68,6 +94,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickTransferToAgent(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferToAgentToolConfig? value)
+        {
+            value = TransferToAgent;
+            return IsTransferToAgent;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberToolConfigInput? TransferToNumber { get; init; }
 #else
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumber))]
 #endif
         public bool IsTransferToNumber => TransferToNumber != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickTransferToNumber(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferToNumberToolConfigInput? value)
+        {
+            value = TransferToNumber;
+            return IsTransferToNumber;
+        }
 
         /// <summary>
         /// Allows the agent to explicitly skip its turn.<br/>
@@ -107,6 +159,19 @@ namespace ElevenLabs
         public bool IsSkipTurn => SkipTurn != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSkipTurn(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SkipTurnToolConfig? value)
+        {
+            value = SkipTurn;
+            return IsSkipTurn;
+        }
+
+        /// <summary>
         /// Allows the agent to play DTMF tones during a phone call.<br/>
         /// This tool can be used to interact with automated phone systems, such as<br/>
         /// navigating phone menus, entering extensions, or inputting numeric codes.
@@ -124,6 +189,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayKeypadTouchTone))]
 #endif
         public bool IsPlayKeypadTouchTone => PlayKeypadTouchTone != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickPlayKeypadTouchTone(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.PlayDTMFToolConfig? value)
+        {
+            value = PlayKeypadTouchTone;
+            return IsPlayKeypadTouchTone;
+        }
 
         /// <summary>
         /// Allows the agent to detect when a voicemail system is encountered.<br/>
@@ -148,6 +226,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickVoicemailDetection(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.VoicemailDetectionToolConfig? value)
+        {
+            value = VoicemailDetection;
+            return IsVoicemailDetection;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.KnowledgeBaseRagToolConfig? KnowledgeBaseRag { get; init; }
 #else
@@ -161,6 +252,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(KnowledgeBaseRag))]
 #endif
         public bool IsKnowledgeBaseRag => KnowledgeBaseRag != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickKnowledgeBaseRag(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.KnowledgeBaseRagToolConfig? value)
+        {
+            value = KnowledgeBaseRag;
+            return IsKnowledgeBaseRag;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -372,14 +476,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.EndCallToolConfig?, TResult>? endCall = null,
-            global::System.Func<global::ElevenLabs.LanguageDetectionToolConfig?, TResult>? languageDetection = null,
-            global::System.Func<global::ElevenLabs.TransferToAgentToolConfig?, TResult>? transferToAgent = null,
-            global::System.Func<global::ElevenLabs.TransferToNumberToolConfigInput?, TResult>? transferToNumber = null,
-            global::System.Func<global::ElevenLabs.SkipTurnToolConfig?, TResult>? skipTurn = null,
-            global::System.Func<global::ElevenLabs.PlayDTMFToolConfig?, TResult>? playKeypadTouchTone = null,
-            global::System.Func<global::ElevenLabs.VoicemailDetectionToolConfig?, TResult>? voicemailDetection = null,
-            global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolConfig?, TResult>? knowledgeBaseRag = null,
+            global::System.Func<global::ElevenLabs.EndCallToolConfig, TResult>? endCall = null,
+            global::System.Func<global::ElevenLabs.LanguageDetectionToolConfig, TResult>? languageDetection = null,
+            global::System.Func<global::ElevenLabs.TransferToAgentToolConfig, TResult>? transferToAgent = null,
+            global::System.Func<global::ElevenLabs.TransferToNumberToolConfigInput, TResult>? transferToNumber = null,
+            global::System.Func<global::ElevenLabs.SkipTurnToolConfig, TResult>? skipTurn = null,
+            global::System.Func<global::ElevenLabs.PlayDTMFToolConfig, TResult>? playKeypadTouchTone = null,
+            global::System.Func<global::ElevenLabs.VoicemailDetectionToolConfig, TResult>? voicemailDetection = null,
+            global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolConfig, TResult>? knowledgeBaseRag = null,
             bool validate = true)
         {
             if (validate)
@@ -427,14 +531,74 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.EndCallToolConfig?>? endCall = null,
-            global::System.Action<global::ElevenLabs.LanguageDetectionToolConfig?>? languageDetection = null,
-            global::System.Action<global::ElevenLabs.TransferToAgentToolConfig?>? transferToAgent = null,
-            global::System.Action<global::ElevenLabs.TransferToNumberToolConfigInput?>? transferToNumber = null,
-            global::System.Action<global::ElevenLabs.SkipTurnToolConfig?>? skipTurn = null,
-            global::System.Action<global::ElevenLabs.PlayDTMFToolConfig?>? playKeypadTouchTone = null,
-            global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig?>? voicemailDetection = null,
-            global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig?>? knowledgeBaseRag = null,
+            global::System.Action<global::ElevenLabs.EndCallToolConfig>? endCall = null,
+
+            global::System.Action<global::ElevenLabs.LanguageDetectionToolConfig>? languageDetection = null,
+
+            global::System.Action<global::ElevenLabs.TransferToAgentToolConfig>? transferToAgent = null,
+
+            global::System.Action<global::ElevenLabs.TransferToNumberToolConfigInput>? transferToNumber = null,
+
+            global::System.Action<global::ElevenLabs.SkipTurnToolConfig>? skipTurn = null,
+
+            global::System.Action<global::ElevenLabs.PlayDTMFToolConfig>? playKeypadTouchTone = null,
+
+            global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig>? voicemailDetection = null,
+
+            global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEndCall)
+            {
+                endCall?.Invoke(EndCall!);
+            }
+            else if (IsLanguageDetection)
+            {
+                languageDetection?.Invoke(LanguageDetection!);
+            }
+            else if (IsTransferToAgent)
+            {
+                transferToAgent?.Invoke(TransferToAgent!);
+            }
+            else if (IsTransferToNumber)
+            {
+                transferToNumber?.Invoke(TransferToNumber!);
+            }
+            else if (IsSkipTurn)
+            {
+                skipTurn?.Invoke(SkipTurn!);
+            }
+            else if (IsPlayKeypadTouchTone)
+            {
+                playKeypadTouchTone?.Invoke(PlayKeypadTouchTone!);
+            }
+            else if (IsVoicemailDetection)
+            {
+                voicemailDetection?.Invoke(VoicemailDetection!);
+            }
+            else if (IsKnowledgeBaseRag)
+            {
+                knowledgeBaseRag?.Invoke(KnowledgeBaseRag!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.EndCallToolConfig>? endCall = null,
+            global::System.Action<global::ElevenLabs.LanguageDetectionToolConfig>? languageDetection = null,
+            global::System.Action<global::ElevenLabs.TransferToAgentToolConfig>? transferToAgent = null,
+            global::System.Action<global::ElevenLabs.TransferToNumberToolConfigInput>? transferToNumber = null,
+            global::System.Action<global::ElevenLabs.SkipTurnToolConfig>? skipTurn = null,
+            global::System.Action<global::ElevenLabs.PlayDTMFToolConfig>? playKeypadTouchTone = null,
+            global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig>? voicemailDetection = null,
+            global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
             bool validate = true)
         {
             if (validate)

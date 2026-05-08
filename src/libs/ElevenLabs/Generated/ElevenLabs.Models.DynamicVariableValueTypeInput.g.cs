@@ -29,6 +29,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDynamicVariableValueTypeInputVariant1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = DynamicVariableValueTypeInputVariant1;
+            return IsDynamicVariableValueTypeInputVariant1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public double? DynamicVariableValueTypeInputVariant2 { get; init; }
 #else
@@ -42,6 +55,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariableValueTypeInputVariant2))]
 #endif
         public bool IsDynamicVariableValueTypeInputVariant2 => DynamicVariableValueTypeInputVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamicVariableValueTypeInputVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out double? value)
+        {
+            value = DynamicVariableValueTypeInputVariant2;
+            return IsDynamicVariableValueTypeInputVariant2;
+        }
 
         /// <summary>
         /// 
@@ -63,6 +89,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDynamicVariableValueTypeInputVariant3(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out int? value)
+        {
+            value = DynamicVariableValueTypeInputVariant3;
+            return IsDynamicVariableValueTypeInputVariant3;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public bool? DynamicVariableValueTypeInputVariant4 { get; init; }
 #else
@@ -76,6 +115,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariableValueTypeInputVariant4))]
 #endif
         public bool IsDynamicVariableValueTypeInputVariant4 => DynamicVariableValueTypeInputVariant4 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamicVariableValueTypeInputVariant4(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out bool? value)
+        {
+            value = DynamicVariableValueTypeInputVariant4;
+            return IsDynamicVariableValueTypeInputVariant4;
+        }
 
         /// <summary>
         /// 
@@ -97,6 +149,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDynamicVariableValueTypeInputVariant5(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>? value)
+        {
+            value = DynamicVariableValueTypeInputVariant5;
+            return IsDynamicVariableValueTypeInputVariant5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public object? DynamicVariableValueTypeInputVariant6 { get; init; }
 #else
@@ -110,6 +175,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariableValueTypeInputVariant6))]
 #endif
         public bool IsDynamicVariableValueTypeInputVariant6 => DynamicVariableValueTypeInputVariant6 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamicVariableValueTypeInputVariant6(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out object? value)
+        {
+            value = DynamicVariableValueTypeInputVariant6;
+            return IsDynamicVariableValueTypeInputVariant6;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -238,12 +316,12 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? dynamicVariableValueTypeInputVariant1 = null,
+            global::System.Func<string, TResult>? dynamicVariableValueTypeInputVariant1 = null,
             global::System.Func<double?, TResult>? dynamicVariableValueTypeInputVariant2 = null,
             global::System.Func<int?, TResult>? dynamicVariableValueTypeInputVariant3 = null,
             global::System.Func<bool?, TResult>? dynamicVariableValueTypeInputVariant4 = null,
-            global::System.Func<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>?, TResult>? dynamicVariableValueTypeInputVariant5 = null,
-            global::System.Func<object?, TResult>? dynamicVariableValueTypeInputVariant6 = null,
+            global::System.Func<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>, TResult>? dynamicVariableValueTypeInputVariant5 = null,
+            global::System.Func<object, TResult>? dynamicVariableValueTypeInputVariant6 = null,
             bool validate = true)
         {
             if (validate)
@@ -283,12 +361,60 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? dynamicVariableValueTypeInputVariant1 = null,
+            global::System.Action<string>? dynamicVariableValueTypeInputVariant1 = null,
+
+            global::System.Action<double?>? dynamicVariableValueTypeInputVariant2 = null,
+
+            global::System.Action<int?>? dynamicVariableValueTypeInputVariant3 = null,
+
+            global::System.Action<bool?>? dynamicVariableValueTypeInputVariant4 = null,
+
+            global::System.Action<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>>? dynamicVariableValueTypeInputVariant5 = null,
+
+            global::System.Action<object>? dynamicVariableValueTypeInputVariant6 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsDynamicVariableValueTypeInputVariant1)
+            {
+                dynamicVariableValueTypeInputVariant1?.Invoke(DynamicVariableValueTypeInputVariant1!);
+            }
+            else if (IsDynamicVariableValueTypeInputVariant2)
+            {
+                dynamicVariableValueTypeInputVariant2?.Invoke(DynamicVariableValueTypeInputVariant2!);
+            }
+            else if (IsDynamicVariableValueTypeInputVariant3)
+            {
+                dynamicVariableValueTypeInputVariant3?.Invoke(DynamicVariableValueTypeInputVariant3!);
+            }
+            else if (IsDynamicVariableValueTypeInputVariant4)
+            {
+                dynamicVariableValueTypeInputVariant4?.Invoke(DynamicVariableValueTypeInputVariant4!);
+            }
+            else if (IsDynamicVariableValueTypeInputVariant5)
+            {
+                dynamicVariableValueTypeInputVariant5?.Invoke(DynamicVariableValueTypeInputVariant5!);
+            }
+            else if (IsDynamicVariableValueTypeInputVariant6)
+            {
+                dynamicVariableValueTypeInputVariant6?.Invoke(DynamicVariableValueTypeInputVariant6!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<string>? dynamicVariableValueTypeInputVariant1 = null,
             global::System.Action<double?>? dynamicVariableValueTypeInputVariant2 = null,
             global::System.Action<int?>? dynamicVariableValueTypeInputVariant3 = null,
             global::System.Action<bool?>? dynamicVariableValueTypeInputVariant4 = null,
-            global::System.Action<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>?>? dynamicVariableValueTypeInputVariant5 = null,
-            global::System.Action<object?>? dynamicVariableValueTypeInputVariant6 = null,
+            global::System.Action<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput>>? dynamicVariableValueTypeInputVariant5 = null,
+            global::System.Action<object>? dynamicVariableValueTypeInputVariant6 = null,
             bool validate = true)
         {
             if (validate)

@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEdge(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowToolEdgeStepModel? value)
+        {
+            value = Edge;
+            return IsEdge;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? NestedTools { get; init; }
 #else
@@ -51,6 +64,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickNestedTools(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? value)
+        {
+            value = NestedTools;
+            return IsNestedTools;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? MaxIterationsExceeded { get; init; }
 #else
@@ -64,6 +90,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MaxIterationsExceeded))]
 #endif
         public bool IsMaxIterationsExceeded => MaxIterationsExceeded != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickMaxIterationsExceeded(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? value)
+        {
+            value = MaxIterationsExceeded;
+            return IsMaxIterationsExceeded;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -165,9 +204,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.WorkflowToolEdgeStepModel?, TResult>? edge = null,
-            global::System.Func<global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput?, TResult>? nestedTools = null,
-            global::System.Func<global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel?, TResult>? maxIterationsExceeded = null,
+            global::System.Func<global::ElevenLabs.WorkflowToolEdgeStepModel, TResult>? edge = null,
+            global::System.Func<global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput, TResult>? nestedTools = null,
+            global::System.Func<global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel, TResult>? maxIterationsExceeded = null,
             bool validate = true)
         {
             if (validate)
@@ -195,9 +234,39 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.WorkflowToolEdgeStepModel?>? edge = null,
-            global::System.Action<global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput?>? nestedTools = null,
-            global::System.Action<global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel?>? maxIterationsExceeded = null,
+            global::System.Action<global::ElevenLabs.WorkflowToolEdgeStepModel>? edge = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput>? nestedTools = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel>? maxIterationsExceeded = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEdge)
+            {
+                edge?.Invoke(Edge!);
+            }
+            else if (IsNestedTools)
+            {
+                nestedTools?.Invoke(NestedTools!);
+            }
+            else if (IsMaxIterationsExceeded)
+            {
+                maxIterationsExceeded?.Invoke(MaxIterationsExceeded!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.WorkflowToolEdgeStepModel>? edge = null,
+            global::System.Action<global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput>? nestedTools = null,
+            global::System.Action<global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel>? maxIterationsExceeded = null,
             bool validate = true)
         {
             if (validate)

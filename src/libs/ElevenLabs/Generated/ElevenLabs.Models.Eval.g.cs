@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickLlm(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.LLMParameterEvaluationStrategy? value)
+        {
+            value = Llm;
+            return IsLlm;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.RegexParameterEvaluationStrategy? Regex { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Regex))]
 #endif
         public bool IsRegex => Regex != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickRegex(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.RegexParameterEvaluationStrategy? value)
+        {
+            value = Regex;
+            return IsRegex;
+        }
 
         /// <summary>
         /// 
@@ -68,6 +94,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickExact(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ExactParameterEvaluationStrategy? value)
+        {
+            value = Exact;
+            return IsExact;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? Anything { get; init; }
 #else
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Anything))]
 #endif
         public bool IsAnything => Anything != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickAnything(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? value)
+        {
+            value = Anything;
+            return IsAnything;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -204,10 +256,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.LLMParameterEvaluationStrategy?, TResult>? llm = null,
-            global::System.Func<global::ElevenLabs.RegexParameterEvaluationStrategy?, TResult>? regex = null,
-            global::System.Func<global::ElevenLabs.ExactParameterEvaluationStrategy?, TResult>? exact = null,
-            global::System.Func<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy?, TResult>? anything = null,
+            global::System.Func<global::ElevenLabs.LLMParameterEvaluationStrategy, TResult>? llm = null,
+            global::System.Func<global::ElevenLabs.RegexParameterEvaluationStrategy, TResult>? regex = null,
+            global::System.Func<global::ElevenLabs.ExactParameterEvaluationStrategy, TResult>? exact = null,
+            global::System.Func<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy, TResult>? anything = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +291,46 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.LLMParameterEvaluationStrategy?>? llm = null,
-            global::System.Action<global::ElevenLabs.RegexParameterEvaluationStrategy?>? regex = null,
-            global::System.Action<global::ElevenLabs.ExactParameterEvaluationStrategy?>? exact = null,
-            global::System.Action<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy?>? anything = null,
+            global::System.Action<global::ElevenLabs.LLMParameterEvaluationStrategy>? llm = null,
+
+            global::System.Action<global::ElevenLabs.RegexParameterEvaluationStrategy>? regex = null,
+
+            global::System.Action<global::ElevenLabs.ExactParameterEvaluationStrategy>? exact = null,
+
+            global::System.Action<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy>? anything = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsLlm)
+            {
+                llm?.Invoke(Llm!);
+            }
+            else if (IsRegex)
+            {
+                regex?.Invoke(Regex!);
+            }
+            else if (IsExact)
+            {
+                exact?.Invoke(Exact!);
+            }
+            else if (IsAnything)
+            {
+                anything?.Invoke(Anything!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.LLMParameterEvaluationStrategy>? llm = null,
+            global::System.Action<global::ElevenLabs.RegexParameterEvaluationStrategy>? regex = null,
+            global::System.Action<global::ElevenLabs.ExactParameterEvaluationStrategy>? exact = null,
+            global::System.Action<global::ElevenLabs.MatchAnythingParameterEvaluationStrategy>? anything = null,
             bool validate = true)
         {
             if (validate)

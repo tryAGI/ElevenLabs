@@ -32,6 +32,19 @@ namespace ElevenLabs
         public bool IsDynamic1 => Dynamic1 != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamic1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CustomSIPHeader? value)
+        {
+            value = Dynamic1;
+            return IsDynamic1;
+        }
+
+        /// <summary>
         /// Custom SIP header for phone transfers with a dynamic variable reference.<br/>
         /// The value is a variable name that will be resolved at runtime.<br/>
         /// Value is not validated here since it will be substituted with actual value later.
@@ -49,6 +62,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Dynamic2))]
 #endif
         public bool IsDynamic2 => Dynamic2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamic2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CustomSIPHeaderWithDynamicVariable? value)
+        {
+            value = Dynamic2;
+            return IsDynamic2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -128,8 +154,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.CustomSIPHeader?, TResult>? dynamic1 = null,
-            global::System.Func<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable?, TResult>? dynamic2 = null,
+            global::System.Func<global::ElevenLabs.CustomSIPHeader, TResult>? dynamic1 = null,
+            global::System.Func<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable, TResult>? dynamic2 = null,
             bool validate = true)
         {
             if (validate)
@@ -153,8 +179,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.CustomSIPHeader?>? dynamic1 = null,
-            global::System.Action<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable?>? dynamic2 = null,
+            global::System.Action<global::ElevenLabs.CustomSIPHeader>? dynamic1 = null,
+
+            global::System.Action<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable>? dynamic2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsDynamic1)
+            {
+                dynamic1?.Invoke(Dynamic1!);
+            }
+            else if (IsDynamic2)
+            {
+                dynamic2?.Invoke(Dynamic2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.CustomSIPHeader>? dynamic1 = null,
+            global::System.Action<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable>? dynamic2 = null,
             bool validate = true)
         {
             if (validate)

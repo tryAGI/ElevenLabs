@@ -32,6 +32,19 @@ namespace ElevenLabs
         public bool IsTwilio => Twilio != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickTwilio(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value)
+        {
+            value = Twilio;
+            return IsTwilio;
+        }
+
+        /// <summary>
         /// Example: {"label":"Sales Team","livekit_stack":"standard","phone_number":"\u002B1987654321","phone_number_id":"phone_456","provider":"sip_trunk"}
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipTrunk))]
 #endif
         public bool IsSipTrunk => SipTrunk != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSipTrunk(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value)
+        {
+            value = SipTrunk;
+            return IsSipTrunk;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -126,8 +152,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.GetPhoneNumberTwilioResponseModel?, TResult>? twilio = null,
-            global::System.Func<global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?, TResult>? sipTrunk = null,
+            global::System.Func<global::ElevenLabs.GetPhoneNumberTwilioResponseModel, TResult>? twilio = null,
+            global::System.Func<global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel, TResult>? sipTrunk = null,
             bool validate = true)
         {
             if (validate)
@@ -151,8 +177,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.GetPhoneNumberTwilioResponseModel?>? twilio = null,
-            global::System.Action<global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?>? sipTrunk = null,
+            global::System.Action<global::ElevenLabs.GetPhoneNumberTwilioResponseModel>? twilio = null,
+
+            global::System.Action<global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel>? sipTrunk = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsTwilio)
+            {
+                twilio?.Invoke(Twilio!);
+            }
+            else if (IsSipTrunk)
+            {
+                sipTrunk?.Invoke(SipTrunk!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.GetPhoneNumberTwilioResponseModel>? twilio = null,
+            global::System.Action<global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel>? sipTrunk = null,
             bool validate = true)
         {
             if (validate)

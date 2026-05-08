@@ -29,6 +29,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDynamicVariableNestedValueTypeOutputVariant1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = DynamicVariableNestedValueTypeOutputVariant1;
+            return IsDynamicVariableNestedValueTypeOutputVariant1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public int? DynamicVariableNestedValueTypeOutputVariant2 { get; init; }
 #else
@@ -42,6 +55,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariableNestedValueTypeOutputVariant2))]
 #endif
         public bool IsDynamicVariableNestedValueTypeOutputVariant2 => DynamicVariableNestedValueTypeOutputVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamicVariableNestedValueTypeOutputVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out int? value)
+        {
+            value = DynamicVariableNestedValueTypeOutputVariant2;
+            return IsDynamicVariableNestedValueTypeOutputVariant2;
+        }
 
         /// <summary>
         /// 
@@ -63,6 +89,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDynamicVariableNestedValueTypeOutputVariant3(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out double? value)
+        {
+            value = DynamicVariableNestedValueTypeOutputVariant3;
+            return IsDynamicVariableNestedValueTypeOutputVariant3;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public bool? DynamicVariableNestedValueTypeOutputVariant4 { get; init; }
 #else
@@ -76,6 +115,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariableNestedValueTypeOutputVariant4))]
 #endif
         public bool IsDynamicVariableNestedValueTypeOutputVariant4 => DynamicVariableNestedValueTypeOutputVariant4 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamicVariableNestedValueTypeOutputVariant4(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out bool? value)
+        {
+            value = DynamicVariableNestedValueTypeOutputVariant4;
+            return IsDynamicVariableNestedValueTypeOutputVariant4;
+        }
 
         /// <summary>
         /// 
@@ -97,6 +149,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDynamicVariableNestedValueTypeOutputVariant5(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>? value)
+        {
+            value = DynamicVariableNestedValueTypeOutputVariant5;
+            return IsDynamicVariableNestedValueTypeOutputVariant5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public object? DynamicVariableNestedValueTypeOutputVariant6 { get; init; }
 #else
@@ -110,6 +175,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariableNestedValueTypeOutputVariant6))]
 #endif
         public bool IsDynamicVariableNestedValueTypeOutputVariant6 => DynamicVariableNestedValueTypeOutputVariant6 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamicVariableNestedValueTypeOutputVariant6(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out object? value)
+        {
+            value = DynamicVariableNestedValueTypeOutputVariant6;
+            return IsDynamicVariableNestedValueTypeOutputVariant6;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -238,12 +316,12 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? dynamicVariableNestedValueTypeOutputVariant1 = null,
+            global::System.Func<string, TResult>? dynamicVariableNestedValueTypeOutputVariant1 = null,
             global::System.Func<int?, TResult>? dynamicVariableNestedValueTypeOutputVariant2 = null,
             global::System.Func<double?, TResult>? dynamicVariableNestedValueTypeOutputVariant3 = null,
             global::System.Func<bool?, TResult>? dynamicVariableNestedValueTypeOutputVariant4 = null,
-            global::System.Func<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>?, TResult>? dynamicVariableNestedValueTypeOutputVariant5 = null,
-            global::System.Func<object?, TResult>? dynamicVariableNestedValueTypeOutputVariant6 = null,
+            global::System.Func<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>, TResult>? dynamicVariableNestedValueTypeOutputVariant5 = null,
+            global::System.Func<object, TResult>? dynamicVariableNestedValueTypeOutputVariant6 = null,
             bool validate = true)
         {
             if (validate)
@@ -283,12 +361,60 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? dynamicVariableNestedValueTypeOutputVariant1 = null,
+            global::System.Action<string>? dynamicVariableNestedValueTypeOutputVariant1 = null,
+
+            global::System.Action<int?>? dynamicVariableNestedValueTypeOutputVariant2 = null,
+
+            global::System.Action<double?>? dynamicVariableNestedValueTypeOutputVariant3 = null,
+
+            global::System.Action<bool?>? dynamicVariableNestedValueTypeOutputVariant4 = null,
+
+            global::System.Action<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>>? dynamicVariableNestedValueTypeOutputVariant5 = null,
+
+            global::System.Action<object>? dynamicVariableNestedValueTypeOutputVariant6 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsDynamicVariableNestedValueTypeOutputVariant1)
+            {
+                dynamicVariableNestedValueTypeOutputVariant1?.Invoke(DynamicVariableNestedValueTypeOutputVariant1!);
+            }
+            else if (IsDynamicVariableNestedValueTypeOutputVariant2)
+            {
+                dynamicVariableNestedValueTypeOutputVariant2?.Invoke(DynamicVariableNestedValueTypeOutputVariant2!);
+            }
+            else if (IsDynamicVariableNestedValueTypeOutputVariant3)
+            {
+                dynamicVariableNestedValueTypeOutputVariant3?.Invoke(DynamicVariableNestedValueTypeOutputVariant3!);
+            }
+            else if (IsDynamicVariableNestedValueTypeOutputVariant4)
+            {
+                dynamicVariableNestedValueTypeOutputVariant4?.Invoke(DynamicVariableNestedValueTypeOutputVariant4!);
+            }
+            else if (IsDynamicVariableNestedValueTypeOutputVariant5)
+            {
+                dynamicVariableNestedValueTypeOutputVariant5?.Invoke(DynamicVariableNestedValueTypeOutputVariant5!);
+            }
+            else if (IsDynamicVariableNestedValueTypeOutputVariant6)
+            {
+                dynamicVariableNestedValueTypeOutputVariant6?.Invoke(DynamicVariableNestedValueTypeOutputVariant6!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<string>? dynamicVariableNestedValueTypeOutputVariant1 = null,
             global::System.Action<int?>? dynamicVariableNestedValueTypeOutputVariant2 = null,
             global::System.Action<double?>? dynamicVariableNestedValueTypeOutputVariant3 = null,
             global::System.Action<bool?>? dynamicVariableNestedValueTypeOutputVariant4 = null,
-            global::System.Action<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>?>? dynamicVariableNestedValueTypeOutputVariant5 = null,
-            global::System.Action<object?>? dynamicVariableNestedValueTypeOutputVariant6 = null,
+            global::System.Action<global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeOutput>>? dynamicVariableNestedValueTypeOutputVariant5 = null,
+            global::System.Action<object>? dynamicVariableNestedValueTypeOutputVariant6 = null,
             bool validate = true)
         {
             if (validate)

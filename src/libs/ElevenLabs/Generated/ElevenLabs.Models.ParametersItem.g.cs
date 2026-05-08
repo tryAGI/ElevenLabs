@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickText(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WhatsAppTemplateTextParam? value)
+        {
+            value = Text;
+            return IsText;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateImageParam? Image { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
 #endif
         public bool IsImage => Image != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickImage(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WhatsAppTemplateImageParam? value)
+        {
+            value = Image;
+            return IsImage;
+        }
 
         /// <summary>
         /// 
@@ -68,6 +94,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDocument(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WhatsAppTemplateDocumentParam? value)
+        {
+            value = Document;
+            return IsDocument;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateLocationParam? Location { get; init; }
 #else
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Location))]
 #endif
         public bool IsLocation => Location != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLocation(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WhatsAppTemplateLocationParam? value)
+        {
+            value = Location;
+            return IsLocation;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -204,10 +256,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.WhatsAppTemplateTextParam?, TResult>? text = null,
-            global::System.Func<global::ElevenLabs.WhatsAppTemplateImageParam?, TResult>? image = null,
-            global::System.Func<global::ElevenLabs.WhatsAppTemplateDocumentParam?, TResult>? document = null,
-            global::System.Func<global::ElevenLabs.WhatsAppTemplateLocationParam?, TResult>? location = null,
+            global::System.Func<global::ElevenLabs.WhatsAppTemplateTextParam, TResult>? text = null,
+            global::System.Func<global::ElevenLabs.WhatsAppTemplateImageParam, TResult>? image = null,
+            global::System.Func<global::ElevenLabs.WhatsAppTemplateDocumentParam, TResult>? document = null,
+            global::System.Func<global::ElevenLabs.WhatsAppTemplateLocationParam, TResult>? location = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +291,46 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.WhatsAppTemplateTextParam?>? text = null,
-            global::System.Action<global::ElevenLabs.WhatsAppTemplateImageParam?>? image = null,
-            global::System.Action<global::ElevenLabs.WhatsAppTemplateDocumentParam?>? document = null,
-            global::System.Action<global::ElevenLabs.WhatsAppTemplateLocationParam?>? location = null,
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateTextParam>? text = null,
+
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateImageParam>? image = null,
+
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateDocumentParam>? document = null,
+
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateLocationParam>? location = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsText)
+            {
+                text?.Invoke(Text!);
+            }
+            else if (IsImage)
+            {
+                image?.Invoke(Image!);
+            }
+            else if (IsDocument)
+            {
+                document?.Invoke(Document!);
+            }
+            else if (IsLocation)
+            {
+                location?.Invoke(Location!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateTextParam>? text = null,
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateImageParam>? image = null,
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateDocumentParam>? document = null,
+            global::System.Action<global::ElevenLabs.WhatsAppTemplateLocationParam>? location = null,
             bool validate = true)
         {
             if (validate)

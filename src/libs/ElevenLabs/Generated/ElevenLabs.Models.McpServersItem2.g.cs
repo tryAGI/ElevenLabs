@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickAvailable(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DependentAvailableMCPServerIdentifier? value)
+        {
+            value = Available;
+            return IsAvailable;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DependentUnknownMCPServerIdentifier? Unknown { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Unknown))]
 #endif
         public bool IsUnknown => Unknown != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUnknown(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DependentUnknownMCPServerIdentifier? value)
+        {
+            value = Unknown;
+            return IsUnknown;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -126,8 +152,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.DependentAvailableMCPServerIdentifier?, TResult>? available = null,
-            global::System.Func<global::ElevenLabs.DependentUnknownMCPServerIdentifier?, TResult>? unknown = null,
+            global::System.Func<global::ElevenLabs.DependentAvailableMCPServerIdentifier, TResult>? available = null,
+            global::System.Func<global::ElevenLabs.DependentUnknownMCPServerIdentifier, TResult>? unknown = null,
             bool validate = true)
         {
             if (validate)
@@ -151,8 +177,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.DependentAvailableMCPServerIdentifier?>? available = null,
-            global::System.Action<global::ElevenLabs.DependentUnknownMCPServerIdentifier?>? unknown = null,
+            global::System.Action<global::ElevenLabs.DependentAvailableMCPServerIdentifier>? available = null,
+
+            global::System.Action<global::ElevenLabs.DependentUnknownMCPServerIdentifier>? unknown = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsAvailable)
+            {
+                available?.Invoke(Available!);
+            }
+            else if (IsUnknown)
+            {
+                unknown?.Invoke(Unknown!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.DependentAvailableMCPServerIdentifier>? available = null,
+            global::System.Action<global::ElevenLabs.DependentUnknownMCPServerIdentifier>? unknown = null,
             bool validate = true)
         {
             if (validate)

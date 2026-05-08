@@ -33,6 +33,19 @@ namespace ElevenLabs
         public bool IsWebhook => Webhook != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickWebhook(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WebhookToolConfigInput? value)
+        {
+            value = Webhook;
+            return IsWebhook;
+        }
+
+        /// <summary>
         /// A client tool is one that sends an event to the user's client to trigger something client side<br/>
         /// Example: {"expects_response":false,"type":"client"}
         /// </summary>
@@ -51,6 +64,19 @@ namespace ElevenLabs
         public bool IsClient => Client != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickClient(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ClientToolConfigInput? value)
+        {
+            value = Client;
+            return IsClient;
+        }
+
+        /// <summary>
         /// A system tool is a tool that is used to call a system method in the server
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -66,6 +92,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
 #endif
         public bool IsSystem => System != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSystem(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SystemToolConfigInput? value)
+        {
+            value = System;
+            return IsSystem;
+        }
 
         /// <summary>
         /// An MCP tool configuration that can be used to call MCP servers
@@ -87,6 +126,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickMcp(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.MCPToolConfigInput? value)
+        {
+            value = Mcp;
+            return IsMcp;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ApiIntegrationWebhookToolConfigInput? ApiIntegrationWebhook { get; init; }
 #else
@@ -100,6 +152,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiIntegrationWebhook))]
 #endif
         public bool IsApiIntegrationWebhook => ApiIntegrationWebhook != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickApiIntegrationWebhook(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ApiIntegrationWebhookToolConfigInput? value)
+        {
+            value = ApiIntegrationWebhook;
+            return IsApiIntegrationWebhook;
+        }
 
         /// <summary>
         /// SMB tool configuration that wraps SMB tool parameters.
@@ -117,6 +182,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Smb))]
 #endif
         public bool IsSmb => Smb != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSmb(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SMBToolConfig? value)
+        {
+            value = Smb;
+            return IsSmb;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -284,12 +362,12 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.WebhookToolConfigInput?, TResult>? webhook = null,
-            global::System.Func<global::ElevenLabs.ClientToolConfigInput?, TResult>? client = null,
-            global::System.Func<global::ElevenLabs.SystemToolConfigInput?, TResult>? system = null,
-            global::System.Func<global::ElevenLabs.MCPToolConfigInput?, TResult>? mcp = null,
-            global::System.Func<global::ElevenLabs.ApiIntegrationWebhookToolConfigInput?, TResult>? apiIntegrationWebhook = null,
-            global::System.Func<global::ElevenLabs.SMBToolConfig?, TResult>? smb = null,
+            global::System.Func<global::ElevenLabs.WebhookToolConfigInput, TResult>? webhook = null,
+            global::System.Func<global::ElevenLabs.ClientToolConfigInput, TResult>? client = null,
+            global::System.Func<global::ElevenLabs.SystemToolConfigInput, TResult>? system = null,
+            global::System.Func<global::ElevenLabs.MCPToolConfigInput, TResult>? mcp = null,
+            global::System.Func<global::ElevenLabs.ApiIntegrationWebhookToolConfigInput, TResult>? apiIntegrationWebhook = null,
+            global::System.Func<global::ElevenLabs.SMBToolConfig, TResult>? smb = null,
             bool validate = true)
         {
             if (validate)
@@ -329,12 +407,60 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.WebhookToolConfigInput?>? webhook = null,
-            global::System.Action<global::ElevenLabs.ClientToolConfigInput?>? client = null,
-            global::System.Action<global::ElevenLabs.SystemToolConfigInput?>? system = null,
-            global::System.Action<global::ElevenLabs.MCPToolConfigInput?>? mcp = null,
-            global::System.Action<global::ElevenLabs.ApiIntegrationWebhookToolConfigInput?>? apiIntegrationWebhook = null,
-            global::System.Action<global::ElevenLabs.SMBToolConfig?>? smb = null,
+            global::System.Action<global::ElevenLabs.WebhookToolConfigInput>? webhook = null,
+
+            global::System.Action<global::ElevenLabs.ClientToolConfigInput>? client = null,
+
+            global::System.Action<global::ElevenLabs.SystemToolConfigInput>? system = null,
+
+            global::System.Action<global::ElevenLabs.MCPToolConfigInput>? mcp = null,
+
+            global::System.Action<global::ElevenLabs.ApiIntegrationWebhookToolConfigInput>? apiIntegrationWebhook = null,
+
+            global::System.Action<global::ElevenLabs.SMBToolConfig>? smb = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsWebhook)
+            {
+                webhook?.Invoke(Webhook!);
+            }
+            else if (IsClient)
+            {
+                client?.Invoke(Client!);
+            }
+            else if (IsSystem)
+            {
+                system?.Invoke(System!);
+            }
+            else if (IsMcp)
+            {
+                mcp?.Invoke(Mcp!);
+            }
+            else if (IsApiIntegrationWebhook)
+            {
+                apiIntegrationWebhook?.Invoke(ApiIntegrationWebhook!);
+            }
+            else if (IsSmb)
+            {
+                smb?.Invoke(Smb!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.WebhookToolConfigInput>? webhook = null,
+            global::System.Action<global::ElevenLabs.ClientToolConfigInput>? client = null,
+            global::System.Action<global::ElevenLabs.SystemToolConfigInput>? system = null,
+            global::System.Action<global::ElevenLabs.MCPToolConfigInput>? mcp = null,
+            global::System.Action<global::ElevenLabs.ApiIntegrationWebhookToolConfigInput>? apiIntegrationWebhook = null,
+            global::System.Action<global::ElevenLabs.SMBToolConfig>? smb = null,
             bool validate = true)
         {
             if (validate)

@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickSegmentedJson(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SegmentedJsonExportOptions? value)
+        {
+            value = SegmentedJson;
+            return IsSegmentedJson;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DocxExportOptions? Docx { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Docx))]
 #endif
         public bool IsDocx => Docx != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDocx(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DocxExportOptions? value)
+        {
+            value = Docx;
+            return IsDocx;
+        }
 
         /// <summary>
         /// 
@@ -68,6 +94,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickPdf(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.PdfExportOptions? value)
+        {
+            value = Pdf;
+            return IsPdf;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TxtExportOptions? Txt { get; init; }
 #else
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Txt))]
 #endif
         public bool IsTxt => Txt != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickTxt(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TxtExportOptions? value)
+        {
+            value = Txt;
+            return IsTxt;
+        }
 
         /// <summary>
         /// 
@@ -102,6 +154,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickHtml(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.HtmlExportOptions? value)
+        {
+            value = Html;
+            return IsHtml;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SrtExportOptions? Srt { get; init; }
 #else
@@ -115,6 +180,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Srt))]
 #endif
         public bool IsSrt => Srt != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSrt(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SrtExportOptions? value)
+        {
+            value = Srt;
+            return IsSrt;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -282,12 +360,12 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.SegmentedJsonExportOptions?, TResult>? segmentedJson = null,
-            global::System.Func<global::ElevenLabs.DocxExportOptions?, TResult>? docx = null,
-            global::System.Func<global::ElevenLabs.PdfExportOptions?, TResult>? pdf = null,
-            global::System.Func<global::ElevenLabs.TxtExportOptions?, TResult>? txt = null,
-            global::System.Func<global::ElevenLabs.HtmlExportOptions?, TResult>? html = null,
-            global::System.Func<global::ElevenLabs.SrtExportOptions?, TResult>? srt = null,
+            global::System.Func<global::ElevenLabs.SegmentedJsonExportOptions, TResult>? segmentedJson = null,
+            global::System.Func<global::ElevenLabs.DocxExportOptions, TResult>? docx = null,
+            global::System.Func<global::ElevenLabs.PdfExportOptions, TResult>? pdf = null,
+            global::System.Func<global::ElevenLabs.TxtExportOptions, TResult>? txt = null,
+            global::System.Func<global::ElevenLabs.HtmlExportOptions, TResult>? html = null,
+            global::System.Func<global::ElevenLabs.SrtExportOptions, TResult>? srt = null,
             bool validate = true)
         {
             if (validate)
@@ -327,12 +405,60 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.SegmentedJsonExportOptions?>? segmentedJson = null,
-            global::System.Action<global::ElevenLabs.DocxExportOptions?>? docx = null,
-            global::System.Action<global::ElevenLabs.PdfExportOptions?>? pdf = null,
-            global::System.Action<global::ElevenLabs.TxtExportOptions?>? txt = null,
-            global::System.Action<global::ElevenLabs.HtmlExportOptions?>? html = null,
-            global::System.Action<global::ElevenLabs.SrtExportOptions?>? srt = null,
+            global::System.Action<global::ElevenLabs.SegmentedJsonExportOptions>? segmentedJson = null,
+
+            global::System.Action<global::ElevenLabs.DocxExportOptions>? docx = null,
+
+            global::System.Action<global::ElevenLabs.PdfExportOptions>? pdf = null,
+
+            global::System.Action<global::ElevenLabs.TxtExportOptions>? txt = null,
+
+            global::System.Action<global::ElevenLabs.HtmlExportOptions>? html = null,
+
+            global::System.Action<global::ElevenLabs.SrtExportOptions>? srt = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsSegmentedJson)
+            {
+                segmentedJson?.Invoke(SegmentedJson!);
+            }
+            else if (IsDocx)
+            {
+                docx?.Invoke(Docx!);
+            }
+            else if (IsPdf)
+            {
+                pdf?.Invoke(Pdf!);
+            }
+            else if (IsTxt)
+            {
+                txt?.Invoke(Txt!);
+            }
+            else if (IsHtml)
+            {
+                html?.Invoke(Html!);
+            }
+            else if (IsSrt)
+            {
+                srt?.Invoke(Srt!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.SegmentedJsonExportOptions>? segmentedJson = null,
+            global::System.Action<global::ElevenLabs.DocxExportOptions>? docx = null,
+            global::System.Action<global::ElevenLabs.PdfExportOptions>? pdf = null,
+            global::System.Action<global::ElevenLabs.TxtExportOptions>? txt = null,
+            global::System.Action<global::ElevenLabs.HtmlExportOptions>? html = null,
+            global::System.Action<global::ElevenLabs.SrtExportOptions>? srt = null,
             bool validate = true)
         {
             if (validate)

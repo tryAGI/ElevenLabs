@@ -32,6 +32,19 @@ namespace ElevenLabs
         public bool IsSearchClients => SearchClients != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSearchClients(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SearchClientsParams? value)
+        {
+            value = SearchClients;
+            return IsSearchClients;
+        }
+
+        /// <summary>
         /// List clients ordered by most recently updated, with an optional limit.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListClients))]
 #endif
         public bool IsListClients => ListClients != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListClients(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListClientsParams? value)
+        {
+            value = ListClients;
+            return IsListClients;
+        }
 
         /// <summary>
         /// Look up a client by their exact phone number.
@@ -66,6 +92,19 @@ namespace ElevenLabs
         public bool IsGetClientByPhone => GetClientByPhone != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGetClientByPhone(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetClientByPhoneParams? value)
+        {
+            value = GetClientByPhone;
+            return IsGetClientByPhone;
+        }
+
+        /// <summary>
         /// Create a new client in the system.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -83,6 +122,19 @@ namespace ElevenLabs
         public bool IsCreateClient => CreateClient != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCreateClient(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateClientParams? value)
+        {
+            value = CreateClient;
+            return IsCreateClient;
+        }
+
+        /// <summary>
         /// Update an existing client's information.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -98,6 +150,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateClient))]
 #endif
         public bool IsUpdateClient => UpdateClient != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUpdateClient(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateClientParams? value)
+        {
+            value = UpdateClient;
+            return IsUpdateClient;
+        }
 
         /// <summary>
         /// Delete an existing client from the system.
@@ -119,6 +184,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteClient(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteClientParams? value)
+        {
+            value = DeleteClient;
+            return IsDeleteClient;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListStaffParams? ListStaff { get; init; }
 #else
@@ -132,6 +210,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListStaff))]
 #endif
         public bool IsListStaff => ListStaff != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListStaff(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListStaffParams? value)
+        {
+            value = ListStaff;
+            return IsListStaff;
+        }
 
         /// <summary>
         /// Create a new staff member in the system.
@@ -151,6 +242,19 @@ namespace ElevenLabs
         public bool IsCreateStaff => CreateStaff != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCreateStaff(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateStaffParams? value)
+        {
+            value = CreateStaff;
+            return IsCreateStaff;
+        }
+
+        /// <summary>
         /// Update an existing staff member's information.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -166,6 +270,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateStaff))]
 #endif
         public bool IsUpdateStaff => UpdateStaff != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUpdateStaff(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateStaffParams? value)
+        {
+            value = UpdateStaff;
+            return IsUpdateStaff;
+        }
 
         /// <summary>
         /// Delete an existing staff member from the system.
@@ -187,6 +304,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteStaff(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteStaffParams? value)
+        {
+            value = DeleteStaff;
+            return IsDeleteStaff;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAssetsParams? ListAssets { get; init; }
 #else
@@ -200,6 +330,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAssets))]
 #endif
         public bool IsListAssets => ListAssets != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListAssets(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListAssetsParams? value)
+        {
+            value = ListAssets;
+            return IsListAssets;
+        }
 
         /// <summary>
         /// 
@@ -221,6 +364,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickCreateAsset(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateAssetParams? value)
+        {
+            value = CreateAsset;
+            return IsCreateAsset;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateAssetParams? UpdateAsset { get; init; }
 #else
@@ -234,6 +390,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateAsset))]
 #endif
         public bool IsUpdateAsset => UpdateAsset != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUpdateAsset(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateAssetParams? value)
+        {
+            value = UpdateAsset;
+            return IsUpdateAsset;
+        }
 
         /// <summary>
         /// 
@@ -255,6 +424,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteAsset(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteAssetParams? value)
+        {
+            value = DeleteAsset;
+            return IsDeleteAsset;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListServicesParams? ListServices { get; init; }
 #else
@@ -268,6 +450,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListServices))]
 #endif
         public bool IsListServices => ListServices != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListServices(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListServicesParams? value)
+        {
+            value = ListServices;
+            return IsListServices;
+        }
 
         /// <summary>
         /// Create a new service (classic, rental, or group) in the system.
@@ -287,6 +482,19 @@ namespace ElevenLabs
         public bool IsCreateService => CreateService != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCreateService(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateServiceParams? value)
+        {
+            value = CreateService;
+            return IsCreateService;
+        }
+
+        /// <summary>
         /// Update an existing service's information.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -302,6 +510,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateService))]
 #endif
         public bool IsUpdateService => UpdateService != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUpdateService(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateServiceParams? value)
+        {
+            value = UpdateService;
+            return IsUpdateService;
+        }
 
         /// <summary>
         /// Delete an existing service from the system.
@@ -323,6 +544,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteService(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteServiceParams? value)
+        {
+            value = DeleteService;
+            return IsDeleteService;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListProductsParams? ListProducts { get; init; }
 #else
@@ -336,6 +570,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListProducts))]
 #endif
         public bool IsListProducts => ListProducts != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListProducts(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListProductsParams? value)
+        {
+            value = ListProducts;
+            return IsListProducts;
+        }
 
         /// <summary>
         /// 
@@ -357,6 +604,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickCreateProduct(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateProductParams? value)
+        {
+            value = CreateProduct;
+            return IsCreateProduct;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateProductParams? UpdateProduct { get; init; }
 #else
@@ -370,6 +630,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateProduct))]
 #endif
         public bool IsUpdateProduct => UpdateProduct != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUpdateProduct(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateProductParams? value)
+        {
+            value = UpdateProduct;
+            return IsUpdateProduct;
+        }
 
         /// <summary>
         /// 
@@ -391,6 +664,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteProduct(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteProductParams? value)
+        {
+            value = DeleteProduct;
+            return IsDeleteProduct;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CheckServiceAvailabilityParams? CheckServiceAvailability { get; init; }
 #else
@@ -404,6 +690,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CheckServiceAvailability))]
 #endif
         public bool IsCheckServiceAvailability => CheckServiceAvailability != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCheckServiceAvailability(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CheckServiceAvailabilityParams? value)
+        {
+            value = CheckServiceAvailability;
+            return IsCheckServiceAvailability;
+        }
 
         /// <summary>
         /// 
@@ -425,6 +724,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickCreateClientAppointment(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateClientAppointmentParams? value)
+        {
+            value = CreateClientAppointment;
+            return IsCreateClientAppointment;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetClientAppointmentsParams? GetClientAppointments { get; init; }
 #else
@@ -438,6 +750,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetClientAppointments))]
 #endif
         public bool IsGetClientAppointments => GetClientAppointments != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGetClientAppointments(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetClientAppointmentsParams? value)
+        {
+            value = GetClientAppointments;
+            return IsGetClientAppointments;
+        }
 
         /// <summary>
         /// Look up an appointment by the booking confirmation number the caller quotes.<br/>
@@ -461,6 +786,19 @@ namespace ElevenLabs
         public bool IsGetAppointmentByConfirmationNumber => GetAppointmentByConfirmationNumber != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGetAppointmentByConfirmationNumber(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetAppointmentByConfirmationNumberParams? value)
+        {
+            value = GetAppointmentByConfirmationNumber;
+            return IsGetAppointmentByConfirmationNumber;
+        }
+
+        /// <summary>
         /// List scheduled group sessions for a group service in a date range.<br/>
         /// Group services are scheduled in advance (e.g. yoga classes, workshops) and<br/>
         /// callers register against an existing session. Use this for group services;<br/>
@@ -479,6 +817,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListGroupSessions))]
 #endif
         public bool IsListGroupSessions => ListGroupSessions != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListGroupSessions(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListGroupSessionsParams? value)
+        {
+            value = ListGroupSessions;
+            return IsListGroupSessions;
+        }
 
         /// <summary>
         /// Schedule a single instance of a group service.<br/>
@@ -502,6 +853,19 @@ namespace ElevenLabs
         public bool IsScheduleGroupSession => ScheduleGroupSession != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickScheduleGroupSession(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ScheduleGroupSessionParams? value)
+        {
+            value = ScheduleGroupSession;
+            return IsScheduleGroupSession;
+        }
+
+        /// <summary>
         /// Register a client for a scheduled group session.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -517,6 +881,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RegisterForGroupSession))]
 #endif
         public bool IsRegisterForGroupSession => RegisterForGroupSession != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickRegisterForGroupSession(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.RegisterForGroupSessionParams? value)
+        {
+            value = RegisterForGroupSession;
+            return IsRegisterForGroupSession;
+        }
 
         /// <summary>
         /// Cancel a single client's registration for a group session.
@@ -536,6 +913,19 @@ namespace ElevenLabs
         public bool IsCancelGroupSessionRegistration => CancelGroupSessionRegistration != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCancelGroupSessionRegistration(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CancelGroupSessionRegistrationParams? value)
+        {
+            value = CancelGroupSessionRegistration;
+            return IsCancelGroupSessionRegistration;
+        }
+
+        /// <summary>
         /// Change the seat count of an existing group session registration.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -551,6 +941,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateGroupSessionSeats))]
 #endif
         public bool IsUpdateGroupSessionSeats => UpdateGroupSessionSeats != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUpdateGroupSessionSeats(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateGroupSessionSeatsParams? value)
+        {
+            value = UpdateGroupSessionSeats;
+            return IsUpdateGroupSessionSeats;
+        }
 
         /// <summary>
         /// Cancel an entire group session and notify every registered participant.<br/>
@@ -570,6 +973,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelGroupSessionForAll))]
 #endif
         public bool IsCancelGroupSessionForAll => CancelGroupSessionForAll != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCancelGroupSessionForAll(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CancelGroupSessionForAllParams? value)
+        {
+            value = CancelGroupSessionForAll;
+            return IsCancelGroupSessionForAll;
+        }
 
         /// <summary>
         /// Permanently remove a previously-cancelled group session.<br/>
@@ -597,6 +1013,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteGroupSession(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteGroupSessionParams? value)
+        {
+            value = DeleteGroupSession;
+            return IsDeleteGroupSession;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListCalendarEventsParams? ListCalendarEvents { get; init; }
 #else
@@ -610,6 +1039,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListCalendarEvents))]
 #endif
         public bool IsListCalendarEvents => ListCalendarEvents != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListCalendarEvents(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListCalendarEventsParams? value)
+        {
+            value = ListCalendarEvents;
+            return IsListCalendarEvents;
+        }
 
         /// <summary>
         /// 
@@ -631,6 +1073,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickUpdateCalendarEvent(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateCalendarEventParams? value)
+        {
+            value = UpdateCalendarEvent;
+            return IsUpdateCalendarEvent;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CancelCalendarEventParams? CancelCalendarEvent { get; init; }
 #else
@@ -644,6 +1099,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelCalendarEvent))]
 #endif
         public bool IsCancelCalendarEvent => CancelCalendarEvent != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCancelCalendarEvent(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CancelCalendarEventParams? value)
+        {
+            value = CancelCalendarEvent;
+            return IsCancelCalendarEvent;
+        }
 
         /// <summary>
         /// Permanently remove a previously-cancelled calendar event.<br/>
@@ -668,6 +1136,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteCalendarEvent(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteCalendarEventParams? value)
+        {
+            value = DeleteCalendarEvent;
+            return IsDeleteCalendarEvent;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAgentRulesParams? ListAgentRules { get; init; }
 #else
@@ -681,6 +1162,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAgentRules))]
 #endif
         public bool IsListAgentRules => ListAgentRules != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListAgentRules(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListAgentRulesParams? value)
+        {
+            value = ListAgentRules;
+            return IsListAgentRules;
+        }
 
         /// <summary>
         /// 
@@ -702,6 +1196,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickCreateAgentRule(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateAgentRuleParams? value)
+        {
+            value = CreateAgentRule;
+            return IsCreateAgentRule;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateAgentRuleParams? UpdateAgentRule { get; init; }
 #else
@@ -715,6 +1222,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateAgentRule))]
 #endif
         public bool IsUpdateAgentRule => UpdateAgentRule != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUpdateAgentRule(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateAgentRuleParams? value)
+        {
+            value = UpdateAgentRule;
+            return IsUpdateAgentRule;
+        }
 
         /// <summary>
         /// 
@@ -736,6 +1256,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteAgentRule(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteAgentRuleParams? value)
+        {
+            value = DeleteAgentRule;
+            return IsDeleteAgentRule;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListHolidaysParams? ListHolidays { get; init; }
 #else
@@ -749,6 +1282,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListHolidays))]
 #endif
         public bool IsListHolidays => ListHolidays != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListHolidays(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListHolidaysParams? value)
+        {
+            value = ListHolidays;
+            return IsListHolidays;
+        }
 
         /// <summary>
         /// 
@@ -770,6 +1316,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickCreateHoliday(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateHolidayParams? value)
+        {
+            value = CreateHoliday;
+            return IsCreateHoliday;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateHolidayParams? UpdateHoliday { get; init; }
 #else
@@ -783,6 +1342,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateHoliday))]
 #endif
         public bool IsUpdateHoliday => UpdateHoliday != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUpdateHoliday(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateHolidayParams? value)
+        {
+            value = UpdateHoliday;
+            return IsUpdateHoliday;
+        }
 
         /// <summary>
         /// 
@@ -804,6 +1376,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteHoliday(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteHolidayParams? value)
+        {
+            value = DeleteHoliday;
+            return IsDeleteHoliday;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetScheduleParams? GetSchedule { get; init; }
 #else
@@ -817,6 +1402,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetSchedule))]
 #endif
         public bool IsGetSchedule => GetSchedule != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGetSchedule(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetScheduleParams? value)
+        {
+            value = GetSchedule;
+            return IsGetSchedule;
+        }
 
         /// <summary>
         /// 
@@ -838,6 +1436,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickUpdateBusinessInfo(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateBusinessInfoParams? value)
+        {
+            value = UpdateBusinessInfo;
+            return IsUpdateBusinessInfo;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateCustomerFacingConfigParams? UpdateCustomerFacingConfig { get; init; }
 #else
@@ -851,6 +1462,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateCustomerFacingConfig))]
 #endif
         public bool IsUpdateCustomerFacingConfig => UpdateCustomerFacingConfig != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUpdateCustomerFacingConfig(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateCustomerFacingConfigParams? value)
+        {
+            value = UpdateCustomerFacingConfig;
+            return IsUpdateCustomerFacingConfig;
+        }
 
         /// <summary>
         /// Get a summary of key business analytics for a time period.
@@ -872,6 +1496,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickGetAnalyticsSummary(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetAnalyticsSummaryParams? value)
+        {
+            value = GetAnalyticsSummary;
+            return IsGetAnalyticsSummary;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetBookingPageSettingsParams? GetBookingPageSettings { get; init; }
 #else
@@ -885,6 +1522,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetBookingPageSettings))]
 #endif
         public bool IsGetBookingPageSettings => GetBookingPageSettings != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGetBookingPageSettings(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetBookingPageSettingsParams? value)
+        {
+            value = GetBookingPageSettings;
+            return IsGetBookingPageSettings;
+        }
 
         /// <summary>
         /// 
@@ -906,6 +1556,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickUpdateBookingPageSettings(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateBookingPageSettingsParams? value)
+        {
+            value = UpdateBookingPageSettings;
+            return IsUpdateBookingPageSettings;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetBookingSlugStatusParams? GetBookingSlugStatus { get; init; }
 #else
@@ -919,6 +1582,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetBookingSlugStatus))]
 #endif
         public bool IsGetBookingSlugStatus => GetBookingSlugStatus != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGetBookingSlugStatus(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetBookingSlugStatusParams? value)
+        {
+            value = GetBookingSlugStatus;
+            return IsGetBookingSlugStatus;
+        }
 
         /// <summary>
         /// 
@@ -940,6 +1616,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickSetBookingSlug(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SetBookingSlugParams? value)
+        {
+            value = SetBookingSlug;
+            return IsSetBookingSlug;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListClientInteractionsParams? ListClientInteractions { get; init; }
 #else
@@ -953,6 +1642,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListClientInteractions))]
 #endif
         public bool IsListClientInteractions => ListClientInteractions != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickListClientInteractions(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListClientInteractionsParams? value)
+        {
+            value = ListClientInteractions;
+            return IsListClientInteractions;
+        }
 
         /// <summary>
         /// 
@@ -974,6 +1676,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickCreateClientInteraction(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateClientInteractionParams? value)
+        {
+            value = CreateClientInteraction;
+            return IsCreateClientInteraction;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteClientInteractionParams? DeleteClientInteraction { get; init; }
 #else
@@ -987,6 +1702,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteClientInteraction))]
 #endif
         public bool IsDeleteClientInteraction => DeleteClientInteraction != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDeleteClientInteraction(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteClientInteractionParams? value)
+        {
+            value = DeleteClientInteraction;
+            return IsDeleteClientInteraction;
+        }
 
         /// <summary>
         /// 
@@ -1008,6 +1736,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickListLocations(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListLocationsParams? value)
+        {
+            value = ListLocations;
+            return IsListLocations;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateLocationParams? CreateLocation { get; init; }
 #else
@@ -1021,6 +1762,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateLocation))]
 #endif
         public bool IsCreateLocation => CreateLocation != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCreateLocation(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateLocationParams? value)
+        {
+            value = CreateLocation;
+            return IsCreateLocation;
+        }
 
         /// <summary>
         /// 
@@ -1042,6 +1796,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickUpdateLocation(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateLocationParams? value)
+        {
+            value = UpdateLocation;
+            return IsUpdateLocation;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteLocationParams? DeleteLocation { get; init; }
 #else
@@ -1059,6 +1826,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDeleteLocation(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteLocationParams? value)
+        {
+            value = DeleteLocation;
+            return IsDeleteLocation;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LeaveMessageParams? LeaveMessage { get; init; }
 #else
@@ -1072,6 +1852,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LeaveMessage))]
 #endif
         public bool IsLeaveMessage => LeaveMessage != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLeaveMessage(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.LeaveMessageParams? value)
+        {
+            value = LeaveMessage;
+            return IsLeaveMessage;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -2449,67 +3242,67 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.SearchClientsParams?, TResult>? searchClients = null,
-            global::System.Func<global::ElevenLabs.ListClientsParams?, TResult>? listClients = null,
-            global::System.Func<global::ElevenLabs.GetClientByPhoneParams?, TResult>? getClientByPhone = null,
-            global::System.Func<global::ElevenLabs.CreateClientParams?, TResult>? createClient = null,
-            global::System.Func<global::ElevenLabs.UpdateClientParams?, TResult>? updateClient = null,
-            global::System.Func<global::ElevenLabs.DeleteClientParams?, TResult>? deleteClient = null,
-            global::System.Func<global::ElevenLabs.ListStaffParams?, TResult>? listStaff = null,
-            global::System.Func<global::ElevenLabs.CreateStaffParams?, TResult>? createStaff = null,
-            global::System.Func<global::ElevenLabs.UpdateStaffParams?, TResult>? updateStaff = null,
-            global::System.Func<global::ElevenLabs.DeleteStaffParams?, TResult>? deleteStaff = null,
-            global::System.Func<global::ElevenLabs.ListAssetsParams?, TResult>? listAssets = null,
-            global::System.Func<global::ElevenLabs.CreateAssetParams?, TResult>? createAsset = null,
-            global::System.Func<global::ElevenLabs.UpdateAssetParams?, TResult>? updateAsset = null,
-            global::System.Func<global::ElevenLabs.DeleteAssetParams?, TResult>? deleteAsset = null,
-            global::System.Func<global::ElevenLabs.ListServicesParams?, TResult>? listServices = null,
-            global::System.Func<global::ElevenLabs.CreateServiceParams?, TResult>? createService = null,
-            global::System.Func<global::ElevenLabs.UpdateServiceParams?, TResult>? updateService = null,
-            global::System.Func<global::ElevenLabs.DeleteServiceParams?, TResult>? deleteService = null,
-            global::System.Func<global::ElevenLabs.ListProductsParams?, TResult>? listProducts = null,
-            global::System.Func<global::ElevenLabs.CreateProductParams?, TResult>? createProduct = null,
-            global::System.Func<global::ElevenLabs.UpdateProductParams?, TResult>? updateProduct = null,
-            global::System.Func<global::ElevenLabs.DeleteProductParams?, TResult>? deleteProduct = null,
-            global::System.Func<global::ElevenLabs.CheckServiceAvailabilityParams?, TResult>? checkServiceAvailability = null,
-            global::System.Func<global::ElevenLabs.CreateClientAppointmentParams?, TResult>? createClientAppointment = null,
-            global::System.Func<global::ElevenLabs.GetClientAppointmentsParams?, TResult>? getClientAppointments = null,
-            global::System.Func<global::ElevenLabs.GetAppointmentByConfirmationNumberParams?, TResult>? getAppointmentByConfirmationNumber = null,
-            global::System.Func<global::ElevenLabs.ListGroupSessionsParams?, TResult>? listGroupSessions = null,
-            global::System.Func<global::ElevenLabs.ScheduleGroupSessionParams?, TResult>? scheduleGroupSession = null,
-            global::System.Func<global::ElevenLabs.RegisterForGroupSessionParams?, TResult>? registerForGroupSession = null,
-            global::System.Func<global::ElevenLabs.CancelGroupSessionRegistrationParams?, TResult>? cancelGroupSessionRegistration = null,
-            global::System.Func<global::ElevenLabs.UpdateGroupSessionSeatsParams?, TResult>? updateGroupSessionSeats = null,
-            global::System.Func<global::ElevenLabs.CancelGroupSessionForAllParams?, TResult>? cancelGroupSessionForAll = null,
-            global::System.Func<global::ElevenLabs.DeleteGroupSessionParams?, TResult>? deleteGroupSession = null,
-            global::System.Func<global::ElevenLabs.ListCalendarEventsParams?, TResult>? listCalendarEvents = null,
-            global::System.Func<global::ElevenLabs.UpdateCalendarEventParams?, TResult>? updateCalendarEvent = null,
-            global::System.Func<global::ElevenLabs.CancelCalendarEventParams?, TResult>? cancelCalendarEvent = null,
-            global::System.Func<global::ElevenLabs.DeleteCalendarEventParams?, TResult>? deleteCalendarEvent = null,
-            global::System.Func<global::ElevenLabs.ListAgentRulesParams?, TResult>? listAgentRules = null,
-            global::System.Func<global::ElevenLabs.CreateAgentRuleParams?, TResult>? createAgentRule = null,
-            global::System.Func<global::ElevenLabs.UpdateAgentRuleParams?, TResult>? updateAgentRule = null,
-            global::System.Func<global::ElevenLabs.DeleteAgentRuleParams?, TResult>? deleteAgentRule = null,
-            global::System.Func<global::ElevenLabs.ListHolidaysParams?, TResult>? listHolidays = null,
-            global::System.Func<global::ElevenLabs.CreateHolidayParams?, TResult>? createHoliday = null,
-            global::System.Func<global::ElevenLabs.UpdateHolidayParams?, TResult>? updateHoliday = null,
-            global::System.Func<global::ElevenLabs.DeleteHolidayParams?, TResult>? deleteHoliday = null,
-            global::System.Func<global::ElevenLabs.GetScheduleParams?, TResult>? getSchedule = null,
-            global::System.Func<global::ElevenLabs.UpdateBusinessInfoParams?, TResult>? updateBusinessInfo = null,
-            global::System.Func<global::ElevenLabs.UpdateCustomerFacingConfigParams?, TResult>? updateCustomerFacingConfig = null,
-            global::System.Func<global::ElevenLabs.GetAnalyticsSummaryParams?, TResult>? getAnalyticsSummary = null,
-            global::System.Func<global::ElevenLabs.GetBookingPageSettingsParams?, TResult>? getBookingPageSettings = null,
-            global::System.Func<global::ElevenLabs.UpdateBookingPageSettingsParams?, TResult>? updateBookingPageSettings = null,
-            global::System.Func<global::ElevenLabs.GetBookingSlugStatusParams?, TResult>? getBookingSlugStatus = null,
-            global::System.Func<global::ElevenLabs.SetBookingSlugParams?, TResult>? setBookingSlug = null,
-            global::System.Func<global::ElevenLabs.ListClientInteractionsParams?, TResult>? listClientInteractions = null,
-            global::System.Func<global::ElevenLabs.CreateClientInteractionParams?, TResult>? createClientInteraction = null,
-            global::System.Func<global::ElevenLabs.DeleteClientInteractionParams?, TResult>? deleteClientInteraction = null,
-            global::System.Func<global::ElevenLabs.ListLocationsParams?, TResult>? listLocations = null,
-            global::System.Func<global::ElevenLabs.CreateLocationParams?, TResult>? createLocation = null,
-            global::System.Func<global::ElevenLabs.UpdateLocationParams?, TResult>? updateLocation = null,
-            global::System.Func<global::ElevenLabs.DeleteLocationParams?, TResult>? deleteLocation = null,
-            global::System.Func<global::ElevenLabs.LeaveMessageParams?, TResult>? leaveMessage = null,
+            global::System.Func<global::ElevenLabs.SearchClientsParams, TResult>? searchClients = null,
+            global::System.Func<global::ElevenLabs.ListClientsParams, TResult>? listClients = null,
+            global::System.Func<global::ElevenLabs.GetClientByPhoneParams, TResult>? getClientByPhone = null,
+            global::System.Func<global::ElevenLabs.CreateClientParams, TResult>? createClient = null,
+            global::System.Func<global::ElevenLabs.UpdateClientParams, TResult>? updateClient = null,
+            global::System.Func<global::ElevenLabs.DeleteClientParams, TResult>? deleteClient = null,
+            global::System.Func<global::ElevenLabs.ListStaffParams, TResult>? listStaff = null,
+            global::System.Func<global::ElevenLabs.CreateStaffParams, TResult>? createStaff = null,
+            global::System.Func<global::ElevenLabs.UpdateStaffParams, TResult>? updateStaff = null,
+            global::System.Func<global::ElevenLabs.DeleteStaffParams, TResult>? deleteStaff = null,
+            global::System.Func<global::ElevenLabs.ListAssetsParams, TResult>? listAssets = null,
+            global::System.Func<global::ElevenLabs.CreateAssetParams, TResult>? createAsset = null,
+            global::System.Func<global::ElevenLabs.UpdateAssetParams, TResult>? updateAsset = null,
+            global::System.Func<global::ElevenLabs.DeleteAssetParams, TResult>? deleteAsset = null,
+            global::System.Func<global::ElevenLabs.ListServicesParams, TResult>? listServices = null,
+            global::System.Func<global::ElevenLabs.CreateServiceParams, TResult>? createService = null,
+            global::System.Func<global::ElevenLabs.UpdateServiceParams, TResult>? updateService = null,
+            global::System.Func<global::ElevenLabs.DeleteServiceParams, TResult>? deleteService = null,
+            global::System.Func<global::ElevenLabs.ListProductsParams, TResult>? listProducts = null,
+            global::System.Func<global::ElevenLabs.CreateProductParams, TResult>? createProduct = null,
+            global::System.Func<global::ElevenLabs.UpdateProductParams, TResult>? updateProduct = null,
+            global::System.Func<global::ElevenLabs.DeleteProductParams, TResult>? deleteProduct = null,
+            global::System.Func<global::ElevenLabs.CheckServiceAvailabilityParams, TResult>? checkServiceAvailability = null,
+            global::System.Func<global::ElevenLabs.CreateClientAppointmentParams, TResult>? createClientAppointment = null,
+            global::System.Func<global::ElevenLabs.GetClientAppointmentsParams, TResult>? getClientAppointments = null,
+            global::System.Func<global::ElevenLabs.GetAppointmentByConfirmationNumberParams, TResult>? getAppointmentByConfirmationNumber = null,
+            global::System.Func<global::ElevenLabs.ListGroupSessionsParams, TResult>? listGroupSessions = null,
+            global::System.Func<global::ElevenLabs.ScheduleGroupSessionParams, TResult>? scheduleGroupSession = null,
+            global::System.Func<global::ElevenLabs.RegisterForGroupSessionParams, TResult>? registerForGroupSession = null,
+            global::System.Func<global::ElevenLabs.CancelGroupSessionRegistrationParams, TResult>? cancelGroupSessionRegistration = null,
+            global::System.Func<global::ElevenLabs.UpdateGroupSessionSeatsParams, TResult>? updateGroupSessionSeats = null,
+            global::System.Func<global::ElevenLabs.CancelGroupSessionForAllParams, TResult>? cancelGroupSessionForAll = null,
+            global::System.Func<global::ElevenLabs.DeleteGroupSessionParams, TResult>? deleteGroupSession = null,
+            global::System.Func<global::ElevenLabs.ListCalendarEventsParams, TResult>? listCalendarEvents = null,
+            global::System.Func<global::ElevenLabs.UpdateCalendarEventParams, TResult>? updateCalendarEvent = null,
+            global::System.Func<global::ElevenLabs.CancelCalendarEventParams, TResult>? cancelCalendarEvent = null,
+            global::System.Func<global::ElevenLabs.DeleteCalendarEventParams, TResult>? deleteCalendarEvent = null,
+            global::System.Func<global::ElevenLabs.ListAgentRulesParams, TResult>? listAgentRules = null,
+            global::System.Func<global::ElevenLabs.CreateAgentRuleParams, TResult>? createAgentRule = null,
+            global::System.Func<global::ElevenLabs.UpdateAgentRuleParams, TResult>? updateAgentRule = null,
+            global::System.Func<global::ElevenLabs.DeleteAgentRuleParams, TResult>? deleteAgentRule = null,
+            global::System.Func<global::ElevenLabs.ListHolidaysParams, TResult>? listHolidays = null,
+            global::System.Func<global::ElevenLabs.CreateHolidayParams, TResult>? createHoliday = null,
+            global::System.Func<global::ElevenLabs.UpdateHolidayParams, TResult>? updateHoliday = null,
+            global::System.Func<global::ElevenLabs.DeleteHolidayParams, TResult>? deleteHoliday = null,
+            global::System.Func<global::ElevenLabs.GetScheduleParams, TResult>? getSchedule = null,
+            global::System.Func<global::ElevenLabs.UpdateBusinessInfoParams, TResult>? updateBusinessInfo = null,
+            global::System.Func<global::ElevenLabs.UpdateCustomerFacingConfigParams, TResult>? updateCustomerFacingConfig = null,
+            global::System.Func<global::ElevenLabs.GetAnalyticsSummaryParams, TResult>? getAnalyticsSummary = null,
+            global::System.Func<global::ElevenLabs.GetBookingPageSettingsParams, TResult>? getBookingPageSettings = null,
+            global::System.Func<global::ElevenLabs.UpdateBookingPageSettingsParams, TResult>? updateBookingPageSettings = null,
+            global::System.Func<global::ElevenLabs.GetBookingSlugStatusParams, TResult>? getBookingSlugStatus = null,
+            global::System.Func<global::ElevenLabs.SetBookingSlugParams, TResult>? setBookingSlug = null,
+            global::System.Func<global::ElevenLabs.ListClientInteractionsParams, TResult>? listClientInteractions = null,
+            global::System.Func<global::ElevenLabs.CreateClientInteractionParams, TResult>? createClientInteraction = null,
+            global::System.Func<global::ElevenLabs.DeleteClientInteractionParams, TResult>? deleteClientInteraction = null,
+            global::System.Func<global::ElevenLabs.ListLocationsParams, TResult>? listLocations = null,
+            global::System.Func<global::ElevenLabs.CreateLocationParams, TResult>? createLocation = null,
+            global::System.Func<global::ElevenLabs.UpdateLocationParams, TResult>? updateLocation = null,
+            global::System.Func<global::ElevenLabs.DeleteLocationParams, TResult>? deleteLocation = null,
+            global::System.Func<global::ElevenLabs.LeaveMessageParams, TResult>? leaveMessage = null,
             bool validate = true)
         {
             if (validate)
@@ -2769,67 +3562,445 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.SearchClientsParams?>? searchClients = null,
-            global::System.Action<global::ElevenLabs.ListClientsParams?>? listClients = null,
-            global::System.Action<global::ElevenLabs.GetClientByPhoneParams?>? getClientByPhone = null,
-            global::System.Action<global::ElevenLabs.CreateClientParams?>? createClient = null,
-            global::System.Action<global::ElevenLabs.UpdateClientParams?>? updateClient = null,
-            global::System.Action<global::ElevenLabs.DeleteClientParams?>? deleteClient = null,
-            global::System.Action<global::ElevenLabs.ListStaffParams?>? listStaff = null,
-            global::System.Action<global::ElevenLabs.CreateStaffParams?>? createStaff = null,
-            global::System.Action<global::ElevenLabs.UpdateStaffParams?>? updateStaff = null,
-            global::System.Action<global::ElevenLabs.DeleteStaffParams?>? deleteStaff = null,
-            global::System.Action<global::ElevenLabs.ListAssetsParams?>? listAssets = null,
-            global::System.Action<global::ElevenLabs.CreateAssetParams?>? createAsset = null,
-            global::System.Action<global::ElevenLabs.UpdateAssetParams?>? updateAsset = null,
-            global::System.Action<global::ElevenLabs.DeleteAssetParams?>? deleteAsset = null,
-            global::System.Action<global::ElevenLabs.ListServicesParams?>? listServices = null,
-            global::System.Action<global::ElevenLabs.CreateServiceParams?>? createService = null,
-            global::System.Action<global::ElevenLabs.UpdateServiceParams?>? updateService = null,
-            global::System.Action<global::ElevenLabs.DeleteServiceParams?>? deleteService = null,
-            global::System.Action<global::ElevenLabs.ListProductsParams?>? listProducts = null,
-            global::System.Action<global::ElevenLabs.CreateProductParams?>? createProduct = null,
-            global::System.Action<global::ElevenLabs.UpdateProductParams?>? updateProduct = null,
-            global::System.Action<global::ElevenLabs.DeleteProductParams?>? deleteProduct = null,
-            global::System.Action<global::ElevenLabs.CheckServiceAvailabilityParams?>? checkServiceAvailability = null,
-            global::System.Action<global::ElevenLabs.CreateClientAppointmentParams?>? createClientAppointment = null,
-            global::System.Action<global::ElevenLabs.GetClientAppointmentsParams?>? getClientAppointments = null,
-            global::System.Action<global::ElevenLabs.GetAppointmentByConfirmationNumberParams?>? getAppointmentByConfirmationNumber = null,
-            global::System.Action<global::ElevenLabs.ListGroupSessionsParams?>? listGroupSessions = null,
-            global::System.Action<global::ElevenLabs.ScheduleGroupSessionParams?>? scheduleGroupSession = null,
-            global::System.Action<global::ElevenLabs.RegisterForGroupSessionParams?>? registerForGroupSession = null,
-            global::System.Action<global::ElevenLabs.CancelGroupSessionRegistrationParams?>? cancelGroupSessionRegistration = null,
-            global::System.Action<global::ElevenLabs.UpdateGroupSessionSeatsParams?>? updateGroupSessionSeats = null,
-            global::System.Action<global::ElevenLabs.CancelGroupSessionForAllParams?>? cancelGroupSessionForAll = null,
-            global::System.Action<global::ElevenLabs.DeleteGroupSessionParams?>? deleteGroupSession = null,
-            global::System.Action<global::ElevenLabs.ListCalendarEventsParams?>? listCalendarEvents = null,
-            global::System.Action<global::ElevenLabs.UpdateCalendarEventParams?>? updateCalendarEvent = null,
-            global::System.Action<global::ElevenLabs.CancelCalendarEventParams?>? cancelCalendarEvent = null,
-            global::System.Action<global::ElevenLabs.DeleteCalendarEventParams?>? deleteCalendarEvent = null,
-            global::System.Action<global::ElevenLabs.ListAgentRulesParams?>? listAgentRules = null,
-            global::System.Action<global::ElevenLabs.CreateAgentRuleParams?>? createAgentRule = null,
-            global::System.Action<global::ElevenLabs.UpdateAgentRuleParams?>? updateAgentRule = null,
-            global::System.Action<global::ElevenLabs.DeleteAgentRuleParams?>? deleteAgentRule = null,
-            global::System.Action<global::ElevenLabs.ListHolidaysParams?>? listHolidays = null,
-            global::System.Action<global::ElevenLabs.CreateHolidayParams?>? createHoliday = null,
-            global::System.Action<global::ElevenLabs.UpdateHolidayParams?>? updateHoliday = null,
-            global::System.Action<global::ElevenLabs.DeleteHolidayParams?>? deleteHoliday = null,
-            global::System.Action<global::ElevenLabs.GetScheduleParams?>? getSchedule = null,
-            global::System.Action<global::ElevenLabs.UpdateBusinessInfoParams?>? updateBusinessInfo = null,
-            global::System.Action<global::ElevenLabs.UpdateCustomerFacingConfigParams?>? updateCustomerFacingConfig = null,
-            global::System.Action<global::ElevenLabs.GetAnalyticsSummaryParams?>? getAnalyticsSummary = null,
-            global::System.Action<global::ElevenLabs.GetBookingPageSettingsParams?>? getBookingPageSettings = null,
-            global::System.Action<global::ElevenLabs.UpdateBookingPageSettingsParams?>? updateBookingPageSettings = null,
-            global::System.Action<global::ElevenLabs.GetBookingSlugStatusParams?>? getBookingSlugStatus = null,
-            global::System.Action<global::ElevenLabs.SetBookingSlugParams?>? setBookingSlug = null,
-            global::System.Action<global::ElevenLabs.ListClientInteractionsParams?>? listClientInteractions = null,
-            global::System.Action<global::ElevenLabs.CreateClientInteractionParams?>? createClientInteraction = null,
-            global::System.Action<global::ElevenLabs.DeleteClientInteractionParams?>? deleteClientInteraction = null,
-            global::System.Action<global::ElevenLabs.ListLocationsParams?>? listLocations = null,
-            global::System.Action<global::ElevenLabs.CreateLocationParams?>? createLocation = null,
-            global::System.Action<global::ElevenLabs.UpdateLocationParams?>? updateLocation = null,
-            global::System.Action<global::ElevenLabs.DeleteLocationParams?>? deleteLocation = null,
-            global::System.Action<global::ElevenLabs.LeaveMessageParams?>? leaveMessage = null,
+            global::System.Action<global::ElevenLabs.SearchClientsParams>? searchClients = null,
+
+            global::System.Action<global::ElevenLabs.ListClientsParams>? listClients = null,
+
+            global::System.Action<global::ElevenLabs.GetClientByPhoneParams>? getClientByPhone = null,
+
+            global::System.Action<global::ElevenLabs.CreateClientParams>? createClient = null,
+
+            global::System.Action<global::ElevenLabs.UpdateClientParams>? updateClient = null,
+
+            global::System.Action<global::ElevenLabs.DeleteClientParams>? deleteClient = null,
+
+            global::System.Action<global::ElevenLabs.ListStaffParams>? listStaff = null,
+
+            global::System.Action<global::ElevenLabs.CreateStaffParams>? createStaff = null,
+
+            global::System.Action<global::ElevenLabs.UpdateStaffParams>? updateStaff = null,
+
+            global::System.Action<global::ElevenLabs.DeleteStaffParams>? deleteStaff = null,
+
+            global::System.Action<global::ElevenLabs.ListAssetsParams>? listAssets = null,
+
+            global::System.Action<global::ElevenLabs.CreateAssetParams>? createAsset = null,
+
+            global::System.Action<global::ElevenLabs.UpdateAssetParams>? updateAsset = null,
+
+            global::System.Action<global::ElevenLabs.DeleteAssetParams>? deleteAsset = null,
+
+            global::System.Action<global::ElevenLabs.ListServicesParams>? listServices = null,
+
+            global::System.Action<global::ElevenLabs.CreateServiceParams>? createService = null,
+
+            global::System.Action<global::ElevenLabs.UpdateServiceParams>? updateService = null,
+
+            global::System.Action<global::ElevenLabs.DeleteServiceParams>? deleteService = null,
+
+            global::System.Action<global::ElevenLabs.ListProductsParams>? listProducts = null,
+
+            global::System.Action<global::ElevenLabs.CreateProductParams>? createProduct = null,
+
+            global::System.Action<global::ElevenLabs.UpdateProductParams>? updateProduct = null,
+
+            global::System.Action<global::ElevenLabs.DeleteProductParams>? deleteProduct = null,
+
+            global::System.Action<global::ElevenLabs.CheckServiceAvailabilityParams>? checkServiceAvailability = null,
+
+            global::System.Action<global::ElevenLabs.CreateClientAppointmentParams>? createClientAppointment = null,
+
+            global::System.Action<global::ElevenLabs.GetClientAppointmentsParams>? getClientAppointments = null,
+
+            global::System.Action<global::ElevenLabs.GetAppointmentByConfirmationNumberParams>? getAppointmentByConfirmationNumber = null,
+
+            global::System.Action<global::ElevenLabs.ListGroupSessionsParams>? listGroupSessions = null,
+
+            global::System.Action<global::ElevenLabs.ScheduleGroupSessionParams>? scheduleGroupSession = null,
+
+            global::System.Action<global::ElevenLabs.RegisterForGroupSessionParams>? registerForGroupSession = null,
+
+            global::System.Action<global::ElevenLabs.CancelGroupSessionRegistrationParams>? cancelGroupSessionRegistration = null,
+
+            global::System.Action<global::ElevenLabs.UpdateGroupSessionSeatsParams>? updateGroupSessionSeats = null,
+
+            global::System.Action<global::ElevenLabs.CancelGroupSessionForAllParams>? cancelGroupSessionForAll = null,
+
+            global::System.Action<global::ElevenLabs.DeleteGroupSessionParams>? deleteGroupSession = null,
+
+            global::System.Action<global::ElevenLabs.ListCalendarEventsParams>? listCalendarEvents = null,
+
+            global::System.Action<global::ElevenLabs.UpdateCalendarEventParams>? updateCalendarEvent = null,
+
+            global::System.Action<global::ElevenLabs.CancelCalendarEventParams>? cancelCalendarEvent = null,
+
+            global::System.Action<global::ElevenLabs.DeleteCalendarEventParams>? deleteCalendarEvent = null,
+
+            global::System.Action<global::ElevenLabs.ListAgentRulesParams>? listAgentRules = null,
+
+            global::System.Action<global::ElevenLabs.CreateAgentRuleParams>? createAgentRule = null,
+
+            global::System.Action<global::ElevenLabs.UpdateAgentRuleParams>? updateAgentRule = null,
+
+            global::System.Action<global::ElevenLabs.DeleteAgentRuleParams>? deleteAgentRule = null,
+
+            global::System.Action<global::ElevenLabs.ListHolidaysParams>? listHolidays = null,
+
+            global::System.Action<global::ElevenLabs.CreateHolidayParams>? createHoliday = null,
+
+            global::System.Action<global::ElevenLabs.UpdateHolidayParams>? updateHoliday = null,
+
+            global::System.Action<global::ElevenLabs.DeleteHolidayParams>? deleteHoliday = null,
+
+            global::System.Action<global::ElevenLabs.GetScheduleParams>? getSchedule = null,
+
+            global::System.Action<global::ElevenLabs.UpdateBusinessInfoParams>? updateBusinessInfo = null,
+
+            global::System.Action<global::ElevenLabs.UpdateCustomerFacingConfigParams>? updateCustomerFacingConfig = null,
+
+            global::System.Action<global::ElevenLabs.GetAnalyticsSummaryParams>? getAnalyticsSummary = null,
+
+            global::System.Action<global::ElevenLabs.GetBookingPageSettingsParams>? getBookingPageSettings = null,
+
+            global::System.Action<global::ElevenLabs.UpdateBookingPageSettingsParams>? updateBookingPageSettings = null,
+
+            global::System.Action<global::ElevenLabs.GetBookingSlugStatusParams>? getBookingSlugStatus = null,
+
+            global::System.Action<global::ElevenLabs.SetBookingSlugParams>? setBookingSlug = null,
+
+            global::System.Action<global::ElevenLabs.ListClientInteractionsParams>? listClientInteractions = null,
+
+            global::System.Action<global::ElevenLabs.CreateClientInteractionParams>? createClientInteraction = null,
+
+            global::System.Action<global::ElevenLabs.DeleteClientInteractionParams>? deleteClientInteraction = null,
+
+            global::System.Action<global::ElevenLabs.ListLocationsParams>? listLocations = null,
+
+            global::System.Action<global::ElevenLabs.CreateLocationParams>? createLocation = null,
+
+            global::System.Action<global::ElevenLabs.UpdateLocationParams>? updateLocation = null,
+
+            global::System.Action<global::ElevenLabs.DeleteLocationParams>? deleteLocation = null,
+
+            global::System.Action<global::ElevenLabs.LeaveMessageParams>? leaveMessage = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsSearchClients)
+            {
+                searchClients?.Invoke(SearchClients!);
+            }
+            else if (IsListClients)
+            {
+                listClients?.Invoke(ListClients!);
+            }
+            else if (IsGetClientByPhone)
+            {
+                getClientByPhone?.Invoke(GetClientByPhone!);
+            }
+            else if (IsCreateClient)
+            {
+                createClient?.Invoke(CreateClient!);
+            }
+            else if (IsUpdateClient)
+            {
+                updateClient?.Invoke(UpdateClient!);
+            }
+            else if (IsDeleteClient)
+            {
+                deleteClient?.Invoke(DeleteClient!);
+            }
+            else if (IsListStaff)
+            {
+                listStaff?.Invoke(ListStaff!);
+            }
+            else if (IsCreateStaff)
+            {
+                createStaff?.Invoke(CreateStaff!);
+            }
+            else if (IsUpdateStaff)
+            {
+                updateStaff?.Invoke(UpdateStaff!);
+            }
+            else if (IsDeleteStaff)
+            {
+                deleteStaff?.Invoke(DeleteStaff!);
+            }
+            else if (IsListAssets)
+            {
+                listAssets?.Invoke(ListAssets!);
+            }
+            else if (IsCreateAsset)
+            {
+                createAsset?.Invoke(CreateAsset!);
+            }
+            else if (IsUpdateAsset)
+            {
+                updateAsset?.Invoke(UpdateAsset!);
+            }
+            else if (IsDeleteAsset)
+            {
+                deleteAsset?.Invoke(DeleteAsset!);
+            }
+            else if (IsListServices)
+            {
+                listServices?.Invoke(ListServices!);
+            }
+            else if (IsCreateService)
+            {
+                createService?.Invoke(CreateService!);
+            }
+            else if (IsUpdateService)
+            {
+                updateService?.Invoke(UpdateService!);
+            }
+            else if (IsDeleteService)
+            {
+                deleteService?.Invoke(DeleteService!);
+            }
+            else if (IsListProducts)
+            {
+                listProducts?.Invoke(ListProducts!);
+            }
+            else if (IsCreateProduct)
+            {
+                createProduct?.Invoke(CreateProduct!);
+            }
+            else if (IsUpdateProduct)
+            {
+                updateProduct?.Invoke(UpdateProduct!);
+            }
+            else if (IsDeleteProduct)
+            {
+                deleteProduct?.Invoke(DeleteProduct!);
+            }
+            else if (IsCheckServiceAvailability)
+            {
+                checkServiceAvailability?.Invoke(CheckServiceAvailability!);
+            }
+            else if (IsCreateClientAppointment)
+            {
+                createClientAppointment?.Invoke(CreateClientAppointment!);
+            }
+            else if (IsGetClientAppointments)
+            {
+                getClientAppointments?.Invoke(GetClientAppointments!);
+            }
+            else if (IsGetAppointmentByConfirmationNumber)
+            {
+                getAppointmentByConfirmationNumber?.Invoke(GetAppointmentByConfirmationNumber!);
+            }
+            else if (IsListGroupSessions)
+            {
+                listGroupSessions?.Invoke(ListGroupSessions!);
+            }
+            else if (IsScheduleGroupSession)
+            {
+                scheduleGroupSession?.Invoke(ScheduleGroupSession!);
+            }
+            else if (IsRegisterForGroupSession)
+            {
+                registerForGroupSession?.Invoke(RegisterForGroupSession!);
+            }
+            else if (IsCancelGroupSessionRegistration)
+            {
+                cancelGroupSessionRegistration?.Invoke(CancelGroupSessionRegistration!);
+            }
+            else if (IsUpdateGroupSessionSeats)
+            {
+                updateGroupSessionSeats?.Invoke(UpdateGroupSessionSeats!);
+            }
+            else if (IsCancelGroupSessionForAll)
+            {
+                cancelGroupSessionForAll?.Invoke(CancelGroupSessionForAll!);
+            }
+            else if (IsDeleteGroupSession)
+            {
+                deleteGroupSession?.Invoke(DeleteGroupSession!);
+            }
+            else if (IsListCalendarEvents)
+            {
+                listCalendarEvents?.Invoke(ListCalendarEvents!);
+            }
+            else if (IsUpdateCalendarEvent)
+            {
+                updateCalendarEvent?.Invoke(UpdateCalendarEvent!);
+            }
+            else if (IsCancelCalendarEvent)
+            {
+                cancelCalendarEvent?.Invoke(CancelCalendarEvent!);
+            }
+            else if (IsDeleteCalendarEvent)
+            {
+                deleteCalendarEvent?.Invoke(DeleteCalendarEvent!);
+            }
+            else if (IsListAgentRules)
+            {
+                listAgentRules?.Invoke(ListAgentRules!);
+            }
+            else if (IsCreateAgentRule)
+            {
+                createAgentRule?.Invoke(CreateAgentRule!);
+            }
+            else if (IsUpdateAgentRule)
+            {
+                updateAgentRule?.Invoke(UpdateAgentRule!);
+            }
+            else if (IsDeleteAgentRule)
+            {
+                deleteAgentRule?.Invoke(DeleteAgentRule!);
+            }
+            else if (IsListHolidays)
+            {
+                listHolidays?.Invoke(ListHolidays!);
+            }
+            else if (IsCreateHoliday)
+            {
+                createHoliday?.Invoke(CreateHoliday!);
+            }
+            else if (IsUpdateHoliday)
+            {
+                updateHoliday?.Invoke(UpdateHoliday!);
+            }
+            else if (IsDeleteHoliday)
+            {
+                deleteHoliday?.Invoke(DeleteHoliday!);
+            }
+            else if (IsGetSchedule)
+            {
+                getSchedule?.Invoke(GetSchedule!);
+            }
+            else if (IsUpdateBusinessInfo)
+            {
+                updateBusinessInfo?.Invoke(UpdateBusinessInfo!);
+            }
+            else if (IsUpdateCustomerFacingConfig)
+            {
+                updateCustomerFacingConfig?.Invoke(UpdateCustomerFacingConfig!);
+            }
+            else if (IsGetAnalyticsSummary)
+            {
+                getAnalyticsSummary?.Invoke(GetAnalyticsSummary!);
+            }
+            else if (IsGetBookingPageSettings)
+            {
+                getBookingPageSettings?.Invoke(GetBookingPageSettings!);
+            }
+            else if (IsUpdateBookingPageSettings)
+            {
+                updateBookingPageSettings?.Invoke(UpdateBookingPageSettings!);
+            }
+            else if (IsGetBookingSlugStatus)
+            {
+                getBookingSlugStatus?.Invoke(GetBookingSlugStatus!);
+            }
+            else if (IsSetBookingSlug)
+            {
+                setBookingSlug?.Invoke(SetBookingSlug!);
+            }
+            else if (IsListClientInteractions)
+            {
+                listClientInteractions?.Invoke(ListClientInteractions!);
+            }
+            else if (IsCreateClientInteraction)
+            {
+                createClientInteraction?.Invoke(CreateClientInteraction!);
+            }
+            else if (IsDeleteClientInteraction)
+            {
+                deleteClientInteraction?.Invoke(DeleteClientInteraction!);
+            }
+            else if (IsListLocations)
+            {
+                listLocations?.Invoke(ListLocations!);
+            }
+            else if (IsCreateLocation)
+            {
+                createLocation?.Invoke(CreateLocation!);
+            }
+            else if (IsUpdateLocation)
+            {
+                updateLocation?.Invoke(UpdateLocation!);
+            }
+            else if (IsDeleteLocation)
+            {
+                deleteLocation?.Invoke(DeleteLocation!);
+            }
+            else if (IsLeaveMessage)
+            {
+                leaveMessage?.Invoke(LeaveMessage!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.SearchClientsParams>? searchClients = null,
+            global::System.Action<global::ElevenLabs.ListClientsParams>? listClients = null,
+            global::System.Action<global::ElevenLabs.GetClientByPhoneParams>? getClientByPhone = null,
+            global::System.Action<global::ElevenLabs.CreateClientParams>? createClient = null,
+            global::System.Action<global::ElevenLabs.UpdateClientParams>? updateClient = null,
+            global::System.Action<global::ElevenLabs.DeleteClientParams>? deleteClient = null,
+            global::System.Action<global::ElevenLabs.ListStaffParams>? listStaff = null,
+            global::System.Action<global::ElevenLabs.CreateStaffParams>? createStaff = null,
+            global::System.Action<global::ElevenLabs.UpdateStaffParams>? updateStaff = null,
+            global::System.Action<global::ElevenLabs.DeleteStaffParams>? deleteStaff = null,
+            global::System.Action<global::ElevenLabs.ListAssetsParams>? listAssets = null,
+            global::System.Action<global::ElevenLabs.CreateAssetParams>? createAsset = null,
+            global::System.Action<global::ElevenLabs.UpdateAssetParams>? updateAsset = null,
+            global::System.Action<global::ElevenLabs.DeleteAssetParams>? deleteAsset = null,
+            global::System.Action<global::ElevenLabs.ListServicesParams>? listServices = null,
+            global::System.Action<global::ElevenLabs.CreateServiceParams>? createService = null,
+            global::System.Action<global::ElevenLabs.UpdateServiceParams>? updateService = null,
+            global::System.Action<global::ElevenLabs.DeleteServiceParams>? deleteService = null,
+            global::System.Action<global::ElevenLabs.ListProductsParams>? listProducts = null,
+            global::System.Action<global::ElevenLabs.CreateProductParams>? createProduct = null,
+            global::System.Action<global::ElevenLabs.UpdateProductParams>? updateProduct = null,
+            global::System.Action<global::ElevenLabs.DeleteProductParams>? deleteProduct = null,
+            global::System.Action<global::ElevenLabs.CheckServiceAvailabilityParams>? checkServiceAvailability = null,
+            global::System.Action<global::ElevenLabs.CreateClientAppointmentParams>? createClientAppointment = null,
+            global::System.Action<global::ElevenLabs.GetClientAppointmentsParams>? getClientAppointments = null,
+            global::System.Action<global::ElevenLabs.GetAppointmentByConfirmationNumberParams>? getAppointmentByConfirmationNumber = null,
+            global::System.Action<global::ElevenLabs.ListGroupSessionsParams>? listGroupSessions = null,
+            global::System.Action<global::ElevenLabs.ScheduleGroupSessionParams>? scheduleGroupSession = null,
+            global::System.Action<global::ElevenLabs.RegisterForGroupSessionParams>? registerForGroupSession = null,
+            global::System.Action<global::ElevenLabs.CancelGroupSessionRegistrationParams>? cancelGroupSessionRegistration = null,
+            global::System.Action<global::ElevenLabs.UpdateGroupSessionSeatsParams>? updateGroupSessionSeats = null,
+            global::System.Action<global::ElevenLabs.CancelGroupSessionForAllParams>? cancelGroupSessionForAll = null,
+            global::System.Action<global::ElevenLabs.DeleteGroupSessionParams>? deleteGroupSession = null,
+            global::System.Action<global::ElevenLabs.ListCalendarEventsParams>? listCalendarEvents = null,
+            global::System.Action<global::ElevenLabs.UpdateCalendarEventParams>? updateCalendarEvent = null,
+            global::System.Action<global::ElevenLabs.CancelCalendarEventParams>? cancelCalendarEvent = null,
+            global::System.Action<global::ElevenLabs.DeleteCalendarEventParams>? deleteCalendarEvent = null,
+            global::System.Action<global::ElevenLabs.ListAgentRulesParams>? listAgentRules = null,
+            global::System.Action<global::ElevenLabs.CreateAgentRuleParams>? createAgentRule = null,
+            global::System.Action<global::ElevenLabs.UpdateAgentRuleParams>? updateAgentRule = null,
+            global::System.Action<global::ElevenLabs.DeleteAgentRuleParams>? deleteAgentRule = null,
+            global::System.Action<global::ElevenLabs.ListHolidaysParams>? listHolidays = null,
+            global::System.Action<global::ElevenLabs.CreateHolidayParams>? createHoliday = null,
+            global::System.Action<global::ElevenLabs.UpdateHolidayParams>? updateHoliday = null,
+            global::System.Action<global::ElevenLabs.DeleteHolidayParams>? deleteHoliday = null,
+            global::System.Action<global::ElevenLabs.GetScheduleParams>? getSchedule = null,
+            global::System.Action<global::ElevenLabs.UpdateBusinessInfoParams>? updateBusinessInfo = null,
+            global::System.Action<global::ElevenLabs.UpdateCustomerFacingConfigParams>? updateCustomerFacingConfig = null,
+            global::System.Action<global::ElevenLabs.GetAnalyticsSummaryParams>? getAnalyticsSummary = null,
+            global::System.Action<global::ElevenLabs.GetBookingPageSettingsParams>? getBookingPageSettings = null,
+            global::System.Action<global::ElevenLabs.UpdateBookingPageSettingsParams>? updateBookingPageSettings = null,
+            global::System.Action<global::ElevenLabs.GetBookingSlugStatusParams>? getBookingSlugStatus = null,
+            global::System.Action<global::ElevenLabs.SetBookingSlugParams>? setBookingSlug = null,
+            global::System.Action<global::ElevenLabs.ListClientInteractionsParams>? listClientInteractions = null,
+            global::System.Action<global::ElevenLabs.CreateClientInteractionParams>? createClientInteraction = null,
+            global::System.Action<global::ElevenLabs.DeleteClientInteractionParams>? deleteClientInteraction = null,
+            global::System.Action<global::ElevenLabs.ListLocationsParams>? listLocations = null,
+            global::System.Action<global::ElevenLabs.CreateLocationParams>? createLocation = null,
+            global::System.Action<global::ElevenLabs.UpdateLocationParams>? updateLocation = null,
+            global::System.Action<global::ElevenLabs.DeleteLocationParams>? deleteLocation = null,
+            global::System.Action<global::ElevenLabs.LeaveMessageParams>? leaveMessage = null,
             bool validate = true)
         {
             if (validate)

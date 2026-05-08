@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickLlm(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetResponseUnitTestResponseModel? value)
+        {
+            value = Llm;
+            return IsLlm;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetToolCallUnitTestResponseModel? Tool { get; init; }
 #else
@@ -51,6 +64,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickTool(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetToolCallUnitTestResponseModel? value)
+        {
+            value = Tool;
+            return IsTool;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetSimulationTestResponseModel? Simulation { get; init; }
 #else
@@ -64,6 +90,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Simulation))]
 #endif
         public bool IsSimulation => Simulation != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSimulation(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetSimulationTestResponseModel? value)
+        {
+            value = Simulation;
+            return IsSimulation;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -165,9 +204,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.GetResponseUnitTestResponseModel?, TResult>? llm = null,
-            global::System.Func<global::ElevenLabs.GetToolCallUnitTestResponseModel?, TResult>? tool = null,
-            global::System.Func<global::ElevenLabs.GetSimulationTestResponseModel?, TResult>? simulation = null,
+            global::System.Func<global::ElevenLabs.GetResponseUnitTestResponseModel, TResult>? llm = null,
+            global::System.Func<global::ElevenLabs.GetToolCallUnitTestResponseModel, TResult>? tool = null,
+            global::System.Func<global::ElevenLabs.GetSimulationTestResponseModel, TResult>? simulation = null,
             bool validate = true)
         {
             if (validate)
@@ -195,9 +234,39 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.GetResponseUnitTestResponseModel?>? llm = null,
-            global::System.Action<global::ElevenLabs.GetToolCallUnitTestResponseModel?>? tool = null,
-            global::System.Action<global::ElevenLabs.GetSimulationTestResponseModel?>? simulation = null,
+            global::System.Action<global::ElevenLabs.GetResponseUnitTestResponseModel>? llm = null,
+
+            global::System.Action<global::ElevenLabs.GetToolCallUnitTestResponseModel>? tool = null,
+
+            global::System.Action<global::ElevenLabs.GetSimulationTestResponseModel>? simulation = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsLlm)
+            {
+                llm?.Invoke(Llm!);
+            }
+            else if (IsTool)
+            {
+                tool?.Invoke(Tool!);
+            }
+            else if (IsSimulation)
+            {
+                simulation?.Invoke(Simulation!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.GetResponseUnitTestResponseModel>? llm = null,
+            global::System.Action<global::ElevenLabs.GetToolCallUnitTestResponseModel>? tool = null,
+            global::System.Action<global::ElevenLabs.GetSimulationTestResponseModel>? simulation = null,
             bool validate = true)
         {
             if (validate)

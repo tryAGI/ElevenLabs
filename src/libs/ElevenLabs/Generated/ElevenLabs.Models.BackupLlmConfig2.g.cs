@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDefault(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.BackupLLMDefault? value)
+        {
+            value = Default;
+            return IsDefault;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BackupLLMDisabled? Disabled { get; init; }
 #else
@@ -51,6 +64,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickDisabled(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.BackupLLMDisabled? value)
+        {
+            value = Disabled;
+            return IsDisabled;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BackupLLMOverride? Override { get; init; }
 #else
@@ -64,6 +90,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Override))]
 #endif
         public bool IsOverride => Override != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickOverride(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.BackupLLMOverride? value)
+        {
+            value = Override;
+            return IsOverride;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -165,9 +204,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.BackupLLMDefault?, TResult>? @default = null,
-            global::System.Func<global::ElevenLabs.BackupLLMDisabled?, TResult>? disabled = null,
-            global::System.Func<global::ElevenLabs.BackupLLMOverride?, TResult>? @override = null,
+            global::System.Func<global::ElevenLabs.BackupLLMDefault, TResult>? @default = null,
+            global::System.Func<global::ElevenLabs.BackupLLMDisabled, TResult>? disabled = null,
+            global::System.Func<global::ElevenLabs.BackupLLMOverride, TResult>? @override = null,
             bool validate = true)
         {
             if (validate)
@@ -195,9 +234,39 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.BackupLLMDefault?>? @default = null,
-            global::System.Action<global::ElevenLabs.BackupLLMDisabled?>? disabled = null,
-            global::System.Action<global::ElevenLabs.BackupLLMOverride?>? @override = null,
+            global::System.Action<global::ElevenLabs.BackupLLMDefault>? @default = null,
+
+            global::System.Action<global::ElevenLabs.BackupLLMDisabled>? disabled = null,
+
+            global::System.Action<global::ElevenLabs.BackupLLMOverride>? @override = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsDefault)
+            {
+                @default?.Invoke(Default!);
+            }
+            else if (IsDisabled)
+            {
+                disabled?.Invoke(Disabled!);
+            }
+            else if (IsOverride)
+            {
+                @override?.Invoke(Override!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.BackupLLMDefault>? @default = null,
+            global::System.Action<global::ElevenLabs.BackupLLMDisabled>? disabled = null,
+            global::System.Action<global::ElevenLabs.BackupLLMOverride>? @override = null,
             bool validate = true)
         {
             if (validate)

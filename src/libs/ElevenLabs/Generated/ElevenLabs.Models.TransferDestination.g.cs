@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickPhone(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.PhoneNumberTransferDestination? value)
+        {
+            value = Phone;
+            return IsPhone;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SIPUriTransferDestination? SipUri { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipUri))]
 #endif
         public bool IsSipUri => SipUri != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSipUri(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SIPUriTransferDestination? value)
+        {
+            value = SipUri;
+            return IsSipUri;
+        }
 
         /// <summary>
         /// 
@@ -68,6 +94,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickPhoneDynamicVariable(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? value)
+        {
+            value = PhoneDynamicVariable;
+            return IsPhoneDynamicVariable;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SIPUriDynamicVariableTransferDestination? SipUriDynamicVariable { get; init; }
 #else
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipUriDynamicVariable))]
 #endif
         public bool IsSipUriDynamicVariable => SipUriDynamicVariable != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSipUriDynamicVariable(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SIPUriDynamicVariableTransferDestination? value)
+        {
+            value = SipUriDynamicVariable;
+            return IsSipUriDynamicVariable;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -204,10 +256,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.PhoneNumberTransferDestination?, TResult>? phone = null,
-            global::System.Func<global::ElevenLabs.SIPUriTransferDestination?, TResult>? sipUri = null,
-            global::System.Func<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?, TResult>? phoneDynamicVariable = null,
-            global::System.Func<global::ElevenLabs.SIPUriDynamicVariableTransferDestination?, TResult>? sipUriDynamicVariable = null,
+            global::System.Func<global::ElevenLabs.PhoneNumberTransferDestination, TResult>? phone = null,
+            global::System.Func<global::ElevenLabs.SIPUriTransferDestination, TResult>? sipUri = null,
+            global::System.Func<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination, TResult>? phoneDynamicVariable = null,
+            global::System.Func<global::ElevenLabs.SIPUriDynamicVariableTransferDestination, TResult>? sipUriDynamicVariable = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +291,46 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.PhoneNumberTransferDestination?>? phone = null,
-            global::System.Action<global::ElevenLabs.SIPUriTransferDestination?>? sipUri = null,
-            global::System.Action<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?>? phoneDynamicVariable = null,
-            global::System.Action<global::ElevenLabs.SIPUriDynamicVariableTransferDestination?>? sipUriDynamicVariable = null,
+            global::System.Action<global::ElevenLabs.PhoneNumberTransferDestination>? phone = null,
+
+            global::System.Action<global::ElevenLabs.SIPUriTransferDestination>? sipUri = null,
+
+            global::System.Action<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination>? phoneDynamicVariable = null,
+
+            global::System.Action<global::ElevenLabs.SIPUriDynamicVariableTransferDestination>? sipUriDynamicVariable = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsPhone)
+            {
+                phone?.Invoke(Phone!);
+            }
+            else if (IsSipUri)
+            {
+                sipUri?.Invoke(SipUri!);
+            }
+            else if (IsPhoneDynamicVariable)
+            {
+                phoneDynamicVariable?.Invoke(PhoneDynamicVariable!);
+            }
+            else if (IsSipUriDynamicVariable)
+            {
+                sipUriDynamicVariable?.Invoke(SipUriDynamicVariable!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.PhoneNumberTransferDestination>? phone = null,
+            global::System.Action<global::ElevenLabs.SIPUriTransferDestination>? sipUri = null,
+            global::System.Action<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination>? phoneDynamicVariable = null,
+            global::System.Action<global::ElevenLabs.SIPUriDynamicVariableTransferDestination>? sipUriDynamicVariable = null,
             bool validate = true)
         {
             if (validate)
