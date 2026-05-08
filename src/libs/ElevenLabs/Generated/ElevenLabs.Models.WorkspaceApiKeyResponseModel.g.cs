@@ -74,6 +74,12 @@ namespace ElevenLabs
         public required string HashedXiApiKey { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("allowed_ips")]
+        public global::System.Collections.Generic.IList<string>? AllowedIps { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -94,6 +100,7 @@ namespace ElevenLabs
         /// <param name="permissions"></param>
         /// <param name="characterLimit"></param>
         /// <param name="characterCount"></param>
+        /// <param name="allowedIps"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -107,7 +114,8 @@ namespace ElevenLabs
             bool? isDisabled,
             global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>? permissions,
             int? characterLimit,
-            int? characterCount)
+            int? characterCount,
+            global::System.Collections.Generic.IList<string>? allowedIps)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Hint = hint ?? throw new global::System.ArgumentNullException(nameof(hint));
@@ -119,6 +127,7 @@ namespace ElevenLabs
             this.CharacterLimit = characterLimit;
             this.CharacterCount = characterCount;
             this.HashedXiApiKey = hashedXiApiKey ?? throw new global::System.ArgumentNullException(nameof(hashedXiApiKey));
+            this.AllowedIps = allowedIps;
         }
 
         /// <summary>

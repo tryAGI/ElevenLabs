@@ -91,7 +91,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether to store SIP messages for this phone number.<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("store_sip_messages")]
         public bool? StoreSipMessages { get; set; }
@@ -133,7 +133,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="storeSipMessages">
         /// Whether to store SIP messages for this phone number.<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

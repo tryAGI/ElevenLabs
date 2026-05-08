@@ -26405,6 +26405,73 @@
         "x-fern-sdk-method-name": "get_usage_by_product_over_time"
       }
     },
+    "/v1/workspace/analytics/requests": {
+      "post": {
+        "tags": [
+          "access:all"
+        ],
+        "summary": "List Api Requests",
+        "description": "Returns a list of API requests. Supports filtering by time range, column filters, and search terms. At least one of start_time or end_time must be provided. An optional sort parameter controls timestamp ordering. Results are ordered by timestamp. Descending if end_time is used, ascending if start_time is used. The response is a tabular structure with columns, column_types, column_units, and rows.",
+        "operationId": "requests_list",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_List_API_requests_v1_workspace_analytics_requests_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceAnalyticsQueryResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "workspace",
+          "analytics",
+          "requests"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
     "/docs": {
       "get": {
         "summary": "Redirect To Mintlify",
@@ -35853,6 +35920,86 @@
         ],
         "title": "Body_Invite_user_v1_workspace_invites_add_post"
       },
+      "Body_List_API_requests_v1_workspace_analytics_requests_post": {
+        "properties": {
+          "start_time": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1577836800000.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Time",
+            "description": "Start of the time range as a Unix timestamp in milliseconds."
+          },
+          "end_time": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1577836800000.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Time",
+            "description": "End of the time range as a Unix timestamp in milliseconds."
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 1000.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "default": 100
+          },
+          "sort": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "asc",
+                  "desc"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sort",
+            "description": "Optional timestamp sort direction. If omitted, defaults to desc when end_time is provided, otherwise asc."
+          },
+          "filters": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ColumnFilter"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filters"
+          },
+          "search": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Search"
+          }
+        },
+        "type": "object",
+        "title": "Body_List_API_requests_v1_workspace_analytics_requests_post"
+      },
       "Body_Make_an_outbound_call_via_WhatsApp_v1_convai_whatsapp_outbound_call_post": {
         "properties": {
           "whatsapp_phone_number_id": {
@@ -38276,6 +38423,23 @@
             ],
             "title": "Character Limit",
             "description": "The character limit of the XI API key. If provided this will limit the usage of this api key to n characters per month where n is the chosen value. Requests that incur charges will fail after reaching this monthly limit."
+          },
+          "allowed_ips": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 100,
+                "minItems": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowed Ips",
+            "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass \"clear\" to remove it."
           }
         },
         "type": "object",
@@ -38327,6 +38491,28 @@
             ],
             "title": "Character Limit",
             "description": "The character limit of the XI API key. If provided this will limit the usage of this api key to n characters per month where n is the chosen value. Requests that incur charges will fail after reaching this monthly limit."
+          },
+          "allowed_ips": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 100,
+                "minItems": 1
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "no_update"
+                ]
+              }
+            ],
+            "title": "Allowed Ips",
+            "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass \"clear\" to remove it.",
+            "default": "no_update"
           }
         },
         "type": "object",
@@ -41024,6 +41210,7 @@
           "mcp_connection_status",
           "agent_tool_request",
           "agent_tool_response",
+          "agent_tool_response_full_payload",
           "agent_response_metadata",
           "vad_score",
           "agent_chat_response_part",
@@ -53621,7 +53808,7 @@
             "type": "boolean",
             "title": "Store Sip Messages",
             "description": "Whether to store SIP messages for this phone number.",
-            "default": false
+            "default": true
           }
         },
         "type": "object",
@@ -66939,6 +67126,18 @@
         ],
         "title": "RenderType"
       },
+      "ReportKnowledgeGapParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "report_knowledge_gap",
+            "title": "Smb Tool Type",
+            "default": "report_knowledge_gap"
+          }
+        },
+        "type": "object",
+        "title": "ReportKnowledgeGapParams"
+      },
       "RequestPVCManualVerificationResponseModel": {
         "properties": {
           "status": {
@@ -67946,6 +68145,9 @@
               },
               {
                 "$ref": "#/components/schemas/LeaveMessageParams"
+              },
+              {
+                "$ref": "#/components/schemas/ReportKnowledgeGapParams"
               }
             ],
             "title": "Params",
@@ -67997,6 +68199,7 @@
                 "list_services": "#/components/schemas/ListServicesParams",
                 "list_staff": "#/components/schemas/ListStaffParams",
                 "register_for_group_session": "#/components/schemas/RegisterForGroupSessionParams",
+                "report_knowledge_gap": "#/components/schemas/ReportKnowledgeGapParams",
                 "schedule_group_session": "#/components/schemas/ScheduleGroupSessionParams",
                 "search_clients": "#/components/schemas/SearchClientsParams",
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
@@ -82696,6 +82899,22 @@
           "hashed_xi_api_key": {
             "type": "string",
             "title": "Hashed Xi Api Key"
+          },
+          "allowed_ips": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 100,
+                "minItems": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowed Ips"
           }
         },
         "type": "object",
