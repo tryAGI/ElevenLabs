@@ -3,11 +3,11 @@
 
 namespace ElevenLabs
 {
-    public partial class WorkspaceClient
+    public partial class AccessAllClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_UpdateSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_GetSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,51 +21,41 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_UpdateSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_GetSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_UpdateSecurityRequirement0,
+            {                s_GetSecurityRequirement0,
             };
-        partial void PrepareUpdateArguments(
+        partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string serviceAccountUserId,
-            ref string apiKeyId,
-            global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request);
-        partial void PrepareUpdateRequest(
+            global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPost request);
+        partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string serviceAccountUserId,
-            string apiKeyId,
-            global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request);
-        partial void ProcessUpdateResponse(
+            global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPost request);
+        partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdateResponseContent(
+        partial void ProcessGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Edit Service Account Api Key<br/>
-        /// Update an existing API key for a service account
+        /// List Api Requests<br/>
+        /// Returns a list of API requests. Supports filtering by time range, column filters, and search terms. At least one of start_time or end_time must be provided. An optional sort parameter controls timestamp ordering. Results are ordered by timestamp. Descending if end_time is used, ascending if start_time is used. The response is a tabular structure with columns, column_types, column_units, and rows.
         /// </summary>
-        /// <param name="serviceAccountUserId"></param>
-        /// <param name="apiKeyId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> UpdateAsync(
-            string serviceAccountUserId,
-            string apiKeyId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel> GetAsync(
 
-            global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request,
+            global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await UpdateAsResponseAsync(
-                serviceAccountUserId: serviceAccountUserId,
-                apiKeyId: apiKeyId,
+            var __response = await GetAsResponseAsync(
 
                 request: request,
                 requestOptions: requestOptions,
@@ -75,20 +65,16 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Edit Service Account Api Key<br/>
-        /// Update an existing API key for a service account
+        /// List Api Requests<br/>
+        /// Returns a list of API requests. Supports filtering by time range, column filters, and search terms. At least one of start_time or end_time must be provided. An optional sort parameter controls timestamp ordering. Results are ordered by timestamp. Descending if end_time is used, ascending if start_time is used. The response is a tabular structure with columns, column_types, column_units, and rows.
         /// </summary>
-        /// <param name="serviceAccountUserId"></param>
-        /// <param name="apiKeyId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> UpdateAsResponseAsync(
-            string serviceAccountUserId,
-            string apiKeyId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel>> GetAsResponseAsync(
 
-            global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch request,
+            global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -96,17 +82,15 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdateArguments(
+            PrepareGetArguments(
                 httpClient: HttpClient,
-                serviceAccountUserId: ref serviceAccountUserId,
-                apiKeyId: ref apiKeyId,
                 request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_UpdateSecurityRequirements,
-                operationName: "UpdateAsync");
+                securityRequirements: s_GetSecurityRequirements,
+                operationName: "GetAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -126,7 +110,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/service-accounts/{serviceAccountUserId}/api-keys/{apiKeyId}",
+                                path: "/v1/workspace/analytics/requests",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -134,7 +118,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: new global::System.Net.Http.HttpMethod("PATCH"),
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -171,11 +155,9 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareUpdateRequest(
+                PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    serviceAccountUserId: serviceAccountUserId!,
-                    apiKeyId: apiKeyId!,
                     request: request);
 
                 return __httpRequest;
@@ -193,10 +175,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update",
-                                methodName: "UpdateAsync",
-                                pathTemplate: "$\"/v1/service-accounts/{serviceAccountUserId}/api-keys/{apiKeyId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "\"/v1/workspace/analytics/requests\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -227,10 +209,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update",
-                                methodName: "UpdateAsync",
-                                pathTemplate: "$\"/v1/service-accounts/{serviceAccountUserId}/api-keys/{apiKeyId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "\"/v1/workspace/analytics/requests\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -268,10 +250,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update",
-                                methodName: "UpdateAsync",
-                                pathTemplate: "$\"/v1/service-accounts/{serviceAccountUserId}/api-keys/{apiKeyId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "\"/v1/workspace/analytics/requests\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -308,7 +290,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessUpdateResponse(
+                ProcessGetResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -316,10 +298,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update",
-                                methodName: "UpdateAsync",
-                                pathTemplate: "$\"/v1/service-accounts/{serviceAccountUserId}/api-keys/{apiKeyId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "\"/v1/workspace/analytics/requests\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -338,10 +320,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update",
-                                methodName: "UpdateAsync",
-                                pathTemplate: "$\"/v1/service-accounts/{serviceAccountUserId}/api-keys/{apiKeyId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "\"/v1/workspace/analytics/requests\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -406,7 +388,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessUpdateResponseContent(
+                                ProcessGetResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -415,11 +397,13 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -441,17 +425,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = await global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -490,53 +476,47 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Edit Service Account Api Key<br/>
-        /// Update an existing API key for a service account
+        /// List Api Requests<br/>
+        /// Returns a list of API requests. Supports filtering by time range, column filters, and search terms. At least one of start_time or end_time must be provided. An optional sort parameter controls timestamp ordering. Results are ordered by timestamp. Descending if end_time is used, ascending if start_time is used. The response is a tabular structure with columns, column_types, column_units, and rows.
         /// </summary>
-        /// <param name="serviceAccountUserId"></param>
-        /// <param name="apiKeyId"></param>
-        /// <param name="isEnabled">
-        /// Whether to enable or disable the API key.
+        /// <param name="startTime">
+        /// Start of the time range as a Unix timestamp in milliseconds.
         /// </param>
-        /// <param name="name">
-        /// The name of the XI API key to use (used for identification purposes only).
+        /// <param name="endTime">
+        /// End of the time range as a Unix timestamp in milliseconds.
         /// </param>
-        /// <param name="permissions">
-        /// The permissions of the XI API.
+        /// <param name="limit">
+        /// Default Value: 100
         /// </param>
-        /// <param name="characterLimit">
-        /// The character limit of the XI API key. If provided this will limit the usage of this api key to n characters per month where n is the chosen value. Requests that incur charges will fail after reaching this monthly limit.
+        /// <param name="sort">
+        /// Optional timestamp sort direction. If omitted, defaults to desc when end_time is provided, otherwise asc.
         /// </param>
-        /// <param name="allowedIps">
-        /// List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass "clear" to remove it.<br/>
-        /// Default Value: no_update
-        /// </param>
+        /// <param name="filters"></param>
+        /// <param name="search"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> UpdateAsync(
-            string serviceAccountUserId,
-            string apiKeyId,
-            bool isEnabled,
-            string name,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string> permissions,
-            int? characterLimit = default,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<string>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps?>? allowedIps = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel> GetAsync(
+            long? startTime = default,
+            long? endTime = default,
+            int? limit = default,
+            global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPostSort2? sort = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ColumnFilter>? filters = default,
+            string? search = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch
+            var __request = new global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPost
             {
-                IsEnabled = isEnabled,
-                Name = name,
-                Permissions = permissions,
-                CharacterLimit = characterLimit,
-                AllowedIps = allowedIps,
+                StartTime = startTime,
+                EndTime = endTime,
+                Limit = limit,
+                Sort = sort,
+                Filters = filters,
+                Search = search,
             };
 
-            return await UpdateAsync(
-                serviceAccountUserId: serviceAccountUserId,
-                apiKeyId: apiKeyId,
+            return await GetAsync(
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

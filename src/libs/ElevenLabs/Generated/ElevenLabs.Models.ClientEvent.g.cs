@@ -39,6 +39,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AgentToolResponseFullPayload,
+        /// <summary>
+        /// 
+        /// </summary>
         AsrInitiationMetadata,
         /// <summary>
         /// 
@@ -121,6 +125,7 @@ namespace ElevenLabs
                 ClientEvent.AgentResponseMetadata => "agent_response_metadata",
                 ClientEvent.AgentToolRequest => "agent_tool_request",
                 ClientEvent.AgentToolResponse => "agent_tool_response",
+                ClientEvent.AgentToolResponseFullPayload => "agent_tool_response_full_payload",
                 ClientEvent.AsrInitiationMetadata => "asr_initiation_metadata",
                 ClientEvent.Audio => "audio",
                 ClientEvent.ClientError => "client_error",
@@ -154,6 +159,7 @@ namespace ElevenLabs
                 "agent_response_metadata" => ClientEvent.AgentResponseMetadata,
                 "agent_tool_request" => ClientEvent.AgentToolRequest,
                 "agent_tool_response" => ClientEvent.AgentToolResponse,
+                "agent_tool_response_full_payload" => ClientEvent.AgentToolResponseFullPayload,
                 "asr_initiation_metadata" => ClientEvent.AsrInitiationMetadata,
                 "audio" => ClientEvent.Audio,
                 "client_error" => ClientEvent.ClientError,
