@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickWebhook(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails? value)
+        {
+            value = Webhook;
+            return IsWebhook;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? Client { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Client))]
 #endif
         public bool IsClient => Client != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickClient(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? value)
+        {
+            value = Client;
+            return IsClient;
+        }
 
         /// <summary>
         /// 
@@ -68,6 +94,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickMcp(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? value)
+        {
+            value = Mcp;
+            return IsMcp;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput? ApiIntegrationWebhook { get; init; }
 #else
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiIntegrationWebhook))]
 #endif
         public bool IsApiIntegrationWebhook => ApiIntegrationWebhook != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickApiIntegrationWebhook(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput? value)
+        {
+            value = ApiIntegrationWebhook;
+            return IsApiIntegrationWebhook;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -204,10 +256,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?, TResult>? webhook = null,
-            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?, TResult>? client = null,
-            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?, TResult>? mcp = null,
-            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput?, TResult>? apiIntegrationWebhook = null,
+            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails, TResult>? webhook = null,
+            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails, TResult>? client = null,
+            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails, TResult>? mcp = null,
+            global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput, TResult>? apiIntegrationWebhook = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +291,46 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?>? webhook = null,
-            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?>? client = null,
-            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?>? mcp = null,
-            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput?>? apiIntegrationWebhook = null,
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails>? webhook = null,
+
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails>? client = null,
+
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails>? mcp = null,
+
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput>? apiIntegrationWebhook = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsWebhook)
+            {
+                webhook?.Invoke(Webhook!);
+            }
+            else if (IsClient)
+            {
+                client?.Invoke(Client!);
+            }
+            else if (IsMcp)
+            {
+                mcp?.Invoke(Mcp!);
+            }
+            else if (IsApiIntegrationWebhook)
+            {
+                apiIntegrationWebhook?.Invoke(ApiIntegrationWebhook!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails>? webhook = null,
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails>? client = null,
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails>? mcp = null,
+            global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput>? apiIntegrationWebhook = null,
             bool validate = true)
         {
             if (validate)

@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickString(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateStringEnvironmentVariableRequest? value)
+        {
+            value = String;
+            return IsString;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateSecretEnvironmentVariableRequest? Secret { get; init; }
 #else
@@ -51,6 +64,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickSecret(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateSecretEnvironmentVariableRequest? value)
+        {
+            value = Secret;
+            return IsSecret;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? AuthConnection { get; init; }
 #else
@@ -64,6 +90,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AuthConnection))]
 #endif
         public bool IsAuthConnection => AuthConnection != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickAuthConnection(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? value)
+        {
+            value = AuthConnection;
+            return IsAuthConnection;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -165,9 +204,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.CreateStringEnvironmentVariableRequest?, TResult>? @string = null,
-            global::System.Func<global::ElevenLabs.CreateSecretEnvironmentVariableRequest?, TResult>? secret = null,
-            global::System.Func<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest?, TResult>? authConnection = null,
+            global::System.Func<global::ElevenLabs.CreateStringEnvironmentVariableRequest, TResult>? @string = null,
+            global::System.Func<global::ElevenLabs.CreateSecretEnvironmentVariableRequest, TResult>? secret = null,
+            global::System.Func<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest, TResult>? authConnection = null,
             bool validate = true)
         {
             if (validate)
@@ -195,9 +234,39 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.CreateStringEnvironmentVariableRequest?>? @string = null,
-            global::System.Action<global::ElevenLabs.CreateSecretEnvironmentVariableRequest?>? secret = null,
-            global::System.Action<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest?>? authConnection = null,
+            global::System.Action<global::ElevenLabs.CreateStringEnvironmentVariableRequest>? @string = null,
+
+            global::System.Action<global::ElevenLabs.CreateSecretEnvironmentVariableRequest>? secret = null,
+
+            global::System.Action<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest>? authConnection = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsString)
+            {
+                @string?.Invoke(String!);
+            }
+            else if (IsSecret)
+            {
+                secret?.Invoke(Secret!);
+            }
+            else if (IsAuthConnection)
+            {
+                authConnection?.Invoke(AuthConnection!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.CreateStringEnvironmentVariableRequest>? @string = null,
+            global::System.Action<global::ElevenLabs.CreateSecretEnvironmentVariableRequest>? secret = null,
+            global::System.Action<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest>? authConnection = null,
             bool validate = true)
         {
             if (validate)

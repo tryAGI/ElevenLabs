@@ -32,6 +32,19 @@ namespace ElevenLabs
         public bool IsOauth2ClientCredentials => Oauth2ClientCredentials != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickOauth2ClientCredentials(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.OAuth2ClientCredsResponse? value)
+        {
+            value = Oauth2ClientCredentials;
+            return IsOauth2ClientCredentials;
+        }
+
+        /// <summary>
         /// Response model for basic auth
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BasicAuth))]
 #endif
         public bool IsBasicAuth => BasicAuth != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickBasicAuth(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.BasicAuthResponse? value)
+        {
+            value = BasicAuth;
+            return IsBasicAuth;
+        }
 
         /// <summary>
         /// Response model for bearer auth
@@ -66,6 +92,19 @@ namespace ElevenLabs
         public bool IsBearerAuth => BearerAuth != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickBearerAuth(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.BearerAuthResponse? value)
+        {
+            value = BearerAuth;
+            return IsBearerAuth;
+        }
+
+        /// <summary>
         /// Response model for OAuth2 JWT auth connections
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Oauth2Jwt))]
 #endif
         public bool IsOauth2Jwt => Oauth2Jwt != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickOauth2Jwt(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.OAuth2JWTResponse? value)
+        {
+            value = Oauth2Jwt;
+            return IsOauth2Jwt;
+        }
 
         /// <summary>
         /// Response model for Private Key JWT auth connections
@@ -100,6 +152,19 @@ namespace ElevenLabs
         public bool IsPrivateKeyJwt => PrivateKeyJwt != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickPrivateKeyJwt(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.PrivateKeyJWTResponse? value)
+        {
+            value = PrivateKeyJwt;
+            return IsPrivateKeyJwt;
+        }
+
+        /// <summary>
         /// Response model for mTLS auth connections.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -115,6 +180,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mtls))]
 #endif
         public bool IsMtls => Mtls != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickMtls(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.MTLSAuthResponse? value)
+        {
+            value = Mtls;
+            return IsMtls;
+        }
 
         /// <summary>
         /// Response model for Custom Header Auth auth connections
@@ -134,6 +212,19 @@ namespace ElevenLabs
         public bool IsCustomHeaderAuth => CustomHeaderAuth != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickCustomHeaderAuth(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CustomHeaderAuthResponse? value)
+        {
+            value = CustomHeaderAuth;
+            return IsCustomHeaderAuth;
+        }
+
+        /// <summary>
         /// Response model for integration-managed OAuth2 Auth Code auth connections
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -149,6 +240,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiIntegrationOauth2AuthCode))]
 #endif
         public bool IsApiIntegrationOauth2AuthCode => ApiIntegrationOauth2AuthCode != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickApiIntegrationOauth2AuthCode(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse? value)
+        {
+            value = ApiIntegrationOauth2AuthCode;
+            return IsApiIntegrationOauth2AuthCode;
+        }
 
         /// <summary>
         /// Response model for user-owned OAuth2 Custom App auth connections
@@ -170,6 +274,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickApiIntegrationOauth2CustomApp(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? value)
+        {
+            value = ApiIntegrationOauth2CustomApp;
+            return IsApiIntegrationOauth2CustomApp;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppAuthResponse? WhatsappAuth { get; init; }
 #else
@@ -183,6 +300,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(WhatsappAuth))]
 #endif
         public bool IsWhatsappAuth => WhatsappAuth != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickWhatsappAuth(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WhatsAppAuthResponse? value)
+        {
+            value = WhatsappAuth;
+            return IsWhatsappAuth;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -438,16 +568,16 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.OAuth2ClientCredsResponse?, TResult>? oauth2ClientCredentials = null,
-            global::System.Func<global::ElevenLabs.BasicAuthResponse?, TResult>? basicAuth = null,
-            global::System.Func<global::ElevenLabs.BearerAuthResponse?, TResult>? bearerAuth = null,
-            global::System.Func<global::ElevenLabs.OAuth2JWTResponse?, TResult>? oauth2Jwt = null,
-            global::System.Func<global::ElevenLabs.PrivateKeyJWTResponse?, TResult>? privateKeyJwt = null,
-            global::System.Func<global::ElevenLabs.MTLSAuthResponse?, TResult>? mtls = null,
-            global::System.Func<global::ElevenLabs.CustomHeaderAuthResponse?, TResult>? customHeaderAuth = null,
-            global::System.Func<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?, TResult>? apiIntegrationOauth2AuthCode = null,
-            global::System.Func<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?, TResult>? apiIntegrationOauth2CustomApp = null,
-            global::System.Func<global::ElevenLabs.WhatsAppAuthResponse?, TResult>? whatsappAuth = null,
+            global::System.Func<global::ElevenLabs.OAuth2ClientCredsResponse, TResult>? oauth2ClientCredentials = null,
+            global::System.Func<global::ElevenLabs.BasicAuthResponse, TResult>? basicAuth = null,
+            global::System.Func<global::ElevenLabs.BearerAuthResponse, TResult>? bearerAuth = null,
+            global::System.Func<global::ElevenLabs.OAuth2JWTResponse, TResult>? oauth2Jwt = null,
+            global::System.Func<global::ElevenLabs.PrivateKeyJWTResponse, TResult>? privateKeyJwt = null,
+            global::System.Func<global::ElevenLabs.MTLSAuthResponse, TResult>? mtls = null,
+            global::System.Func<global::ElevenLabs.CustomHeaderAuthResponse, TResult>? customHeaderAuth = null,
+            global::System.Func<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse, TResult>? apiIntegrationOauth2AuthCode = null,
+            global::System.Func<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse, TResult>? apiIntegrationOauth2CustomApp = null,
+            global::System.Func<global::ElevenLabs.WhatsAppAuthResponse, TResult>? whatsappAuth = null,
             bool validate = true)
         {
             if (validate)
@@ -503,16 +633,88 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.OAuth2ClientCredsResponse?>? oauth2ClientCredentials = null,
-            global::System.Action<global::ElevenLabs.BasicAuthResponse?>? basicAuth = null,
-            global::System.Action<global::ElevenLabs.BearerAuthResponse?>? bearerAuth = null,
-            global::System.Action<global::ElevenLabs.OAuth2JWTResponse?>? oauth2Jwt = null,
-            global::System.Action<global::ElevenLabs.PrivateKeyJWTResponse?>? privateKeyJwt = null,
-            global::System.Action<global::ElevenLabs.MTLSAuthResponse?>? mtls = null,
-            global::System.Action<global::ElevenLabs.CustomHeaderAuthResponse?>? customHeaderAuth = null,
-            global::System.Action<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?>? apiIntegrationOauth2AuthCode = null,
-            global::System.Action<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?>? apiIntegrationOauth2CustomApp = null,
-            global::System.Action<global::ElevenLabs.WhatsAppAuthResponse?>? whatsappAuth = null,
+            global::System.Action<global::ElevenLabs.OAuth2ClientCredsResponse>? oauth2ClientCredentials = null,
+
+            global::System.Action<global::ElevenLabs.BasicAuthResponse>? basicAuth = null,
+
+            global::System.Action<global::ElevenLabs.BearerAuthResponse>? bearerAuth = null,
+
+            global::System.Action<global::ElevenLabs.OAuth2JWTResponse>? oauth2Jwt = null,
+
+            global::System.Action<global::ElevenLabs.PrivateKeyJWTResponse>? privateKeyJwt = null,
+
+            global::System.Action<global::ElevenLabs.MTLSAuthResponse>? mtls = null,
+
+            global::System.Action<global::ElevenLabs.CustomHeaderAuthResponse>? customHeaderAuth = null,
+
+            global::System.Action<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse>? apiIntegrationOauth2AuthCode = null,
+
+            global::System.Action<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse>? apiIntegrationOauth2CustomApp = null,
+
+            global::System.Action<global::ElevenLabs.WhatsAppAuthResponse>? whatsappAuth = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsOauth2ClientCredentials)
+            {
+                oauth2ClientCredentials?.Invoke(Oauth2ClientCredentials!);
+            }
+            else if (IsBasicAuth)
+            {
+                basicAuth?.Invoke(BasicAuth!);
+            }
+            else if (IsBearerAuth)
+            {
+                bearerAuth?.Invoke(BearerAuth!);
+            }
+            else if (IsOauth2Jwt)
+            {
+                oauth2Jwt?.Invoke(Oauth2Jwt!);
+            }
+            else if (IsPrivateKeyJwt)
+            {
+                privateKeyJwt?.Invoke(PrivateKeyJwt!);
+            }
+            else if (IsMtls)
+            {
+                mtls?.Invoke(Mtls!);
+            }
+            else if (IsCustomHeaderAuth)
+            {
+                customHeaderAuth?.Invoke(CustomHeaderAuth!);
+            }
+            else if (IsApiIntegrationOauth2AuthCode)
+            {
+                apiIntegrationOauth2AuthCode?.Invoke(ApiIntegrationOauth2AuthCode!);
+            }
+            else if (IsApiIntegrationOauth2CustomApp)
+            {
+                apiIntegrationOauth2CustomApp?.Invoke(ApiIntegrationOauth2CustomApp!);
+            }
+            else if (IsWhatsappAuth)
+            {
+                whatsappAuth?.Invoke(WhatsappAuth!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.OAuth2ClientCredsResponse>? oauth2ClientCredentials = null,
+            global::System.Action<global::ElevenLabs.BasicAuthResponse>? basicAuth = null,
+            global::System.Action<global::ElevenLabs.BearerAuthResponse>? bearerAuth = null,
+            global::System.Action<global::ElevenLabs.OAuth2JWTResponse>? oauth2Jwt = null,
+            global::System.Action<global::ElevenLabs.PrivateKeyJWTResponse>? privateKeyJwt = null,
+            global::System.Action<global::ElevenLabs.MTLSAuthResponse>? mtls = null,
+            global::System.Action<global::ElevenLabs.CustomHeaderAuthResponse>? customHeaderAuth = null,
+            global::System.Action<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse>? apiIntegrationOauth2AuthCode = null,
+            global::System.Action<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse>? apiIntegrationOauth2CustomApp = null,
+            global::System.Action<global::ElevenLabs.WhatsAppAuthResponse>? whatsappAuth = null,
             bool validate = true)
         {
             if (validate)

@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickStatic(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.PostDialDigitsStatic? value)
+        {
+            value = Static;
+            return IsStatic;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PostDialDigitsDynamicVariable? Dynamic { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Dynamic))]
 #endif
         public bool IsDynamic => Dynamic != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamic(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.PostDialDigitsDynamicVariable? value)
+        {
+            value = Dynamic;
+            return IsDynamic;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -126,8 +152,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.PostDialDigitsStatic?, TResult>? @static = null,
-            global::System.Func<global::ElevenLabs.PostDialDigitsDynamicVariable?, TResult>? dynamic = null,
+            global::System.Func<global::ElevenLabs.PostDialDigitsStatic, TResult>? @static = null,
+            global::System.Func<global::ElevenLabs.PostDialDigitsDynamicVariable, TResult>? dynamic = null,
             bool validate = true)
         {
             if (validate)
@@ -151,8 +177,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.PostDialDigitsStatic?>? @static = null,
-            global::System.Action<global::ElevenLabs.PostDialDigitsDynamicVariable?>? dynamic = null,
+            global::System.Action<global::ElevenLabs.PostDialDigitsStatic>? @static = null,
+
+            global::System.Action<global::ElevenLabs.PostDialDigitsDynamicVariable>? dynamic = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsStatic)
+            {
+                @static?.Invoke(Static!);
+            }
+            else if (IsDynamic)
+            {
+                dynamic?.Invoke(Dynamic!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.PostDialDigitsStatic>? @static = null,
+            global::System.Action<global::ElevenLabs.PostDialDigitsDynamicVariable>? dynamic = null,
             bool validate = true)
         {
             if (validate)

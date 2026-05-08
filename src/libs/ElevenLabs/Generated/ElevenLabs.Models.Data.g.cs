@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickUrl(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel? value)
+        {
+            value = Url;
+            return IsUrl;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? File { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(File))]
 #endif
         public bool IsFile => File != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickFile(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? value)
+        {
+            value = File;
+            return IsFile;
+        }
 
         /// <summary>
         /// 
@@ -68,6 +94,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickText(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? value)
+        {
+            value = Text;
+            return IsText;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel? Folder { get; init; }
 #else
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Folder))]
 #endif
         public bool IsFolder => Folder != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickFolder(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel? value)
+        {
+            value = Folder;
+            return IsFolder;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -204,10 +256,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel?, TResult>? url = null,
-            global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?, TResult>? file = null,
-            global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?, TResult>? text = null,
-            global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel?, TResult>? folder = null,
+            global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel, TResult>? url = null,
+            global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel, TResult>? file = null,
+            global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel, TResult>? text = null,
+            global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel, TResult>? folder = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +291,46 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel?>? url = null,
-            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?>? file = null,
-            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?>? text = null,
-            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel?>? folder = null,
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel>? url = null,
+
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel>? file = null,
+
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel>? text = null,
+
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel>? folder = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsUrl)
+            {
+                url?.Invoke(Url!);
+            }
+            else if (IsFile)
+            {
+                file?.Invoke(File!);
+            }
+            else if (IsText)
+            {
+                text?.Invoke(Text!);
+            }
+            else if (IsFolder)
+            {
+                folder?.Invoke(Folder!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel>? url = null,
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel>? file = null,
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel>? text = null,
+            global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel>? folder = null,
             bool validate = true)
         {
             if (validate)

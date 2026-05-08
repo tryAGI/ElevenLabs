@@ -26,5 +26,6 @@ namespace ElevenLabs
             ref string apiKey);
         partial void Authorized(
             global::System.Net.Http.HttpClient client);
+
     }
 }

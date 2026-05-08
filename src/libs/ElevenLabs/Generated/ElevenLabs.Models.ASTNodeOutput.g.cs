@@ -32,6 +32,19 @@ namespace ElevenLabs
         public bool IsStringLiteral => StringLiteral != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickStringLiteral(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTStringNodeOutput? value)
+        {
+            value = StringLiteral;
+            return IsStringLiteral;
+        }
+
+        /// <summary>
         /// Number literal.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NumberLiteral))]
 #endif
         public bool IsNumberLiteral => NumberLiteral != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickNumberLiteral(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTNumberNodeOutput? value)
+        {
+            value = NumberLiteral;
+            return IsNumberLiteral;
+        }
 
         /// <summary>
         /// Boolean literal.
@@ -66,6 +92,19 @@ namespace ElevenLabs
         public bool IsBooleanLiteral => BooleanLiteral != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickBooleanLiteral(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTBooleanNodeOutput? value)
+        {
+            value = BooleanLiteral;
+            return IsBooleanLiteral;
+        }
+
+        /// <summary>
         /// Null literal.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NullLiteral))]
 #endif
         public bool IsNullLiteral => NullLiteral != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickNullLiteral(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTNullNodeOutput? value)
+        {
+            value = NullLiteral;
+            return IsNullLiteral;
+        }
 
         /// <summary>
         /// Value extracted by an LLM according to the given schema.
@@ -100,6 +152,19 @@ namespace ElevenLabs
         public bool IsLlm => Llm != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLlm(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTLLMNodeOutput? value)
+        {
+            value = Llm;
+            return IsLlm;
+        }
+
+        /// <summary>
         /// Reference to a dynamic variable.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -115,6 +180,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariable))]
 #endif
         public bool IsDynamicVariable => DynamicVariable != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDynamicVariable(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTDynamicVariableNodeOutput? value)
+        {
+            value = DynamicVariable;
+            return IsDynamicVariable;
+        }
 
         /// <summary>
         /// Evaluates to true if any child is true.
@@ -134,6 +212,19 @@ namespace ElevenLabs
         public bool IsOrOperator => OrOperator != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickOrOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTOrOperatorNodeOutput? value)
+        {
+            value = OrOperator;
+            return IsOrOperator;
+        }
+
+        /// <summary>
         /// Evaluates to true if all children are true.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -149,6 +240,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AndOperator))]
 #endif
         public bool IsAndOperator => AndOperator != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickAndOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTAndOperatorNodeOutput? value)
+        {
+            value = AndOperator;
+            return IsAndOperator;
+        }
 
         /// <summary>
         /// Evaluates to true if the left value equals the right.
@@ -168,6 +272,19 @@ namespace ElevenLabs
         public bool IsEqOperator => EqOperator != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEqOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTEqualsOperatorNodeOutput? value)
+        {
+            value = EqOperator;
+            return IsEqOperator;
+        }
+
+        /// <summary>
         /// Evaluates to true if the left value does not equal the right.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -183,6 +300,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NeqOperator))]
 #endif
         public bool IsNeqOperator => NeqOperator != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickNeqOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTNotEqualsOperatorNodeOutput? value)
+        {
+            value = NeqOperator;
+            return IsNeqOperator;
+        }
 
         /// <summary>
         /// Evaluates to true if the left value is greater than the right.
@@ -202,6 +332,19 @@ namespace ElevenLabs
         public bool IsGtOperator => GtOperator != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGtOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTGreaterThanOperatorNodeOutput? value)
+        {
+            value = GtOperator;
+            return IsGtOperator;
+        }
+
+        /// <summary>
         /// Evaluates to true if the left value is less than the right.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -217,6 +360,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LtOperator))]
 #endif
         public bool IsLtOperator => LtOperator != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLtOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTLessThanOperatorNodeOutput? value)
+        {
+            value = LtOperator;
+            return IsLtOperator;
+        }
 
         /// <summary>
         /// Evaluates to true if the left value is greater than or equal to the right.
@@ -236,6 +392,19 @@ namespace ElevenLabs
         public bool IsGteOperator => GteOperator != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGteOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput? value)
+        {
+            value = GteOperator;
+            return IsGteOperator;
+        }
+
+        /// <summary>
         /// Evaluates to true if the left value is less than or equal to the right.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -251,6 +420,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LteOperator))]
 #endif
         public bool IsLteOperator => LteOperator != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLteOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput? value)
+        {
+            value = LteOperator;
+            return IsLteOperator;
+        }
 
         /// <summary>
         /// Adds the left and right values.
@@ -270,6 +452,19 @@ namespace ElevenLabs
         public bool IsAddOperator => AddOperator != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickAddOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTAdditionOperatorNodeOutput? value)
+        {
+            value = AddOperator;
+            return IsAddOperator;
+        }
+
+        /// <summary>
         /// Subtracts the right value from the left.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -285,6 +480,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SubOperator))]
 #endif
         public bool IsSubOperator => SubOperator != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSubOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTSubtractionOperatorNodeOutput? value)
+        {
+            value = SubOperator;
+            return IsSubOperator;
+        }
 
         /// <summary>
         /// Multiplies the left value times the right.
@@ -304,6 +512,19 @@ namespace ElevenLabs
         public bool IsMulOperator => MulOperator != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickMulOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTMultiplicationOperatorNodeOutput? value)
+        {
+            value = MulOperator;
+            return IsMulOperator;
+        }
+
+        /// <summary>
         /// Divides the left value by the right.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -321,6 +542,19 @@ namespace ElevenLabs
         public bool IsDivOperator => DivOperator != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDivOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTDivisionOperatorNodeOutput? value)
+        {
+            value = DivOperator;
+            return IsDivOperator;
+        }
+
+        /// <summary>
         /// Selects one of two expressions based on whether the given condition evaluates to true.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -336,6 +570,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ConditionalOperator))]
 #endif
         public bool IsConditionalOperator => ConditionalOperator != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickConditionalOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTConditionalOperatorNodeOutput? value)
+        {
+            value = ConditionalOperator;
+            return IsConditionalOperator;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -789,25 +1036,25 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.ASTStringNodeOutput?, TResult>? stringLiteral = null,
-            global::System.Func<global::ElevenLabs.ASTNumberNodeOutput?, TResult>? numberLiteral = null,
-            global::System.Func<global::ElevenLabs.ASTBooleanNodeOutput?, TResult>? booleanLiteral = null,
-            global::System.Func<global::ElevenLabs.ASTNullNodeOutput?, TResult>? nullLiteral = null,
-            global::System.Func<global::ElevenLabs.ASTLLMNodeOutput?, TResult>? llm = null,
-            global::System.Func<global::ElevenLabs.ASTDynamicVariableNodeOutput?, TResult>? dynamicVariable = null,
-            global::System.Func<global::ElevenLabs.ASTOrOperatorNodeOutput?, TResult>? orOperator = null,
-            global::System.Func<global::ElevenLabs.ASTAndOperatorNodeOutput?, TResult>? andOperator = null,
-            global::System.Func<global::ElevenLabs.ASTEqualsOperatorNodeOutput?, TResult>? eqOperator = null,
-            global::System.Func<global::ElevenLabs.ASTNotEqualsOperatorNodeOutput?, TResult>? neqOperator = null,
-            global::System.Func<global::ElevenLabs.ASTGreaterThanOperatorNodeOutput?, TResult>? gtOperator = null,
-            global::System.Func<global::ElevenLabs.ASTLessThanOperatorNodeOutput?, TResult>? ltOperator = null,
-            global::System.Func<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput?, TResult>? gteOperator = null,
-            global::System.Func<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput?, TResult>? lteOperator = null,
-            global::System.Func<global::ElevenLabs.ASTAdditionOperatorNodeOutput?, TResult>? addOperator = null,
-            global::System.Func<global::ElevenLabs.ASTSubtractionOperatorNodeOutput?, TResult>? subOperator = null,
-            global::System.Func<global::ElevenLabs.ASTMultiplicationOperatorNodeOutput?, TResult>? mulOperator = null,
-            global::System.Func<global::ElevenLabs.ASTDivisionOperatorNodeOutput?, TResult>? divOperator = null,
-            global::System.Func<global::ElevenLabs.ASTConditionalOperatorNodeOutput?, TResult>? conditionalOperator = null,
+            global::System.Func<global::ElevenLabs.ASTStringNodeOutput, TResult>? stringLiteral = null,
+            global::System.Func<global::ElevenLabs.ASTNumberNodeOutput, TResult>? numberLiteral = null,
+            global::System.Func<global::ElevenLabs.ASTBooleanNodeOutput, TResult>? booleanLiteral = null,
+            global::System.Func<global::ElevenLabs.ASTNullNodeOutput, TResult>? nullLiteral = null,
+            global::System.Func<global::ElevenLabs.ASTLLMNodeOutput, TResult>? llm = null,
+            global::System.Func<global::ElevenLabs.ASTDynamicVariableNodeOutput, TResult>? dynamicVariable = null,
+            global::System.Func<global::ElevenLabs.ASTOrOperatorNodeOutput, TResult>? orOperator = null,
+            global::System.Func<global::ElevenLabs.ASTAndOperatorNodeOutput, TResult>? andOperator = null,
+            global::System.Func<global::ElevenLabs.ASTEqualsOperatorNodeOutput, TResult>? eqOperator = null,
+            global::System.Func<global::ElevenLabs.ASTNotEqualsOperatorNodeOutput, TResult>? neqOperator = null,
+            global::System.Func<global::ElevenLabs.ASTGreaterThanOperatorNodeOutput, TResult>? gtOperator = null,
+            global::System.Func<global::ElevenLabs.ASTLessThanOperatorNodeOutput, TResult>? ltOperator = null,
+            global::System.Func<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput, TResult>? gteOperator = null,
+            global::System.Func<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput, TResult>? lteOperator = null,
+            global::System.Func<global::ElevenLabs.ASTAdditionOperatorNodeOutput, TResult>? addOperator = null,
+            global::System.Func<global::ElevenLabs.ASTSubtractionOperatorNodeOutput, TResult>? subOperator = null,
+            global::System.Func<global::ElevenLabs.ASTMultiplicationOperatorNodeOutput, TResult>? mulOperator = null,
+            global::System.Func<global::ElevenLabs.ASTDivisionOperatorNodeOutput, TResult>? divOperator = null,
+            global::System.Func<global::ElevenLabs.ASTConditionalOperatorNodeOutput, TResult>? conditionalOperator = null,
             bool validate = true)
         {
             if (validate)
@@ -899,25 +1146,151 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.ASTStringNodeOutput?>? stringLiteral = null,
-            global::System.Action<global::ElevenLabs.ASTNumberNodeOutput?>? numberLiteral = null,
-            global::System.Action<global::ElevenLabs.ASTBooleanNodeOutput?>? booleanLiteral = null,
-            global::System.Action<global::ElevenLabs.ASTNullNodeOutput?>? nullLiteral = null,
-            global::System.Action<global::ElevenLabs.ASTLLMNodeOutput?>? llm = null,
-            global::System.Action<global::ElevenLabs.ASTDynamicVariableNodeOutput?>? dynamicVariable = null,
-            global::System.Action<global::ElevenLabs.ASTOrOperatorNodeOutput?>? orOperator = null,
-            global::System.Action<global::ElevenLabs.ASTAndOperatorNodeOutput?>? andOperator = null,
-            global::System.Action<global::ElevenLabs.ASTEqualsOperatorNodeOutput?>? eqOperator = null,
-            global::System.Action<global::ElevenLabs.ASTNotEqualsOperatorNodeOutput?>? neqOperator = null,
-            global::System.Action<global::ElevenLabs.ASTGreaterThanOperatorNodeOutput?>? gtOperator = null,
-            global::System.Action<global::ElevenLabs.ASTLessThanOperatorNodeOutput?>? ltOperator = null,
-            global::System.Action<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput?>? gteOperator = null,
-            global::System.Action<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput?>? lteOperator = null,
-            global::System.Action<global::ElevenLabs.ASTAdditionOperatorNodeOutput?>? addOperator = null,
-            global::System.Action<global::ElevenLabs.ASTSubtractionOperatorNodeOutput?>? subOperator = null,
-            global::System.Action<global::ElevenLabs.ASTMultiplicationOperatorNodeOutput?>? mulOperator = null,
-            global::System.Action<global::ElevenLabs.ASTDivisionOperatorNodeOutput?>? divOperator = null,
-            global::System.Action<global::ElevenLabs.ASTConditionalOperatorNodeOutput?>? conditionalOperator = null,
+            global::System.Action<global::ElevenLabs.ASTStringNodeOutput>? stringLiteral = null,
+
+            global::System.Action<global::ElevenLabs.ASTNumberNodeOutput>? numberLiteral = null,
+
+            global::System.Action<global::ElevenLabs.ASTBooleanNodeOutput>? booleanLiteral = null,
+
+            global::System.Action<global::ElevenLabs.ASTNullNodeOutput>? nullLiteral = null,
+
+            global::System.Action<global::ElevenLabs.ASTLLMNodeOutput>? llm = null,
+
+            global::System.Action<global::ElevenLabs.ASTDynamicVariableNodeOutput>? dynamicVariable = null,
+
+            global::System.Action<global::ElevenLabs.ASTOrOperatorNodeOutput>? orOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTAndOperatorNodeOutput>? andOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTEqualsOperatorNodeOutput>? eqOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTNotEqualsOperatorNodeOutput>? neqOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTGreaterThanOperatorNodeOutput>? gtOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTLessThanOperatorNodeOutput>? ltOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput>? gteOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput>? lteOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTAdditionOperatorNodeOutput>? addOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTSubtractionOperatorNodeOutput>? subOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTMultiplicationOperatorNodeOutput>? mulOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTDivisionOperatorNodeOutput>? divOperator = null,
+
+            global::System.Action<global::ElevenLabs.ASTConditionalOperatorNodeOutput>? conditionalOperator = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsStringLiteral)
+            {
+                stringLiteral?.Invoke(StringLiteral!);
+            }
+            else if (IsNumberLiteral)
+            {
+                numberLiteral?.Invoke(NumberLiteral!);
+            }
+            else if (IsBooleanLiteral)
+            {
+                booleanLiteral?.Invoke(BooleanLiteral!);
+            }
+            else if (IsNullLiteral)
+            {
+                nullLiteral?.Invoke(NullLiteral!);
+            }
+            else if (IsLlm)
+            {
+                llm?.Invoke(Llm!);
+            }
+            else if (IsDynamicVariable)
+            {
+                dynamicVariable?.Invoke(DynamicVariable!);
+            }
+            else if (IsOrOperator)
+            {
+                orOperator?.Invoke(OrOperator!);
+            }
+            else if (IsAndOperator)
+            {
+                andOperator?.Invoke(AndOperator!);
+            }
+            else if (IsEqOperator)
+            {
+                eqOperator?.Invoke(EqOperator!);
+            }
+            else if (IsNeqOperator)
+            {
+                neqOperator?.Invoke(NeqOperator!);
+            }
+            else if (IsGtOperator)
+            {
+                gtOperator?.Invoke(GtOperator!);
+            }
+            else if (IsLtOperator)
+            {
+                ltOperator?.Invoke(LtOperator!);
+            }
+            else if (IsGteOperator)
+            {
+                gteOperator?.Invoke(GteOperator!);
+            }
+            else if (IsLteOperator)
+            {
+                lteOperator?.Invoke(LteOperator!);
+            }
+            else if (IsAddOperator)
+            {
+                addOperator?.Invoke(AddOperator!);
+            }
+            else if (IsSubOperator)
+            {
+                subOperator?.Invoke(SubOperator!);
+            }
+            else if (IsMulOperator)
+            {
+                mulOperator?.Invoke(MulOperator!);
+            }
+            else if (IsDivOperator)
+            {
+                divOperator?.Invoke(DivOperator!);
+            }
+            else if (IsConditionalOperator)
+            {
+                conditionalOperator?.Invoke(ConditionalOperator!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.ASTStringNodeOutput>? stringLiteral = null,
+            global::System.Action<global::ElevenLabs.ASTNumberNodeOutput>? numberLiteral = null,
+            global::System.Action<global::ElevenLabs.ASTBooleanNodeOutput>? booleanLiteral = null,
+            global::System.Action<global::ElevenLabs.ASTNullNodeOutput>? nullLiteral = null,
+            global::System.Action<global::ElevenLabs.ASTLLMNodeOutput>? llm = null,
+            global::System.Action<global::ElevenLabs.ASTDynamicVariableNodeOutput>? dynamicVariable = null,
+            global::System.Action<global::ElevenLabs.ASTOrOperatorNodeOutput>? orOperator = null,
+            global::System.Action<global::ElevenLabs.ASTAndOperatorNodeOutput>? andOperator = null,
+            global::System.Action<global::ElevenLabs.ASTEqualsOperatorNodeOutput>? eqOperator = null,
+            global::System.Action<global::ElevenLabs.ASTNotEqualsOperatorNodeOutput>? neqOperator = null,
+            global::System.Action<global::ElevenLabs.ASTGreaterThanOperatorNodeOutput>? gtOperator = null,
+            global::System.Action<global::ElevenLabs.ASTLessThanOperatorNodeOutput>? ltOperator = null,
+            global::System.Action<global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput>? gteOperator = null,
+            global::System.Action<global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput>? lteOperator = null,
+            global::System.Action<global::ElevenLabs.ASTAdditionOperatorNodeOutput>? addOperator = null,
+            global::System.Action<global::ElevenLabs.ASTSubtractionOperatorNodeOutput>? subOperator = null,
+            global::System.Action<global::ElevenLabs.ASTMultiplicationOperatorNodeOutput>? mulOperator = null,
+            global::System.Action<global::ElevenLabs.ASTDivisionOperatorNodeOutput>? divOperator = null,
+            global::System.Action<global::ElevenLabs.ASTConditionalOperatorNodeOutput>? conditionalOperator = null,
             bool validate = true)
         {
             if (validate)

@@ -32,6 +32,19 @@ namespace ElevenLabs
         public bool IsUnconditional => Unconditional != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUnconditional(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowUnconditionalModelInput? value)
+        {
+            value = Unconditional;
+            return IsUnconditional;
+        }
+
+        /// <summary>
         /// Condition described using human language and evaluated by an LLM.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Llm))]
 #endif
         public bool IsLlm => Llm != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLlm(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowLLMConditionModelInput? value)
+        {
+            value = Llm;
+            return IsLlm;
+        }
 
         /// <summary>
         /// Condition based on the result of the last executed tool dispatch node.
@@ -66,6 +92,19 @@ namespace ElevenLabs
         public bool IsResult => Result != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickResult(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowResultConditionModelInput? value)
+        {
+            value = Result;
+            return IsResult;
+        }
+
+        /// <summary>
         /// Condition described using a deterministic expression.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Expression))]
 #endif
         public bool IsExpression => Expression != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickExpression(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowExpressionConditionModelInput? value)
+        {
+            value = Expression;
+            return IsExpression;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -204,10 +256,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.WorkflowUnconditionalModelInput?, TResult>? unconditional = null,
-            global::System.Func<global::ElevenLabs.WorkflowLLMConditionModelInput?, TResult>? llm = null,
-            global::System.Func<global::ElevenLabs.WorkflowResultConditionModelInput?, TResult>? result = null,
-            global::System.Func<global::ElevenLabs.WorkflowExpressionConditionModelInput?, TResult>? expression = null,
+            global::System.Func<global::ElevenLabs.WorkflowUnconditionalModelInput, TResult>? unconditional = null,
+            global::System.Func<global::ElevenLabs.WorkflowLLMConditionModelInput, TResult>? llm = null,
+            global::System.Func<global::ElevenLabs.WorkflowResultConditionModelInput, TResult>? result = null,
+            global::System.Func<global::ElevenLabs.WorkflowExpressionConditionModelInput, TResult>? expression = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +291,46 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.WorkflowUnconditionalModelInput?>? unconditional = null,
-            global::System.Action<global::ElevenLabs.WorkflowLLMConditionModelInput?>? llm = null,
-            global::System.Action<global::ElevenLabs.WorkflowResultConditionModelInput?>? result = null,
-            global::System.Action<global::ElevenLabs.WorkflowExpressionConditionModelInput?>? expression = null,
+            global::System.Action<global::ElevenLabs.WorkflowUnconditionalModelInput>? unconditional = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowLLMConditionModelInput>? llm = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowResultConditionModelInput>? result = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowExpressionConditionModelInput>? expression = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsUnconditional)
+            {
+                unconditional?.Invoke(Unconditional!);
+            }
+            else if (IsLlm)
+            {
+                llm?.Invoke(Llm!);
+            }
+            else if (IsResult)
+            {
+                result?.Invoke(Result!);
+            }
+            else if (IsExpression)
+            {
+                expression?.Invoke(Expression!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.WorkflowUnconditionalModelInput>? unconditional = null,
+            global::System.Action<global::ElevenLabs.WorkflowLLMConditionModelInput>? llm = null,
+            global::System.Action<global::ElevenLabs.WorkflowResultConditionModelInput>? result = null,
+            global::System.Action<global::ElevenLabs.WorkflowExpressionConditionModelInput>? expression = null,
             bool validate = true)
         {
             if (validate)

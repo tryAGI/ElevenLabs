@@ -29,6 +29,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickASTLLMNode1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTLLMNodeInputASTLLMNode? value)
+        {
+            value = ASTLLMNode1;
+            return IsASTLLMNode1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? ASTLLMNode2 { get; init; }
 #else
@@ -42,6 +55,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ASTLLMNode2))]
 #endif
         public bool IsASTLLMNode2 => ASTLLMNode2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickASTLLMNode2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? value)
+        {
+            value = ASTLLMNode2;
+            return IsASTLLMNode2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -118,8 +144,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.ASTLLMNodeInputASTLLMNode?, TResult>? aSTLLMNode1 = null,
-            global::System.Func<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?, TResult>? aSTLLMNode2 = null,
+            global::System.Func<global::ElevenLabs.ASTLLMNodeInputASTLLMNode, TResult>? aSTLLMNode1 = null,
+            global::System.Func<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2, TResult>? aSTLLMNode2 = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +169,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode?>? aSTLLMNode1 = null,
-            global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?>? aSTLLMNode2 = null,
+            global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode>? aSTLLMNode1 = null,
+
+            global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2>? aSTLLMNode2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsASTLLMNode1)
+            {
+                aSTLLMNode1?.Invoke(ASTLLMNode1!);
+            }
+            else if (IsASTLLMNode2)
+            {
+                aSTLLMNode2?.Invoke(ASTLLMNode2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode>? aSTLLMNode1 = null,
+            global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2>? aSTLLMNode2 = null,
             bool validate = true)
         {
             if (validate)

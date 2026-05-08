@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEndCall(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.EndCallTriggerAction? value)
+        {
+            value = EndCall;
+            return IsEndCall;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.RetryTriggerAction? Retry { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Retry))]
 #endif
         public bool IsRetry => Retry != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickRetry(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.RetryTriggerAction? value)
+        {
+            value = Retry;
+            return IsRetry;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -126,8 +152,8 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.EndCallTriggerAction?, TResult>? endCall = null,
-            global::System.Func<global::ElevenLabs.RetryTriggerAction?, TResult>? retry = null,
+            global::System.Func<global::ElevenLabs.EndCallTriggerAction, TResult>? endCall = null,
+            global::System.Func<global::ElevenLabs.RetryTriggerAction, TResult>? retry = null,
             bool validate = true)
         {
             if (validate)
@@ -151,8 +177,32 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.EndCallTriggerAction?>? endCall = null,
-            global::System.Action<global::ElevenLabs.RetryTriggerAction?>? retry = null,
+            global::System.Action<global::ElevenLabs.EndCallTriggerAction>? endCall = null,
+
+            global::System.Action<global::ElevenLabs.RetryTriggerAction>? retry = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEndCall)
+            {
+                endCall?.Invoke(EndCall!);
+            }
+            else if (IsRetry)
+            {
+                retry?.Invoke(Retry!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.EndCallTriggerAction>? endCall = null,
+            global::System.Action<global::ElevenLabs.RetryTriggerAction>? retry = null,
             bool validate = true)
         {
             if (validate)

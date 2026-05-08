@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickMusicExploreSong1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SongSourceContext? value)
+        {
+            value = MusicExploreSong1;
+            return IsMusicExploreSong1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.MusicExploreSongSourceContext? MusicExploreSong2 { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MusicExploreSong2))]
 #endif
         public bool IsMusicExploreSong2 => MusicExploreSong2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickMusicExploreSong2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.MusicExploreSongSourceContext? value)
+        {
+            value = MusicExploreSong2;
+            return IsMusicExploreSong2;
+        }
 
         /// <summary>
         /// Context for sound effect clips.
@@ -64,6 +90,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Sfx))]
 #endif
         public bool IsSfx => Sfx != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSfx(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SfxSourceContext? value)
+        {
+            value = Sfx;
+            return IsSfx;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -165,9 +204,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.SongSourceContext?, TResult>? musicExploreSong1 = null,
-            global::System.Func<global::ElevenLabs.MusicExploreSongSourceContext?, TResult>? musicExploreSong2 = null,
-            global::System.Func<global::ElevenLabs.SfxSourceContext?, TResult>? sfx = null,
+            global::System.Func<global::ElevenLabs.SongSourceContext, TResult>? musicExploreSong1 = null,
+            global::System.Func<global::ElevenLabs.MusicExploreSongSourceContext, TResult>? musicExploreSong2 = null,
+            global::System.Func<global::ElevenLabs.SfxSourceContext, TResult>? sfx = null,
             bool validate = true)
         {
             if (validate)
@@ -195,9 +234,39 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.SongSourceContext?>? musicExploreSong1 = null,
-            global::System.Action<global::ElevenLabs.MusicExploreSongSourceContext?>? musicExploreSong2 = null,
-            global::System.Action<global::ElevenLabs.SfxSourceContext?>? sfx = null,
+            global::System.Action<global::ElevenLabs.SongSourceContext>? musicExploreSong1 = null,
+
+            global::System.Action<global::ElevenLabs.MusicExploreSongSourceContext>? musicExploreSong2 = null,
+
+            global::System.Action<global::ElevenLabs.SfxSourceContext>? sfx = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsMusicExploreSong1)
+            {
+                musicExploreSong1?.Invoke(MusicExploreSong1!);
+            }
+            else if (IsMusicExploreSong2)
+            {
+                musicExploreSong2?.Invoke(MusicExploreSong2!);
+            }
+            else if (IsSfx)
+            {
+                sfx?.Invoke(Sfx!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.SongSourceContext>? musicExploreSong1 = null,
+            global::System.Action<global::ElevenLabs.MusicExploreSongSourceContext>? musicExploreSong2 = null,
+            global::System.Action<global::ElevenLabs.SfxSourceContext>? sfx = null,
             bool validate = true)
         {
             if (validate)

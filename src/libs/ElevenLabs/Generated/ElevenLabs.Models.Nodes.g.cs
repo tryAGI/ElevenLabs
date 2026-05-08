@@ -32,6 +32,19 @@ namespace ElevenLabs
         public bool IsStart => Start != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickStart(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowStartNodeModelInput? value)
+        {
+            value = Start;
+            return IsStart;
+        }
+
+        /// <summary>
         /// Terminates the conversation upon reaching this node.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +60,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(End))]
 #endif
         public bool IsEnd => End != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEnd(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowEndNodeModelInput? value)
+        {
+            value = End;
+            return IsEnd;
+        }
 
         /// <summary>
         /// Transfers the conversation to a phone number.
@@ -66,6 +92,19 @@ namespace ElevenLabs
         public bool IsPhoneNumber => PhoneNumber != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickPhoneNumber(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowPhoneNumberNodeModelInput? value)
+        {
+            value = PhoneNumber;
+            return IsPhoneNumber;
+        }
+
+        /// <summary>
         /// A subagent conducting the conversation until one of the exit conditions is met. Each subagent can override the base settings, changing the prompt, knowledge base, and more.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -81,6 +120,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(OverrideAgent))]
 #endif
         public bool IsOverrideAgent => OverrideAgent != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickOverrideAgent(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowOverrideAgentNodeModelInput? value)
+        {
+            value = OverrideAgent;
+            return IsOverrideAgent;
+        }
 
         /// <summary>
         /// Transfer the conversation to a standalone agent.
@@ -100,6 +152,19 @@ namespace ElevenLabs
         public bool IsStandaloneAgent => StandaloneAgent != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickStandaloneAgent(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput? value)
+        {
+            value = StandaloneAgent;
+            return IsStandaloneAgent;
+        }
+
+        /// <summary>
         /// Executes one or more tools in parallel.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -115,6 +180,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Tool))]
 #endif
         public bool IsTool => Tool != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickTool(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowToolNodeModelInput? value)
+        {
+            value = Tool;
+            return IsTool;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -282,12 +360,12 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.WorkflowStartNodeModelInput?, TResult>? start = null,
-            global::System.Func<global::ElevenLabs.WorkflowEndNodeModelInput?, TResult>? end = null,
-            global::System.Func<global::ElevenLabs.WorkflowPhoneNumberNodeModelInput?, TResult>? phoneNumber = null,
-            global::System.Func<global::ElevenLabs.WorkflowOverrideAgentNodeModelInput?, TResult>? overrideAgent = null,
-            global::System.Func<global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput?, TResult>? standaloneAgent = null,
-            global::System.Func<global::ElevenLabs.WorkflowToolNodeModelInput?, TResult>? tool = null,
+            global::System.Func<global::ElevenLabs.WorkflowStartNodeModelInput, TResult>? start = null,
+            global::System.Func<global::ElevenLabs.WorkflowEndNodeModelInput, TResult>? end = null,
+            global::System.Func<global::ElevenLabs.WorkflowPhoneNumberNodeModelInput, TResult>? phoneNumber = null,
+            global::System.Func<global::ElevenLabs.WorkflowOverrideAgentNodeModelInput, TResult>? overrideAgent = null,
+            global::System.Func<global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput, TResult>? standaloneAgent = null,
+            global::System.Func<global::ElevenLabs.WorkflowToolNodeModelInput, TResult>? tool = null,
             bool validate = true)
         {
             if (validate)
@@ -327,12 +405,60 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.WorkflowStartNodeModelInput?>? start = null,
-            global::System.Action<global::ElevenLabs.WorkflowEndNodeModelInput?>? end = null,
-            global::System.Action<global::ElevenLabs.WorkflowPhoneNumberNodeModelInput?>? phoneNumber = null,
-            global::System.Action<global::ElevenLabs.WorkflowOverrideAgentNodeModelInput?>? overrideAgent = null,
-            global::System.Action<global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput?>? standaloneAgent = null,
-            global::System.Action<global::ElevenLabs.WorkflowToolNodeModelInput?>? tool = null,
+            global::System.Action<global::ElevenLabs.WorkflowStartNodeModelInput>? start = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowEndNodeModelInput>? end = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowPhoneNumberNodeModelInput>? phoneNumber = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowOverrideAgentNodeModelInput>? overrideAgent = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput>? standaloneAgent = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowToolNodeModelInput>? tool = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsStart)
+            {
+                start?.Invoke(Start!);
+            }
+            else if (IsEnd)
+            {
+                end?.Invoke(End!);
+            }
+            else if (IsPhoneNumber)
+            {
+                phoneNumber?.Invoke(PhoneNumber!);
+            }
+            else if (IsOverrideAgent)
+            {
+                overrideAgent?.Invoke(OverrideAgent!);
+            }
+            else if (IsStandaloneAgent)
+            {
+                standaloneAgent?.Invoke(StandaloneAgent!);
+            }
+            else if (IsTool)
+            {
+                tool?.Invoke(Tool!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.WorkflowStartNodeModelInput>? start = null,
+            global::System.Action<global::ElevenLabs.WorkflowEndNodeModelInput>? end = null,
+            global::System.Action<global::ElevenLabs.WorkflowPhoneNumberNodeModelInput>? phoneNumber = null,
+            global::System.Action<global::ElevenLabs.WorkflowOverrideAgentNodeModelInput>? overrideAgent = null,
+            global::System.Action<global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput>? standaloneAgent = null,
+            global::System.Action<global::ElevenLabs.WorkflowToolNodeModelInput>? tool = null,
             bool validate = true)
         {
             if (validate)

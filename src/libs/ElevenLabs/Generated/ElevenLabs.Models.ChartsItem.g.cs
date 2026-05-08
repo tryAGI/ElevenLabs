@@ -34,6 +34,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickCallSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DashboardCallSuccessChartModel? value)
+        {
+            value = CallSuccess;
+            return IsCallSuccess;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DashboardCriteriaChartModel? Criteria { get; init; }
 #else
@@ -51,6 +64,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickCriteria(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DashboardCriteriaChartModel? value)
+        {
+            value = Criteria;
+            return IsCriteria;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DashboardDataCollectionChartModel? DataCollection { get; init; }
 #else
@@ -64,6 +90,19 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DataCollection))]
 #endif
         public bool IsDataCollection => DataCollection != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDataCollection(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DashboardDataCollectionChartModel? value)
+        {
+            value = DataCollection;
+            return IsDataCollection;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -165,9 +204,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.DashboardCallSuccessChartModel?, TResult>? callSuccess = null,
-            global::System.Func<global::ElevenLabs.DashboardCriteriaChartModel?, TResult>? criteria = null,
-            global::System.Func<global::ElevenLabs.DashboardDataCollectionChartModel?, TResult>? dataCollection = null,
+            global::System.Func<global::ElevenLabs.DashboardCallSuccessChartModel, TResult>? callSuccess = null,
+            global::System.Func<global::ElevenLabs.DashboardCriteriaChartModel, TResult>? criteria = null,
+            global::System.Func<global::ElevenLabs.DashboardDataCollectionChartModel, TResult>? dataCollection = null,
             bool validate = true)
         {
             if (validate)
@@ -195,9 +234,39 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.DashboardCallSuccessChartModel?>? callSuccess = null,
-            global::System.Action<global::ElevenLabs.DashboardCriteriaChartModel?>? criteria = null,
-            global::System.Action<global::ElevenLabs.DashboardDataCollectionChartModel?>? dataCollection = null,
+            global::System.Action<global::ElevenLabs.DashboardCallSuccessChartModel>? callSuccess = null,
+
+            global::System.Action<global::ElevenLabs.DashboardCriteriaChartModel>? criteria = null,
+
+            global::System.Action<global::ElevenLabs.DashboardDataCollectionChartModel>? dataCollection = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsCallSuccess)
+            {
+                callSuccess?.Invoke(CallSuccess!);
+            }
+            else if (IsCriteria)
+            {
+                criteria?.Invoke(Criteria!);
+            }
+            else if (IsDataCollection)
+            {
+                dataCollection?.Invoke(DataCollection!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.DashboardCallSuccessChartModel>? callSuccess = null,
+            global::System.Action<global::ElevenLabs.DashboardCriteriaChartModel>? criteria = null,
+            global::System.Action<global::ElevenLabs.DashboardDataCollectionChartModel>? dataCollection = null,
             bool validate = true)
         {
             if (validate)
