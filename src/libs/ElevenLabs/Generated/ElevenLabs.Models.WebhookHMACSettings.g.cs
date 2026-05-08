@@ -30,6 +30,12 @@ namespace ElevenLabs
         public required string WebhookUrl { get; set; }
 
         /// <summary>
+        /// Optional custom request headers to include with each webhook delivery
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? RequestHeaders { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,6 +50,9 @@ namespace ElevenLabs
         /// <param name="webhookUrl">
         /// The HTTPS callback URL that will be called when this webhook is triggered
         /// </param>
+        /// <param name="requestHeaders">
+        /// Optional custom request headers to include with each webhook delivery
+        /// </param>
         /// <param name="authType">
         /// The authentication type for this webhook
         /// </param>
@@ -53,11 +62,13 @@ namespace ElevenLabs
         public WebhookHMACSettings(
             string name,
             string webhookUrl,
+            global::System.Collections.Generic.Dictionary<string, string>? requestHeaders,
             string authType = "hmac")
         {
             this.AuthType = authType;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.WebhookUrl = webhookUrl ?? throw new global::System.ArgumentNullException(nameof(webhookUrl));
+            this.RequestHeaders = requestHeaders;
         }
 
         /// <summary>

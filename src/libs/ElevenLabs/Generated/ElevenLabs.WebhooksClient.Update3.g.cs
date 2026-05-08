@@ -504,6 +504,9 @@ namespace ElevenLabs
         /// <param name="retryEnabled">
         /// Whether to enable automatic retries for transient failures (5xx, 429, timeout)
         /// </param>
+        /// <param name="requestHeaders">
+        /// A list of request headers to include with the webhook delivery (optional)
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -512,6 +515,7 @@ namespace ElevenLabs
             bool isDisabled,
             string name,
             bool? retryEnabled = default,
+            global::System.Collections.Generic.Dictionary<string, string>? requestHeaders = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -520,6 +524,7 @@ namespace ElevenLabs
                 IsDisabled = isDisabled,
                 Name = name,
                 RetryEnabled = retryEnabled,
+                RequestHeaders = requestHeaders,
             };
 
             return await Update3Async(
